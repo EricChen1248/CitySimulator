@@ -24,10 +24,10 @@
     <ClCompile Include="System\Logger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Collections\List.cpp">
+    <ClCompile Include="Collections\Node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Collections\Node.cpp">
+    <ClCompile Include="Collections\List.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,10 +38,10 @@
     <ClInclude Include="System\Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Collections\List.h">
+    <ClInclude Include="Collections\Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Collections\Node.h">
+    <ClInclude Include="Collections\List.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

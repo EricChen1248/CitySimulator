@@ -1,12 +1,10 @@
 #pragma once
+
 template <typename T>
-class List<T>
+class List
 {
 public:
     List();
     ~List();
-private:
-    
 };
-
 

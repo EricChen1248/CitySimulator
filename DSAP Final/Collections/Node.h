@@ -5,7 +5,7 @@
  * \tparam T Type of item to be stored
  */
 template <typename T>
-class Node<T>
+class Node
 {
     template <typename ListType>
     friend  class List;

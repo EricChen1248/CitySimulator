@@ -20,15 +20,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Controllers\CoreController.cpp" />
-    <ClCompile Include="Collections\List.cpp" />
     <ClCompile Include="Collections\Node.cpp" />
+    <ClCompile Include="Collections\List.cpp" />
     <ClCompile Include="System\Logger.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controllers\CoreController.h" />
-    <ClInclude Include="Collections\List.h" />
     <ClInclude Include="Collections\Node.h" />
+    <ClInclude Include="Collections\List.h" />
     <ClInclude Include="System\Logger.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
