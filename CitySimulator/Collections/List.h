@@ -1,8 +1,43 @@
-#include "List.h"
+#pragma once
+#include "Node.h"
 #include <cmath>
 #include <stdexcept>
 #include <sstream>
-#include "../System/CustomExceptions.h"
+
+#include "../Helpers/CustomExceptions.h"
+#include "List.h"
+
+/**
+ * \brief An unlimited, ordered collection that uses link-based memory backing.
+ *        Last lookup location is cached to improve subsequenct consecutive lookups.
+ * \tparam T 
+ */
+template <typename T>
+class List
+{
+public:
+    List();
+    ~List();
+    T operator[](int index);
+    void InsertLast(T& item);
+    void Remove(int index);
+    void Remove(T& item);
+
+    const int& Count() const
+    {
+        return count;
+    }
+
+protected:
+    Node<T>* first;
+    Node<T>* last;
+    int count;
+    
+private:
+    int cachedIndex;
+    Node<T>* cachedNode;
+};
+
 
 template <typename T>
 List<T>::List()
@@ -21,7 +56,7 @@ List<T>::~List()
     auto nextNode = first;
     while (nextNode != nullptr)
     {
-        auto temp = nextNode.next;
+        auto temp = nextNode->next;
         delete nextNode;
         nextNode = temp;
     }
@@ -74,19 +109,37 @@ T List<T>::operator[](const int index)
         switch (dir)
         {
         case 1:
-            node = node.next;
+            node = node->next;
             break;
         case -1:
-            node = node.last;
+            node = node->last;
             break;
         default:
             throw CodingError("This should not happen");
         }
+        currentIndex += dir;
     }
 
     cachedIndex = currentIndex;
     cachedNode = node;
-    return node.item;
+    return node->item;
+}
+
+template <typename T>
+void List<T>::InsertLast(T& item)
+{
+    Node<T>* node = new Node<T>(item);
+    if (first == nullptr)
+    {
+        first = node;
+    }
+    if (last != nullptr)
+    {
+        last->next = node;
+    }
+    node->last = last;
+    last = node;
+    ++count;
 }
 
 template <typename T>
@@ -141,10 +194,10 @@ void List<T>::Remove(const int index)
             switch (dir)
             {
             case 1:
-                node = node.next;
+                node = node->next;
                 break;
             case -1:
-                node = node.last;
+                node = node->last;
                 break;
             default:
                 throw CodingError("This should not happen");
@@ -159,4 +212,36 @@ void List<T>::Remove(const int index)
     next.last = prev;
     prev.next = next;
     delete curNode;
+    --count;
+}
+
+template <typename T>
+void List<T>::Remove(T& item)
+{
+    auto node = first;
+    while (node != nullptr)
+    {
+        if (node->item == item)
+        {
+            if(node->last != nullptr)
+            {
+                node->last = node->next;
+            }
+            else
+            {
+                first = node->next;
+            }
+            if (node->next != nullptr)
+            {
+                node->next = node->last;
+            }
+            else
+            {
+                last = node->last;
+            }
+            delete node;
+            --count;
+            return;
+        }
+    }
 }
