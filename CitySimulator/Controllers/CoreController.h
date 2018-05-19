@@ -1,17 +1,20 @@
 #pragma once
 #include "SFMLController.h"
-#include "./MapController.h"
+#include "./ViewPortController.h"
 #include "../Systems/Plot/PlotSystem.h"
-#include <SFML/Graphics.hpp>
 
+/**
+ * \brief Acts as the core of the game, initializing all systems, handles events, 
+ *        and calls the corresponding methods on each loop
+ */
 class CoreController
 {
     
-    friend class MapController;
+    friend class ViewPortController;
 public:
     static CoreController* Instance() {return instance;};
     SFMLController* const& SfmlController() const { return sfmlController; }
-    MapController* const& GetMapController() const { return mapController; }
+    ViewPortController* const& GetMapController() const { return mapController; }
 
     // Properties
     bool IsRunning() const;
@@ -21,19 +24,20 @@ public:
     ~CoreController();
     
     // Exposed Methods
-    void Update();
-    void Render(Drawable& shape) const;
+    void Start() const;
+    void RenderEvents() const;
 private:
     static CoreController* instance;
     SFMLController *sfmlController;
-    MapController *mapController;
+    ViewPortController *mapController;
     
     // TODO : move to seperate controller
     PlotSystem* plotSystem;
     
     bool isRunning;
     
-    void HandleEvents();
+    void Update() const;
+    void HandleEvents() const;
     void ClearRender() const;    
     void PresentRender() const;
     

@@ -24,9 +24,6 @@
     <ClCompile Include="Controllers\SFMLController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Helpers\CustomExceptions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Helpers\Logger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -39,7 +36,7 @@
     <ClCompile Include="Systems\Plot\PlotSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Controllers\MapController.cpp">
+    <ClCompile Include="Controllers\ViewPortController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,7 +71,7 @@
     <ClInclude Include="Collections\List.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Controllers\MapController.h">
+    <ClInclude Include="Controllers\ViewPortController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

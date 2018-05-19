@@ -14,9 +14,8 @@ RenderWindow* const& SFMLController::Window() const
 /**
  * \brief Initializes window and renderer for sdl
  */
-SFMLController::SFMLController()
+SFMLController::SFMLController() : isRunning(false), window(nullptr)
 {
-    window = nullptr;    
     InitSFML();
 }
 
@@ -27,13 +26,17 @@ SFMLController::~SFMLController()
     std::cout << "SFML quit" << std::endl;
 }
 
+/**
+ * \brief Check if SFMLController is running
+ * \return True if the RenderWindow is open
+ */
 bool SFMLController::IsRunning() const
 {
     return window->isOpen();
 }
 
 /**
- * \brief 
+ * \brief Wipes the pixel buffer white
  */
 void SFMLController::ClearRender() const
 {
@@ -41,12 +44,21 @@ void SFMLController::ClearRender() const
     
 }
 
-void SFMLController::Render(Drawable& shape) const
+
+/**
+ * \brief Interface for drawing a circle to the RenderWindow
+ * \param circle Circle to draw
+ */
+void SFMLController::DrawCircle(CircleShape& circle) const
 {
-    window->draw(shape);
+    window->draw(circle);
 }
 
-void SFMLController::PresentRender() const
+
+/**
+ * \brief Pushes the buffered pixels to the window
+ */
+void SFMLController::UpdateWindow() const
 {
     window->display();
 }

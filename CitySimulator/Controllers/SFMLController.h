@@ -8,12 +8,16 @@
 #include <SFML/Window.hpp>
 
 using namespace sf;
+/**
+ * \brief Handles all the interfacing with SFML
+ */
 class SFMLController
 {
 friend class CoreController;
 public:
     RenderWindow* const& Window() const;
 
+    void DrawCircle(CircleShape& circle) const;
 private:
     // Constructors and Destructors
     SFMLController();
@@ -25,11 +29,10 @@ private:
     // Methods
     void InitSFML();
     void ClearRender() const;
-    void Render(Drawable& shape) const;
-    void PresentRender() const;
+    void UpdateWindow() const;
     
     // Backing variables
-    bool isRunning;
+    bool isRunning{};
     RenderWindow *window{};
 };
 

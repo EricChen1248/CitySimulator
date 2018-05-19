@@ -1,5 +1,5 @@
 #include "CoreController.h"
-#include "MapController.h"
+#include "ViewPortController.h"
 #include <iostream>
 
 CoreController *CoreController::instance;
@@ -14,27 +14,36 @@ CoreController::CoreController()
     instance = this;
     isRunning = true;
     sfmlController = new SFMLController();
-    mapController = new MapController();
+    mapController = new ViewPortController();
     plotSystem = new PlotSystem();
 };
 CoreController::~CoreController() = default;
 
-void CoreController::Update()
+void CoreController::Start() const
+{
+    Update();
+}
+
+/**
+ * \brief Core loop of the game
+ */
+void CoreController::Update() const
 {
     while(IsRunning())
     {
         HandleEvents();
         ClearRender();
 
-        
-        plotSystem->Render();
+        RenderEvents();
         
         PresentRender();
-    
     }
 }
 
-void CoreController::HandleEvents()
+/**
+ * \brief Handles SFML events
+ */
+void CoreController::HandleEvents() const
 {
      Event event{};
      Window* window = sfmlController->Window();
@@ -56,11 +65,11 @@ void CoreController::ClearRender() const
 }
 
 /**
- * \brief Renderes a texture with the SFML renderer
+ * \brief Calls the different render events
  */
-void CoreController::Render(Drawable& shape) const
+void CoreController::RenderEvents() const
 {
-    sfmlController->Render(shape);
+    plotSystem->Render();
 }
 
 /**
@@ -68,6 +77,6 @@ void CoreController::Render(Drawable& shape) const
  */
 void CoreController::PresentRender() const
 {
-    sfmlController->PresentRender();
+    sfmlController->UpdateWindow();
 }
 

@@ -126,10 +126,9 @@
   <ItemGroup>
     <ClCompile Include="Controllers\CoreController.cpp" />
     <ClCompile Include="Controllers\SFMLController.cpp" />
-    <ClCompile Include="Controllers\MapController.cpp" />
+    <ClCompile Include="Controllers\ViewPortController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Helpers\Coordinate.cpp" />
-    <ClCompile Include="Helpers\CustomExceptions.cpp" />
     <ClCompile Include="Helpers\Logger.cpp" />
     <ClCompile Include="Systems\Plot\PlotSystem.cpp" />
     <ClCompile Include="Systems\Plot\Plot.cpp" />
@@ -139,7 +138,7 @@
     <ClInclude Include="Collections\Node.h" />
     <ClInclude Include="Controllers\CoreController.h" />
     <ClInclude Include="Controllers\SFMLController.h" />
-    <ClInclude Include="Controllers\MapController.h" />
+    <ClInclude Include="Controllers\ViewPortController.h" />
     <ClInclude Include="Helpers\Constants.h" />
     <ClInclude Include="Helpers\Coordinate.h" />
     <ClInclude Include="Helpers\CustomExceptions.h" />

@@ -6,7 +6,7 @@ int main(int argc, char* argv[])
     auto *core = new CoreController();
     auto *logger = new Logger();
     Logger::Instance()->Log("test");
-    core->Update();
+    core->Start();
    
     delete logger;    
     delete core;

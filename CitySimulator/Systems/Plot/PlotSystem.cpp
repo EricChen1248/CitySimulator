@@ -25,6 +25,6 @@ void PlotSystem::Render() const
     for (int i = 0; i < plots->Count(); ++i)
     {
         auto shape = (*plots)[i]->GetShape();
-        CoreController::Instance()->Render(shape);
+        CoreController::Instance()->SfmlController()->DrawCircle(shape);
     }
 }

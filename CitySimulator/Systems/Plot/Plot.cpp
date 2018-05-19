@@ -13,7 +13,7 @@ sf::CircleShape Plot::GetShape() const
     auto sCoords = coords.ToScreenCoordinates();
     sCoords.X -= size / 2;
     sCoords.Y -= size / 2;
-    sCoords = CoreController::Instance()->GetMapController()->toDrawCoord(sCoords);
+    sCoords = CoreController::Instance()->GetMapController()->ToDrawCoord(sCoords);
     circle.setPosition(sCoords.X, sCoords.Y);
     return circle;
 }

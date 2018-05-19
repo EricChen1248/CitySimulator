@@ -1,5 +1,8 @@
 #pragma once
 
+/**
+ * \brief Helper struct to interface between our hexagonal grid coordinates to SFML square coordinates
+ */
 struct ScreenCoordinate
 {
     ScreenCoordinate(const float x, const float y) : X(x), Y(y) {};
@@ -7,6 +10,10 @@ struct ScreenCoordinate
     float Y;
 };
 
+
+/**
+ * \brief Hexagonal Coordinate System for the game
+ */
 class Coordinate
 {
 public:

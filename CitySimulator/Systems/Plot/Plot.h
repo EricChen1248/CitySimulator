@@ -2,6 +2,9 @@
 #include "../../Helpers/Coordinate.h"
 #include <SFML/Graphics/CircleShape.hpp>
 
+/**
+ * \brief Container class for each city plot
+ */
 class Plot
 {
 public:
