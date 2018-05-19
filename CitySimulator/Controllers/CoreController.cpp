@@ -1,5 +1,5 @@
 #include "CoreController.h"
-#include "TextureController.h"
+#include "MapController.h"
 #include <iostream>
 
 CoreController *CoreController::instance;
@@ -14,7 +14,8 @@ CoreController::CoreController()
     instance = this;
     isRunning = true;
     sfmlController = new SFMLController();
-    textureController = new TextureController(sfmlController);
+    mapController = new MapController();
+    plotSystem = new PlotSystem();
 };
 CoreController::~CoreController() = default;
 
@@ -23,13 +24,11 @@ void CoreController::Update()
     while(IsRunning())
     {
         HandleEvents();
+        ClearRender();
 
         
-        ClearRender();
-        CircleShape shape(100);
-        shape.setFillColor(Color(0,0,0));
-        sfmlController->Render(shape);
-    
+        plotSystem->Render();
+        
         PresentRender();
     
     }

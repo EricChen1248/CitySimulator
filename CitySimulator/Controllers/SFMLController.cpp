@@ -56,7 +56,7 @@ void SFMLController::PresentRender() const
  */
 void SFMLController::InitSFML() 
 {
-    window = new RenderWindow(VideoMode(1024, 768), "SFML works!");
+    window = new RenderWindow(VideoMode(1024, 768), "City Simulator");
     window->setFramerateLimit(60);
     isRunning = true;
 }

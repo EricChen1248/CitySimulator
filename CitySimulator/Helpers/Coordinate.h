@@ -1,19 +1,19 @@
 #pragma once
 
-struct ScreenCoordinates
+struct ScreenCoordinate
 {
-    ScreenCoordinates(const float x, const float y) : X(x), Y(y) {};
+    ScreenCoordinate(const float x, const float y) : X(x), Y(y) {};
     float X;
     float Y;
 };
 
-class Coordinates
+class Coordinate
 {
 public:
-    Coordinates(int x, int y, int z);
-    ~Coordinates();
-    int Distance(Coordinates &coords) const;
-    ScreenCoordinates ToScreenCoordinates() const;
+    Coordinate(int x, int y, int z);
+    ~Coordinate();
+    int Distance(Coordinate &coords) const;
+    ScreenCoordinate ToScreenCoordinates() const;
 private:
     int x;
     int y;
