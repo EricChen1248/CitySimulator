@@ -22,6 +22,9 @@
     <ClCompile Include="Controllers\CoreController.cpp" />
     <ClCompile Include="Collections\Node.cpp" />
     <ClCompile Include="Collections\List.cpp" />
+    <ClCompile Include="System\Coordinates.cpp" />
+    <ClCompile Include="Controllers\SDLController.cpp" />
+    <ClCompile Include="System\CustomExceptions.cpp" />
     <ClCompile Include="System\Logger.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -29,6 +32,10 @@
     <ClInclude Include="Controllers\CoreController.h" />
     <ClInclude Include="Collections\Node.h" />
     <ClInclude Include="Collections\List.h" />
+    <ClInclude Include="System\Coordinates.h" />
+    <ClInclude Include="Controllers\SDLController.h" />
+    <ClInclude Include="System\CustomExceptions.h" />
+    <ClInclude Include="System\Constants.h" />
     <ClInclude Include="System\Logger.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

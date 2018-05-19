@@ -30,6 +30,15 @@
     <ClCompile Include="Collections\List.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="System\CustomExceptions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Controllers\SDLController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Coordinates.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controllers\CoreController.h">
@@ -42,6 +51,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Collections\List.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="System\CustomExceptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Controllers\SDLController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Coordinates.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
