@@ -260,3 +260,6 @@ paket-files/
 __pycache__/
 *.pyc
 Documentation/
+
+# SFML documentation
+[Ll]ibrary/*/doc/
