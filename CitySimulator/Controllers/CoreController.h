@@ -15,6 +15,7 @@ public:
     static CoreController* Instance() {return instance;};
     SFMLController* const& SfmlController() const { return sfmlController; }
     ViewPortController* const& GetMapController() const { return mapController; }
+    PlotSystem* const& GetPlotSystem() const { return plotSystem;}
 
     // Properties
     bool IsRunning() const;
@@ -33,15 +34,14 @@ private:
     
     // TODO : move to seperate controller
     PlotSystem* plotSystem;
-    
+
+private:
     bool isRunning;
     
     void Update() const;
     void HandleEvents() const;
     void ClearRender() const;    
     void PresentRender() const;
-    
-    
 };
 
 

@@ -124,6 +124,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Systems\Citizen\Citizen.cpp" />
     <ClCompile Include="Controllers\CoreController.cpp" />
     <ClCompile Include="Controllers\SFMLController.cpp" />
     <ClCompile Include="Controllers\ViewPortController.cpp" />
@@ -134,6 +135,7 @@
     <ClCompile Include="Systems\Plot\Plot.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Systems\Citizen\Citizen.h" />
     <ClInclude Include="Collections\List.h" />
     <ClInclude Include="Collections\Node.h" />
     <ClInclude Include="Controllers\CoreController.h" />

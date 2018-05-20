@@ -1,6 +1,7 @@
 #include "CoreController.h"
 #include "ViewPortController.h"
 #include <iostream>
+#include "../Systems/Citizen/Citizen.h"
 
 CoreController *CoreController::instance;
 
@@ -16,6 +17,8 @@ CoreController::CoreController()
     sfmlController = new SFMLController();
     mapController = new ViewPortController();
     plotSystem = new PlotSystem();
+    
+    srand(time(nullptr));
 };
 CoreController::~CoreController() = default;
 
@@ -29,11 +32,19 @@ void CoreController::Start() const
  */
 void CoreController::Update() const
 {
+    Citizen citizens[50];
     while(IsRunning())
     {
         HandleEvents();
         ClearRender();
-
+        
+        for (auto & citizen : citizens)
+        {
+            citizen.Update(0.01f);
+            auto shape = citizen.GetShape();
+            SfmlController()->DrawCircle(shape);
+        }
+        
         RenderEvents();
         
         PresentRender();

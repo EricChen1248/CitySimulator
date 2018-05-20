@@ -39,6 +39,9 @@
     <ClCompile Include="Controllers\ViewPortController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Systems\Citizen\Citizen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Collections\Node.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Controllers\ViewPortController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Systems\Citizen\Citizen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
