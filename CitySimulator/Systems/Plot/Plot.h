@@ -11,10 +11,14 @@ public:
     Plot(int x, int y, int z);
     ~Plot();
     sf::CircleShape GetShape() const;
+
+    const Coordinate& Coords() const { return coords; }
+
+    bool hasCoords(Coordinate coord) const;
 private:
     Coordinate coords;
     
-    int size;
+    float size;
     
 };
 

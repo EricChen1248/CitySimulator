@@ -6,10 +6,10 @@ Plot::Plot(const int x, const int y, const int z) : coords(x,y,z), size(10)
 {
 }
 
-sf::CircleShape Plot::GetShape() const
+CircleShape Plot::GetShape() const
 {
     sf::CircleShape circle(size);
-    circle.setFillColor(sf::Color::Red);
+    circle.setFillColor(Color(200,200,200));
     auto sCoords = coords.ToScreenCoordinates();
     sCoords.X -= size / 2;
     sCoords.Y -= size / 2;
@@ -18,7 +18,10 @@ sf::CircleShape Plot::GetShape() const
     return circle;
 }
 
-
-Plot::~Plot()
+bool Plot::hasCoords(Coordinate coord) const
 {
+    return coords == coord;
 }
+
+
+Plot::~Plot() = default;
