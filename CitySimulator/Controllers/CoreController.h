@@ -14,7 +14,7 @@ class CoreController
 public:
     static CoreController* Instance() {return instance;};
     SFMLController* const& SfmlController() const { return sfmlController; }
-    ViewPortController* const& GetMapController() const { return mapController; }
+    ViewPortController* const& GetViewportController() const { return viewPortController; }
     PlotSystem* const& GetPlotSystem() const { return plotSystem;}
 
     // Properties
@@ -30,7 +30,7 @@ public:
 private:
     static CoreController* instance;
     SFMLController *sfmlController;
-    ViewPortController *mapController;
+    ViewPortController *viewPortController;
     
     // TODO : move to seperate controller
     PlotSystem* plotSystem;

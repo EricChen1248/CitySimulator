@@ -1,12 +1,11 @@
 #pragma once
-#include "../Collections/List.h"
 
 /**
  * \brief Helper struct to interface between our hexagonal grid coordinates to SFML square coordinates
  */
 struct ScreenCoordinate
 {
-    ScreenCoordinate(const float x, const float y) : X(x), Y(y) {};
+    ScreenCoordinate(const float x = 0, const float y = 0) : X(x), Y(y) {};
     float X;
     float Y;
 };
@@ -18,7 +17,7 @@ struct ScreenCoordinate
 class Coordinate
 {
 public:
-    Coordinate(float x, float y, float z);
+    Coordinate(float x = 0, float y = 0, float z = 0);
     ~Coordinate();
     int Distance(Coordinate &coords) const;
     ScreenCoordinate ToScreenCoordinates() const;

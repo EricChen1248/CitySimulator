@@ -1,5 +1,6 @@
 #include "SFMLController.h"
 #include <iostream>
+#include "CoreController.h"
 
 
 /**
@@ -51,6 +52,12 @@ void SFMLController::ClearRender() const
  */
 void SFMLController::DrawCircle(CircleShape& circle) const
 {
+    const auto mod = CoreController::Instance()->GetViewportController()->Modifier();
+    if (mod != 1)
+    {
+        circle.setRadius(circle.getRadius() * mod);
+    }
+    
     window->draw(circle);
 }
 

@@ -15,10 +15,10 @@ CoreController::CoreController()
     instance = this;
     isRunning = true;
     sfmlController = new SFMLController();
-    mapController = new ViewPortController();
+    viewPortController = new ViewPortController();
     plotSystem = new PlotSystem();
     
-    srand(time(nullptr));
+    srand(static_cast<unsigned>(time(nullptr)));
 };
 CoreController::~CoreController() = default;
 
@@ -32,23 +32,43 @@ void CoreController::Start() const
  */
 void CoreController::Update() const
 {
-    Citizen citizens[50];
+    int citCount = 5000;
+    
+#ifdef _DEBUG
+    citCount = 1000;
+#endif
+    
+    Citizen* citizens = new Citizen[citCount];
+    Clock clock;
+    float lastTime = 0;
+    float lastPrint = 0;
     while(IsRunning())
     {
+        const float currentTime = clock.getElapsedTime().asSeconds();
+        const float fps = 1.f / (currentTime - lastTime);
+        if (currentTime - lastPrint > 0.2)
+        {
+            std::cout << fps << std::endl;
+            lastPrint = currentTime;
+        }
+        lastTime = currentTime;
+        const float deltaTime = 60 / fps * 0.01f;
         HandleEvents();
         ClearRender();
-        
-        for (auto & citizen : citizens)
+
+        for (int i = 0; i < citCount; ++i)
         {
-            citizen.Update(0.01f);
-            auto shape = citizen.GetShape();
+            citizens[i].Update(deltaTime);
+            auto & shape = citizens[i].GetShape();
             SfmlController()->DrawCircle(shape);
         }
         
         RenderEvents();
         
         PresentRender();
+        viewPortController->ResetMod();
     }
+    delete [] citizens;
 }
 
 /**
@@ -56,13 +76,45 @@ void CoreController::Update() const
  */
 void CoreController::HandleEvents() const
 {
-     Event event{};
-     Window* window = sfmlController->Window();
+    Event event{};
+    Window* window = sfmlController->Window();
     while (window->pollEvent(event))
     {
         // "close requested" event: we close the window
-        if (event.type == Event::Closed)
+        switch (event.type)
+        {
+        case Event::Closed:
             window->close();
+            break;
+        case Event::Resized: break;
+        case Event::TextEntered: break;
+        case Event::MouseWheelMoved: break;
+        case Event::MouseWheelScrolled:
+            viewPortController->HandleScroll(event);
+            break;
+        case Event::MouseButtonPressed: break;
+        case Event::MouseButtonReleased: break;
+        case Event::MouseMoved: break;
+        case Event::MouseEntered: break;
+        case Event::MouseLeft: break;
+        default: ;
+        }        
+    }
+    if (sf::Keyboard::isKeyPressed(Keyboard::A))
+    {
+        viewPortController->Right();
+    }
+    if (sf::Keyboard::isKeyPressed(Keyboard::D))
+    {
+        viewPortController->Left();
+    }
+    if (sf::Keyboard::isKeyPressed(Keyboard::W))
+    {
+        viewPortController->Down();
+    }
+    if (sf::Keyboard::isKeyPressed(Keyboard::S))
+    {
+        viewPortController->Up();
     }
 
 }

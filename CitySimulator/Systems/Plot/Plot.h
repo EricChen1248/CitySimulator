@@ -10,15 +10,13 @@ class Plot
 public:
     Plot(int x, int y, int z);
     ~Plot();
-    sf::CircleShape GetShape() const;
+    sf::CircleShape& GetShape();
 
     const Coordinate& Coords() const { return coords; }
-
-    bool hasCoords(Coordinate coord) const;
 private:
     Coordinate coords;
-    
+    ScreenCoordinate sCoords{};
     float size;
-    
+    sf::CircleShape shape;
 };
 

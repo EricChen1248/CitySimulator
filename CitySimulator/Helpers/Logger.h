@@ -1,6 +1,9 @@
 #pragma once
 #include <string>
 
+/**
+ * \brief Singleton logger that logs event in a log file
+ */
 class Logger
 {
 public:
