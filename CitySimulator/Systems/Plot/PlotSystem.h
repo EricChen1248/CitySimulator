@@ -10,8 +10,10 @@ class PlotSystem
 public:
     PlotSystem();
     ~PlotSystem();
-    void Render() const;
-private:
-    List<Plot*> *plots;
+    void Render();
+    Plot* FindPlot(const Coordinate& coords);
+    // TODO : Make plots private
+    //private:
+    List<Plot*> plots;
 };
 
