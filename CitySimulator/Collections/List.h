@@ -22,7 +22,7 @@ public:
     void InsertLast(T& item);
     void Remove(int index);
     void Remove(T& item);
-
+    void Dispose();
     const int& Count() const
     {
         return count;
@@ -49,6 +49,7 @@ List<T>::List()
     cachedIndex = -1;
     cachedNode = nullptr;
 }
+
 
 template <typename T>
 List<T>::~List()
@@ -82,7 +83,7 @@ T List<T>::operator[](const int index)
     if (index == count - 1)
         return last->item;
     if (index == cachedIndex)
-        return last->item;
+        return cachedNode->item;
 
     const int toFirst = index;
     const int toLast = count - index - 1;
@@ -243,5 +244,17 @@ void List<T>::Remove(T& item)
             --count;
             return;
         }
+    }
+}
+
+template <typename T>
+void List<T>::Dispose()
+{
+    auto node = first;
+    while(node != nullptr)
+    {
+        auto temp = node->next;
+        delete node->item;
+        node = temp;
     }
 }
