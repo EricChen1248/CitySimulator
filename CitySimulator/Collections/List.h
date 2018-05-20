@@ -126,6 +126,10 @@ T List<T>::operator[](const int index)
     return node->item;
 }
 
+/**
+ * \brief Inserts an item to the end of the list
+ * \param item Item to insert
+ */
 template <typename T>
 void List<T>::InsertLast(T& item)
 {
@@ -143,6 +147,10 @@ void List<T>::InsertLast(T& item)
     ++count;
 }
 
+/**
+ * \brief Removes an item from the list based on index
+ * \param index Index of item to remove
+ */
 template <typename T>
 void List<T>::Remove(const int index)
 {
@@ -216,6 +224,10 @@ void List<T>::Remove(const int index)
     --count;
 }
 
+/**
+ * \brief Removes the first item that returns true with operator==
+ * \param item Item to remove
+ */
 template <typename T>
 void List<T>::Remove(T& item)
 {
@@ -247,6 +259,9 @@ void List<T>::Remove(T& item)
     }
 }
 
+/**
+ * \brief Interface to delete pointer if stored item is a pointer
+ */
 template <typename T>
 void List<T>::Dispose()
 {
