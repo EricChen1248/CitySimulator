@@ -82,6 +82,6 @@ void ViewPortController::Down()
 
 void ViewPortController::UpdateView()
 {
-    view.setCenter(viewX, viewY);
+    view.setCenter(static_cast<float>(viewX), static_cast<float>(viewY));
     CoreController::Instance()->SfmlController()->Window()->setView(view);
 }
