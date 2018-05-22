@@ -32,16 +32,16 @@ Coordinate* Coordinate::GetNeighbours() const
     Coordinate* list = new Coordinate[6];
     for (int i = 0; i < 6; ++i)
     {
-        const Coordinate coords(x + X_CHANGE[i], y + Y_CHANGE[i], z + Z_CHANGE[i]);
+        const Coordinate coords(static_cast<int>(x) + X_CHANGE[i], static_cast<int>(y) + Y_CHANGE[i], static_cast<int>(z) + Z_CHANGE[i]);
         list[i] = coords;        
     }
     return list;
 }
 
 /**
- * \brief Splices a coordinate that is between the source and target based on last update time;
+ * \brief Splices a coordinate that is between the source and target based on prev update time;
  * \param dest Destination coordinate to move towards
- * \param deltaTime Time since last update
+ * \param deltaTime Time since prev update
  * \return Spliced coordinate between source and destination
  */
 Coordinate Coordinate::MoveTowards(const Coordinate dest, const float deltaTime) const
