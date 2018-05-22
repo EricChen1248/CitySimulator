@@ -3,11 +3,10 @@
 #include "../../Controllers/CoreController.h"
 
 
-Citizen::Citizen() 
+Citizen::Citizen(const Coordinate coords) 
 {
-    auto& plots = CoreController::Instance()->GetPlotSystem()->plots;
-    coords = plots[rand() % plots.Count()]->Coords();
-    moveSpeed = static_cast<float>(rand() % 5) / 900;
+    this->coords = coords;
+    moveSpeed = 1 + static_cast<float>(CoreController::RandomInt(0, 40) - 20) / 100;
     target = nullptr;
     shape = CircleShape(5);
     shape.setFillColor(Color::Blue);
@@ -24,7 +23,7 @@ void Citizen::Update(const float deltaTime)
 {
     if (target != nullptr)
     {
-        coords = coords.MoveTowards(target->Coords(), deltaTime + moveSpeed);
+        coords = coords.MoveTowards(target->Coords(), deltaTime * moveSpeed);
     }
     if (target == nullptr || coords == target->Coords())
     {
@@ -32,7 +31,7 @@ void Citizen::Update(const float deltaTime)
         
         do
         {
-            target = CoreController::Instance()->GetPlotSystem()->FindPlot(neighbours[rand() % 6]);
+            target = CoreController::Instance()->GetSystemController()->Plots()->FindPlot(neighbours[rand() % 6]);
         } while (target == nullptr);
         
         delete[] neighbours;

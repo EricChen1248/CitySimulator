@@ -130,6 +130,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Controllers\SystemController.cpp" />
+    <ClCompile Include="Systems\Base\Base.cpp" />
+    <ClCompile Include="Systems\Base\BaseRule.cpp" />
+    <ClCompile Include="Systems\Base\BaseSystem.cpp" />
+    <ClCompile Include="Systems\Citizen\CitizenSystem.cpp" />
     <ClCompile Include="Systems\Citizen\Citizen.cpp" />
     <ClCompile Include="Controllers\CoreController.cpp" />
     <ClCompile Include="Controllers\SFMLController.cpp" />
@@ -141,6 +146,12 @@
     <ClCompile Include="Systems\Plot\Plot.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Controllers\SystemController.h" />
+    <ClInclude Include="Helpers\Time.h" />
+    <ClInclude Include="Systems\Base\Base.h" />
+    <ClInclude Include="Systems\Base\BaseRule.h" />
+    <ClInclude Include="Systems\Base\BaseSystem.h" />
+    <ClInclude Include="Systems\Citizen\CitizenSystem.h" />
     <ClInclude Include="Systems\Citizen\Citizen.h" />
     <ClInclude Include="Collections\List.h" />
     <ClInclude Include="Collections\Node.h" />

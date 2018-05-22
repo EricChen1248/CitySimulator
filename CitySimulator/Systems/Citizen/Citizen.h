@@ -9,7 +9,7 @@
 class Citizen
 {
 public:
-    Citizen();
+    Citizen(Coordinate coords);
     ~Citizen();
     void Update(float deltaTime);
     sf::CircleShape& GetShape();

@@ -16,7 +16,8 @@ CoreController::CoreController()
     isRunning = true;
     sfmlController = new SFMLController();
     viewPortController = new ViewPortController();
-    plotSystem = new PlotSystem();
+    systemController = new SystemController;
+    systemController->Initialize();
     
     srand(static_cast<unsigned>(time(nullptr)));
 };
@@ -32,13 +33,6 @@ void CoreController::Start() const
  */
 void CoreController::Update() const
 {
-    int citCount = 5000;
-    
-#ifdef _DEBUG
-    citCount = 1000;
-#endif
-    
-    Citizen* citizens = new Citizen[citCount];
     Clock clock;
     float lastTime = 0;
     float lastPrint = 0;
@@ -54,21 +48,18 @@ void CoreController::Update() const
         lastTime = currentTime;
         const float deltaTime = 60 / fps * 0.01f;
         HandleEvents();
-        ClearRender();
-
-        for (int i = 0; i < citCount; ++i)
-        {
-            citizens[i].Update(deltaTime);
-            auto & shape = citizens[i].GetShape();
-            SfmlController()->DrawCircle(shape);
-        }
+        GameUpdateEvents(deltaTime);
         
         RenderEvents();
         
         PresentRender();
         viewPortController->ResetMod();
     }
-    delete [] citizens;
+}
+
+void CoreController::GameUpdateEvents(const float deltaTime) const
+{
+    systemController->Update(deltaTime);
 }
 
 /**
@@ -132,8 +123,21 @@ void CoreController::ClearRender() const
  */
 void CoreController::RenderEvents() const
 {
-    plotSystem->Render();
+    ClearRender();
+    systemController->Render();
 }
+
+/**
+ * \brief Generates a psuedorandom number with given ranges
+ * \param bottom Lower bound of random number set
+ * \param top Upper bound of random number set
+ * \return Random number between lower and upper bound
+ */
+int CoreController::RandomInt(const int bottom, const int top)
+{
+    return rand() % (top - bottom) + bottom;
+}
+
 
 /**
  * \brief Update the render buffer

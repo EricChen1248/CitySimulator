@@ -2,6 +2,7 @@
 #include "SFMLController.h"
 #include "./ViewPortController.h"
 #include "../Systems/Plot/PlotSystem.h"
+#include "SystemController.h"
 
 /**
  * \brief Acts as the core of the game, initializing all systems, handles events, 
@@ -13,9 +14,10 @@ class CoreController
     friend class ViewPortController;
 public:
     static CoreController* Instance() {return instance;};
-    SFMLController* const& SfmlController() const { return sfmlController; }
-    ViewPortController* const& GetViewportController() const { return viewPortController; }
-    PlotSystem* const& GetPlotSystem() const { return plotSystem;}
+    SFMLController* SfmlController() const { return sfmlController; }
+    ViewPortController* GetViewportController() const { return viewPortController; }
+
+    SystemController* GetSystemController() const { return systemController; }
 
     // Properties
     bool IsRunning() const;
@@ -27,18 +29,17 @@ public:
     // Exposed Methods
     void Start() const;
     void RenderEvents() const;
+    static int RandomInt(int bottom, int top);
 private:
     static CoreController* instance;
     SFMLController *sfmlController;
     ViewPortController *viewPortController;
-    
-    // TODO : move to seperate controller
-    PlotSystem* plotSystem;
+    SystemController *systemController;
 
-private:
     bool isRunning;
     
     void Update() const;
+    void GameUpdateEvents(float deltaTime) const;
     void HandleEvents() const;
     void ClearRender() const;    
     void PresentRender() const;

@@ -28,7 +28,10 @@ PlotSystem::PlotSystem()
     }
 }
 
-PlotSystem::~PlotSystem() = default;
+PlotSystem::~PlotSystem()
+{
+    plots.Dispose();
+};
 
 void PlotSystem::Render()
 {
@@ -55,4 +58,10 @@ Plot* PlotSystem::FindPlot(const Coordinate& coords)
         }
     }
     return nullptr;
+}
+
+Plot* PlotSystem::GetRandomPlot()
+{
+    const int rand = CoreController::RandomInt(0, plots.Count());
+    return plots[rand];
 }

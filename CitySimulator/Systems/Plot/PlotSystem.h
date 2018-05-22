@@ -12,8 +12,9 @@ public:
     ~PlotSystem();
     void Render();
     Plot* FindPlot(const Coordinate& coords);
-    // TODO : Make plots private
-    //private:
+    Plot* GetRandomPlot();
+    
+    private:
     List<Plot*> plots;
 };
 

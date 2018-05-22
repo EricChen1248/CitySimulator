@@ -50,15 +50,32 @@ void SFMLController::ClearRender() const
  * \brief Interface for drawing a circle to the RenderWindow
  * \param circle Circle to draw
  */
-void SFMLController::DrawCircle(CircleShape& circle) const
+void SFMLController::DrawCircle(CircleShape& circle, bool isUi) const
 {
-    const auto mod = CoreController::Instance()->GetViewportController()->Modifier();
-    if (mod != 1)
+    if (!isUi)
     {
-        circle.setRadius(circle.getRadius() * mod);
+        const auto mod = CoreController::Instance()->GetViewportController()->Modifier();
+        if (mod != 1)
+        {
+            circle.setRadius(circle.getRadius() * mod);
+        }
     }
     
     window->draw(circle);
+}
+
+void SFMLController::DrawRect(RectangleShape& rectangle, bool isUi) const
+{
+    if (!isUi)
+    {
+        const auto mod = CoreController::Instance()->GetViewportController()->Modifier();
+        if (mod != 1)
+        {
+            rectangle.setSize(rectangle.getSize() * mod);
+        }
+    }
+    
+    window->draw(rectangle);
 }
 
 

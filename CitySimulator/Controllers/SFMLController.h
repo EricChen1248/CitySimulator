@@ -17,7 +17,8 @@ friend class CoreController;
 public:
     RenderWindow* const& Window() const;
 
-    void DrawCircle(CircleShape& circle) const;
+    void DrawCircle(CircleShape& circle, bool isUi = false) const;
+    void DrawRect(RectangleShape& rectangle, bool isUi = false) const;
 private:
     // Constructors and Destructors
     SFMLController();
