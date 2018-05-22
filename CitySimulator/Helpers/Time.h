@@ -5,13 +5,21 @@ namespace helper
     {
         int Hour;
         int Minute;
+        int Micro;
     
-        Time(const int h = 0, const int m = 0) : Hour(h), Minute(m) {};
+        Time(const int h = 0, const int m = 0) : Hour(h), Minute(m), Micro(0) {};
     
-        void IncreaseTime(const int minute)
+        void IncreaseTime(const float deltaTime)
         {
-            Minute += minute;
-            if (Minute >= 60)
+            // TODO : adjust deltaTime to time diff
+            Micro += static_cast<int>(deltaTime);
+            while (Micro >= 100)
+            {
+                ++Minute;
+                Micro -= 100;
+            }
+            
+            while (Minute >= 60)
             {
                 Minute = 0;
                 ++Hour;
