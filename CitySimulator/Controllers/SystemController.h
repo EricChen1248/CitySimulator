@@ -13,6 +13,7 @@ public:
     void Initialize();
     void Update(float deltaTime);
     void Render() const;
+    BaseSystem* GetSystem(System system);
 
 
     PlotSystem* Plots() const { return plots; }

@@ -1,18 +1,19 @@
 #include "CitizenSystem.h"
 #include "../../Controllers/CoreController.h"
+#include "../../Controllers/SFMLController.h"
 
 
 CitizenSystem::CitizenSystem()
 {
     citizenCount = 5000;
 #ifdef _DEBUG
-    citizenCount = 1000;
+    citizenCount = 100;
 #endif
     for (int i = 0; i < citizenCount; ++i)
     {
         auto plot = CoreController::Instance()->GetSystemController()->Plots();
-        const auto &randomCoord = plot->GetRandomPlot()->Coords();
-        auto citizen = new Citizen(randomCoord);
+        const auto &randomPlot = plot->GetRandomPlot();
+        auto citizen = new Citizen(randomPlot);
         citizens.InsertLast(citizen);
     }
 }
@@ -24,7 +25,7 @@ CitizenSystem::~CitizenSystem()
     citizens.Dispose();
 }
 
-void CitizenSystem::Update(const float deltaTime)
+void CitizenSystem::Update(const float deltaTime) const
 {
     for (int i = 0; i < citizenCount; ++i)
     {
@@ -32,11 +33,17 @@ void CitizenSystem::Update(const float deltaTime)
     }
 }
 
-void CitizenSystem::Render()
+void CitizenSystem::Render() const
 {
     for (int i = 0; i < citizenCount; ++i)
     {
-        auto & shape = citizens[i]->GetShape();
+        const auto citizen = citizens[i];
+        auto & shape = citizen->GetShape();
+        if (citizen->InPlot())
+        {
+            SFMLController::UpdateCircleSize(shape);
+            continue;
+        }
         CoreController::Instance()->SfmlController()->DrawCircle(shape);
     }
 }

@@ -13,21 +13,21 @@ private:
     /**
      * \brief Creates a new node used in collections that stores an item part of a doubly linked list
      * \param item Item to store
-     * \param last (Default nullptr) pointer to previous node
+     * \param prev (Default nullptr) pointer to previous node
      * \param next (Default nullptr) pointer to next node
      */
-    Node(T item, Node<T>* last = nullptr, Node<T>* next = nullptr);
+    Node(T item, Node<T>* prev = nullptr, Node<T>* next = nullptr);
     ~Node() = default;
     
     T item;
     Node<T>* next;
-    Node<T>* last;
+    Node<T>* prev;
 };
 
 template <typename T>
-Node<T>::Node(T item, Node<T>* last, Node<T>* next)
+Node<T>::Node(T item, Node<T>* prev, Node<T>* next)
 {
     this->item = item;
-    this->last = last;
+    this->prev = prev;
     this->next = next;
 }

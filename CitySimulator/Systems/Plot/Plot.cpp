@@ -2,7 +2,7 @@
 #include "../../Controllers/CoreController.h"
 
 
-Plot::Plot(const int x, const int y, const int z) : coords(x,y,z), size(10), shape(CircleShape(size)), currentType(nullptr)
+Plot::Plot(const int x, const int y, const int z) : coords(x,y,z), size(10.f), shape(CircleShape(size)), currentType(nullptr)
 {
     shape.setFillColor(Color(200,200,200));
     sCoords = coords.ToScreenCoordinates();
@@ -15,6 +15,27 @@ CircleShape& Plot::GetShape()
     const auto tCoords = CoreController::Instance()->GetViewportController()->ToDrawCoord(sCoords);
     shape.setPosition(tCoords.X, tCoords.Y);
     return shape;
+}
+
+void Plot::Register(Base* base)
+{
+    if (currentType != nullptr)
+    {
+        delete currentType;
+    }
+
+    currentType = base;
+    shape.setFillColor(base->Color());
+}
+
+void Plot::Enter(Citizen* citizen)
+{
+    occupants.InsertLast(citizen);
+}
+
+void Plot::Leave(Citizen* citizen)
+{
+    occupants.Remove(citizen);
 }
 
 

@@ -18,7 +18,7 @@ class List
 public:
     List();
     ~List();
-    T operator[](int index);
+    T operator[](int index) const;
     void InsertLast(T& item);
     void Remove(int index);
     void Remove(T& item);
@@ -69,7 +69,7 @@ List<T>::~List()
  * \return Item at index of type T
  */
 template <typename T>
-T List<T>::operator[](const int index)
+T List<T>::operator[](const int index) const
 {
     if (index < 0 || index >= count)
     {
@@ -113,7 +113,7 @@ T List<T>::operator[](const int index)
             node = node->next;
             break;
         case -1:
-            node = node->last;
+            node = node->prev;
             break;
         default:
             throw CodingError("This should not happen");
@@ -121,8 +121,9 @@ T List<T>::operator[](const int index)
         currentIndex += dir;
     }
 
-    cachedIndex = currentIndex;
-    cachedNode = node;
+    auto ptr = const_cast<List<T>*> (this);
+    ptr->cachedIndex = currentIndex;
+    ptr->cachedNode = node;
     return node->item;
 }
 
@@ -142,7 +143,7 @@ void List<T>::InsertLast(T& item)
     {
         last->next = node;
     }
-    node->last = last;
+    node->prev = last;
     last = node;
     ++count;
 }
@@ -206,7 +207,7 @@ void List<T>::Remove(const int index)
                 node = node->next;
                 break;
             case -1:
-                node = node->last;
+                node = node->prev;
                 break;
             default:
                 throw CodingError("This should not happen");
@@ -216,9 +217,9 @@ void List<T>::Remove(const int index)
     }
     
     auto next = curNode->next;
-    auto prev = curNode->last;
+    auto prev = curNode->prev;
     
-    next.last = prev;
+    next.prev = prev;
     prev.next = next;
     delete curNode;
     --count;
@@ -236,9 +237,9 @@ void List<T>::Remove(T& item)
     {
         if (node->item == item)
         {
-            if(node->last != nullptr)
+            if(node->prev != nullptr)
             {
-                node->last = node->next;
+                node->prev->next = node->next;
             }
             else
             {
@@ -246,16 +247,17 @@ void List<T>::Remove(T& item)
             }
             if (node->next != nullptr)
             {
-                node->next = node->last;
+                node->next->prev = node->prev;
             }
             else
             {
-                last = node->last;
+                last = node->prev;
             }
             delete node;
             --count;
             return;
         }
+        node = node->next;
     }
 }
 

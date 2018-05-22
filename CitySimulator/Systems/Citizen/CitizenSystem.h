@@ -7,8 +7,8 @@ class CitizenSystem
 public:
     CitizenSystem();
     ~CitizenSystem();
-    void Update(const float deltaTime);
-    void Render();
+    void Update(const float deltaTime) const;
+    void Render() const;
 private:
     List<Citizen*> citizens;
     int citizenCount;

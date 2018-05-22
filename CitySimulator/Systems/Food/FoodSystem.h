@@ -6,6 +6,7 @@ class FoodSystem :
 public:
     FoodSystem();
     ~FoodSystem();
-    
+    void Register(Plot* plot);
+    void Update(float deltaTime);
 };
 

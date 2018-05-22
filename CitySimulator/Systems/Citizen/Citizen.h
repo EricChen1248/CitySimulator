@@ -13,17 +13,44 @@ class BaseRule;
 class Citizen
 {
 public:
-    Citizen(const Coordinate& coords);
+    Citizen(Plot* plot);
     ~Citizen();
-    void Update(float deltaTime);
-    sf::CircleShape& GetShape();
     
-    int Money;
+    // Getters
+    sf::CircleShape& GetShape();
+    const Coordinate& Coords() const { return coords; }
+    const int& GetMoney() const { return money;}
+    const bool& InPlot() const { return inPlot; }
+
+    // Setters
+    bool IncreaseMoney(int m);
+    void SetActiveRule(BaseRule* rule) { activeRule = rule; }
+    void SetTarget(Plot* t);
+
+    void Update(float deltaTime);  
+    void Wait(float time);
 private:
     void FindNextTarget();
-    Coordinate coords;
-    Plot* target;
-    float moveSpeed;
-    sf::CircleShape shape;
+    void GenRules();
+    void FindRandomTarget();
+    void UpdateRules() const;
+    
+    // Collections
     List<BaseRule*> rules;
+    
+    // Rule properties
+    Plot* target;
+    Plot* currentPlot;
+    BaseRule* activeRule;
+    
+    // Entity Properties
+    Coordinate coords;
+    float moveSpeed;
+    int money;
+    int unsatisfiedCount{};
+    float waitTime;
+    bool inPlot;
+    
+    // Misc Properties
+    sf::CircleShape shape;
 };
