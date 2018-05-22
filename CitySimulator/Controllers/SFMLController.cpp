@@ -12,6 +12,15 @@ RenderWindow* const& SFMLController::Window() const
     return window;
 }
 
+void SFMLController::UpdateCircleSize(CircleShape& circle)
+{
+    const auto mod = CoreController::Instance()->GetViewportController()->Modifier();
+    if (mod != 1)
+    {
+        circle.setRadius(circle.getRadius() * mod);
+    }
+}
+
 /**
  * \brief Initializes window and renderer for sdl
  */
@@ -54,11 +63,7 @@ void SFMLController::DrawCircle(CircleShape& circle, bool isUi) const
 {
     if (!isUi)
     {
-        const auto mod = CoreController::Instance()->GetViewportController()->Modifier();
-        if (mod != 1)
-        {
-            circle.setRadius(circle.getRadius() * mod);
-        }
+        UpdateCircleSize(circle);
     }
     
     window->draw(circle);

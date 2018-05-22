@@ -15,10 +15,11 @@ class SFMLController
 {
 friend class CoreController;
 public:
-    sf::RenderWindow* const& Window() const;
+    RenderWindow* const& Window() const;
 
-    void DrawCircle(sf::CircleShape& circle, bool isUi = false) const;
-    void DrawRect(sf::RectangleShape& rectangle, bool isUi = false) const;
+    static void UpdateCircleSize(CircleShape& circle);
+    void DrawCircle(CircleShape& circle, bool isUi = false) const;
+    void DrawRect(RectangleShape& rectangle, bool isUi = false) const;
 private:
     // Constructors and Destructors
     SFMLController();
