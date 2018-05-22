@@ -6,6 +6,8 @@ class Base
 {
 public:
     System SystemType;
+
+    const sf::Color& Color() const { return color; }
     Base(Plot* plot, const System system): SystemType(system)
     {
         this->plot = plot;
