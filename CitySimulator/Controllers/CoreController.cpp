@@ -1,9 +1,9 @@
 #include "CoreController.h"
 #include "ViewPortController.h"
 #include <iostream>
-#include "../Systems/Citizen/Citizen.h"
 
 CoreController *CoreController::instance;
+
 
 bool CoreController::IsRunning() const
 {
@@ -19,7 +19,7 @@ CoreController::CoreController()
     systemController = new SystemController;
     systemController->Initialize();
     
-    srand(static_cast<unsigned>(time(nullptr)));
+    srand(static_cast<unsigned>(std::time(nullptr)));
 };
 CoreController::~CoreController() = default;
 

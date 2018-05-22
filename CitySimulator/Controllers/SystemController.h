@@ -22,6 +22,6 @@ private:
     PlotSystem* plots{};
     CitizenSystem* citizens{};
     
-    List<BaseSystem*> systems;
+    List<BaseSystem*> systems{};
 };
 

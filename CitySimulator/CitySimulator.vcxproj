@@ -131,9 +131,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Controllers\SystemController.cpp" />
-    <ClCompile Include="Systems\Base\Base.cpp" />
-    <ClCompile Include="Systems\Base\BaseRule.cpp" />
-    <ClCompile Include="Systems\Base\BaseSystem.cpp" />
+    <ClCompile Include="Systems\Food\Food.cpp" />
+    <ClCompile Include="Systems\Food\FoodRule.cpp" />
+    <ClCompile Include="Systems\Food\FoodSystem.cpp" />
     <ClCompile Include="Systems\Citizen\CitizenSystem.cpp" />
     <ClCompile Include="Systems\Citizen\Citizen.cpp" />
     <ClCompile Include="Controllers\CoreController.cpp" />
@@ -147,6 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controllers\SystemController.h" />
+    <ClInclude Include="Systems\Food\Food.h" />
+    <ClInclude Include="Systems\Food\FoodRule.h" />
+    <ClInclude Include="Systems\Food\FoodSystem.h" />
     <ClInclude Include="Helpers\Time.h" />
     <ClInclude Include="Systems\Base\Base.h" />
     <ClInclude Include="Systems\Base\BaseRule.h" />
@@ -164,6 +167,7 @@
     <ClInclude Include="Helpers\Logger.h" />
     <ClInclude Include="Systems\Plot\PlotSystem.h" />
     <ClInclude Include="Systems\Plot\Plot.h" />
+    <ClInclude Include="Systems\SystemEnum.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

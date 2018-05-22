@@ -3,11 +3,9 @@
 #include "../../Controllers/CoreController.h"
 
 
-Citizen::Citizen(const Coordinate coords) 
+Citizen::Citizen(const Coordinate& coords) : Money(0), coords(coords), target(nullptr)
 {
-    this->coords = coords;
     moveSpeed = 1 + static_cast<float>(CoreController::RandomInt(0, 40) - 20) / 100;
-    target = nullptr;
     shape = CircleShape(5);
     shape.setFillColor(Color::Blue);
 }
@@ -48,4 +46,20 @@ void Citizen::Update(const float deltaTime)
 CircleShape& Citizen::GetShape()
 {
     return shape;
+}
+
+void Citizen::FindNextTarget()
+{
+    float bestScore = 0;
+    BaseRule* rule = nullptr;
+    for (int i = 0; i < rules.Count(); ++i)
+    {
+        const auto score = rules[i]->CalculateScore();
+        if (rule == nullptr || score > bestScore)
+        {
+            bestScore = score;
+            rule = rules[i];
+        }
+        
+    }
 }

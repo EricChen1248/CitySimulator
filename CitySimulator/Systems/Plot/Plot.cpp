@@ -2,7 +2,7 @@
 #include "../../Controllers/CoreController.h"
 
 
-Plot::Plot(const int x, const int y, const int z) : coords(x,y,z), size(10), shape(CircleShape(size))
+Plot::Plot(const int x, const int y, const int z) : coords(x,y,z), size(10), shape(CircleShape(size)), currentType(nullptr)
 {
     shape.setFillColor(Color(200,200,200));
     sCoords = coords.ToScreenCoordinates();
