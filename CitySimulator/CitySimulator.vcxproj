@@ -131,6 +131,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Controllers\SystemController.cpp" />
+    <ClCompile Include="Log.cpp" />
     <ClCompile Include="Systems\Food\Food.cpp" />
     <ClCompile Include="Systems\Food\FoodRule.cpp" />
     <ClCompile Include="Systems\Food\FoodSystem.cpp" />
@@ -147,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controllers\SystemController.h" />
+    <ClInclude Include="Log.h" />
     <ClInclude Include="Systems\Food\Food.h" />
     <ClInclude Include="Systems\Food\FoodRule.h" />
     <ClInclude Include="Systems\Food\FoodSystem.h" />

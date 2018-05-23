@@ -6,7 +6,14 @@ class FoodSystem :
 public:
     FoodSystem();
     ~FoodSystem();
-    void Register(Plot* plot);
-    void Update(float deltaTime);
+    void Register(Plot* plot) override;
+    void Update(float deltaTime) override;
+    void LogSatisfied(Citizen* citizen, BaseRule* rule) override;
+    void LogUnsatisfied(Citizen* citizen, BaseRule* rule) override;
+    void ResetDay() override;
+private :
+    const int maxOccupantCount = 20;
+    const int scorePerOccupant = 10;
+    const int overPenalty = 5;
 };
 

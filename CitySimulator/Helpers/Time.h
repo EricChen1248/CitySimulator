@@ -1,4 +1,6 @@
 #pragma once
+#include <string>
+
 namespace helper
 {
     struct Time
@@ -12,7 +14,7 @@ namespace helper
         void IncreaseTime(const float deltaTime)
         {
             // TODO : adjust deltaTime to time diff
-            Micro += static_cast<int>(deltaTime);
+            Micro += static_cast<int>(deltaTime * 10000);
             while (Micro >= 100)
             {
                 ++Minute;
@@ -51,5 +53,12 @@ namespace helper
             }
             return h * 60 + m;
         }
+
+        std::string ToString() const;
     };
+
+    inline std::string Time::ToString() const
+    {
+        return std::to_string(Hour) + ":" + std::to_string(Minute) + ":" + std::to_string(Micro);
+    }
 }

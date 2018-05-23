@@ -23,30 +23,28 @@ CoreController::CoreController()
 };
 CoreController::~CoreController() = default;
 
-void CoreController::Start() const
+void CoreController::Start()
 {
     Update();
 }
 
-/**
- * \brief Core loop of the game
- */
-void CoreController::Update() const
+void CoreController::RunDayLoop(Clock& clock)
 {
-    Clock clock;
     float lastTime = 0;
     float lastPrint = 0;
-    while(IsRunning())
+    while(IsRunning() && !time.EndDay())
     {
         const float currentTime = clock.getElapsedTime().asSeconds();
         const float fps = 1.f / (currentTime - lastTime);
         if (currentTime - lastPrint > 0.2)
         {
             std::cout << fps << std::endl;
+            std::cout << time.ToString() << std::endl;
             lastPrint = currentTime;
         }
         lastTime = currentTime;
         const float deltaTime = 60 / fps * 0.01f;
+        time.IncreaseTime(deltaTime);
         HandleEvents();
         GameUpdateEvents(deltaTime);
         
@@ -55,6 +53,23 @@ void CoreController::Update() const
         PresentRender();
         viewPortController->ResetMod();
     }
+}
+
+/**
+ * \brief Core loop of the game
+ */
+void CoreController::Update()
+{
+    Clock clock;
+    RunDayLoop(clock);
+    auto systems = systemController->GetSystems();
+    for (int i = 0; i < systems.Count(); ++i)
+    {
+        std:: cout << systems[i]->GetScore();
+    }
+    
+    char a;
+    std::cin >> a;
 }
 
 void CoreController::GameUpdateEvents(const float deltaTime) const

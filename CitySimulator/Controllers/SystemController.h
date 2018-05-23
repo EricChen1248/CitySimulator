@@ -14,6 +14,7 @@ public:
     void Update(float deltaTime);
     void Render() const;
     BaseSystem* GetSystem(System system);
+    const List<BaseSystem*>& GetSystems() const { return systems;};
 
 
     PlotSystem* Plots() const { return plots; }

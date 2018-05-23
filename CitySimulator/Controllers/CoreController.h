@@ -27,7 +27,8 @@ public:
     ~CoreController();
     
     // Exposed Methods
-    void Start() const;
+    void Start();
+    void RunDayLoop(Clock& clock);
     void RenderEvents() const;
     static int RandomInt(int bottom, int top);
 private:
@@ -39,7 +40,7 @@ private:
     helper::Time time;
     bool isRunning;
     
-    void Update() const;
+    void Update();
     void GameUpdateEvents(float deltaTime) const;
     void HandleEvents() const;
     void ClearRender() const;    
