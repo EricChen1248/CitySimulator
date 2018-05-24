@@ -31,10 +31,14 @@ void CoreController::Start()
     Update();
 }
 
+/**
+ * \brief Game loop of each day
+ * \param clock Reference to game clock
+ */
 void CoreController::RunDayLoop(Clock& clock)
 {
-    float lastTime = 0;
-    float lastPrint = 0;
+    float lastTime = clock.getElapsedTime().asSeconds();
+    float lastPrint = lastTime;
     while(true)
     {
         while(IsRunning() && !time.EndDay())
@@ -56,7 +60,6 @@ void CoreController::RunDayLoop(Clock& clock)
             HandleEvents();
             GameUpdateEvents();
             RenderEvents();
-            uiController -> RenderUI();
             PresentRender();
             viewPortController->ResetMod();
         }
@@ -87,6 +90,9 @@ void CoreController::Update()
     std::cin >> a;
 }
 
+/**
+ * \brief Handles update event of games
+ */
 void CoreController::GameUpdateEvents() const
 {
     systemController->Update();
@@ -154,7 +160,10 @@ void CoreController::ClearRender() const
 void CoreController::RenderEvents() const
 {
     ClearRender();
+    viewPortController->UpdateGameView();
     systemController->Render();
+    viewPortController->UpdateUIView();
+    uiController -> RenderUI();
 }
 
 /**

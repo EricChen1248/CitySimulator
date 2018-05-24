@@ -15,6 +15,8 @@ public:
     
     ScreenCoordinate ToDrawCoord(ScreenCoordinate sCoords) const;
     void HandleScroll(sf::Event& event);
+    void UpdateGameView();
+    void UpdateUIView() const;
     void ResetMod();
     void Left();
     void Right();
@@ -27,8 +29,8 @@ private:
     int viewY;
     float scrollSize;
     float modifier;
-    sf::View view;
+    sf::View gameView;
+    sf::View uiView;
     
-    void UpdateView();
 };
 

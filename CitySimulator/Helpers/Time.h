@@ -16,7 +16,7 @@ namespace helper
         void IncreaseTime(const float deltaTime)
         {
             // TODO : adjust deltaTime to time diff
-            Micro += static_cast<int>(deltaTime * 1000);
+            Micro += static_cast<int>(deltaTime * 8000);
             while (Micro >= 100)
             {
                 ++Minute;
@@ -60,11 +60,19 @@ namespace helper
         std::string ToShortString() const;
     };
 
+    /**
+     * \brief Returns the time as HH:MM:SSSS format
+     * \return Time as string
+     */
     inline std::string Time::ToString() const
     {
         return this->ToShortString() + ":" + std::to_string(Micro);
     }
     
+    /**
+     * \brief Returns the time as HH:MM format
+     * \return Time as string
+     */
     inline std::string Time::ToShortString() const
     {
         std::stringstream ss;

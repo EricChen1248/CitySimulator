@@ -14,6 +14,7 @@ public:
     void EnterPlot(Plot* plot);
     void LeavePlot(Plot* plot);
     void Update();
+    bool IsSatisfied() override;
 private:
     // TODO : Tweak foodrule max distance
     const int maxDistance = 10;

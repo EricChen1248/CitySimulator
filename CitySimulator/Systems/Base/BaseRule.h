@@ -14,6 +14,7 @@ public:
     virtual void EnterPlot(Plot* plot) = 0;
     virtual void LeavePlot(Plot* plot) = 0;
     virtual void Update() = 0;
+    virtual bool IsSatisfied() = 0;
 protected:
     helper::Time lastUpdate;
     Citizen* citizen;

@@ -7,8 +7,8 @@ ViewPortController::ViewPortController()
     viewY = 384;
     scrollSize = 1;
     modifier = 1;
-    view.setSize(viewX * 2, viewY * 2);
-    UpdateView();
+    gameView.setSize(viewX * 2, viewY * 2);
+    UpdateGameView();
 }
 
 ViewPortController::~ViewPortController() = default;
@@ -45,43 +45,50 @@ void ViewPortController::ResetMod()
 }
 
 /**
- * \brief Moves the view to the left
+ * \brief Moves the gameView to the left
  */
 void ViewPortController::Left()
 {
     viewX += 10;
-    UpdateView();
 }
 
 /**
- * \brief Moves the view to the right
+ * \brief Moves the gameView to the right
  */
 void ViewPortController::Right()
 {
     viewX -= 10;
-    UpdateView();
 }
 
 /**
- * \brief Moves the view up
+ * \brief Moves the gameView up
  */
 void ViewPortController::Up()
 {
     viewY += 10;
-    UpdateView();
 }
 
 /**
- * \brief Moves the view down
+ * \brief Moves the gameView down
  */
 void ViewPortController::Down()
 {
     viewY -= 10;
-    UpdateView();
 }
 
-void ViewPortController::UpdateView()
+/**
+ * \brief Update game view center and sets renderer to use game view
+ */
+void ViewPortController::UpdateGameView()
 {
-    view.setCenter(static_cast<float>(viewX), static_cast<float>(viewY));
-    CoreController::Instance()->SfmlController()->Window()->setView(view);
+    gameView.setCenter(static_cast<float>(viewX), static_cast<float>(viewY));
+    CoreController::Instance()->SfmlController()->Window()->setView(gameView);
+}
+
+/**
+ * \brief Set renderer to use uiView
+ */
+void ViewPortController::UpdateUIView() const
+{
+    CoreController::Instance()->SfmlController()->Window()->setView(uiView);
 }
