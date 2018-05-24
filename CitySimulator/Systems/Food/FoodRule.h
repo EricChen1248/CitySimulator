@@ -1,6 +1,5 @@
 #pragma once
 #include "../Base/BaseRule.h"
-#include "../Plot/Plot.h"
 
 class BaseRule;
 class FoodRule :
@@ -12,8 +11,8 @@ public:
 
     float CalculateScore();
     bool FindPlot();
-    void EnterPlot();
-    void LeavePlot();
+    void EnterPlot(Plot* plot);
+    void LeavePlot(Plot* plot);
     void Update();
 private:
     // TODO : Tweak foodrule max distance

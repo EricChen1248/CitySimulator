@@ -19,7 +19,7 @@ public:
     sf::CircleShape& GetShape();
     const Coordinate& Coords() const { return coords; }
     Base* const& GetPlotType() const { return currentType; }
-    int GetOccupantCount() { return occupants.Count(); }
+    int GetOccupantCount() const { return occupants.Count(); }
     
     void Register(Base* base);
     void Enter(Citizen* citizen);

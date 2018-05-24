@@ -46,14 +46,13 @@ void Citizen::SetTarget(Plot* t)
 
 /**
  * \brief Handles all update events of the citizen
- * \param deltaTime Time since prev update
  */
-void Citizen::Update(const float deltaTime)
+void Citizen::Update()
 {
     // Citizen is waiting in a target
     if (waitTime > 0)
     {
-        waitTime -= deltaTime;
+        waitTime -= CoreController::Instance()->GetDeltaTime();
         return;
     }
     // Citizen has a target
@@ -64,9 +63,11 @@ void Citizen::Update(const float deltaTime)
         {
             // Is wandering
             if (activeRule != nullptr)
-            {
-                activeRule->EnterPlot();
+            {   
+                // Trigger rule enter
+                activeRule->EnterPlot(target);
             }
+            // Trigger Plot enter
             target->Enter(this);
             inPlot = true;
             
@@ -77,7 +78,7 @@ void Citizen::Update(const float deltaTime)
         }
         
         // Citizen is heading toward target
-        coords = coords.MoveTowards(target->Coords(), deltaTime * moveSpeed);
+        coords = coords.MoveTowards(target->Coords(), CoreController::Instance()->GetDeltaTime() * moveSpeed);
         
         // Update coordinates;
         auto sCoords = coords.ToScreenCoordinates();
@@ -92,6 +93,11 @@ void Citizen::Update(const float deltaTime)
     // Citizen is leaving old target and finding next one;
     UpdateRules();
     currentPlot->Leave(this);
+    if(activeRule != nullptr)
+    {
+        activeRule->LeavePlot(currentPlot);
+        activeRule = nullptr;
+    }
     inPlot = false;
     coords = currentPlot->Coords();
     FindNextTarget();
@@ -140,6 +146,10 @@ void Citizen::FindNextTarget()
             }
         
             const auto score = tRule->CalculateScore();
+            if (score == 0)
+            {
+                continue;
+            }
             if (rule == nullptr || score > bestScore)
             {
                 bestScore = score;

@@ -69,7 +69,7 @@ void SFMLController::DrawCircle(CircleShape& circle, bool isUi) const
     window->draw(circle);
 }
 
-void SFMLController::DrawRect(RectangleShape& rectangle, bool isUi) const
+void SFMLController::DrawRect(RectangleShape& rectangle, const bool isUi) const
 {
     if (!isUi)
     {
@@ -81,6 +81,11 @@ void SFMLController::DrawRect(RectangleShape& rectangle, bool isUi) const
     }
     
     window->draw(rectangle);
+}
+
+void SFMLController::DrawString(Text& text) const
+{
+    window->draw(text);
 }
 
 

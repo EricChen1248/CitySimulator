@@ -20,7 +20,7 @@ void FoodSystem::Register(Plot* plot)
     BaseSystem::Register(plot);
 }
 
-void FoodSystem::Update(float deltaTime)
+void FoodSystem::Update()
 {
     for (int i = 0; i < plots.Count(); ++i)
     {
@@ -30,7 +30,7 @@ void FoodSystem::Update(float deltaTime)
         
         // Tallying and adding score for occupant count. Positive for within limit people, negative for over
         const auto count = plot->GetOccupantCount();
-        score += (std::min(count, maxOccupantCount) * scorePerOccupant - std::max(count - maxOccupantCount, 0) * overPenalty) * deltaTime;
+        score += (std::min(count, maxOccupantCount) * scorePerOccupant - std::max(count - maxOccupantCount, 0) * overPenalty) * CoreController::Instance()->GetDeltaTime();
     }
 }
 
@@ -50,6 +50,8 @@ void FoodSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
 
 void FoodSystem::ResetDay()
 {
-    BaseSystem::ResetDay();
-    score = 0;
+    for (int i = 0; i < plots.Count(); ++i)
+    {
+        plots[i]->GetPlotType()->Reset();
+    }
 }

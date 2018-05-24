@@ -20,6 +20,7 @@ public:
     static void UpdateCircleSize(CircleShape& circle);
     void DrawCircle(CircleShape& circle, bool isUi = false) const;
     void DrawRect(RectangleShape& rectangle, bool isUi = false) const;
+    void DrawString(Text& text) const;
 private:
     // Constructors and Destructors
     SFMLController();

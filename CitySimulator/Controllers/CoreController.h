@@ -2,11 +2,15 @@
 #include "SFMLController.h"
 #include "./ViewPortController.h"
 #include "SystemController.h"
+#include "FontController.h"
+#include "UIController.h"
 
 /**
  * \brief Acts as the core of the game, initializing all systems, handles events, 
  *        and calls the corresponding methods on each loop
  */
+
+class UIController;
 
 class CoreController
 {
@@ -17,8 +21,11 @@ public:
     SFMLController* SfmlController() const { return sfmlController; }
     ViewPortController* GetViewportController() const { return viewPortController; }
     SystemController* GetSystemController() const { return systemController; }
+    FontController* GetFontController() const { return fontController; }
+    UIController* GetUIController() const { return uiController; }
+    
     const helper::Time& GetTime() const { return time; }
-
+    float GetDeltaTime() const { return deltaTime; }
     // Properties
     bool IsRunning() const;
     
@@ -36,12 +43,15 @@ private:
     SFMLController *sfmlController;
     ViewPortController *viewPortController;
     SystemController *systemController;
-
+    FontController *fontController;
+    UIController *uiController;
+    
     helper::Time time;
+    float deltaTime{};
     bool isRunning;
     
     void Update();
-    void GameUpdateEvents(float deltaTime) const;
+    void GameUpdateEvents() const;
     void HandleEvents() const;
     void ClearRender() const;    
     void PresentRender() const;

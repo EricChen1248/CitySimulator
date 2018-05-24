@@ -1,7 +1,7 @@
 #include "FoodRule.h"
 #include "../../Controllers/CoreController.h"
 #include "FoodSystem.h"
-
+#include "Food.h"
 
 FoodRule::FoodRule(Citizen& citizen): BaseRule(citizen), hungerLevel(0)
 {
@@ -11,7 +11,11 @@ FoodRule::~FoodRule() = default;
 
 float FoodRule::CalculateScore()
 {
-    return hungerLevel * 100;
+    if (hungerLevel > 80)
+    {
+        return 0;
+    }
+    return (100 - hungerLevel) * 100;
 }
 
 /**
@@ -47,12 +51,15 @@ bool FoodRule::FindPlot()
     return true;
 }
 
-void FoodRule::EnterPlot()
+void FoodRule::EnterPlot(Plot* plot)
 {
+    const auto food = dynamic_cast<Food*>(plot->GetPlotType());
     citizen->Wait(1.f);
+    citizen->IncreaseMoney(-food->cost);
+    food->Enter();
 }
 
-void FoodRule::LeavePlot()
+void FoodRule::LeavePlot(Plot* plot)
 {
     hungerLevel = 100.f;
 }
@@ -60,5 +67,5 @@ void FoodRule::LeavePlot()
 void FoodRule::Update()
 {
     // TODO : Tweak hunger to time ratio
-    this->hungerLevel += lastUpdate - CoreController::Instance()->GetTime();
+    this->hungerLevel -= CoreController::Instance()->GetDeltaTime() * 30;
 }

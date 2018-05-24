@@ -15,6 +15,7 @@ public:
     }
 
     virtual ~Base() = default;
+    virtual void Reset() = 0;
     
 protected:
     Plot* plot;

@@ -35,12 +35,12 @@ void SystemController::Initialize()
     }
 }
 
-void SystemController::Update(const float deltaTime)
+void SystemController::Update() const
 {
-    citizens->Update(deltaTime);
+    citizens->Update();
     for (int i = 0; i < systems.Count(); ++i)
     {
-        systems[i]->Update(deltaTime);
+        systems[i]->Update();
     }
 }
 
@@ -50,7 +50,7 @@ void SystemController::Render() const
     plots->Render();
 }
 
-BaseSystem* SystemController::GetSystem(System system)
+BaseSystem* SystemController::GetSystem(const System system) const
 {
     for (int i = 0; i < systems.Count(); ++i)
     {

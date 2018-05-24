@@ -131,6 +131,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Controllers\SystemController.cpp" />
+    <ClCompile Include="Controllers\FontController.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Systems\Food\Food.cpp" />
     <ClCompile Include="Systems\Food\FoodRule.cpp" />
@@ -145,9 +146,12 @@
     <ClCompile Include="Helpers\Logger.cpp" />
     <ClCompile Include="Systems\Plot\PlotSystem.cpp" />
     <ClCompile Include="Systems\Plot\Plot.cpp" />
+    <ClCompile Include="Controllers\UIController.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Assets\Fonts\Monofur.h" />
     <ClInclude Include="Controllers\SystemController.h" />
+    <ClInclude Include="Controllers\FontController.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="Systems\Food\Food.h" />
     <ClInclude Include="Systems\Food\FoodRule.h" />
@@ -170,6 +174,7 @@
     <ClInclude Include="Systems\Plot\PlotSystem.h" />
     <ClInclude Include="Systems\Plot\Plot.h" />
     <ClInclude Include="Systems\SystemEnum.h" />
+    <ClInclude Include="Controllers\UIController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

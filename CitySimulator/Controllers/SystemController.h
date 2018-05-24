@@ -11,9 +11,9 @@ public:
     SystemController();
     ~SystemController();
     void Initialize();
-    void Update(float deltaTime);
+    void Update() const;
     void Render() const;
-    BaseSystem* GetSystem(System system);
+    BaseSystem* GetSystem(System system) const;
     const List<BaseSystem*>& GetSystems() const { return systems;};
 
 

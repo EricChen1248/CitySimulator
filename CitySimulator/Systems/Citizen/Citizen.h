@@ -27,7 +27,7 @@ public:
     void SetActiveRule(BaseRule* rule) { activeRule = rule; }
     void SetTarget(Plot* t);
 
-    void Update(float deltaTime);  
+    void Update();  
     void Wait(float time);
 private:
     void FindNextTarget();

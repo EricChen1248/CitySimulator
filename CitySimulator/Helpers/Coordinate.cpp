@@ -44,11 +44,12 @@ Coordinate* Coordinate::GetNeighbours() const
  * \param deltaTime Time since prev update
  * \return Spliced coordinate between source and destination
  */
-Coordinate Coordinate::MoveTowards(const Coordinate dest, const float deltaTime) const
+Coordinate Coordinate::MoveTowards(const Coordinate dest, float deltaTime) const
 {
-    const float X = x + (dest.x > x ? 1 : dest.x < x ? -1 : 0) * deltaTime;
-    const float Y = y + (dest.y > y ? 1 : dest.y < y ? -1 : 0) * deltaTime;
-    const float Z = z + (dest.z > z ? 1 : dest.z < z ? -1 : 0) * deltaTime;
+    deltaTime *= 10;
+    const float X = x + (dest.x > x + deltaTime ? 1 : dest.x < x - deltaTime ? -1 : 0) * deltaTime;
+    const float Y = y + (dest.y > y + deltaTime ? 1 : dest.y < y - deltaTime ? -1 : 0) * deltaTime;
+    const float Z = z + (dest.z > z + deltaTime ? 1 : dest.z < z - deltaTime ? -1 : 0) * deltaTime;
     return {X, Y, Z};
 }
 
@@ -59,7 +60,7 @@ Coordinate Coordinate::MoveTowards(const Coordinate dest, const float deltaTime)
  */
 bool Coordinate::operator==(const Coordinate& other) const
 {
-    return abs(x - other.x) + abs(y - other.y) + abs(z - other.z) < 0.01f;
+    return abs(x - other.x) + abs(y - other.y) + abs(z - other.z) < 0.1f;
 }
 
 /**

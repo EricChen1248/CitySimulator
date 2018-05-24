@@ -14,9 +14,12 @@ CoreController::CoreController()
 {
     instance = this;
     isRunning = true;
-    sfmlController = new SFMLController();
-    viewPortController = new ViewPortController();
+    sfmlController = new SFMLController;
+    viewPortController = new ViewPortController;
     systemController = new SystemController;
+    fontController = new FontController;
+    uiController = new UIController;
+    
     systemController->Initialize();
     
     srand(static_cast<unsigned>(std::time(nullptr)));
@@ -32,26 +35,38 @@ void CoreController::RunDayLoop(Clock& clock)
 {
     float lastTime = 0;
     float lastPrint = 0;
-    while(IsRunning() && !time.EndDay())
+    while(true)
     {
-        const float currentTime = clock.getElapsedTime().asSeconds();
-        const float fps = 1.f / (currentTime - lastTime);
-        if (currentTime - lastPrint > 0.2)
+        while(IsRunning() && !time.EndDay())
         {
-            std::cout << fps << std::endl;
-            std::cout << time.ToString() << std::endl;
-            lastPrint = currentTime;
+            const float currentTime = clock.getElapsedTime().asSeconds();
+            const float fps = 1.f / (currentTime - lastTime);
+            if (currentTime - lastPrint > 0.2)
+            {
+                std::cout << deltaTime << std::endl;
+                
+                lastPrint = currentTime;
+            }
+                        
+            // DeltaTime 0.1 = 1/60 real seconds = 0.1 minute in game
+            deltaTime = (currentTime - lastTime) * 0.1f;
+            time.IncreaseTime(deltaTime);
+            lastTime = currentTime;
+            
+            HandleEvents();
+            GameUpdateEvents();
+            RenderEvents();
+            uiController -> RenderUI();
+            PresentRender();
+            viewPortController->ResetMod();
         }
-        lastTime = currentTime;
-        const float deltaTime = 60 / fps * 0.01f;
-        time.IncreaseTime(deltaTime);
-        HandleEvents();
-        GameUpdateEvents(deltaTime);
+        while(true)
+        {
+            RenderEvents();
         
-        RenderEvents();
-        
-        PresentRender();
-        viewPortController->ResetMod();
+            PresentRender();
+            
+        }
     }
 }
 
@@ -72,9 +87,9 @@ void CoreController::Update()
     std::cin >> a;
 }
 
-void CoreController::GameUpdateEvents(const float deltaTime) const
+void CoreController::GameUpdateEvents() const
 {
-    systemController->Update(deltaTime);
+    systemController->Update();
 }
 
 /**

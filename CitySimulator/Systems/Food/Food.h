@@ -1,13 +1,20 @@
 #pragma once
 #include "../Base/Base.h"
 
+class FoodRule;
+
 class Food : public Base
 {
-public:
+friend FoodRule;
+
+    public:
     Food(Plot* plot);
     ~Food() = default;
+    void Reset() override;
 private:
+    int cost;
+    int earnings;
     
-    
+    void Enter();
 };
 

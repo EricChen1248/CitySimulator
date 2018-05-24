@@ -25,11 +25,11 @@ CitizenSystem::~CitizenSystem()
     citizens.Dispose();
 }
 
-void CitizenSystem::Update(const float deltaTime) const
+void CitizenSystem::Update() const
 {
     for (int i = 0; i < citizenCount; ++i)
     {
-        citizens[i]->Update(deltaTime);
+        citizens[i]->Update();
     }
 }
 

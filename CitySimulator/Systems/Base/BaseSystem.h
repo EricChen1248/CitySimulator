@@ -13,9 +13,15 @@ public:
 
     const List<Plot*>& Plots() const { return plots; }
     int GetScore() const { return score; }
+    List<Log*> SatisfiedLog() const { return satisfiedLog; }
+    List<Log*> UnsatisfiedLog() const { return unsatisfiedLog; }
     virtual ~BaseSystem() = default;
     
-    virtual void Update(float deltaTime) = 0;
+    
+    /**
+     * \brief Virtual function handling the update events
+     */
+    virtual void Update() = 0;
     virtual void LogSatisfied(Citizen* citizen, BaseRule* rule) = 0;
     virtual void LogUnsatisfied(Citizen* citizen, BaseRule* rule) = 0; 
     virtual void Register(Plot* plot);
@@ -29,18 +35,33 @@ protected:
     int score;
 };
 
+
+/**
+ * \brief Register a plot into the system for quick lookup and updating
+ * \param plot Plot to register in system
+ */
 inline void BaseSystem::Register(Plot* plot)
 {
     plots.InsertLast(plot);
 }
 
+/**
+ * \brief Unregister a plot to remove it from being tracked in the system
+ * \param plot Plot to unregister in the system
+ */
 inline void BaseSystem::Unregister(Plot* plot)
 {
     plots.Remove(plot);
 }
 
+
+
+/**
+ * \brief Resets the system to a new day
+ */
 inline void BaseSystem::ResetDay()
 {
+    score = 0;
     satisfiedLog.Dispose();
     unsatisfiedLog.Dispose();
 }

@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include <iomanip>
+#include <sstream>
 
 namespace helper
 {
@@ -14,7 +16,7 @@ namespace helper
         void IncreaseTime(const float deltaTime)
         {
             // TODO : adjust deltaTime to time diff
-            Micro += static_cast<int>(deltaTime * 10000);
+            Micro += static_cast<int>(deltaTime * 1000);
             while (Micro >= 100)
             {
                 ++Minute;
@@ -53,12 +55,20 @@ namespace helper
             }
             return h * 60 + m;
         }
-
+        
         std::string ToString() const;
+        std::string ToShortString() const;
     };
 
     inline std::string Time::ToString() const
     {
-        return std::to_string(Hour) + ":" + std::to_string(Minute) + ":" + std::to_string(Micro);
+        return this->ToShortString() + ":" + std::to_string(Micro);
+    }
+    
+    inline std::string Time::ToShortString() const
+    {
+        std::stringstream ss;
+        ss << std::setfill('0') << std::setw (2) << Hour << ":" << std::setw(2) << Minute;
+        return ss.str();
     }
 }

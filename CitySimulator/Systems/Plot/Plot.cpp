@@ -18,12 +18,8 @@ CircleShape& Plot::GetShape()
 }
 
 void Plot::Register(Base* base)
-{
-    if (currentType != nullptr)
-    {
-        delete currentType;
-    }
-
+{  
+    delete currentType;
     currentType = base;
     shape.setFillColor(base->Color());
 }
