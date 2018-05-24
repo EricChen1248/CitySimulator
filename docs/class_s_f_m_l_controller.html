@@ -87,6 +87,7 @@ $(document).ready(function(){initNavTree('class_s_f_m_l_controller.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="class_s_f_m_l_controller-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -104,9 +105,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad7cdcd5894171f54ead9d2ba28ffb6e5"><td class="memItemLeft" align="right" valign="top">RenderWindow *const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_f_m_l_controller.html#ad7cdcd5894171f54ead9d2ba28ffb6e5">Window</a> () const</td></tr>
 <tr class="memdesc:ad7cdcd5894171f54ead9d2ba28ffb6e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the window of SDL controller.  <a href="#ad7cdcd5894171f54ead9d2ba28ffb6e5">More...</a><br /></td></tr>
 <tr class="separator:ad7cdcd5894171f54ead9d2ba28ffb6e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef5e09792d23ca3af221afd13093467c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_f_m_l_controller.html#aef5e09792d23ca3af221afd13093467c">DrawCircle</a> (CircleShape &amp;circle) const</td></tr>
-<tr class="memdesc:aef5e09792d23ca3af221afd13093467c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface for drawing a circle to the RenderWindow.  <a href="#aef5e09792d23ca3af221afd13093467c">More...</a><br /></td></tr>
-<tr class="separator:aef5e09792d23ca3af221afd13093467c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a404dc10881da8b2a41c183040fd04ed7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_f_m_l_controller.html#a404dc10881da8b2a41c183040fd04ed7">DrawCircle</a> (CircleShape &amp;circle, bool isUi=false) const</td></tr>
+<tr class="memdesc:a404dc10881da8b2a41c183040fd04ed7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface for drawing a circle to the RenderWindow.  <a href="#a404dc10881da8b2a41c183040fd04ed7">More...</a><br /></td></tr>
+<tr class="separator:a404dc10881da8b2a41c183040fd04ed7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9345fca6e30ecbf46506c2ecd13b38a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_f_m_l_controller.html#a9345fca6e30ecbf46506c2ecd13b38a9">DrawRect</a> (RectangleShape &amp;rectangle, bool isUi=false) const</td></tr>
+<tr class="memdesc:a9345fca6e30ecbf46506c2ecd13b38a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a rectangle to the window.  <a href="#a9345fca6e30ecbf46506c2ecd13b38a9">More...</a><br /></td></tr>
+<tr class="separator:a9345fca6e30ecbf46506c2ecd13b38a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74a7fd7ffe3d9e2633efe6dc154dd236"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_f_m_l_controller.html#a74a7fd7ffe3d9e2633efe6dc154dd236">DrawString</a> (Text &amp;text) const</td></tr>
+<tr class="memdesc:a74a7fd7ffe3d9e2633efe6dc154dd236"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a string to the window.  <a href="#a74a7fd7ffe3d9e2633efe6dc154dd236">More...</a><br /></td></tr>
+<tr class="separator:a74a7fd7ffe3d9e2633efe6dc154dd236"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:aa85e438d5d2b61360e711b64f3f6e58e"><td class="memItemLeft" align="right" valign="top"><a id="aa85e438d5d2b61360e711b64f3f6e58e"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateCircleSize</b> (CircleShape &amp;circle)</td></tr>
+<tr class="separator:aa85e438d5d2b61360e711b64f3f6e58e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -117,8 +130,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CoreController</b></
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Handles all the interfacing with SFML. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aef5e09792d23ca3af221afd13093467c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef5e09792d23ca3af221afd13093467c">&#9670;&nbsp;</a></span>DrawCircle()</h2>
+<a id="a404dc10881da8b2a41c183040fd04ed7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a404dc10881da8b2a41c183040fd04ed7">&#9670;&nbsp;</a></span>DrawCircle()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -127,8 +140,18 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CoreController</b></
           <td class="memname">void SFMLController::DrawCircle </td>
           <td>(</td>
           <td class="paramtype">CircleShape &amp;&#160;</td>
-          <td class="paramname"><em>circle</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>circle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isUi</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -137,6 +160,70 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CoreController</b></
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">circle</td><td>Circle to draw </td></tr>
+    <tr><td class="paramname">isUi</td><td>UI Flag, will not resize circle if is UI </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9345fca6e30ecbf46506c2ecd13b38a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9345fca6e30ecbf46506c2ecd13b38a9">&#9670;&nbsp;</a></span>DrawRect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SFMLController::DrawRect </td>
+          <td>(</td>
+          <td class="paramtype">RectangleShape &amp;&#160;</td>
+          <td class="paramname"><em>rectangle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isUi</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws a rectangle to the window. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rectangle</td><td>Rectangel to draw to screen </td></tr>
+    <tr><td class="paramname">isUi</td><td>UI Flag, will not resize rect if is UI </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a74a7fd7ffe3d9e2633efe6dc154dd236"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74a7fd7ffe3d9e2633efe6dc154dd236">&#9670;&nbsp;</a></span>DrawString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SFMLController::DrawString </td>
+          <td>(</td>
+          <td class="paramtype">Text &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws a string to the window. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Text to draw to screen </td></tr>
   </table>
   </dd>
 </dl>

@@ -109,10 +109,104 @@ sf::CircleShape &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetS
 <tr class="memitem:ac678bf292e6907a0c2d957d12838f3b7"><td class="memItemLeft" align="right" valign="top"><a id="ac678bf292e6907a0c2d957d12838f3b7"></a>
 const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Coords</b> () const</td></tr>
 <tr class="separator:ac678bf292e6907a0c2d957d12838f3b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4a60151432bc7f824b2d111274ebfb8"><td class="memItemLeft" align="right" valign="top"><a id="ab4a60151432bc7f824b2d111274ebfb8"></a>
+<a class="el" href="class_base.html">Base</a> *const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetPlotType</b> () const</td></tr>
+<tr class="separator:ab4a60151432bc7f824b2d111274ebfb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a129b9cf13ab1ca337e9ccb5b31909e5d"><td class="memItemLeft" align="right" valign="top"><a id="a129b9cf13ab1ca337e9ccb5b31909e5d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>GetOccupantCount</b> () const</td></tr>
+<tr class="separator:a129b9cf13ab1ca337e9ccb5b31909e5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bf247eb2ea0392c3b6d00f7b6442255"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot.html#a4bf247eb2ea0392c3b6d00f7b6442255">Register</a> (<a class="el" href="class_base.html">Base</a> *base)</td></tr>
+<tr class="memdesc:a4bf247eb2ea0392c3b6d00f7b6442255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a plot type component to the plot. Update's color accordingly.  <a href="#a4bf247eb2ea0392c3b6d00f7b6442255">More...</a><br /></td></tr>
+<tr class="separator:a4bf247eb2ea0392c3b6d00f7b6442255"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae496cc99f91959a9afd7c0f538c22220"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot.html#ae496cc99f91959a9afd7c0f538c22220">Enter</a> (<a class="el" href="class_citizen.html">Citizen</a> *citizen)</td></tr>
+<tr class="memdesc:ae496cc99f91959a9afd7c0f538c22220"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles citizens entering plot.  <a href="#ae496cc99f91959a9afd7c0f538c22220">More...</a><br /></td></tr>
+<tr class="separator:ae496cc99f91959a9afd7c0f538c22220"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51161231a2b3d7fcc73fd89fde59c2c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot.html#a51161231a2b3d7fcc73fd89fde59c2c3">Leave</a> (<a class="el" href="class_citizen.html">Citizen</a> *citizen)</td></tr>
+<tr class="memdesc:a51161231a2b3d7fcc73fd89fde59c2c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles citizens leaving the plot.  <a href="#a51161231a2b3d7fcc73fd89fde59c2c3">More...</a><br /></td></tr>
+<tr class="separator:a51161231a2b3d7fcc73fd89fde59c2c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Container class for each city plot. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae496cc99f91959a9afd7c0f538c22220"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae496cc99f91959a9afd7c0f538c22220">&#9670;&nbsp;</a></span>Enter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Plot::Enter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_citizen.html">Citizen</a> *&#160;</td>
+          <td class="paramname"><em>citizen</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles citizens entering plot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">citizen</td><td><a class="el" href="class_citizen.html">Citizen</a> that is entering </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a51161231a2b3d7fcc73fd89fde59c2c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51161231a2b3d7fcc73fd89fde59c2c3">&#9670;&nbsp;</a></span>Leave()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Plot::Leave </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_citizen.html">Citizen</a> *&#160;</td>
+          <td class="paramname"><em>citizen</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles citizens leaving the plot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">citizen</td><td><a class="el" href="class_citizen.html">Citizen</a> that is leaving </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4bf247eb2ea0392c3b6d00f7b6442255"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bf247eb2ea0392c3b6d00f7b6442255">&#9670;&nbsp;</a></span>Register()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Plot::Register </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_base.html">Base</a> *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a plot type component to the plot. Update's color accordingly. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>Type of plot to be registered as </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>Systems/Plot/<a class="el" href="_plot_8h_source.html">Plot.h</a></li>
 <li>Systems/Plot/Plot.cpp</li>
 </ul>

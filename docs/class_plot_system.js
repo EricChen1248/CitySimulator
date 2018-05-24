@@ -2,7 +2,7 @@ var class_plot_system =
 [
     [ "PlotSystem", "class_plot_system.html#a2d3cebe98af2a132224571f0fe06c13a", null ],
     [ "~PlotSystem", "class_plot_system.html#a080d70b75079bec67e47dff9b554e5b8", null ],
-    [ "FindPlot", "class_plot_system.html#a0713ec66dbe43aede10813cf60f2025e", null ],
-    [ "Render", "class_plot_system.html#a1576af22f1b464d001675d25ed68ba73", null ],
-    [ "plots", "class_plot_system.html#a92146bad6dff2d566190685aa98d5589", null ]
+    [ "FindPlot", "class_plot_system.html#a1487fdbe3c7d55f340bafc8e4e8dc5f7", null ],
+    [ "GetRandomPlot", "class_plot_system.html#acb5541d727480cdd0f40c060488b4bc2", null ],
+    [ "Render", "class_plot_system.html#a0b3c5d0df252995318e1e6fc7ba356b8", null ]
 ];

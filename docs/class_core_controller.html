@@ -94,29 +94,39 @@ $(document).ready(function(){initNavTree('class_core_controller.html','');});
 <div class="title">CoreController Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Acts as the core of the game, initializing all systems, handles events, and calls the corresponding methods on each loop.  
- <a href="class_core_controller.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="_core_controller_8h_source.html">CoreController.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab79a09cb803b573ea25988f1f49782c0"><td class="memItemLeft" align="right" valign="top"><a id="ab79a09cb803b573ea25988f1f49782c0"></a>
-<a class="el" href="class_s_f_m_l_controller.html">SFMLController</a> *const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>SfmlController</b> () const</td></tr>
-<tr class="separator:ab79a09cb803b573ea25988f1f49782c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a266ed6befc0a5058ba2dae013ac159e2"><td class="memItemLeft" align="right" valign="top"><a id="a266ed6befc0a5058ba2dae013ac159e2"></a>
-<a class="el" href="class_view_port_controller.html">ViewPortController</a> *const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetViewportController</b> () const</td></tr>
-<tr class="separator:a266ed6befc0a5058ba2dae013ac159e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55142a56d6f5f326bc0bc7934689980a"><td class="memItemLeft" align="right" valign="top"><a id="a55142a56d6f5f326bc0bc7934689980a"></a>
-<a class="el" href="class_plot_system.html">PlotSystem</a> *const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetPlotSystem</b> () const</td></tr>
-<tr class="separator:a55142a56d6f5f326bc0bc7934689980a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6052163420fa52eb91e3d786be9e4e6"><td class="memItemLeft" align="right" valign="top"><a id="af6052163420fa52eb91e3d786be9e4e6"></a>
+<a class="el" href="class_s_f_m_l_controller.html">SFMLController</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>SfmlController</b> () const</td></tr>
+<tr class="separator:af6052163420fa52eb91e3d786be9e4e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02037f9cf5fd7644495a9f812308bad4"><td class="memItemLeft" align="right" valign="top"><a id="a02037f9cf5fd7644495a9f812308bad4"></a>
+<a class="el" href="class_view_port_controller.html">ViewPortController</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetViewportController</b> () const</td></tr>
+<tr class="separator:a02037f9cf5fd7644495a9f812308bad4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76622dc2afab0feeae34adb9aa4982b4"><td class="memItemLeft" align="right" valign="top"><a id="a76622dc2afab0feeae34adb9aa4982b4"></a>
+<a class="el" href="class_system_controller.html">SystemController</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetSystemController</b> () const</td></tr>
+<tr class="separator:a76622dc2afab0feeae34adb9aa4982b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35334f31eca98e02bba0cd72ead93232"><td class="memItemLeft" align="right" valign="top"><a id="a35334f31eca98e02bba0cd72ead93232"></a>
+<a class="el" href="class_font_controller.html">FontController</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetFontController</b> () const</td></tr>
+<tr class="separator:a35334f31eca98e02bba0cd72ead93232"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadf6aa02f6f68533f94d165cb17a66d8"><td class="memItemLeft" align="right" valign="top"><a id="aadf6aa02f6f68533f94d165cb17a66d8"></a>
+<a class="el" href="class_u_i_controller.html">UIController</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetUIController</b> () const</td></tr>
+<tr class="separator:aadf6aa02f6f68533f94d165cb17a66d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67c980cc94b7c272cd15152fe1f6f3b6"><td class="memItemLeft" align="right" valign="top"><a id="a67c980cc94b7c272cd15152fe1f6f3b6"></a>
+const <a class="el" href="structhelper_1_1_time.html">helper::Time</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetTime</b> () const</td></tr>
+<tr class="separator:a67c980cc94b7c272cd15152fe1f6f3b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eece93ec8a141fd3640ccd2db3091bf"><td class="memItemLeft" align="right" valign="top"><a id="a2eece93ec8a141fd3640ccd2db3091bf"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>GetDeltaTime</b> () const</td></tr>
+<tr class="separator:a2eece93ec8a141fd3640ccd2db3091bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71d5ded65f302df5d5a1e6c32ba53401"><td class="memItemLeft" align="right" valign="top"><a id="a71d5ded65f302df5d5a1e6c32ba53401"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsRunning</b> () const</td></tr>
 <tr class="separator:a71d5ded65f302df5d5a1e6c32ba53401"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3a0069d94ae4222abe5bef888352db8"><td class="memItemLeft" align="right" valign="top"><a id="ab3a0069d94ae4222abe5bef888352db8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Start</b> () const</td></tr>
-<tr class="separator:ab3a0069d94ae4222abe5bef888352db8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c79152bf136634d5708b20ccc2f498a"><td class="memItemLeft" align="right" valign="top"><a id="a3c79152bf136634d5708b20ccc2f498a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Start</b> ()</td></tr>
+<tr class="separator:a3c79152bf136634d5708b20ccc2f498a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0b7fd95af3ee62dcaee016c3a71c8b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_controller.html#ae0b7fd95af3ee62dcaee016c3a71c8b9">RunDayLoop</a> (Clock &amp;clock)</td></tr>
+<tr class="memdesc:ae0b7fd95af3ee62dcaee016c3a71c8b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Game loop of each day.  <a href="#ae0b7fd95af3ee62dcaee016c3a71c8b9">More...</a><br /></td></tr>
+<tr class="separator:ae0b7fd95af3ee62dcaee016c3a71c8b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2202d857a3802ebac5d6997f04716c1"><td class="memItemLeft" align="right" valign="top"><a id="aa2202d857a3802ebac5d6997f04716c1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_controller.html#aa2202d857a3802ebac5d6997f04716c1">RenderEvents</a> () const</td></tr>
 <tr class="memdesc:aa2202d857a3802ebac5d6997f04716c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the different render events. <br /></td></tr>
@@ -127,6 +137,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ab140d9db94081ab3245b4a45ba3d872d"><td class="memItemLeft" align="right" valign="top"><a id="ab140d9db94081ab3245b4a45ba3d872d"></a>
 static <a class="el" href="class_core_controller.html">CoreController</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Instance</b> ()</td></tr>
 <tr class="separator:ab140d9db94081ab3245b4a45ba3d872d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7478a040f5a4eb628cc6fed109b7c30"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_controller.html#ae7478a040f5a4eb628cc6fed109b7c30">RandomInt</a> (int bottom, int top)</td></tr>
+<tr class="memdesc:ae7478a040f5a4eb628cc6fed109b7c30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a psuedorandom number with given ranges.  <a href="#ae7478a040f5a4eb628cc6fed109b7c30">More...</a><br /></td></tr>
+<tr class="separator:ae7478a040f5a4eb628cc6fed109b7c30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -134,9 +147,80 @@ Friends</h2></td></tr>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>ViewPortController</b></td></tr>
 <tr class="separator:a9aea779702fc16cc523a3cbffa948008"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Acts as the core of the game, initializing all systems, handles events, and calls the corresponding methods on each loop. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae7478a040f5a4eb628cc6fed109b7c30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7478a040f5a4eb628cc6fed109b7c30">&#9670;&nbsp;</a></span>RandomInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CoreController::RandomInt </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bottom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>top</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates a psuedorandom number with given ranges. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bottom</td><td>Lower bound of random number set </td></tr>
+    <tr><td class="paramname">top</td><td>Upper bound of random number set </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Random number between lower and upper bound </dd></dl>
+
+</div>
+</div>
+<a id="ae0b7fd95af3ee62dcaee016c3a71c8b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0b7fd95af3ee62dcaee016c3a71c8b9">&#9670;&nbsp;</a></span>RunDayLoop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CoreController::RunDayLoop </td>
+          <td>(</td>
+          <td class="paramtype">Clock &amp;&#160;</td>
+          <td class="paramname"><em>clock</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Game loop of each day. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clock</td><td>Reference to game clock </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>Controllers/<a class="el" href="_core_controller_8h_source.html">CoreController.h</a></li>
 <li>Controllers/CoreController.cpp</li>
 </ul>

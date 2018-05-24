@@ -92,44 +92,115 @@ $(document).ready(function(){initNavTree('class_citizen.html','');});
 <div class="title">Citizen Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>The central entity of our game/simulation.  
- <a href="class_citizen.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="_citizen_8h_source.html">Citizen.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ada6e6c21850aff2e2d3689f4b75b05a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_citizen.html#ada6e6c21850aff2e2d3689f4b75b05a6">Update</a> (float deltaTime)</td></tr>
-<tr class="memdesc:ada6e6c21850aff2e2d3689f4b75b05a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles all update events of the citizen.  <a href="#ada6e6c21850aff2e2d3689f4b75b05a6">More...</a><br /></td></tr>
-<tr class="separator:ada6e6c21850aff2e2d3689f4b75b05a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae36dd3a1d37a22e614477839dc22ba75"><td class="memItemLeft" align="right" valign="top"><a id="ae36dd3a1d37a22e614477839dc22ba75"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Citizen</b> (<a class="el" href="class_plot.html">Plot</a> *plot)</td></tr>
+<tr class="separator:ae36dd3a1d37a22e614477839dc22ba75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8512660f3a25ecc7a2745478cff144c"><td class="memItemLeft" align="right" valign="top"><a id="ae8512660f3a25ecc7a2745478cff144c"></a>
 sf::CircleShape &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetShape</b> ()</td></tr>
 <tr class="separator:ae8512660f3a25ecc7a2745478cff144c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16e76102985ff3b64986a88033bfab8a"><td class="memItemLeft" align="right" valign="top"><a id="a16e76102985ff3b64986a88033bfab8a"></a>
+const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Coords</b> () const</td></tr>
+<tr class="separator:a16e76102985ff3b64986a88033bfab8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fba9f206107a6a9a785aa580768c184"><td class="memItemLeft" align="right" valign="top"><a id="a9fba9f206107a6a9a785aa580768c184"></a>
+const int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetMoney</b> () const</td></tr>
+<tr class="separator:a9fba9f206107a6a9a785aa580768c184"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a586c4bbfe8a8568cc38be0b39a120dae"><td class="memItemLeft" align="right" valign="top"><a id="a586c4bbfe8a8568cc38be0b39a120dae"></a>
+const bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>InPlot</b> () const</td></tr>
+<tr class="separator:a586c4bbfe8a8568cc38be0b39a120dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89a29ba0087c5c44c779adbddd65e1c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_citizen.html#a89a29ba0087c5c44c779adbddd65e1c3">IncreaseMoney</a> (int m)</td></tr>
+<tr class="memdesc:a89a29ba0087c5c44c779adbddd65e1c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increases (decrease if negative) the amount of money of the citizen.  <a href="#a89a29ba0087c5c44c779adbddd65e1c3">More...</a><br /></td></tr>
+<tr class="separator:a89a29ba0087c5c44c779adbddd65e1c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a251136e0ac3175ce1d4fff3a51e254d9"><td class="memItemLeft" align="right" valign="top"><a id="a251136e0ac3175ce1d4fff3a51e254d9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetActiveRule</b> (<a class="el" href="class_base_rule.html">BaseRule</a> *rule)</td></tr>
+<tr class="separator:a251136e0ac3175ce1d4fff3a51e254d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39a985f9a040390fe6c6a4304197f8af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_citizen.html#a39a985f9a040390fe6c6a4304197f8af">SetTarget</a> (<a class="el" href="class_plot.html">Plot</a> *t)</td></tr>
+<tr class="memdesc:a39a985f9a040390fe6c6a4304197f8af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the citizen to target a plot.  <a href="#a39a985f9a040390fe6c6a4304197f8af">More...</a><br /></td></tr>
+<tr class="separator:a39a985f9a040390fe6c6a4304197f8af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf5e03bbdece1c022e91812487ebec21"><td class="memItemLeft" align="right" valign="top"><a id="acf5e03bbdece1c022e91812487ebec21"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_citizen.html#acf5e03bbdece1c022e91812487ebec21">Update</a> ()</td></tr>
+<tr class="memdesc:acf5e03bbdece1c022e91812487ebec21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles all update events of the citizen. <br /></td></tr>
+<tr class="separator:acf5e03bbdece1c022e91812487ebec21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c216a3a1c4b654aae5f2d82bd26f4ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_citizen.html#a3c216a3a1c4b654aae5f2d82bd26f4ec">Wait</a> (float time)</td></tr>
+<tr class="memdesc:a3c216a3a1c4b654aae5f2d82bd26f4ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a time for the citizen to wait in the plot. 1 = ??? ingame minutes.  <a href="#a3c216a3a1c4b654aae5f2d82bd26f4ec">More...</a><br /></td></tr>
+<tr class="separator:a3c216a3a1c4b654aae5f2d82bd26f4ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The central entity of our game/simulation. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ada6e6c21850aff2e2d3689f4b75b05a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada6e6c21850aff2e2d3689f4b75b05a6">&#9670;&nbsp;</a></span>Update()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a89a29ba0087c5c44c779adbddd65e1c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89a29ba0087c5c44c779adbddd65e1c3">&#9670;&nbsp;</a></span>IncreaseMoney()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Citizen::Update </td>
+          <td class="memname">bool Citizen::IncreaseMoney </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Handles all update events of the citizen. </p>
+<p>Increases (decrease if negative) the amount of money of the citizen. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">deltaTime</td><td>Time since last update </td></tr>
+    <tr><td class="paramname">m</td><td>Amount of money to increase by (give negative to reduce) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if transaction is doable (money is more than paid) </dd></dl>
+
+</div>
+</div>
+<a id="a39a985f9a040390fe6c6a4304197f8af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39a985f9a040390fe6c6a4304197f8af">&#9670;&nbsp;</a></span>SetTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Citizen::SetTarget </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_plot.html">Plot</a> *&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the citizen to target a plot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>Pointer to target plot </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3c216a3a1c4b654aae5f2d82bd26f4ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c216a3a1c4b654aae5f2d82bd26f4ec">&#9670;&nbsp;</a></span>Wait()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Citizen::Wait </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set a time for the citizen to wait in the plot. 1 = ??? ingame minutes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>Time to wait for </td></tr>
   </table>
   </dd>
 </dl>

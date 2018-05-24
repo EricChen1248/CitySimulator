@@ -9,5 +9,7 @@ var class_view_port_controller =
     [ "ResetMod", "class_view_port_controller.html#a97be9094e75ef545555df77835380e8a", null ],
     [ "Right", "class_view_port_controller.html#a40efcb76cfc3ca840f69d690a046414e", null ],
     [ "ToDrawCoord", "class_view_port_controller.html#a1e6735019edc9213acc158341b907aef", null ],
-    [ "Up", "class_view_port_controller.html#ae987123d97ff765e4ff019ab34809436", null ]
+    [ "Up", "class_view_port_controller.html#ae987123d97ff765e4ff019ab34809436", null ],
+    [ "UpdateGameView", "class_view_port_controller.html#a37d723bd267c7c71c5244aca7f83dd76", null ],
+    [ "UpdateUIView", "class_view_port_controller.html#a16efebf2293573614cd3181842b05894", null ]
 ];

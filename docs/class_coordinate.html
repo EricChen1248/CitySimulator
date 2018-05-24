@@ -113,7 +113,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a774cf5741fb9c3019519ae412da83294"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a possible list of neighbours of the coordinate.  <a href="#a774cf5741fb9c3019519ae412da83294">More...</a><br /></td></tr>
 <tr class="separator:a774cf5741fb9c3019519ae412da83294"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a829adda6c02b631f74c88447e7b4fd41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_coordinate.html">Coordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_coordinate.html#a829adda6c02b631f74c88447e7b4fd41">MoveTowards</a> (<a class="el" href="class_coordinate.html">Coordinate</a> other, float deltaTime) const</td></tr>
-<tr class="memdesc:a829adda6c02b631f74c88447e7b4fd41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splices a coordinate that is between the source and target based on last update time;.  <a href="#a829adda6c02b631f74c88447e7b4fd41">More...</a><br /></td></tr>
+<tr class="memdesc:a829adda6c02b631f74c88447e7b4fd41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splices a coordinate that is between the source and target based on prev update time;.  <a href="#a829adda6c02b631f74c88447e7b4fd41">More...</a><br /></td></tr>
 <tr class="separator:a829adda6c02b631f74c88447e7b4fd41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a803c20b0c173a04886ace0c4f6b14361"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_coordinate.html#a803c20b0c173a04886ace0c4f6b14361">operator==</a> (const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;other) const</td></tr>
 <tr class="memdesc:a803c20b0c173a04886ace0c4f6b14361"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if a coordinate is within 0.01f of another.  <a href="#a803c20b0c173a04886ace0c4f6b14361">More...</a><br /></td></tr>
@@ -195,11 +195,11 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Splices a coordinate that is between the source and target based on last update time;. </p>
+<p>Splices a coordinate that is between the source and target based on prev update time;. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dest</td><td>Destination coordinate to move towards </td></tr>
-    <tr><td class="paramname">deltaTime</td><td>Time since last update </td></tr>
+    <tr><td class="paramname">deltaTime</td><td>Time since prev update </td></tr>
   </table>
   </dd>
 </dl>

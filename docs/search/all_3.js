@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getneighbours',['GetNeighbours',['../class_coordinate.html#a774cf5741fb9c3019519ae412da83294',1,'Coordinate']]]
+  ['enter',['Enter',['../class_plot.html#ae496cc99f91959a9afd7c0f538c22220',1,'Plot']]]
 ];
