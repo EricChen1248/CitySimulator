@@ -10,9 +10,9 @@ class PlotSystem
 public:
     PlotSystem();
     ~PlotSystem();
-    void Render();
-    Plot* FindPlot(const Coordinate& coords);
-    Plot* GetRandomPlot();
+    void Render() const;
+    Plot* FindPlot(const Coordinate& coords) const;
+    Plot* GetRandomPlot() const;
     
     private:
     List<Plot*> plots;

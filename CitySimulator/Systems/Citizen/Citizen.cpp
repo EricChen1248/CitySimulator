@@ -105,7 +105,7 @@ void Citizen::Update()
 
 
 /**
- * \brief Set a time for the citizen to wait in the plot
+ * \brief Set a time for the citizen to wait in the plot. 1 = ??? ingame minutes
  * \param time Time to wait for
  */
 void Citizen::Wait(const float time)
@@ -118,6 +118,9 @@ CircleShape& Citizen::GetShape()
     return shape;
 }
 
+/**
+ * \brief Finds the next target for the citizen based on rules, or random if none is available
+ */
 void Citizen::FindNextTarget()
 {
     List<BaseRule*> skipRules;
@@ -173,6 +176,9 @@ void Citizen::FindNextTarget()
     
 }
 
+/**
+ * \brief Initializes citizen rules
+ */
 void Citizen::GenRules()
 {
     BaseRule* food = new FoodRule(*this);
@@ -180,6 +186,9 @@ void Citizen::GenRules()
    
 }
 
+/**
+ * \brief Finds a random target amongst neighbour plots
+ */
 void Citizen::FindRandomTarget()
 {
     const auto neighbours = coords.GetNeighbours();
@@ -191,6 +200,9 @@ void Citizen::FindRandomTarget()
     delete[] neighbours;
 }
 
+/**
+ * \brief Calls respective update events in rules
+ */
 void Citizen::UpdateRules() const
 {
     for (int i = 0; i < rules.Count(); ++i)

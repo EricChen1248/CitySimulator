@@ -5,6 +5,9 @@
 #include "../Systems/Base/BaseSystem.h"
 class PlotSystem;
 
+/**
+ * \brief Stores all systems and handles interfacing
+ */
 class SystemController
 {
 public:

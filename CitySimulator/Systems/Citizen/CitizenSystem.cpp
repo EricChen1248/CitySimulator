@@ -25,6 +25,9 @@ CitizenSystem::~CitizenSystem()
     citizens.Dispose();
 }
 
+/**
+ * \brief Calls update event of citizens
+ */
 void CitizenSystem::Update() const
 {
     for (int i = 0; i < citizenCount; ++i)
@@ -33,12 +36,17 @@ void CitizenSystem::Update() const
     }
 }
 
+/**
+ * \brief Renders citizens;
+ */
 void CitizenSystem::Render() const
 {
     for (int i = 0; i < citizenCount; ++i)
     {
         const auto citizen = citizens[i];
         auto & shape = citizen->GetShape();
+        
+        // If citizen is inside a plot, no need to draw them, only need to update size
         if (citizen->InPlot())
         {
             SFMLController::UpdateCircleSize(shape);

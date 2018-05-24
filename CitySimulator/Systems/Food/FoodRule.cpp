@@ -59,13 +59,29 @@ void FoodRule::EnterPlot(Plot* plot)
     food->Enter();
 }
 
+/**
+ * \brief Fills up the citizen's hunger on leaving
+ * \param plot Plot thats is being left. Redudant. Only for interface requirements
+ */
 void FoodRule::LeavePlot(Plot* plot)
 {
     hungerLevel = 100.f;
 }
 
+/**
+ * \brief Update events of food rule. Decreases citizen's hunger
+ */
 void FoodRule::Update()
 {
     // TODO : Tweak hunger to time ratio
     this->hungerLevel -= CoreController::Instance()->GetDeltaTime() * 30;
+}
+
+/**
+ * \brief Returns bool to tell if citizen is satisfied with it's food requirements
+ * \return True if hunger level is over 20
+ */
+bool FoodRule::IsSatisfied()
+{
+    return hungerLevel > 20;
 }

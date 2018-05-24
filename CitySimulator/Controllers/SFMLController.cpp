@@ -58,8 +58,9 @@ void SFMLController::ClearRender() const
 /**
  * \brief Interface for drawing a circle to the RenderWindow
  * \param circle Circle to draw
+ * \param isUi UI Flag, will not resize circle if is UI
  */
-void SFMLController::DrawCircle(CircleShape& circle, bool isUi) const
+void SFMLController::DrawCircle(CircleShape& circle, const bool isUi) const
 {
     if (!isUi)
     {
@@ -69,6 +70,11 @@ void SFMLController::DrawCircle(CircleShape& circle, bool isUi) const
     window->draw(circle);
 }
 
+/**
+ * \brief Draws a rectangle to the window
+ * \param rectangle Rectangel to draw to screen
+ * \param isUi UI Flag, will not resize rect if is UI
+ */
 void SFMLController::DrawRect(RectangleShape& rectangle, const bool isUi) const
 {
     if (!isUi)
@@ -83,6 +89,10 @@ void SFMLController::DrawRect(RectangleShape& rectangle, const bool isUi) const
     window->draw(rectangle);
 }
 
+/**
+ * \brief Draws a string to the window
+ * \param text Text to draw to screen
+ */
 void SFMLController::DrawString(Text& text) const
 {
     window->draw(text);
@@ -98,7 +108,7 @@ void SFMLController::UpdateWindow() const
 }
 
 /**
- * \brief Initializes the SDL
+ * \brief Initializes the SFML
  */
 void SFMLController::InitSFML() 
 {

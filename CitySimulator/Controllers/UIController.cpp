@@ -4,7 +4,6 @@
 
 UIController::UIController()
 {
-    
     timeText.setFont(CoreController::Instance()->GetFontController()->Monofur());
     timeText.setFillColor(Color::Black);
     timeText.setCharacterSize(24);
@@ -21,14 +20,19 @@ UIController::UIController()
 
 
 UIController::~UIController()
-{
-}
+= default;
 
+/**
+ * \brief Renders UI
+ */
 void UIController::RenderUI()
 {
     Time();
 }
 
+/**
+ * \brief Game Clock 
+ */
 void UIController::Time()
 {
     timeText.setString(CoreController::Instance()->GetTime().ToShortString());

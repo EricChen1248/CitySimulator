@@ -33,7 +33,11 @@ PlotSystem::~PlotSystem()
     plots.Dispose();
 };
 
-void PlotSystem::Render()
+
+/**
+ * \brief Renders all the plots
+ */
+void PlotSystem::Render() const
 {
     for (int i = 0; i < plots.Count(); ++i)
     {
@@ -48,7 +52,7 @@ void PlotSystem::Render()
  * \param coords Coordinates of the plot to find
  * \return Returns the plot if found, or nullptr if not
  */
-Plot* PlotSystem::FindPlot(const Coordinate& coords)
+Plot* PlotSystem::FindPlot(const Coordinate& coords) const
 {
     for (int i = 0; i < plots.Count(); ++i)
     {
@@ -60,7 +64,11 @@ Plot* PlotSystem::FindPlot(const Coordinate& coords)
     return nullptr;
 }
 
-Plot* PlotSystem::GetRandomPlot()
+/**
+ * \brief Gets a random plot for the system
+ * \return Random Plot
+ */
+Plot* PlotSystem::GetRandomPlot() const
 {
     const int rand = CoreController::RandomInt(0, plots.Count());
     return plots[rand];

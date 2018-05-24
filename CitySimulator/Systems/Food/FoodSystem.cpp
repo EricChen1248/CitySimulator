@@ -12,14 +12,24 @@ FoodSystem::FoodSystem() : BaseSystem(FOOD)
 
 
 FoodSystem::~FoodSystem()
-= default;
+{
+    satisfiedLog.Dispose();
+    unsatisfiedLog.Dispose();
+}
 
+/**
+ * \brief Registers a new food plot in the system
+ * \param plot Plot to be registered
+ */
 void FoodSystem::Register(Plot* plot)
 {
     (*plot).Register(new Food(plot));
     BaseSystem::Register(plot);
 }
 
+/**
+ * \brief Updates food system. Tally scores for food pltos
+ */
 void FoodSystem::Update()
 {
     for (int i = 0; i < plots.Count(); ++i)
@@ -34,6 +44,11 @@ void FoodSystem::Update()
     }
 }
 
+/**
+ * \brief Logs a citizen being satisified with a food
+ * \param citizen Citzen being logged
+ * \param rule Rule being logged
+ */
 void FoodSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
 {
     // Dynamic cast rule to create a snapshot copy 
@@ -41,6 +56,12 @@ void FoodSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
     satisfiedLog.InsertLast(log);
 }
 
+
+/**
+ * \brief Logs a citizen being unsatisified with a food
+ * \param citizen Citzen being logged
+ * \param rule Rule being logged
+ */
 void FoodSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
 {
     // Dynamic cast rule to create a snapshot copy 
@@ -48,10 +69,16 @@ void FoodSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
     unsatisfiedLog.InsertLast(log);
 }
 
+
+/**
+ * \brief Resets the day (clears log & resets plots)
+ */
 void FoodSystem::ResetDay()
 {
     for (int i = 0; i < plots.Count(); ++i)
     {
         plots[i]->GetPlotType()->Reset();
     }
+    unsatisfiedLog.Dispose();
+    satisfiedLog.Dispose();
 }

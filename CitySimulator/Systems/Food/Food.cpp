@@ -8,11 +8,18 @@ Food::Food(Plot* plot) : Base(plot, FOOD)
     color = sf::Color::Magenta;
 }
 
+/**
+ * \brief Reset's Food Plot (earnings to 0)
+ */
 void Food::Reset()
 {
     earnings = 0;
 }
 
+
+/**
+ * \brief New entry ( +earnings )
+ */
 void Food::Enter()
 {
     earnings += cost;

@@ -9,6 +9,9 @@ SystemController::~SystemController()
     
 }
 
+/**
+ * \brief Late Initialization of system controller so all pointers are in place
+ */
 void SystemController::Initialize()
 {
     plots = new PlotSystem;
@@ -35,6 +38,9 @@ void SystemController::Initialize()
     }
 }
 
+/**
+ * \brief Calls update function of each system
+ */
 void SystemController::Update() const
 {
     citizens->Update();
@@ -44,12 +50,20 @@ void SystemController::Update() const
     }
 }
 
+/**
+ * \brief Calls render functions of citizens and plots
+ */
 void SystemController::Render() const
 {
     citizens->Render();
     plots->Render();
 }
 
+/**
+ * \brief Gets the system based on system enum type
+ * \param system System Type Enum of requested system
+ * \return The requested system
+ */
 BaseSystem* SystemController::GetSystem(const System system) const
 {
     for (int i = 0; i < systems.Count(); ++i)

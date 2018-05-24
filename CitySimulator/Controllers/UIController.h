@@ -1,5 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+
+/**
+ * \brief Handles all UI rendering and initialization in game
+ */
 class UIController
 {
 public:
