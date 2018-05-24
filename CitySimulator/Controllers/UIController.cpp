@@ -32,6 +32,6 @@ void UIController::RenderUI()
 void UIController::Time()
 {
     timeText.setString(CoreController::Instance()->GetTime().ToShortString());
-    CoreController::Instance()->SfmlController()->DrawRect(timeRect);
+    CoreController::Instance()->SfmlController()->DrawRect(timeRect, true);
     CoreController::Instance()->SfmlController()->DrawString(timeText);
 }
