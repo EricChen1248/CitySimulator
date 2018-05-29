@@ -13,10 +13,15 @@ namespace helper
     
         Time(const int h = 0, const int m = 0) : Hour(h), Minute(m), Micro(0) {};
     
+        
+        /**
+         * \brief 
+         * \param deltaTime Time to increase by
+         */
         void IncreaseTime(const float deltaTime)
         {
             // TODO : adjust deltaTime to time diff
-            Micro += static_cast<int>(deltaTime * 8000);
+            Micro += static_cast<int>(deltaTime * 24000);
             while (Micro >= 100)
             {
                 ++Minute;
