@@ -63,6 +63,11 @@ bool Coordinate::operator==(const Coordinate& other) const
     return abs(x - other.x) + abs(y - other.y) + abs(z - other.z) < 0.1f;
 }
 
+bool Coordinate::operator!=(const Coordinate& other) const
+{
+    return !(*this == other);
+}
+
 /**
  * \brief Calculates and returns the manhattan distance between two coordinates
  * \param coords Other coordinate to compare to

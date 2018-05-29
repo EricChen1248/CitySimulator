@@ -1,22 +1,16 @@
 #include "PlotSystem.h"
+#include "../../Helpers/Constants.h"
 #include "../../Controllers/CoreController.h"
 
 
 PlotSystem::PlotSystem()
 {
-    int left = -20;
-    int right = 21;
     
-#ifdef _DEBUG
-    left = -15;
-    right = 16;
-#endif
-    
-    for (int i = left; i < right; ++i)
+    for (int i = LEFT; i < RIGHT; ++i)
     {
-        for (int j = left; j < right; ++j)
+        for (int j = LEFT; j < RIGHT; ++j)
         {
-            for (int k = left; k < right; ++k)
+            for (int k = LEFT; k < RIGHT; ++k)
             {
                 if (i + j + k == 0)
                 {

@@ -1,9 +1,10 @@
 #pragma once
-#include "../../Helpers/Coordinate.h"
 #include <SFML/Graphics/CircleShape.hpp>
-#include "../Plot/Plot.h"
-#include "../../Collections/List.h"
 #include "../Base/BaseRule.h"
+#include "../Plot/Plot.h"
+#include "../../Helpers/Coordinate.h"
+#include "../../Collections/List.h"
+#include "../../Collections/Stack.h"
 
 /**
  * \brief The central entity of our game/simulation
@@ -34,9 +35,11 @@ private:
     void GenRules();
     void FindRandomTarget();
     void UpdateRules() const;
+    void FindPath();
     
     // Collections
     List<BaseRule*> rules;
+    Stack<Coordinate>* path{};
     
     // Rule properties
     Plot* target;
@@ -44,6 +47,7 @@ private:
     BaseRule* activeRule;
     
     // Entity Properties
+    Coordinate tempTarget;
     Coordinate coords;
     float moveSpeed;
     int money;

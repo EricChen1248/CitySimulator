@@ -2,6 +2,7 @@
 #include "Citizen.h"
 #include "../../Controllers/CoreController.h"
 #include "../Food/FoodRule.h"
+#include "../../Helpers/PathFinder/PathFinder.h"
 
 
 Citizen::Citizen(Plot* plot) : target(nullptr), activeRule(nullptr), coords(plot->Coords()), money(0), waitTime(0.f), inPlot(false)
@@ -58,27 +59,34 @@ void Citizen::Update()
     // Citizen has a target
     if (target != nullptr)
     {
-        // Citizen has arrived at target
-        if (target->Coords() == coords)
+        // Citizen has arrived at tempTarget
+        if (tempTarget == coords)
         {
-            // Is wandering
-            if (activeRule != nullptr)
-            {   
-                // Trigger rule enter
-                activeRule->EnterPlot(target);
+            coords = tempTarget;
+            // Has arrived at final target
+            if (path->IsEmpty())
+            {
+                if (activeRule != nullptr)
+                {
+                    // Trigger rule enter
+                    activeRule->EnterPlot(target);
+                }
+                // Trigger Plot enter
+                target->Enter(this);
+                inPlot = true;
+                // Citizen is now in a plot and no longer has a target
+                currentPlot = target;
+                target = nullptr;
+                return;
             }
-            // Trigger Plot enter
-            target->Enter(this);
-            inPlot = true;
             
-            // Citizen is now in a plot and no longer has a target
-            currentPlot = target;
-            target = nullptr;
+            tempTarget = path->Pop();
             return;
         }
         
+        // TODO add road movement speed
         // Citizen is heading toward target
-        coords = coords.MoveTowards(target->Coords(), CoreController::Instance()->GetDeltaTime() * moveSpeed);
+        coords = coords.MoveTowards(tempTarget, CoreController::Instance()->GetDeltaTime() * moveSpeed);
         
         // Update coordinates;
         auto sCoords = coords.ToScreenCoordinates();
@@ -167,10 +175,15 @@ void Citizen::FindNextTarget()
         skipRules.InsertLast(rule);
     }
     while (rule != nullptr);
+    // No rule satisfiable
     if (rule == nullptr)
     {
         ++unsatisfiedCount;
         FindRandomTarget();
+    }
+    else
+    {
+        FindPath();
     }
     // TODO : Head Home
     
@@ -198,7 +211,10 @@ void Citizen::FindRandomTarget()
         target = CoreController::Instance()->GetSystemController()->Plots()->FindPlot(neighbours[rand() % 6]);
     } while (target == nullptr);
     delete[] neighbours;
+    FindPath();
 }
+
+
 
 /**
  * \brief Calls respective update events in rules
@@ -209,4 +225,11 @@ void Citizen::UpdateRules() const
     {
         rules[i]->Update();
     }
+}
+
+void Citizen::FindPath()
+{
+    delete path;
+    path = PathFinder::PathTo(coords, target->Coords());
+    tempTarget = path->Pop();
 }

@@ -9,7 +9,14 @@ class Node
 {
     template <typename ListType>
     friend  class List;
-private:
+    template <typename QueueType>
+    friend class Queue;
+    template <typename QueueType>
+    friend class PriorityQueue;
+    template <typename StackType>
+    friend class Stack;
+    
+protected:
     /**
      * \brief Creates a new node used in collections that stores an item part of a doubly linked list
      * \param item Item to store

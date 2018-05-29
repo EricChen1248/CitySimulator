@@ -133,6 +133,8 @@
     <ClCompile Include="Controllers\SystemController.cpp" />
     <ClCompile Include="Controllers\FontController.cpp" />
     <ClCompile Include="Log.cpp" />
+    <ClCompile Include="Helpers\PathFinder\PathFinder.cpp" />
+    <ClCompile Include="Helpers\PathFinder\PathFinderNode.cpp" />
     <ClCompile Include="Systems\Food\Food.cpp" />
     <ClCompile Include="Systems\Food\FoodRule.cpp" />
     <ClCompile Include="Systems\Food\FoodSystem.cpp" />
@@ -150,9 +152,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Assets\Fonts\Monofur.h" />
+    <ClInclude Include="Collections\PriorityNode.h" />
+    <ClInclude Include="Collections\PriorityQueue.h" />
+    <ClInclude Include="Collections\Stack.h" />
     <ClInclude Include="Controllers\SystemController.h" />
     <ClInclude Include="Controllers\FontController.h" />
     <ClInclude Include="Log.h" />
+    <ClInclude Include="Helpers\PathFinder\PathFinder.h" />
+    <ClInclude Include="Helpers\PathFinder\PathFinderNode.h" />
+    <ClInclude Include="Collections\Queue.h" />
     <ClInclude Include="Systems\Food\Food.h" />
     <ClInclude Include="Systems\Food\FoodRule.h" />
     <ClInclude Include="Systems\Food\FoodSystem.h" />

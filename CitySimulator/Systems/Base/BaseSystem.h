@@ -32,7 +32,7 @@ protected:
     List<Log*> satisfiedLog;
     List<Log*> unsatisfiedLog;
     
-    int score;
+    float score;
 };
 
 

@@ -1,6 +1,7 @@
 #include "CoreController.h"
 #include "ViewPortController.h"
 #include <iostream>
+#include "../Helpers/PathFinder/PathFinder.h"
 
 CoreController *CoreController::instance;
 
@@ -21,10 +22,18 @@ CoreController::CoreController()
     uiController = new UIController;
     
     systemController->Initialize();
-    
+    PathFinder::Initialize();
     srand(static_cast<unsigned>(std::time(nullptr)));
 };
-CoreController::~CoreController() = default;
+CoreController::~CoreController()
+{
+    delete sfmlController;
+    delete viewPortController;
+    delete systemController;
+    delete fontController;
+    delete uiController;
+    
+};
 
 void CoreController::Start()
 {
@@ -47,7 +56,7 @@ void CoreController::RunDayLoop(Clock& clock)
             const float fps = 1.f / (currentTime - lastTime);
             if (currentTime - lastPrint > 0.2)
             {
-                std::cout << deltaTime << std::endl;
+                std::cout << fps << std::endl;
                 
                 lastPrint = currentTime;
             }

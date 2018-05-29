@@ -7,7 +7,7 @@ ViewPortController::ViewPortController()
     viewY = 384;
     scrollSize = 1;
     modifier = 1;
-    gameView.setSize(viewX * 2, viewY * 2);
+    gameView.setSize(static_cast<float>(viewX * 2), static_cast<float>(viewY * 2));
     UpdateGameView();
 }
 
