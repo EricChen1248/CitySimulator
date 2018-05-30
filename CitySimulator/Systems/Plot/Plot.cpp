@@ -1,17 +1,18 @@
 #include "Plot.h"
 #include "../../Controllers/CoreController.h"
+#include "../../Helpers/Constants.h"
 
 
-Plot::Plot(const int x, const int y, const int z) : coords(x, y, z), size(10.f), shape(CircleShape(size)),
+Plot::Plot(const int x, const int y, const int z) : coords(x, y, z), size(10.f), shape(sf::CircleShape(size)),
                                                     currentType(nullptr)
 {
-    shape.setFillColor(Color(200, 200, 200));
+    shape.setFillColor(EMPTY_PLOT_COLOR);
     sCoords = coords.ToScreenCoordinates();
     sCoords.X -= size / 2;
     sCoords.Y -= size / 2;
 }
 
-CircleShape& Plot::GetShape()
+sf::CircleShape& Plot::GetShape()
 {
     const auto tCoords = CoreController::Instance()->GetViewportController()->ToDrawCoord(sCoords);
     shape.setPosition(tCoords.X, tCoords.Y);

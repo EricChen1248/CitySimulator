@@ -1,7 +1,9 @@
 #include "SFMLController.h"
 #include <iostream>
 #include "CoreController.h"
+#include "../Helpers/Constants.h"
 
+using namespace sf;
 
 /**
  * \brief  Gets the window of SDL controller
@@ -50,7 +52,7 @@ bool SFMLController::IsRunning() const
  */
 void SFMLController::ClearRender() const
 {
-    window->clear(Color::White);
+    window->clear(WHITE);
     
 }
 

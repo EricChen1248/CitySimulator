@@ -12,6 +12,7 @@
 
 class UIController;
 
+using sf::Clock;
 class CoreController
 {
     
@@ -36,7 +37,7 @@ public:
     // Exposed Methods
     void Start();
     void RunDayLoop(Clock& clock);
-    void RenderEvents() const;
+    void GameRenderEvents() const;
     static int RandomInt(int bottom, int top);
 private:
     static CoreController* instance;
@@ -51,10 +52,14 @@ private:
     bool isRunning;
     
     void Update();
-    void GameUpdateEvents() const;
-    void HandleEvents() const;
+    // Common Functions
     void ClearRender() const;    
     void PresentRender() const;
+    // Game Functions
+    void GameUpdateEvents() const;
+    void GameInputEvents() const;
+    // Interday Functions
+    void InterdayInputEvents() const;
 };
 
 

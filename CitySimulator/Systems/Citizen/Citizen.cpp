@@ -1,15 +1,15 @@
 #include <cstdlib>
 #include "Citizen.h"
-#include "../../Controllers/CoreController.h"
 #include "../Food/FoodRule.h"
+#include "../../Controllers/CoreController.h"
 #include "../../Helpers/PathFinder/PathFinder.h"
 
 
 Citizen::Citizen(Plot* plot) : target(nullptr), activeRule(nullptr), coords(plot->Coords()), money(0), waitTime(0.f), inPlot(false)
 {
     moveSpeed = 1 + static_cast<float>(CoreController::RandomInt(0, 40) - 20) / 100;
-    shape = CircleShape(5);
-    shape.setFillColor(Color::Blue);
+    shape = sf::CircleShape(5);
+    shape.setFillColor(BLUE);
     currentPlot = plot;
     
     GenRules();
@@ -121,7 +121,7 @@ void Citizen::Wait(const float time)
     waitTime = time;
 }
 
-CircleShape& Citizen::GetShape()
+sf::CircleShape& Citizen::GetShape()
 {
     return shape;
 }

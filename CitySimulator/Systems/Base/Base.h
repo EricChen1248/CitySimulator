@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "../SystemEnum.h"
+#include "../../Helpers/Constants.h"
 class Plot;
 class Base
 {
@@ -11,7 +12,7 @@ public:
     Base(Plot* plot, const System system): SystemType(system)
     {
         this->plot = plot;
-        color = sf::Color::Black;
+        color = BLACK;
     }
 
     virtual ~Base() = default;

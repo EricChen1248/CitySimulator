@@ -5,6 +5,9 @@
 
 CoreController *CoreController::instance;
 
+using sf::Event;
+using sf::Window;
+using sf::Keyboard;
 
 bool CoreController::IsRunning() const
 {
@@ -66,22 +69,23 @@ void CoreController::RunDayLoop(Clock& clock)
             time.IncreaseTime(deltaTime);
             lastTime = currentTime;
             
-            HandleEvents();
+            GameInputEvents();
             GameUpdateEvents();
-            RenderEvents();
+            GameRenderEvents();
             PresentRender();
             viewPortController->ResetMod();
         }
         while(true)
         {
-            RenderEvents();
-        
+            GameInputEvents();
+            GameRenderEvents();        
             PresentRender();
             
         }
     }
 }
 
+#pragma region Common Functions
 /**
  * \brief Core loop of the game
  */
@@ -100,6 +104,26 @@ void CoreController::Update()
 }
 
 /**
+ * \brief Update the render buffer
+ */
+void CoreController::PresentRender() const
+{
+    sfmlController->UpdateWindow();
+}
+
+/**
+ * \brief Calls on SFML controller to clear the screen
+ */
+void CoreController::ClearRender() const
+{
+    sfmlController->ClearRender();
+}
+
+#pragma endregion
+
+#pragma region Game Functions
+
+/**
  * \brief Handles update event of games
  */
 void CoreController::GameUpdateEvents() const
@@ -110,7 +134,7 @@ void CoreController::GameUpdateEvents() const
 /**
  * \brief Handles SFML events
  */
-void CoreController::HandleEvents() const
+void CoreController::GameInputEvents() const
 {
     Event event{};
     Window* window = sfmlController->Window();
@@ -155,18 +179,56 @@ void CoreController::HandleEvents() const
 
 }
 
-/**
- * \brief Calls on SFML controller to clear the screen
- */
-void CoreController::ClearRender() const
+void CoreController::InterdayInputEvents() const
 {
-    sfmlController->ClearRender();
+    Event event{};
+    Window* window = sfmlController->Window();
+    while (window->pollEvent(event))
+    {
+        // "close requested" event: we close the window
+        switch (event.type)
+        {
+        case Event::Closed:
+            window->close();
+            break;
+        case Event::Resized: break;
+        case Event::TextEntered: break;
+        case Event::MouseWheelMoved: break;
+        case Event::MouseWheelScrolled:
+            viewPortController->HandleScroll(event);
+            break;
+        case Event::MouseButtonPressed: break;
+        case Event::MouseButtonReleased: break;
+        case Event::MouseMoved: break;
+        case Event::MouseEntered: break;
+        case Event::MouseLeft: break;
+        default: ;
+        }        
+    }
+    if (sf::Keyboard::isKeyPressed(Keyboard::A))
+    {
+        viewPortController->Right();
+    }
+    if (sf::Keyboard::isKeyPressed(Keyboard::D))
+    {
+        viewPortController->Left();
+    }
+    if (sf::Keyboard::isKeyPressed(Keyboard::W))
+    {
+        viewPortController->Down();
+    }
+    if (sf::Keyboard::isKeyPressed(Keyboard::S))
+    {
+        viewPortController->Up();
+    }
+
 }
+
 
 /**
  * \brief Calls the different render events
  */
-void CoreController::RenderEvents() const
+void CoreController::GameRenderEvents() const
 {
     ClearRender();
     viewPortController->UpdateGameView();
@@ -174,6 +236,14 @@ void CoreController::RenderEvents() const
     viewPortController->UpdateUIView();
     uiController -> RenderUI();
 }
+
+#pragma endregion 
+
+#pragma region Interday Functions
+
+#pragma endregion
+
+#pragma region Helper Functions
 
 /**
  * \brief Generates a psuedorandom number with given ranges
@@ -186,12 +256,5 @@ int CoreController::RandomInt(const int bottom, const int top)
     return rand() % (top - bottom) + bottom;
 }
 
-
-/**
- * \brief Update the render buffer
- */
-void CoreController::PresentRender() const
-{
-    sfmlController->UpdateWindow();
-}
+#pragma endregion 
 

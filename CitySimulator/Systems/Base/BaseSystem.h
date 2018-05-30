@@ -12,7 +12,7 @@ public:
     BaseSystem(const System system) : SystemType(system), score(0) {};
 
     const List<Plot*>& Plots() const { return plots; }
-    int GetScore() const { return score; }
+    float GetScore() const { return score; }
     List<Log*> SatisfiedLog() const { return satisfiedLog; }
     List<Log*> UnsatisfiedLog() const { return unsatisfiedLog; }
     virtual ~BaseSystem() = default;

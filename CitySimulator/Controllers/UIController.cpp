@@ -1,18 +1,19 @@
 #include "UIController.h"
 #include "CoreController.h"
+#include "../Helpers/Constants.h"
 
 
 UIController::UIController()
 {
     timeText.setFont(CoreController::Instance()->GetFontController()->Monofur());
-    timeText.setFillColor(Color::Black);
+    timeText.setFillColor(BLACK);
     timeText.setCharacterSize(24);
     timeText.setPosition(5, 2);
     
-    timeRect.setSize(Vector2f(70, 32));
+    timeRect.setSize(sf::Vector2f(70, 32));
     timeRect.setPosition(1,1);
-    timeRect.setFillColor(Color::White);
-    timeRect.setOutlineColor(Color::Black);
+    timeRect.setFillColor(WHITE);
+    timeRect.setOutlineColor(BLACK);
     timeRect.setOutlineThickness(2);
 }
 

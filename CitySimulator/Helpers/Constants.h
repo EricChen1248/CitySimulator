@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 
 const float PI = 3.1415926f;
 const float COS60 = 0.5f;
@@ -6,6 +7,13 @@ const float COS30 = 0.86602f;
 const float SIN60 = 0.86602f;
 const float SIN30 = 0.5f;
 
+
+const sf::Color BLACK = sf::Color::Black;
+const sf::Color WHITE = sf::Color::White;
+const sf::Color BLUE = sf::Color::Blue;
+
+const sf::Color EMPTY_PLOT_COLOR = sf::Color(200, 200, 200);
+const sf::Color FOOD_COLOR = sf::Color::Magenta;
     
 #ifdef _DEBUG
     const int LEFT = -15;

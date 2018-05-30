@@ -7,7 +7,6 @@
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 
-using namespace sf;
 /**
  * \brief Handles all the interfacing with SFML
  */
@@ -15,12 +14,12 @@ class SFMLController
 {
 friend class CoreController;
 public:
-    RenderWindow* const& Window() const;
+    sf::RenderWindow* const& Window() const;
 
-    static void UpdateCircleSize(CircleShape& circle);
-    void DrawCircle(CircleShape& circle, bool isUi = false) const;
-    void DrawRect(RectangleShape& rectangle, bool isUi = false) const;
-    void DrawString(Text& text) const;
+    static void UpdateCircleSize(sf::CircleShape& circle);
+    void DrawCircle(sf::CircleShape& circle, bool isUi = false) const;
+    void DrawRect(sf::RectangleShape& rectangle, bool isUi = false) const;
+    void DrawString(sf::Text& text) const;
 private:
     // Constructors and Destructors
     SFMLController();
