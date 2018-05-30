@@ -1,14 +1,24 @@
 #include "PathFinder.h"
 #include "../Constants.h"
 #include "../../Collections/PriorityQueue.h"
+#include "../CustomExceptions.h"
 
 
+bool PathFinder::initialized = false;
 PathFinderNode**** PathFinder::nodesMap;
 PathFinderNode** PathFinder::openList;
-int PathFinder::openCount;
+int PathFinder::openCount = 0;
 
+/**
+ * \brief Initializes the pathfinder and allocates the required memory space, must only be initialized once
+ */
 void PathFinder::Initialize()
 {
+    if (initialized)
+    {
+        throw DuplicateInitialization("Pathfinder has already been initialized");
+    }
+    initialized = true;
     int nodeCount = 0;
     const int size = RIGHT - LEFT;
     nodesMap = new PathFinderNode***[size];
@@ -35,6 +45,12 @@ void PathFinder::Initialize()
     openCount = 0;
 }
 
+/**
+ * \brief Attemps to find a path between to coordinates
+ * \param source Coordinate to path from
+ * \param dest Coordinate to path to
+ * \return Pointer to stack of coordinates that contains the found path
+ */
 Stack<Coordinate>* PathFinder::PathTo(Coordinate source, Coordinate dest)
 {
     auto current = source;
@@ -89,6 +105,11 @@ Stack<Coordinate>* PathFinder::PathTo(Coordinate source, Coordinate dest)
     return path;
 }
 
+/**
+ * \brief Interface for easy access to retrieve pathfinder nodes of a coordinate
+ * \param coords Coordinates reference to the coords
+ * \return Pointer to the pathfinder node of the coords
+ */
 PathFinderNode* PathFinder::CoordToNodeMap(Coordinate& coords)
 {
     if (coords.X() < LEFT || coords.X() >= RIGHT || coords.Y() < LEFT || coords.Y() >= RIGHT || coords.Z() < LEFT || coords.Z() >= RIGHT )

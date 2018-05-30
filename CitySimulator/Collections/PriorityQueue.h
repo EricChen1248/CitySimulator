@@ -2,7 +2,12 @@
 #include "Queue.h"
 #include "PriorityNode.h"
 
-template<typename T>
+
+/**
+ * \brief Stores an item into a queue sorted by a provided score upon enqueue. Lower scores are sorted in front
+ * \tparam T Type of item being stored in Priority Queue
+ */
+template<class T>
 class PriorityQueue : public Queue<T>
 {
 public:
@@ -10,7 +15,12 @@ public:
  
 };
 
-template <typename T>
+/**
+ * \brief Adds and sorts an item into the queue
+ * \param item Item to add to queue
+ * \param score Score of the item to be added
+ */
+template <class T>
 void PriorityQueue<T>::Enqueue(T& item, float score)
 {
     auto node = new PriorityNode<T>(item, score);

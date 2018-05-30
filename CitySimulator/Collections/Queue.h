@@ -2,6 +2,10 @@
 #include "Node.h"
 #include <stdexcept>
 
+/**
+ * \brief Stores an item based on FIFO process
+ * \tparam T Type of item being stored in queue
+ */
 template<typename T>
 class Queue
 {
@@ -21,6 +25,10 @@ protected:
 template <typename T>
 Queue<T>::Queue() = default;
 
+
+/**
+ * \brief Cleans up memory used by the queue. If pointers are stored, contents should be manually dequeued and deleted if necessary
+ */
 template <typename T>
 Queue<T>::~Queue()
 {
@@ -30,6 +38,10 @@ Queue<T>::~Queue()
     }
 }
 
+/**
+ * \brief Adds an item to the end of the queue
+ * \param item Item to add
+ */
 template <typename T>
 void Queue<T>::Enqueue(T item)
 {
@@ -46,6 +58,11 @@ void Queue<T>::Enqueue(T item)
     ++count;
 }
 
+
+/**
+ * \brief Returns and removes the item at the front of the queue. Throws an error is the queue is empty
+ * \return Item at the front of the queue
+ */
 template <typename T>
 T Queue<T>::Dequeue()
 {
@@ -62,6 +79,11 @@ T Queue<T>::Dequeue()
     
 }
 
+
+/**
+ * \brief Returns a constant reference of the front of the queue without removing it
+ * \return Constant Reference to item at the front of the queue
+ */
 template <typename T>
 const T& Queue<T>::Peek()
 {

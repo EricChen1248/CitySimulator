@@ -3,6 +3,10 @@
 #include "Node.h"
 #include <stdexcept>
 
+/**
+ * \brief Stores items based on LIFO.
+ * \tparam T Item type to store in the Stack
+ */
 template <typename T>
 class Stack
 {

@@ -11,7 +11,7 @@ class Node
     friend  class List;
     template <typename QueueType>
     friend class Queue;
-    template <typename QueueType>
+    template <class QueueType>
     friend class PriorityQueue;
     template <typename StackType>
     friend class Stack;
