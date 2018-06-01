@@ -67,3 +67,17 @@ Plot* PlotSystem::GetRandomPlot() const
     const int rand = CoreController::RandomInt(0, plots.Count());
     return plots[rand];
 }
+
+bool PlotSystem::HandleClick() const
+{
+    for (int i = 0; i < plots.Count(); ++i)
+    {
+        if (plots[i]->InBounds())
+        {
+            plots[i]->Click();
+            return true;
+        }
+    }    
+    
+    return false;
+}

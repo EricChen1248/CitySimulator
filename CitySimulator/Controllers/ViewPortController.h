@@ -12,6 +12,7 @@ public:
     ViewPortController();
     ~ViewPortController();
     const float& Modifier() const { return modifier; }
+    const sf::View& GameView() const { return gameView; }
     
     ScreenCoordinate ToDrawCoord(ScreenCoordinate sCoords) const;
     void HandleScroll(sf::Event& event);

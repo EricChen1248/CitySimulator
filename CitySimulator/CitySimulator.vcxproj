@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClCompile Include="Controllers\SystemController.cpp" />
     <ClCompile Include="Controllers\FontController.cpp" />
+    <ClCompile Include="Helpers\Button.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Helpers\PathFinder\PathFinder.cpp" />
     <ClCompile Include="Helpers\PathFinder\PathFinderNode.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="Collections\Stack.h" />
     <ClInclude Include="Controllers\SystemController.h" />
     <ClInclude Include="Controllers\FontController.h" />
+    <ClInclude Include="Helpers\Button.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="Helpers\PathFinder\PathFinder.h" />
     <ClInclude Include="Helpers\PathFinder\PathFinderNode.h" />

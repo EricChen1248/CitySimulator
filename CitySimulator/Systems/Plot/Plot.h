@@ -13,6 +13,7 @@ class Citizen;
  */
 class Plot
 {
+    friend class PlotSystem;
 public:
     Plot(int x, int y, int z);
     ~Plot();
@@ -20,6 +21,7 @@ public:
     const Coordinate& Coords() const { return coords; }
     Base* const& GetPlotType() const { return currentType; }
     int GetOccupantCount() const { return occupants.Count(); }
+    bool InBounds() const;
     
     void Register(Base* base);
     void Enter(Citizen* citizen);
@@ -32,5 +34,6 @@ private:
     Base* currentType;
     
     List<Citizen*> occupants;
+    void Click();
 };
 

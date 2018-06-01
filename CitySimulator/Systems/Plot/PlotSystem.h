@@ -13,7 +13,7 @@ public:
     void Render() const;
     Plot* FindPlot(const Coordinate& coords) const;
     Plot* GetRandomPlot() const;
-    
+    bool HandleClick() const;
     private:
     List<Plot*> plots;
 };

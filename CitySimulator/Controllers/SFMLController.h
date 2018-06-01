@@ -19,6 +19,7 @@ public:
     static void UpdateCircleSize(sf::CircleShape& circle);
     void DrawCircle(sf::CircleShape& circle, bool isUi = false) const;
     void DrawRect(sf::RectangleShape& rectangle, bool isUi = false) const;
+    void DrawShape(sf::Shape& shape) const;
     void DrawString(sf::Text& text) const;
 private:
     // Constructors and Destructors

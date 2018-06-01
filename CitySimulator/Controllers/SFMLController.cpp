@@ -91,6 +91,11 @@ void SFMLController::DrawRect(RectangleShape& rectangle, const bool isUi) const
     window->draw(rectangle);
 }
 
+void SFMLController::DrawShape(sf::Shape& shape) const
+{
+    window->draw(shape);
+}
+
 /**
  * \brief Draws a string to the window
  * \param text Text to draw to screen

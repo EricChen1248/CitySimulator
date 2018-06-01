@@ -19,6 +19,13 @@ sf::CircleShape& Plot::GetShape()
     return shape;
 }
 
+bool Plot::InBounds() const
+{
+    const sf::Window* window = CoreController::Instance()->SfmlController()->Window();
+    const auto &mousePos = sf::Mouse::getPosition(*window);
+    return shape.getGlobalBounds().contains(mousePos.x, mousePos.y);
+}
+
 /**
  * \brief Adds a plot type component to the plot. Update's color accordingly
  * \param base Type of plot to be registered as
@@ -48,6 +55,11 @@ void Plot::Enter(Citizen* citizen)
 void Plot::Leave(Citizen* citizen)
 {
     occupants.Remove(citizen);
+}
+
+void Plot::Click()
+{
+    
 }
 
 

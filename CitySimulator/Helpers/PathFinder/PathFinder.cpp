@@ -4,7 +4,7 @@
 #include "../CustomExceptions.h"
 
 
-bool PathFinder::initialized;
+bool PathFinder::initialized = false;
 PathFinderNode**** PathFinder::nodesMap;
 PathFinderNode** PathFinder::openList;
 int PathFinder::openCount;
