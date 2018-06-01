@@ -3,6 +3,10 @@
 #include "../SystemEnum.h"
 #include "../../Helpers/Constants.h"
 class Plot;
+
+/**
+ * \brief Abstract class that is the base of all the system types
+ */
 class Base
 {
 public:

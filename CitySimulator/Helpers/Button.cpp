@@ -14,6 +14,9 @@ Button::~Button()
     delete moShape;
 }
 
+/**
+ * \brief Draws the button to the screen
+ */
 void Button::Draw() const
 {
     if (moShape != nullptr)
@@ -27,6 +30,10 @@ void Button::Draw() const
     CoreController::Instance()->SfmlController()->DrawShape(*shape);
 }
 
+/**
+ * \brief Checks if the mouse is within the bounds (non-minimum) provided by SFML of the button
+ * \return True if mouse is in the bounds of the button
+ */
 bool Button::IsInBounds() const
 {   
     const sf::Window* window = CoreController::Instance()->SfmlController()->Window();

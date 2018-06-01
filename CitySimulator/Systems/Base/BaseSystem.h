@@ -4,6 +4,9 @@
 #include "../Plot/Plot.h"
 #include "../../Log.h"
 
+/**
+ * \brief Abstract class that is the base of all systems
+ */
 class BaseSystem
 {
 public:

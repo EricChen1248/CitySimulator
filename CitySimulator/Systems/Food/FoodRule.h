@@ -2,8 +2,11 @@
 #include "../Base/BaseRule.h"
 
 class BaseRule;
-class FoodRule :
-    public BaseRule
+
+/**
+ * \brief Food rule that handles the food needs of our citizens
+ */
+class FoodRule : public BaseRule
 {
 public:
     FoodRule(Citizen& citizen);;

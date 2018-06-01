@@ -119,7 +119,14 @@ PathFinderNode* PathFinder::CoordToNodeMap(Coordinate& coords)
     return nodesMap[coords.X() - LEFT][coords.Y() - LEFT][coords.Z() - LEFT];
 }
 
+/**
+ * \brief The estimated distance used in A* pathfinding. (admissible distance) (subject to change)
+ * \param source Source coordinates to start estimatino
+ * \param dest Destination coordinates to end estimation
+ * \return The estimated distance
+ */
 float PathFinder::EstimateSteps(Coordinate& source, Coordinate& dest)
 {
+    //TODO : Update pathfinder heuristics
     return dest.Distance(source);
 }

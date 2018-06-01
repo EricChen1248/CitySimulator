@@ -2,6 +2,9 @@
 #include "../../Helpers/Coordinate.h"
 class PathFinder;
 
+/**
+ * \brief Struct that acts as the collection holder for the pathfind system
+ */
 struct PathFinderNode
 {
     friend PathFinder;

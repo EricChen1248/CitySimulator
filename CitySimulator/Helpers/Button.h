@@ -2,6 +2,9 @@
 #include <SFML/Graphics/Shape.hpp>
 
 using sf::Shape;
+/**
+ * \brief Middle interface between SFML and code base that provides draw and bounds check capabilities.
+ */
 class Button
 {
 public:

@@ -5,6 +5,9 @@
 
 namespace helper
 {
+    /**
+     * \brief Time class of our game. All time related simulations should use this class for proper speed and time appropriation
+     */
     struct Time
     {
         int Hour;

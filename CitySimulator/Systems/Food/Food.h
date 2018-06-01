@@ -3,6 +3,9 @@
 
 class FoodRule;
 
+/**
+ * \brief Food Class that handles the food plots of our city
+ */
 class Food : public Base
 {
 friend FoodRule;

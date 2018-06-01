@@ -92,6 +92,11 @@ $(document).ready(function(){initNavTree('class_button.html','');});
 <div class="title">Button Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Middle interface between SFML and code base that provides draw and bounds check capabilities.  
+ <a href="class_button.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_button_8h_source.html">Button.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -99,12 +104,36 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Button</b> (Shape *shape, Shape *mouseOverShape=nullptr)</td></tr>
 <tr class="separator:ab6c8122ba700d65bad06c3923c1625c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad162cfc98cf7b45fc9d81e58c3f00ee5"><td class="memItemLeft" align="right" valign="top"><a id="ad162cfc98cf7b45fc9d81e58c3f00ee5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Draw</b> () const</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_button.html#ad162cfc98cf7b45fc9d81e58c3f00ee5">Draw</a> () const</td></tr>
+<tr class="memdesc:ad162cfc98cf7b45fc9d81e58c3f00ee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the button to the screen. <br /></td></tr>
 <tr class="separator:ad162cfc98cf7b45fc9d81e58c3f00ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac449e68882fd5565bb837e27edfe3825"><td class="memItemLeft" align="right" valign="top"><a id="ac449e68882fd5565bb837e27edfe3825"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsInBounds</b> () const</td></tr>
+<tr class="memitem:ac449e68882fd5565bb837e27edfe3825"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_button.html#ac449e68882fd5565bb837e27edfe3825">IsInBounds</a> () const</td></tr>
+<tr class="memdesc:ac449e68882fd5565bb837e27edfe3825"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the mouse is within the bounds (non-minimum) provided by SFML of the button.  <a href="#ac449e68882fd5565bb837e27edfe3825">More...</a><br /></td></tr>
 <tr class="separator:ac449e68882fd5565bb837e27edfe3825"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Middle interface between SFML and code base that provides draw and bounds check capabilities. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac449e68882fd5565bb837e27edfe3825"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac449e68882fd5565bb837e27edfe3825">&#9670;&nbsp;</a></span>IsInBounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Button::IsInBounds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the mouse is within the bounds (non-minimum) provided by SFML of the button. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if mouse is in the bounds of the button </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Helpers/<a class="el" href="_button_8h_source.html">Button.h</a></li>
 <li>Helpers/Button.cpp</li>

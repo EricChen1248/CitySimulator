@@ -1,7 +1,10 @@
 #pragma once
 #include "../Base/BaseSystem.h"
-class FoodSystem :
-    public BaseSystem
+
+/**
+ * \brief Food systems that tracks and handles collective food plots and events
+ */
+class FoodSystem : public BaseSystem
 {
 public:
     FoodSystem();

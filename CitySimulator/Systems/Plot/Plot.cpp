@@ -57,10 +57,15 @@ void Plot::Leave(Citizen* citizen)
     occupants.Remove(citizen);
 }
 
+/**
+ * \brief Selects the plot as clicked
+ */
 void Plot::Click()
 {
     
 }
 
-
-Plot::~Plot() = default;
+Plot::~Plot()
+{
+    delete currentType;
+}

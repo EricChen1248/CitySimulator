@@ -3,6 +3,9 @@
 
 class Plot;
 class Citizen;
+/**
+ * \brief Abstract class that is the base of all system rules
+ */
 class BaseRule
 {
 public:

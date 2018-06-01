@@ -68,6 +68,10 @@ Plot* PlotSystem::GetRandomPlot() const
     return plots[rand];
 }
 
+/**
+ * \brief Checks if the click was on a plot and handles it if applicable
+ * \return True if the click was handled
+ */
 bool PlotSystem::HandleClick() const
 {
     for (auto && plot : plots)
