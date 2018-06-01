@@ -1,6 +1,10 @@
 #pragma once
 #include <stdexcept>
 
+/**
+ * \brief Exception that should be used when the code somehow runs to somewhere that should have never happened
+ *        i.e. the default case of an enum switch with no missing cases
+ */
 class CodingError : public std::logic_error
 {
 public:
@@ -13,6 +17,9 @@ public:
 };
 
 
+/**
+ * \brief Exception that should be used when a singleton/static class is initialized twice
+ */
 class DuplicateInitialization : public std::runtime_error
 {
 public:

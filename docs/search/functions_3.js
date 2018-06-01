@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['getneighbours',['GetNeighbours',['../class_coordinate.html#a774cf5741fb9c3019519ae412da83294',1,'Coordinate']]],
-  ['getrandomplot',['GetRandomPlot',['../class_plot_system.html#acb5541d727480cdd0f40c060488b4bc2',1,'PlotSystem']]],
-  ['getsystem',['GetSystem',['../class_system_controller.html#a69de55b16d60a1792473428cfa183684',1,'SystemController']]]
+  ['findplot',['FindPlot',['../class_food_rule.html#a427130a93c6f338fcd7430a8708e107f',1,'FoodRule::FindPlot()'],['../class_plot_system.html#a1487fdbe3c7d55f340bafc8e4e8dc5f7',1,'PlotSystem::FindPlot()']]]
 ];

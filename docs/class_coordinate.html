@@ -100,9 +100,21 @@ $(document).ready(function(){initNavTree('class_coordinate.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a76ae7fffcbe428335728e76e4fc3388e"><td class="memItemLeft" align="right" valign="top"><a id="a76ae7fffcbe428335728e76e4fc3388e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Coordinate</b> (int x, int y, int z)</td></tr>
+<tr class="separator:a76ae7fffcbe428335728e76e4fc3388e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20b1197e1f9e9af204753efb05261a6c"><td class="memItemLeft" align="right" valign="top"><a id="a20b1197e1f9e9af204753efb05261a6c"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Coordinate</b> (float x=0, float y=0, float z=0)</td></tr>
 <tr class="separator:a20b1197e1f9e9af204753efb05261a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a215fcd6e2ff1f29f7eb471ea881f024d"><td class="memItemLeft" align="right" valign="top"><a id="a215fcd6e2ff1f29f7eb471ea881f024d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>X</b> () const</td></tr>
+<tr class="separator:a215fcd6e2ff1f29f7eb471ea881f024d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad043c6ce825296d6fb2cf0a245b2fb26"><td class="memItemLeft" align="right" valign="top"><a id="ad043c6ce825296d6fb2cf0a245b2fb26"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Y</b> () const</td></tr>
+<tr class="separator:ad043c6ce825296d6fb2cf0a245b2fb26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0921f0a801923de015c5e71f7780a76"><td class="memItemLeft" align="right" valign="top"><a id="ae0921f0a801923de015c5e71f7780a76"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Z</b> () const</td></tr>
+<tr class="separator:ae0921f0a801923de015c5e71f7780a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5c4e941b047ef18ef3550a52fb11bc6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_coordinate.html#af5c4e941b047ef18ef3550a52fb11bc6">Distance</a> (<a class="el" href="class_coordinate.html">Coordinate</a> &amp;coords) const</td></tr>
 <tr class="memdesc:af5c4e941b047ef18ef3550a52fb11bc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates and returns the manhattan distance between two coordinates.  <a href="#af5c4e941b047ef18ef3550a52fb11bc6">More...</a><br /></td></tr>
 <tr class="separator:af5c4e941b047ef18ef3550a52fb11bc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -112,12 +124,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a774cf5741fb9c3019519ae412da83294"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_coordinate.html">Coordinate</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_coordinate.html#a774cf5741fb9c3019519ae412da83294">GetNeighbours</a> () const</td></tr>
 <tr class="memdesc:a774cf5741fb9c3019519ae412da83294"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a possible list of neighbours of the coordinate.  <a href="#a774cf5741fb9c3019519ae412da83294">More...</a><br /></td></tr>
 <tr class="separator:a774cf5741fb9c3019519ae412da83294"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a829adda6c02b631f74c88447e7b4fd41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_coordinate.html">Coordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_coordinate.html#a829adda6c02b631f74c88447e7b4fd41">MoveTowards</a> (<a class="el" href="class_coordinate.html">Coordinate</a> other, float deltaTime) const</td></tr>
-<tr class="memdesc:a829adda6c02b631f74c88447e7b4fd41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splices a coordinate that is between the source and target based on prev update time;.  <a href="#a829adda6c02b631f74c88447e7b4fd41">More...</a><br /></td></tr>
-<tr class="separator:a829adda6c02b631f74c88447e7b4fd41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8524cf662ab2550956b0426f25b5b738"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_coordinate.html">Coordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_coordinate.html#a8524cf662ab2550956b0426f25b5b738">MoveTowards</a> (<a class="el" href="class_coordinate.html">Coordinate</a> dest, float deltaTime) const</td></tr>
+<tr class="memdesc:a8524cf662ab2550956b0426f25b5b738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splices a coordinate that is between the source and target based on prev update time;.  <a href="#a8524cf662ab2550956b0426f25b5b738">More...</a><br /></td></tr>
+<tr class="separator:a8524cf662ab2550956b0426f25b5b738"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a803c20b0c173a04886ace0c4f6b14361"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_coordinate.html#a803c20b0c173a04886ace0c4f6b14361">operator==</a> (const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;other) const</td></tr>
 <tr class="memdesc:a803c20b0c173a04886ace0c4f6b14361"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if a coordinate is within 0.01f of another.  <a href="#a803c20b0c173a04886ace0c4f6b14361">More...</a><br /></td></tr>
 <tr class="separator:a803c20b0c173a04886ace0c4f6b14361"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eea1f31dd95e29354c7744145a4fc95"><td class="memItemLeft" align="right" valign="top"><a id="a8eea1f31dd95e29354c7744145a4fc95"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;other) const</td></tr>
+<tr class="separator:a8eea1f31dd95e29354c7744145a4fc95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Hexagonal <a class="el" href="class_coordinate.html" title="Hexagonal Coordinate System for the game. ">Coordinate</a> System for the game. </p>
@@ -169,8 +184,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a829adda6c02b631f74c88447e7b4fd41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a829adda6c02b631f74c88447e7b4fd41">&#9670;&nbsp;</a></span>MoveTowards()</h2>
+<a id="a8524cf662ab2550956b0426f25b5b738"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8524cf662ab2550956b0426f25b5b738">&#9670;&nbsp;</a></span>MoveTowards()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -179,7 +194,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname"><a class="el" href="class_coordinate.html">Coordinate</a> Coordinate::MoveTowards </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_coordinate.html">Coordinate</a>&#160;</td>
-          <td class="paramname"><em>other</em>, </td>
+          <td class="paramname"><em>dest</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

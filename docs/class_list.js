@@ -2,8 +2,10 @@ var class_list =
 [
     [ "List", "class_list.html#a5c5e27671b21b3815d4e25b953c69454", null ],
     [ "~List", "class_list.html#a2b58189090f6e5ce52939c9195e59e85", null ],
+    [ "begin", "class_list.html#a4e7486b0d9b040e327e05c078a5aa673", null ],
     [ "Count", "class_list.html#a4300c2c92672b1c942ce8634b198a8db", null ],
     [ "Dispose", "class_list.html#aba4de6e88a73ec712826fd6f19d92e25", null ],
+    [ "end", "class_list.html#afa3b6d191c99645a5967395ab57e6440", null ],
     [ "InsertLast", "class_list.html#a518d93f01faa47442d2986b95d0bfcc0", null ],
     [ "operator[]", "class_list.html#a29dde1f1faca18a285c0652f817941de", null ],
     [ "Remove", "class_list.html#aac6b5f0d95b2d628d83a6cb05e6dace8", null ],

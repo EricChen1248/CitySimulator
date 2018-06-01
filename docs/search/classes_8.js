@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['uicontroller',['UIController',['../class_u_i_controller.html',1,'']]]
+  ['queue',['Queue',['../class_queue.html',1,'']]]
 ];

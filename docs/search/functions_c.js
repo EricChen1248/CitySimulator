@@ -1,8 +1,13 @@
 var searchData=
 [
-  ['unregister',['Unregister',['../class_base_system.html#a95a11d9b9983589dffab5275e3493469',1,'BaseSystem']]],
-  ['up',['Up',['../class_view_port_controller.html#ae987123d97ff765e4ff019ab34809436',1,'ViewPortController']]],
-  ['update',['Update',['../class_system_controller.html#a7d992ca705c79c3faa6d2be88b7f5e29',1,'SystemController::Update()'],['../class_base_system.html#a8b0422140242d55d393e39393d41a765',1,'BaseSystem::Update()'],['../class_citizen.html#acf5e03bbdece1c022e91812487ebec21',1,'Citizen::Update()'],['../class_citizen_system.html#a0c34282830071a495f1b81d2f24ad62a',1,'CitizenSystem::Update()'],['../class_food_rule.html#a3019d07d0a780b84a6d97054ee3e55df',1,'FoodRule::Update()'],['../class_food_system.html#a81b6686782c199ad7912d6ebf560d6fd',1,'FoodSystem::Update()']]],
-  ['updategameview',['UpdateGameView',['../class_view_port_controller.html#a37d723bd267c7c71c5244aca7f83dd76',1,'ViewPortController']]],
-  ['updateuiview',['UpdateUIView',['../class_view_port_controller.html#a16efebf2293573614cd3181842b05894',1,'ViewPortController']]]
+  ['randomint',['RandomInt',['../class_core_controller.html#ae7478a040f5a4eb628cc6fed109b7c30',1,'CoreController']]],
+  ['register',['Register',['../class_base_system.html#a1cb057d36f0b2d2fc5830b7bd778c3f4',1,'BaseSystem::Register()'],['../class_food_system.html#aa0dd8ee647e7cf2d25aadb3b34b4d4fc',1,'FoodSystem::Register()'],['../class_plot.html#a4bf247eb2ea0392c3b6d00f7b6442255',1,'Plot::Register()']]],
+  ['remove',['Remove',['../class_list.html#aac6b5f0d95b2d628d83a6cb05e6dace8',1,'List::Remove(int index)'],['../class_list.html#afaf2dc20668bc16ed24a7240f839a63e',1,'List::Remove(T &amp;item)']]],
+  ['render',['Render',['../class_system_controller.html#a832052a56b354f7216d110180a6ad41b',1,'SystemController::Render()'],['../class_citizen_system.html#a0b98dd2a8f9b1a2d9df6a5638438abbf',1,'CitizenSystem::Render()'],['../class_plot_system.html#a0b3c5d0df252995318e1e6fc7ba356b8',1,'PlotSystem::Render()']]],
+  ['renderui',['RenderUI',['../class_u_i_controller.html#ad7326ce44642743e635d77d8c8655a16',1,'UIController']]],
+  ['reset',['Reset',['../class_food.html#a1a12bfd50400e04b595c24a512317c1a',1,'Food']]],
+  ['resetday',['ResetDay',['../class_base_system.html#acba25fab1f14c706e7b63c8bc08983e3',1,'BaseSystem::ResetDay()'],['../class_food_system.html#a10faefa4033c65bc9bf8b00bba4de553',1,'FoodSystem::ResetDay()']]],
+  ['resetmod',['ResetMod',['../class_view_port_controller.html#a97be9094e75ef545555df77835380e8a',1,'ViewPortController']]],
+  ['right',['Right',['../class_view_port_controller.html#a40efcb76cfc3ca840f69d690a046414e',1,'ViewPortController']]],
+  ['rundayloop',['RunDayLoop',['../class_core_controller.html#ae0b7fd95af3ee62dcaee016c3a71c8b9',1,'CoreController']]]
 ];

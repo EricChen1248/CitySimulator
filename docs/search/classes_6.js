@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['screencoordinate',['ScreenCoordinate',['../struct_screen_coordinate.html',1,'']]],
-  ['sfmlcontroller',['SFMLController',['../class_s_f_m_l_controller.html',1,'']]],
-  ['systemcontroller',['SystemController',['../class_system_controller.html',1,'']]]
+  ['node',['Node',['../class_node.html',1,'']]],
+  ['node_3c_20baserule_20_2a_3e',['Node&lt; BaseRule *&gt;',['../class_node.html',1,'']]],
+  ['node_3c_20basesystem_20_2a_3e',['Node&lt; BaseSystem *&gt;',['../class_node.html',1,'']]],
+  ['node_3c_20citizen_20_2a_3e',['Node&lt; Citizen *&gt;',['../class_node.html',1,'']]],
+  ['node_3c_20coordinate_20_3e',['Node&lt; Coordinate &gt;',['../class_node.html',1,'']]],
+  ['node_3c_20log_20_2a_3e',['Node&lt; Log *&gt;',['../class_node.html',1,'']]],
+  ['node_3c_20plot_20_2a_3e',['Node&lt; Plot *&gt;',['../class_node.html',1,'']]]
 ];
