@@ -9,7 +9,7 @@ public:
     Iterator();
     void operator++();
     bool operator!=(Iterator<T>& other);
-    T& operator*();
+    const T& operator*();
 private:
     Node<T>* node;
     
@@ -40,7 +40,7 @@ bool Iterator<T>::operator!=(Iterator<T>& other)
 }
 
 template <typename T>
-T& Iterator<T>::operator*()
+const T& Iterator<T>::operator*()
 {
     return node->item;
 }
