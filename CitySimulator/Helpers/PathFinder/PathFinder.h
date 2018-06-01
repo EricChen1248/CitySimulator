@@ -11,6 +11,7 @@ public:
     static void Initialize();
     static Stack<Coordinate>* PathTo(Coordinate source, Coordinate dest);
 private:
+    PathFinder() = default;;
     static bool initialized;
     static PathFinderNode**** nodesMap;
     static PathFinderNode** openList;

@@ -19,7 +19,7 @@ public:
     explicit DuplicateInitialization(const std::string& message) : runtime_error(message) {}
     explicit DuplicateInitialization(const char* message) : runtime_error(message) {}
     
-    ~DuplicateInitialization() noexcept override;
+    ~DuplicateInitialization() noexcept override = default;
     
     char const* what() const override {return nullptr;};
 };

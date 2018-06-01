@@ -4,10 +4,10 @@
 #include "../CustomExceptions.h"
 
 
-bool PathFinder::initialized = false;
+bool PathFinder::initialized;
 PathFinderNode**** PathFinder::nodesMap;
 PathFinderNode** PathFinder::openList;
-int PathFinder::openCount = 0;
+int PathFinder::openCount;
 
 /**
  * \brief Initializes the pathfinder and allocates the required memory space, must only be initialized once
