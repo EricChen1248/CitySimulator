@@ -176,5 +176,8 @@
     <ClInclude Include="Helpers\Button.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Collections\Iterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

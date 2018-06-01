@@ -6,6 +6,7 @@
 
 #include "../Helpers/CustomExceptions.h"
 #include "List.h"
+#include "Iterator.h"
 
 /**
  * \brief An unlimited, ordered collection that uses link-based memory backing.
@@ -23,11 +24,11 @@ public:
     void Remove(int index);
     void Remove(T& item);
     void Dispose();
-    const int& Count() const
-    {
-        return count;
-    }
-
+    const int& Count() const { return count; }
+    // ReSharper disable once CppInconsistentNaming : name matching required for range based for loops
+    Iterator<T> begin() const { return Iterator<T>(*first); };
+    // ReSharper disable once CppInconsistentNaming : name matching required for range based for loops
+    Iterator<T> end() const { return Iterator<T>(); };
 protected:
     Node<T>* first;
     Node<T>* last;

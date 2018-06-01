@@ -7,14 +7,19 @@
 template <typename T>
 class Node
 {
+    template <typename IteratorType>
+    friend class Iterator;
     template <typename ListType>
-    friend  class List;
+    friend class List;
     template <typename QueueType>
     friend class Queue;
     template <class QueueType>
     friend class PriorityQueue;
     template <typename StackType>
     friend class Stack;
+    
+    bool operator!=(Node<T>& other) { return this != &other; }
+    Node<T> operator++() { return this->next; }
     
 protected:
     /**

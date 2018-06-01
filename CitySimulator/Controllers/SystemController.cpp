@@ -20,9 +20,8 @@ void SystemController::Initialize()
     BaseSystem* food = new FoodSystem();
     systems.InsertLast(food);
     // TODO Remove food demo
-    for (int j = 0; j < systems.Count(); ++j)
+    for (auto && system : systems)
     {
-        const auto system = systems[j];
         if (system->SystemType == FOOD)
         {
             for (int i = 0; i < 5; ++i)
@@ -44,9 +43,9 @@ void SystemController::Initialize()
 void SystemController::Update() const
 {
     citizens->Update();
-    for (int i = 0; i < systems.Count(); ++i)
+    for (auto && system : systems)
     {
-        systems[i]->Update();
+        system->Update();
     }
 }
 
@@ -66,11 +65,11 @@ void SystemController::Render() const
  */
 BaseSystem* SystemController::GetSystem(const System system) const
 {
-    for (int i = 0; i < systems.Count(); ++i)
+    for (auto && systemRef : systems)
     {
-        if (systems[i]->SystemType == system)
+        if (systemRef->SystemType == system)
         {
-            return systems[i];
+            return systemRef;
         }
     }
     return nullptr;

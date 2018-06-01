@@ -33,9 +33,9 @@ PlotSystem::~PlotSystem()
  */
 void PlotSystem::Render() const
 {
-    for (int i = 0; i < plots.Count(); ++i)
+    for (auto && plot : plots)
     {
-        auto & shape = plots[i]->GetShape();
+        auto & shape = plot->GetShape();
         CoreController::Instance()->SfmlController()->DrawCircle(shape);
     }
 }
@@ -48,11 +48,11 @@ void PlotSystem::Render() const
  */
 Plot* PlotSystem::FindPlot(const Coordinate& coords) const
 {
-    for (int i = 0; i < plots.Count(); ++i)
+    for (auto && plot : plots)
     {
-        if (plots[i]->Coords() == coords)
+        if (plot->Coords() == coords)
         {
-            return plots[i];
+            return plot;
         }
     }
     return nullptr;
@@ -70,11 +70,11 @@ Plot* PlotSystem::GetRandomPlot() const
 
 bool PlotSystem::HandleClick() const
 {
-    for (int i = 0; i < plots.Count(); ++i)
+    for (auto && plot : plots)
     {
-        if (plots[i]->InBounds())
+        if (plot->InBounds())
         {
-            plots[i]->Click();
+            plot->Click();
             return true;
         }
     }    

@@ -15,7 +15,7 @@ int PathFinder::openCount;
 void PathFinder::Initialize()
 {
     if (initialized)
-    {
+    { 
         throw DuplicateInitialization("Pathfinder has already been initialized");
     }
     initialized = true;

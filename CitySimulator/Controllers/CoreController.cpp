@@ -94,9 +94,9 @@ void CoreController::Update()
     Clock clock;
     RunDayLoop(clock);
     auto systems = systemController->GetSystems();
-    for (int i = 0; i < systems.Count(); ++i)
+    for (auto && system : systems)
     {
-        std:: cout << systems[i]->GetScore();
+        std:: cout << system->GetScore();
     }
     
     char a;

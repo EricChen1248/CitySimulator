@@ -32,9 +32,8 @@ void FoodSystem::Register(Plot* plot)
  */
 void FoodSystem::Update()
 {
-    for (int i = 0; i < plots.Count(); ++i)
+    for (auto && plot : plots)
     {
-        const auto plot = plots[i];
         // Do this if you want to get the plot type (class food)
         //const auto rule = dynamic_cast<Food*> (plot->GetPlotType());
         
@@ -75,9 +74,9 @@ void FoodSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
  */
 void FoodSystem::ResetDay()
 {
-    for (int i = 0; i < plots.Count(); ++i)
+    for (auto && plot : plots)
     {
-        plots[i]->GetPlotType()->Reset();
+        plot->GetPlotType()->Reset();
     }
     unsatisfiedLog.Dispose();
     satisfiedLog.Dispose();

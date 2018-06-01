@@ -133,18 +133,18 @@ void Citizen::FindNextTarget()
 {
     List<BaseRule*> skipRules;
 
-    BaseRule* rule;
+    BaseRule* baseRule;
     do
     {
-        rule = nullptr;
+        baseRule = nullptr;
         float bestScore = 0;
-        for (int i = 0; i < rules.Count(); ++i)
+        for (auto & rule : rules)
         {
-            const auto tRule = rules[i];
+            const auto tRule = rule;
             auto skip = false;
-            for (int j = 0; j < skipRules.Count(); ++j)
+            for (auto && skipRule : skipRules)
             {
-                if (skipRules[j] == tRule)
+                if (skipRule == tRule)
                 {
                     skip = true;
                     break;
@@ -161,22 +161,24 @@ void Citizen::FindNextTarget()
             {
                 continue;
             }
-            if (rule == nullptr || score > bestScore)
+            
+            if (baseRule == nullptr || score > bestScore)
             {
                 bestScore = score;
-                rule = rules[i];
+                baseRule = rule;
             }
+            
         }
         
-        if (rule == nullptr || rule->FindPlot())
+        if (baseRule == nullptr || baseRule->FindPlot())
         {
             break;
         }
-        skipRules.InsertLast(rule);
+        skipRules.InsertLast(baseRule);
     }
-    while (rule != nullptr);
+    while (baseRule != nullptr);
     // No rule satisfiable
-    if (rule == nullptr)
+    if (baseRule == nullptr)
     {
         ++unsatisfiedCount;
         FindRandomTarget();
@@ -221,9 +223,9 @@ void Citizen::FindRandomTarget()
  */
 void Citizen::UpdateRules() const
 {
-    for (int i = 0; i < rules.Count(); ++i)
+    for (auto && rule : rules)
     {
-        rules[i]->Update();
+        rule->Update();
     }
 }
 
