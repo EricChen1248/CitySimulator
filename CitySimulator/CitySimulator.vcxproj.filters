@@ -75,6 +75,7 @@
     <ClCompile Include="Helpers\Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< Updated upstream
     <ClCompile Include="Systems\Work\Work.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -188,10 +189,19 @@
     <ClInclude Include="Collections\Iterator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Systems\Work\Work.h">
+    <ClInclude Include="Collections\Dictionary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Collections\Dictionary.h">
+    <ClInclude Include="Collections\MaxHeap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Systems\Work\WorkRule.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Systems\Work\WorkSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Collections\HeapLevel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Systems\Work\WorkRule.h">
