@@ -150,6 +150,7 @@
     <ClCompile Include="Systems\Plot\PlotSystem.cpp" />
     <ClCompile Include="Systems\Plot\Plot.cpp" />
     <ClCompile Include="Controllers\UIController.cpp" />
+    <ClCompile Include="Systems\Work\Work.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Assets\Fonts\Monofur.h" />
@@ -187,6 +188,7 @@
     <ClInclude Include="Systems\Plot\Plot.h" />
     <ClInclude Include="Systems\SystemEnum.h" />
     <ClInclude Include="Controllers\UIController.h" />
+    <ClInclude Include="Systems\Work\Work.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
