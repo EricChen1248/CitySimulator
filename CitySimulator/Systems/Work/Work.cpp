@@ -5,7 +5,10 @@ Work::Work(Plot *plot) : Base(plot, WORK)
 {
 }
 
+void Work::Reset()
+{
+}
 
-Work::~Work()
+void Work::Enter()
 {
 }
