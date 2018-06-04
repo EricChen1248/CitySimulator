@@ -199,6 +199,8 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Systems\Work\WorkSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Collections\HeapLevel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
