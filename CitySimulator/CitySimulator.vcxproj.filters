@@ -75,7 +75,6 @@
     <ClCompile Include="Helpers\Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-<<<<<<< Updated upstream
     <ClCompile Include="Systems\Work\Work.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
