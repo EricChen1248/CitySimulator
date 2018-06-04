@@ -150,15 +150,22 @@
     <ClCompile Include="Systems\Plot\PlotSystem.cpp" />
     <ClCompile Include="Systems\Plot\Plot.cpp" />
     <ClCompile Include="Controllers\UIController.cpp" />
+<<<<<<< Updated upstream
     <ClCompile Include="Systems\Work\Work.cpp" />
+    <ClCompile Include="Systems\Work\WorkRule.cpp" />
+    <ClCompile Include="Systems\Work\WorkSystem.cpp" />
+=======
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Assets\Fonts\Monofur.h" />
     <ClInclude Include="Collections\Dictionary.h" />
     <ClInclude Include="Collections\Iterator.h" />
+    <ClInclude Include="Collections\MaxHeap.h" />
     <ClInclude Include="Collections\PriorityNode.h" />
     <ClInclude Include="Collections\PriorityQueue.h" />
     <ClInclude Include="Collections\Stack.h" />
+    <ClInclude Include="Collections\HeapLevel.h" />
     <ClInclude Include="Controllers\SystemController.h" />
     <ClInclude Include="Controllers\FontController.h" />
     <ClInclude Include="Helpers\Button.h" />
@@ -188,7 +195,12 @@
     <ClInclude Include="Systems\Plot\Plot.h" />
     <ClInclude Include="Systems\SystemEnum.h" />
     <ClInclude Include="Controllers\UIController.h" />
+<<<<<<< Updated upstream
     <ClInclude Include="Systems\Work\Work.h" />
+    <ClInclude Include="Systems\Work\WorkRule.h" />
+    <ClInclude Include="Systems\Work\WorkSystem.h" />
+=======
+>>>>>>> Stashed changes
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

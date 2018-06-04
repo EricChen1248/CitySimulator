@@ -8,6 +8,8 @@ class PathFinder;
 struct PathFinderNode
 {
     friend PathFinder;
+public:
+    bool operator<(PathFinderNode& other) const;
 private:
     PathFinderNode(const Coordinate& coords);
     float step = 0;

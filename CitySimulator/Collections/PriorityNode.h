@@ -11,8 +11,6 @@ class PriorityNode : public Node<T>
 {
     template<class U>
     friend class PriorityQueue;
-    PriorityNode(const T& item, const float score, Node<T>* prev = nullptr, Node<T>* next = nullptr)
-        : Node<T>(item, prev, next), score(score)
-    {    }
+    PriorityNode(const T& item, const float score, Node<T>* prev = nullptr, Node<T>* next = nullptr) : Node<T>(item, prev, next), score(score) {    }
     float score;
 };

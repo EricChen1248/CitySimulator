@@ -1,16 +1,15 @@
 #pragma once
 #include "../Base/Base.h"
-class Work :¡@public Base
+#include "WorkRule.h"
+
+class Work : Base
 {
-	friend WorkRule;
+	friend class WorkRule;
 
 public:
 	Work(Plot* plot);
 	~Work() = default;
 	void Reset() override;
 private:
-	int earnings;
-	int cost;
-
 	void Enter();
 };
