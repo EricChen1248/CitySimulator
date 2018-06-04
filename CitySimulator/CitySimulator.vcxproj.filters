@@ -179,5 +179,8 @@
     <ClInclude Include="Collections\Iterator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Collections\Dictionary.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

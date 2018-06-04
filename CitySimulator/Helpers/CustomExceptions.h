@@ -30,3 +30,33 @@ public:
     
     char const* what() const override {return nullptr;};
 };
+
+
+/**
+ * \brief Exception that occurs when there is error associated with dictionary's key or value
+ */
+class KeyValueError : public std::runtime_error
+{
+public:
+    explicit KeyValueError(const std::string& message) : runtime_error(message) {}
+    explicit KeyValueError(const char* message) : runtime_error(message) {}
+    
+    ~KeyValueError() noexcept override = default;
+    
+    char const* what() const override {return nullptr;};
+};
+
+
+/**
+ * \brief Exception that occurs when there a key doesn't exist on retrieval
+ */
+class KeyNotFound : public std::runtime_error
+{
+public:
+    explicit KeyNotFound(const std::string& message) : runtime_error(message) {}
+    explicit KeyNotFound(const char* message) : runtime_error(message) {}
+    
+    ~KeyNotFound() noexcept override = default;
+    
+    char const* what() const override {return nullptr;};
+};
