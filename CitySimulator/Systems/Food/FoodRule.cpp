@@ -34,7 +34,8 @@ bool FoodRule::FindPlot()
         const auto distance = plot->Coords().Distance(coords);
         if (distance < maxDistance)
         {
-            choices.InsertLast(plot);
+            auto p = plot;
+            choices.InsertLast(p);
         }
     }
     
