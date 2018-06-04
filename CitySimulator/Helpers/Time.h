@@ -64,7 +64,22 @@ namespace helper
             return h * 60 + m;
         }
         
-        std::string ToString() const;
+		bool operator>(const Time &other) const
+		{
+			if (Hour > other.Hour)
+			{
+				return true;
+			}
+
+			if (Hour == other.Hour && Minute > other.Minute)
+			{
+				return true;
+			}
+
+			return false;
+		}
+
+		std::string ToString() const;
         std::string ToShortString() const;
     };
 
