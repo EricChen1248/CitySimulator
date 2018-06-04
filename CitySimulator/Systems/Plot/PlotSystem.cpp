@@ -5,19 +5,15 @@
 
 PlotSystem::PlotSystem()
 {
-    
     for (int i = LEFT; i < RIGHT; ++i)
     {
-        for (int j = LEFT; j < RIGHT; ++j)
+        const int left = std::max(LEFT - i, LEFT);
+        const int right = std::min(RIGHT - i, RIGHT);
+        for (int j = left; j < right; ++j)
         {
-            for (int k = LEFT; k < RIGHT; ++k)
-            {
-                if (i + j + k == 0)
-                {
-                    auto plot = new Plot(i,j,k);
-                    plots.InsertLast(plot);                
-                }
-            }
+            const int k = -i - j;
+            auto plot = new Plot(i,j,k);
+            plots.InsertLast(plot);                
         }
     }
 }

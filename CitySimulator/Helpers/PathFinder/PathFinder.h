@@ -12,8 +12,9 @@ public:
     static Stack<Coordinate>* PathTo(Coordinate source, Coordinate dest);
 private:
     PathFinder() = default;;
+    static int nodeCount;
     static bool initialized;
-    static PathFinderNode**** nodesMap;
+    static PathFinderNode*** nodesMap;
     static PathFinderNode** openList;
     static int openCount;
     

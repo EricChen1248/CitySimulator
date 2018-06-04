@@ -4,8 +4,9 @@
 #include "../CustomExceptions.h"
 
 
+int PathFinder::nodeCount = 0;
 bool PathFinder::initialized = false;
-PathFinderNode**** PathFinder::nodesMap;
+PathFinderNode*** PathFinder::nodesMap;
 PathFinderNode** PathFinder::openList;
 int PathFinder::openCount;
 
@@ -19,29 +20,26 @@ void PathFinder::Initialize()
         throw DuplicateInitialization("Pathfinder has already been initialized");
     }
     initialized = true;
-    int nodeCount = 0;
     const int size = RIGHT - LEFT;
-    nodesMap = new PathFinderNode***[size];
-    for (int i = 0; i < size; ++i)
+    nodesMap = new PathFinderNode**[size];
+    for (int i = LEFT; i < RIGHT; ++i)
     {
-        nodesMap[i] = new PathFinderNode**[size];
-        for (int j = 0; j < size; ++j)
+        const int x = i - LEFT;
+        const int left = std::max(LEFT -i, LEFT);
+        const int right = std::min(RIGHT - i, RIGHT);
+        nodesMap[x] = new PathFinderNode*[size];
+        for (int j = left; j < right; ++j)
         {
-            nodesMap[i][j] = new PathFinderNode*[size];
-            for (int k = 0; k < size; ++k)
-            {
-                if (i + j + k == 3 * -LEFT)
-                {
-                    ++nodeCount;
-                    nodesMap[i][j][k] = new PathFinderNode(Coordinate(i + LEFT,j + LEFT,k + LEFT));
-                    continue;
-                }
-                nodesMap[i][j][k] = nullptr;
-            }
+            const int y = j - LEFT;
+            nodesMap[x][y] = new PathFinderNode(Coordinate(i,j ,-i - j));
         }
     }
-    
+    nodeCount = size * size;
     openList = new PathFinderNode*[nodeCount];
+    for (int i = 0; i < nodeCount; ++i)
+    {
+        openList[i] = nullptr;
+    }
     openCount = 0;
 }
 
@@ -53,9 +51,9 @@ void PathFinder::Initialize()
  */
 Stack<Coordinate>* PathFinder::PathTo(Coordinate source, Coordinate dest)
 {
+    const int size = RIGHT - LEFT;
     auto current = source;
     PriorityQueue<PathFinderNode*> queue;
-    Queue<PathFinderNode*> openList;
     PathFinderNode* currentNode = CoordToNodeMap(source);
     while (current != dest)
     {
@@ -69,31 +67,33 @@ Stack<Coordinate>* PathFinder::PathTo(Coordinate source, Coordinate dest)
             }
             
             // TODO add path cost
-            if (neighbourNode->wasOpened && neighbourNode->step < currentNode->step + 1)
-            {
-                continue;
-            }
-            neighbourNode->parent = currentNode;
-            neighbourNode->step = currentNode->step + 1;
-            if (!neighbourNode->wasOpened)
+            const int x = (neighbourNode->coords.X() - LEFT) * size;
+            const int y = neighbourNode->coords.Y() - LEFT;
+            if (openList[x + y] == nullptr)
             {
                 neighbourNode->estimatedSteps = EstimateSteps(neighbourNode->coords, dest);
             }
-            const float score = neighbourNode->estimatedSteps + neighbourNode->step;
-            neighbourNode->wasOpened = true;
-            openList.Enqueue(neighbourNode);
-            queue.Enqueue(neighbourNode, score);
+            
+            if (openList[x + y] == nullptr || openList[x + y]->step > currentNode->step + 1)
+            {
+                openList[x + y] = neighbourNode;
+                
+                const float score = neighbourNode->estimatedSteps + neighbourNode->step;
+                queue.Enqueue(neighbourNode, score);
+                neighbourNode->parent = currentNode;
+                neighbourNode->step = currentNode->step + 1;
+            }
         }
         delete [] neighbours;
-        
         currentNode = queue.Dequeue();
         current = currentNode->coords;
     }
-    
-    while(!openList.IsEmpty())
+
+    for (int i = 0; i < nodeCount; ++i)
     {
-        openList.Dequeue()->wasOpened = false;
+        openList[i] = nullptr;  
     }
+    
     auto path = new Stack<Coordinate>;
     while (current != source)
     {
@@ -112,11 +112,11 @@ Stack<Coordinate>* PathFinder::PathTo(Coordinate source, Coordinate dest)
  */
 PathFinderNode* PathFinder::CoordToNodeMap(Coordinate& coords)
 {
-    if (coords.X() < LEFT || coords.X() >= RIGHT || coords.Y() < LEFT || coords.Y() >= RIGHT || coords.Z() < LEFT || coords.Z() >= RIGHT )
+    if (std::abs(coords.X() + coords.Y()) > -LEFT || std::abs(coords.X()) > -LEFT || std::abs(coords.Y()) > -LEFT)
     {
         return nullptr;    
     }
-    return nodesMap[coords.X() - LEFT][coords.Y() - LEFT][coords.Z() - LEFT];
+    return nodesMap[coords.X() - LEFT][coords.Y() - LEFT];
 }
 
 /**
