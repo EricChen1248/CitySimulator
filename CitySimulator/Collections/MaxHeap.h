@@ -52,14 +52,59 @@ T& MaxHeap<T>::PeekTop() const
 }
 
 template <typename T>
-bool MaxHeap<T>::RemoveTop()
+bool MaxHeap<T>::Add(const T& item)
 {
-    auto & lastLevel = levels[levelCount];
-    levels[0].items[0] = lastLevel.items[lastLevel.itemCount];
+    auto currentLevel = levels[levelCount];
+    int levelIndex = levelCount;
+    if(currentLevel->Add(item))
+    {
+        levels.InsertLast(new HeapLevel<T>(++levelCount));   
+    }
+    
+    int index = currentLevel->itemCount - 1;
+    bool inPlace = false;
+    while (levelIndex > 0 && !inPlace)
+    {
+        int parentIndex = (index - 1) / 2;
+        auto parentLevel = levels[--levelIndex];
+        if (parentLevel[parentIndex] <= currentLevel[index])
+        {
+            inPlace = true;
+            continue;
+        }
+        
+        std::swap(parentLevel[parentIndex], currentLevel[index]);
+        index = parentIndex;
+        currentLevel = parentLevel;
+    }
+    
+    ++itemCount;
+    return true;
 }
 
 template <typename T>
-void MaxHeap<T>::Rebuild(int rootLevel, int rootIndex)
+bool MaxHeap<T>::RemoveTop()
+{
+    if (IsEmpty())
+    {
+        return false;
+    }
+    
+    auto & lastLevel = levels[levelCount];
+    levels[0] = lastLevel.items[lastLevel.itemCount];
+    
+    Rebuild(0,0);
+    return true;
+}
+
+template <typename T>
+void MaxHeap<T>::Clear()
+{
+    levels.Dispose();
+}
+
+template <typename T>
+void MaxHeap<T>::Rebuild(const int rootLevel, const int rootIndex)
 {
     auto& currentLevel = levels[rootLevel];
     if (levels.Count() > rootLevel)
@@ -81,11 +126,10 @@ void MaxHeap<T>::Rebuild(int rootLevel, int rootIndex)
 
             if (currentLevel[rootIndex] < nextLevel[largerChild])
             {
-                
+                std::swap(currentLevel[rootIndex], nextLevel[largerChild]);
+                Rebuild(rootLevel + 1, largerChild);
             }
-        }
-    {
-         
+        }         
     }
 }
 

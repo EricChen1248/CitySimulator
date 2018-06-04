@@ -15,7 +15,7 @@ private:
     int maxCount;
     
     T* items;
-    
+    T& operator[](const int index) { return items[index]; }
     HeapLevel(const int level) : level(level), itemCount(0)
     {
         maxCount = pow(2, level);
@@ -30,4 +30,10 @@ private:
     {
         delete [] items;
     }
+    
+    bool Add(T& item)
+    {
+        items[itemCount++] = item;
+        return itemCount == maxCount;
+    };
 };
