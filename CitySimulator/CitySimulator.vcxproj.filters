@@ -191,9 +191,6 @@
     <ClInclude Include="Collections\Dictionary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Collections\MaxHeap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Systems\Work\WorkRule.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -207,6 +204,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Systems\Work\WorkSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Systems\Work\Work.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Collections\MinHeap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -21,6 +21,7 @@ public:
     ~List();
     T operator[](int index) const;
     void InsertLast(T& item);
+    void RemoveLast();
     void Remove(int index);
     void Remove(T& item);
     void Dispose();
@@ -29,6 +30,7 @@ public:
     Iterator<T> begin() const { return Iterator<T>(*first); };
     // ReSharper disable once CppInconsistentNaming : name matching required for range based for loops
     Iterator<T> end() const { return Iterator<T>(); };
+    
 protected:
     Node<T>* first;
     Node<T>* last;
@@ -150,6 +152,26 @@ void List<T>::InsertLast(T& item)
 }
 
 /**
+ * \brief Removes the last item in the list
+ */
+template <typename T>
+void List<T>::RemoveLast()
+{
+    auto node = last->prev;
+    delete last;
+    last = node;
+    if (node == nullptr)
+    {
+        first = nullptr;
+    }
+    else
+    {
+        node->next = nullptr;
+    }
+    --count;
+}
+
+/**
  * \brief Removes an item from the list based on index
  * \param index Index of item to remove
  */
@@ -220,8 +242,8 @@ void List<T>::Remove(const int index)
     auto next = curNode->next;
     auto prev = curNode->prev;
     
-    next.prev = prev;
-    prev.next = next;
+    next->prev = prev;
+    prev->next = next;
     delete curNode;
     --count;
 }
@@ -272,7 +294,10 @@ void List<T>::Dispose()
     while(node != nullptr)
     {
         auto temp = node->next;
-        delete node->item;
+        if (node->item != nullptr)
+        {
+            delete node->item;
+        }
         node = temp;
     }
 }

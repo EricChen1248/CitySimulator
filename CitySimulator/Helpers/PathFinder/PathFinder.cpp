@@ -79,13 +79,14 @@ Stack<Coordinate>* PathFinder::PathTo(Coordinate source, Coordinate dest)
                 openList[x + y] = neighbourNode;
                 
                 const float score = neighbourNode->estimatedSteps + neighbourNode->step;
-                queue.Enqueue(neighbourNode, score);
+                queue.Enqueue(neighbourNode);
                 neighbourNode->parent = currentNode;
                 neighbourNode->step = currentNode->step + 1;
             }
         }
         delete [] neighbours;
-        currentNode = queue.Dequeue();
+        currentNode = queue.GetTop();
+        queue.RemoveTop();
         current = currentNode->coords;
     }
 

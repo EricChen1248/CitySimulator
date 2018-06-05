@@ -7,7 +7,7 @@ CitizenSystem::CitizenSystem()
 {
     citizenCount = 5000;
 #ifdef _DEBUG
-    citizenCount = 100;
+    citizenCount = 200;
 #endif
     for (int i = 0; i < citizenCount; ++i)
     {
