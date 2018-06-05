@@ -1,6 +1,7 @@
 #pragma once
 #include "../Base/Base.h"
-#include "WorkRule.h"
+
+class WorkRule;
 
 class Work : Base
 {
@@ -12,4 +13,7 @@ public:
 	void Reset() override;
 private:
 	void Enter();
+	int production;
+	int salary;
+	int earnings;
 };
