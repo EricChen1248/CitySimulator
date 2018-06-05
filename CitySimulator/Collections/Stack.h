@@ -62,7 +62,7 @@ T Stack<T>::Pop()
     {
         throw std::out_of_range("Stack is empty");
     }
-
+    
     T item = top->item;
     Node<T> *node = top->prev;
     delete top;

@@ -77,11 +77,9 @@ Stack<Coordinate>* PathFinder::PathTo(Coordinate source, Coordinate dest)
             if (openList[x + y] == nullptr || openList[x + y]->step > currentNode->step + 1)
             {
                 openList[x + y] = neighbourNode;
-                
-                const float score = neighbourNode->estimatedSteps + neighbourNode->step;
-                queue.Enqueue(neighbourNode);
                 neighbourNode->parent = currentNode;
                 neighbourNode->step = currentNode->step + 1;
+                queue.Enqueue(neighbourNode);
             }
         }
         delete [] neighbours;
@@ -96,11 +94,12 @@ Stack<Coordinate>* PathFinder::PathTo(Coordinate source, Coordinate dest)
     }
     
     auto path = new Stack<Coordinate>;
+    path->Push(dest);
     while (current != source)
     {
-        path->Push(current);
         currentNode = currentNode->parent;
         current = currentNode->coords;
+        path->Push(current);
     }
     
     return path;
