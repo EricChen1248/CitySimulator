@@ -7,11 +7,11 @@ CitizenSystem::CitizenSystem()
 {
     citizenCount = 5000;
 #ifdef _DEBUG
-    citizenCount = 100;
+    citizenCount = 1000;
 #endif
     for (int i = 0; i < citizenCount; ++i)
     {
-        auto plot = CoreController::Instance()->GetSystemController()->Plots();
+        const auto plot = CoreController::Instance()->GetSystemController()->Plots();
         const auto &randomPlot = plot->GetRandomPlot();
         auto citizen = new Citizen(randomPlot);
         citizens.InsertLast(citizen);

@@ -158,7 +158,7 @@
     <ClInclude Include="Assets\Fonts\Monofur.h" />
     <ClInclude Include="Collections\Dictionary.h" />
     <ClInclude Include="Collections\Iterator.h" />
-    <ClInclude Include="Collections\MaxHeap.h" />
+    <ClInclude Include="Collections\MinHeap.h" />
     <ClInclude Include="Collections\PriorityNode.h" />
     <ClInclude Include="Collections\PriorityQueue.h" />
     <ClInclude Include="Collections\Stack.h" />

@@ -2,13 +2,15 @@
 #include <cmath>
 
 template<typename T>
-class MaxHeap<T>;
-
-template<typename T>
 struct HeapLevel
 {
     template<typename HeapType>
-    friend class MaxHeap<HeapType>;
+    friend class MinHeap;
+    
+    ~HeapLevel()
+    {
+        delete [] items;
+    }
 private:
     int level;
     int itemCount;
@@ -21,19 +23,15 @@ private:
         maxCount = pow(2, level);
         
         items = new T[maxCount];
-        for (int i = 0; i < maxCount; i++)
-        {
-            items[i] = NULL;
-        }
     };
-    ~HeapLevel()
-    {
-        delete [] items;
-    }
     
     bool Add(T& item)
     {
         items[itemCount++] = item;
         return itemCount == maxCount;
     };
+    bool IsFull() const
+    {
+        return itemCount == maxCount;
+    }
 };
