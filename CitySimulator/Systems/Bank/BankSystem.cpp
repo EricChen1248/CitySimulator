@@ -1,20 +1,16 @@
 #include "BankSystem.h"
-#include "Food.h"
-#include "FoodRule.h"
+#include "Bank.h"
+#include "BankRule.h"
 #include "../../Controllers/CoreController.h"
 
 
-class FoodRule;
+class BankRule;
 
-BankSystem::BankSystem() : BankSystem(Bank)
+BankSystem::BankSystem() : BaseSystem(BANK)
 {
 }
 
-BankSystem::~FoodSystem()
-{
-	satisfiedLog.Dispose();
-	unsatisfiedLog.Dispose();
-}
+BankSystem::~BankSystem() = default;
 
 /**
 * \brief Registers a new food plot in the system
