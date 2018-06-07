@@ -2,5 +2,6 @@
 enum System
 {
     FOOD,
-	WORK
+	WORK,
+	BANK
 };

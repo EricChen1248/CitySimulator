@@ -15,6 +15,7 @@ const sf::Color BLUE = sf::Color::Blue;
 const sf::Color EMPTY_PLOT_COLOR = sf::Color(200, 200, 200);
 const sf::Color FOOD_COLOR = sf::Color::Magenta;
 const sf::Color WORK_COLOR = sf::Color::Cyan;
+const sf::Color BANK_COLOR = sf::Color::Green;
     
 #ifdef _DEBUG
     const int LEFT = -15;
