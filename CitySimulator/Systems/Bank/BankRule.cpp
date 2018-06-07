@@ -9,7 +9,7 @@ BankRule::BankRule(Citizen& citizen) : BaseRule(citizen), hungerLevel(0)
 
 BankRule::~BankRule() = default;
 
-float BankaRule::CalculateScore()
+float BankRule::CalculateScore()
 {
 	if (hungerLevel > 80)
 	{

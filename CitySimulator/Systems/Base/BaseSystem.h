@@ -13,12 +13,13 @@ public:
     System SystemType;
     
     BaseSystem(const System system) : SystemType(system), score(0) {};
+    
 
     const List<Plot*>& Plots() const { return plots; }
     float GetScore() const { return score; }
     List<Log*> SatisfiedLog() const { return satisfiedLog; }
     List<Log*> UnsatisfiedLog() const { return unsatisfiedLog; }
-    virtual ~BaseSystem() = default;
+    virtual ~BaseSystem();
     
     
     /**
@@ -38,6 +39,12 @@ protected:
     float score;
 };
 
+
+inline BaseSystem::~BaseSystem()
+{
+	satisfiedLog.Dispose();
+	unsatisfiedLog.Dispose();
+}
 
 /**
  * \brief Register a plot into the system for quick lookup and updating

@@ -6,7 +6,7 @@ class BankRule;
 /**
 * \brief Food Class that handles the food plots of our city
 */
-class Bank : public Bank
+class Bank : public Base
 {
 	friend BankRule;
 

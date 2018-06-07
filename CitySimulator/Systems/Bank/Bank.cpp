@@ -2,7 +2,7 @@
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
 
-Bank::Bank(Plot* plot) : Base(plot, Bank)
+Bank::Bank(Plot* plot) : Base(plot, BANK)
 {
 	cost = CoreController::RandomInt(50, 100);
 	earnings = 0;
