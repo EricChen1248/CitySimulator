@@ -7,7 +7,7 @@ Work::Work(Plot *plot) : Base(plot, WORK)
 {
 	salary = CoreController::RandomInt(50, 100);
 	production = salary * 2;
-	earnings = 0;
+	score = 0;
 	color = WORK_COLOR;
 }
 
@@ -17,7 +17,7 @@ Work::Work(Plot *plot) : Base(plot, WORK)
 */
 void Work::Reset()
 {
-	earnings = 0;
+	score = 0;
 }
 
 /**
@@ -25,5 +25,5 @@ void Work::Reset()
 */
 void Work::Enter()
 {
-	earnings += (production - salary);
+	score += (production - salary);
 }

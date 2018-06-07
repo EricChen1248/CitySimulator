@@ -15,5 +15,4 @@ private:
 	void Enter();
 	int production;
 	int salary;
-	int earnings;
 };
