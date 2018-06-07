@@ -11,11 +11,7 @@ FoodSystem::FoodSystem() : BaseSystem(FOOD)
 }
 
 
-FoodSystem::~FoodSystem()
-{
-    satisfiedLog.Dispose();
-    unsatisfiedLog.Dispose();
-}
+FoodSystem::~FoodSystem() = default;
 
 /**
  * \brief Registers a new food plot in the system
