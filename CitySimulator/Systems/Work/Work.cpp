@@ -13,7 +13,7 @@ Work::Work(Plot *plot) : Base(plot, WORK)
 
 
 /**
-* \brief Reset's Work Plot (earnings to 0)
+* \brief Reset's Work Plot (score to 0)
 */
 void Work::Reset()
 {
@@ -21,7 +21,7 @@ void Work::Reset()
 }
 
 /**
-* \brief New entry ( +earnings )
+* \brief New entry ( +score )
 */
 void Work::Enter()
 {

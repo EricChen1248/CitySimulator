@@ -17,13 +17,16 @@ public:
     {
         this->plot = plot;
         color = BLACK;
+        score = 0;
     }
 
     virtual ~Base() = default;
     virtual void Reset() = 0;
+    virtual int ReturnScore() { return score; };
     
 protected:
     Plot* plot;
     sf::Color color;
+    int score;
 };
 

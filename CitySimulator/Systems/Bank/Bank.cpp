@@ -5,23 +5,23 @@
 Bank::Bank(Plot* plot) : Base(plot, BANK)
 {
 	cost = CoreController::RandomInt(50, 100);
-	earnings = 0;
+	score = 0;
 	color = BANK_COLOR;
 }
 
 /**
-* \brief Reset's Food Plot (earnings to 0)
+* \brief Reset's Food Plot (score to 0)
 */
 void Bank::Reset()
 {
-	earnings = 0;
+	score = 0;
 }
 
 
 /**
-* \brief New entry ( +earnings )
+* \brief New entry ( +score )
 */
 void Bank::Enter()
 {
-	earnings += cost;
+	score += cost;
 }

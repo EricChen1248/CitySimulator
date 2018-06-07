@@ -43,10 +43,10 @@ void BankSystem::Update()
 * \param citizen Citzen being logged
 * \param rule Rule being logged
 */
-void FoodSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
+void BankSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
 {
 	// Dynamic cast rule to create a snapshot copy 
-	auto log = new Log(citizen->Coords(), new FoodRule(*dynamic_cast<FoodRule*>(rule)), citizen);
+	auto log = new Log(citizen->Coords(), new BankRule(*dynamic_cast<BankRule*>(rule)), citizen);
 	satisfiedLog.InsertLast(log);
 }
 
@@ -56,10 +56,10 @@ void FoodSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
 * \param citizen Citzen being logged
 * \param rule Rule being logged
 */
-void FoodSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
+void BankSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
 {
 	// Dynamic cast rule to create a snapshot copy 
-	auto log = new Log(citizen->Coords(), new FoodRule(*dynamic_cast<FoodRule*>(rule)), citizen);
+	auto log = new Log(citizen->Coords(), new BankRule(*dynamic_cast<BankRule*>(rule)), citizen);
 	unsatisfiedLog.InsertLast(log);
 }
 
@@ -67,7 +67,7 @@ void FoodSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
 /**
 * \brief Resets the day (clears log & resets plots)
 */
-void FoodSystem::ResetDay()
+void BankSystem::ResetDay()
 {
 	for (auto && plot : plots)
 	{

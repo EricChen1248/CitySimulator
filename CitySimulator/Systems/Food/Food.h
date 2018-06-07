@@ -16,7 +16,6 @@ friend FoodRule;
     void Reset() override;
 private:
     int cost;
-    int earnings;
     
     void Enter();
 };

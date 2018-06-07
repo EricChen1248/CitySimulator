@@ -5,23 +5,23 @@
 Food::Food(Plot* plot) : Base(plot, FOOD)
 {
     cost = CoreController::RandomInt(50, 100);
-    earnings = 0;
+    score = 0;
     color = FOOD_COLOR;
 }
 
 /**
- * \brief Reset's Food Plot (earnings to 0)
+ * \brief Reset's Food Plot (score to 0)
  */
 void Food::Reset()
 {
-    earnings = 0;
+    score = -50;
 }
 
 
 /**
- * \brief New entry ( +earnings )
+ * \brief New entry ( +score )
  */
 void Food::Enter()
 {
-    earnings += cost;
+    score += cost;
 }
