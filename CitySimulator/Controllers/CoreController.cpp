@@ -80,6 +80,7 @@ void CoreController::RunDayLoop(Clock& clock)
             GameInputEvents();
             GameRenderEvents();        
             PresentRender();
+            viewPortController->ResetMod();
             
         }
     }
