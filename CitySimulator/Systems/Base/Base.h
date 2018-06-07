@@ -21,7 +21,7 @@ public:
     }
 
     virtual ~Base() = default;
-    virtual void Reset() = 0;
+    virtual void EndDay() = 0;
     virtual int ReturnScore() { return score; };
     
 protected:
@@ -29,4 +29,9 @@ protected:
     sf::Color color;
     int score;
 };
+
+inline void Base::EndDay()
+{
+    
+}
 

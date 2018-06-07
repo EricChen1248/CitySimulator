@@ -10,9 +10,9 @@ Bank::Bank(Plot* plot) : Base(plot, BANK)
 }
 
 /**
-* \brief Reset's Food Plot (score to 0)
+* \brief EndDay's Food Plot (score to 0)
 */
-void Bank::Reset()
+void Bank::EndDay()
 {
 	score = 0;
 }

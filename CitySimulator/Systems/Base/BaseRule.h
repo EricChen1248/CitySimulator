@@ -18,6 +18,7 @@ public:
     virtual void LeavePlot(Plot* plot) = 0;
     virtual void Update() = 0;
     virtual bool IsSatisfied() = 0;
+    virtual void EndDay() {};
 protected:
     helper::Time lastUpdate;
     Citizen* citizen;

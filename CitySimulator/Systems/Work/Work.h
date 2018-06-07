@@ -10,7 +10,7 @@ class Work : Base
 public:
 	Work(Plot* plot);
 	~Work() = default;
-	void Reset() override;
+	void EndDay() override;
 private:
 	void Enter();
 	int production;

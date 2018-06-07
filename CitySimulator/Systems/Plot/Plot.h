@@ -26,6 +26,7 @@ public:
     void Register(Base* base);
     void Enter(Citizen* citizen);
     void Leave(Citizen* citizen);
+    void EndDay();
 private:
     Coordinate coords;
     ScreenCoordinate sCoords{};

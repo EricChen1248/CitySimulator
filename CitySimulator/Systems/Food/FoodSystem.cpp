@@ -72,7 +72,7 @@ void FoodSystem::ResetDay()
 {
     for (auto && plot : plots)
     {
-        plot->GetPlotType()->Reset();
+        plot->GetPlotType()->EndDay();
     }
     unsatisfiedLog.Dispose();
     satisfiedLog.Dispose();

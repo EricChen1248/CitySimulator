@@ -10,9 +10,9 @@ Food::Food(Plot* plot) : Base(plot, FOOD)
 }
 
 /**
- * \brief Reset's Food Plot (score to 0)
+ * \brief EndDay's Food Plot (score to 0)
  */
-void Food::Reset()
+void Food::EndDay()
 {
     score = -50;
 }

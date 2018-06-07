@@ -13,7 +13,7 @@ friend FoodRule;
     public:
     Food(Plot* plot);
     ~Food() = default;
-    void Reset() override;
+    void EndDay() override;
 private:
     int cost;
     

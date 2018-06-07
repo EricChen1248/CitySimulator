@@ -22,6 +22,7 @@ public:
     const Coordinate& Coords() const { return coords; }
     const int& GetMoney() const { return money;}
     const bool& InPlot() const { return inPlot; }
+    const int& Age() const { return age; }
 
     // Setters
     bool IncreaseMoney(int m);
@@ -30,6 +31,7 @@ public:
 
     void Update();  
     void Wait(float time);
+    void EndDay();
 private:
     void FindNextTarget();
     void GenRules();
@@ -54,7 +56,9 @@ private:
     int unsatisfiedCount{};
     float waitTime;
     bool inPlot;
+    int age;
     
     // Misc Properties
     sf::CircleShape shape;
 };
+

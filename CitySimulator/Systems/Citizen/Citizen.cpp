@@ -5,7 +5,7 @@
 #include "../../Helpers/PathFinder/PathFinder.h"
 
 
-Citizen::Citizen(Plot* plot) : target(nullptr), activeRule(nullptr), coords(plot->Coords()), money(0), waitTime(0.f), inPlot(false)
+Citizen::Citizen(Plot* plot) : target(nullptr), activeRule(nullptr), coords(plot->Coords()), money(0), waitTime(0.f), inPlot(false), age(0)
 {
     moveSpeed = 1 + static_cast<float>(CoreController::RandomInt(0, 40) - 20) / 100;
     shape = sf::CircleShape(5);
@@ -119,6 +119,11 @@ void Citizen::Update()
 void Citizen::Wait(const float time)
 {
     waitTime = time;
+}
+
+void Citizen::EndDay()
+{
+    age += 3;
 }
 
 sf::CircleShape& Citizen::GetShape()

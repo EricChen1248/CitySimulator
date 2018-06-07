@@ -57,6 +57,14 @@ void Plot::Leave(Citizen* citizen)
     occupants.Remove(citizen);
 }
 
+void Plot::EndDay()
+{
+    if (currentType != nullptr)
+    {
+        currentType->EndDay();
+    }
+}
+
 /**
  * \brief Selects the plot as clicked
  */

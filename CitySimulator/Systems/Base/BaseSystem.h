@@ -74,5 +74,9 @@ inline void BaseSystem::ResetDay()
     score = 0;
     satisfiedLog.Dispose();
     unsatisfiedLog.Dispose();
+    for (auto && plot : plots)
+    {
+        plot->EndDay();
+    }
 }
 

@@ -13,7 +13,7 @@ class Bank : public Base
 public:
 	Bank(Plot* plot);
 	~Bank() = default;
-	void Reset() override;
+	void EndDay() override;
 private:
 	int cost;
 

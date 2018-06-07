@@ -13,9 +13,9 @@ Work::Work(Plot *plot) : Base(plot, WORK)
 
 
 /**
-* \brief Reset's Work Plot (score to 0)
+* \brief EndDay's Work Plot (score to 0)
 */
-void Work::Reset()
+void Work::EndDay()
 {
 	score = 0;
 }
