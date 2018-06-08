@@ -16,6 +16,7 @@ const sf::Color EMPTY_PLOT_COLOR = sf::Color(200, 200, 200);
 const sf::Color FOOD_COLOR = sf::Color::Magenta;
 const sf::Color WORK_COLOR = sf::Color::Cyan;
 const sf::Color BANK_COLOR = sf::Color::Green;
+const sf::Color HOME_COLOR = sf::Color::Yellow;
     
 const float CITIZEN_MAX_MONEY = 10000;
 #ifdef _DEBUG

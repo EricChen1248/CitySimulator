@@ -1,7 +1,7 @@
 #include "SystemController.h"
 #include "../Systems/Food/FoodSystem.h"
 #include "../Systems/Bank/BankSystem.h"
-
+#include "../Systems/Home/HomeSystem.h"
 SystemController::SystemController() = default;
 
 SystemController::~SystemController()
@@ -20,8 +20,10 @@ void SystemController::Initialize()
     
     BaseSystem* food = new FoodSystem();
 	BaseSystem* bank = new BankSystem();
+	BaseSystem* home = new HomeSystem();
     systems.InsertLast(food);
 	systems.InsertLast(bank);
+	systems.InsertLast(home);
     // TODO Remove food demo
     for (auto && system : systems)
     {
@@ -49,6 +51,19 @@ void SystemController::Initialize()
 				system->Register(plot);
 			}
 		}
+		if (system->SystemType == HOME)
+		{
+			for (int i = 0; i < 50; ++i)
+			{
+				auto plot = plots->GetRandomPlot();
+				while (plot->GetPlotType() != nullptr)
+				{
+					plot = plots->GetRandomPlot();
+				}
+				system->Register(plot);
+			}
+		}
+		
     }
 }
 

@@ -4,5 +4,6 @@ enum System
     NONE,
     FOOD,
 	WORK,
-	BANK
+	BANK,
+	HOME,
 };

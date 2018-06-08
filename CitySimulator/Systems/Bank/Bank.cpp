@@ -25,5 +25,6 @@ void Bank::EndDay()
 */
 void Bank::Enter()
 {
+	//Need to revise
 	score += cost;
 }
