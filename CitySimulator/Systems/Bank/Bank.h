@@ -16,7 +16,8 @@ public:
 	void EndDay() override;
 private:
 	int cost;
-
+	int transaction_cost;
+	int administration_fee;
 	void Enter();
 };
 

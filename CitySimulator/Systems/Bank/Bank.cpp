@@ -5,12 +5,14 @@
 Bank::Bank(Plot* plot) : Base(plot, BANK)
 {
 	cost = CoreController::RandomInt(50, 100);
+	administration_fee = CoreController::RandomInt(0, 100);
+	transaction_cost = CoreController::RandomInt(0, 100);
 	score = 0;
 	color = BANK_COLOR;
 }
 
 /**
-* \brief EndDay's Food Plot (score to 0)
+* \brief Reset's Food Plot (score to 0)
 */
 void Bank::EndDay()
 {

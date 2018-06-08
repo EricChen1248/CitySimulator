@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include "Citizen.h"
 #include "../Food/FoodRule.h"
+#include "../Bank/BankRule.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/PathFinder/PathFinder.h"
 
@@ -202,7 +203,9 @@ void Citizen::FindNextTarget()
 void Citizen::GenRules()
 {
     BaseRule* food = new FoodRule(*this);
+	BaseRule* bank = new BankRule(*this);
     rules.InsertLast(food);
+	rules.InsertLast(bank);
    
 }
 

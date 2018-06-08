@@ -2,8 +2,9 @@
 #include "../../Controllers/CoreController.h"
 #include "BankSystem.h"
 #include "Bank.h"
+#include "../../Helpers/Constants.h"
 
-BankRule::BankRule(Citizen& citizen) : BaseRule(citizen), hungerLevel(0)
+BankRule::BankRule(Citizen& citizen) : BaseRule(citizen), saving(200.f)
 {
 }
 
@@ -11,11 +12,11 @@ BankRule::~BankRule() = default;
 
 float BankRule::CalculateScore()
 {
-	if (hungerLevel > 80)
-	{
+
+	if ((citizen->GetMoney() < CITIZEN_MAX_MONEY) && (saving > 100))
+		return 100001;
+	else
 		return 0;
-	}
-	return (100 - hungerLevel) * 100;
 }
 
 /**
@@ -25,27 +26,32 @@ float BankRule::CalculateScore()
 bool BankRule::FindPlot()
 {
 	auto &plots = CoreController::Instance()->GetSystemController()->GetSystem(BANK)->Plots();
+	// Get a list of plots that fulfill out requirements ( distance < max distance)
+	//auto coords = citizen->Coords();
 
-	// Get a list of plots that fulfill out requirements ( distance < max distance
-	List<Plot*> choices;
+	Plot* chosen = nullptr;
+	auto coords = this->citizen->Coords();
 	for (auto && plot : plots)
 	{
-		auto coords = citizen->Coords();
-		const auto distance = plot->Coords().Distance(coords);
-		if (distance < maxDistance)
-		{
-			auto p = plot;
-			choices.InsertLast(p);
+		//this is a citizen pointer pointing to the citizen 
+		if (chosen == nullptr)
+			chosen = plot;
+		else {
+			const auto distance = plot->Coords().Distance(coords);
+			if (distance < chosen->Coords().Distance(coords)) {
+				chosen = plot;
+			}
 		}
 	}
 
 	// If such a list doesn't exist. This rule returns failed result false
-	if (choices.Count() == 0)
+	if (chosen == nullptr)
 	{
 		return false;
 	}
-	const auto chosen = choices[CoreController::RandomInt(0, choices.Count())];
+	//CITIZEN must setActiveRule of some rule ex: bankRule
 	citizen->SetActiveRule(this);
+	//citizen must setActiveRule of a plot as a target;
 	citizen->SetTarget(chosen);
 
 	return true;
@@ -55,7 +61,6 @@ void BankRule::EnterPlot(Plot* plot)
 {
 	const auto bank = dynamic_cast<Bank*>(plot->GetPlotType());
 	citizen->Wait(1.f);
-	citizen->IncreaseMoney(-bank->cost);
 	bank->Enter();
 }
 
@@ -65,7 +70,14 @@ void BankRule::EnterPlot(Plot* plot)
 */
 void BankRule::LeavePlot(Plot* plot)
 {
-	hungerLevel = 100.f;
+	const auto bank = dynamic_cast<Bank*>(plot->GetPlotType());
+	float moneyToWithdraw = 0;
+	if (CITIZEN_MAX_MONEY - this->citizen->GetMoney() >= saving)
+		moneyToWithdraw = CITIZEN_MAX_MONEY - this->citizen->GetMoney();
+	else
+		moneyToWithdraw = saving;
+	if (moneyToWithdraw >= bank->transaction_cost)
+		citizen->IncreaseMoney(moneyToWithdraw - bank->transaction_cost);
 }
 
 /**
@@ -74,7 +86,8 @@ void BankRule::LeavePlot(Plot* plot)
 void BankRule::Update()
 {
 	// TODO : Tweak hunger to time ratio
-	this->hungerLevel -= CoreController::Instance()->GetDeltaTime() * 30;
+	//this->hungerLevel -= CoreController::Instance()->GetDeltaTime() * 30;
+	//Bank Rules need not update anything;
 }
 
 /**
@@ -83,5 +96,6 @@ void BankRule::Update()
 */
 bool BankRule::IsSatisfied()
 {
-	return hungerLevel > 20;
+	//need to adjust this rate
+	return saving > 10000;
 }

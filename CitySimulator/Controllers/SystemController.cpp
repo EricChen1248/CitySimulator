@@ -1,5 +1,6 @@
 #include "SystemController.h"
 #include "../Systems/Food/FoodSystem.h"
+#include "../Systems/Bank/BankSystem.h"
 
 SystemController::SystemController() = default;
 
@@ -18,7 +19,9 @@ void SystemController::Initialize()
     citizens = new CitizenSystem;
     
     BaseSystem* food = new FoodSystem();
+	BaseSystem* bank = new BankSystem();
     systems.InsertLast(food);
+	systems.InsertLast(bank);
     // TODO Remove food demo
     for (auto && system : systems)
     {
@@ -34,6 +37,18 @@ void SystemController::Initialize()
                 system->Register(plot);
             }
         }
+		if (system->SystemType == BANK) 
+		{
+			for (int i = 0; i < 5; ++i) 
+			{
+				auto plot = plots->GetRandomPlot();
+				while (plot->GetPlotType() != nullptr)
+				{
+					plot = plots->GetRandomPlot();
+				}
+				system->Register(plot);
+			}
+		}
     }
 }
 

@@ -20,7 +20,7 @@ public:
 	bool IsSatisfied() override;
 private:
 	// TODO : Tweak foodrule max distance
-	const int maxDistance = 10;
-	float hungerLevel;
+	const int maxDistance = 20;
+	float saving;
 };
 
