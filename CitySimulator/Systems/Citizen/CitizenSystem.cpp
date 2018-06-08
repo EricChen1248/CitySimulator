@@ -5,10 +5,12 @@
 
 CitizenSystem::CitizenSystem()
 {
-    citizenCount = 5000;
 #ifdef _DEBUG
     citizenCount = 100;
+#else
+    citizenCount = 5000;
 #endif
+    
     for (int i = 0; i < citizenCount; ++i)
     {
         const auto plot = CoreController::Instance()->GetSystemController()->Plots();

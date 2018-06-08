@@ -65,7 +65,7 @@ void CoreController::RunDayLoop(Clock& clock)
             }
                         
             // DeltaTime 0.1 = 1/60 real seconds = 0.1 minute in game
-            deltaTime = (currentTime - lastTime) * 0.1f;
+            deltaTime = (currentTime - lastTime);
             time.IncreaseTime(deltaTime);
             lastTime = currentTime;
             

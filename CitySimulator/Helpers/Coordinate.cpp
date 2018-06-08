@@ -46,10 +46,17 @@ Coordinate* Coordinate::GetNeighbours() const
  */
 Coordinate Coordinate::MoveTowards(const Coordinate dest, float deltaTime) const
 {
-    deltaTime *= 10;
-    const float X = x + (dest.x > x + deltaTime ? 1 : dest.x < x - deltaTime ? -1 : 0) * deltaTime;
-    const float Y = y + (dest.y > y + deltaTime ? 1 : dest.y < y - deltaTime ? -1 : 0) * deltaTime;
-    const float Z = z + (dest.z > z + deltaTime ? 1 : dest.z < z - deltaTime ? -1 : 0) * deltaTime;
+    const float smoothness = 6;
+    deltaTime *= 2 / smoothness;
+    float X = x + (dest.x > x + deltaTime ? 1 : dest.x < x - deltaTime ? -1 : 0) * deltaTime;
+    float Y = y + (dest.y > y + deltaTime ? 1 : dest.y < y - deltaTime ? -1 : 0) * deltaTime;
+    float Z = z + (dest.z > z + deltaTime ? 1 : dest.z < z - deltaTime ? -1 : 0) * deltaTime;
+    for (int i = 0; i < smoothness - 1; ++i)
+    {
+        X += (dest.x > X + deltaTime ? 1 : dest.x < X - deltaTime ? -1 : 0) * deltaTime;
+        Y += (dest.y > Y + deltaTime ? 1 : dest.y < Y - deltaTime ? -1 : 0) * deltaTime;
+        Z += (dest.z > Z + deltaTime ? 1 : dest.z < Z - deltaTime ? -1 : 0) * deltaTime;
+    }
     return {X, Y, Z};
 }
 

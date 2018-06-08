@@ -23,12 +23,11 @@ namespace helper
          */
         void IncreaseTime(const float deltaTime)
         {
-            // TODO : adjust deltaTime to time diff
-            Micro += static_cast<int>(deltaTime * 24000);
-            while (Micro >= 100)
+            Micro += static_cast<int>(deltaTime * 60000);
+            while (Micro >= 1000)
             {
                 ++Minute;
-                Micro -= 100;
+                Micro -= 1000;
             }
             
             while (Minute >= 60)

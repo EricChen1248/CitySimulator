@@ -2,6 +2,7 @@
 #include "../../Controllers/CoreController.h"
 #include "FoodSystem.h"
 #include "Food.h"
+#include <iostream>
 
 FoodRule::FoodRule(Citizen& citizen): BaseRule(citizen), hungerLevel(0)
 {
@@ -74,7 +75,7 @@ void FoodRule::LeavePlot(Plot* plot)
 void FoodRule::Update()
 {
     // TODO : Tweak hunger to time ratio
-    this->hungerLevel -= CoreController::Instance()->GetDeltaTime() * 30;
+    hungerLevel -= CoreController::Instance()->GetDeltaTime() * 240;
 }
 
 /**
