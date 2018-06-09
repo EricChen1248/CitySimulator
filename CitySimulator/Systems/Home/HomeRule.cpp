@@ -1,12 +1,9 @@
 #include "HomeRule.h"
-#include "../../Controllers/CoreController.h"
-#include "HomeSystem.h"
 #include "Home.h"
-#include "../../Helpers/Constants.h"
 #include "../../Collections/List.h"
-#include <math.h>
+#include "../../Controllers/CoreController.h"
 
-HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen),myHome(nullptr)
+HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME),myHome(nullptr)
 {
 	homelessLevel = 0;
 	homelessHour = 0;
@@ -16,7 +13,7 @@ HomeRule::~HomeRule() = default;
 
 float HomeRule::CalculateScore()
 {
-	return homelessLevel;
+	return static_cast<float>(homelessLevel);
 }
 
 /**
@@ -89,7 +86,7 @@ void HomeRule::Update()
 	{
 		//need rescaling
 		homelessHour += CoreController::Instance()->GetDeltaTime();
-		homelessLevel = std::exp((homelessHour-50)/100);
+		homelessLevel = static_cast<int>(std::exp((homelessHour-50)/100));
 		if (CoreController::Instance()->GetTime().Hour == 10)
 			homelessLevel = 1000000000;
 	}

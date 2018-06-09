@@ -1,4 +1,3 @@
-#pragma once
 #include "Home.h"
 #include "../../Helpers/Constants.h"
 #include "../../Controllers/CoreController.h"

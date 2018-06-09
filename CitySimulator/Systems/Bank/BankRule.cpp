@@ -4,11 +4,7 @@
 #include "Bank.h"
 #include "../../Helpers/Constants.h"
 
-<<<<<<< Updated upstream
-BankRule::BankRule(Citizen& citizen) : BaseRule(citizen), saving(200.f)
-=======
-BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), hungerLevel(0)
->>>>>>> Stashed changes
+BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(200.f)
 {
 }
 
@@ -19,8 +15,8 @@ float BankRule::CalculateScore()
 
 	if ((citizen->GetMoney() < CITIZEN_MAX_MONEY) && (saving > 100))
 		return 100001;
-	else
-		return 0;
+	
+    return 0;
 }
 
 /**
@@ -75,13 +71,16 @@ void BankRule::EnterPlot(Plot* plot)
 void BankRule::LeavePlot(Plot* plot)
 {
 	const auto bank = dynamic_cast<Bank*>(plot->GetPlotType());
-	float moneyToWithdraw = 0;
+    
+	int moneyToWithdraw;
+    
 	if (CITIZEN_MAX_MONEY - this->citizen->GetMoney() >= saving)
 		moneyToWithdraw = CITIZEN_MAX_MONEY - this->citizen->GetMoney();
 	else
 		moneyToWithdraw = saving;
-	if (moneyToWithdraw >= bank->transaction_cost)
-		citizen->IncreaseMoney(moneyToWithdraw - bank->transaction_cost);
+    
+	if (moneyToWithdraw >= bank->transactionCost)
+		citizen->IncreaseMoney(moneyToWithdraw - bank->transactionCost);
 }
 
 /**

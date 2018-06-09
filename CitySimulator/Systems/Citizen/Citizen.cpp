@@ -131,10 +131,15 @@ void Citizen::ForceRule(System ruleType, float waitTime)
 {
     for (auto && rule : rules)
     {
-        if (rule->)
+        if (rule->Type() == ruleType)
         {
-            
+            rule->FindPlot();
         }
+    }
+
+    if (waitTime != 0)
+    {
+        Wait(waitTime);
     }
 }
 

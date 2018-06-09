@@ -5,8 +5,8 @@
 Bank::Bank(Plot* plot) : Base(plot, BANK)
 {
 	cost = CoreController::RandomInt(50, 100);
-	administration_fee = CoreController::RandomInt(0, 100);
-	transaction_cost = CoreController::RandomInt(0, 100);
+	administrationFee = CoreController::RandomInt(0, 100);
+	transactionCost = CoreController::RandomInt(0, 100);
 	score = 0;
 	color = BANK_COLOR;
 }
