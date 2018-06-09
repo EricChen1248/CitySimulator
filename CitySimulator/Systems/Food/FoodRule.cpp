@@ -2,9 +2,8 @@
 #include "../../Controllers/CoreController.h"
 #include "FoodSystem.h"
 #include "Food.h"
-#include <iostream>
 
-FoodRule::FoodRule(Citizen& citizen): BaseRule(citizen), hungerLevel(0)
+FoodRule::FoodRule(Citizen& citizen): BaseRule(citizen, FOOD), hungerLevel(0)
 {
 }
 

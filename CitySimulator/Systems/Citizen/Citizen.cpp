@@ -127,6 +127,17 @@ void Citizen::EndDay()
     age += 3;
 }
 
+void Citizen::ForceRule(System ruleType, float waitTime)
+{
+    for (auto && rule : rules)
+    {
+        if (rule->)
+        {
+            
+        }
+    }
+}
+
 sf::CircleShape& Citizen::GetShape()
 {
     return shape;

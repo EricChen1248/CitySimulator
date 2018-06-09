@@ -32,6 +32,7 @@ public:
     void Update();  
     void Wait(float time);
     void EndDay();
+    void ForceRule(System ruleType, float waitTime = 0);
 private:
     void FindNextTarget();
     void GenRules();

@@ -4,7 +4,11 @@
 #include "Bank.h"
 #include "../../Helpers/Constants.h"
 
+<<<<<<< Updated upstream
 BankRule::BankRule(Citizen& citizen) : BaseRule(citizen), saving(200.f)
+=======
+BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), hungerLevel(0)
+>>>>>>> Stashed changes
 {
 }
 

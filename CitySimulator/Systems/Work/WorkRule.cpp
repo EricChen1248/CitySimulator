@@ -1,12 +1,11 @@
 #include "WorkRule.h"
-#include "WorkSystem.h"
 #include "Work.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Time.h"
 
+using helper::Time;
 
-
-WorkRule::WorkRule(Citizen& citizen) : BaseRule(citizen), assignedCompany(nullptr)
+WorkRule::WorkRule(Citizen& citizen) : BaseRule(citizen, WORK), assignedCompany(nullptr)
 {
 }
 
@@ -15,11 +14,11 @@ WorkRule::~WorkRule() = default;
 
 float WorkRule::CalculateScore()
 {
-	helper::Time currentTime = CoreController::Instance()->GetTime();
-	helper::Time timeToWork(8, 0);
-	helper::Time breakTime(12, 0);
-	helper::Time endBreakTime(13, 0);
-	helper::Time timeOffWork(17, 0);
+    const Time currentTime = CoreController::Instance()->GetTime();
+	const Time timeToWork(8, 0);
+	const Time breakTime(12, 0);
+	const Time endBreakTime(13, 0);
+	const Time timeOffWork(17, 0);
 
 	// Now is not work time
 	if (timeToWork > currentTime || currentTime > timeOffWork)

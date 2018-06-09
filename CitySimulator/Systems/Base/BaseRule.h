@@ -1,5 +1,6 @@
 #pragma once
 #include "../../Helpers/Time.h"
+#include "../SystemEnum.h"
 
 class Plot;
 class Citizen;
@@ -9,7 +10,7 @@ class Citizen;
 class BaseRule
 {
 public:
-    BaseRule(Citizen& citizen) : citizen(&citizen) {};
+    BaseRule(Citizen& citizen, const System type) : type(type), citizen(&citizen) {};
     virtual ~BaseRule() = default;
     
     virtual float CalculateScore() = 0;
@@ -19,7 +20,9 @@ public:
     virtual void Update() = 0;
     virtual bool IsSatisfied() = 0;
     virtual void EndDay() {};
+    System Type() const { return type; };
 protected:
+    System type;
     helper::Time lastUpdate;
     Citizen* citizen;
 };
