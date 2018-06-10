@@ -18,18 +18,31 @@ public:
     
 };
 
+/**
+ * \brief Adds a new item to the priority queue and sorts it
+ * \param item Item to add to queue
+ */
 template <class T>
 void PriorityQueue<T>::Enqueue(T& item)
 {
     MinHeap<T>::Add(item);
 }
 
+/**
+ * \brief Returns the item at the top of the queue.
+ * \return Item at the top of the queue
+ * \throws out_of_range exception if empty
+ */
 template <class T>
 T& PriorityQueue<T>::GetTop() const
 {
     return MinHeap<T>::PeekTop();
 }
 
+
+/**
+ * \brief Removes the queue at the top of the queue
+ */
 template <class T>
 void PriorityQueue<T>::Dequeue()
 {
