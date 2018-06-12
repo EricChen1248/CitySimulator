@@ -57,9 +57,11 @@ void CoreController::RunDayLoop(Clock& clock)
         {
             const float currentTime = clock.getElapsedTime().asSeconds();
             const float fps = 1.f / (currentTime - lastTime);
+            const auto &mousePos = sf::Mouse::getPosition(*sfmlController->window);
             if (currentTime - lastPrint > 0.2)
             {
-                std::cout << fps << std::endl;
+                std::cout << mousePos.x << " " << mousePos.y << std::endl;
+                //std::cout << fps << std::endl;
                 
                 lastPrint = currentTime;
             }
@@ -75,14 +77,15 @@ void CoreController::RunDayLoop(Clock& clock)
             PresentRender();
             viewPortController->ResetMod();
         }
-        while(true)
+        advanceDay = false;
+        while(!advanceDay)
         {
-            GameInputEvents();
-            GameRenderEvents();        
+            InterdayInputEvents();
+            InterdayRenderEvents();       
             PresentRender();
             viewPortController->ResetMod();
-            
         }
+        time.ResetDay();
     }
 }
 
@@ -135,52 +138,7 @@ void CoreController::GameUpdateEvents() const
 /**
  * \brief Handles SFML events
  */
-void CoreController::GameInputEvents() const
-{
-    Event event{};
-    Window* window = sfmlController->Window();
-    while (window->pollEvent(event))
-    {
-        // "close requested" event: we close the window
-        switch (event.type)
-        {
-        case Event::Closed:
-            window->close();
-            break;
-        case Event::Resized: break;
-        case Event::TextEntered: break;
-        case Event::MouseWheelMoved: break;
-        case Event::MouseWheelScrolled:
-            viewPortController->HandleScroll(event);
-            break;
-        case Event::MouseButtonPressed: break;
-        case Event::MouseButtonReleased: break;
-        case Event::MouseMoved: break;
-        case Event::MouseEntered: break;
-        case Event::MouseLeft: break;
-        default: ;
-        }        
-    }
-    if (sf::Keyboard::isKeyPressed(Keyboard::A))
-    {
-        viewPortController->Right();
-    }
-    if (sf::Keyboard::isKeyPressed(Keyboard::D))
-    {
-        viewPortController->Left();
-    }
-    if (sf::Keyboard::isKeyPressed(Keyboard::W))
-    {
-        viewPortController->Down();
-    }
-    if (sf::Keyboard::isKeyPressed(Keyboard::S))
-    {
-        viewPortController->Up();
-    }
-
-}
-
-void CoreController::InterdayInputEvents() const
+void CoreController::GameInputEvents()
 {
     Event event{};
     Window* window = sfmlController->Window();
@@ -242,6 +200,67 @@ void CoreController::GameRenderEvents() const
 
 #pragma region Interday Functions
 
+
+void CoreController::InterdayInputEvents()
+{
+    Event event{};
+    Window* window = sfmlController->Window();
+    while (window->pollEvent(event))
+    {
+        // "close requested" event: we close the window
+        switch (event.type)
+        {
+        case Event::Closed:
+            window->close();
+            break;
+        case Event::Resized: break;
+        case Event::TextEntered: break;
+        case Event::MouseWheelMoved: break;
+        case Event::MouseWheelScrolled:
+            viewPortController->HandleScroll(event);
+            break;
+        case Event::MouseButtonPressed: 
+        case Event::MouseButtonReleased: break;
+        case Event::MouseMoved: break;
+        case Event::MouseEntered: break;
+        case Event::MouseLeft: break;
+        default: ;
+        }        
+    }
+    if (sf::Keyboard::isKeyPressed(Keyboard::A))
+    {
+        viewPortController->Right();
+    }
+    if (sf::Keyboard::isKeyPressed(Keyboard::D))
+    {
+        viewPortController->Left();
+    }
+    if (sf::Keyboard::isKeyPressed(Keyboard::W))
+    {
+        viewPortController->Down();
+    }
+    if (sf::Keyboard::isKeyPressed(Keyboard::S))
+    {
+        viewPortController->Up();
+    }
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+    {
+        if (uiController->NextDayButtonHover())
+        {
+           advanceDay = true;
+        }
+    }
+
+}
+
+void CoreController::InterdayRenderEvents() const
+{
+    ClearRender();
+    viewPortController->UpdateGameView();
+    systemController->Render();
+    viewPortController->UpdateUIView();
+    uiController -> RenderInterDayUI();
+}
 #pragma endregion
 
 #pragma region Helper Functions

@@ -37,7 +37,6 @@ public:
     // Exposed Methods
     void Start();
     void RunDayLoop(Clock& clock);
-    void GameRenderEvents() const;
     static int RandomInt(int bottom, int top);
 private:
     static CoreController* instance;
@@ -50,16 +49,19 @@ private:
     helper::Time time;
     float deltaTime{};
     bool isRunning;
+    bool advanceDay;
     
     void Update();
     // Common Functions
     void ClearRender() const;    
     void PresentRender() const;
     // Game Functions
+    void GameInputEvents();
     void GameUpdateEvents() const;
-    void GameInputEvents() const;
+    void GameRenderEvents() const;
     // Interday Functions
-    void InterdayInputEvents() const;
+    void InterdayInputEvents();
+    void InterdayRenderEvents() const;
 };
 
 

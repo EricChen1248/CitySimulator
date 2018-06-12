@@ -8,6 +8,8 @@ ViewPortController::ViewPortController()
     scrollSize = 1;
     modifier = 1;
     gameView.setSize(static_cast<float>(viewX * 2), static_cast<float>(viewY * 2));
+    uiView.setCenter(static_cast<float>(WINDOW_WIDTH) / 2, static_cast<float>(WINDOW_HEIGHT) / 2);
+    uiView.setSize(static_cast<float>(WINDOW_WIDTH), static_cast<float>(WINDOW_HEIGHT));
     UpdateGameView();
 }
 

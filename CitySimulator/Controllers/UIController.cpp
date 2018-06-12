@@ -5,6 +5,14 @@
 
 UIController::UIController()
 {
+    nextDay = Button(Vector2f(105, 32), Vector2f(WINDOW_WIDTH - 107, WINDOW_HEIGHT - 34), WHITE, MOUSE_OVER_COLOR);
+    nextDayText.setFont(CoreController::Instance()->GetFontController()->Monofur());
+    nextDayText.setFillColor(BLACK);
+    nextDayText.setCharacterSize(24);
+    nextDayText.setPosition(WINDOW_WIDTH - 103, WINDOW_HEIGHT - 33);
+    nextDayText.setString("Next Day");
+        
+    
     timeText.setFont(CoreController::Instance()->GetFontController()->Monofur());
     timeText.setFillColor(BLACK);
     timeText.setCharacterSize(24);
@@ -20,8 +28,7 @@ UIController::UIController()
 
 
 
-UIController::~UIController()
-= default;
+UIController::~UIController() = default;
 
 /**
  * \brief Renders UI
@@ -29,6 +36,17 @@ UIController::~UIController()
 void UIController::RenderUI()
 {
     Time();
+}
+
+void UIController::RenderInterDayUI()
+{
+    NextDayButton();    
+}
+
+void UIController::NextDayButton()
+{
+    nextDay.Draw();
+    CoreController::Instance()->SfmlController()->DrawString(nextDayText);
 }
 
 /**

@@ -1,19 +1,25 @@
 #pragma once
-#include <SFML/Graphics/Shape.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
 
-using sf::Shape;
+using sf::RectangleShape;
+using sf::Vector2f;
+using sf::Color;
 /**
  * \brief Middle interface between SFML and code base that provides draw and bounds check capabilities.
  */
+
+
 class Button
 {
 public:
-    Button(Shape* shape, Shape* mouseOverShape = nullptr);
+    Button();
+    Button(Vector2f size,Vector2f pos, Color color, Color moColor);
     ~Button();
-    void Draw() const;
+    void Draw();
     bool IsInBounds() const;
 private:
-    Shape* shape;
-    Shape* moShape;
+    RectangleShape shape;
+    Color color;
+    Color moColor;
 };
 

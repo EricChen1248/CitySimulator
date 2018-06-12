@@ -119,7 +119,7 @@ void SFMLController::UpdateWindow() const
  */
 void SFMLController::InitSFML() 
 {
-    window = new RenderWindow(VideoMode(1024, 768), "City Simulator");
+    window = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "City Simulator");
     window->setFramerateLimit(60);
     isRunning = true;
 }
