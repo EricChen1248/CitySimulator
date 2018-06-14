@@ -130,6 +130,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Systems\Store\StoreSystem.cpp" />
+    <ClCompile Include="Systems\Store\StoreRule.cpp" />
+    <ClCompile Include="Systems\Store\Store.cpp" />
     <ClCompile Include="Systems\Home\HomeRule.cpp" />
     <ClCompile Include="Systems\Home\Home.cpp" />
     <ClCompile Include="Systems\Home\HomeSystem.cpp" />
@@ -162,6 +165,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Assets\Fonts\Monofur.h" />
+    <ClInclude Include="Systems\Store\StoreSystem.h" />
+    <ClInclude Include="Systems\Store\StoreRule.h" />
+    <ClInclude Include="Systems\Store\Store.h" />
     <ClInclude Include="Systems\Home\HomeRule.h" />
     <ClInclude Include="Systems\Home\Home.h" />
     <ClInclude Include="Systems\Home\HomeSystem.h" />

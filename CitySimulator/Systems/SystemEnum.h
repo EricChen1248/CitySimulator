@@ -6,4 +6,6 @@ enum System
 	WORK,
 	BANK,
 	HOME,
+	STORE, 
+	SCHOOL,
 };

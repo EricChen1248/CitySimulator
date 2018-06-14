@@ -102,6 +102,15 @@
     <ClCompile Include="Systems\Home\HomeRule.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Systems\Store\Store.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Systems\Store\StoreRule.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Systems\Store\StoreSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Collections\Node.h">
@@ -246,6 +255,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Systems\Home\HomeRule.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Systems\Store\Store.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Systems\Store\StoreRule.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Systems\Store\StoreSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
