@@ -1,5 +1,7 @@
 #include "WorkRule.h"
 #include "Work.h"
+#include "../School/SchoolRule.h"
+#include "../Bank/BankRule.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Time.h"
 
@@ -7,6 +9,11 @@ using helper::Time;
 
 WorkRule::WorkRule(Citizen& citizen) : BaseRule(citizen, WORK), assignedCompany(nullptr)
 {
+	// To Get BankRule
+	SchoolRule* schoolRule = dynamic_cast<SchoolRule*>(citizen.FindRule(SCHOOL));
+	int educationLv = schoolRule->getEdLvl();
+	production = static_cast<float>(CoreController::RandomInt(50, 100));
+	salary = production * 0.5f + educationLv * 0.3f;
 }
 
 WorkRule::~WorkRule() = default;
@@ -25,10 +32,11 @@ float WorkRule::CalculateScore()
 	{
 		return 0;
 	}
+
 	// break time
 	if (endBreakTime > currentTime || currentTime > breakTime)
 	{
-		return 100; // Maybe citizen wants to stay at company;
+		citizen->ForceRule(FOOD, 1.f);
 	}
 
 	return 500000;
@@ -80,7 +88,7 @@ void WorkRule::EnterPlot(Plot* plot)
 {
 	const auto work = dynamic_cast<Work*>(plot->GetPlotType());
 	citizen->Wait(4.f); // 4 hour (waited to adjust)
-	work->Enter();
+	work->Enter(static_cast<int>(production - salary));
 }
 
 /**
@@ -88,8 +96,8 @@ void WorkRule::EnterPlot(Plot* plot)
 */
 void WorkRule::LeavePlot(Plot* plot)
 {
-	const auto work = dynamic_cast<Work*>(plot->GetPlotType());
-	citizen->IncreaseMoney(work->salary);
+	BankRule* bankRule = dynamic_cast<BankRule*>(citizen->FindRule(BANK));
+	bankRule->saveMoney(this->salary);
 }
 
 /**
@@ -97,6 +105,7 @@ void WorkRule::LeavePlot(Plot* plot)
 */
 void WorkRule::Update()
 {
+
 }
 
 /**

@@ -12,7 +12,6 @@ public:
 	~Work() = default;
 	void EndDay() override;
 private:
-	void Enter();
-	int production;
-	int salary;
+	void Enter(int productDelta);
+
 };

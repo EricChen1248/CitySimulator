@@ -16,7 +16,6 @@ friend SchoolRule;
     void EndDay() override;
 private:
     int cost;
-    
     void Enter();
 };
 

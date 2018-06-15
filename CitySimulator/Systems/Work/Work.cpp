@@ -1,12 +1,12 @@
 #include "Work.h"
+#include "WorkRule.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
 
 
 Work::Work(Plot *plot) : Base(plot, WORK)
 {
-	salary = CoreController::RandomInt(50, 100);
-	production = salary * 2;
+
 	score = 0;
 	color = WORK_COLOR;
 }
@@ -23,7 +23,7 @@ void Work::EndDay()
 /**
 * \brief New entry ( +score )
 */
-void Work::Enter()
+void Work::Enter(int productDelta)
 {
-	score += (production - salary);
+	score += productDelta;
 }

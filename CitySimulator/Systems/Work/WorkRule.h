@@ -16,6 +16,8 @@ public:
 private:
 	const int maxDistance = 10;
 	Plot* assignedCompany;
+	float production;
+	float salary;
 
 	float CalculateScore();
 	bool FindPlot();
@@ -23,5 +25,4 @@ private:
 	void LeavePlot(Plot* plot);
 	void Update();
 	bool IsSatisfied() override;
-
 };
