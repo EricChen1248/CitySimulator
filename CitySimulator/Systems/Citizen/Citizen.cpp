@@ -4,6 +4,7 @@
 #include "../Bank/BankRule.h"
 #include "../Work/WorkRule.h"
 #include "../Home/HomeRule.h"
+#include "../Store/StoreRule.h" 
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/PathFinder/PathFinder.h"
 
@@ -236,11 +237,13 @@ void Citizen::GenRules()
 	BaseRule* bank = new BankRule(*this);
 	BaseRule* work = new WorkRule(*this);
 	BaseRule* home = new HomeRule(*this);
+	BaseRule* store = new StoreRule(*this);
 
     rules.InsertLast(food);
 	rules.InsertLast(bank);
 	rules.InsertLast(work);
 	rules.InsertLast(home);
+	rules.InsertLast(store);
 }
 
 /**
