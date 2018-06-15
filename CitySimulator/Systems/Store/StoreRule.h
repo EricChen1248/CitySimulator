@@ -17,6 +17,7 @@ public:
     void Update();
     bool IsSatisfied() override;
 private:
-
+	const int maxDistance = 100;
+	float materialNeed;
 };
 

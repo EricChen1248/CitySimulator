@@ -3,6 +3,7 @@
 #include "../Systems/Bank/BankSystem.h"
 #include "../Systems/Home/HomeSystem.h"
 #include "../Systems/Work/WorkSystem.h"
+#include "../Systems/Store/StoreSystem.h"
 SystemController::SystemController() = default;
 
 SystemController::~SystemController()
@@ -23,10 +24,12 @@ void SystemController::Initialize()
 	BaseSystem* bank = new BankSystem();
 	BaseSystem* home = new HomeSystem();
 	BaseSystem* work = new WorkSystem();
+	BaseSystem* store = new StoreSystem();
     systems.InsertLast(food);
 	systems.InsertLast(bank);
 	systems.InsertLast(home);
 	systems.InsertLast(work);
+	systems.InsertLast(store);
     // TODO Remove food demo
     for (auto && system : systems)
     {
@@ -79,7 +82,19 @@ void SystemController::Initialize()
 				system->Register(plot);
 			}
 		}
-		
+
+		if (system->SystemType == STORE)
+		{
+			for (int i = 0; i < 10; ++i)
+			{
+				auto plot = plots->GetRandomPlot();
+				while (plot->GetPlotType() != nullptr)
+				{
+					plot = plots->GetRandomPlot();
+				}
+				system->Register(plot);
+			}
+		}
     }
 }
 
