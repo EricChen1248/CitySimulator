@@ -33,6 +33,7 @@ public:
     void Wait(float time);
     void EndDay();
     void ForceRule(System ruleType, float waitTime = 0);
+    BaseRule* FindRule(System system);
 private:
     void FindNextTarget();
     void GenRules();

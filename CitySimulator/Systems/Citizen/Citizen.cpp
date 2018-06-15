@@ -143,6 +143,18 @@ void Citizen::ForceRule(System ruleType, float waitTime)
     }
 }
 
+BaseRule* Citizen::FindRule(const System system)
+{
+    for (auto && rule : rules)
+    {
+        if (rule->Type() == system)
+        {
+            return rule;
+        }
+    }
+    return nullptr;
+}
+
 sf::CircleShape& Citizen::GetShape()
 {
     return shape;
