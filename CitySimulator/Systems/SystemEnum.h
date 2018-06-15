@@ -8,4 +8,5 @@ enum System
 	HOME,
 	STORE, 
 	SCHOOL,
+    HOSPITAL,
 };

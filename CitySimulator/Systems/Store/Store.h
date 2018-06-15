@@ -11,7 +11,7 @@ class Store :	public Base
 friend StoreRule;
 
 public:
-	Store();
+	Store(Plot* plot);
 	~Store();
 	
 	void EndDay() override;

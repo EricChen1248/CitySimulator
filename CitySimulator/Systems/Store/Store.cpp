@@ -3,12 +3,15 @@
 #include "../../Helpers/Constants.h"
 
 
-Store::Store()
+Store::Store(Plot* plot) : Base(plot, STORE)
 {
 	cost = CoreController::RandomInt(10, 1000);
 	score = 0;
-	color = FOOD_COLOR;
+    color = STORE_COLOR;
 }
+
+Store::~Store()
+= default;
 
 
 /**

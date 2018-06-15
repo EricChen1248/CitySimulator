@@ -131,6 +131,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Controllers\Government.cpp" />
+    <ClCompile Include="Systems\School\School.cpp" />
+    <ClCompile Include="Systems\School\SchoolRule.cpp" />
+    <ClCompile Include="Systems\School\SchoolSystem.cpp" />
+    <ClCompile Include="Systems\Hospital\HospitalSystem.cpp" />
+    <ClCompile Include="Systems\Hospital\HospitalRule.cpp" />
+    <ClCompile Include="Systems\Hospital\Hospital.cpp" />
     <ClCompile Include="Systems\Store\StoreSystem.cpp" />
     <ClCompile Include="Systems\Store\StoreRule.cpp" />
     <ClCompile Include="Systems\Store\Store.cpp" />
@@ -167,6 +173,12 @@
   <ItemGroup>
     <ClInclude Include="Assets\Fonts\Monofur.h" />
     <ClInclude Include="Controllers\Government.h" />
+    <ClInclude Include="Systems\School\School.h" />
+    <ClInclude Include="Systems\School\SchoolRule.h" />
+    <ClInclude Include="Systems\School\SchoolSystem.h" />
+    <ClInclude Include="Systems\Hospital\HospitalSystem.h" />
+    <ClInclude Include="Systems\Hospital\HospitalRule.h" />
+    <ClInclude Include="Systems\Hospital\Hospital.h" />
     <ClInclude Include="Systems\Store\StoreSystem.h" />
     <ClInclude Include="Systems\Store\StoreRule.h" />
     <ClInclude Include="Systems\Store\Store.h" />

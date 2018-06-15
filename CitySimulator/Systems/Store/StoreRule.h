@@ -1,5 +1,5 @@
 #pragma once
-#include "..\Base\BaseRule.h"
+#include "../Base/BaseRule.h"
 
 /**
 * \brief Store rule that handles the consumption needs of our citizens
@@ -7,9 +7,6 @@
 class StoreRule :	public BaseRule
 {
 public:
-	StoreRule();
-	~StoreRule();
-private:
 	 StoreRule(Citizen& citizen);;
     ~StoreRule();
 
@@ -19,6 +16,7 @@ private:
     void LeavePlot(Plot* plot);
     void Update();
     bool IsSatisfied() override;
+private:
 
 };
 

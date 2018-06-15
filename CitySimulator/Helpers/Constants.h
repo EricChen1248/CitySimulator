@@ -17,6 +17,7 @@ const sf::Color FOOD_COLOR = sf::Color::Magenta;
 const sf::Color WORK_COLOR = sf::Color::Cyan;
 const sf::Color BANK_COLOR = sf::Color::Green;
 const sf::Color HOME_COLOR = sf::Color::Yellow;
+const sf::Color STORE_COLOR = sf::Color::Red;
 const sf::Color MOUSE_OVER_COLOR = sf::Color(220, 220, 220);
     
 const int WINDOW_WIDTH = 1024;

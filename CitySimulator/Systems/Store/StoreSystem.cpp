@@ -2,7 +2,7 @@
 
 
 
-StoreSystem::StoreSystem()
+StoreSystem::StoreSystem() : BaseSystem(FOOD)
 {
 }
 
