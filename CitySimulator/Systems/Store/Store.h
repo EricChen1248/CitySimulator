@@ -1,5 +1,5 @@
 #pragma once
-#include "c:\Users\David Li\Documents\GitHub\CitySimulator\CitySimulator\Systems\Base\Base.h"
+#include "..\Base\Base.h"
 
 class StoreRule;
 

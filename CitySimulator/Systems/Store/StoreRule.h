@@ -1,5 +1,5 @@
 #pragma once
-#include "c:\Users\David Li\Documents\GitHub\CitySimulator\CitySimulator\Systems\Base\BaseRule.h"
+#include "..\Base\BaseRule.h"
 
 /**
 * \brief Store rule that handles the consumption needs of our citizens
