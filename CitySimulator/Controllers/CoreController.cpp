@@ -60,8 +60,7 @@ void CoreController::RunDayLoop(Clock& clock)
             const auto &mousePos = sf::Mouse::getPosition(*sfmlController->window);
             if (currentTime - lastPrint > 0.2)
             {
-                std::cout << mousePos.x << " " << mousePos.y << std::endl;
-                //std::cout << fps << std::endl;
+                std::cout << fps << std::endl;
                 
                 lastPrint = currentTime;
             }
@@ -257,7 +256,7 @@ void CoreController::InterdayRenderEvents() const
 {
     ClearRender();
     viewPortController->UpdateGameView();
-    systemController->Render();
+    systemController->RenderNoCitizen();
     viewPortController->UpdateUIView();
     uiController -> RenderInterDayUI();
 }

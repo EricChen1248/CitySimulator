@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Controllers\Government.cpp" />
     <ClCompile Include="Systems\Store\StoreSystem.cpp" />
     <ClCompile Include="Systems\Store\StoreRule.cpp" />
     <ClCompile Include="Systems\Store\Store.cpp" />
@@ -165,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Assets\Fonts\Monofur.h" />
+    <ClInclude Include="Controllers\Government.h" />
     <ClInclude Include="Systems\Store\StoreSystem.h" />
     <ClInclude Include="Systems\Store\StoreRule.h" />
     <ClInclude Include="Systems\Store\Store.h" />

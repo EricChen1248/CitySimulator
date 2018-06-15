@@ -89,6 +89,14 @@ void SystemController::Render() const
 }
 
 /**
+ * \brief Calls render function of plots
+ */
+void SystemController::RenderNoCitizen() const
+{
+    plots->Render();
+}
+
+/**
  * \brief Gets the system based on system enum type
  * \param system System Type Enum of requested system
  * \return The requested system

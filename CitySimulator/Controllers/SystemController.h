@@ -16,6 +16,7 @@ public:
     void Initialize();
     void Update() const;
     void Render() const;
+    void RenderNoCitizen() const;
     BaseSystem* GetSystem(System system) const;
     const List<BaseSystem*>& GetSystems() const { return systems;};
 

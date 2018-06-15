@@ -4,6 +4,7 @@
 #include "SystemController.h"
 #include "FontController.h"
 #include "UIController.h"
+#include "Government.h"
 
 /**
  * \brief Acts as the core of the game, initializing all systems, handles events, 
@@ -49,7 +50,7 @@ private:
     helper::Time time;
     float deltaTime{};
     bool isRunning;
-    bool advanceDay;
+    bool advanceDay{};
     
     void Update();
     // Common Functions

@@ -102,6 +102,9 @@
     <ClCompile Include="Systems\Home\HomeRule.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Controllers\Government.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Systems\Store\Store.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -255,6 +258,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Systems\Home\HomeRule.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Controllers\Government.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Systems\Store\Store.h">
