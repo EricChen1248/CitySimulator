@@ -7,6 +7,11 @@
 
 using helper::Time;
 
+Time WorkRule::timeToWork;
+Time WorkRule::breakTime;
+Time WorkRule::endBreakTime;
+Time WorkRule::timeOffWork;
+
 WorkRule::WorkRule(Citizen& citizen) : BaseRule(citizen, WORK), assignedCompany(nullptr)
 {
 	// To Get BankRule
@@ -22,10 +27,7 @@ WorkRule::~WorkRule() = default;
 float WorkRule::CalculateScore()
 {
     const Time currentTime = CoreController::Instance()->GetTime();
-	const Time timeToWork(8, 0);
-	const Time breakTime(12, 0);
-	const Time endBreakTime(13, 0);
-	const Time timeOffWork(17, 0);
+
 
 	// Now is not work time
 	if (timeToWork > currentTime || currentTime > timeOffWork)

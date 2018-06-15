@@ -2,11 +2,17 @@
 #include "Work.h"
 #include "WorkRule.h"
 #include "../../Controllers/CoreController.h"
+#include "../../Helpers/Time.h"
 
 class WorkRule;
 
+using helper::Time;
 WorkSystem::WorkSystem(): BaseSystem(WORK)
 {
+	WorkRule::timeToWork = Time(8, 0);
+	WorkRule::breakTime = Time(12, 0);
+	WorkRule::endBreakTime = Time(13, 0);
+	WorkRule::timeOffWork = Time(17, 0);
 }
 
 
