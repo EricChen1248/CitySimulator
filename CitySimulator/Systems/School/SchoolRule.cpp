@@ -88,5 +88,5 @@ bool SchoolRule::IsSatisfied()
 
 int SchoolRule::getEdLvl()
 {
-    
+    return 0;    
 }
