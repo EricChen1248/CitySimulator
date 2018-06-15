@@ -8,7 +8,7 @@ class FoodRule;
  */
 class Food : public Base
 {
-friend FoodRule;
+friend class FoodRule;
 
     public:
     Food(Plot* plot);

@@ -24,7 +24,7 @@ void FoodSystem::Register(Plot* plot)
 }
 
 /**
- * \brief Updates food system. Tally scores for food pltos
+ * \brief Updates food system. Tally scores for food plots
  */
 void FoodSystem::Update()
 {

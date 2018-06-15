@@ -47,7 +47,7 @@ private:
     void Selection();
     
     void InitSelection();
-    static void InitSelectionButton(Button& button, sf::Text& text, sf::CircleShape& circle, int& y, const std::string& str, Color color);
+    static void InitSelectionButton(Button& button, sf::Text& text, sf::CircleShape& circ, int& y, const std::string& str, Color color);
     SFMLController& sfml;
 };
 

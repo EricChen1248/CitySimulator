@@ -85,3 +85,8 @@ bool SchoolRule::IsSatisfied()
 {
     return hungerLevel > 20;
 }
+
+int SchoolRule::getEdLvl()
+{
+    
+}

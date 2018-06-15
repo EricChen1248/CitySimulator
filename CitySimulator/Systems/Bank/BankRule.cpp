@@ -102,3 +102,7 @@ bool BankRule::IsSatisfied()
 	//need to adjust this rate
 	return saving > 10000;
 }
+
+void BankRule::saveMoney(float moneyInflow)
+{
+}
