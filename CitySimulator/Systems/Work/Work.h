@@ -3,7 +3,7 @@
 
 class WorkRule;
 
-class Work : Base
+class Work : public Base
 {
 	friend class WorkRule;
 
