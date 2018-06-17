@@ -63,6 +63,11 @@ namespace helper
             return h * 60 + m;
         }
         
+        bool operator==(const Time &other) const
+        {
+            return Hour == other.Hour && Minute == other.Minute;
+        }
+        
 		bool operator>(const Time &other) const
 		{
 			if (Hour > other.Hour)
@@ -77,6 +82,11 @@ namespace helper
 
 			return false;
 		}
+        
+        bool operator<(const Time &other) const
+        {
+            return other > *this || other == *this;
+        }
 
 		std::string ToString() const;
         std::string ToShortString() const;
