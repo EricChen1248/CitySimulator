@@ -1,7 +1,7 @@
 #include "./ViewPortController.h"
 #include "CoreController.h"
 #include <iostream>
-#include "../Helpers/HeaderFunctions.h"
+#include "../Helpers/HelperFunctions.h"
 
 ViewPortController::ViewPortController()
 {

@@ -173,7 +173,7 @@
   <ItemGroup>
     <ClInclude Include="Assets\Fonts\Monofur.h" />
     <ClInclude Include="Controllers\Government.h" />
-    <ClInclude Include="Helpers\HeaderFunctions.h" />
+    <ClInclude Include="Helpers\HelperFunctions.h" />
     <ClInclude Include="Systems\School\School.h" />
     <ClInclude Include="Systems\School\SchoolRule.h" />
     <ClInclude Include="Systems\School\SchoolSystem.h" />

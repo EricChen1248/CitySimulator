@@ -308,7 +308,7 @@
     <ClInclude Include="Systems\School\SchoolSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Helpers\HeaderFunctions.h">
+    <ClInclude Include="Helpers\HelperFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
