@@ -51,7 +51,6 @@ void FoodSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
     satisfiedLog.InsertLast(log);
 }
 
-
 /**
  * \brief Logs a citizen being unsatisified with a food
  * \param citizen Citzen being logged

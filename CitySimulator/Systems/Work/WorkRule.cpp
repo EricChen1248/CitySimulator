@@ -12,6 +12,10 @@ Time WorkRule::breakTime;
 Time WorkRule::endBreakTime;
 Time WorkRule::timeOffWork;
 
+/**
+ * \brief 
+ * \param citizen 
+ */
 WorkRule::WorkRule(Citizen& citizen) : BaseRule(citizen, WORK), assignedCompany(nullptr)
 {
 	// To Get BankRule
@@ -24,6 +28,10 @@ WorkRule::WorkRule(Citizen& citizen) : BaseRule(citizen, WORK), assignedCompany(
 WorkRule::~WorkRule() = default;
 
 
+/**
+ * \brief 
+ * \return 
+ */
 float WorkRule::CalculateScore()
 {
     const Time currentTime = CoreController::Instance()->GetTime();
@@ -86,6 +94,10 @@ bool WorkRule::FindPlot()
 	return true;
 }
 
+/**
+ * \brief 
+ * \param plot 
+ */
 void WorkRule::EnterPlot(Plot* plot)
 {
 	const auto work = dynamic_cast<Work*>(plot->GetPlotType());

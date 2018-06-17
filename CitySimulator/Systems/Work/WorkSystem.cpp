@@ -7,6 +7,9 @@
 class WorkRule;
 
 using helper::Time;
+/**
+ * \brief 
+ */
 WorkSystem::WorkSystem(): BaseSystem(WORK)
 {
 	WorkRule::timeToWork = Time(8, 0);
@@ -16,6 +19,9 @@ WorkSystem::WorkSystem(): BaseSystem(WORK)
 }
 
 
+/**
+ * \brief 
+ */
 WorkSystem::~WorkSystem() = default;
 
 

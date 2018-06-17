@@ -4,6 +4,10 @@
 #include "../../Helpers/Constants.h"
 
 
+/**
+ * \brief 
+ * \param plot 
+ */
 Work::Work(Plot *plot) : Base(plot, WORK)
 {
 
