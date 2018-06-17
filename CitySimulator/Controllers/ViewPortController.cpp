@@ -1,5 +1,7 @@
 #include "./ViewPortController.h"
 #include "CoreController.h"
+#include <iostream>
+#include "../Helpers/HeaderFunctions.h"
 
 ViewPortController::ViewPortController()
 {
@@ -34,8 +36,9 @@ ScreenCoordinate ViewPortController::ToDrawCoord(ScreenCoordinate sCoords) const
 void ViewPortController::HandleScroll(sf::Event& event)
 {
     const auto oldScroll = scrollSize;
-    scrollSize += event.mouseWheelScroll.delta > 0 ? 0.04f : -0.04f;
+    scrollSize = Clamp(scrollSize + (event.mouseWheelScroll.delta > 0 ? 0.04f : -0.04f), 0.35f, 1.25f);
     modifier = scrollSize / oldScroll;
+    std::cout << scrollSize;
 }
 
 /**
