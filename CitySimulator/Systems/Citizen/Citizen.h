@@ -29,7 +29,8 @@ public:
     void SetActiveRule(BaseRule* rule) { activeRule = rule; }
     void SetTarget(Plot* t);
 
-    void Update();  
+    void Update();
+    void UpdateScreenCoordinates();
     void Wait(float time);
     void EndDay();
     void ForceRule(System ruleType, float waitTime = 0);

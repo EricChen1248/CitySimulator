@@ -256,7 +256,7 @@ void CoreController::InterdayRenderEvents() const
 {
     ClearRender();
     viewPortController->UpdateGameView();
-    systemController->RenderNoCitizen();
+    systemController->RenderInterday();
     viewPortController->UpdateUIView();
     uiController -> RenderInterDayUI();
 }

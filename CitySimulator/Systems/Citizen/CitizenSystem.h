@@ -9,6 +9,7 @@ public:
     ~CitizenSystem();
     void Update() const;
     void Render() const;
+    void RenderInterday() const;
 private:
     List<Citizen*> citizens;
     int citizenCount;

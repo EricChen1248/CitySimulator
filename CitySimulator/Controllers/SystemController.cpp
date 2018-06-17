@@ -122,9 +122,10 @@ void SystemController::Render() const
 /**
  * \brief Calls render function of plots
  */
-void SystemController::RenderNoCitizen() const
+void SystemController::RenderInterday() const
 {
     plots->Render();
+    citizens->RenderInterday();
 }
 
 /**

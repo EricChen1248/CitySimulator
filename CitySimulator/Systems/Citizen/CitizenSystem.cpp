@@ -57,3 +57,14 @@ void CitizenSystem::Render() const
         CoreController::Instance()->SfmlController()->DrawCircle(shape);
     }
 }
+
+void CitizenSystem::RenderInterday() const
+{
+    for (int i = 0; i < citizenCount; ++i)
+    {
+        const auto citizen = citizens[i];
+        auto & shape = citizen->GetShape();
+        
+        SFMLController::UpdateCircleSize(shape);
+    }
+}

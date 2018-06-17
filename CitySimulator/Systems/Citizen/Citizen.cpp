@@ -58,6 +58,7 @@ void Citizen::Update()
     if (waitTime > 0)
     {
         waitTime -= CoreController::Instance()->GetDeltaTime();
+        UpdateScreenCoordinates();
         return;
     }
     // Citizen has a target
@@ -91,14 +92,7 @@ void Citizen::Update()
         // TODO add road movement speed
         // Citizen is heading toward target
         coords = coords.MoveTowards(tempTarget, CoreController::Instance()->GetDeltaTime() * moveSpeed);
-        
-        // Update coordinates;
-        auto sCoords = coords.ToScreenCoordinates();
-        sCoords.X -= 2.5;
-        sCoords.Y -= 2.5;
-        sCoords = CoreController::Instance()->GetViewportController()->ToDrawCoord(sCoords);
-    
-        shape.setPosition(sCoords.X, sCoords.Y);
+        UpdateScreenCoordinates();
         return;
     }
     
@@ -113,6 +107,16 @@ void Citizen::Update()
     inPlot = false;
     coords = currentPlot->Coords();
     FindNextTarget();
+}
+
+void Citizen::UpdateScreenCoordinates()
+{
+    // Update coordinates;
+    auto sCoords = coords.ToScreenCoordinates();
+    sCoords.X -= 2.5;
+    sCoords.Y -= 2.5;
+    sCoords = CoreController::Instance()->GetViewportController()->ToDrawCoord(sCoords);
+    shape.setPosition(sCoords.X, sCoords.Y);
 }
 
 
@@ -130,7 +134,7 @@ void Citizen::EndDay()
     age += 3;
 }
 
-void Citizen::ForceRule(System ruleType, float waitTime)
+void Citizen::ForceRule(const System ruleType, const float waitTime)
 {
     for (auto && rule : rules)
     {
