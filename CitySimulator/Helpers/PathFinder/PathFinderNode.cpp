@@ -1,4 +1,5 @@
 #include "PathFinderNode.h"
+#include "../Constants.h"
 
 
 bool PathFinderNode::operator<(PathFinderNode& other) const
@@ -16,7 +17,20 @@ bool PathFinderNode::operator==(PathFinderNode& other) const
     return this->step + this->estimatedSteps == other.step + other.estimatedSteps;
 }
 
-PathFinderNode::PathFinderNode(const Coordinate& coords)
+PathFinderNode::PathFinderNode(const Coordinate& coords) : coords(coords)
 {
-    this->coords = coords;
+    const auto neighbours = coords.GetNeighbours();
+    for (int i = 0; i < 6; ++i)
+    {
+        auto& coord = neighbours[i];
+        if (std::abs(coord.X() + coord.Y()) > -LEFT || std::abs(coord.X()) > -LEFT || std::abs(coord.Y()) > -LEFT)
+        {
+            continue;
+        }
+        this->neighbours.InsertLast(coord);
+    }
+    delete [] neighbours;
 }
+
+PathFinderNode::~PathFinderNode() 
+= default;

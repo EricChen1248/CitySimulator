@@ -57,14 +57,9 @@ Stack<Coordinate>* PathFinder::PathTo(Coordinate source, Coordinate dest)
     PathFinderNode* currentNode = CoordToNodeMap(source);
     while (current != dest)
     {
-        const auto neighbours = current.GetNeighbours();
-        for (int i = 0; i < 6; ++i)
+        for (auto && neighbour : currentNode->neighbours)
         {
-            auto neighbourNode = CoordToNodeMap(neighbours[i]);
-            if (neighbourNode == nullptr)
-            {
-                continue;
-            }
+            auto neighbourNode = CoordToNodeMap(neighbour);
             
             // TODO add path cost
             const int x = (neighbourNode->coords.X() - LEFT) * size;
@@ -82,7 +77,6 @@ Stack<Coordinate>* PathFinder::PathTo(Coordinate source, Coordinate dest)
                 queue.Enqueue(neighbourNode);
             }
         }
-        delete [] neighbours;
         currentNode = queue.GetTop();
         queue.RemoveTop();
         current = currentNode->coords;
@@ -110,12 +104,8 @@ Stack<Coordinate>* PathFinder::PathTo(Coordinate source, Coordinate dest)
  * \param coords Coordinates reference to the coords
  * \return Pointer to the pathfinder node of the coords
  */
-PathFinderNode* PathFinder::CoordToNodeMap(Coordinate& coords)
+PathFinderNode* PathFinder::CoordToNodeMap(const Coordinate& coords)
 {
-    if (std::abs(coords.X() + coords.Y()) > -LEFT || std::abs(coords.X()) > -LEFT || std::abs(coords.Y()) > -LEFT)
-    {
-        return nullptr;    
-    }
     return nodesMap[coords.X() - LEFT][coords.Y() - LEFT];
 }
 
