@@ -32,7 +32,7 @@ namespace helper
             
             while (Minute >= 60)
             {
-                Minute = 0;
+                Minute -= 60;
                 ++Hour;
             }
         }
