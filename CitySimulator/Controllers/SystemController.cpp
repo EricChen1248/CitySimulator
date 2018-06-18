@@ -9,7 +9,6 @@ SystemController::SystemController() = default;
 SystemController::~SystemController()
 {
     systems.Dispose();
-    
 }
 
 /**
@@ -30,7 +29,8 @@ void SystemController::Initialize()
 	systems.InsertLast(home);
 	systems.InsertLast(work);
 	systems.InsertLast(store);
-    // TODO Remove food demo
+    
+    // TODO Remove demo
     for (auto && system : systems)
     {
         if (system->SystemType == FOOD)
@@ -124,8 +124,13 @@ void SystemController::Render() const
  */
 void SystemController::RenderInterday() const
 {
-    plots->Render();
+    plots->RenderInterDay();
     citizens->RenderInterday();
+}
+
+void SystemController::AdvanceDay() const
+{
+    plots->ClearSelections();
 }
 
 /**

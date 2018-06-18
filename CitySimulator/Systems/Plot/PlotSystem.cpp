@@ -3,7 +3,7 @@
 #include "../../Controllers/CoreController.h"
 
 
-PlotSystem::PlotSystem()
+PlotSystem::PlotSystem(): hoverPlot(nullptr), selectedPlot(nullptr)
 {
     for (int i = LEFT; i < RIGHT; ++i)
     {
@@ -12,8 +12,8 @@ PlotSystem::PlotSystem()
         for (int j = left; j < right; ++j)
         {
             const int k = -i - j;
-            auto plot = new Plot(i,j,k);
-            plots.InsertLast(plot);                
+            auto plot = new Plot(i, j, k);
+            plots.InsertLast(plot);
         }
     }
 }
@@ -34,6 +34,17 @@ void PlotSystem::Render() const
         auto & shape = plot->GetShape();
         CoreController::Instance()->SfmlController()->DrawCircle(shape);
     }
+}
+
+void PlotSystem::RenderInterDay()
+{
+    for (auto && plot : plots)
+    {
+        auto & shape = plot->GetShape();
+        SFMLController::UpdateCircleSize(shape);
+        CoreController::Instance()->SfmlController()->DrawCircle(shape, true);
+    }
+    HandleClick();
 }
 
 
@@ -66,18 +77,75 @@ Plot* PlotSystem::GetRandomPlot() const
 
 /**
  * \brief Checks if the click was on a plot and handles it if applicable
- * \return True if the click was handled
  */
-bool PlotSystem::HandleClick() const
+void PlotSystem::HandleClick()
 {
+    const auto core = CoreController::Instance();
+    const auto window = core->SfmlController()->Window();
+    const auto &mousePos = sf::Mouse::getPosition(*window) - sf::Vector2<int>(WINDOW_WIDTH / 2 - core->GetViewportController()->ViewX(), WINDOW_HEIGHT / 2 - core->GetViewportController()->ViewY());
+    
+    // If mouse if still over orignal plot
+    if (hoverPlot != nullptr)
+    {
+        auto & shape = hoverPlot->GetShape();
+        // If still over plot
+        if (shape.getGlobalBounds().contains(float(mousePos.x), float(mousePos.y)))
+        {
+            // if mouse is clicked
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            {
+                if (selectedPlot != nullptr)
+                {
+                    auto & selectedShape = selectedPlot->GetShape();
+                    selectedShape.setOutlineThickness(0);
+                }
+                selectedPlot = hoverPlot;
+                shape.setOutlineColor(BLACK);
+                shape.setOutlineThickness(3);
+            }
+        }
+        else 
+        {
+            // has left plot
+            // if plot is not selected, remove outline
+            if (hoverPlot != selectedPlot)
+            {
+                shape.setOutlineThickness(0);
+            }
+            hoverPlot = nullptr;
+        }
+        // Mouse only just left plot, no need to check if over other plots
+        return;
+    }
+    
     for (auto && plot : plots)
     {
-        if (plot->InBounds())
+        auto & shape = plot->GetShape();
+        if (shape.getGlobalBounds().contains(float(mousePos.x), float(mousePos.y)))
         {
-            plot->Click();
-            return true;
-        }
+            hoverPlot = plot;
+            if (hoverPlot != selectedPlot)
+            {
+                shape.setOutlineColor(LIGHT_GREY);
+                shape.setOutlineThickness(3);
+            }
+            return;
+        }        
     }    
-    
-    return false;
+}
+
+void PlotSystem::ClearSelections()
+{
+    if (hoverPlot != nullptr)
+    {
+        auto & shape = hoverPlot->GetShape();
+        shape.setOutlineThickness(0);
+        hoverPlot = nullptr;
+    }
+    if (selectedPlot != nullptr)
+    {
+        auto & shape = selectedPlot->GetShape();
+        shape.setOutlineThickness(0);
+        hoverPlot = nullptr;
+    }
 }

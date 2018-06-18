@@ -3,6 +3,7 @@
 #include "BankSystem.h"
 #include "Bank.h"
 #include "../../Helpers/Constants.h"
+#include "../../Helpers/HelperFunctions.h"
 
 BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(200.f)
 {
@@ -12,7 +13,6 @@ BankRule::~BankRule() = default;
 
 float BankRule::CalculateScore()
 {
-
 	if ((citizen->GetMoney() < CITIZEN_MAX_MONEY) && (saving > 100))
 		return 100001;
 	
@@ -65,20 +65,14 @@ void BankRule::EnterPlot(Plot* plot)
 }
 
 /**
-* \brief Fills up the citizen's hunger on leaving
-* \param plot Plot thats is being left. Redudant. Only for interface requirements
+* \brief Citizen withdraws money on leaving
+* \param plot Plot thats is being left.
 */
 void BankRule::LeavePlot(Plot* plot)
 {
 	const auto bank = dynamic_cast<Bank*>(plot->GetPlotType());
     
-	int moneyToWithdraw;
-    
-	if (CITIZEN_MAX_MONEY - this->citizen->GetMoney() >= saving)
-		moneyToWithdraw = CITIZEN_MAX_MONEY - this->citizen->GetMoney();
-	else
-		moneyToWithdraw = saving;
-    
+	const int moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->GetMoney(), 0, int(saving));        
 	if (moneyToWithdraw >= bank->transactionCost)
 		citizen->IncreaseMoney(moneyToWithdraw - bank->transactionCost);
 }
@@ -88,7 +82,6 @@ void BankRule::LeavePlot(Plot* plot)
 */
 void BankRule::Update()
 {
-	// TODO : Tweak hunger to time ratio
 	//this->hungerLevel -= CoreController::Instance()->GetDeltaTime() * 30;
 	//Bank Rules need not update anything;
 }

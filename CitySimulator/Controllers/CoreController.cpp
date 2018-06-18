@@ -51,17 +51,22 @@ void CoreController::RunDayLoop(Clock& clock)
 {
     float lastTime = clock.getElapsedTime().asSeconds();
     float lastPrint = lastTime;
+#ifdef _DEBUG
+        // HACK : set to true to skip to day end
+        if (false)
+        {
+            time.IncreaseTime(24);
+        }
+#endif
     while(true)
     {
         while(IsRunning() && !time.EndDay())
         {
             const float currentTime = clock.getElapsedTime().asSeconds();
             const float fps = 1.f / (currentTime - lastTime);
-            const auto &mousePos = sf::Mouse::getPosition(*sfmlController->window);
             if (currentTime - lastPrint > 0.2)
             {
                 std::cout << fps << std::endl;
-                
                 lastPrint = currentTime;
             }
                         
@@ -85,6 +90,7 @@ void CoreController::RunDayLoop(Clock& clock)
             viewPortController->ResetMod();
         }
         time.ResetDay();
+        systemController->AdvanceDay();
     }
 }
 

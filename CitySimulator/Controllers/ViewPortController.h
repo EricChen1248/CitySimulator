@@ -24,7 +24,8 @@ public:
     void Up();
     void Down();
 
-
+    int ViewX() const { return viewX; }
+    int ViewY() const { return viewY; }
 private:
     int viewX;
     int viewY;

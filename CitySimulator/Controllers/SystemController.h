@@ -17,6 +17,7 @@ public:
     void Update() const;
     void Render() const;
     void RenderInterday() const;
+    void AdvanceDay() const;
     BaseSystem* GetSystem(System system) const;
     const List<BaseSystem*>& GetSystems() const { return systems;};
 
