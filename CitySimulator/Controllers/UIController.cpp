@@ -130,18 +130,18 @@ void UIController::InitSelection()
 
 void UIController::InitSelectionButton(Button& button, sf::Text& text, sf::CircleShape& circ, int& y, const std::string& str, const Color color)
 {
-    button = Button(Vector2f(150, 32), Vector2f(WINDOW_WIDTH - 152, y), WHITE, MOUSE_OVER_COLOR);
+    button = Button(Vector2f(150.f, 32.f), Vector2f(WINDOW_WIDTH - 152.f, float(y)), WHITE, MOUSE_OVER_COLOR);
     text.setFont(CoreController::Instance()->GetFontController()->Monofur());
     text.setFillColor(BLACK);
-    text.setCharacterSize(24);
-    text.setPosition(WINDOW_WIDTH - 100, y);
+    text.setCharacterSize(24U);
+    text.setPosition(WINDOW_WIDTH - 100.f, float(y));
     text.setString(str); 
     
-    circ.setPosition(WINDOW_WIDTH - 146, y + 4);
-    circ.setRadius(12);
+    circ.setPosition(WINDOW_WIDTH - 146.f, y + 4.f);
+    circ.setRadius(12.f);
     circ.setFillColor(color);
     circ.setOutlineColor(BLACK);
-    circ.setOutlineThickness(1);
+    circ.setOutlineThickness(1.f);
     
     y += 36;
        

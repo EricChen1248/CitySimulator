@@ -64,7 +64,6 @@ void CitizenSystem::RenderInterday() const
     {
         const auto citizen = citizens[i];
         auto & shape = citizen->GetShape();
-        
         SFMLController::UpdateCircleSize(shape);
     }
 }

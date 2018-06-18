@@ -118,5 +118,5 @@ PathFinderNode* PathFinder::CoordToNodeMap(const Coordinate& coords)
 float PathFinder::EstimateSteps(Coordinate& source, Coordinate& dest)
 {
     //TODO : Update pathfinder heuristics
-    return dest.Distance(source);
+    return float(dest.Distance(source));
 }

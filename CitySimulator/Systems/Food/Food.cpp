@@ -24,5 +24,5 @@ void Food::EndDay()
 void Food::Enter()
 {
     score += cost;
-    Government::AddTax(cost * 0.1);
+    Government::AddTax(cost * 0.1f);
 }

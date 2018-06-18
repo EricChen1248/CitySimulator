@@ -20,16 +20,17 @@ private:
     T& operator[](const int index) { return items[index]; }
     HeapLevel(const int level) : level(level), itemCount(0)
     {
-        maxCount = pow(2, level);
+        maxCount = int(pow<int>(2, level));
         
         items = new T[maxCount];
-    };
+    }
     
     bool Add(T& item)
     {
         items[itemCount++] = item;
         return itemCount == maxCount;
-    };
+    }
+    
     bool IsFull() const
     {
         return itemCount == maxCount;

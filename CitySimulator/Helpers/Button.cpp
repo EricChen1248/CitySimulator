@@ -39,5 +39,5 @@ bool Button::IsInBounds() const
 {   
     const sf::Window* window = CoreController::Instance()->SfmlController()->Window();
     const auto &mousePos = sf::Mouse::getPosition(*window);
-    return shape.getGlobalBounds().contains(mousePos.x, mousePos.y);
+    return shape.getGlobalBounds().contains(float(mousePos.x), float(mousePos.y));
 }
