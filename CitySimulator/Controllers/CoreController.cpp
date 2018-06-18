@@ -145,8 +145,9 @@ void CoreController::GameUpdateEvents() const
  */
 void CoreController::GameInputEvents()
 {
-    Event event{};
     Window* window = sfmlController->Window();
+    if (!window->hasFocus()) return;
+    Event event{};
     while (window->pollEvent(event))
     {
         // "close requested" event: we close the window
@@ -208,8 +209,9 @@ void CoreController::GameRenderEvents() const
 
 void CoreController::InterdayInputEvents()
 {
-    Event event{};
     Window* window = sfmlController->Window();
+    if (!window->hasFocus()) return;
+    Event event{};
     while (window->pollEvent(event))
     {
         // "close requested" event: we close the window

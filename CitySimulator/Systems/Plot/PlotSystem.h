@@ -15,6 +15,7 @@ public:
     Plot* FindPlot(const Coordinate& coords) const;
     Plot* GetRandomPlot() const;
     void HandleClick();
+    void FindHoverPlot();
     void ClearSelections();
 private:
     List<Plot*> plots;

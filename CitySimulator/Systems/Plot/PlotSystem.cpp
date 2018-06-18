@@ -82,9 +82,13 @@ void PlotSystem::HandleClick()
 {
     const auto core = CoreController::Instance();
     const auto window = core->SfmlController()->Window();
-    const auto &mousePos = sf::Mouse::getPosition(*window) - sf::Vector2<int>(WINDOW_WIDTH / 2 - core->GetViewportController()->ViewX(), WINDOW_HEIGHT / 2 - core->GetViewportController()->ViewY());
-    
-    // If mouse if still over orignal plot
+    const auto view = core->GetViewportController();
+    auto mousePos = sf::Mouse::getPosition(*window);
+    if (mousePos.x < 0 || mousePos.y < 0 || mousePos.x > WINDOW_WIDTH || mousePos.y > WINDOW_HEIGHT)
+    {
+        return;
+    }
+    mousePos -= sf::Vector2<int>(WINDOW_WIDTH / 2 - view->ViewX(), WINDOW_HEIGHT / 2 - view->ViewY());
     if (hoverPlot != nullptr)
     {
         auto & shape = hoverPlot->GetShape();
@@ -118,6 +122,15 @@ void PlotSystem::HandleClick()
         return;
     }
     
+    FindHoverPlot();
+}
+
+void PlotSystem::FindHoverPlot()
+{
+    const auto core = CoreController::Instance();
+    const auto window = core->SfmlController()->Window();
+    const auto view = core->GetViewportController();
+    const auto &mousePos = sf::Mouse::getPosition(*window) - sf::Vector2<int>(WINDOW_WIDTH / 2 - view->ViewX(), WINDOW_HEIGHT / 2 - view->ViewY());
     for (auto && plot : plots)
     {
         auto & shape = plot->GetShape();
@@ -130,8 +143,8 @@ void PlotSystem::HandleClick()
                 shape.setOutlineThickness(3);
             }
             return;
-        }        
-    }    
+        }
+    }
 }
 
 void PlotSystem::ClearSelections()
