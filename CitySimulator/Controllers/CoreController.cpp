@@ -2,6 +2,7 @@
 #include "ViewPortController.h"
 #include <iostream>
 #include "../Helpers/PathFinder/PathFinder.h"
+#include "../Helpers/Logger.h"
 
 CoreController *CoreController::instance;
 
@@ -49,8 +50,6 @@ void CoreController::Start()
  */
 void CoreController::RunDayLoop(Clock& clock)
 {
-    float lastTime = clock.getElapsedTime().asSeconds();
-    float lastPrint = lastTime;
 #ifdef _DEBUG
         // HACK : set to true to skip to day end
         if (false)
@@ -58,8 +57,12 @@ void CoreController::RunDayLoop(Clock& clock)
             time.IncreaseTime(24);
         }
 #endif
+    int day = 0;
     while(true)
     {
+        float lastTime = clock.getElapsedTime().asSeconds();
+        float lastPrint = lastTime;
+        ++day;
         while(IsRunning() && !time.EndDay())
         {
             const float currentTime = clock.getElapsedTime().asSeconds();
@@ -82,6 +85,7 @@ void CoreController::RunDayLoop(Clock& clock)
             viewPortController->ResetMod();
         }
         advanceDay = false;
+        Logger::Log("End of day " + std::to_string(day));
         while(!advanceDay)
         {
             InterdayInputEvents();

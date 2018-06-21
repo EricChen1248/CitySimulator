@@ -1,6 +1,8 @@
 #include "CitizenSystem.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Controllers/SFMLController.h"
+#include "../../Helpers/Logger.h"
+#include <iostream>
 
 
 CitizenSystem::CitizenSystem()
@@ -11,6 +13,7 @@ CitizenSystem::CitizenSystem()
     citizenCount = 5000;
 #endif
     
+    Logger::Log("Created " + std::to_string(citizenCount) + " citizens");
     for (int i = 0; i < citizenCount; ++i)
     {
         const auto plot = CoreController::Instance()->GetSystemController()->Plots();
