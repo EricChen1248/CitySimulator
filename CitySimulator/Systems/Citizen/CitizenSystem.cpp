@@ -43,9 +43,9 @@ void CitizenSystem::Update() const
  */
 void CitizenSystem::Render() const
 {
-    for (int i = 0; i < citizenCount; ++i)
+    for (auto && citizen : citizens)
     {
-        const auto citizen = citizens[i];
+        
         auto & shape = citizen->GetShape();
         
         // If citizen is inside a plot, no need to draw them, only need to update size
@@ -60,9 +60,8 @@ void CitizenSystem::Render() const
 
 void CitizenSystem::RenderInterday() const
 {
-    for (int i = 0; i < citizenCount; ++i)
+    for (auto && citizen : citizens)
     {
-        const auto citizen = citizens[i];
         auto & shape = citizen->GetShape();
         SFMLController::UpdateCircleSize(shape);
     }

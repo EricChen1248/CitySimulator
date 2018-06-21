@@ -46,7 +46,7 @@ Coordinate* Coordinate::GetNeighbours() const
  */
 Coordinate Coordinate::MoveTowards(const Coordinate dest, float deltaTime) const
 {
-    const float smoothness = 6;
+    const float smoothness = 8;
     deltaTime *= 3 / smoothness;
     float X = x + (dest.x > x + deltaTime ? 1 : dest.x < x - deltaTime ? -1 : 0) * deltaTime;
     float Y = y + (dest.y > y + deltaTime ? 1 : dest.y < y - deltaTime ? -1 : 0) * deltaTime;

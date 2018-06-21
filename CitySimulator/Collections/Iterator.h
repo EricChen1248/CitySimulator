@@ -9,8 +9,8 @@ template<typename T>
 class Iterator
 {
 public:
-    Iterator(Node<T>& node);
-    Iterator();
+    Iterator(Node<T>& node) noexcept;
+    Iterator() noexcept;
     void operator++();
     bool operator!=(Iterator<T>& other);
     const T& operator*();
@@ -24,7 +24,7 @@ private:
  * \param node The "begin" / first node in the collection
  */
 template <typename T>
-Iterator<T>::Iterator(Node<T>& node)
+Iterator<T>::Iterator(Node<T>& node) noexcept
 {
     this->node = &node;
 }
@@ -33,7 +33,7 @@ Iterator<T>::Iterator(Node<T>& node)
  * \brief Used to generate the end iterator
  */
 template <typename T>
-Iterator<T>::Iterator()
+Iterator<T>::Iterator() noexcept
 {
     node = nullptr;
 }
