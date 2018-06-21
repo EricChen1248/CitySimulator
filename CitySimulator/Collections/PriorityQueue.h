@@ -1,6 +1,4 @@
 #pragma once
-#include "Queue.h"
-#include "PriorityNode.h"
 #include "MinHeap.h"
 
 
@@ -13,9 +11,8 @@ class PriorityQueue : public MinHeap<T>
 {
 public:
     void Enqueue(T& item);
-    T& GetTop() const;
-    void Dequeue();
-    
+    const T& GetTop() const;
+    void Dequeue();    
 };
 
 /**
@@ -34,7 +31,7 @@ void PriorityQueue<T>::Enqueue(T& item)
  * \throws out_of_range exception if empty
  */
 template <class T>
-T& PriorityQueue<T>::GetTop() const
+const T& PriorityQueue<T>::GetTop() const
 {
     return MinHeap<T>::PeekTop();
 }
