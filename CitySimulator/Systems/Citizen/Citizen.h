@@ -13,6 +13,7 @@ class BaseRule;
 
 class Citizen
 {
+    friend class CitizenSystem;
 public:
     Citizen(Plot* plot);
     ~Citizen();

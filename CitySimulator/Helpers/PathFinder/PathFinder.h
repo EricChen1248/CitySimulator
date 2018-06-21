@@ -19,6 +19,6 @@ private:
     static int openCount;
     
     static PathFinderNode* CoordToNodeMap(const Coordinate& coords);
-    static float EstimateSteps(Coordinate& source, Coordinate& dest);
+    
 };
 

@@ -13,7 +13,7 @@ BankRule::~BankRule() = default;
 
 float BankRule::CalculateScore()
 {
-	if ((citizen->GetMoney() < CITIZEN_MAX_MONEY) && (saving > 100))
+	if (citizen->GetMoney() < CITIZEN_MAX_MONEY && saving > 100)
 		return 100001;
 	
     return 0;
@@ -73,8 +73,10 @@ void BankRule::LeavePlot(Plot* plot)
 	const auto bank = dynamic_cast<Bank*>(plot->GetPlotType());
     
 	const int moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->GetMoney(), 0, int(saving));        
-	if (moneyToWithdraw >= bank->transactionCost)
+	
+    if (moneyToWithdraw >= bank->transactionCost)
 		citizen->IncreaseMoney(moneyToWithdraw - bank->transactionCost);
+    saving -= moneyToWithdraw;
 }
 
 /**

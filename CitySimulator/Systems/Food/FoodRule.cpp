@@ -74,7 +74,7 @@ void FoodRule::LeavePlot(Plot* plot)
 void FoodRule::Update()
 {
     // TODO : Tweak hunger to time ratio
-    hungerLevel -= CoreController::Instance()->GetDeltaTime() * 240;
+    hungerLevel -= CoreController::Instance()->GetDeltaTime() * 72;
 }
 
 /**

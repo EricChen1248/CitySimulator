@@ -2,6 +2,7 @@
 #include "../Constants.h"
 #include "../../Collections/PriorityQueue.h"
 #include "../CustomExceptions.h"
+#include "../Logger.h"
 
 
 int PathFinder::nodeCount = 0;
@@ -17,7 +18,7 @@ void PathFinder::Initialize()
 {
     if (initialized)
     { 
-        throw DuplicateInitialization("Pathfinder has already been initialized");
+        Logger::Log("Pathfinder has already been initialized");
     }
     initialized = true;
     const int size = RIGHT - LEFT;
@@ -66,7 +67,7 @@ Stack<Coordinate>* PathFinder::PathTo(Coordinate source, Coordinate dest)
             const int y = neighbourNode->coords.Y() - LEFT;
             if (openList[x + y] == nullptr)
             {
-                neighbourNode->estimatedSteps = EstimateSteps(neighbourNode->coords, dest);
+                neighbourNode->EstimateSteps(dest);
             }
             
             if (openList[x + y] == nullptr || openList[x + y]->step > currentNode->step + 1)
@@ -107,16 +108,4 @@ Stack<Coordinate>* PathFinder::PathTo(Coordinate source, Coordinate dest)
 PathFinderNode* PathFinder::CoordToNodeMap(const Coordinate& coords)
 {
     return nodesMap[coords.X() - LEFT][coords.Y() - LEFT];
-}
-
-/**
- * \brief The estimated distance used in A* pathfinding. (admissible distance) (subject to change)
- * \param source Source coordinates to start estimatino
- * \param dest Destination coordinates to end estimation
- * \return The estimated distance
- */
-float PathFinder::EstimateSteps(Coordinate& source, Coordinate& dest)
-{
-    //TODO : Update pathfinder heuristics
-    return float(dest.Distance(source));
 }

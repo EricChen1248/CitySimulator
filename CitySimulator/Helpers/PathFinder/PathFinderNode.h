@@ -16,6 +16,7 @@ public:
 private:
     PathFinderNode(const Coordinate& coords);
     ~PathFinderNode();
+    void EstimateSteps(Coordinate& dest);
     float step = 0;
     float estimatedSteps = 0;
     bool wasOpened = false;

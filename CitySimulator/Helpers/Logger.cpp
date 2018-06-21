@@ -3,8 +3,6 @@
 #include <fstream>
 #include <iomanip>
 #include <chrono>
-#include <iostream>
-
 // =============== Singleton Interface ================
 Logger* Logger::instance;
 
@@ -13,17 +11,18 @@ Logger::Logger()
 {
     if (instance != nullptr)
     {
-        instance->Log("Instance of logger already exists. This should not happen");
+        Log("Instance of logger already exists. This should not happen");
         return;
     }
+    std::ofstream outputStream("Log.log");
+    outputStream.close();
     instance = this;
 }
 
-Logger::~Logger()= default;
+Logger::~Logger()
+= default;
 
-
-
-void Logger::Log(const std::string log) const
+void Logger::Log(const std::string& log)
 {
     time_t rawtime;
     tm timeinfo{};
@@ -34,9 +33,7 @@ void Logger::Log(const std::string log) const
 
     strftime(buffer, sizeof(buffer), "%d-%m-%Y %I:%M:%S", &timeinfo);
     const std::string str(buffer);
-    
-    std::ofstream outputStream(logfile);
-    outputStream << str << ":" << log;
+    std::ofstream outputStream("Log.log", std::ios::app);
+    outputStream << str << ": " << log << std::endl;
     outputStream.close();
-
 }

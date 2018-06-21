@@ -32,5 +32,16 @@ PathFinderNode::PathFinderNode(const Coordinate& coords) : coords(coords)
     delete [] neighbours;
 }
 
+/**
+ * \brief The estimated distance used in A* pathfinding. (admissible distance) (subject to change)
+ * \param dest Destination coordinates to end estimation
+ */
+void PathFinderNode::EstimateSteps(Coordinate& dest)
+{
+    //TODO : Update pathfinder heuristics
+    estimatedSteps = dest.Distance(coords);
+}
+
+
 PathFinderNode::~PathFinderNode() 
 = default;

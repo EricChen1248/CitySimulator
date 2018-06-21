@@ -7,18 +7,14 @@
 class Logger
 {
 public:
-    static Logger* Instance() { return instance;};
-    
     Logger();
     ~Logger();
     /**
      * \brief Writes a string message to log file
      * \param log message to write
      */
-    void Log(std::string log) const;
-    
+    static void Log(const std::string& log);
 private:
     static Logger* instance;
-    const std::string logfile = "./Log.log";
 };
 
