@@ -9,7 +9,7 @@
 #include "../../Helpers/PathFinder/PathFinder.h"
 
 
-Citizen::Citizen(Plot* plot) : target(nullptr), activeRule(nullptr), coords(plot->Coords()), money(0), waitTime(0.f), inPlot(false), age(0)
+Citizen::Citizen(Plot* plot) : target(nullptr), activeRule(nullptr), coords(plot->Coords()), money(0), waitTime(0.f), inPlot(false), dead(false), age(0)
 {
     moveSpeed = 1 + static_cast<float>(CoreController::RandomInt(0, 40) - 20) / 100;
     shape = sf::CircleShape(5);
@@ -54,6 +54,11 @@ void Citizen::SetTarget(Plot* t)
  */
 void Citizen::Update()
 {
+    if (dead)
+    {
+        return;
+    }
+    
     // Citizen is waiting in a target
     if (waitTime > 0)
     {
@@ -160,6 +165,11 @@ BaseRule* Citizen::FindRule(const System system)
         }
     }
     return nullptr;
+}
+
+void Citizen::Death()
+{
+    dead = true;
 }
 
 sf::CircleShape& Citizen::GetShape()

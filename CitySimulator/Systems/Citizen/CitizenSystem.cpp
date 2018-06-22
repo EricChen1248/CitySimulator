@@ -61,11 +61,30 @@ void CitizenSystem::Render() const
     }
 }
 
+/**
+ * \brief Handles interday rendering for citizens
+ */
 void CitizenSystem::RenderInterday() const
 {
     for (auto && citizen : citizens)
     {
         auto & shape = citizen->GetShape();
         SFMLController::UpdateCircleSize(shape);
+    }
+}
+
+
+/**
+ * \brief Prunes all dead people at the end of the day
+ */
+void CitizenSystem::PruneDead()
+{
+    for (int i = 0; i < citizens.Count(); ++i)
+    {
+        if (citizens[i]->IsDead())
+        {
+            citizens.Remove(i);
+            --i;
+        }
     }
 }

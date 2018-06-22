@@ -10,6 +10,7 @@ public:
     void Update() const;
     void Render() const;
     void RenderInterday() const;
+    void PruneDead();
 private:
     List<Citizen*> citizens;
     int citizenCount;
