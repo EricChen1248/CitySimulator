@@ -1,7 +1,6 @@
 #include "PathFinder.h"
 #include "../Constants.h"
 #include "../../Collections/PriorityQueue.h"
-#include "../CustomExceptions.h"
 #include "../Logger.h"
 
 

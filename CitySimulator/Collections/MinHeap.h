@@ -69,7 +69,7 @@ void MinHeap<T>::Add(T &item) noexcept
         maxSize = (maxSize + 1) * 2 - 1;
         T *newArray = new T[maxSize];
 
-        for (unsigned i = 0; i < itemCount; ++i)
+        for (int i = 0; i < itemCount; ++i)
         {
             newArray[i] = array[i];
         }
