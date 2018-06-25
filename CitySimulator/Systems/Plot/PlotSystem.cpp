@@ -40,7 +40,7 @@ void PlotSystem::Render() const
 {
     for (auto && plot : plots)
     {
-        auto & shape = plot->GetShape();
+        auto & shape = plot->UpdateShape();
         CoreController::Instance()->SfmlController()->DrawCircle(shape);
     }
 }
@@ -49,7 +49,7 @@ void PlotSystem::RenderInterDay()
 {
     for (auto && plot : plots)
     {
-        auto & shape = plot->GetShape();
+        auto & shape = plot->UpdateShape();
         SFMLController::UpdateCircleSize(shape);
         CoreController::Instance()->SfmlController()->DrawCircle(shape, true);
     }

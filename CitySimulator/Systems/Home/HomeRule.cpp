@@ -32,7 +32,7 @@ bool HomeRule::FindPlot()
 		auto coord = citizen->Coords();
 		for (auto && plot : plots)
 		{
-			auto home = dynamic_cast<Home*>(plot->GetPlotType());
+		    const auto home = dynamic_cast<Home*>(plot->GetPlotType());
 			if (!home->Full())
 			{
 				if (maxDistance >= plot->Coords().Distance(coord))
