@@ -7,11 +7,12 @@
 #include "../Store/StoreRule.h" 
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/PathFinder/PathFinder.h"
+#include "../../Helpers/HelperFunctions.h"
 
 
 Citizen::Citizen(Plot* plot) : target(nullptr), activeRule(nullptr), coords(plot->Coords()), money(0), waitTime(0.f), inPlot(false), dead(false), age(0)
 {
-    moveSpeed = 1 + static_cast<float>(CoreController::RandomInt(0, 40) - 20) / 100;
+    moveSpeed = 1 + static_cast<float>(RandomInt(0, 40) - 20) / 100;
     shape = sf::CircleShape(5);
     shape.setFillColor(BLUE);
     currentPlot = plot;

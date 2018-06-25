@@ -24,6 +24,42 @@ static T Clamp(T input, T lower = INT_MIN, T upper = INT_MAX)
  */
 static int RandomInt(const int lower, const int upper)
 {
-    return CoreController::Instance()->RandomInt(lower, upper);
+    return CoreController::RandomInt(lower, upper);
+}
+
+
+/**
+ * \brief Gets the larger of two values
+ * \tparam T Type of value being compared
+ * \param t1 First value being compared
+ * \param t2 Second value being compared
+ * \return the larger of the t1 and t2
+ */
+template<typename T>
+static T Max(T t1, T t2)
+{
+    if (t1 > t2)
+    {
+        return t1;
+    }
+    return t2;
+}
+
+
+/**
+ * \brief Gets the smalelr of two values
+ * \tparam T Type of value being compared
+ * \param t1 First value being compared
+ * \param t2 Second value being compared
+ * \return the smaller of the t1 and t2
+ */
+template<typename T>
+static T Min(T t1, T t2)
+{
+    if (t1 < t2)
+    {
+        return t1;
+    }
+    return t2;
 }
 

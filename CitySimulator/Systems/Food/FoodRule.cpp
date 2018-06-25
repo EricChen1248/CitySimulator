@@ -2,6 +2,7 @@
 #include "../../Controllers/CoreController.h"
 #include "FoodSystem.h"
 #include "Food.h"
+#include "../../Helpers/HelperFunctions.h"
 
 FoodRule::FoodRule(Citizen& citizen): BaseRule(citizen, FOOD), hungerLevel(0)
 {
@@ -44,7 +45,7 @@ bool FoodRule::FindPlot()
     {
         return false;
     }
-    const auto chosen = choices[CoreController::RandomInt(0, choices.Count())];
+    const auto chosen = choices[RandomInt(0, choices.Count())];
     citizen->SetActiveRule(this);
     citizen->SetTarget(chosen);
     

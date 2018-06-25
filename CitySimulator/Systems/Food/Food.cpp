@@ -1,10 +1,11 @@
 #include "Food.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
+#include "../../Helpers/HelperFunctions.h"
 
 Food::Food(Plot* plot) : Base(plot, FOOD)
 {
-    cost = CoreController::RandomInt(50, 100);
+    cost = RandomInt(50, 100);
     score = 0;
     color = FOOD_COLOR;
 }

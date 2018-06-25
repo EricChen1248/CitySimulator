@@ -3,8 +3,7 @@
 #include "../../Helpers/Constants.h"
 #include "StoreSystem.h"
 #include "Store.h"
-
-
+#include "../../Helpers/HelperFunctions.h"
 
 
 StoreRule::StoreRule(Citizen& citizen) : BaseRule(citizen, STORE), materialNeed(0)
@@ -43,7 +42,7 @@ bool StoreRule::FindPlot()
 	{
 		return false;
 	}
-	const auto chosen = choices[CoreController::RandomInt(0, choices.Count())];
+	const auto chosen = choices[RandomInt(0, choices.Count())];
 	citizen->SetActiveRule(this);
 	citizen->SetTarget(chosen);
 
@@ -65,7 +64,7 @@ void StoreRule::LeavePlot(Plot* plot)
 
 void StoreRule::Update()
 {
-	int i = CoreController::RandomInt(1, 100);
+    const int i = RandomInt(1, 100);
 	
 	if (i <= 80)
 		materialNeed += 1 * CoreController::Instance()->GetDeltaTime() / 100 ;

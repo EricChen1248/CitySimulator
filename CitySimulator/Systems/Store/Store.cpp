@@ -1,11 +1,12 @@
 #include "Store.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
+#include "../../Helpers/HelperFunctions.h"
 
 
 Store::Store(Plot* plot) : Base(plot, STORE)
 {
-	cost = CoreController::RandomInt(10, 1000);
+	cost = RandomInt(10, 1000);
 	score = 0;
     color = STORE_COLOR;
 }
@@ -19,7 +20,7 @@ Store::~Store()
 */
 void Store::EndDay()
 {
-	score = -CoreController::RandomInt(1, 50);
+	score = -RandomInt(1, 50);
 }
 
 

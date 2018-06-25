@@ -2,6 +2,7 @@
 #include "../../Controllers/CoreController.h"
 #include "HospitalSystem.h"
 #include "Hospital.h"
+#include "../../Helpers/HelperFunctions.h"
 
 HospitalRule::HospitalRule(Citizen& citizen): BaseRule(citizen, FOOD), hungerLevel(0)
 {
@@ -44,7 +45,7 @@ bool HospitalRule::FindPlot()
     {
         return false;
     }
-    const auto chosen = choices[CoreController::RandomInt(0, choices.Count())];
+    const auto chosen = choices[RandomInt(0, choices.Count())];
     citizen->SetActiveRule(this);
     citizen->SetTarget(chosen);
     

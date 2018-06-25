@@ -16,7 +16,6 @@ class UIController;
 using sf::Clock;
 class CoreController
 {
-    
     friend class ViewPortController;
 public:
     static CoreController* Instance() {return instance;};

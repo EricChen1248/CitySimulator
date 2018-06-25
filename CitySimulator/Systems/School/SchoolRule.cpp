@@ -2,6 +2,7 @@
 #include "../../Controllers/CoreController.h"
 #include "SchoolSystem.h"
 #include "School.h"
+#include "../../Helpers/HelperFunctions.h"
 
 SchoolRule::SchoolRule(Citizen& citizen): BaseRule(citizen, SCHOOL), hungerLevel(0)
 {
@@ -44,7 +45,7 @@ bool SchoolRule::FindPlot()
     {
         return false;
     }
-    const auto chosen = choices[CoreController::RandomInt(0, choices.Count())];
+    const auto chosen = choices[RandomInt(0, choices.Count())];
     citizen->SetActiveRule(this);
     citizen->SetTarget(chosen);
     

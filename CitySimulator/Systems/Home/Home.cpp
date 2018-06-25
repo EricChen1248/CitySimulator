@@ -1,12 +1,13 @@
 #include "Home.h"
 #include "../../Helpers/Constants.h"
 #include "../../Controllers/CoreController.h"
+#include "../../Helpers/HelperFunctions.h"
 //class HomeRule;
 
 
 Home::Home(Plot* plot):Base(plot, HOME)
 {
-	homeCapacity = CoreController::RandomInt(10, 20);
+	homeCapacity = RandomInt(10, 20);
 	color = HOME_COLOR;
 	score = 0;
 }

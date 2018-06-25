@@ -1,5 +1,5 @@
 #include "Government.h"
-#include "CoreController.h"
+#include "../Helpers/HelperFunctions.h"
 
 
 float Government::taxDollars = 0.f;
@@ -11,7 +11,7 @@ int Government::NewChildren(const int adultCount)
     int birthCount = 0;
     for (int i = 0; i < adultCount; ++++i)
     {
-        const int rand = CoreController::RandomInt(0, 100);
+        const int rand = RandomInt(0, 100);
         if (rand < thresh)
         {
             ++birthCount;

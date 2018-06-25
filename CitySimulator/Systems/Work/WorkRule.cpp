@@ -4,6 +4,7 @@
 #include "../Bank/BankRule.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Time.h"
+#include "../../Helpers/HelperFunctions.h"
 
 using helper::Time;
 
@@ -20,8 +21,8 @@ WorkRule::WorkRule(Citizen& citizen) : BaseRule(citizen, WORK), assignedCompany(
 {
 	// To Get BankRule
 	SchoolRule* schoolRule = dynamic_cast<SchoolRule*>(citizen.FindRule(SCHOOL));
-	int educationLv = schoolRule->getEdLvl();
-	production = static_cast<float>(CoreController::RandomInt(50, 100));
+    const int educationLv = schoolRule->getEdLvl();
+	production = static_cast<float>(RandomInt(50, 100));
 	salary = production * 0.5f + educationLv * 0.3f;
 }
 
@@ -81,7 +82,7 @@ bool WorkRule::FindPlot()
 			return false;
 		}
 
-		const auto chosen = choices[CoreController::RandomInt(0, choices.Count())];
+		const auto chosen = choices[RandomInt(0, choices.Count())];
 
 		this->assignedCompany = chosen; // and then constant
 		citizen->SetActiveRule(this);

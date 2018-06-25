@@ -1,6 +1,7 @@
 #include "PlotSystem.h"
 #include "../../Helpers/Constants.h"
 #include "../../Controllers/CoreController.h"
+#include "../../Helpers/HelperFunctions.h"
 
 
 PlotSystem::PlotSystem(): hoverPlot(nullptr), selectedPlot(nullptr)
@@ -71,7 +72,7 @@ Plot* PlotSystem::FindPlot(const Coordinate& coords) const
  */
 Plot* PlotSystem::GetRandomPlot() const
 {
-    const int rand = CoreController::RandomInt(0, plots.Count());
+    const int rand = RandomInt(0, plots.Count());
     return plots[rand];
 }
 
