@@ -194,7 +194,6 @@
     <ClInclude Include="Collections\PriorityNode.h" />
     <ClInclude Include="Collections\PriorityQueue.h" />
     <ClInclude Include="Collections\Stack.h" />
-    <ClInclude Include="Collections\HeapLevel.h" />
     <ClInclude Include="Controllers\SystemController.h" />
     <ClInclude Include="Controllers\FontController.h" />
     <ClInclude Include="Helpers\Button.h" />
