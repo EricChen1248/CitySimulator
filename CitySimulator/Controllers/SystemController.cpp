@@ -17,7 +17,7 @@ SystemController::~SystemController()
 void SystemController::Initialize()
 {
     plots = new PlotSystem;
-    citizens = new CitizenSystem;
+    
     
     BaseSystem* food = new FoodSystem();
 	BaseSystem* bank = new BankSystem();
@@ -59,7 +59,7 @@ void SystemController::Initialize()
 		}
 		if (system->SystemType == HOME)
 		{
-			for (int i = 0; i < 50; ++i)
+			for (int i = 0; i < 1; ++i)
 			{
 				auto plot = plots->GetRandomPlot();
 				while (plot->GetPlotType() != nullptr)
@@ -96,6 +96,7 @@ void SystemController::Initialize()
 			}
 		}
     }
+	citizens = new CitizenSystem;
 }
 
 /**

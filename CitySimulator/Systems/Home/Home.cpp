@@ -15,7 +15,8 @@ void Home::Register(Citizen* citizen)
 {
 	//Citizen need to register it's home in this function
 	//Citizen->register(*this);
-	Residents.InsertLast(citizen);
+	if(!Full())
+		Residents.InsertLast(citizen);
 }
 void Home::EndDay()
 {
@@ -23,7 +24,7 @@ void Home::EndDay()
 }
 bool Home::Full()const
 {
-	return (homeCapacity < Residents.Count());
+	return (homeCapacity <= Residents.Count());
 }
 void Home::Enter()
 {

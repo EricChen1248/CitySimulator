@@ -2,6 +2,7 @@
 #include "../Base/BaseRule.h"
 #include "../Base/Base.h"
 #include "Home.h"
+#include "../../Helpers/Time.h"
 class BaseRule;
 
 /**
@@ -20,8 +21,9 @@ public:
 	void Update();
 	bool IsSatisfied() override;
 private:
-	// TODO : Tweak foodrule max distance
-	const int maxDistance = 20;
+
+	helper::Time goHomeTime;
+	bool DecideHome();
 	Home* myHome;
 	int homelessLevel;
 	float homelessHour;

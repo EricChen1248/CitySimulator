@@ -2,9 +2,16 @@
 #include "Home.h"
 #include "../../Collections/List.h"
 #include "../../Controllers/CoreController.h"
+#include "../../Helpers/Time.h"
 
 HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME),myHome(nullptr)
 {
+	//this is the time when people start to go home
+	//TODO: goHomeTime is now a static member, which is like a curvew right now. it could be private member
+	//therefore each citizen can go home by unique timing
+
+	goHomeTime.IncreaseTime(21);
+	DecideHome();
 	homelessLevel = 0;
 	homelessHour = 0;
 }
@@ -17,49 +24,65 @@ float HomeRule::CalculateScore()
 }
 
 /**
-* \brief Attemps to find a plot that can satisfy this rule
+* \brief: attempt to find a home for the citizen.
+* \Detail Algorithm: if citizen is under age 20, they can live under over-occupied house
+* \Detail Algorithm: citizen above age 20, has to find a house where it's not over-occupied.
 * \return True if successfully found a plot to satisfy rule, otherwise false
 */
-bool HomeRule::FindPlot()
+bool HomeRule::DecideHome()
 {
 	auto &plots = CoreController::Instance()->GetSystemController()->GetSystem(HOME)->Plots();
-	// Get a list of plots that fulfill out requirements ( distance < max distance)
-	//auto coords = citizen->Coords();
 	Plot* chosen = nullptr;
-	if (myHome == nullptr) 
+	int shortestDis = 1000;
+	//TODO: Design a better algorithm to find house for resident
+	for (auto && plot : plots) 
 	{
-		int maxDistance = 100;
-		auto coord = citizen->Coords();
-		for (auto && plot : plots)
+	
+		auto home = dynamic_cast<Home*>(plot->GetPlotType());
+		auto coord = plot->Coords();
+		auto livable = true;
+		if (citizen->Age() >= 20)
+			 livable = (!home->Full());
+		if ((livable) && (citizen->Coords().Distance(coord) <= shortestDis))
 		{
-			auto home = dynamic_cast<Home*>(plot->GetPlotType());
-			if (!home->Full())
-			{
-				if (maxDistance >= plot->Coords().Distance(coord))
-				{
-					maxDistance = plot->Coords().Distance(coord);
-					chosen = plot;
-				}
-			}
+				chosen = plot;
+				shortestDis = citizen->Coords().Distance(coord);
 		}
-		// If such a list doesn't exist. This rule returns failed result false
-		if (chosen == nullptr)
+		else
 		{
-			return false;
+			continue;
 		}
-		auto home = dynamic_cast<Home*>(chosen->GetPlotType());
-		home->Register(citizen);
-		myHome = home;
 	}
+	if (chosen == nullptr)
+	{
+		return false;
+	}
+	else
+	{
+		auto home = dynamic_cast<Home*>(chosen->GetPlotType());
+		
+		if (citizen->Age() >= 20)
+		{
+			home->Register(citizen);
 
-	//CITIZEN must setActiveRule of some rule ex: bankRule
-	citizen->SetActiveRule(this);
-	//citizen must setActiveRule of a plot as a target;
-	citizen->SetTarget(myHome->GetPlot());
-
-	return true;
+		}
+		myHome = home;
+		return true;
+	}
 }
-
+bool HomeRule::FindPlot()
+{
+	if (myHome == nullptr)
+	{
+		return false;
+	}
+	else
+	{
+		citizen->SetActiveRule(this);
+		citizen->SetTarget(myHome->GetPlot());
+		return true;
+	}
+}
 void HomeRule::EnterPlot(Plot* plot)
 {
 	const auto home = dynamic_cast<Home*>(plot->GetPlotType());
@@ -81,17 +104,17 @@ void HomeRule::LeavePlot(Plot* plot)
 */
 void HomeRule::Update()
 {
-	// TODO : Tweak HomelessHour to time ratio
-	if (myHome == nullptr)
+	// TODO : if homeless hour exceed certain critirea , this citizen sholud
+	auto hour = CoreController::Instance()->GetTime();
+	if (hour.Hour>= goHomeTime.Hour)
 	{
-		//need rescaling
-		homelessHour += CoreController::Instance()->GetDeltaTime();
-		homelessLevel = static_cast<int>(std::exp((homelessHour-50)/100));
-		if (CoreController::Instance()->GetTime().Hour == 10)
-			homelessLevel = 1000000000;
+		homelessLevel = exp(hour - goHomeTime);
 	}
 	else
-		homelessHour = 0;
+	{
+		homelessLevel = 0;
+		return;
+	}
 }
 
 /**
@@ -101,5 +124,5 @@ void HomeRule::Update()
 bool HomeRule::IsSatisfied()
 {
 	//need to adjust this rate
-	return homelessLevel < 50;
+	return (myHome != nullptr);
 }
