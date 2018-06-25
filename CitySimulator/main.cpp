@@ -11,7 +11,16 @@ int main(int argc, char* argv[])
 #endif
     
     auto *core = new CoreController();
-    core->Start();
+    try
+    {
+        core->Start();
+    }
+    catch(std::exception& e)
+    {
+        std::stringstream ss;
+        ss << "Exception occured: "<< std::string(e.what()) << std::endl;
+        Logger::Log(ss.str());
+    }
    
     delete core;
     return 0;

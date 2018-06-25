@@ -174,23 +174,22 @@ void CoreController::GameInputEvents()
         default: ;
         }        
     }
-    if (sf::Keyboard::isKeyPressed(Keyboard::A))
+    if (Keyboard::isKeyPressed(Keyboard::A))
     {
         viewPortController->Right();
     }
-    if (sf::Keyboard::isKeyPressed(Keyboard::D))
+    if (Keyboard::isKeyPressed(Keyboard::D))
     {
         viewPortController->Left();
     }
-    if (sf::Keyboard::isKeyPressed(Keyboard::W))
+    if (Keyboard::isKeyPressed(Keyboard::W))
     {
         viewPortController->Down();
     }
-    if (sf::Keyboard::isKeyPressed(Keyboard::S))
+    if (Keyboard::isKeyPressed(Keyboard::S))
     {
         viewPortController->Up();
     }
-
 }
 
 
@@ -238,19 +237,19 @@ void CoreController::InterdayInputEvents()
         default: ;
         }        
     }
-    if (sf::Keyboard::isKeyPressed(Keyboard::A))
+    if (Keyboard::isKeyPressed(Keyboard::A))
     {
         viewPortController->Right();
     }
-    if (sf::Keyboard::isKeyPressed(Keyboard::D))
+    if (Keyboard::isKeyPressed(Keyboard::D))
     {
         viewPortController->Left();
     }
-    if (sf::Keyboard::isKeyPressed(Keyboard::W))
+    if (Keyboard::isKeyPressed(Keyboard::W))
     {
         viewPortController->Down();
     }
-    if (sf::Keyboard::isKeyPressed(Keyboard::S))
+    if (Keyboard::isKeyPressed(Keyboard::S))
     {
         viewPortController->Up();
     }
