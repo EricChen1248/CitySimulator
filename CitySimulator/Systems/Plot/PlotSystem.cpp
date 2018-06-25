@@ -6,6 +6,13 @@
 
 PlotSystem::PlotSystem(): hoverPlot(nullptr), selectedPlot(nullptr)
 {
+    const int size = RIGHT - LEFT;
+    plotArray = new Plot**[size];
+    for (int i = 0; i < size; ++i)
+    {
+        plotArray[i] = new Plot*[size] {nullptr};
+    }
+    
     for (int i = LEFT; i < RIGHT; ++i)
     {
         const int left = std::max(LEFT - i, LEFT);
@@ -15,6 +22,7 @@ PlotSystem::PlotSystem(): hoverPlot(nullptr), selectedPlot(nullptr)
             const int k = -i - j;
             auto plot = new Plot(i, j, k);
             plots.InsertLast(plot);
+            plotArray[i - LEFT][j - LEFT] = plot;
         }
     }
 }
@@ -56,14 +64,7 @@ void PlotSystem::RenderInterDay()
  */
 Plot* PlotSystem::FindPlot(const Coordinate& coords) const
 {
-    for (auto && plot : plots)
-    {
-        if (plot->Coords() == coords)
-        {
-            return plot;
-        }
-    }
-    return nullptr;
+    return CoordToPlotArray(coords);
 }
 
 /**
@@ -162,4 +163,12 @@ void PlotSystem::ClearSelections()
         shape.setOutlineThickness(0);
         hoverPlot = nullptr;
     }
+}
+
+Plot* PlotSystem::CoordToPlotArray(const Coordinate& coords) const
+{
+    if (coords.X() < LEFT || coords.X() >= RIGHT) return nullptr;
+    if (coords.Y() < LEFT || coords.Y() >= RIGHT) return nullptr;
+    if (coords.Z() < LEFT || coords.Z() >= RIGHT) return nullptr;
+    return plotArray[coords.X() - LEFT][coords.Y() - LEFT];
 }

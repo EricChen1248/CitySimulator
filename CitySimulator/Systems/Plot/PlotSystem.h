@@ -18,8 +18,12 @@ public:
     void FindHoverPlot();
     void ClearSelections();
 private:
+    Plot* CoordToPlotArray(const Coordinate& coords) const;
+    
+    Plot*** plotArray;
     List<Plot*> plots;
     Plot* hoverPlot;
-    Plot* selectedPlot;;
+    Plot* selectedPlot;
+    
 };
 
