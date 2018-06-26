@@ -38,7 +38,7 @@ Queue<T>::Queue(const int initialSize /* = DEFAULT_MAX */): itemCount(0), front(
 template <typename T>
 Queue<T>::~Queue()
 {
-    delete array[];
+    delete [] array;
 }
 
 /** 
