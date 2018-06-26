@@ -9,7 +9,7 @@ class PathFinder
 {
 public:    
     static void Initialize();
-    static Stack<Coordinate>* PathTo(Coordinate source, Coordinate dest);
+    static Stack<Coordinate>* PathTo(const Coordinate& source, Coordinate dest);
 private:
     PathFinder() = default;;
     static int nodeCount;
@@ -17,6 +17,7 @@ private:
     static PathFinderNode*** nodesMap;
     static PathFinderNode** openList;
     static int openCount;
+    static PriorityQueue<PathFinderNode*> queue;
     
     static PathFinderNode* CoordToNodeMap(const Coordinate& coords);
     

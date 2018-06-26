@@ -2,6 +2,7 @@
 #include "../Constants.h"
 #include "../../Collections/PriorityQueue.h"
 #include "../Logger.h"
+#include "../HelperFunctions.h"
 
 
 int PathFinder::nodeCount = 0;
@@ -9,6 +10,7 @@ bool PathFinder::initialized = false;
 PathFinderNode*** PathFinder::nodesMap;
 PathFinderNode** PathFinder::openList;
 int PathFinder::openCount;
+PriorityQueue<PathFinderNode*> PathFinder::queue;
 
 /**
  * \brief Initializes the pathfinder and allocates the required memory space, must only be initialized once
@@ -25,8 +27,8 @@ void PathFinder::Initialize()
     for (int i = LEFT; i < RIGHT; ++i)
     {
         const int x = i - LEFT;
-        const int left = std::max(LEFT -i, LEFT);
-        const int right = std::min(RIGHT - i, RIGHT);
+        const int left = Max(LEFT -i, LEFT);
+        const int right = Min(RIGHT - i, RIGHT);
         nodesMap[x] = new PathFinderNode*[size];
         for (int j = left; j < right; ++j)
         {
@@ -49,21 +51,21 @@ void PathFinder::Initialize()
  * \param dest Coordinate to path to
  * \return Pointer to stack of coordinates that contains the found path
  */
-Stack<Coordinate>* PathFinder::PathTo(Coordinate source, Coordinate dest)
+Stack<Coordinate>* PathFinder::PathTo(const Coordinate& source, Coordinate dest)
 {
     const int size = RIGHT - LEFT;
     auto current = source;
-    PriorityQueue<PathFinderNode*> queue;
-    PathFinderNode* currentNode = CoordToNodeMap(source);
+    queue.Reset();
+    auto currentNode = CoordToNodeMap(source);
     while (current != dest)
     {
         for (auto && neighbour : currentNode->neighbours)
         {
             auto neighbourNode = CoordToNodeMap(neighbour);
-            
+            auto & coords = neighbourNode->coords;
             // TODO add path cost
-            const int x = (neighbourNode->coords.X() - LEFT) * size;
-            const int y = neighbourNode->coords.Y() - LEFT;
+            const int x = (coords.X() - LEFT) * size;
+            const int y = coords.Y() - LEFT;
             if (openList[x + y] == nullptr)
             {
                 neighbourNode->EstimateSteps(dest);
