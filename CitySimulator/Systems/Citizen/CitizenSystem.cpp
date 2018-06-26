@@ -2,7 +2,6 @@
 #include "../../Controllers/CoreController.h"
 #include "../../Controllers/SFMLController.h"
 #include "../../Helpers/Logger.h"
-#include <iostream>
 
 
 CitizenSystem::CitizenSystem()
@@ -37,7 +36,7 @@ void CitizenSystem::Update() const
 {
 	for (auto && citizen : citizens)
 	{
-		citizen->Update();
+	    citizen->Update();
 	}
 }
 

@@ -17,6 +17,7 @@ using sf::Clock;
 class CoreController
 {
     friend class ViewPortController;
+    friend void MultithreadGameUpdates();
 public:
     static CoreController* Instance() {return instance;};
     SFMLController* SfmlController() const { return sfmlController; }
