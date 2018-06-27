@@ -17,7 +17,8 @@ class Plot
 public:
     Plot(int x, int y, int z);
     ~Plot();
-    sf::CircleShape& GetShape();
+    sf::CircleShape& GetShape() { return shape; }
+    sf::CircleShape& UpdateShape();
     const Coordinate& Coords() const { return coords; }
     Base* const& GetPlotType() const { return currentType; }
     int GetOccupantCount() const { return occupants.Count(); }

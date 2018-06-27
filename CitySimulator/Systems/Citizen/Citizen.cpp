@@ -166,6 +166,7 @@ BaseRule* Citizen::FindRule(const System system)
         }
     }
     return nullptr;
+    
 }
 
 void Citizen::Death()

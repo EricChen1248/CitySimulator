@@ -12,7 +12,7 @@ Plot::Plot(const int x, const int y, const int z) : coords(x, y, z), size(10.f),
     sCoords.Y -= size / 2;
 }
 
-sf::CircleShape& Plot::GetShape()
+sf::CircleShape& Plot::UpdateShape()
 {
     const auto tCoords = CoreController::Instance()->GetViewportController()->ToDrawCoord(sCoords);
     shape.setPosition(tCoords.X, tCoords.Y);
