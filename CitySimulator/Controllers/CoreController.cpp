@@ -3,6 +3,7 @@
 #include <iostream>
 #include "../Helpers/PathFinder/PathFinder.h"
 #include "../Helpers/Logger.h"
+#include "../Helpers/FeatureFlags.h"
 
 CoreController *CoreController::instance;
 
@@ -85,8 +86,8 @@ void CoreController::RunDayLoop(Clock& clock)
             
             GameInputEvents();
             
-#ifdef MULTITHREAD      
-            // Multithreaded needs some warm up ( I think it's because pathfinder's queue needs to get up to size?)
+#if MULTITHREAD      
+            // Multithreaded needs some warm up ( I think it's because pathfinder's queue needs to get up to size? )
             if (count < 60)
             {
                 GameUpdateEvents();
@@ -95,9 +96,12 @@ void CoreController::RunDayLoop(Clock& clock)
             }
             else
             {
+                // Launch update events in a separate thread
                 sf::Thread thread(MultithreadGameUpdates);
                 thread.launch();
+                // Run render events on main thread
                 GameRenderEvents();
+                // Wait for update events to finish (most of the time  it finishes first)
                 thread.wait();
             }
 #else

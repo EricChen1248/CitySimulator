@@ -34,4 +34,4 @@ const int CITIZEN_MAX_MONEY = 10000;
     const int LEFT = -20;
     const int RIGHT = 21;
 #endif
-#define MULTITHREAD
+
