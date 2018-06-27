@@ -152,7 +152,11 @@ BaseSystem* SystemController::GetSystem(const System system) const
     }
     return nullptr;
 }
-void SystemController::UpdateBewtweenDay()
+void SystemController::ResetDay()
 {
-	citizens->UpdateHome();
+	citizens->ResetDay();
+	for (auto&& system : systems)
+	{
+		system->ResetDay();
+	}
 }

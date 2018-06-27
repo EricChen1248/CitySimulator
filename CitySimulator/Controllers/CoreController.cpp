@@ -115,7 +115,7 @@ void CoreController::RunDayLoop(Clock& clock)
         advanceDay = false;
 
 		//TODO: Make sure EveryOne make adjustment during this period
-		systemController->UpdateBewtweenDay();
+		systemController->ResetDay();
 
         Logger::Log("End of day " + std::to_string(day));
         while(!advanceDay)

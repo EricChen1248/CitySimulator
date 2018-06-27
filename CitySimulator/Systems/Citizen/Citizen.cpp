@@ -138,6 +138,10 @@ void Citizen::Wait(const float time)
 void Citizen::EndDay()
 {
     age += 3;
+	for (auto&& rule : rules)
+	{
+		rule->EndDay();
+	}
 }
 
 void Citizen::ForceRule(const System ruleType, const float waitTime)

@@ -91,11 +91,10 @@ void CitizenSystem::PruneDead()
 /**
 * \brief: assign every people a home
 */
- void CitizenSystem::UpdateHome()
+ void CitizenSystem::ResetDay()
  {
 	 for (auto&& citizen : this->citizens)
 	 {
-		 auto rulePtr = dynamic_cast<HomeRule*>(citizen->FindRule(HOME));
-		 rulePtr->AfterGrowUp();
+		 citizen->EndDay();
 	 }
  }

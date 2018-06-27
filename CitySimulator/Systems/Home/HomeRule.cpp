@@ -126,7 +126,7 @@ bool HomeRule::IsSatisfied()
 	//need to adjust this rate
 	return (myHome != nullptr);
 }
-void HomeRule::AfterGrowUp()
+void HomeRule::EndDay() 
 {
 	if (this->citizen->Age() == 20)
 	{

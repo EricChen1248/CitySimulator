@@ -20,7 +20,7 @@ public:
 	void LeavePlot(Plot* plot);
 	void Update();
 	bool IsSatisfied() override;
-	void AfterGrowUp();
+	void EndDay() override;
 private:
 
 	helper::Time goHomeTime;
