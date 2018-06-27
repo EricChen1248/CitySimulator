@@ -32,6 +32,11 @@ class MinHeap
      */
     const T &PeekTop() const { return array[0]; } 
     void RemoveTop();
+    
+    /**
+     * \brief Efficient reset that sets itemCount to 0 for reuse of Heap
+     */
+    void Reset() { itemCount = 0; };
 
   private:
     static int ParentIndex(const int index) noexcept { return (index - 1) / 2; };

@@ -44,6 +44,10 @@ void CoreController::Start()
     Update();
 }
 
+void MultithreadGameUpdates()
+{
+    CoreController::Instance()->GameUpdateEvents();
+}
 /**
  * \brief Game loop of each day
  * \param clock Reference to game clock
@@ -58,6 +62,7 @@ void CoreController::RunDayLoop(Clock& clock)
         }
 #endif
     int day = 0;
+    int count = 0;
     while(true)
     {
         float lastTime = clock.getElapsedTime().asSeconds();
@@ -79,8 +84,27 @@ void CoreController::RunDayLoop(Clock& clock)
             lastTime = currentTime;
             
             GameInputEvents();
+            
+#ifdef MULTITHREAD      
+            // Multithreaded needs some warm up ( I think it's because pathfinder's queue needs to get up to size?)
+            if (count < 60)
+            {
+                GameUpdateEvents();
+                GameRenderEvents();
+                ++count;
+            }
+            else
+            {
+                sf::Thread thread(MultithreadGameUpdates);
+                thread.launch();
+                GameRenderEvents();
+                thread.wait();
+            }
+#else
             GameUpdateEvents();
             GameRenderEvents();
+#endif
+            
             PresentRender();
             viewPortController->ResetMod();
         }
