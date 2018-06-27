@@ -308,5 +308,8 @@
     <ClInclude Include="Helpers\HelperFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Helpers\FeatureFlags.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
