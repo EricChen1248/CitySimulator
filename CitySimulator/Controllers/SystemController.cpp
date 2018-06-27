@@ -59,7 +59,7 @@ void SystemController::Initialize()
 		}
 		if (system->SystemType == HOME)
 		{
-			for (int i = 0; i < 1; ++i)
+			for (int i = 0; i < 5; ++i)
 			{
 				auto plot = plots->GetRandomPlot();
 				while (plot->GetPlotType() != nullptr)
@@ -134,6 +134,8 @@ void SystemController::AdvanceDay() const
     plots->ClearSelections();
 }
 
+
+
 /**
  * \brief Gets the system based on system enum type
  * \param system System Type Enum of requested system
@@ -150,4 +152,7 @@ BaseSystem* SystemController::GetSystem(const System system) const
     }
     return nullptr;
 }
-
+void SystemController::UpdateBewtweenDay()
+{
+	citizens->UpdateHome();
+}

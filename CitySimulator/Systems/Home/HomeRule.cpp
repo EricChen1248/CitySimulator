@@ -64,12 +64,12 @@ bool HomeRule::DecideHome()
 		if (citizen->Age() >= 20)
 		{
 			home->Register(citizen);
-
 		}
 		myHome = home;
 		return true;
 	}
 }
+
 bool HomeRule::FindPlot()
 {
 	if (myHome == nullptr)
@@ -125,4 +125,18 @@ bool HomeRule::IsSatisfied()
 {
 	//need to adjust this rate
 	return (myHome != nullptr);
+}
+void HomeRule::AfterGrowUp()
+{
+	if (this->citizen->Age() == 20)
+	{
+		myHome = nullptr;
+		DecideHome();
+		return;
+	}
+	if (IsSatisfied())
+	{
+		DecideHome();
+		return;
+	}	
 }

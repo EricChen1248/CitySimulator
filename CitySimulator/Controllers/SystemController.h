@@ -18,6 +18,7 @@ public:
     void Render() const;
     void RenderInterday() const;
     void AdvanceDay() const;
+	void UpdateBewtweenDay();
     BaseSystem* GetSystem(System system) const;
     const List<BaseSystem*>& GetSystems() const { return systems;};
 
@@ -28,7 +29,6 @@ public:
 private:
     PlotSystem* plots{};
     CitizenSystem* citizens{};
-    
     List<BaseSystem*> systems{};
 };
 

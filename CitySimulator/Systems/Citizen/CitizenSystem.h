@@ -11,6 +11,7 @@ public:
     void Render() const;
     void RenderInterday() const;
     void PruneDead();
+	void UpdateHome();
 private:
     List<Citizen*> citizens;
     int citizenCount;

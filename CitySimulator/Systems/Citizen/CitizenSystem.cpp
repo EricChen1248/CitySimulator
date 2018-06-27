@@ -2,6 +2,7 @@
 #include "../../Controllers/CoreController.h"
 #include "../../Controllers/SFMLController.h"
 #include "../../Helpers/Logger.h"
+#include "../Home/HomeRule.h"
 
 
 CitizenSystem::CitizenSystem()
@@ -87,3 +88,14 @@ void CitizenSystem::PruneDead()
         }
     }
 }
+/**
+* \brief: assign every people a home
+*/
+ void CitizenSystem::UpdateHome()
+ {
+	 for (auto&& citizen : this->citizens)
+	 {
+		 auto rulePtr = dynamic_cast<HomeRule*>(citizen->FindRule(HOME));
+		 rulePtr->AfterGrowUp();
+	 }
+ }

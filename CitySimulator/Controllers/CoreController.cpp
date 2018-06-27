@@ -109,6 +109,10 @@ void CoreController::RunDayLoop(Clock& clock)
             viewPortController->ResetMod();
         }
         advanceDay = false;
+
+		//TODO: Make sure EveryOne make adjustment during this period
+		systemController->UpdateBewtweenDay();
+
         Logger::Log("End of day " + std::to_string(day));
         while(!advanceDay)
         {
