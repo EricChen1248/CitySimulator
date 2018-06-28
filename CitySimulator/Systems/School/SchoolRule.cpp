@@ -12,11 +12,7 @@ SchoolRule::~SchoolRule() = default;
 
 float SchoolRule::CalculateScore()
 {
-    if (hungerLevel > 80)
-    {
-        return 0;
-    }
-    return (100 - hungerLevel) * 100;
+    return 0;
 }
 
 /**
@@ -54,6 +50,8 @@ bool SchoolRule::FindPlot()
 
 void SchoolRule::EnterPlot(Plot* plot)
 {
+    // TODO: Implement properly!!!
+    return;
     const auto food = dynamic_cast<School*>(plot->GetPlotType());
     citizen->Wait(1.f);
     citizen->IncreaseMoney(-food->cost);
@@ -84,7 +82,7 @@ void SchoolRule::Update()
  */
 bool SchoolRule::IsSatisfied()
 {
-    return hungerLevel > 20;
+    return true;
 }
 
 int SchoolRule::getEdLvl()

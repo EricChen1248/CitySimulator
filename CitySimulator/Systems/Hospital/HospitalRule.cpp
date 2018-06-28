@@ -4,7 +4,7 @@
 #include "Hospital.h"
 #include "../../Helpers/HelperFunctions.h"
 
-HospitalRule::HospitalRule(Citizen& citizen): BaseRule(citizen, FOOD), hungerLevel(0)
+HospitalRule::HospitalRule(Citizen& citizen): BaseRule(citizen, HOSPITAL), hungerLevel(0)
 {
 }
 
@@ -12,11 +12,7 @@ HospitalRule::~HospitalRule() = default;
 
 float HospitalRule::CalculateScore()
 {
-    if (hungerLevel > 80)
-    {
-        return 0;
-    }
-    return (100 - hungerLevel) * 100;
+    return 0;
 }
 
 /**
@@ -54,6 +50,8 @@ bool HospitalRule::FindPlot()
 
 void HospitalRule::EnterPlot(Plot* plot)
 {
+    // TODO: Implement properly
+    return;
     const auto food = dynamic_cast<Hospital*>(plot->GetPlotType());
     citizen->Wait(1.f);
     citizen->IncreaseMoney(-food->cost);
@@ -84,5 +82,5 @@ void HospitalRule::Update()
  */
 bool HospitalRule::IsSatisfied()
 {
-    return hungerLevel > 20;
+    return true;
 }
