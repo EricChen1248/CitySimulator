@@ -13,13 +13,14 @@ int main(int argc, char* argv[])
     auto *core = new CoreController();
     try
     {
-        core->Start();
+      core->Start();
     }
     catch(std::exception& e)
     {
         std::stringstream ss;
         ss << "Exception occured: "<< std::string(e.what()) << std::endl;
         Logger::Log(ss.str());
+		throw e;
     }
    
     delete core;
