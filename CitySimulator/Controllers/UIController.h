@@ -48,13 +48,10 @@ private:
     void InitSelection();
 
 	void InitSatisfaction();
-    static void InitSelectionButton(Button& button, sf::Text& text, sf::CircleShape& circ, int& y, const std::string& str, Color color);
 	sf::Color Satisfy(float ratio)const;
 	SFMLController& sfml;
-	void InitSatisfaction();
 
     static SelectionButton* InitSelectionButton(int& y, const std::string& str, Color color);
 
-    SFMLController& sfml;
 };
 
