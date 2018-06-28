@@ -17,12 +17,12 @@ public:
 
     const List<Plot*>& Plots() const { return plots; }
     float GetScore() const { return score; }
-    const List<Log*>& SatisfiedLog() const { return satisfiedLog; }
-    const List<Log*>& UnsatisfiedLog() const { return unsatisfiedLog; }
+    List<Log*> SatisfiedLog() const { return satisfiedLog; }
+    List<Log*> UnsatisfiedLog() const { return unsatisfiedLog; }
     virtual ~BaseSystem();
     
     
-    /**
+    /**q
      * \brief Virtual function handling the update events
      */
     virtual void Update() = 0;
