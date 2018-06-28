@@ -1,7 +1,7 @@
 #pragma once
 enum System
 {
-    NONE,
+    NONE = 0,
     FOOD,
 	WORK,
 	BANK,
