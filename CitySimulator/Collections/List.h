@@ -18,12 +18,13 @@ class List
 {
 public:
     List();
+    List(const List& other);
     ~List();
     T operator[](int index) const;
-    void InsertLast(T& item);
+    void InsertLast(const T& item);
     void RemoveLast();
     void Remove(int index);
-    void Remove(T& item);
+    void Remove(const T& item);
     void Dispose();
     const int& Count() const { return count; }
     // ReSharper disable once CppInconsistentNaming : name matching required for range based for loops
@@ -52,6 +53,16 @@ List<T>::List()
     cachedIndex = -1;
     cachedNode = nullptr;
 }
+
+template <typename T>
+List<T>::List(const List& other) : List()
+{
+    for (auto && item : other)
+    {
+        InsertLast(item);   
+    }
+}
+
 template <typename T>
 List<T>::~List()
 {
@@ -133,7 +144,7 @@ T List<T>::operator[](const int index) const
  * \param item Item to insert
  */
 template <typename T>
-void List<T>::InsertLast(T& item)
+void List<T>::InsertLast(const T& item)
 {
     Node<T>* node = new Node<T>(item);
     if (first == nullptr)
@@ -251,7 +262,7 @@ void List<T>::Remove(const int index)
  * \param item Item to remove
  */
 template <typename T>
-void List<T>::Remove(T& item)
+void List<T>::Remove(const T& item)
 {
     auto node = first;
     while (node != nullptr)
