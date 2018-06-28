@@ -314,5 +314,8 @@
     <ClInclude Include="Controllers\UiObjects\SelectionButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Controllers\UiObjects\SatisBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

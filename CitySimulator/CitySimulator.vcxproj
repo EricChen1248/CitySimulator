@@ -173,6 +173,7 @@
   <ItemGroup>
     <ClInclude Include="Assets\Fonts\Monofur.h" />
     <ClInclude Include="Controllers\Government.h" />
+    <ClInclude Include="Controllers\UiObjects\SatisBar.h" />
     <ClInclude Include="Controllers\UiObjects\SelectionButton.h" />
     <ClInclude Include="Helpers\FeatureFlags.h" />
     <ClInclude Include="Helpers\HelperFunctions.h" />
