@@ -105,7 +105,13 @@ Inheritance diagram for Base:</div>
  <div class="center">
   <img src="class_base.png" usemap="#Base_map" alt=""/>
   <map id="Base_map" name="Base_map">
-<area href="class_food.html" title="Food Class that handles the food plots of our city. " alt="Food" shape="rect" coords="0,56,41,80"/>
+<area href="class_bank.html" title="Food Class that handles the food plots of our city. " alt="Bank" shape="rect" coords="0,56,57,80"/>
+<area href="class_food.html" title="Food Class that handles the food plots of our city. " alt="Food" shape="rect" coords="67,56,124,80"/>
+<area href="class_home.html" alt="Home" shape="rect" coords="134,56,191,80"/>
+<area href="class_hospital.html" title="Hospital Class that handles the Hospital plots of our city. " alt="Hospital" shape="rect" coords="201,56,258,80"/>
+<area href="class_school.html" title="School Class that handles the food plots of our city. " alt="School" shape="rect" coords="268,56,325,80"/>
+<area href="class_store.html" title="Store Class that handles the store plots of our city. " alt="Store" shape="rect" coords="335,56,392,80"/>
+<area href="class_work.html" alt="Work" shape="rect" coords="402,56,459,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -117,9 +123,12 @@ const sf::Color &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Colo
 <tr class="memitem:aee09ba9b060a5ae8f329fadd9d2eef53"><td class="memItemLeft" align="right" valign="top"><a id="aee09ba9b060a5ae8f329fadd9d2eef53"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Base</b> (<a class="el" href="class_plot.html">Plot</a> *plot, const System system)</td></tr>
 <tr class="separator:aee09ba9b060a5ae8f329fadd9d2eef53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab15d3601820ff3caf0523200e5e3f1fa"><td class="memItemLeft" align="right" valign="top"><a id="ab15d3601820ff3caf0523200e5e3f1fa"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Reset</b> ()=0</td></tr>
-<tr class="separator:ab15d3601820ff3caf0523200e5e3f1fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4567f2eae5903f194ab3c8b4dee59875"><td class="memItemLeft" align="right" valign="top"><a id="a4567f2eae5903f194ab3c8b4dee59875"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>EndDay</b> ()=0</td></tr>
+<tr class="separator:a4567f2eae5903f194ab3c8b4dee59875"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf6c18de3d91b047c0e4e480c62f6dee"><td class="memItemLeft" align="right" valign="top"><a id="acf6c18de3d91b047c0e4e480c62f6dee"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>ReturnScore</b> ()</td></tr>
+<tr class="separator:acf6c18de3d91b047c0e4e480c62f6dee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -135,6 +144,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a63520285f7b2fea2024e53049cbbbfa1"><td class="memItemLeft" align="right" valign="top"><a id="a63520285f7b2fea2024e53049cbbbfa1"></a>
 sf::Color&#160;</td><td class="memItemRight" valign="bottom"><b>color</b></td></tr>
 <tr class="separator:a63520285f7b2fea2024e53049cbbbfa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accd5ddd12d7ce666f307d00208f9959a"><td class="memItemLeft" align="right" valign="top"><a id="accd5ddd12d7ce666f307d00208f9959a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>score</b></td></tr>
+<tr class="separator:accd5ddd12d7ce666f307d00208f9959a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract class that is the base of all the system types. </p>

@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['_7equeue',['~Queue',['../class_queue.html#aa7eef1b427e24555780505de20e9acbc',1,'Queue']]],
-  ['_7estack',['~Stack',['../class_stack.html#a0ef9a0f914fac642d8a47def2e1c214c',1,'Stack']]]
+  ['wait',['Wait',['../class_citizen.html#a3c216a3a1c4b654aae5f2d82bd26f4ec',1,'Citizen']]],
+  ['window',['Window',['../class_s_f_m_l_controller.html#ad7cdcd5894171f54ead9d2ba28ffb6e5',1,'SFMLController']]],
+  ['work',['Work',['../class_work.html#a8ddfb49f8f012b5a7af215a60b350e2d',1,'Work']]],
+  ['workrule',['WorkRule',['../class_work_rule.html#a6c19d47f6e003582e57aaa103ead0aee',1,'WorkRule']]]
 ];

@@ -103,45 +103,43 @@ Inheritance diagram for PriorityQueue&lt; T &gt;:</div>
  <div class="center">
   <img src="class_priority_queue.png" usemap="#PriorityQueue_3C_20T_20_3E_map" alt=""/>
   <map id="PriorityQueue_3C_20T_20_3E_map" name="PriorityQueue_3C_20T_20_3E_map">
-<area href="class_queue.html" title="Stores an item based on FIFO process. " alt="Queue&lt; T &gt;" shape="rect" coords="0,0,122,24"/>
+<area href="class_min_heap.html" title="Heap implementation that uses operator&gt; to compare. " alt="MinHeap&lt; T &gt;" shape="rect" coords="0,0,122,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa96bf130481935fd1f2373381baac530"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_priority_queue.html#aa96bf130481935fd1f2373381baac530">Enqueue</a> (T &amp;item, float score)</td></tr>
-<tr class="memdesc:aa96bf130481935fd1f2373381baac530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds and sorts an item into the queue.  <a href="#aa96bf130481935fd1f2373381baac530">More...</a><br /></td></tr>
-<tr class="separator:aa96bf130481935fd1f2373381baac530"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_queue"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_queue')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_queue.html">Queue&lt; T &gt;</a></td></tr>
-<tr class="memitem:aa7eef1b427e24555780505de20e9acbc inherit pub_methods_class_queue"><td class="memItemLeft" align="right" valign="top"><a id="aa7eef1b427e24555780505de20e9acbc"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue.html#aa7eef1b427e24555780505de20e9acbc">~Queue</a> ()</td></tr>
-<tr class="memdesc:aa7eef1b427e24555780505de20e9acbc inherit pub_methods_class_queue"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleans up memory used by the queue. If pointers are stored, contents should be manually dequeued and deleted if necessary. <br /></td></tr>
-<tr class="separator:aa7eef1b427e24555780505de20e9acbc inherit pub_methods_class_queue"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d35830a4c2fbd574c6c0f23f8666443 inherit pub_methods_class_queue"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue.html#a7d35830a4c2fbd574c6c0f23f8666443">Enqueue</a> (T item)</td></tr>
-<tr class="memdesc:a7d35830a4c2fbd574c6c0f23f8666443 inherit pub_methods_class_queue"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an item to the end of the queue.  <a href="class_queue.html#a7d35830a4c2fbd574c6c0f23f8666443">More...</a><br /></td></tr>
-<tr class="separator:a7d35830a4c2fbd574c6c0f23f8666443 inherit pub_methods_class_queue"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8be6e32514705568d57fd567f1b012fe inherit pub_methods_class_queue"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue.html#a8be6e32514705568d57fd567f1b012fe">Dequeue</a> ()</td></tr>
-<tr class="memdesc:a8be6e32514705568d57fd567f1b012fe inherit pub_methods_class_queue"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns and removes the item at the front of the queue. Throws an error is the queue is empty.  <a href="class_queue.html#a8be6e32514705568d57fd567f1b012fe">More...</a><br /></td></tr>
-<tr class="separator:a8be6e32514705568d57fd567f1b012fe inherit pub_methods_class_queue"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2296ac8fbb1f0e9deb5a0f290ef61a8 inherit pub_methods_class_queue"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue.html#aa2296ac8fbb1f0e9deb5a0f290ef61a8">Peek</a> ()</td></tr>
-<tr class="memdesc:aa2296ac8fbb1f0e9deb5a0f290ef61a8 inherit pub_methods_class_queue"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant reference of the front of the queue without removing it.  <a href="class_queue.html#aa2296ac8fbb1f0e9deb5a0f290ef61a8">More...</a><br /></td></tr>
-<tr class="separator:aa2296ac8fbb1f0e9deb5a0f290ef61a8 inherit pub_methods_class_queue"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a108f38d4671657f97ad2fc87c97a2f6b inherit pub_methods_class_queue"><td class="memItemLeft" align="right" valign="top"><a id="a108f38d4671657f97ad2fc87c97a2f6b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsEmpty</b> () const</td></tr>
-<tr class="separator:a108f38d4671657f97ad2fc87c97a2f6b inherit pub_methods_class_queue"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_attribs_class_queue"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_queue')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_queue.html">Queue&lt; T &gt;</a></td></tr>
-<tr class="memitem:a60c845b0a389fde1f4f25328638e343e inherit pro_attribs_class_queue"><td class="memItemLeft" align="right" valign="top"><a id="a60c845b0a389fde1f4f25328638e343e"></a>
-<a class="el" href="class_node.html">Node</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>head</b> = nullptr</td></tr>
-<tr class="separator:a60c845b0a389fde1f4f25328638e343e inherit pro_attribs_class_queue"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e21fe43ba4c551753234e4df98d0635 inherit pro_attribs_class_queue"><td class="memItemLeft" align="right" valign="top"><a id="a0e21fe43ba4c551753234e4df98d0635"></a>
-<a class="el" href="class_node.html">Node</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>tail</b> = nullptr</td></tr>
-<tr class="separator:a0e21fe43ba4c551753234e4df98d0635 inherit pro_attribs_class_queue"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6945a7bd930049958c8a27db9565a78 inherit pro_attribs_class_queue"><td class="memItemLeft" align="right" valign="top"><a id="ae6945a7bd930049958c8a27db9565a78"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>count</b> = 0</td></tr>
-<tr class="separator:ae6945a7bd930049958c8a27db9565a78 inherit pro_attribs_class_queue"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9e9858b955ea02bed2ddd5fab4b23ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_priority_queue.html#ac9e9858b955ea02bed2ddd5fab4b23ac">Enqueue</a> (T &amp;item)</td></tr>
+<tr class="memdesc:ac9e9858b955ea02bed2ddd5fab4b23ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new item to the priority queue and sorts it.  <a href="#ac9e9858b955ea02bed2ddd5fab4b23ac">More...</a><br /></td></tr>
+<tr class="separator:ac9e9858b955ea02bed2ddd5fab4b23ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e0a375277f525fd7d033a4b97dff80d"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_priority_queue.html#a7e0a375277f525fd7d033a4b97dff80d">GetTop</a> () const</td></tr>
+<tr class="memdesc:a7e0a375277f525fd7d033a4b97dff80d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the item at the top of the queue.  <a href="#a7e0a375277f525fd7d033a4b97dff80d">More...</a><br /></td></tr>
+<tr class="separator:a7e0a375277f525fd7d033a4b97dff80d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace0b78e30505da18b90a0d034abfc3ba"><td class="memItemLeft" align="right" valign="top"><a id="ace0b78e30505da18b90a0d034abfc3ba"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_priority_queue.html#ace0b78e30505da18b90a0d034abfc3ba">Dequeue</a> ()</td></tr>
+<tr class="memdesc:ace0b78e30505da18b90a0d034abfc3ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the queue at the top of the queue. <br /></td></tr>
+<tr class="separator:ace0b78e30505da18b90a0d034abfc3ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0f4220ed1cb155edf16df7cea4b3527"><td class="memItemLeft" align="right" valign="top"><a id="ad0f4220ed1cb155edf16df7cea4b3527"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_priority_queue.html#ad0f4220ed1cb155edf16df7cea4b3527">Reset</a> ()</td></tr>
+<tr class="memdesc:ad0f4220ed1cb155edf16df7cea4b3527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the Priority <a class="el" href="class_queue.html" title="Stores an item based on FIFO process. ">Queue</a> to allow reuse. <br /></td></tr>
+<tr class="separator:ad0f4220ed1cb155edf16df7cea4b3527"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_min_heap"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_min_heap')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_min_heap.html">MinHeap&lt; T &gt;</a></td></tr>
+<tr class="memitem:a0f4d627e9cf2a91a946eb264799d8d66 inherit pub_methods_class_min_heap"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_min_heap.html#a0f4d627e9cf2a91a946eb264799d8d66">ItemCount</a> () const noexcept</td></tr>
+<tr class="memdesc:a0f4d627e9cf2a91a946eb264799d8d66 inherit pub_methods_class_min_heap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the item count in the heap.  <a href="class_min_heap.html#a0f4d627e9cf2a91a946eb264799d8d66">More...</a><br /></td></tr>
+<tr class="separator:a0f4d627e9cf2a91a946eb264799d8d66 inherit pub_methods_class_min_heap"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c5a4edf7d40353e1ed4b3fedc3b4e45 inherit pub_methods_class_min_heap"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_min_heap.html#a8c5a4edf7d40353e1ed4b3fedc3b4e45">Add</a> (T &amp;item) noexcept</td></tr>
+<tr class="memdesc:a8c5a4edf7d40353e1ed4b3fedc3b4e45 inherit pub_methods_class_min_heap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts a new item into the heap and sorts it.  <a href="class_min_heap.html#a8c5a4edf7d40353e1ed4b3fedc3b4e45">More...</a><br /></td></tr>
+<tr class="separator:a8c5a4edf7d40353e1ed4b3fedc3b4e45 inherit pub_methods_class_min_heap"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12ee741283f5342ab43d357f6e9270cb inherit pub_methods_class_min_heap"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_min_heap.html#a12ee741283f5342ab43d357f6e9270cb">PeekTop</a> () const</td></tr>
+<tr class="memdesc:a12ee741283f5342ab43d357f6e9270cb inherit pub_methods_class_min_heap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an item reference to the item at the top of the heap.  <a href="class_min_heap.html#a12ee741283f5342ab43d357f6e9270cb">More...</a><br /></td></tr>
+<tr class="separator:a12ee741283f5342ab43d357f6e9270cb inherit pub_methods_class_min_heap"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65080dc2c649d482eacbee56eb10a867 inherit pub_methods_class_min_heap"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_min_heap.html#a65080dc2c649d482eacbee56eb10a867">RemoveTop</a> ()</td></tr>
+<tr class="memdesc:a65080dc2c649d482eacbee56eb10a867 inherit pub_methods_class_min_heap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the item at the top of the heap and resorts it.  <a href="class_min_heap.html#a65080dc2c649d482eacbee56eb10a867">More...</a><br /></td></tr>
+<tr class="separator:a65080dc2c649d482eacbee56eb10a867 inherit pub_methods_class_min_heap"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b159a920b25988d0e99ecc2d47fb881 inherit pub_methods_class_min_heap"><td class="memItemLeft" align="right" valign="top"><a id="a3b159a920b25988d0e99ecc2d47fb881"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_min_heap.html#a3b159a920b25988d0e99ecc2d47fb881">Reset</a> ()</td></tr>
+<tr class="memdesc:a3b159a920b25988d0e99ecc2d47fb881 inherit pub_methods_class_min_heap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Efficient reset that sets itemCount to 0 for reuse of Heap. <br /></td></tr>
+<tr class="separator:a3b159a920b25988d0e99ecc2d47fb881 inherit pub_methods_class_min_heap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class T&gt;<br />
@@ -155,39 +153,72 @@ class PriorityQueue&lt; T &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa96bf130481935fd1f2373381baac530"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa96bf130481935fd1f2373381baac530">&#9670;&nbsp;</a></span>Enqueue()</h2>
+<a id="ac9e9858b955ea02bed2ddd5fab4b23ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9e9858b955ea02bed2ddd5fab4b23ac">&#9670;&nbsp;</a></span>Enqueue()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T &gt; </div>
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="class_priority_queue.html">PriorityQueue</a>&lt; T &gt;::Enqueue </td>
           <td>(</td>
           <td class="paramtype">T &amp;&#160;</td>
-          <td class="paramname"><em>item</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>item</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>score</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Adds and sorts an item into the queue. </p>
+<p>Adds a new item to the priority queue and sorts it. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">item</td><td>Item to add to queue </td></tr>
-    <tr><td class="paramname">score</td><td>Score of the item to be added </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7e0a375277f525fd7d033a4b97dff80d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e0a375277f525fd7d033a4b97dff80d">&#9670;&nbsp;</a></span>GetTop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T&amp; <a class="el" href="class_priority_queue.html">PriorityQueue</a>&lt; T &gt;::GetTop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the item at the top of the queue. </p>
+<dl class="section return"><dt>Returns</dt><dd>Item at the top of the queue </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">out_of_range</td><td>exception if empty </td></tr>
   </table>
   </dd>
 </dl>

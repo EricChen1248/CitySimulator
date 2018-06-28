@@ -104,15 +104,21 @@ Inheritance diagram for BaseRule:</div>
  <div class="center">
   <img src="class_base_rule.png" usemap="#BaseRule_map" alt=""/>
   <map id="BaseRule_map" name="BaseRule_map">
-<area href="class_food_rule.html" title="Food rule that handles the food needs of our citizens. " alt="FoodRule" shape="rect" coords="0,56,66,80"/>
+<area href="class_bank_rule.html" title="Food rule that handles the food needs of our citizens. " alt="BankRule" shape="rect" coords="0,56,82,80"/>
+<area href="class_food_rule.html" title="Food rule that handles the food needs of our citizens. " alt="FoodRule" shape="rect" coords="92,56,174,80"/>
+<area href="class_home_rule.html" title="Food rule that handles the food needs of our citizens. " alt="HomeRule" shape="rect" coords="184,56,266,80"/>
+<area href="class_hospital_rule.html" title="Hospital rule that handles the food needs of our citizens. " alt="HospitalRule" shape="rect" coords="276,56,358,80"/>
+<area href="class_school_rule.html" title="School rule that handles the food needs of our citizens. " alt="SchoolRule" shape="rect" coords="368,56,450,80"/>
+<area href="class_store_rule.html" title="Store rule that handles the consumption needs of our citizens. " alt="StoreRule" shape="rect" coords="460,56,542,80"/>
+<area href="class_work_rule.html" title="Work rule that handles the food needs of our citizens. " alt="WorkRule" shape="rect" coords="552,56,634,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4500d9d198d86d0741583df5ae5fa5db"><td class="memItemLeft" align="right" valign="top"><a id="a4500d9d198d86d0741583df5ae5fa5db"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>BaseRule</b> (<a class="el" href="class_citizen.html">Citizen</a> &amp;citizen)</td></tr>
-<tr class="separator:a4500d9d198d86d0741583df5ae5fa5db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0cf2211518b55323f40210baa0559e8"><td class="memItemLeft" align="right" valign="top"><a id="ac0cf2211518b55323f40210baa0559e8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>BaseRule</b> (<a class="el" href="class_citizen.html">Citizen</a> &amp;citizen, const System type)</td></tr>
+<tr class="separator:ac0cf2211518b55323f40210baa0559e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cbad4cd230de3ce698a016752b831df"><td class="memItemLeft" align="right" valign="top"><a id="a6cbad4cd230de3ce698a016752b831df"></a>
 virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>CalculateScore</b> ()=0</td></tr>
 <tr class="separator:a6cbad4cd230de3ce698a016752b831df"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,9 +137,18 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()
 <tr class="memitem:aeac6473c1770f0b830cbdd6aafa8df26"><td class="memItemLeft" align="right" valign="top"><a id="aeac6473c1770f0b830cbdd6aafa8df26"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsSatisfied</b> ()=0</td></tr>
 <tr class="separator:aeac6473c1770f0b830cbdd6aafa8df26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81939adea11a5939e6be7615e355cb8a"><td class="memItemLeft" align="right" valign="top"><a id="a81939adea11a5939e6be7615e355cb8a"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>EndDay</b> ()</td></tr>
+<tr class="separator:a81939adea11a5939e6be7615e355cb8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2acb992195261bf0dd82b306e4ac34d"><td class="memItemLeft" align="right" valign="top"><a id="aa2acb992195261bf0dd82b306e4ac34d"></a>
+System&#160;</td><td class="memItemRight" valign="bottom"><b>Type</b> () const</td></tr>
+<tr class="separator:aa2acb992195261bf0dd82b306e4ac34d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
+<tr class="memitem:a87b39cff9329a450586d10fc33e67268"><td class="memItemLeft" align="right" valign="top"><a id="a87b39cff9329a450586d10fc33e67268"></a>
+System&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
+<tr class="separator:a87b39cff9329a450586d10fc33e67268"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48f886a311bb7176664217ba82168eb1"><td class="memItemLeft" align="right" valign="top"><a id="a48f886a311bb7176664217ba82168eb1"></a>
 <a class="el" href="structhelper_1_1_time.html">helper::Time</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lastUpdate</b></td></tr>
 <tr class="separator:a48f886a311bb7176664217ba82168eb1"><td class="memSeparator" colspan="2">&#160;</td></tr>

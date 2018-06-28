@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['base',['Base',['../class_base.html',1,'']]],
-  ['baserule',['BaseRule',['../class_base_rule.html',1,'']]],
-  ['basesystem',['BaseSystem',['../class_base_system.html',1,'']]],
-  ['button',['Button',['../class_button.html',1,'']]]
+  ['add',['Add',['../class_min_heap.html#a8c5a4edf7d40353e1ed4b3fedc3b4e45',1,'MinHeap']]]
 ];

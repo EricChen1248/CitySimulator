@@ -48,8 +48,6 @@ bool Citizen::IncreaseMoney(const int m)
 void Citizen::SetTarget(Plot* t)
 {
     target = t;
-    
-    // TODO : Path to target
 } 
 
 /**
@@ -137,6 +135,9 @@ void Citizen::Wait(const float time)
     waitTime = time;
 }
 
+/**
+ * \brief Handles end day events
+ */
 void Citizen::EndDay()
 {
     age += 3;
@@ -146,6 +147,11 @@ void Citizen::EndDay()
 	}
 }
 
+/**
+ * \brief Forces a citizen to do a specific rule for "waitTime" hours
+ * \param ruleType Rule type being forced
+ * \param waitTime Time to force the rule to run for
+ */
 void Citizen::ForceRule(const System ruleType, const float waitTime)
 {
     for (auto && rule : rules)
@@ -162,6 +168,11 @@ void Citizen::ForceRule(const System ruleType, const float waitTime)
     }
 }
 
+/**
+ * \brief Finds a rule of system type
+ * \param system type of rule being searched for
+ * \return The rule system
+ */
 BaseRule* Citizen::FindRule(const System system)
 {
     for (auto && rule : rules)
@@ -175,14 +186,12 @@ BaseRule* Citizen::FindRule(const System system)
     
 }
 
+/**
+ * \brief Marks citizen as dead. Death pruning and events are handled at the end of day
+ */
 void Citizen::Death()
 {
     dead = true;
-}
-
-sf::CircleShape& Citizen::GetShape()
-{
-    return shape;
 }
 
 /**

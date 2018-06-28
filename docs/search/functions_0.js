@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['count',['Count',['../class_stack.html#a4d1bacafcfccc35f4fc1356d11cf09be',1,'Stack']]]
+  ['add',['Add',['../class_min_heap.html#a8c5a4edf7d40353e1ed4b3fedc3b4e45',1,'MinHeap']]]
 ];

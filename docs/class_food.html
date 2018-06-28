@@ -87,6 +87,7 @@ $(document).ready(function(){initNavTree('class_food.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_food-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Food Class Reference</div>  </div>
@@ -112,10 +113,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a75fad01ae99c01a659fca21528c50303"><td class="memItemLeft" align="right" valign="top"><a id="a75fad01ae99c01a659fca21528c50303"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Food</b> (<a class="el" href="class_plot.html">Plot</a> *plot)</td></tr>
 <tr class="separator:a75fad01ae99c01a659fca21528c50303"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a12bfd50400e04b595c24a512317c1a"><td class="memItemLeft" align="right" valign="top"><a id="a1a12bfd50400e04b595c24a512317c1a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food.html#a1a12bfd50400e04b595c24a512317c1a">Reset</a> () override</td></tr>
-<tr class="memdesc:a1a12bfd50400e04b595c24a512317c1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset's <a class="el" href="class_food.html" title="Food Class that handles the food plots of our city. ">Food</a> <a class="el" href="class_plot.html" title="Container class for each city plot. ">Plot</a> (earnings to 0) <br /></td></tr>
-<tr class="separator:a1a12bfd50400e04b595c24a512317c1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a256de00d682cab2cb93f5bc690a704ab"><td class="memItemLeft" align="right" valign="top"><a id="a256de00d682cab2cb93f5bc690a704ab"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food.html#a256de00d682cab2cb93f5bc690a704ab">EndDay</a> () override</td></tr>
+<tr class="memdesc:a256de00d682cab2cb93f5bc690a704ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">EndDay's <a class="el" href="class_food.html" title="Food Class that handles the food plots of our city. ">Food</a> <a class="el" href="class_plot.html" title="Container class for each city plot. ">Plot</a> (score to 0) <br /></td></tr>
+<tr class="separator:a256de00d682cab2cb93f5bc690a704ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_base"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_base')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_base.html">Base</a></td></tr>
 <tr class="memitem:a16781ea67ae6f980d475e22de6c3cf96 inherit pub_methods_class_base"><td class="memItemLeft" align="right" valign="top"><a id="a16781ea67ae6f980d475e22de6c3cf96"></a>
 const sf::Color &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Color</b> () const</td></tr>
@@ -123,6 +124,15 @@ const sf::Color &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Colo
 <tr class="memitem:aee09ba9b060a5ae8f329fadd9d2eef53 inherit pub_methods_class_base"><td class="memItemLeft" align="right" valign="top"><a id="aee09ba9b060a5ae8f329fadd9d2eef53"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Base</b> (<a class="el" href="class_plot.html">Plot</a> *plot, const System system)</td></tr>
 <tr class="separator:aee09ba9b060a5ae8f329fadd9d2eef53 inherit pub_methods_class_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf6c18de3d91b047c0e4e480c62f6dee inherit pub_methods_class_base"><td class="memItemLeft" align="right" valign="top"><a id="acf6c18de3d91b047c0e4e480c62f6dee"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>ReturnScore</b> ()</td></tr>
+<tr class="separator:acf6c18de3d91b047c0e4e480c62f6dee inherit pub_methods_class_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a0fafd57aeddf420476479eb94a4f6dd6"><td class="memItemLeft" align="right" valign="top"><a id="a0fafd57aeddf420476479eb94a4f6dd6"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>FoodRule</b></td></tr>
+<tr class="separator:a0fafd57aeddf420476479eb94a4f6dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -137,6 +147,9 @@ System&#160;</td><td class="memItemRight" valign="bottom"><b>SystemType</b></td>
 <tr class="memitem:a63520285f7b2fea2024e53049cbbbfa1 inherit pro_attribs_class_base"><td class="memItemLeft" align="right" valign="top"><a id="a63520285f7b2fea2024e53049cbbbfa1"></a>
 sf::Color&#160;</td><td class="memItemRight" valign="bottom"><b>color</b></td></tr>
 <tr class="separator:a63520285f7b2fea2024e53049cbbbfa1 inherit pro_attribs_class_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accd5ddd12d7ce666f307d00208f9959a inherit pro_attribs_class_base"><td class="memItemLeft" align="right" valign="top"><a id="accd5ddd12d7ce666f307d00208f9959a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>score</b></td></tr>
+<tr class="separator:accd5ddd12d7ce666f307d00208f9959a inherit pro_attribs_class_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_food.html" title="Food Class that handles the food plots of our city. ">Food</a> Class that handles the food plots of our city. </p>
