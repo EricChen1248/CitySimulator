@@ -3,6 +3,7 @@
 #include "../Helpers/Button.h"
 #include "SFMLController.h"
 #include "../Collections/List.h"
+#include "UiObjects/SelectionButton.h"
 
 /**
  * \brief Handles all UI rendering and initialization in game
@@ -13,10 +14,11 @@ public:
     UIController();
     ~UIController();
     
+    void Initialize();
     void RenderUI();
     void RenderInterDayUI();
     bool NextDayButtonHover() const { return nextDay.IsInBounds(); };
-	List<float>& getScoreList(){ return scoreList; };
+	List<float>& GetScoreList(){ return scoreList; };
 private:
     sf::Text timeText{};
     RectangleShape timeRect{};
@@ -30,31 +32,22 @@ private:
     sf::Text nextDayText{};
     
     RectangleShape selectionBackGround{};
-    Button food;
-    Button home;
-    Button work;
-    Button bank;
-    sf::Text foodText{};
-    sf::Text homeText{};
-    sf::Text workText{};
-    sf::Text bankText{};
-    sf::CircleShape foodCirc{};
-    sf::CircleShape homeCirc{};
-    sf::CircleShape workCirc{};
-    sf::CircleShape bankCirc{};
+    List<SelectionButton*> selectionButtons{};
     
 	//TODO: Eric Please check, whether this is a good implment of Satisfactory revealing System
-	RectangleShape food_S_Shape{};
+	RectangleShape foodSShape{};
 	List<float> scoreList ;
 
     void NextDayButton();
     void Time();
     void Money();
-    void Selection();
-	void Satisfaction();
+    void DrawSelection();
+	void DrawSatisfaction();
     void InitSelection();
-	void Init_Satisfaction();
-    static void InitSelectionButton(Button& button, sf::Text& text, sf::CircleShape& circ, int& y, const std::string& str, Color color);
+	void InitSatisfaction();
+
+    static SelectionButton* InitSelectionButton(int& y, const std::string& str, Color color);
+
     SFMLController& sfml;
 };
 

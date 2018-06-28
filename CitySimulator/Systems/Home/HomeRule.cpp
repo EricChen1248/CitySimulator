@@ -105,10 +105,10 @@ void HomeRule::LeavePlot(Plot* plot)
 void HomeRule::Update()
 {
 	// TODO : if homeless hour exceed certain critirea , this citizen sholud
-	auto hour = CoreController::Instance()->GetTime();
-	if (hour.Hour>= goHomeTime.Hour)
+    const auto time = CoreController::Instance()->GetTime();
+	if (time.Hour>= goHomeTime.Hour)
 	{
-		homelessLevel = exp(hour - goHomeTime);
+		homelessLevel = exp(time - goHomeTime);
 	}
 	else
 	{

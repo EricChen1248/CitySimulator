@@ -27,6 +27,7 @@ CoreController::CoreController()
     uiController = new UIController;
     
     systemController->Initialize();
+    uiController->Initialize();
     PathFinder::Initialize();
     srand(static_cast<unsigned>(std::time(nullptr)));
 };
@@ -235,7 +236,7 @@ void CoreController::GameRenderEvents() const
     systemController->Render();
     viewPortController->UpdateUIView();
 
-	systemController->Cal_Satisfied(uiController->getScoreList());
+	systemController->Cal_Satisfied(uiController->GetScoreList());
     uiController -> RenderUI();
 }
 

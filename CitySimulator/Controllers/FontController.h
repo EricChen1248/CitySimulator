@@ -7,16 +7,17 @@
 class FontController
 {
 public:
+    
     FontController();
     ~FontController();
-
-
-    const sf::Font& Monofur() const
+    
+    static const sf::Font& Monofur()
     {
-        return monofur;
+        return instance->monofur;
     }
 
 private:
+    static FontController* instance;
     sf::Font monofur;
 };
 
