@@ -158,7 +158,7 @@ void SystemController::ResetDay()
 	citizens->ResetDay();
 	for (auto&& system : systems)
 	{
-		system->ResetDay();
+		system->EndDay();
 	}
 }
 
