@@ -20,6 +20,7 @@ public:
     void RenderInterday() const;
     void AdvanceDay() const;
 	void ResetDay();
+	int SystemCount()const;
 
 	void Cal_Satisfied(List<float>& scoreList)const;
     BaseSystem* GetSystem(System system) const;

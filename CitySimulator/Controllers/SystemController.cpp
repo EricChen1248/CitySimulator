@@ -4,6 +4,8 @@
 #include "../Systems/Home/HomeSystem.h"
 #include "../Systems/Work/WorkSystem.h"
 #include "../Systems/Store/StoreSystem.h"
+#include "../Systems/School/SchoolSystem.h"
+#include "../Systems/Hospital/HospitalSystem.h"
 
 SystemController::SystemController() = default;
 
@@ -20,16 +22,22 @@ void SystemController::Initialize()
     plots = new PlotSystem;
     
     
+    // NONE,    FOOD,	WORK,	BANK,	HOME,	STORE, 	SCHOOL,    HOSPITAL
     BaseSystem* food = new FoodSystem();
+	BaseSystem* work = new WorkSystem();
 	BaseSystem* bank = new BankSystem();
 	BaseSystem* home = new HomeSystem();
-	BaseSystem* work = new WorkSystem();
 	BaseSystem* store = new StoreSystem();
+    BaseSystem* school = new SchoolSystem();
+    BaseSystem* hospital = new HospitalSystem();
+    
     systems.InsertLast(food);
+	systems.InsertLast(work);
 	systems.InsertLast(bank);
 	systems.InsertLast(home);
-	systems.InsertLast(work);
 	systems.InsertLast(store);
+    systems.InsertLast(school);
+    systems.InsertLast(hospital);
     
     // TODO Remove demo
     for (auto && system : systems)
@@ -160,6 +168,11 @@ void SystemController::ResetDay()
 	{
 		system->EndDay();
 	}
+}
+
+int SystemController::SystemCount() const
+{
+	return systems.Count();
 }
 
 void SystemController::Cal_Satisfied(List<float>& scoreList) const
