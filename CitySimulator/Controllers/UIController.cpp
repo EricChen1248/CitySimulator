@@ -132,6 +132,8 @@ void UIController::DrawSatisfaction()
 		if (scoreList[0] <= 0.3)
 		{
 			foodSShape.setFillColor(UNSATISFIED_COLOR);
+		}
+		else if((scoreList[0] > 0.3)&& (scoreList[0] <= 0.7))
 		{
 			foodSShape.setFillColor(SATISFIED_COLOR);
 		}
