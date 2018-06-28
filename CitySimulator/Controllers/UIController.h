@@ -4,7 +4,7 @@
 #include "SFMLController.h"
 #include "../Collections/List.h"
 #include "UiObjects/SelectionButton.h"
-
+#include "UiObjects/SatisBar.h"
 /**
  * \brief Handles all UI rendering and initialization in game
  */
@@ -33,7 +33,8 @@ private:
     
     RectangleShape selectionBackGround{};
     List<SelectionButton*> selectionButtons{};
-    
+	List<SatisBar*> satisfyBar{};
+
 	//TODO: Eric Please check, whether this is a good implment of Satisfactory revealing System
 	RectangleShape foodSatisShape{};
 	RectangleShape homeSatisShape{};

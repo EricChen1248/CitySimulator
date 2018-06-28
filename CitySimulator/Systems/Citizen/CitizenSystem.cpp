@@ -89,7 +89,7 @@ void CitizenSystem::PruneDead()
     }
 }
 /**
-* \brief: assign every people a home
+* \brief: assign every person a home
 */
  void CitizenSystem::ResetDay()
  {
@@ -101,8 +101,35 @@ void CitizenSystem::PruneDead()
 
  void CitizenSystem::Cal_Satisfactory(List<float>& scoreList) const
  {
+	 const int systemCount = CoreController::Instance()->GetSystemController()->SystemCount();
+	 float* ruleScore = new float[systemCount];
+	 for (int i = 0; i < systemCount; i++)
+	 {
+		 ruleScore[i] = 0;
+	 }
+	 for (auto&& citizen : citizens)
+	 {
+		for (int j = 0; j < systemCount; j++)
+		{
+			auto rulePtr = citizen->FindRule(static_cast<System>(j + 1));
+            
+			if (rulePtr->IsSatisfied())
+			{
+				ruleScore[j] += 1;
+			}
+		}
+	 }
+	 while (scoreList.Count() != 0)
+	 {
+		 scoreList.RemoveLast();
+	 }
+	 for (int i = 0; i < systemCount; i++)
+	 {
+		 scoreList.InsertLast(ruleScore[i]);
+	 }
+	 return;
 	 //TODO: add all of system;Maybe can use indexing to make this perform better????
-	 
+	 /*
 	 float food = 0;
 	 float home = 0;
 	 
@@ -130,4 +157,5 @@ void CitizenSystem::PruneDead()
 	 scoreList.InsertLast(home);
 	 scoreList.InsertLast(food);
 	 return;
+	 */
  }

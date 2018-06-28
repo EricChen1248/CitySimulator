@@ -2,7 +2,6 @@
 #include "CoreController.h"
 #include "../Helpers/Constants.h"
 
-
 UIController::UIController() : sfml(*CoreController::Instance()->SfmlController())
 {
 }
@@ -113,21 +112,15 @@ void UIController::DrawSelection()
 void UIController::DrawSatisfaction()
 {
 	if (scoreList.Count() > 0)
-	{
-		homeSatisShape.setFillColor(Satisfy(scoreList[0]));
-		foodSatisShape.setFillColor(Satisfy(scoreList[1]));
-		homeSatisShape.setSize(Vector2f((150.f*scoreList[0]), 32.f));
-		foodSatisShape.setSize(Vector2f((150.f*scoreList[1]), 32.f));
-
+    {
+		for (int i = 0; i < satisfyBar.Count(); i++)
+		{
+			auto tempPtr = satisfyBar[i];
+			tempPtr->render(scoreList[i]);
+			tempPtr->Draw(sfml);
+		}
 	}
-	else
-	{
-		homeSatisShape.setSize(Vector2f((153.f), 36.f));
-		foodSatisShape.setSize(Vector2f((153.f), 36.f));
-	}
-	sfml.DrawRect(homeSatisShape);
-	sfml.DrawRect(foodSatisShape);
-
+	return;
 }
 void UIController::InitSelection()
 {
@@ -140,7 +133,8 @@ void UIController::InitSelection()
     int y = 2;
     
     // NONE,    FOOD,	WORK,	BANK,	HOME,	STORE, 	SCHOOL,    HOSPITAL
-    const int systemCount = 7;
+	const int systemCount = 7;
+	//CoreController::Instance()->GetSystemController()->GetNumOfSystem();
     std::string strings[systemCount]{ "Food", "Work", "Bank", "Home", "Store", "School", "Hospital"};
     Color colors[systemCount]{ FOOD_COLOR,	WORK_COLOR,	BANK_COLOR,	HOME_COLOR, STORE_COLOR, SCHOOL_COLOR, HOSPITAL_COLOR};
     for (int i = 0; i < systemCount; ++i)
@@ -161,30 +155,21 @@ sf::Color UIController::Satisfy(float ratio) const
 
 void UIController::InitSatisfaction()
 {
-	int y = 38;
-
-	//TODO: Setting 1
-	//width shold be 153
 	/*
-	food_S_Shape.setSize(Vector2f(153.f, 36.f));
-	food_S_Shape.setFillColor(BLACK);
-	food_S_Shape.setPosition(WINDOW_WIDTH - 153.f, float(y)-2);
-	*/
-	
-	//setting2 : width 150
+	int y = 38;
 	homeSatisShape.setSize(Vector2f(150.f, 32.f));
 	homeSatisShape.setFillColor(WHITE);
 	homeSatisShape.setPosition(WINDOW_WIDTH - 152.f, 38);
-
 	foodSatisShape.setSize(Vector2f(150.f, 32.f));
 	foodSatisShape.setFillColor(WHITE);
 	foodSatisShape.setPosition(WINDOW_WIDTH - 152.f, 110);
-
-
-
-
-	y += 72;
-
+	y += 72;*/
+	const int systemCount = 7;
+	for (int i = 1; i <= systemCount; i++)
+	{
+		SatisBar* tempPtr = new SatisBar(static_cast<System>(i));
+		satisfyBar.InsertLast(tempPtr);
+	}
 	return;
 }
 

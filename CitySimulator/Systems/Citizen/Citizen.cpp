@@ -5,6 +5,8 @@
 #include "../Work/WorkRule.h"
 #include "../Home/HomeRule.h"
 #include "../Store/StoreRule.h" 
+#include "../School/SchoolRule.h" 
+#include "../Hospital/HospitalRule.h" 
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/PathFinder/PathFinder.h"
 #include "../../Helpers/HelperFunctions.h"
@@ -253,17 +255,22 @@ void Citizen::FindNextTarget()
  */
 void Citizen::GenRules()
 {
+    // NONE,    FOOD,	WORK,	BANK,	HOME,	STORE, 	SCHOOL,    HOSPITAL
     BaseRule* food = new FoodRule(*this);
-	BaseRule* bank = new BankRule(*this);
 	BaseRule* work = new WorkRule(*this);
+	BaseRule* bank = new BankRule(*this);
 	BaseRule* home = new HomeRule(*this);
 	BaseRule* store = new StoreRule(*this);
+    BaseRule* school = new SchoolRule(*this);
+    BaseRule* hospital = new HospitalRule(*this);
 
     rules.InsertLast(food);
 	rules.InsertLast(bank);
 	rules.InsertLast(work);
 	rules.InsertLast(home);
 	rules.InsertLast(store);
+    rules.InsertLast(school);
+    rules.InsertLast(hospital);
 }
 
 /**
