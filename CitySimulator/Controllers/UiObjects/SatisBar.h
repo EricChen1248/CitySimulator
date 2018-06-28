@@ -12,13 +12,13 @@ struct SatisBar
 	sf::RectangleShape shape;
 	SatisBar()
 	{
-		shape.setSize(sf::Vector2f(150.f, 32.f));
+		shape.setSize(sf::Vector2f(148.f, 15.f));
 	};
 	SatisBar(System sys)
 	{
 		system = sys;
 		float multiple = static_cast<float>(system) - 1;
-		multiple = 38 + (72 * multiple);
+		multiple = 38 + (55 * multiple);
 		shape.setPosition(WINDOW_WIDTH - 152.f, multiple);
 		shape.setFillColor(WHITE);
 	};
@@ -37,7 +37,9 @@ struct SatisBar
 		{
 			shape.setFillColor(SUPER_SATIFIED_COLOR);
 		}
-		shape.setSize(sf::Vector2f(150.f*ratio, 32.f));
+		
+		shape.setSize(sf::Vector2f(148.f*ratio, 15.f));
+		
 		return;
 	};
 	void Draw(SFMLController& sfml)

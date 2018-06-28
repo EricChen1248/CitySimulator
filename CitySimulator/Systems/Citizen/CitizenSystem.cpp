@@ -115,7 +115,7 @@ void CitizenSystem::PruneDead()
             
 			if (rulePtr->IsSatisfied())
 			{
-				ruleScore[j] += 1;
+				ruleScore[j] += (1.f/citizenCount);
 			}
 		}
 	 }

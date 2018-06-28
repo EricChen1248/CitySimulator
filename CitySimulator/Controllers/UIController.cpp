@@ -124,7 +124,7 @@ void UIController::DrawSatisfaction()
 }
 void UIController::InitSelection()
 {
-    selectionBackGround.setSize(Vector2f(152, 500));
+    selectionBackGround.setSize(Vector2f(152, 502));
     selectionBackGround.setPosition(WINDOW_WIDTH - 153, 2);
     selectionBackGround.setFillColor(WHITE);
     selectionBackGround.setOutlineColor(BLACK);
@@ -143,27 +143,10 @@ void UIController::InitSelection()
     }
 }
 
-sf::Color UIController::Satisfy(float ratio) const
-{
-	if (ratio < 0.3)
-		return UNSATISFIED_COLOR;
-	else if ((ratio >= 0.3) && (ratio < 0.7))
-		return SATISFIED_COLOR;
-	else
-		return SUPER_SATIFIED_COLOR;
-}
 
 void UIController::InitSatisfaction()
 {
-	/*
-	int y = 38;
-	homeSatisShape.setSize(Vector2f(150.f, 32.f));
-	homeSatisShape.setFillColor(WHITE);
-	homeSatisShape.setPosition(WINDOW_WIDTH - 152.f, 38);
-	foodSatisShape.setSize(Vector2f(150.f, 32.f));
-	foodSatisShape.setFillColor(WHITE);
-	foodSatisShape.setPosition(WINDOW_WIDTH - 152.f, 110);
-	y += 72;*/
+
 	const int systemCount = 7;
 	for (int i = 1; i <= systemCount; i++)
 	{
@@ -177,6 +160,6 @@ SelectionButton* UIController::InitSelectionButton(int& y, const std::string& st
 {
     const auto button = new SelectionButton(Vector2f(150.f, 32.f), Vector2f(WINDOW_WIDTH - 152.f, float(y)), WHITE,
                                       MOUSE_OVER_COLOR, str, y, color);
-    y += 72;
+    y += 55;
     return button;
 }

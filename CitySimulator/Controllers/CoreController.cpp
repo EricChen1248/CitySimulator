@@ -235,7 +235,6 @@ void CoreController::GameRenderEvents() const
     viewPortController->UpdateGameView();
     systemController->Render();
     viewPortController->UpdateUIView();
-
 	systemController->Cal_Satisfied(uiController->GetScoreList());
     uiController -> RenderUI();
 }
