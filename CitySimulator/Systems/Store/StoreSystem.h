@@ -13,7 +13,7 @@ public:
 	void Update() override;
 	void LogSatisfied(Citizen* citizen, BaseRule* rule) override;
 	void LogUnsatisfied(Citizen* citizen, BaseRule* rule) override;
-	void ResetDay() override;
+	void EndDay() override;
 private:
 	const int maxOccupantCount = 100;
 	const int scorePerOccupant = 20;

@@ -12,7 +12,7 @@ public:
 	void Update();
 	void LogSatisfied(Citizen* citizen, BaseRule* rule);
 	void LogUnsatisfied(Citizen* citizen, BaseRule* rule);
-	void ResetDay();
+	void EndDay();
 };
 
 

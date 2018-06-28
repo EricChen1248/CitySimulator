@@ -68,7 +68,7 @@ void StoreSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
 /**
 * \brief Resets the day (clears log & resets plots)
 */
-void StoreSystem::ResetDay()
+void StoreSystem::EndDay()
 {
 	for (auto && plot : plots)
 	{

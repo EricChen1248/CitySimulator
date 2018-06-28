@@ -68,7 +68,7 @@ void SchoolSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
 /**
  * \brief Resets the day (clears log & resets plots)
  */
-void SchoolSystem::ResetDay()
+void SchoolSystem::EndDay()
 {
     for (auto && plot : plots)
     {

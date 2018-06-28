@@ -40,7 +40,7 @@ void HomeSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
 	auto log = new Log(citizen->Coords(), new HomeRule(*dynamic_cast<HomeRule*>(rule)), citizen);
 	unsatisfiedLog.InsertLast(log);
 }
-void HomeSystem::ResetDay()
+void HomeSystem::EndDay()
 {
 	for (auto && plot : plots)
 	{
