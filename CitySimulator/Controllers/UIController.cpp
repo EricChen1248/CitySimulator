@@ -5,15 +5,23 @@
 
 UIController::UIController() : sfml(*CoreController::Instance()->SfmlController())
 {
+}
+
+UIController::~UIController()
+{
+    selectionButtons.Dispose();
+}
+
+void UIController::Initialize()
+{
     nextDay = Button(Vector2f(105, 32), Vector2f(WINDOW_WIDTH - 107, WINDOW_HEIGHT - 34), WHITE, MOUSE_OVER_COLOR);
-    nextDayText.setFont(CoreController::Instance()->GetFontController()->Monofur());
+    nextDayText.setFont(FontController::Monofur());
     nextDayText.setFillColor(BLACK);
     nextDayText.setCharacterSize(24);
     nextDayText.setPosition(WINDOW_WIDTH - 103, WINDOW_HEIGHT - 33);
     nextDayText.setString("Next Day");
         
-       
-    timeText.setFont(CoreController::Instance()->GetFontController()->Monofur());
+    timeText.setFont(FontController::Monofur());
     timeText.setFillColor(BLACK);
     timeText.setCharacterSize(24);
     timeText.setPosition(WINDOW_WIDTH - 88, WINDOW_HEIGHT - 33);
@@ -24,7 +32,7 @@ UIController::UIController() : sfml(*CoreController::Instance()->SfmlController(
     timeRect.setOutlineColor(BLACK);
     timeRect.setOutlineThickness(2);
     
-    moneyText.setFont(CoreController::Instance()->GetFontController()->Monofur());
+    moneyText.setFont(FontController::Monofur());
     moneyText.setFillColor(BLACK);
     moneyText.setCharacterSize(24);
     
@@ -35,13 +43,9 @@ UIController::UIController() : sfml(*CoreController::Instance()->SfmlController(
     moneyRect.setOutlineThickness(2);
     
     InitSelection();
-	Init_Satisfaction();
+	InitSatisfaction();
 }
 
-
-
-
-UIController::~UIController() = default;
 
 /**
  * \brief Renders UI
@@ -50,15 +54,16 @@ void UIController::RenderUI()
 {
     Time();
     Money();
-    Selection();
-	Satisfaction();
+    DrawSelection();
+	DrawSatisfaction();
 }
 
 void UIController::RenderInterDayUI()
 {
     NextDayButton();    
     Money();
-    Selection();
+    DrawSelection();
+    DrawSatisfaction();
 }
 
 
@@ -96,28 +101,20 @@ void UIController::Money()
     sfml.DrawString(moneyText);
 }
 
-void UIController::Selection()
+void UIController::DrawSelection()
 {
     sfml.DrawRect(selectionBackGround, true);
-    food.Draw();
-    bank.Draw();
-    work.Draw();
-    home.Draw();
+    for (auto && selectionButton : selectionButtons)
+    {
+        selectionButton->Draw(sfml);
+    }
     
-    sfml.DrawString(foodText);
-    sfml.DrawString(bankText);
-    sfml.DrawString(workText);
-    sfml.DrawString(homeText);
-    
-    sfml.DrawCircle(foodCirc, true);
-    sfml.DrawCircle(bankCirc, true);
-    sfml.DrawCircle(workCirc, true);
-    sfml.DrawCircle(homeCirc, true);
 }
-void UIController::Satisfaction()
+void UIController::DrawSatisfaction()
 {
 	if (scoreList.Count() > 0)
 	{
+<<<<<<< HEAD
 		home_S_Shape.setFillColor(Satisfy(scoreList[0]));
 		food_S_Shape.setFillColor(Satisfy(scoreList[1]));
 		home_S_Shape.setSize(Vector2f((150.f*scoreList[0]), 32.f));
@@ -131,41 +128,46 @@ void UIController::Satisfaction()
 	}
 	sfml.DrawRect(home_S_Shape);
 	sfml.DrawRect(food_S_Shape);
+=======
+		if (scoreList[0] <= 0.3)
+		{
+			foodSShape.setFillColor(UNSATISFIED_COLOR);
+		{
+			foodSShape.setFillColor(SATISFIED_COLOR);
+		}
+		else
+		{
+			foodSShape.setFillColor(SUPER_SATIFIED_COLOR);
+		}
+		foodSShape.setSize(Vector2f((150.f*scoreList[0]), 32.f));
+	}
+	else
+	{
+		foodSShape.setSize(Vector2f((153.f), 36.f));
+	}
+	sfml.DrawRect(foodSShape);
+>>>>>>> ea653380d5075e2ece30a4fc74d13382d547f3ae
 }
 void UIController::InitSelection()
 {
-    selectionBackGround.setSize(Vector2f(152, 400));
+    selectionBackGround.setSize(Vector2f(152, 500));
     selectionBackGround.setPosition(WINDOW_WIDTH - 153, 2);
     selectionBackGround.setFillColor(WHITE);
     selectionBackGround.setOutlineColor(BLACK);
     selectionBackGround.setOutlineThickness(2);   
     
-   
     int y = 2;
-    InitSelectionButton(home, homeText, homeCirc, y, "Home", HOME_COLOR);
-    InitSelectionButton(food, foodText, foodCirc, y, "Food", FOOD_COLOR);
-    InitSelectionButton(work, workText, workCirc, y, "Work", WORK_COLOR);
-    InitSelectionButton(bank, bankText, bankCirc, y, "Bank", BANK_COLOR);
-}
-
-
-void UIController::InitSelectionButton(Button& button, sf::Text& text, sf::CircleShape& circ, int& y, const std::string& str, const Color color)
-{
-    button = Button(Vector2f(150.f, 32.f), Vector2f(WINDOW_WIDTH - 152.f, float(y)), WHITE, MOUSE_OVER_COLOR);
-    text.setFont(CoreController::Instance()->GetFontController()->Monofur());
-    text.setFillColor(BLACK);
-    text.setCharacterSize(24U);
-    text.setPosition(WINDOW_WIDTH - 100.f, float(y));
-    text.setString(str); 
     
-    circ.setPosition(WINDOW_WIDTH - 146.f, y + 4.f);
-    circ.setRadius(12.f);
-    circ.setFillColor(color);
-    circ.setOutlineColor(BLACK);
-    circ.setOutlineThickness(1.f);
-    
-    y += 72;     
+    // NONE,    FOOD,	WORK,	BANK,	HOME,	STORE, 	SCHOOL,    HOSPITAL
+    const int systemCount = 7;
+    std::string strings[systemCount]{ "Food", "Work", "Bank", "Home", "Store", "School", "Hospital"};
+    Color colors[systemCount]{ FOOD_COLOR,	WORK_COLOR,	BANK_COLOR,	HOME_COLOR, STORE_COLOR, SCHOOL_COLOR, HOSPITAL_COLOR};
+    for (int i = 0; i < systemCount; ++i)
+    {
+        selectionButtons.InsertLast(InitSelectionButton(y, strings[i], colors[i]));
+    }
 }
+<<<<<<< HEAD
 sf::Color UIController::Satisfy(float ratio) const
 {
 	if (ratio < 0.3)
@@ -178,6 +180,11 @@ sf::Color UIController::Satisfy(float ratio) const
 void UIController::Init_Satisfaction()
 {
 
+=======
+void UIController::InitSatisfaction()
+{
+	int y = 38;
+>>>>>>> ea653380d5075e2ece30a4fc74d13382d547f3ae
 	//TODO: Setting 1
 	//width shold be 153
 	/*
@@ -187,6 +194,7 @@ void UIController::Init_Satisfaction()
 	*/
 	
 	//setting2 : width 150
+<<<<<<< HEAD
 	home_S_Shape.setSize(Vector2f(150.f, 32.f));
 	home_S_Shape.setFillColor(WHITE);
 	home_S_Shape.setPosition(WINDOW_WIDTH - 152.f, 38);
@@ -196,5 +204,20 @@ void UIController::Init_Satisfaction()
 	food_S_Shape.setPosition(WINDOW_WIDTH - 152.f, 110);
 
 
+=======
+	foodSShape.setSize(Vector2f(150.f, 32.f));
+	foodSShape.setFillColor(BLACK);
+	foodSShape.setPosition(WINDOW_WIDTH - 152.f, float(y));
+
+	y += 72;
+>>>>>>> ea653380d5075e2ece30a4fc74d13382d547f3ae
 	return;
+}
+
+SelectionButton* UIController::InitSelectionButton(int& y, const std::string& str, const Color color)
+{
+    const auto button = new SelectionButton(Vector2f(150.f, 32.f), Vector2f(WINDOW_WIDTH - 152.f, float(y)), WHITE,
+                                      MOUSE_OVER_COLOR, str, y, color);
+    y += 72;
+    return button;
 }
