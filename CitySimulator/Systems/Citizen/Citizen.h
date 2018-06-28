@@ -18,7 +18,7 @@ public:
     ~Citizen();
     
     // Getters
-    sf::CircleShape& GetShape();
+    sf::CircleShape& GetShape() { return shape; }
     const Coordinate& Coords() const { return coords; }
     const int& GetMoney() const { return money;}
     const bool& InPlot() const { return inPlot; }

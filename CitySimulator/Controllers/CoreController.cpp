@@ -56,13 +56,10 @@ void MultithreadGameUpdates()
  */
 void CoreController::RunDayLoop(Clock& clock)
 {
-#ifdef _DEBUG
-        // HACK : set to true to skip to day end
-        if (false)
-        {
-            time.IncreaseTime(24);
-        }
+#if SKIP_DAY
+    time.IncreaseTime(24);
 #endif
+    
     int day = 0;
     int count = 0;
     while(true)
