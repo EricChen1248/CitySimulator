@@ -52,8 +52,6 @@ List<T>::List()
     cachedIndex = -1;
     cachedNode = nullptr;
 }
-
-
 template <typename T>
 List<T>::~List()
 {

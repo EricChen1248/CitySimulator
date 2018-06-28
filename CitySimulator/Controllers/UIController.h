@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "../Helpers/Button.h"
 #include "SFMLController.h"
+#include "../Collections/List.h"
 
 /**
  * \brief Handles all UI rendering and initialization in game
@@ -15,6 +16,7 @@ public:
     void RenderUI();
     void RenderInterDayUI();
     bool NextDayButtonHover() const { return nextDay.IsInBounds(); };
+	List<float>& getScoreList(){ return scoreList; };
 private:
     sf::Text timeText{};
     RectangleShape timeRect{};
@@ -41,12 +43,17 @@ private:
     sf::CircleShape workCirc{};
     sf::CircleShape bankCirc{};
     
+	//TODO: Eric Please check, whether this is a good implment of Satisfactory revealing System
+	RectangleShape food_S_Shape{};
+	List<float> scoreList ;
+
     void NextDayButton();
     void Time();
     void Money();
     void Selection();
-    
+	void Satisfaction();
     void InitSelection();
+	void Init_Satisfaction();
     static void InitSelectionButton(Button& button, sf::Text& text, sf::CircleShape& circ, int& y, const std::string& str, Color color);
     SFMLController& sfml;
 };

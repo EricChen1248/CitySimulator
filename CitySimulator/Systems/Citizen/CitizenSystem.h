@@ -2,6 +2,7 @@
 #include "Citizen.h"
 #include "../../Collections/List.h"
 
+
 class CitizenSystem
 {
 public:
@@ -12,6 +13,7 @@ public:
     void RenderInterday() const;
     void PruneDead();
 	void ResetDay();
+	void Cal_Satisfactory(List<float>& scoreList)const;
 private:
     List<Citizen*> citizens;
     int citizenCount;

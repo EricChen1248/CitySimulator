@@ -4,6 +4,7 @@
 #include "../Systems/Home/HomeSystem.h"
 #include "../Systems/Work/WorkSystem.h"
 #include "../Systems/Store/StoreSystem.h"
+
 SystemController::SystemController() = default;
 
 SystemController::~SystemController()
@@ -159,4 +160,10 @@ void SystemController::ResetDay()
 	{
 		system->ResetDay();
 	}
+}
+
+void SystemController::Cal_Satisfied(List<float>& scoreList) const
+{
+	citizens->Cal_Satisfactory(scoreList);
+	return;
 }

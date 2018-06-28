@@ -35,6 +35,7 @@ UIController::UIController() : sfml(*CoreController::Instance()->SfmlController(
     moneyRect.setOutlineThickness(2);
     
     InitSelection();
+	Init_Satisfaction();
 }
 
 
@@ -50,6 +51,7 @@ void UIController::RenderUI()
     Time();
     Money();
     Selection();
+	Satisfaction();
 }
 
 void UIController::RenderInterDayUI()
@@ -58,6 +60,7 @@ void UIController::RenderInterDayUI()
     Money();
     Selection();
 }
+
 
 /**
  * \brief Button to advance to next day
@@ -111,7 +114,30 @@ void UIController::Selection()
     sfml.DrawCircle(workCirc, true);
     sfml.DrawCircle(homeCirc, true);
 }
-
+void UIController::Satisfaction()
+{
+	if (scoreList.Count() > 0)
+	{
+		if (scoreList[0] <= 0.3)
+		{
+			food_S_Shape.setFillColor(UNSATISFIED_COLOR);
+		}
+		else if((scoreList[0] > 0.3)&& (scoreList[0] <= 0.7))
+		{
+			food_S_Shape.setFillColor(SATISFIED_COLOR);
+		}
+		else
+		{
+			food_S_Shape.setFillColor(SUPER_SATIFIED_COLOR);
+		}
+		food_S_Shape.setSize(Vector2f((150.f*scoreList[0]), 32.f));
+	}
+	else
+	{
+		food_S_Shape.setSize(Vector2f((153.f), 36.f));
+	}
+	sfml.DrawRect(food_S_Shape);
+}
 void UIController::InitSelection()
 {
     selectionBackGround.setSize(Vector2f(152, 400));
@@ -128,6 +154,7 @@ void UIController::InitSelection()
     InitSelectionButton(bank, bankText, bankCirc, y, "Bank", BANK_COLOR);
 }
 
+
 void UIController::InitSelectionButton(Button& button, sf::Text& text, sf::CircleShape& circ, int& y, const std::string& str, const Color color)
 {
     button = Button(Vector2f(150.f, 32.f), Vector2f(WINDOW_WIDTH - 152.f, float(y)), WHITE, MOUSE_OVER_COLOR);
@@ -143,6 +170,24 @@ void UIController::InitSelectionButton(Button& button, sf::Text& text, sf::Circl
     circ.setOutlineColor(BLACK);
     circ.setOutlineThickness(1.f);
     
-    y += 36;
-       
+    y += 72;     
+}
+void UIController::Init_Satisfaction()
+{
+	int y = 110;
+	//TODO: Setting 1
+	//width shold be 153
+	/*
+	food_S_Shape.setSize(Vector2f(153.f, 36.f));
+	food_S_Shape.setFillColor(BLACK);
+	food_S_Shape.setPosition(WINDOW_WIDTH - 153.f, float(y)-2);
+	*/
+	
+	//setting2 : width 150
+	food_S_Shape.setSize(Vector2f(150.f, 32.f));
+	food_S_Shape.setFillColor(BLACK);
+	food_S_Shape.setPosition(WINDOW_WIDTH - 152.f, float(y));
+
+	y += 36;
+	return;
 }

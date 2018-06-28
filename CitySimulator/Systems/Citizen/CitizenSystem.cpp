@@ -2,8 +2,7 @@
 #include "../../Controllers/CoreController.h"
 #include "../../Controllers/SFMLController.h"
 #include "../../Helpers/Logger.h"
-#include "../Home/HomeRule.h"
-
+#include "../Food/FoodRule.h"
 
 CitizenSystem::CitizenSystem()
 {
@@ -97,4 +96,30 @@ void CitizenSystem::PruneDead()
 	 {
 		 citizen->EndDay();
 	 }
+ }
+
+ void CitizenSystem::Cal_Satisfactory(List<float>& scoreList) const
+ {
+	 //TODO: add all of system;Maybe can use indexing to make this perform better????
+	 
+	 float food = (0);
+	 for (auto&& citizen : citizens)
+	 {
+		 auto foodRule = dynamic_cast<FoodRule*>(citizen->FindRule(FOOD));
+		 if (foodRule->IsSatisfied())
+		 {
+			 ++food;
+		 }
+	 }
+	 food = (food / static_cast<float>(citizenCount));
+	 if (scoreList.Count() == 0)
+	 {
+		 scoreList.InsertLast(food);
+	 }
+	 else
+	 {
+		 scoreList.RemoveLast();
+		 scoreList.InsertLast(food);
+	 }
+	 return;
  }

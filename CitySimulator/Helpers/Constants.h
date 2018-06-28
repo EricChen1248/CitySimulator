@@ -21,7 +21,11 @@ const sf::Color BANK_COLOR = sf::Color::Green;
 const sf::Color HOME_COLOR = sf::Color::Yellow;
 const sf::Color STORE_COLOR = sf::Color::Red;
 const sf::Color MOUSE_OVER_COLOR = sf::Color(220, 220, 220);
-    
+
+const sf::Color UNSATISFIED_COLOR = sf::Color::Red;
+const sf::Color SATISFIED_COLOR = sf::Color::Yellow;
+const sf::Color SUPER_SATIFIED_COLOR = sf::Color::Green;
+
 const int WINDOW_WIDTH = 1024;
 const int WINDOW_HEIGHT = 768;
 

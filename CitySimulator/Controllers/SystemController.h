@@ -3,6 +3,7 @@
 #include "../Systems/Plot/PlotSystem.h"
 #include "../Systems/Citizen/CitizenSystem.h"
 #include "../Systems/Base/BaseSystem.h"
+#include "../Collections/List.h"
 class PlotSystem;
 
 /**
@@ -19,6 +20,8 @@ public:
     void RenderInterday() const;
     void AdvanceDay() const;
 	void ResetDay();
+
+	void Cal_Satisfied(List<float>& scoreList)const;
     BaseSystem* GetSystem(System system) const;
     const List<BaseSystem*>& GetSystems() const { return systems;};
 
