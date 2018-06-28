@@ -114,41 +114,20 @@ void UIController::DrawSatisfaction()
 {
 	if (scoreList.Count() > 0)
 	{
-<<<<<<< HEAD
-		home_S_Shape.setFillColor(Satisfy(scoreList[0]));
-		food_S_Shape.setFillColor(Satisfy(scoreList[1]));
-		home_S_Shape.setSize(Vector2f((150.f*scoreList[0]), 32.f));
-		food_S_Shape.setSize(Vector2f((150.f*scoreList[1]), 32.f));
+		homeSatisShape.setFillColor(Satisfy(scoreList[0]));
+		foodSatisShape.setFillColor(Satisfy(scoreList[1]));
+		homeSatisShape.setSize(Vector2f((150.f*scoreList[0]), 32.f));
+		foodSatisShape.setSize(Vector2f((150.f*scoreList[1]), 32.f));
 
 	}
 	else
 	{
-		food_S_Shape.setSize(Vector2f((153.f), 36.f));
-		home_S_Shape.setSize(Vector2f((153.f), 36.f));
+		homeSatisShape.setSize(Vector2f((153.f), 36.f));
+		foodSatisShape.setSize(Vector2f((153.f), 36.f));
 	}
-	sfml.DrawRect(home_S_Shape);
-	sfml.DrawRect(food_S_Shape);
-=======
-		if (scoreList[0] <= 0.3)
-		{
-			foodSShape.setFillColor(UNSATISFIED_COLOR);
-		}
-		else if((scoreList[0] > 0.3)&& (scoreList[0] <= 0.7))
-		{
-			foodSShape.setFillColor(SATISFIED_COLOR);
-		}
-		else
-		{
-			foodSShape.setFillColor(SUPER_SATIFIED_COLOR);
-		}
-		foodSShape.setSize(Vector2f((150.f*scoreList[0]), 32.f));
-	}
-	else
-	{
-		foodSShape.setSize(Vector2f((153.f), 36.f));
-	}
-	sfml.DrawRect(foodSShape);
->>>>>>> ea653380d5075e2ece30a4fc74d13382d547f3ae
+	sfml.DrawRect(homeSatisShape);
+	sfml.DrawRect(foodSatisShape);
+
 }
 void UIController::InitSelection()
 {
@@ -169,7 +148,7 @@ void UIController::InitSelection()
         selectionButtons.InsertLast(InitSelectionButton(y, strings[i], colors[i]));
     }
 }
-<<<<<<< HEAD
+
 sf::Color UIController::Satisfy(float ratio) const
 {
 	if (ratio < 0.3)
@@ -179,14 +158,11 @@ sf::Color UIController::Satisfy(float ratio) const
 	else
 		return SUPER_SATIFIED_COLOR;
 }
-void UIController::Init_Satisfaction()
-{
 
-=======
 void UIController::InitSatisfaction()
 {
 	int y = 38;
->>>>>>> ea653380d5075e2ece30a4fc74d13382d547f3ae
+
 	//TODO: Setting 1
 	//width shold be 153
 	/*
@@ -196,23 +172,19 @@ void UIController::InitSatisfaction()
 	*/
 	
 	//setting2 : width 150
-<<<<<<< HEAD
-	home_S_Shape.setSize(Vector2f(150.f, 32.f));
-	home_S_Shape.setFillColor(WHITE);
-	home_S_Shape.setPosition(WINDOW_WIDTH - 152.f, 38);
+	homeSatisShape.setSize(Vector2f(150.f, 32.f));
+	homeSatisShape.setFillColor(WHITE);
+	homeSatisShape.setPosition(WINDOW_WIDTH - 152.f, 38);
 
-	food_S_Shape.setSize(Vector2f(150.f, 32.f));
-	food_S_Shape.setFillColor(WHITE);
-	food_S_Shape.setPosition(WINDOW_WIDTH - 152.f, 110);
+	foodSatisShape.setSize(Vector2f(150.f, 32.f));
+	foodSatisShape.setFillColor(WHITE);
+	foodSatisShape.setPosition(WINDOW_WIDTH - 152.f, 110);
 
 
-=======
-	foodSShape.setSize(Vector2f(150.f, 32.f));
-	foodSShape.setFillColor(BLACK);
-	foodSShape.setPosition(WINDOW_WIDTH - 152.f, float(y));
+
 
 	y += 72;
->>>>>>> ea653380d5075e2ece30a4fc74d13382d547f3ae
+
 	return;
 }
 

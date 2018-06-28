@@ -35,12 +35,9 @@ private:
     List<SelectionButton*> selectionButtons{};
     
 	//TODO: Eric Please check, whether this is a good implment of Satisfactory revealing System
-<<<<<<< HEAD
-	RectangleShape food_S_Shape{};
-	RectangleShape home_S_Shape{};
-=======
-	RectangleShape foodSShape{};
->>>>>>> ea653380d5075e2ece30a4fc74d13382d547f3ae
+	RectangleShape foodSatisShape{};
+	RectangleShape homeSatisShape{};
+
 	List<float> scoreList ;
 
     void NextDayButton();
@@ -49,17 +46,15 @@ private:
     void DrawSelection();
 	void DrawSatisfaction();
     void InitSelection();
-<<<<<<< HEAD
-	void Init_Satisfaction();
+
+	void InitSatisfaction();
     static void InitSelectionButton(Button& button, sf::Text& text, sf::CircleShape& circ, int& y, const std::string& str, Color color);
 	sf::Color Satisfy(float ratio)const;
 	SFMLController& sfml;
-=======
 	void InitSatisfaction();
 
     static SelectionButton* InitSelectionButton(int& y, const std::string& str, Color color);
 
     SFMLController& sfml;
->>>>>>> ea653380d5075e2ece30a4fc74d13382d547f3ae
 };
 
