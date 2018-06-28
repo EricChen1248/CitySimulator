@@ -13,7 +13,7 @@ public:
     void RenderInterday() const;
     void PruneDead();
 	void ResetDay();
-	void Cal_Satisfactory(List<float>& scoreList)const;
+	void Cal_Satisfactory()const;
 private:
     List<Citizen*> citizens;
     int citizenCount;

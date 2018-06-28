@@ -22,7 +22,7 @@ public:
 	void ResetDay();
 	int SystemCount()const;
 
-	void Cal_Satisfied(List<float>& scoreList)const;
+	void Cal_Satisfied()const;
     BaseSystem* GetSystem(System system) const;
     const List<BaseSystem*>& GetSystems() const { return systems;};
 

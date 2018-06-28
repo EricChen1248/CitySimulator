@@ -175,8 +175,8 @@ int SystemController::SystemCount() const
 	return systems.Count();
 }
 
-void SystemController::Cal_Satisfied(List<float>& scoreList) const
+void SystemController::Cal_Satisfied() const
 {
-	citizens->Cal_Satisfactory(scoreList);
+	citizens->Cal_Satisfactory();
 	return;
 }

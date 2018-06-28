@@ -36,8 +36,6 @@ private:
 	List<SatisBar*> satisfyBar{};
 
 	//TODO: Eric Please check, whether this is a good implment of Satisfactory revealing System
-	RectangleShape foodSatisShape{};
-	RectangleShape homeSatisShape{};
 
 	List<float> scoreList ;
 
