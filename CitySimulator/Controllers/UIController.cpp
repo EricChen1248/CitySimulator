@@ -118,24 +118,18 @@ void UIController::Satisfaction()
 {
 	if (scoreList.Count() > 0)
 	{
-		if (scoreList[0] <= 0.3)
-		{
-			food_S_Shape.setFillColor(UNSATISFIED_COLOR);
-		}
-		else if((scoreList[0] > 0.3)&& (scoreList[0] <= 0.7))
-		{
-			food_S_Shape.setFillColor(SATISFIED_COLOR);
-		}
-		else
-		{
-			food_S_Shape.setFillColor(SUPER_SATIFIED_COLOR);
-		}
-		food_S_Shape.setSize(Vector2f((150.f*scoreList[0]), 32.f));
+		home_S_Shape.setFillColor(Satisfy(scoreList[0]));
+		food_S_Shape.setFillColor(Satisfy(scoreList[1]));
+		home_S_Shape.setSize(Vector2f((150.f*scoreList[0]), 32.f));
+		food_S_Shape.setSize(Vector2f((150.f*scoreList[1]), 32.f));
+
 	}
 	else
 	{
 		food_S_Shape.setSize(Vector2f((153.f), 36.f));
+		home_S_Shape.setSize(Vector2f((153.f), 36.f));
 	}
+	sfml.DrawRect(home_S_Shape);
 	sfml.DrawRect(food_S_Shape);
 }
 void UIController::InitSelection()
@@ -172,9 +166,18 @@ void UIController::InitSelectionButton(Button& button, sf::Text& text, sf::Circl
     
     y += 72;     
 }
+sf::Color UIController::Satisfy(float ratio) const
+{
+	if (ratio < 0.3)
+		return UNSATISFIED_COLOR;
+	else if ((ratio >= 0.3) && (ratio < 0.7))
+		return SATISFIED_COLOR;
+	else
+		return SUPER_SATIFIED_COLOR;
+}
 void UIController::Init_Satisfaction()
 {
-	int y = 110;
+
 	//TODO: Setting 1
 	//width shold be 153
 	/*
@@ -184,10 +187,14 @@ void UIController::Init_Satisfaction()
 	*/
 	
 	//setting2 : width 150
-	food_S_Shape.setSize(Vector2f(150.f, 32.f));
-	food_S_Shape.setFillColor(BLACK);
-	food_S_Shape.setPosition(WINDOW_WIDTH - 152.f, float(y));
+	home_S_Shape.setSize(Vector2f(150.f, 32.f));
+	home_S_Shape.setFillColor(WHITE);
+	home_S_Shape.setPosition(WINDOW_WIDTH - 152.f, 38);
 
-	y += 36;
+	food_S_Shape.setSize(Vector2f(150.f, 32.f));
+	food_S_Shape.setFillColor(WHITE);
+	food_S_Shape.setPosition(WINDOW_WIDTH - 152.f, 110);
+
+
 	return;
 }

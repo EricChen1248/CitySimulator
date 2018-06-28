@@ -3,6 +3,7 @@
 #include "../../Controllers/SFMLController.h"
 #include "../../Helpers/Logger.h"
 #include "../Food/FoodRule.h"
+#include "../Home/HomeRule.h"
 
 CitizenSystem::CitizenSystem()
 {
@@ -102,24 +103,31 @@ void CitizenSystem::PruneDead()
  {
 	 //TODO: add all of system;Maybe can use indexing to make this perform better????
 	 
-	 float food = (0);
+	 float food = 0;
+	 float home = 0;
+	 
 	 for (auto&& citizen : citizens)
 	 {
 		 auto foodRule = dynamic_cast<FoodRule*>(citizen->FindRule(FOOD));
+		 auto homeRule = dynamic_cast<HomeRule*>(citizen->FindRule(HOME));
+		 if (homeRule->IsSatisfied())
+		 {
+			 ++home;
+		 }
 		 if (foodRule->IsSatisfied())
 		 {
 			 ++food;
 		 }
+
 	 }
+
 	 food = (food / static_cast<float>(citizenCount));
-	 if (scoreList.Count() == 0)
-	 {
-		 scoreList.InsertLast(food);
-	 }
-	 else
+	 home = (home / static_cast<float>(citizenCount));
+	 while (scoreList.Count() != 0)
 	 {
 		 scoreList.RemoveLast();
-		 scoreList.InsertLast(food);
 	 }
+	 scoreList.InsertLast(home);
+	 scoreList.InsertLast(food);
 	 return;
  }

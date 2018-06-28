@@ -45,6 +45,7 @@ private:
     
 	//TODO: Eric Please check, whether this is a good implment of Satisfactory revealing System
 	RectangleShape food_S_Shape{};
+	RectangleShape home_S_Shape{};
 	List<float> scoreList ;
 
     void NextDayButton();
@@ -55,6 +56,7 @@ private:
     void InitSelection();
 	void Init_Satisfaction();
     static void InitSelectionButton(Button& button, sf::Text& text, sf::CircleShape& circ, int& y, const std::string& str, Color color);
-    SFMLController& sfml;
+	sf::Color Satisfy(float ratio)const;
+	SFMLController& sfml;
 };
 
