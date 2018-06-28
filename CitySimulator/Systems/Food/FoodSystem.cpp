@@ -67,7 +67,7 @@ void FoodSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
 /**
  * \brief Resets the day (clears log & resets plots)
  */
-void FoodSystem::ResetDay()
+void FoodSystem::EndDay()
 {
     for (auto && plot : plots)
     {

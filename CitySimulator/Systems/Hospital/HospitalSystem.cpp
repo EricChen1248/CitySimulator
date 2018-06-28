@@ -68,7 +68,7 @@ void HospitalSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
 /**
  * \brief Resets the day (clears log & resets plots)
  */
-void HospitalSystem::ResetDay()
+void HospitalSystem::EndDay()
 {
     for (auto && plot : plots)
     {

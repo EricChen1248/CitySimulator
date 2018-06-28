@@ -30,7 +30,7 @@ public:
     virtual void LogUnsatisfied(Citizen* citizen, BaseRule* rule) = 0; 
     virtual void Register(Plot* plot);
     virtual void Unregister(Plot* plot);
-    virtual void ResetDay();
+    virtual void EndDay();
 protected:
     List<Plot*> plots;
     List<Log*> satisfiedLog;
@@ -69,7 +69,7 @@ inline void BaseSystem::Unregister(Plot* plot)
 /**
  * \brief Resets the system to a new day
  */
-inline void BaseSystem::ResetDay()
+inline void BaseSystem::EndDay()
 {
     score = 0;
     satisfiedLog.Dispose();

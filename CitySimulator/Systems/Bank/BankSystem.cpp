@@ -67,7 +67,7 @@ void BankSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
 /**
 * \brief Resets the day (clears log & resets plots)
 */
-void BankSystem::ResetDay()
+void BankSystem::EndDay()
 {
 	for (auto && plot : plots)
 	{

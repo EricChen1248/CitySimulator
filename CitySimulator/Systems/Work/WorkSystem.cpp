@@ -82,7 +82,7 @@ void WorkSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
 /**
 * \brief Resets the day (clears log & resets plots)
 */
-void WorkSystem::ResetDay()
+void WorkSystem::EndDay()
 {
 	for (auto && plot : plots)
 	{
