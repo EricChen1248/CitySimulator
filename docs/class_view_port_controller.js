@@ -12,5 +12,7 @@ var class_view_port_controller =
     [ "ToDrawCoord", "class_view_port_controller.html#a1e6735019edc9213acc158341b907aef", null ],
     [ "Up", "class_view_port_controller.html#ae987123d97ff765e4ff019ab34809436", null ],
     [ "UpdateGameView", "class_view_port_controller.html#a37d723bd267c7c71c5244aca7f83dd76", null ],
-    [ "UpdateUIView", "class_view_port_controller.html#a16efebf2293573614cd3181842b05894", null ]
+    [ "UpdateUIView", "class_view_port_controller.html#a16efebf2293573614cd3181842b05894", null ],
+    [ "ViewX", "class_view_port_controller.html#ab5b98a7b2c46661b983c25e7b0478edc", null ],
+    [ "ViewY", "class_view_port_controller.html#a7e4619175d5db29b6c1a16a2e0cd0ee5", null ]
 ];

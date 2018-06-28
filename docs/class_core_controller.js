@@ -2,7 +2,6 @@ var class_core_controller =
 [
     [ "CoreController", "class_core_controller.html#ab3853568fd9d732663ebf807817f3764", null ],
     [ "~CoreController", "class_core_controller.html#a334c26059c56bff3eb22059450e9c7a9", null ],
-    [ "GameRenderEvents", "class_core_controller.html#a247bad7d09d093a09586cc780977917b", null ],
     [ "GetDeltaTime", "class_core_controller.html#a2eece93ec8a141fd3640ccd2db3091bf", null ],
     [ "GetFontController", "class_core_controller.html#a35334f31eca98e02bba0cd72ead93232", null ],
     [ "GetSystemController", "class_core_controller.html#a76622dc2afab0feeae34adb9aa4982b4", null ],
@@ -13,5 +12,6 @@ var class_core_controller =
     [ "RunDayLoop", "class_core_controller.html#ae0b7fd95af3ee62dcaee016c3a71c8b9", null ],
     [ "SfmlController", "class_core_controller.html#af6052163420fa52eb91e3d786be9e4e6", null ],
     [ "Start", "class_core_controller.html#a3c79152bf136634d5708b20ccc2f498a", null ],
+    [ "MultithreadGameUpdates", "class_core_controller.html#afef49a11e1c448b50831ab71f82e0f00", null ],
     [ "ViewPortController", "class_core_controller.html#a9aea779702fc16cc523a3cbffa948008", null ]
 ];

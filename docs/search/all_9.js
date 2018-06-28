@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['movetowards',['MoveTowards',['../class_coordinate.html#a8524cf662ab2550956b0426f25b5b738',1,'Coordinate']]]
+  ['keynotfound',['KeyNotFound',['../class_key_not_found.html',1,'']]],
+  ['keyvalueerror',['KeyValueError',['../class_key_value_error.html',1,'']]]
 ];

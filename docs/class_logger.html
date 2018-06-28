@@ -86,7 +86,6 @@ $(document).ready(function(){initNavTree('class_logger.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_logger-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -99,35 +98,37 @@ $(document).ready(function(){initNavTree('class_logger.html','');});
 
 <p><code>#include &lt;<a class="el" href="_logger_8h_source.html">Logger.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a9d28dc16626fed35823f8a1c1290347f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_logger.html#a9d28dc16626fed35823f8a1c1290347f">Log</a> (std::string log) const</td></tr>
-<tr class="memdesc:a9d28dc16626fed35823f8a1c1290347f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a string message to log file.  <a href="#a9d28dc16626fed35823f8a1c1290347f">More...</a><br /></td></tr>
-<tr class="separator:a9d28dc16626fed35823f8a1c1290347f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a1694b064d557decd904ce17b1458c6fe"><td class="memItemLeft" align="right" valign="top"><a id="a1694b064d557decd904ce17b1458c6fe"></a>
-static <a class="el" href="class_logger.html">Logger</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Instance</b> ()</td></tr>
-<tr class="separator:a1694b064d557decd904ce17b1458c6fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3265f7d269a9155b4eda3682f3c19bea"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_logger.html#a3265f7d269a9155b4eda3682f3c19bea">Log</a> (const std::string &amp;log)</td></tr>
+<tr class="memdesc:a3265f7d269a9155b4eda3682f3c19bea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a string message to log file.  <a href="#a3265f7d269a9155b4eda3682f3c19bea">More...</a><br /></td></tr>
+<tr class="separator:a3265f7d269a9155b4eda3682f3c19bea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Singleton logger that logs event in a log file. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9d28dc16626fed35823f8a1c1290347f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d28dc16626fed35823f8a1c1290347f">&#9670;&nbsp;</a></span>Log()</h2>
+<a id="a3265f7d269a9155b4eda3682f3c19bea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3265f7d269a9155b4eda3682f3c19bea">&#9670;&nbsp;</a></span>Log()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Logger::Log </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>log</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Writes a string message to log file. </p>

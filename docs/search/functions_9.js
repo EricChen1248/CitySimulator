@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['node',['Node',['../class_node.html#a99c95b5c406462c1cc98daa294fce3cf',1,'Node']]]
+  ['movetowards',['MoveTowards',['../class_coordinate.html#a8524cf662ab2550956b0426f25b5b738',1,'Coordinate']]]
 ];
