@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../../Collections/LinkedList.h"
+#include "../../Collections/List.h"
 #include "../Plot/Plot.h"
 #include "../Plot/PlotSystem.h"
 class River

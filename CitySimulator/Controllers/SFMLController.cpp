@@ -120,7 +120,7 @@ void SFMLController::DrawString(Text& text) const
     window->draw(text);
 }
 
-ConvexShape SFMLController::GenerateLine(const List<Plot*>& plots, const List<Plot*>& plots2)
+sf::ConvexShape SFMLController::GenerateLine(const List<Plot*>& plots, const List<Plot*>& plots2)
 {
     ConvexShape shape;
 	const int count = plots.Count() - 1;
