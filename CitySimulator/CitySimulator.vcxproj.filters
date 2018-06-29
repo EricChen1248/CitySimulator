@@ -132,10 +132,10 @@
     <ClCompile Include="Systems\School\SchoolSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-<<<<<<< HEAD
     <ClCompile Include="Systems\River\River.cpp">
-=======
->>>>>>> 630d4b3a0881e739b16bff5bb22e81a8582bf988
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Helpers\Road.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -335,6 +335,7 @@
 <<<<<<< HEAD
     <ClInclude Include="Systems\River\River.h">
 =======
+    <ClInclude Include="Helpers\Road.h">
 >>>>>>> 630d4b3a0881e739b16bff5bb22e81a8582bf988
       <Filter>Header Files</Filter>
     </ClInclude>
