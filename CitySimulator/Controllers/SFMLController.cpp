@@ -99,6 +99,7 @@ void SFMLController::DrawLine(ConvexShape shape, const bool isUi) const
         if (mod != 1)
         {
             shape.setOutlineThickness(shape.getOutlineThickness() * mod);
+			shape.setScale(shape.getScale() * mod);
         }
     }
     
@@ -119,21 +120,22 @@ void SFMLController::DrawString(Text& text) const
     window->draw(text);
 }
 
-ConvexShape SFMLController::GenerateLine(const List<Plot*>& plots)
+sf::ConvexShape SFMLController::GenerateLine(const List<Plot*>& plots, const List<Plot*>& plots2)
 {
     ConvexShape shape;
-    shape.setPointCount(plots.Count() * 2 - 1);
+	const int count = plots.Count() - 1;
+    shape.setPointCount(count * 2);
+
+
+	for (int i = 0; i < count; ++i)
+	{
+		shape.setPoint(i, plots[i]->Coords().ToScreenCoordinates().ToVector2F());
+	}
     
-    const int count = plots.Count();
-    for (int i = 0; i < count; ++i)
-    {
-        shape.setPoint(i, plots[i]->Coords().ToScreenCoordinates().ToVector2F());
-    }
-    
-    for (int i = 0; i < count ; ++i)
-    {
-        shape.setPoint(i + count, plots[count - i]->Coords().ToScreenCoordinates().ToVector2F());
-    }
+	for (int i = 0; i < count; ++i)
+	{
+		shape.setPoint(i + count, plots2[count - i]->Coords().ToScreenCoordinates().ToVector2F());
+	}
     
     return shape;
 }

@@ -106,6 +106,7 @@ void SystemController::Initialize()
 		}
     }
 	citizens = new CitizenSystem;
+	river.Init();
 }
 
 /**
@@ -123,19 +124,21 @@ void SystemController::Update() const
 /**
  * \brief Calls render functions of citizens and plots
  */
-void SystemController::Render() const
+void SystemController::Render()
 {
     citizens->Render();
     plots->Render();
+	river.Render();
 }
 
 /**
  * \brief Calls render function of plots
  */
-void SystemController::RenderInterday() const
+void SystemController::RenderInterday()
 {
     plots->RenderInterDay();
     citizens->RenderInterday();
+	river.Render();
 }
 
 void SystemController::AdvanceDay() const
