@@ -44,7 +44,7 @@ struct SatisBar
 	};
 	void Draw(SFMLController& sfml)
 	{
-		sfml.DrawRect(shape);
+		sfml.DrawRect(shape,true);
 	};
 
 };

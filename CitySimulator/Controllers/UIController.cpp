@@ -122,6 +122,7 @@ void UIController::DrawSatisfaction()
 	}
 	return;
 }
+
 void UIController::InitSelection()
 {
     selectionBackGround.setSize(Vector2f(152, 502));
