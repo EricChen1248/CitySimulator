@@ -120,20 +120,21 @@ void SFMLController::DrawString(Text& text) const
     window->draw(text);
 }
 
-ConvexShape SFMLController::GenerateLine(const List<Plot*>& plots)
+ConvexShape SFMLController::GenerateLine(const List<Plot*>& plots, const List<Plot*>& plots2)
 {
     ConvexShape shape;
-    shape.setPointCount(plots.Count() * 2);
+	const int count = plots.Count() - 1;
+    shape.setPointCount(count * 2);
 
 
-	const int count = plots.Count();
 	for (int i = 0; i < count; ++i)
 	{
 		shape.setPoint(i, plots[i]->Coords().ToScreenCoordinates().ToVector2F());
 	}
+    
 	for (int i = 0; i < count; ++i)
 	{
-		shape.setPoint(i + count, plots[count - i - 1]->Coords().ToScreenCoordinates().ToVector2F());
+		shape.setPoint(i + count, plots2[count - i]->Coords().ToScreenCoordinates().ToVector2F());
 	}
     
     return shape;
