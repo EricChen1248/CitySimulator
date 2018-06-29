@@ -132,7 +132,10 @@
     <ClCompile Include="Systems\School\SchoolSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Systems\River\River.cpp">
+=======
+>>>>>>> 630d4b3a0881e739b16bff5bb22e81a8582bf988
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -329,7 +332,10 @@
     <ClInclude Include="Collections\ListIterator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Systems\River\River.h">
+=======
+>>>>>>> 630d4b3a0881e739b16bff5bb22e81a8582bf988
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

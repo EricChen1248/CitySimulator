@@ -177,6 +177,6 @@ int SystemController::SystemCount() const
 
 void SystemController::Cal_Satisfied() const
 {
-	citizens->Cal_Satisfactory();
+	citizens->CalculateSatisfaction();
 	return;
 }

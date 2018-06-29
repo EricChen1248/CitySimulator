@@ -131,7 +131,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Controllers\Government.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="Systems\River\River.cpp" />
+=======
+>>>>>>> 630d4b3a0881e739b16bff5bb22e81a8582bf988
     <ClCompile Include="Systems\School\School.cpp" />
     <ClCompile Include="Systems\School\SchoolRule.cpp" />
     <ClCompile Include="Systems\School\SchoolSystem.cpp" />
@@ -181,7 +184,10 @@
     <ClInclude Include="Controllers\UiObjects\SelectionButton.h" />
     <ClInclude Include="Helpers\FeatureFlags.h" />
     <ClInclude Include="Helpers\HelperFunctions.h" />
+<<<<<<< HEAD
     <ClInclude Include="Systems\River\River.h" />
+=======
+>>>>>>> 630d4b3a0881e739b16bff5bb22e81a8582bf988
     <ClInclude Include="Systems\School\School.h" />
     <ClInclude Include="Systems\School\SchoolRule.h" />
     <ClInclude Include="Systems\School\SchoolSystem.h" />

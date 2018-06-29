@@ -17,6 +17,7 @@ public:
     void HandleClick();
     void FindHoverPlot();
     void ClearSelections();
+    void EndDay();
 private:
     Plot* CoordToPlotArray(const Coordinate& coords) const;
     

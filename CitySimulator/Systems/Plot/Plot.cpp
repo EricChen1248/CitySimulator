@@ -1,10 +1,10 @@
 #include "Plot.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
-
+#include "../../Helpers/Road.h"
 
 Plot::Plot(const int x, const int y, const int z) : coords(x, y, z), size(10.f), shape(sf::CircleShape(size)),
-                                                    currentType(nullptr)
+                                                    currentType(nullptr), roads(6)
 {
     shape.setFillColor(EMPTY_PLOT_COLOR);
     sCoords = coords.ToScreenCoordinates();
@@ -56,8 +56,26 @@ void Plot::EndDay()
     {
         currentType->EndDay();
     }
+    for (auto && road : roads)
+    {
+        break;
+    }
 }
 
+void Plot::GenerateRoads()
+{
+
+}
+
+Road* Plot::GetRoad(Plot* nextPlot)
+{
+	for (auto&& road : roads)
+	{
+		if (road->isRoad(this, nextPlot))
+			return road;
+	}
+	return nullptr;
+}
 
 Plot::~Plot()
 {

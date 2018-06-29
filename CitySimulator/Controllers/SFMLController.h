@@ -6,7 +6,9 @@
 #include <SFML/OpenGL.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
+#include "../Collections/List.h"
 
+class Plot;
 /**
  * \brief Handles all the interfacing with SFML
  */
@@ -19,8 +21,11 @@ public:
     static void UpdateCircleSize(sf::CircleShape& circle);
     void DrawCircle(sf::CircleShape& circle, bool isUi = false) const;
     void DrawRect(sf::RectangleShape& rectangle, bool isUi = false) const;
+    void DrawLine(sf::ConvexShape shape, bool isUi = false) const;
     void DrawShape(sf::Shape& shape) const;
     void DrawString(sf::Text& text) const;
+    static sf::ConvexShape GenerateLine(const List<Plot*>& plots);
+    static sf::ConvexShape GenerateLine(Plot* plot1, Plot* plot2);
 private:
     // Constructors and Destructors
     SFMLController();

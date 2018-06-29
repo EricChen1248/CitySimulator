@@ -39,7 +39,7 @@ void CitizenSystem::Update() const
 	{
 	    citizen->Update();
 	}
-	Cal_Satisfactory();
+	CalculateSatisfaction();
 }
 
 /**
@@ -100,7 +100,7 @@ void CitizenSystem::PruneDead()
 	 }
  }
 
- void CitizenSystem::Cal_Satisfactory() const
+ void CitizenSystem::CalculateSatisfaction() const
  {
 	
 	 const int systemCount = CoreController::Instance()->GetSystemController()->SystemCount();
