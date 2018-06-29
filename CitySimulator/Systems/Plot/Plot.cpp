@@ -1,7 +1,7 @@
 #include "Plot.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
-
+#include "../../Helpers/Road.h"
 
 Plot::Plot(const int x, const int y, const int z) : coords(x, y, z), size(10.f), shape(sf::CircleShape(size)),
                                                     currentType(nullptr), roads(6)
@@ -65,6 +65,16 @@ void Plot::EndDay()
 void Plot::GenerateRoads()
 {
 
+}
+
+Road* Plot::GetRoad(Plot* nextPlot)
+{
+	for (auto&& road : roads)
+	{
+		if (road->isRoad(this, nextPlot))
+			return road;
+	}
+	return nullptr;
 }
 
 Plot::~Plot()
