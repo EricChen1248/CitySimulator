@@ -13,7 +13,7 @@ UIController::~UIController()
 
 void UIController::Initialize()
 {
-    nextDay = Button(Vector2f(105, 32), Vector2f(WINDOW_WIDTH - 107, WINDOW_HEIGHT - 34), WHITE, MOUSE_OVER_COLOR);
+    nextDay = Button(Vector2f(105, 32),Vector2f(WINDOW_WIDTH - 107, WINDOW_HEIGHT - 34), WHITE, MOUSE_OVER_COLOR);
     nextDayText.setFont(FontController::Monofur());
     nextDayText.setFillColor(BLACK);
     nextDayText.setCharacterSize(24);
