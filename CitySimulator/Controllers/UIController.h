@@ -21,14 +21,14 @@ public:
 	List<float>& GetScoreList(){ return scoreList; };
 private:
     sf::Text timeText{};
-    RectangleShape timeRect{};
+    sf::RectangleShape timeRect{};
     
     sf::Text moneyText{};
-    RectangleShape moneyRect{};
+    sf::RectangleShape moneyRect{};
     
     Button nextDay;
-    RectangleShape nextDayShape{};
-    RectangleShape nextDayMoShape{};
+    sf::RectangleShape nextDayShape{};
+    sf::RectangleShape nextDayMoShape{};
     sf::Text nextDayText{};
     
     RectangleShape selectionBackGround{};
