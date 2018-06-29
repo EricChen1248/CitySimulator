@@ -22,7 +22,7 @@ const sf::Color HOME_COLOR = sf::Color::Yellow;
 const sf::Color STORE_COLOR = sf::Color::Red;
 const sf::Color SCHOOL_COLOR = sf::Color::Red;
 const sf::Color HOSPITAL_COLOR = sf::Color::Red;
-
+const sf::Color RIVER_COLOR = sf::Color(141, 250, 236);
 
 const sf::Color MOUSE_OVER_COLOR = sf::Color(220, 220, 220);
 

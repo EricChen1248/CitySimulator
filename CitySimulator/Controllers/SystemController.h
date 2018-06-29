@@ -4,6 +4,7 @@
 #include "../Systems/Citizen/CitizenSystem.h"
 #include "../Systems/Base/BaseSystem.h"
 #include "../Collections/List.h"
+#include "../Systems/River/River.h"
 class PlotSystem;
 
 /**
@@ -16,8 +17,8 @@ public:
     ~SystemController();
     void Initialize();
     void Update() const;
-    void Render() const;
-    void RenderInterday() const;
+    void Render();
+    void RenderInterday();
     void AdvanceDay() const;
 	void ResetDay();
 	int SystemCount()const;
@@ -34,5 +35,6 @@ private:
     PlotSystem* plots{};
     CitizenSystem* citizens{};
     List<BaseSystem*> systems{};
+	River river;
 };
 
