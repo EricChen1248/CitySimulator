@@ -14,6 +14,8 @@ private:
 	sf::ConvexShape shape;
 	
 	List<Plot*> riverPoint;
+	List<Plot*> leftPoint;
+	List<Plot*> rightPoint;
 	List<Plot*> leftBoundary;
 	List <Plot*> rightBoundary;
 	PlotSystem* plotSys;

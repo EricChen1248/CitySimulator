@@ -1,7 +1,6 @@
 #include "River.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
-#include "../../Collections/LinkedList.h"
 #include "../../Helpers/Constants.h"
 River::River():plotSys(nullptr)
 {}
@@ -42,6 +41,13 @@ void River::Init()
 		Coordinate tempCord(positionX, positionY, StartPoint.Z()+1);
 		StartPoint = tempCord;
 	}
+	for (auto&& plotPtr : riverPoint)
+	{
+		Coordinate tempCoordR(plotPtr->Coords().X() + 1, plotPtr->Coords().Y(), plotPtr->Coords().Z() - 1);
+		rightPoint.InsertLast(plotSys->FindPlot(tempCoordR));
+		Coordinate tempCoordL(plotPtr->Coords().X() - 1, plotPtr->Coords().Y() + 1, plotPtr->Coords().Z());
+		leftPoint.InsertLast(plotSys->FindPlot(tempCoordL));
+	}
 	shape = CoreController::Instance()->SfmlController()->GenerateLine(riverPoint);
 	shape.setFillColor(RIVER_COLOR);
 	shape.setOutlineThickness(10);
@@ -51,17 +57,8 @@ River::~River()
 {
 }
 
-void River::Render()
+void River::Render() const
 {
-	const int count = riverPoint.Count();
-	for (int i = 0; i < count; ++i)
-	{
-		shape.setPoint(i, riverPoint[i]->Coords().ToScreenCoordinates().ToVector2F());
-	}
-	for (int i = 0; i < count; ++i)
-	{
-		shape.setPoint(i + count, riverPoint[count - i - 1]->Coords().ToScreenCoordinates().ToVector2F());
-	}
 	CoreController::Instance()->SfmlController()->DrawLine(shape);
 }
 
