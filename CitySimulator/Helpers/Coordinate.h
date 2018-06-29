@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/System/Vector2.hpp>
 
 /**
  * \brief Helper struct to interface between our hexagonal grid coordinates to SFML square coordinates
@@ -10,6 +11,7 @@ struct ScreenCoordinate
     ScreenCoordinate(const float x = 0, const float y = 0) : X(x), Y(y) {};
     float X;
     float Y;
+    sf::Vector2f ToVector2F() const { return {X, Y}; }
 };
 
 

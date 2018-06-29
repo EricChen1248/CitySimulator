@@ -37,8 +37,7 @@ CoreController::~CoreController()
     delete viewPortController;
     delete systemController;
     delete fontController;
-    delete uiController;
-    
+    delete uiController;    
 };
 
 void CoreController::Start()
