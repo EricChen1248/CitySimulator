@@ -1,5 +1,6 @@
 #pragma once
 #include "../../Helpers/Coordinate.h"
+#include "../../Helpers/Road.h"
 #include <SFML/Graphics/CircleShape.hpp>
 #include "../Base/Base.h"
 #include "../../Collections/List.h"
@@ -7,6 +8,7 @@
 
 class Base;
 class Citizen;
+class Road;
 
 /**
  * \brief Container class for each city plot
@@ -27,6 +29,9 @@ public:
     void Enter(Citizen* citizen);
     void Leave(Citizen* citizen);
     void EndDay();
+	void GenerateRoads();
+
+
 private:
     Coordinate coords;
     ScreenCoordinate sCoords{};
@@ -35,5 +40,6 @@ private:
     Base* currentType;
     
     List<Citizen*> occupants;
+	List<Road*> roads;
 };
 
