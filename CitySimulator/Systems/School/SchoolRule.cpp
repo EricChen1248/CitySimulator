@@ -4,7 +4,7 @@
 #include "School.h"
 #include "../../Helpers/HelperFunctions.h"
 
-SchoolRule::SchoolRule(Citizen& citizen): BaseRule(citizen, SCHOOL), hungerLevel(0)
+SchoolRule::SchoolRule(Citizen& citizen): BaseRule(citizen, SCHOOL), EdLvl(0)
 {
 }
 
@@ -29,11 +29,6 @@ bool SchoolRule::FindPlot()
     {
         auto coords = citizen->Coords();
         const auto distance = plot->Coords().Distance(coords);
-        if (distance < maxDistance)
-        {
-            auto p = plot;
-            choices.InsertLast(p);
-        }
     }
     
     // If such a list doesn't exist. This rule returns failed result false
@@ -64,7 +59,6 @@ void SchoolRule::EnterPlot(Plot* plot)
  */
 void SchoolRule::LeavePlot(Plot* plot)
 {
-    hungerLevel = 100.f;
 }
 
 /**
@@ -72,8 +66,6 @@ void SchoolRule::LeavePlot(Plot* plot)
  */
 void SchoolRule::Update()
 {
-    // TODO : Tweak hunger to time ratio
-    hungerLevel -= CoreController::Instance()->GetDeltaTime() * 240;
 }
 
 /**
