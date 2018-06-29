@@ -1,6 +1,7 @@
 #pragma once
 #include "../Systems/Plot/Plot.h"
 
+class Plot;
 class Road
 {
 private:
