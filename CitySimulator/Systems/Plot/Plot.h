@@ -30,7 +30,7 @@ public:
     void Leave(Citizen* citizen);
     void EndDay();
 	void GenerateRoads();
-
+	Road* GetRoad(Plot* nextPlot);
 
 private:
     Coordinate coords;
