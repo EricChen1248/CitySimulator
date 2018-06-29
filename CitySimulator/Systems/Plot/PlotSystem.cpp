@@ -2,7 +2,7 @@
 #include "../../Helpers/Constants.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
-
+#include <iostream>
 
 PlotSystem::PlotSystem(): hoverPlot(nullptr), selectedPlot(nullptr)
 {
@@ -97,6 +97,7 @@ void PlotSystem::HandleClick()
         // If still over plot
         if (shape.getGlobalBounds().contains(float(mousePos.x), float(mousePos.y)))
         {
+			
             // if mouse is clicked
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
@@ -108,6 +109,7 @@ void PlotSystem::HandleClick()
                 selectedPlot = hoverPlot;
                 shape.setOutlineColor(BLACK);
                 shape.setOutlineThickness(3);
+				std::cout << hoverPlot->Coords().X() << "," << hoverPlot->Coords().Y() << "," << hoverPlot->Coords().Z() << std::endl;
             }
         }
         else 
