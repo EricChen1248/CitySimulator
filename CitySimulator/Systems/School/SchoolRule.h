@@ -23,5 +23,7 @@ private:
     // TODO : Tweak foodrule max distance
     const int maxDistance = 10;
     float hungerLevel;
+
+	float EdLvl;
 };
 

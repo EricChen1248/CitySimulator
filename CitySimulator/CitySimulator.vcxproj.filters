@@ -132,7 +132,10 @@
     <ClCompile Include="Systems\School\SchoolSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Helpers\Road.cpp">
+    <ClCompile Include="Disaster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Controllers\DisasterController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -329,7 +332,10 @@
     <ClInclude Include="Collections\ListIterator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Helpers\Road.h">
+    <ClInclude Include="Disaster.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Controllers\DisasterController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

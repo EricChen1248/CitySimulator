@@ -131,7 +131,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Controllers\Government.cpp" />
-    <ClCompile Include="Helpers\Road.cpp" />
+    <ClCompile Include="Disaster.cpp" />
+    <ClCompile Include="Controllers\DisasterController.cpp" />
     <ClCompile Include="Systems\School\School.cpp" />
     <ClCompile Include="Systems\School\SchoolRule.cpp" />
     <ClCompile Include="Systems\School\SchoolSystem.cpp" />
@@ -179,9 +180,10 @@
     <ClInclude Include="Controllers\Government.h" />
     <ClInclude Include="Controllers\UiObjects\SatisBar.h" />
     <ClInclude Include="Controllers\UiObjects\SelectionButton.h" />
+    <ClInclude Include="Disaster.h" />
+    <ClInclude Include="Controllers\DisasterController.h" />
     <ClInclude Include="Helpers\FeatureFlags.h" />
     <ClInclude Include="Helpers\HelperFunctions.h" />
-    <ClInclude Include="Helpers\Road.h" />
     <ClInclude Include="Systems\School\School.h" />
     <ClInclude Include="Systems\School\SchoolRule.h" />
     <ClInclude Include="Systems\School\SchoolSystem.h" />

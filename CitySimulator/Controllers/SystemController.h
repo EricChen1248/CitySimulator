@@ -21,6 +21,7 @@ public:
     void AdvanceDay() const;
 	void ResetDay();
 	int SystemCount()const;
+	const List<Citizen*>& GetCitizens() const { return citizens->Citizens(); }
 
 	void Cal_Satisfied()const;
     BaseSystem* GetSystem(System system) const;
