@@ -25,6 +25,11 @@ PlotSystem::PlotSystem(): hoverPlot(nullptr), selectedPlot(nullptr)
             plotArray[i - LEFT][j - LEFT] = plot;
         }
     }
+
+    for (auto && plot : plots)
+    {
+        plot->GenerateRoads();
+    }
 }
 
 PlotSystem::~PlotSystem()
@@ -162,6 +167,14 @@ void PlotSystem::ClearSelections()
         auto & shape = selectedPlot->GetShape();
         shape.setOutlineThickness(0);
         hoverPlot = nullptr;
+    }
+}
+
+void PlotSystem::EndDay()
+{
+    for (auto && plot : plots)
+    {
+        plot->EndDay();
     }
 }
 

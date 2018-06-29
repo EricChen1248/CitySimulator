@@ -56,11 +56,14 @@ void Plot::EndDay()
     {
         currentType->EndDay();
     }
+    for (auto && road : roads)
+    {
+        break;
+    }
 }
 
 void Plot::GenerateRoads()
 {
-
 
 }
 

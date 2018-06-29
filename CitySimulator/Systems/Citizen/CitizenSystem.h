@@ -13,7 +13,8 @@ public:
     void RenderInterday() const;
     void PruneDead();
 	void ResetDay();
-	void Cal_Satisfactory()const;
+	void CalculateSatisfaction() const;
+    const List<Citizen*>& Citizens() const { return citizens; }
 private:
     List<Citizen*> citizens;
     int citizenCount;

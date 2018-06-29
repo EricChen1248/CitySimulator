@@ -4,6 +4,7 @@
 
 class Plot;
 
+class Plot;
 class Road
 {
 private:

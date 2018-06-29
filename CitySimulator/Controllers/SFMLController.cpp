@@ -91,6 +91,20 @@ void SFMLController::DrawRect(RectangleShape& rectangle, const bool isUi) const
     window->draw(rectangle);
 }
 
+void SFMLController::DrawLine(ConvexShape shape, const bool isUi) const
+{
+    if (!isUi)
+    {
+        const auto mod = CoreController::Instance()->GetViewportController()->Modifier();
+        if (mod != 1)
+        {
+            shape.setOutlineThickness(shape.getOutlineThickness() * mod);
+        }
+    }
+    
+    window->draw(shape);    
+}
+
 void SFMLController::DrawShape(sf::Shape& shape) const
 {
     window->draw(shape);
@@ -103,6 +117,34 @@ void SFMLController::DrawShape(sf::Shape& shape) const
 void SFMLController::DrawString(Text& text) const
 {
     window->draw(text);
+}
+
+ConvexShape SFMLController::GenerateLine(const List<Plot*>& plots)
+{
+    ConvexShape shape;
+    shape.setPointCount(plots.Count() * 2 - 1);
+    
+    const int count = plots.Count();
+    for (int i = 0; i < count; ++i)
+    {
+        shape.setPoint(i, plots[i]->Coords().ToScreenCoordinates().ToVector2F());
+    }
+    
+    for (int i = 0; i < count ; ++i)
+    {
+        shape.setPoint(i + count, plots[count - i]->Coords().ToScreenCoordinates().ToVector2F());
+    }
+    
+    return shape;
+}
+
+ConvexShape SFMLController::GenerateLine(Plot* plot1, Plot* plot2)
+{
+    ConvexShape shape;
+    shape.setPointCount(2);
+    shape.setPoint(0, plot1->Coords().ToScreenCoordinates().ToVector2F());
+    shape.setPoint(1, plot2->Coords().ToScreenCoordinates().ToVector2F());
+    return shape;
 }
 
 
