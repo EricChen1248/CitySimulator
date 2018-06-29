@@ -76,6 +76,16 @@ Road* Plot::GetRoad(Plot* nextPlot)
 	}
 	return nullptr;
 }
+ 
+void Plot::Destroy() 
+{ 
+    if (currentType != nullptr) 
+    { 
+        delete currentType; 
+        currentType = nullptr; 
+    }    
+} 
+ 
 
 Plot::~Plot()
 {

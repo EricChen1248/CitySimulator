@@ -16,6 +16,8 @@ friend HospitalRule;
     void EndDay() override;
 private:
     int cost;
+    int capacity; 
+    int citizenCount; 
     
     void Enter();
 };

@@ -41,6 +41,13 @@ void UIController::Initialize()
     moneyRect.setOutlineColor(BLACK);
     moneyRect.setOutlineThickness(2);
     
+    
+    statusRect.setSize(Vector2f(float(WINDOW_WIDTH) / 2 - 255, 100)); 
+    statusRect.setPosition(float(WINDOW_WIDTH) / 2 + 100, 2); 
+    statusRect.setFillColor(WHITE); 
+    statusRect.setOutlineColor(BLACK); 
+    statusRect.setOutlineThickness(2); 
+    
     InitSelection();
 	InitSatisfaction();
 }
@@ -109,7 +116,7 @@ void UIController::DrawSelection()
     }
     
 }
-void UIController::DrawSatisfaction()
+void UIController::DrawSatisfaction() const
 {
 	if (scoreList.Count() > 0)
     {
@@ -164,3 +171,10 @@ SelectionButton* UIController::InitSelectionButton(int& y, const std::string& st
     y += 55;
     return button;
 }
+
+ 
+void UIController::DrawStatus() 
+{ 
+    sfml.DrawRect(statusRect, true); 
+} 
+ 

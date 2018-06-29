@@ -20,11 +20,11 @@ class CoreController
     friend void MultithreadGameUpdates();
 public:
     static CoreController* Instance() {return instance;};
-    SFMLController* SfmlController() const { return sfmlController; }
-    ViewPortController* GetViewportController() const { return viewPortController; }
-    SystemController* GetSystemController() const { return systemController; }
-    FontController* GetFontController() const { return fontController; }
-    UIController* GetUIController() const { return uiController; }
+    static SFMLController* SfmlController() { return Instance()->sfmlController; }
+    static ViewPortController* GetViewportController() { return Instance()->viewPortController; }
+    static SystemController* GetSystemController() { return Instance()->systemController; }
+    static FontController* GetFontController() { return Instance()->fontController; }
+    static UIController* GetUIController() { return Instance()->uiController; }
     
     const helper::Time& GetTime() const { return time; }
     float GetDeltaTime() const { return deltaTime; }

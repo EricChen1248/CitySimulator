@@ -86,3 +86,11 @@ bool FoodRule::IsSatisfied()
 {
     return hungerLevel > 20;
 }
+
+/** 
+ * \brief Used to fill hunger before entering hospital 
+ */ 
+void FoodRule::FillHunger() 
+{ 
+    hungerLevel = INT_MAX; 
+} 

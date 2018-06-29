@@ -30,6 +30,8 @@ public:
     void Leave(Citizen* citizen);
     void EndDay();
 	void GenerateRoads();
+    void Destroy();
+    
 	Road* GetRoad(Plot* nextPlot);
 
 private:
