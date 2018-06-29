@@ -124,6 +124,17 @@ ConvexShape SFMLController::GenerateLine(const List<Plot*>& plots)
 {
     ConvexShape shape;
     shape.setPointCount(plots.Count() * 2);
+
+
+	const int count = plots.Count();
+	for (int i = 0; i < count; ++i)
+	{
+		shape.setPoint(i, plots[i]->Coords().ToScreenCoordinates().ToVector2F());
+	}
+	for (int i = 0; i < count; ++i)
+	{
+		shape.setPoint(i + count, plots[count - i - 1]->Coords().ToScreenCoordinates().ToVector2F());
+	}
     
     return shape;
 }
