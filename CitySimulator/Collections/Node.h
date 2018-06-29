@@ -8,7 +8,7 @@ template <typename T>
 class Node
 {
     template <typename IteratorType>
-    friend class Iterator;
+    friend class LinkedIterator;
     template <typename ListType>
     friend class List;
     template <typename QueueType>

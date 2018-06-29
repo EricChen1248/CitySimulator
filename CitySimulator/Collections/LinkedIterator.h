@@ -6,13 +6,13 @@
  * \tparam T Type of item that will be use with the class 
  */
 template<typename T>
-class Iterator
+class LinkedIterator
 {
 public:
-    Iterator(Node<T>& node) noexcept;
-    Iterator() noexcept;
+    LinkedIterator(Node<T>& node) noexcept;
+    LinkedIterator() noexcept;
     void operator++();
-    bool operator!=(Iterator<T>& other);
+    bool operator!=(LinkedIterator<T>& other);
     const T& operator*();
 private:
     Node<T>* node;
@@ -24,7 +24,7 @@ private:
  * \param node The "begin" / first node in the collection
  */
 template <typename T>
-Iterator<T>::Iterator(Node<T>& node) noexcept
+LinkedIterator<T>::LinkedIterator(Node<T>& node) noexcept
 {
     this->node = &node;
 }
@@ -33,7 +33,7 @@ Iterator<T>::Iterator(Node<T>& node) noexcept
  * \brief Used to generate the end iterator
  */
 template <typename T>
-Iterator<T>::Iterator() noexcept
+LinkedIterator<T>::LinkedIterator() noexcept
 {
     node = nullptr;
 }
@@ -42,7 +42,7 @@ Iterator<T>::Iterator() noexcept
  * \brief Advances the iterator to the next iter
  */
 template <typename T>
-void Iterator<T>::operator++()
+void LinkedIterator<T>::operator++()
 {
     node = node->next;
 }
@@ -53,7 +53,7 @@ void Iterator<T>::operator++()
  * \return False if address of node is different
  */
 template <typename T>
-bool Iterator<T>::operator!=(Iterator<T>& other)
+bool LinkedIterator<T>::operator!=(LinkedIterator<T>& other)
 {
     return node != other.node;
 }
@@ -63,7 +63,7 @@ bool Iterator<T>::operator!=(Iterator<T>& other)
  * \return The item stored in the node
  */
 template <typename T>
-const T& Iterator<T>::operator*()
+const T& LinkedIterator<T>::operator*()
 {
     return node->item;
 }
