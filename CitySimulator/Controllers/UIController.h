@@ -47,7 +47,6 @@ private:
     void InitSelection();
 
 	void InitSatisfaction();
-	sf::Color Satisfy(float ratio)const;
 	SFMLController& sfml;
 
     static SelectionButton* InitSelectionButton(int& y, const std::string& str, Color color);
