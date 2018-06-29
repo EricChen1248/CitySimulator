@@ -39,7 +39,7 @@ PathFinderNode::PathFinderNode(const Coordinate& coords) : coords(coords)
 void PathFinderNode::EstimateSteps(Coordinate& dest)
 {
     //TODO : Update pathfinder heuristics
-    estimatedSteps = dest.Distance(coords);
+    estimatedSteps = int(dest.Distance(coords));
 }
 
 

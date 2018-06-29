@@ -172,6 +172,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Assets\Fonts\Monofur.h" />
+    <ClInclude Include="Collections\Interfaces\IList.h" />
+    <ClInclude Include="Collections\LinkedList.h" />
+    <ClInclude Include="Collections\ListIterator.h" />
     <ClInclude Include="Controllers\Government.h" />
     <ClInclude Include="Controllers\UiObjects\SatisBar.h" />
     <ClInclude Include="Controllers\UiObjects\SelectionButton.h" />
@@ -192,7 +195,7 @@
     <ClInclude Include="Systems\Bank\BankRule.h" />
     <ClInclude Include="Systems\Bank\Bank.h" />
     <ClInclude Include="Collections\Dictionary.h" />
-    <ClInclude Include="Collections\Iterator.h" />
+    <ClInclude Include="Collections\LinkedIterator.h" />
     <ClInclude Include="Collections\MinHeap.h" />
     <ClInclude Include="Collections\PriorityNode.h" />
     <ClInclude Include="Collections\PriorityQueue.h" />

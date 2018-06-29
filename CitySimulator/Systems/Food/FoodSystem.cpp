@@ -47,7 +47,7 @@ void FoodSystem::Update()
 void FoodSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
 {
     // Dynamic cast rule to create a snapshot copy 
-    auto log = new Log(citizen->Coords(), new FoodRule(*dynamic_cast<FoodRule*>(rule)), citizen);
+    const auto log = new Log(citizen->Coords(), new FoodRule(*dynamic_cast<FoodRule*>(rule)), citizen);
     satisfiedLog.InsertLast(log);
 }
 
@@ -59,20 +59,6 @@ void FoodSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
 void FoodSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
 {
     // Dynamic cast rule to create a snapshot copy 
-    auto log = new Log(citizen->Coords(), new FoodRule(*dynamic_cast<FoodRule*>(rule)), citizen);
+    const auto log = new Log(citizen->Coords(), new FoodRule(*dynamic_cast<FoodRule*>(rule)), citizen);
     unsatisfiedLog.InsertLast(log);
-}
-
-
-/**
- * \brief Resets the day (clears log & resets plots)
- */
-void FoodSystem::EndDay()
-{
-    for (auto && plot : plots)
-    {
-        plot->GetPlotType()->EndDay();
-    }
-    unsatisfiedLog.Dispose();
-    satisfiedLog.Dispose();
 }
