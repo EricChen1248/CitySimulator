@@ -4,7 +4,7 @@
 
 
 Plot::Plot(const int x, const int y, const int z) : coords(x, y, z), size(10.f), shape(sf::CircleShape(size)),
-                                                    currentType(nullptr), roads(6);
+                                                    currentType(nullptr), roads(6)
 {
     shape.setFillColor(EMPTY_PLOT_COLOR);
     sCoords = coords.ToScreenCoordinates();
@@ -56,11 +56,14 @@ void Plot::EndDay()
     {
         currentType->EndDay();
     }
+    for (auto && road : roads)
+    {
+        break;
+    }
 }
 
 void Plot::GenerateRoads()
 {
-
 
 }
 
