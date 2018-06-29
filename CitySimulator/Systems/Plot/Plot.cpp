@@ -14,8 +14,7 @@ Plot::Plot(const int x, const int y, const int z) : coords(x, y, z), size(10.f),
 
 sf::CircleShape& Plot::UpdateShape()
 {
-    const auto tCoords = CoreController::Instance()->GetViewportController()->ToDrawCoord(sCoords);
-    shape.setPosition(tCoords.X, tCoords.Y);
+    shape.setPosition(sCoords.X, sCoords.Y);
     return shape;
 }
 

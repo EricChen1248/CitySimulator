@@ -24,7 +24,7 @@ void HomeSystem::Update()
 void HomeSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
 {
 	// Dynamic cast rule to create a snapshot copy 
-	auto log = new Log(citizen->Coords(), new HomeRule(*dynamic_cast<HomeRule*>(rule)), citizen);
+	const auto log = new Log(citizen->Coords(), new HomeRule(*dynamic_cast<HomeRule*>(rule)), citizen);
 	satisfiedLog.InsertLast(log);
 }
 
@@ -37,7 +37,7 @@ void HomeSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
 void HomeSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
 {
 	// Dynamic cast rule to create a snapshot copy 
-	auto log = new Log(citizen->Coords(), new HomeRule(*dynamic_cast<HomeRule*>(rule)), citizen);
+	const auto log = new Log(citizen->Coords(), new HomeRule(*dynamic_cast<HomeRule*>(rule)), citizen);
 	unsatisfiedLog.InsertLast(log);
 }
 void HomeSystem::EndDay()

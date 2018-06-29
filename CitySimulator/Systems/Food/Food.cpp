@@ -2,6 +2,7 @@
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/HelperFunctions.h"
+#include "../../Controllers/Government.h"
 
 Food::Food(Plot* plot) : Base(plot, FOOD)
 {

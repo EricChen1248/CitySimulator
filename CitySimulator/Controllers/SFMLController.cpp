@@ -14,15 +14,6 @@ RenderWindow* const& SFMLController::Window() const
     return window;
 }
 
-void SFMLController::UpdateCircleSize(CircleShape& circle)
-{
-    const auto mod = CoreController::Instance()->GetViewportController()->Modifier();
-    if (mod != 1)
-    {
-        circle.setRadius(circle.getRadius() * mod);
-    }
-}
-
 /**
  * \brief Initializes window and renderer for sdl
  */
@@ -53,60 +44,14 @@ bool SFMLController::IsRunning() const
 void SFMLController::ClearRender() const
 {
     window->clear(WHITE);
-    
 }
 
 
 /**
- * \brief Interface for drawing a circle to the RenderWindow
- * \param circle Circle to draw
- * \param isUi UI Flag, will not resize circle if is UI
+ * \brief Interface for drawing a shape to the RenderWindow
+ * \param shape Shape to draw
  */
-void SFMLController::DrawCircle(CircleShape& circle, const bool isUi) const
-{
-    if (!isUi)
-    {
-        UpdateCircleSize(circle);
-    }
-    
-    window->draw(circle);
-}
-
-/**
- * \brief Draws a rectangle to the window
- * \param rectangle Rectangel to draw to screen
- * \param isUi UI Flag, will not resize rect if is UI
- */
-void SFMLController::DrawRect(RectangleShape& rectangle, const bool isUi) const
-{
-    if (!isUi)
-    {
-        const auto mod = CoreController::Instance()->GetViewportController()->Modifier();
-        if (mod != 1)
-        {
-            rectangle.setSize(rectangle.getSize() * mod);
-        }
-    }
-    
-    window->draw(rectangle);
-}
-
-void SFMLController::DrawLine(ConvexShape shape, const bool isUi) const
-{
-    if (!isUi)
-    {
-        const auto mod = CoreController::Instance()->GetViewportController()->Modifier();
-        if (mod != 1)
-        {
-            shape.setOutlineThickness(shape.getOutlineThickness() * mod);
-			shape.setScale(shape.getScale() * mod);
-        }
-    }
-    
-    window->draw(shape);    
-}
-
-void SFMLController::DrawShape(sf::Shape& shape) const
+void SFMLController::DrawShape(const Shape& shape) const
 {
     window->draw(shape);
 }
@@ -120,21 +65,15 @@ void SFMLController::DrawString(Text& text) const
     window->draw(text);
 }
 
-sf::ConvexShape SFMLController::GenerateLine(const List<Plot*>& plots, const List<Plot*>& plots2)
+ConvexShape SFMLController::GenerateConvex(const List<Plot*>& plots)
 {
     ConvexShape shape;
-	const int count = plots.Count() - 1;
-    shape.setPointCount(count * 2);
-
+	const int count = plots.Count();
+    shape.setPointCount(count);
 
 	for (int i = 0; i < count; ++i)
 	{
 		shape.setPoint(i, plots[i]->Coords().ToScreenCoordinates().ToVector2F());
-	}
-    
-	for (int i = 0; i < count; ++i)
-	{
-		shape.setPoint(i + count, plots2[count - i]->Coords().ToScreenCoordinates().ToVector2F());
 	}
     
     return shape;

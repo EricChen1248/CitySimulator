@@ -1,8 +1,9 @@
 #include "UIController.h"
 #include "CoreController.h"
 #include "../Helpers/Constants.h"
+#include "Government.h"
 
-UIController::UIController() : sfml(*CoreController::Instance()->SfmlController())
+UIController::UIController() : sfml(*CoreController::SfmlController())
 {
 }
 
@@ -89,7 +90,7 @@ void UIController::NextDayButton()
 void UIController::Time()
 {
     timeText.setString(CoreController::Instance()->GetTime().ToShortString());
-    sfml.DrawRect(timeRect, true);
+    sfml.DrawShape(timeRect);
     sfml.DrawString(timeText);
 }
 
@@ -103,13 +104,13 @@ void UIController::Money()
     moneyText.setString("$" + std::to_string(static_cast<int>(Government::TaxDollars())));
     const sf::FloatRect bounds = moneyText.getLocalBounds();
     moneyText.setPosition(static_cast<float>(WINDOW_WIDTH - bounds.width) / 2, 2);
-    sfml.DrawRect(moneyRect, true);
+    sfml.DrawShape(moneyRect);
     sfml.DrawString(moneyText);
 }
 
 void UIController::DrawSelection()
 {
-    sfml.DrawRect(selectionBackGround, true);
+    sfml.DrawShape(selectionBackGround);
     for (auto && selectionButton : selectionButtons)
     {
         selectionButton->Draw(sfml);
@@ -123,7 +124,7 @@ void UIController::DrawSatisfaction() const
 		for (int i = 0; i < satisfyBar.Count(); i++)
 		{
 			auto tempPtr = satisfyBar[i];
-			tempPtr->render(scoreList[i]);
+			tempPtr->Render(scoreList[i]);
 			tempPtr->Draw(sfml);
 		}
 	}
@@ -175,6 +176,6 @@ SelectionButton* UIController::InitSelectionButton(int& y, const std::string& st
  
 void UIController::DrawStatus() 
 { 
-    sfml.DrawRect(statusRect, true); 
+    sfml.DrawShape(statusRect); 
 } 
  

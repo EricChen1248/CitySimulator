@@ -2,7 +2,6 @@
 #include <SFML/Graphics.hpp>
 #include "../../Collections/List.h"
 #include "../Plot/Plot.h"
-#include "../Plot/PlotSystem.h"
 class River
 {
 public:
@@ -13,13 +12,12 @@ public:
 private:
 	sf::ConvexShape shape;
 	
-	List<Plot*> riverPoint;
-	List<Plot*> leftPoint;
-	List<Plot*> rightPoint;
+	List<Plot*> riverPoints;
+	List<Plot*> leftPoints;
+	List<Plot*> rightPoints;
 	List<Plot*> leftBoundary;
 	List <Plot*> rightBoundary;
-	PlotSystem* plotSys;
 	const int riverWidth = 2;
-	void Init_Boundary();
+	void InitBoundary();
 };
 
