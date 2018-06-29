@@ -121,7 +121,6 @@ void Citizen::UpdateScreenCoordinates()
     auto sCoords = coords.ToScreenCoordinates();
     sCoords.X -= 2.5;
     sCoords.Y -= 2.5;
-    sCoords = CoreController::Instance()->GetViewportController()->ToDrawCoord(sCoords);
     shape.setPosition(sCoords.X, sCoords.Y);
 }
 

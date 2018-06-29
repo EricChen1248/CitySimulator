@@ -30,7 +30,7 @@ void Home::Enter()
 {
 	score += 5;
 }
-Plot* Home::GetPlot()
+Plot* Home::GetPlot() const
 {
 	return plot;
 }

@@ -1,5 +1,4 @@
 #include "Work.h"
-#include "WorkRule.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
 
@@ -27,7 +26,7 @@ void Work::EndDay()
 /**
 * \brief New entry ( +score )
 */
-void Work::Enter(int productDelta)
+void Work::Enter(const int productDelta)
 {
 	score += productDelta;
 }

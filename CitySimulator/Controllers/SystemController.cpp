@@ -21,7 +21,6 @@ void SystemController::Initialize()
 {
     plots = new PlotSystem;
     
-    
     // NONE,    FOOD,	WORK,	BANK,	HOME,	STORE, 	SCHOOL,    HOSPITAL
     BaseSystem* food = new FoodSystem();
 	BaseSystem* work = new WorkSystem();
@@ -124,7 +123,7 @@ void SystemController::Update() const
 /**
  * \brief Calls render functions of citizens and plots
  */
-void SystemController::Render()
+void SystemController::Render() const
 {
     citizens->Render();
     plots->Render();
@@ -134,10 +133,9 @@ void SystemController::Render()
 /**
  * \brief Calls render function of plots
  */
-void SystemController::RenderInterday()
+void SystemController::RenderInterday() const
 {
     plots->RenderInterDay();
-    citizens->RenderInterday();
 	river.Render();
 }
 

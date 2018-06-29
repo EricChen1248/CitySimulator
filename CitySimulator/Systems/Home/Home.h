@@ -14,7 +14,7 @@ public:
 	void Register(Citizen* citizen);
 	void EndDay();
 	bool Full() const;
-	Plot* GetPlot();
+	Plot* GetPlot() const;
 private:
 	//each home has it's own capacity
 	int homeCapacity;

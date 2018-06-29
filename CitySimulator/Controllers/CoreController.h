@@ -4,7 +4,6 @@
 #include "SystemController.h"
 #include "FontController.h"
 #include "UIController.h"
-#include "Government.h"
 
 /**
  * \brief Acts as the core of the game, initializing all systems, handles events, 
@@ -57,7 +56,7 @@ private:
     void ClearRender() const;    
     void PresentRender() const;
     // Game Functions
-    void GameInputEvents();
+    void GameInputEvents() const;
     void GameUpdateEvents() const;
     void GameRenderEvents() const;
     // Interday Functions

@@ -17,8 +17,8 @@ public:
     ~SystemController();
     void Initialize();
     void Update() const;
-    void Render();
-    void RenderInterday();
+    void Render() const;
+    void RenderInterday() const;
     void AdvanceDay() const;
 	void ResetDay();
 	int SystemCount()const;

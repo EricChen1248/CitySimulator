@@ -25,7 +25,7 @@ float BankRule::CalculateScore()
 */
 bool BankRule::FindPlot()
 {
-	auto &plots = CoreController::Instance()->GetSystemController()->GetSystem(BANK)->Plots();
+	auto &plots = CoreController::GetSystemController()->GetSystem(BANK)->Plots();
 	// Get a list of plots that fulfill out requirements ( distance < max distance)
 	//auto coords = citizen->Coords();
 

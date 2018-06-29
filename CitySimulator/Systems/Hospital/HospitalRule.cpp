@@ -27,7 +27,7 @@ float HospitalRule::CalculateScore()
  */
 bool HospitalRule::FindPlot()
 {
-    auto &plots = CoreController::Instance()->GetSystemController()->GetSystem(FOOD)->Plots();
+    auto &plots = CoreController::GetSystemController()->GetSystem(FOOD)->Plots();
     
     // Get a list of plots that fulfill out requirements ( distance < max distance
     List<Plot*> choices;

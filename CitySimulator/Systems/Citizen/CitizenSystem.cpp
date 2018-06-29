@@ -12,17 +12,16 @@ CitizenSystem::CitizenSystem()
 #else
     citizenCount = 5000;
 #endif
-    
+
     Logger::Log("Created " + std::to_string(citizenCount) + " citizens");
     for (int i = 0; i < citizenCount; ++i)
     {
         const auto plot = CoreController::Instance()->GetSystemController()->Plots();
-        const auto &randomPlot = plot->GetRandomPlot();
+        const auto& randomPlot = plot->GetRandomPlot();
         auto citizen = new Citizen(randomPlot);
         citizens.InsertLast(citizen);
     }
 }
-
 
 
 CitizenSystem::~CitizenSystem()
@@ -35,11 +34,11 @@ CitizenSystem::~CitizenSystem()
  */
 void CitizenSystem::Update() const
 {
-	for (auto && citizen : citizens)
-	{
-	    citizen->Update();
-	}
-	CalculateSatisfaction();
+    for (auto&& citizen : citizens)
+    {
+        citizen->Update();
+    }
+    CalculateSatisfaction();
 }
 
 /**
@@ -47,33 +46,13 @@ void CitizenSystem::Update() const
  */
 void CitizenSystem::Render() const
 {
-    for (auto && citizen : citizens)
+    for (auto&& citizen : citizens)
     {
-        
-        auto & shape = citizen->GetShape();
-        
-        // If citizen is inside a plot, no need to draw them, only need to update size
-        if (citizen->InPlot())
-        {
-            SFMLController::UpdateCircleSize(shape);
-            continue;
-        }
-        CoreController::Instance()->SfmlController()->DrawCircle(shape);
+        auto& shape = citizen->GetShape();
+
+        CoreController::SfmlController()->DrawShape(shape);
     }
 }
-
-/**
- * \brief Handles interday rendering for citizens
- */
-void CitizenSystem::RenderInterday() const
-{
-    for (auto && citizen : citizens)
-    {
-        auto & shape = citizen->GetShape();
-        SFMLController::UpdateCircleSize(shape);
-    }
-}
-
 
 /**
  * \brief Prunes all dead people at the end of the day
@@ -89,46 +68,47 @@ void CitizenSystem::PruneDead()
         }
     }
 }
+
 /**
 * \brief: assign every person a home
 */
- void CitizenSystem::ResetDay()
- {
-	 for (auto&& citizen : this->citizens)
-	 {
-		 citizen->EndDay();
-	 }
- }
+void CitizenSystem::ResetDay()
+{
+    for (auto&& citizen : this->citizens)
+    {
+        citizen->EndDay();
+    }
+}
 
- void CitizenSystem::CalculateSatisfaction() const
- {
-	
-	 const int systemCount = CoreController::Instance()->GetSystemController()->SystemCount();
-	 float* ruleScore = new float[systemCount];
-	 for (int i = 0; i < systemCount; i++)
-	 {
-		 ruleScore[i] = 0;
-	 }
-	 for (auto&& citizen : citizens)
-	 {
-		for (int j = 0; j < systemCount; j++)
-		{
-			auto rulePtr = citizen->FindRule(static_cast<System>(j + 1));
-            
-			if (rulePtr->IsSatisfied())
-			{
-				ruleScore[j] += (1.f/citizenCount);
-			}
-		}
-	 }
-	 while (CoreController::Instance()->GetUIController()->GetScoreList().Count() != 0)
-	 {
-		 CoreController::Instance()->GetUIController()->GetScoreList().RemoveLast();
-	 }
-	 for (int i = 0; i < systemCount; i++)
-	 {
-		 CoreController::Instance()->GetUIController()->GetScoreList().InsertLast(ruleScore[i]);
-	 }
-	 return;
+void CitizenSystem::CalculateSatisfaction() const
+{
+    const int systemCount = CoreController::GetSystemController()->SystemCount();
+    float* ruleScore = new float[systemCount];
+    for (int i = 0; i < systemCount; i++)
+    {
+        ruleScore[i] = 0;
+    }
+    for (auto&& citizen : citizens)
+    {
+        for (int j = 0; j < systemCount; j++)
+        {
+            auto rulePtr = citizen->FindRule(System(j + 1));
 
- }
+            if (rulePtr->IsSatisfied())
+            {
+                ruleScore[j] += (1.f / citizenCount);
+            }
+        }
+    }
+    while (CoreController::GetUIController()->GetScoreList().Count() != 0)
+    {
+        CoreController::GetUIController()->GetScoreList().RemoveLast();
+    }
+    for (int i = 0; i < systemCount; i++)
+    {
+        CoreController::GetUIController()->GetScoreList().InsertLast(ruleScore[i]);
+    }
+    delete [] ruleScore;
+
+    return;
+}

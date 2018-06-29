@@ -1,8 +1,5 @@
 #pragma once
-#include "../Systems/Plot/Plot.h"
 #include <SFML/Graphics.hpp>
-
-class Plot;
 
 class Plot;
 class Road

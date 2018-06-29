@@ -10,7 +10,6 @@ public:
     ~CitizenSystem();
     void Update() const;
     void Render() const;
-    void RenderInterday() const;
     void PruneDead();
 	void ResetDay();
 	void CalculateSatisfaction() const;
