@@ -65,6 +65,10 @@ void Plot::EndDay()
 void Plot::GenerateRoads()
 {
 
+
+
+
+
 }
 
 Road* Plot::GetRoad(Plot* nextPlot)

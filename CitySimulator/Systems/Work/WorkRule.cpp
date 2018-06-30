@@ -133,3 +133,20 @@ bool WorkRule::IsSatisfied()
 }
 
 // TODO: 工作滿意度?
+
+
+/**
+* \the first time a person gets his/her work
+* \
+*/
+
+
+bool WorkRule::Register()
+{
+	return true;
+}
+
+bool WorkRule::UnRegister()
+{
+	return true;
+}

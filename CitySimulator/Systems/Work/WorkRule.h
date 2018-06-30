@@ -31,4 +31,6 @@ private:
 	void LeavePlot(Plot* plot);
 	void Update();
 	bool IsSatisfied() override;
+	bool Register();
+	bool UnRegister();
 };
