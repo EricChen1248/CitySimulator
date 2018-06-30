@@ -74,8 +74,8 @@ void Citizen::Update()
         if (tempTarget == coords)
         {
             coords = tempTarget;
-            // Has arrived at final target
-            if (path->IsEmpty())
+            // Has arrived at final target or has no path
+            if (path == nullptr || path->IsEmpty())
             {
                 if (activeRule != nullptr)
                 {
@@ -290,8 +290,8 @@ void Citizen::FindRandomTarget()
 
     do
     {
-        target = CoreController::Instance()->GetSystemController()->Plots()->FindPlot(neighbours[rand() % 6]);
-    } while (target == nullptr);
+        target = CoreController::GetSystemController()->Plots()->FindPlot(neighbours[rand() % 6]);
+    } while (target == nullptr || target->IsRiver());
     delete[] neighbours;
     FindPath();
 }
@@ -313,5 +313,8 @@ void Citizen::FindPath()
 {
     delete path;
     path = PathFinder::PathTo(coords, target->Coords());
+    // No path found
+    if (path == nullptr) return;
+    
     tempTarget = path->Pop();
 }

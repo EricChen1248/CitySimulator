@@ -38,6 +38,8 @@ void SystemController::Initialize()
     systems.InsertLast(school);
     systems.InsertLast(hospital);
     
+	river.Init();
+    
     // TODO Remove demo
     for (auto && system : systems)
     {
@@ -46,7 +48,7 @@ void SystemController::Initialize()
             for (int i = 0; i < 5; ++i)
             {
                 auto plot = plots->GetRandomPlot();
-                while (plot->GetPlotType() != nullptr)
+                while (plot->GetPlotType() != nullptr || plot->IsRiver())
                 {
                     plot = plots->GetRandomPlot();
                 }
@@ -58,7 +60,7 @@ void SystemController::Initialize()
 			for (int i = 0; i < 5; ++i) 
 			{
 				auto plot = plots->GetRandomPlot();
-				while (plot->GetPlotType() != nullptr)
+				while (plot->GetPlotType() != nullptr || plot->IsRiver())
 				{
 					plot = plots->GetRandomPlot();
 				}
@@ -70,7 +72,7 @@ void SystemController::Initialize()
 			for (int i = 0; i < 5; ++i)
 			{
 				auto plot = plots->GetRandomPlot();
-				while (plot->GetPlotType() != nullptr)
+				while (plot->GetPlotType() != nullptr || plot->IsRiver())
 				{
 					plot = plots->GetRandomPlot();
 				}
@@ -83,7 +85,7 @@ void SystemController::Initialize()
 			for (int i = 0; i < 30; ++i)
 			{
 				auto plot = plots->GetRandomPlot();
-				while (plot->GetPlotType() != nullptr)
+				while (plot->GetPlotType() != nullptr || plot->IsRiver())
 				{
 					plot = plots->GetRandomPlot();
 				}
@@ -96,7 +98,7 @@ void SystemController::Initialize()
 			for (int i = 0; i < 10; ++i)
 			{
 				auto plot = plots->GetRandomPlot();
-				while (plot->GetPlotType() != nullptr)
+				while (plot->GetPlotType() != nullptr || plot->IsRiver())
 				{
 					plot = plots->GetRandomPlot();
 				}
@@ -105,7 +107,6 @@ void SystemController::Initialize()
 		}
     }
 	citizens = new CitizenSystem;
-	river.Init();
 }
 
 /**

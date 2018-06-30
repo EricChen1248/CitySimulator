@@ -10,9 +10,14 @@ class PathFinder
 public:    
     static void Initialize();
     static Stack<Coordinate>* PathTo(const Coordinate& source, Coordinate dest);
+    static bool Pathable(const Coordinate& source, Coordinate& dest) { return CoordToNodeMap(source)->quadrant != CoordToNodeMap(dest)->quadrant; }
+    static void MapPlot(Plot* plot);
+    static Plot* GetPlot(const Coordinate coords) { return CoordToNodeMap(coords)->plot; }
+    static void RemapQuadrants();
 private:
-    PathFinder() = default;;
+    PathFinder() = default;
     static int nodeCount;
+    static int quandrantCount;
     static bool initialized;
     static PathFinderNode*** nodesMap;
     static PathFinderNode** openList;

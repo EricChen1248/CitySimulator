@@ -33,7 +33,9 @@ public:
     void Destroy();
     
 	Road* GetRoad(Plot* nextPlot);
-
+    bool IsRiver() const { return river; }
+    
+    void MarkAsRiver() { river = true; };
 private:
     Coordinate coords;
     ScreenCoordinate sCoords{};
@@ -43,5 +45,7 @@ private:
     
     List<Citizen*> occupants;
 	List<Road*> roads;
+    int quadrant;
+    bool river;
 };
 

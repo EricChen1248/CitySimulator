@@ -2,9 +2,9 @@
 #include "../../Helpers/Constants.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
-#include <iostream>
+#include "../../Helpers/PathFinder/PathFinder.h"
 
-PlotSystem::PlotSystem(): hoverPlot(nullptr), selectedPlot(nullptr)
+PlotSystem::PlotSystem(): hoverPlot(nullptr), selectedPlot(nullptr), builtBridge(true)
 {
     const int size = RIGHT - LEFT;
     plotArray = new Plot**[size];
@@ -29,6 +29,7 @@ PlotSystem::PlotSystem(): hoverPlot(nullptr), selectedPlot(nullptr)
     for (auto && plot : plots)
     {
         plot->GenerateRoads();
+        PathFinder::MapPlot(plot);
     }
 }
 
@@ -112,7 +113,6 @@ void PlotSystem::HandleClick()
                 selectedPlot = hoverPlot;
                 shape.setOutlineColor(BLACK);
                 shape.setOutlineThickness(3);
-				std::cout << hoverPlot->Coords().X() << "," << hoverPlot->Coords().Y() << "," << hoverPlot->Coords().Z() << std::endl;
             }
         }
         else 
@@ -175,6 +175,9 @@ void PlotSystem::EndDay()
     for (auto && plot : plots)
     {
         plot->EndDay();
+    }
+    if (builtBridge)
+    {
     }
 }
 

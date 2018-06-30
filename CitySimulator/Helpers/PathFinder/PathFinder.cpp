@@ -3,9 +3,11 @@
 #include "../../Collections/PriorityQueue.h"
 #include "../Logger.h"
 #include "../HelperFunctions.h"
+#include "../../Collections/Queue.h"
 
 
 int PathFinder::nodeCount = 0;
+int PathFinder::quandrantCount = 0;
 bool PathFinder::initialized = false;
 PathFinderNode*** PathFinder::nodesMap;
 PathFinderNode** PathFinder::openList;
@@ -30,6 +32,11 @@ void PathFinder::Initialize()
         const int left = Max(LEFT -i, LEFT);
         const int right = Min(RIGHT - i, RIGHT);
         nodesMap[x] = new PathFinderNode*[size];
+        for (int j = 0; j < size; ++j)
+        {
+            nodesMap[x][j] = nullptr;
+        }
+        
         for (int j = left; j < right; ++j)
         {
             const int y = j - LEFT;
@@ -53,13 +60,19 @@ void PathFinder::Initialize()
  */
 Stack<Coordinate>* PathFinder::PathTo(const Coordinate& source, Coordinate dest)
 {
+    // If source and destination are in different quadrants, no path is available
+    if (CoordToNodeMap(source)->quadrant != CoordToNodeMap(dest)->quadrant)
+    {
+        return nullptr;
+    }
     const int size = RIGHT - LEFT;
     auto current = source;
     queue.Reset();
     auto currentNode = CoordToNodeMap(source);
     while (current != dest)
     {
-        for (auto && neighbour : currentNode->neighbours)
+        auto& neighbours = currentNode->neighbours;
+        for (auto && neighbour : neighbours)
         {
             auto neighbourNode = CoordToNodeMap(neighbour);
             auto & coords = neighbourNode->coords;
@@ -99,6 +112,68 @@ Stack<Coordinate>* PathFinder::PathTo(const Coordinate& source, Coordinate dest)
     }
     
     return path;
+}
+
+void PathFinder::MapPlot(Plot* plot)
+{
+    CoordToNodeMap(plot->Coords())->plot = plot;
+}
+
+void PathFinder::RemapQuadrants()
+{
+    // No need to remap if there is only one quadrant left
+    if (quandrantCount == 1)
+        return;
+
+    const int size = RIGHT - LEFT;
+    for (int i = 0; i < size; ++i)
+    {
+        for (int j = 0; j < size; ++j)
+        {
+            if (nodesMap[i][j] == nullptr || nodesMap[i][j]->plot->IsRiver())
+            {
+                continue;
+            }
+            nodesMap[i][j]->quadrant = INT_MAX;
+        }
+    }
+
+    int currentMapping = 0;
+    for (int i = 0; i < size; ++i)
+    {
+        for (int j = 0; j < size; ++j)
+        {
+            auto current = nodesMap[i][j];
+            if (current == nullptr || current->plot->IsRiver() || current->quadrant != INT_MAX)
+            {
+                continue;
+            }
+            Queue<PathFinderNode*> queue;
+            queue.Enqueue(current);
+
+
+            while (!queue.IsEmpty())
+            {
+                const auto node = queue.Peek();
+                queue.Dequeue();
+
+                auto& neighbours = node->neighbours;
+                // For all neighbours that is not a river and hasn't been marked yet, add to queue
+                for (auto&& neighbour : neighbours)
+                {
+                    auto n = CoordToNodeMap(neighbour);
+                    if (n->plot->IsRiver() || n->quadrant != INT_MAX)
+                    {
+                        continue;
+                    }
+                    n->quadrant = currentMapping;
+                    queue.Enqueue(n);
+                }
+            }
+            ++currentMapping;
+        }
+    }
+    quandrantCount = currentMapping;
 }
 
 /**

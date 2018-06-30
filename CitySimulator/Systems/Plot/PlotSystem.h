@@ -1,6 +1,5 @@
 #pragma once
 #include "Plot.h"
-#include "../../Collections/List.h"
 #include "../../Collections/LinkedList.h"
 
 /**
@@ -27,6 +26,6 @@ private:
     LinkedList<Plot*> plots;
     Plot* hoverPlot;
     Plot* selectedPlot;
-    
+    bool builtBridge;
 };
 

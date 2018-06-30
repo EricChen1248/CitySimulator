@@ -17,6 +17,7 @@ void River::Init()
     {
         auto plotPtr = plots->FindPlot(startPoint);
         riverPoints.InsertLast(plotPtr);
+        plotPtr->MarkAsRiver();
         points.InsertLast(startPoint.Right(0.88));
         points.InsertLast(startPoint.Left(0.88));
         

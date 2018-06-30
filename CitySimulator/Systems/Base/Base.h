@@ -23,6 +23,8 @@ public:
     virtual ~Base() = default;
     virtual void EndDay() = 0;
     virtual int ReturnScore() { return score; };
+    // TODO : Add Destroy behaviour
+    virtual void Destroy() { };
     
 protected:
     Plot* plot;

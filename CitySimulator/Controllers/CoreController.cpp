@@ -21,6 +21,7 @@ CoreController::CoreController()
     srand(static_cast<unsigned>(std::time(nullptr)));
     instance = this;
     isRunning = true;
+    PathFinder::Initialize();
     sfmlController = new SFMLController;
     viewPortController = new ViewPortController;
     systemController = new SystemController;
@@ -29,7 +30,7 @@ CoreController::CoreController()
     
     systemController->Initialize();
     uiController->Initialize();
-    PathFinder::Initialize();
+    PathFinder::RemapQuadrants();
 };
 CoreController::~CoreController()
 {
@@ -58,7 +59,6 @@ void CoreController::RunDayLoop(Clock& clock)
 #if SKIP_DAY
     time.IncreaseTime(24);
 #endif
-    
     int day = 0;
     int count = 0;
     while(true)

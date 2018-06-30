@@ -16,7 +16,7 @@ CitizenSystem::CitizenSystem()
     Logger::Log("Created " + std::to_string(citizenCount) + " citizens");
     for (int i = 0; i < citizenCount; ++i)
     {
-        const auto plot = CoreController::Instance()->GetSystemController()->Plots();
+        const auto plot = CoreController::GetSystemController()->Plots();
         const auto& randomPlot = plot->GetRandomPlot();
         auto citizen = new Citizen(randomPlot);
         citizens.InsertLast(citizen);

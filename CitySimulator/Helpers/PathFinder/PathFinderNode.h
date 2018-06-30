@@ -1,6 +1,7 @@
 #pragma once
 #include "../../Helpers/Coordinate.h"
 #include "../../Collections/List.h"
+#include "../../Systems/Plot/Plot.h"
 class PathFinder;
 
 /**
@@ -23,5 +24,7 @@ private:
     PathFinderNode* parent = nullptr;
     Coordinate coords;
     List<Coordinate> neighbours;
+    Plot* plot;
+    int quadrant;
 };
 
