@@ -12,7 +12,7 @@
 #include "../../Helpers/HelperFunctions.h"
 
 
-Citizen::Citizen(Plot* plot) : target(nullptr), activeRule(nullptr), coords(plot->Coords()), money(0), waitTime(0.f), inPlot(false), dead(false), age(0)
+Citizen::Citizen(Plot* plot) : target(nullptr), activeRule(nullptr), coords(plot->Coords()), money(0), waitTime(0.f), inPlot(false), dead(false), age(0), pathFindFailed(false)
 {
     moveSpeed = 1 + static_cast<float>(RandomInt(0, 40) - 20) / 100;
     shape = sf::CircleShape(5);
@@ -104,11 +104,15 @@ void Citizen::Update()
     
     // Citizen is leaving old target and finding next one;
     UpdateRules();
-    currentPlot->Leave(this);
-    if(activeRule != nullptr)
+    if (!pathFindFailed)
     {
-        activeRule->LeavePlot(currentPlot);
-        activeRule = nullptr;
+        currentPlot->Leave(this);
+        if(activeRule != nullptr)
+        {
+            activeRule->LeavePlot(currentPlot);
+            activeRule = nullptr;
+        }
+        pathFindFailed = false;
     }
     inPlot = false;
     coords = currentPlot->Coords();
@@ -314,7 +318,13 @@ void Citizen::FindPath()
     delete path;
     path = PathFinder::PathTo(coords, target->Coords());
     // No path found
-    if (path == nullptr) return;
+    if (path == nullptr)
+    {
+        target = nullptr;
+        activeRule = nullptr;
+        pathFindFailed = true;
+        return;
+    }
     
     tempTarget = path->Pop();
 }

@@ -63,6 +63,7 @@ float WorkRule::CalculateScore()
 
 		return 500000;
 	}
+    return 0;
 }
 
 /**

@@ -1,6 +1,7 @@
 #pragma once
 #include "PathFinderNode.h"
 #include "../../Collections/Stack.h"
+#include "../../Collections/PriorityQueue.h"
 
 /**
  * \brief Static class that uses A* heuristic pathfinding algorithm that can find a path from two coordinates
@@ -10,9 +11,9 @@ class PathFinder
 public:    
     static void Initialize();
     static Stack<Coordinate>* PathTo(const Coordinate& source, Coordinate dest);
-    static bool Pathable(const Coordinate& source, Coordinate& dest) { return CoordToNodeMap(source)->quadrant != CoordToNodeMap(dest)->quadrant; }
+    static bool Pathable(const Coordinate& source, const Coordinate& dest) { return CoordToNodeMap(source)->quadrant != CoordToNodeMap(dest)->quadrant; }
     static void MapPlot(Plot* plot);
-    static Plot* GetPlot(const Coordinate coords) { return CoordToNodeMap(coords)->plot; }
+    static Plot* GetPlot(const Coordinate& coords) { return CoordToNodeMap(coords)->plot; }
     static void RemapQuadrants();
 private:
     PathFinder() = default;

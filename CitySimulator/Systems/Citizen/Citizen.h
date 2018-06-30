@@ -63,6 +63,7 @@ private:
     bool inPlot;
     bool dead;
     int age;
+    bool pathFindFailed;
     
     // Misc Properties
     sf::CircleShape shape;
