@@ -34,6 +34,6 @@ private:
 	void Update();
 	bool IsSatisfied() override;
 	void NewDay(); //override
-	bool Register();
-	bool UnRegister();
+	void Register();
+	void UnRegister();
 };

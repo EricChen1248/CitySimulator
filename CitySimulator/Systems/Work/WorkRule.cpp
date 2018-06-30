@@ -140,7 +140,7 @@ void WorkRule::NewDay()
 * \
 */
 
-bool WorkRule::Register()
+void WorkRule::Register()
 {
 	auto &plots = CoreController::GetSystemController()->GetSystem(WORK)->Plots();
 	// Get a list of plots that fulfill out requirements ( distance < max distance
@@ -161,7 +161,7 @@ bool WorkRule::Register()
 	// TODO: ¥[¤j·j¯Á½d³ò¡I
 	if (choices.Count() == 0)
 	{
-		return false;
+		return;
 	}
 
 	const auto chosen = choices[RandomInt(0, choices.Count())];
@@ -179,11 +179,13 @@ bool WorkRule::Register()
 	int educationLv = schoolRule != nullptr ? schoolRule->getEdLvl() : 0;
 	salary += educationLv * 0.3f;
 
-	return true;
 }
 
-bool WorkRule::UnRegister()
+void WorkRule::UnRegister()
 {
-	assignedCompany = nullptr;
-	return true;
+	if (assignedCompany != nullptr)
+	{
+		// TODO : amount of people at work --
+		assignedCompany = nullptr;
+	}
 }
