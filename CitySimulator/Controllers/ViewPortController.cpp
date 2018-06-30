@@ -19,7 +19,8 @@ ViewPortController::~ViewPortController() = default;
  */
 void ViewPortController::HandleScroll(sf::Event& event)
 {
-    float deltaChange = event.mouseWheelScroll.delta < 0 ? 1.1f : 0.9f;
+    float deltaChange = -event.mouseWheelScroll.delta / 10 + 1.f;
+    // Clamp to maximum / minimum scrolling and recalculate new delta change
     const float newScroll = Clamp(scrollSize * deltaChange, 0.7f, 4.f);
     deltaChange = newScroll / scrollSize;
     
