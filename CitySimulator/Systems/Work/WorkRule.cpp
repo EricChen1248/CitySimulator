@@ -5,7 +5,6 @@
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
-#include "../../Helpers/PathFinder/PathFinder.h"
 
 using helper::Time;
 
@@ -20,19 +19,8 @@ Time WorkRule::timeOffWork;
  */
 WorkRule::WorkRule(Citizen& citizen) : BaseRule(citizen, WORK), assignedCompany(nullptr)
 {
-	// To Get SchoolRule
-	SchoolRule* schoolRule = dynamic_cast<SchoolRule*>(citizen.FindRule(SCHOOL));
-
-	// TODO : School Rule doesn't exist yet.
-	int educationLv;
-
-	if (schoolRule != nullptr)
-		educationLv = schoolRule->getEdLvl();
-	else
-		educationLv = 0;
-
 	production = static_cast<float>(RandomInt(50, 100));
-	salary = production * 0.5f + educationLv * 0.3f;
+	salary = production * 0.5f; // Salary may increase by education level later in Register()
 }
 
 WorkRule::~WorkRule() = default;
@@ -44,7 +32,7 @@ WorkRule::~WorkRule() = default;
  */
 float WorkRule::CalculateScore()
 {
-	if (citizen->Age() >= 18 && citizen->Age() < 45)
+	if (assignedCompany != nullptr)
 	{
 		const Time currentTime = CoreController::Instance()->GetTime();
 		// Now is not work time
@@ -64,7 +52,7 @@ float WorkRule::CalculateScore()
 
 		return 500000;
 	}
-    return 0;
+    return 0; // not have work
 }
 
 /**
@@ -73,40 +61,11 @@ float WorkRule::CalculateScore()
 */
 bool WorkRule::FindPlot()
 {
-	auto &plots = CoreController::GetSystemController()->GetSystem(WORK)->Plots();
 	if (assignedCompany == nullptr)
-	{
-		// Get a list of plots that fulfill out requirements ( distance < max distance
-		List<Plot*> choices;
-		for (auto && plot : plots)
-		{
-			auto coords = citizen->Coords();
-		    if (!Pathable(coords, plot->Coords())) continue;
-			const auto distance = plot->Coords().Distance(coords);
-			if (distance < maxDistance)
-			{
-				auto p = plot;
-				choices.InsertLast(p);
-			}
-		}
-
-		// If such a list doesn't exist. This rule returns failed result false
-		// TODO: ¥[¤j·j¯Á½d³ò¡I
-		if (choices.Count() == 0)
-		{
-			return false;
-		}
-
-		const auto chosen = choices[RandomInt(0, choices.Count())];
-
-		this->assignedCompany = chosen; // and then constant
-		citizen->SetActiveRule(this);
-		citizen->SetTarget(chosen);
-		return true;
-	}
+		return false;
 
 	citizen->SetActiveRule(this);
-	citizen->SetTarget(this->assignedCompany);
+	citizen->SetTarget(assignedCompany);
 	return true;
 }
 
@@ -168,6 +127,13 @@ bool WorkRule::IsSatisfied()
 	return true;
 }
 
+void WorkRule::NewDay()
+{
+	if (assignedCompany == nullptr && citizen->Age() >= 18 && citizen->Age() < 45)
+	{
+		Register();
+	}
+}
 
 /**
 * \the first time a person gets his/her work
@@ -176,10 +142,48 @@ bool WorkRule::IsSatisfied()
 
 bool WorkRule::Register()
 {
+	auto &plots = CoreController::GetSystemController()->GetSystem(WORK)->Plots();
+	// Get a list of plots that fulfill out requirements ( distance < max distance
+	List<Plot*> choices;
+	for (auto && plot : plots)
+	{
+		auto coords = citizen->Coords();
+		if (!Pathable(coords, plot->Coords())) continue;
+		const auto distance = plot->Coords().Distance(coords);
+		if (distance < maxDistance)
+		{
+			auto p = plot;
+			choices.InsertLast(p);
+		}
+	}
+
+	// If such a list doesn't exist. This rule returns failed result false
+	// TODO: ¥[¤j·j¯Á½d³ò¡I
+	if (choices.Count() == 0)
+	{
+		return false;
+	}
+
+	const auto chosen = choices[RandomInt(0, choices.Count())];
+
+	this->assignedCompany = chosen; // and then constant
+	citizen->SetActiveRule(this);
+	citizen->SetTarget(chosen);
+
+	// Adjust salary due to education level
+
+	// To Get SchoolRule
+	SchoolRule* schoolRule = dynamic_cast<SchoolRule*>(citizen->FindRule(SCHOOL));
+
+	// TODO : School Rule doesn't exist yet.
+	int educationLv = schoolRule != nullptr ? schoolRule->getEdLvl() : 0;
+	salary += educationLv * 0.3f;
+
 	return true;
 }
 
 bool WorkRule::UnRegister()
 {
+	assignedCompany = nullptr;
 	return true;
 }
