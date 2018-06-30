@@ -1,6 +1,7 @@
 #pragma once
 #include "Plot.h"
 #include "../../Collections/List.h"
+#include "../../Collections/LinkedList.h"
 
 /**
  * \brief Plot system that stores and handles the collective plots in the game
@@ -18,12 +19,12 @@ public:
     void FindHoverPlot();
     void ClearSelections();
     void EndDay();
-    const List<Plot*>& Plots() const { return plots; }
+    const LinkedList<Plot*>& Plots() const { return plots; }
 private:
     Plot* CoordToPlotArray(const Coordinate& coords) const;
     
     Plot*** plotArray;
-    List<Plot*> plots;
+    LinkedList<Plot*> plots;
     Plot* hoverPlot;
     Plot* selectedPlot;
     

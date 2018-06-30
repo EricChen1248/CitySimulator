@@ -1,6 +1,7 @@
 #pragma once
 #include "Citizen.h"
 #include "../../Collections/List.h"
+#include "../../Collections/LinkedList.h"
 
 
 class CitizenSystem
@@ -10,13 +11,12 @@ public:
     ~CitizenSystem();
     void Update() const;
     void Render() const;
-    void RenderInterday() const;
     void PruneDead();
 	void ResetDay();
 	void CalculateSatisfaction() const;
-    const List<Citizen*>& Citizens() const { return citizens; }
+    const LinkedList<Citizen*>& Citizens() const { return citizens; }
 private:
-    List<Citizen*> citizens;
+    LinkedList<Citizen*> citizens;
     int citizenCount;
 };
 

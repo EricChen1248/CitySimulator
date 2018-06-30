@@ -3,48 +3,47 @@
 #include "../SFMLController.h"
 #include "../../Helpers/Constants.h"
 #include "../../Systems/SystemEnum.h"
-#include "../../Helpers/Constants.h"
 
 
 struct SatisBar
 {
-	System system;
-	sf::RectangleShape shape;
-	SatisBar()
+	System Type;
+	RectangleShape Shape;
+	SatisBar(): Type(NONE)
+    {
+        Shape.setSize(Vector2f(148.f, 15.f));
+    }
+    ;
+	SatisBar(const System sys) : Type(sys)
 	{
-		shape.setSize(sf::Vector2f(148.f, 15.f));
-	};
-	SatisBar(System sys)
-	{
-		system = sys;
-		float multiple = static_cast<float>(system) - 1;
+		float multiple = static_cast<float>(Type) - 1;
 		multiple = 38 + (55 * multiple);
-		shape.setPosition(WINDOW_WIDTH - 152.f, multiple);
-		shape.setFillColor(WHITE);
+		Shape.setPosition(WINDOW_WIDTH - 152.f, multiple);
+		Shape.setFillColor(WHITE);
 	};
 
-	void render(float ratio)
+	void Render(const float ratio)
 	{
 		if (ratio < 0.3)
 		{
-			shape.setFillColor(UNSATISFIED_COLOR);
+			Shape.setFillColor(UNSATISFIED_COLOR);
 		}
 		else if ((ratio >= 0.3) && (ratio < 0.7))
 		{
-			shape.setFillColor(SATISFIED_COLOR);
+			Shape.setFillColor(SATISFIED_COLOR);
 		}
 		else
 		{
-			shape.setFillColor(SUPER_SATIFIED_COLOR);
+			Shape.setFillColor(SUPER_SATIFIED_COLOR);
 		}
 		
-		shape.setSize(sf::Vector2f(148.f*ratio, 15.f));
+		Shape.setSize(Vector2f(148.f*ratio, 15.f));
 		
 		return;
 	};
-	void Draw(SFMLController& sfml)
+	void Draw(SFMLController& sfml) const
 	{
-		sfml.DrawRect(shape,true);
+		sfml.DrawShape(Shape);
 	};
 
 };

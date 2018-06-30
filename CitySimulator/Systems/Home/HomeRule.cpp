@@ -31,28 +31,25 @@ float HomeRule::CalculateScore()
 */
 bool HomeRule::DecideHome()
 {
-	auto &plots = CoreController::Instance()->GetSystemController()->GetSystem(HOME)->Plots();
+	auto &plots = CoreController::GetSystemController()->GetSystem(HOME)->Plots();
 	Plot* chosen = nullptr;
 	int shortestDis = 1000;
 	//TODO: Design a better algorithm to find house for resident
+    
 	for (auto && plot : plots) 
 	{
-	
-		auto home = dynamic_cast<Home*>(plot->GetPlotType());
+		const auto home = dynamic_cast<Home*>(plot->GetPlotType());
 		auto coord = plot->Coords();
 		auto livable = true;
 		if (citizen->Age() >= 20)
 			 livable = (!home->Full());
-		if ((livable) && (citizen->Coords().Distance(coord) <= shortestDis))
+		if (livable && citizen->Coords().Distance(coord) <= shortestDis)
 		{
-				chosen = plot;
-				shortestDis = citizen->Coords().Distance(coord);
-		}
-		else
-		{
-			continue;
+			chosen = plot;
+			shortestDis = citizen->Coords().Distance(coord);
 		}
 	}
+    
 	if (chosen == nullptr)
 	{
 		return false;
@@ -60,7 +57,6 @@ bool HomeRule::DecideHome()
 	else
 	{
 		auto home = dynamic_cast<Home*>(chosen->GetPlotType());
-		
 		if (citizen->Age() >= 20)
 		{
 			home->Register(citizen);
@@ -108,7 +104,7 @@ void HomeRule::Update()
     const auto time = CoreController::Instance()->GetTime();
 	if (time.Hour>= goHomeTime.Hour)
 	{
-		homelessLevel = exp(time - goHomeTime);
+		homelessLevel = int(exp(time - goHomeTime));
 	}
 	else
 	{

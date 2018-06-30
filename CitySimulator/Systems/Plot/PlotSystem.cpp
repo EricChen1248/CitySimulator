@@ -46,7 +46,7 @@ void PlotSystem::Render() const
     for (auto && plot : plots)
     {
         auto & shape = plot->UpdateShape();
-        CoreController::Instance()->SfmlController()->DrawCircle(shape);
+        CoreController::SfmlController()->DrawShape(shape);
     }
 }
 
@@ -55,8 +55,7 @@ void PlotSystem::RenderInterDay()
     for (auto && plot : plots)
     {
         auto & shape = plot->UpdateShape();
-        SFMLController::UpdateCircleSize(shape);
-        CoreController::Instance()->SfmlController()->DrawCircle(shape, true);
+        CoreController::SfmlController()->DrawShape(shape);
     }
     HandleClick();
 }
@@ -87,20 +86,19 @@ Plot* PlotSystem::GetRandomPlot() const
  */
 void PlotSystem::HandleClick()
 {
-    const auto core = CoreController::Instance();
-    const auto window = core->SfmlController()->Window();
-    const auto view = core->GetViewportController();
-    auto mousePos = sf::Mouse::getPosition(*window);
+    const auto window = CoreController::SfmlController()->Window();
+    const auto view = CoreController::GetViewportController();
+    const auto mousePos = sf::Mouse::getPosition(*window);
     if (mousePos.x < 0 || mousePos.y < 0 || mousePos.x > WINDOW_WIDTH || mousePos.y > WINDOW_HEIGHT)
     {
         return;
     }
-    mousePos -= sf::Vector2<int>(WINDOW_WIDTH / 2 - view->ViewX(), WINDOW_HEIGHT / 2 - view->ViewY());
+    const auto adjustedMousePos = window->mapPixelToCoords(mousePos, view->GameView());
     if (hoverPlot != nullptr)
     {
         auto & shape = hoverPlot->GetShape();
         // If still over plot
-        if (shape.getGlobalBounds().contains(float(mousePos.x), float(mousePos.y)))
+        if (shape.getGlobalBounds().contains(adjustedMousePos.x, adjustedMousePos.y))
         {
 			
             // if mouse is clicked
@@ -136,14 +134,14 @@ void PlotSystem::HandleClick()
 
 void PlotSystem::FindHoverPlot()
 {
-    const auto core = CoreController::Instance();
-    const auto window = core->SfmlController()->Window();
-    const auto view = core->GetViewportController();
-    const auto &mousePos = sf::Mouse::getPosition(*window) - sf::Vector2<int>(WINDOW_WIDTH / 2 - view->ViewX(), WINDOW_HEIGHT / 2 - view->ViewY());
+    const auto window = CoreController::SfmlController()->Window();
+    const auto view = CoreController::GetViewportController();
+    const auto mousePos = sf::Mouse::getPosition(*window);
+    const auto adjustedMousePos = window->mapPixelToCoords(mousePos, view->GameView());
     for (auto && plot : plots)
     {
         auto & shape = plot->GetShape();
-        if (shape.getGlobalBounds().contains(float(mousePos.x), float(mousePos.y)))
+        if (shape.getGlobalBounds().contains(adjustedMousePos.x, adjustedMousePos.y))
         {
             hoverPlot = plot;
             if (hoverPlot != selectedPlot)

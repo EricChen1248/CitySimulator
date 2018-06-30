@@ -92,5 +92,5 @@ bool FoodRule::IsSatisfied()
  */ 
 void FoodRule::FillHunger() 
 { 
-    hungerLevel = INT_MAX; 
+    hungerLevel = std::numeric_limits<float>::max();; 
 } 

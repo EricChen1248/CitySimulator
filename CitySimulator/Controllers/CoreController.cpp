@@ -18,6 +18,7 @@ bool CoreController::IsRunning() const
 
 CoreController::CoreController()
 {
+    srand(static_cast<unsigned>(std::time(nullptr)));
     instance = this;
     isRunning = true;
     sfmlController = new SFMLController;
@@ -29,7 +30,6 @@ CoreController::CoreController()
     systemController->Initialize();
     uiController->Initialize();
     PathFinder::Initialize();
-    srand(static_cast<unsigned>(std::time(nullptr)));
 };
 CoreController::~CoreController()
 {
@@ -107,7 +107,6 @@ void CoreController::RunDayLoop(Clock& clock)
 #endif
             
             PresentRender();
-            viewPortController->ResetMod();
         }
         advanceDay = false;
 
@@ -120,7 +119,6 @@ void CoreController::RunDayLoop(Clock& clock)
             InterdayInputEvents();
             InterdayRenderEvents();       
             PresentRender();
-            viewPortController->ResetMod();
         }
         time.ResetDay();
         systemController->AdvanceDay();
@@ -176,7 +174,7 @@ void CoreController::GameUpdateEvents() const
 /**
  * \brief Handles SFML events
  */
-void CoreController::GameInputEvents()
+void CoreController::GameInputEvents() const
 {
     Window* window = sfmlController->Window();
     if (!window->hasFocus()) return;

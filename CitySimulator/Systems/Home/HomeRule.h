@@ -1,6 +1,5 @@
 #pragma once
 #include "../Base/BaseRule.h"
-#include "../Base/Base.h"
 #include "Home.h"
 #include "../../Helpers/Time.h"
 class BaseRule;
@@ -14,11 +13,11 @@ public:
 	HomeRule(Citizen& citizen);;
 	~HomeRule();
 
-	float CalculateScore();
-	bool FindPlot();
-	void EnterPlot(Plot* plot);
-	void LeavePlot(Plot* plot);
-	void Update();
+	float CalculateScore() override;
+	bool FindPlot() override;
+	void EnterPlot(Plot* plot) override;
+	void LeavePlot(Plot* plot) override;
+	void Update() override;
 	bool IsSatisfied() override;
 	void EndDay() override;
 private:

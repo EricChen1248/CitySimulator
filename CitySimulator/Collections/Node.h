@@ -10,7 +10,7 @@ class Node
     template <typename IteratorType>
     friend class LinkedIterator;
     template <typename ListType>
-    friend class List;
+    friend class LinkedList;
     template <typename QueueType>
     friend class Queue;
     template <class QueueType>

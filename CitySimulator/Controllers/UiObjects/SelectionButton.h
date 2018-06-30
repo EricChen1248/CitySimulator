@@ -32,6 +32,6 @@ struct SelectionButton
     {
         SelButton.Draw();  
         sfml.DrawString(Text);
-        sfml.DrawCircle(Circle, true);
+        sfml.DrawShape(Circle);
     }
 };

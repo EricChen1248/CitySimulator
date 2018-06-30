@@ -1,8 +1,5 @@
 #pragma once
-#include "../Systems/Plot/Plot.h"
 #include <SFML/Graphics.hpp>
-
-class Plot;
 
 class Plot;
 class Road
@@ -35,7 +32,7 @@ public:
 	void Leave();
 	bool isRoad(Plot* plotOne, Plot* plotTwo);
 	void EndDay();
-	void Render();
+	void Render() const;
 
 };
 

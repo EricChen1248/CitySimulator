@@ -78,7 +78,7 @@ void Road::EndDay()
 
 }
 
-void Road::Render()
+void Road::Render() const
 {
-	CoreController::Instance()->SfmlController()->DrawLine(shape);
+	CoreController::SfmlController()->DrawShape(shape);
 }

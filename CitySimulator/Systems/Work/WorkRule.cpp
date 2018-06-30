@@ -21,7 +21,9 @@ WorkRule::WorkRule(Citizen& citizen) : BaseRule(citizen, WORK), assignedCompany(
 {
 	// To Get BankRule
 	SchoolRule* schoolRule = dynamic_cast<SchoolRule*>(citizen.FindRule(SCHOOL));
-    const int educationLv = schoolRule->getEdLvl();
+	return;
+	// TODO : School Rule doesn't exist yet.
+	const int educationLv = schoolRule->getEdLvl();
 	production = static_cast<float>(RandomInt(50, 100));
 	salary = production * 0.5f + educationLv * 0.3f;
 }

@@ -5,6 +5,8 @@
 #include "../Collections/List.h"
 #include "UiObjects/SelectionButton.h"
 #include "UiObjects/SatisBar.h"
+#include "UiObjects/Slider.h"
+
 /**
  * \brief Handles all UI rendering and initialization in game
  */
@@ -31,25 +33,28 @@ private:
     RectangleShape nextDayMoShape{}; 
     sf::Text nextDayText{}; 
      
+    Slider birthRateSlider;
+    
     RectangleShape statusRect{}; 
     
     RectangleShape selectionBackGround{};
     List<SelectionButton*> selectionButtons{};
+    
 	List<SatisBar*> satisfyBar{};
-
-	//TODO: Eric Please check, whether this is a good implment of Satisfactory revealing System
 
 	List<float> scoreList ;
 
-    void NextDayButton();
-    void Time();
-    void Money();
+    void DrawNextDayButton();
+    void DrawTime();
+    void DrawMoney();
     void DrawSelection();  
     void DrawSatisfaction() const; 
-    void DrawStatus(); 
-    void InitSelection();
+    void DrawStatus() const; 
+    void DrawBirthRate();
 
+    void InitSelection();
 	void InitSatisfaction();
+    void InitBirthRate();
 	SFMLController& sfml;
 
     static SelectionButton* InitSelectionButton(int& y, const std::string& str, Color color);

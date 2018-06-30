@@ -9,6 +9,8 @@ int main(int argc, char* argv[])
 #else
     Logger::Log("Game Started in Release Mode");
 #endif
+
+	
     
     auto *core = new CoreController();
     try

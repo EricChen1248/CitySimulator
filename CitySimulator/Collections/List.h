@@ -14,6 +14,7 @@ public:
     void Remove(int index) override;
     void Remove(const T& item) override;
     void Dispose();
+    bool Contains(T& item);
     const int& Count() const override { return itemCount; };
     
     // ReSharper disable once CppInconsistentNaming : name matching required for range based for loops
@@ -102,4 +103,17 @@ void List<T>::Dispose()
     {
         delete array[i];
     }
+}
+
+template <typename T>
+bool List<T>::Contains(T& item)
+{
+    for (auto && t : *this)
+    {
+        if (item == t)
+        {
+            return true;
+        }
+    }
+    return false;
 }

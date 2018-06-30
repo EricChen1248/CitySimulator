@@ -12,6 +12,7 @@ Coordinate::Coordinate(const float x, const float y, const float z): x(x) , y(y)
 
 Coordinate::~Coordinate() = default;
 
+
 /**
  * \brief Converts game hexagonal coordinates to SFML cube coordinates
  * \return Returns the converted coordinates

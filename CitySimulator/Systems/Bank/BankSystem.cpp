@@ -46,7 +46,7 @@ void BankSystem::Update()
 void BankSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
 {
 	// Dynamic cast rule to create a snapshot copy 
-	auto log = new Log(citizen->Coords(), new BankRule(*dynamic_cast<BankRule*>(rule)), citizen);
+	const auto log = new Log(citizen->Coords(), new BankRule(*dynamic_cast<BankRule*>(rule)), citizen);
 	satisfiedLog.InsertLast(log);
 }
 
@@ -59,7 +59,7 @@ void BankSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
 void BankSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
 {
 	// Dynamic cast rule to create a snapshot copy 
-	auto log = new Log(citizen->Coords(), new BankRule(*dynamic_cast<BankRule*>(rule)), citizen);
+	const auto log = new Log(citizen->Coords(), new BankRule(*dynamic_cast<BankRule*>(rule)), citizen);
 	unsatisfiedLog.InsertLast(log);
 }
 
