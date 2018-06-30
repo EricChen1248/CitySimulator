@@ -5,6 +5,7 @@
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
+#include "../../Helpers/PathFinder/PathFinder.h"
 
 using helper::Time;
 
@@ -53,7 +54,7 @@ float WorkRule::CalculateScore()
 		}
 
 		// morning to work
-		if((timeToWork - currentTime) < earlyToWork)
+		if((timeToWork - currentTime) < earlyToWork) {}
 
 		// break time (want to back company)
 		if (endBreakTime > currentTime || currentTime > breakTime)
@@ -72,7 +73,7 @@ float WorkRule::CalculateScore()
 */
 bool WorkRule::FindPlot()
 {
-	auto &plots = CoreController::Instance()->GetSystemController()->GetSystem(WORK)->Plots();
+	auto &plots = CoreController::GetSystemController()->GetSystem(WORK)->Plots();
 	if (assignedCompany == nullptr)
 	{
 		// Get a list of plots that fulfill out requirements ( distance < max distance
@@ -80,6 +81,7 @@ bool WorkRule::FindPlot()
 		for (auto && plot : plots)
 		{
 			auto coords = citizen->Coords();
+		    if (!Pathable(coords, plot->Coords())) continue;
 			const auto distance = plot->Coords().Distance(coords);
 			if (distance < maxDistance)
 			{
@@ -129,7 +131,7 @@ void WorkRule::EnterPlot(Plot* plot)
 
 	citizen->Wait(workingTime); // Off Work on time
 
-	int workingExp = citizen->Age() - 18; // Salary increases due to experience
+    const int workingExp = citizen->Age() - 18; // Salary increases due to experience
 	work->Enter((production - salary - workingExp * 0.3) * workingTime / 4);
 }
 
@@ -140,7 +142,7 @@ void WorkRule::LeavePlot(Plot* plot)
 {
 	BankRule* bankRule = dynamic_cast<BankRule*>(citizen->FindRule(BANK));
 
-	int workingExp = citizen->Age() - 18; // Salary increases due to experience
+    const int workingExp = citizen->Age() - 18; // Salary increases due to experience
 	bankRule->saveMoney((salary + workingExp * 0.3) * workingTime / 4);
 
 	const Time currentTime = CoreController::Instance()->GetTime();

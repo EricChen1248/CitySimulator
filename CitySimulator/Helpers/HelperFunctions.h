@@ -1,5 +1,6 @@
 #pragma once
 #include <climits>
+#include "PathFinder/PathFinder.h"
 #include "../Controllers/CoreController.h"
 
 /**
@@ -10,7 +11,7 @@
  * \param upper upper bound to clamp to
  * \return Clamped results of input
  */
-template<typename T>
+template <typename T>
 static T Clamp(T input, T lower = INT_MIN, T upper = INT_MAX)
 {
     return input > upper ? upper : (input < lower ? lower : input);
@@ -27,7 +28,6 @@ static int RandomInt(const int lower, const int upper)
     return CoreController::RandomInt(lower, upper);
 }
 
-
 /**
  * \brief Gets the larger of two values
  * \tparam T Type of value being compared
@@ -35,7 +35,7 @@ static int RandomInt(const int lower, const int upper)
  * \param t2 Second value being compared
  * \return the larger of the t1 and t2
  */
-template<typename T>
+template <typename T>
 static T Max(T t1, T t2)
 {
     if (t1 > t2)
@@ -45,7 +45,6 @@ static T Max(T t1, T t2)
     return t2;
 }
 
-
 /**
  * \brief Gets the smalelr of two values
  * \tparam T Type of value being compared
@@ -53,7 +52,7 @@ static T Max(T t1, T t2)
  * \param t2 Second value being compared
  * \return the smaller of the t1 and t2
  */
-template<typename T>
+template <typename T>
 static T Min(T t1, T t2)
 {
     if (t1 < t2)
@@ -63,3 +62,13 @@ static T Min(T t1, T t2)
     return t2;
 }
 
+/**
+ * \brief Returns if two coordinates is pathable by the pathfinder
+ * \param coords1 First coordinate
+ * \param coords2 Second coordinate
+ * \return True if is pathable
+ */
+static bool Pathable(const Coordinate& coords1, const Coordinate& coords2)
+{
+    return PathFinder::Pathable(coords1, coords2);
+}

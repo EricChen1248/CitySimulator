@@ -3,7 +3,7 @@
 #include "../../Collections/List.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Time.h"
-#include "../../Helpers/PathFinder/PathFinder.h"
+#include "../../Helpers/HelperFunctions.h"
 
 HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME),myHome(nullptr)
 {
@@ -41,7 +41,7 @@ bool HomeRule::DecideHome()
 	{
 		auto coord = plot->Coords();
 	    // Skip home if not pathable
-	    if (!PathFinder::Pathable(citizen->Coords(), coord)) continue;
+	    if (!Pathable(citizen->Coords(), coord)) continue;
 		const auto home = dynamic_cast<Home*>(plot->GetPlotType());
 		auto livable = true;
 		if (citizen->Age() >= 20)

@@ -32,6 +32,7 @@ bool FoodRule::FindPlot()
     for (auto && plot : plots)
     {
         auto coords = citizen->Coords();
+        if (!Pathable(coords, plot->Coords())) continue;
         const auto distance = plot->Coords().Distance(coords);
         if (distance < maxDistance)
         {
