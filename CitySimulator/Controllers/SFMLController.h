@@ -8,6 +8,7 @@
 #include <SFML/Window.hpp>
 #include "../Collections/List.h"
 
+class Coordinate;
 class Plot;
 /**
  * \brief Handles all the interfacing with SFML
@@ -19,9 +20,10 @@ public:
     sf::RenderWindow* const& Window() const;
     
     void DrawShape(const sf::Shape& shape) const;
+    void DrawShape(const sf::VertexArray& array) const;
     void DrawString(sf::Text& text) const;
-    static sf::ConvexShape GenerateConvex(const List<Plot*>& plots);
-    static sf::ConvexShape GenerateLine(Plot* plot1, Plot* plot2);
+    static sf::VertexArray GenerateVertexArray(const List<Coordinate>& plots);
+    static sf::ConvexShape GenerateLine(const Coordinate& coord1, const Coordinate& coord2);
 private:
     // Constructors and Destructors
     SFMLController();

@@ -7,6 +7,7 @@ River::River() = default;
 
 void River::Init()
 {
+    List<Coordinate> points;
     const auto& plots = CoreController::GetSystemController()->Plots();
     InitBoundary();
     const int adjustedRight = RIGHT - 1;
@@ -16,56 +17,29 @@ void River::Init()
     {
         auto plotPtr = plots->FindPlot(startPoint);
         riverPoints.InsertLast(plotPtr);
+        points.InsertLast(startPoint.Right(0.88));
+        points.InsertLast(startPoint.Left(0.88));
         
-        //1 means go left, 2 go right;
-        int random = RandomInt(1, 2);
+        //0 means go left, 1 go right;
+        int random = RandomInt(0, 2);
         
         if (rightBoundary.Contains(plotPtr))
         {
-            random = 1;
+            random = 0;
         }
         else if (leftBoundary.Contains(plotPtr))
         {
-            random = 2;
+            random = 1;
         }
-
-        int positionX = startPoint.X();
-        int positionY = startPoint.Y();
-        random == 1 ? --positionX : --positionY;
-        startPoint = Coordinate(positionX, positionY, startPoint.Z() + 1);
-    }
-    
-    for (auto&& plot : riverPoints)
-    {
-        const Coordinate tempCoordR(plot->Coords().X() + 1, plot->Coords().Y(), plot->Coords().Z() - 1);
-        auto ptr = plots->FindPlot(tempCoordR);
-        if (ptr != nullptr)
-        {
-            rightPoints.InsertLast(ptr);
-        }
-        const Coordinate tempCoordL(plot->Coords().X() - 1, plot->Coords().Y() + 1, plot->Coords().Z());
-        ptr = plots->FindPlot(tempCoordL);
         
-        if (ptr != nullptr)
-        {
-            leftPoints.InsertLast(ptr);
-        }
-    }
-
-    List<Plot*> points(62);
-    for (auto && point : leftPoints)
-    {
-        points.InsertLast(point);
+        startPoint = random == 0 ? startPoint.LeftUp() : startPoint.RightUp();
     }
     
-    for (int i = rightPoints.Count() - 1; i >= 0; --i)
+    shape = SFMLController::GenerateVertexArray(points);
+    for (size_t i = 0; i < shape.getVertexCount(); ++i)
     {
-        points.InsertLast(rightPoints[i]);
+        shape[i].color = RIVER_COLOR;
     }
-    
-    shape = SFMLController::GenerateConvex(points);
-    shape.setFillColor(RIVER_COLOR);
-    shape.setOutlineThickness(10);
 }
 
 River::~River()
@@ -81,8 +55,6 @@ void River::InitBoundary()
     const auto& plots = CoreController::GetSystemController()->Plots();
     
     const int adjustedRight = RIGHT - 1;
-    const int xyMove = -1;
-    const int zMove = 2;
 
     Coordinate leftStartPoint(0, adjustedRight, LEFT);
     Coordinate rightStartPoint(adjustedRight - riverWidth, riverWidth, LEFT);
@@ -92,11 +64,9 @@ void River::InitBoundary()
         auto rightPlotPtr = plots->FindPlot(rightStartPoint);
         leftBoundary.InsertLast(leftPlotPtr);
         rightBoundary.InsertLast(rightPlotPtr);
-        const Coordinate tempLeft(leftStartPoint.X() + xyMove, leftStartPoint.Y() + xyMove, leftStartPoint.Z() + zMove);
-        const Coordinate tempRight(rightStartPoint.X() + xyMove, rightStartPoint.Y() + xyMove,
-                                   leftStartPoint.Z() + zMove);
-        leftStartPoint = tempLeft;
-        rightStartPoint = tempRight;
+        
+        leftStartPoint = leftStartPoint.LeftUp().RightUp();
+        rightStartPoint = rightStartPoint.LeftUp().RightUp();
     }
     return;
 }

@@ -56,6 +56,11 @@ void SFMLController::DrawShape(const Shape& shape) const
     window->draw(shape);
 }
 
+void SFMLController::DrawShape(const sf::VertexArray& array) const
+{
+    window->draw(array);
+}
+
 /**
  * \brief Draws a string to the window
  * \param text Text to draw to screen
@@ -65,26 +70,25 @@ void SFMLController::DrawString(Text& text) const
     window->draw(text);
 }
 
-ConvexShape SFMLController::GenerateConvex(const List<Plot*>& plots)
+VertexArray SFMLController::GenerateVertexArray(const List<Coordinate>& coords)
 {
-    ConvexShape shape;
-	const int count = plots.Count();
-    shape.setPointCount(count);
+	const int count = coords.Count();
+    VertexArray shape(TriangleStrip, count);
 
 	for (int i = 0; i < count; ++i)
 	{
-		shape.setPoint(i, plots[i]->Coords().ToScreenCoordinates().ToVector2F());
+		shape[i].position = coords[i].ToScreenCoordinates().ToVector2F() + Vector2f(7,7);
 	}
     
     return shape;
 }
 
-ConvexShape SFMLController::GenerateLine(Plot* plot1, Plot* plot2)
+ConvexShape SFMLController::GenerateLine(const Coordinate& coord1, const Coordinate& coord2)
 {
     ConvexShape shape;
     shape.setPointCount(2);
-    shape.setPoint(0, plot1->Coords().ToScreenCoordinates().ToVector2F());
-    shape.setPoint(1, plot2->Coords().ToScreenCoordinates().ToVector2F());
+    shape.setPoint(0, coord1.ToScreenCoordinates().ToVector2F());
+    shape.setPoint(1, coord2.ToScreenCoordinates().ToVector2F());
     return shape;
 }
 
