@@ -21,7 +21,8 @@ float Road::Speed()
 	// Traffic jam
 	// TODO: 0.2 or ?
 	if (isBroken)
-		return 0;
+		return 0.01; // can pass but very slowly
+	
 	return static_cast<float>(level) - 0.2f * (citizenCount > capacity);
 }
 
