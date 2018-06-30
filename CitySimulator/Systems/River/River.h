@@ -10,11 +10,9 @@ public:
 	void Render() const;
 	void Init();
 private:
-	sf::ConvexShape shape;
+	sf::VertexArray shape;
 	
 	List<Plot*> riverPoints;
-	List<Plot*> leftPoints;
-	List<Plot*> rightPoints;
 	List<Plot*> leftBoundary;
 	List <Plot*> rightBoundary;
 	const int riverWidth = 2;
