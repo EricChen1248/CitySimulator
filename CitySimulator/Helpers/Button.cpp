@@ -28,7 +28,7 @@ void Button::Draw()
     {
         shape.setFillColor(color);
     }
-    CoreController::Instance()->SfmlController()->DrawShape(shape);
+    CoreController::SfmlController()->DrawShape(shape);
 }
 
 /**
@@ -37,7 +37,12 @@ void Button::Draw()
  */
 bool Button::IsInBounds() const
 {   
-    const sf::Window* window = CoreController::Instance()->SfmlController()->Window();
+    const sf::Window* window = CoreController::SfmlController()->Window();
     const auto &mousePos = sf::Mouse::getPosition(*window);
     return shape.getGlobalBounds().contains(float(mousePos.x), float(mousePos.y));
+}
+
+void Button::SetPosition(const Vector2f position)
+{
+    shape.setPosition(position);
 }

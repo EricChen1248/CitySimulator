@@ -20,7 +20,7 @@ void River::Init()
         points.InsertLast(startPoint.Right(0.88));
         points.InsertLast(startPoint.Left(0.88));
         
-        //0 means go left, 1 go right;
+        // 0 means go left, 1 go right;
         int random = RandomInt(0, 2);
         
         if (rightBoundary.Contains(plotPtr))

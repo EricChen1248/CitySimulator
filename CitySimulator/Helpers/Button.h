@@ -17,6 +17,7 @@ public:
     ~Button();
     void Draw();
     bool IsInBounds() const;
+    void SetPosition(Vector2f position);
 private:
     RectangleShape shape;
     Color color;

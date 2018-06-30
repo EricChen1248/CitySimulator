@@ -6,6 +6,7 @@ ViewPortController::ViewPortController()
 {
     scrollSize = 1;
     gameView.setSize(static_cast<float>(WINDOW_WIDTH), static_cast<float>(WINDOW_HEIGHT));
+    gameView.setCenter(Coordinate(0,0,0).ToScreenCoordinates().ToVector2F());
     uiView.setCenter(static_cast<float>(WINDOW_WIDTH) / 2, static_cast<float>(WINDOW_HEIGHT) / 2);
     uiView.setSize(static_cast<float>(WINDOW_WIDTH), static_cast<float>(WINDOW_HEIGHT));
     UpdateGameView();
@@ -20,7 +21,7 @@ ViewPortController::~ViewPortController() = default;
 void ViewPortController::HandleScroll(sf::Event& event)
 {
     float deltaChange = -event.mouseWheelScroll.delta / 10 + 1.f;
-    // Clamp to maximum / minimum scrolling and recalculate new delta change
+    // Clamp to maximum / minimum scrolling and recalculate new deltaChange
     const float newScroll = Clamp(scrollSize * deltaChange, 0.7f, 4.f);
     deltaChange = newScroll / scrollSize;
     
@@ -67,7 +68,6 @@ void ViewPortController::Down()
  */
 void ViewPortController::UpdateGameView() const
 {
-    //gameView.setCenter(static_cast<float>(viewX), static_cast<float>(viewY));
     CoreController::SfmlController()->Window()->setView(gameView);
 }
 
