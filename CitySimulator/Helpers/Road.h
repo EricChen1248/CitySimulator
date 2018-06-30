@@ -32,7 +32,7 @@ public:
 	void Leave();
 	bool isRoad(Plot* plotOne, Plot* plotTwo);
 	void EndDay();
-	void Render();
+	void Render() const;
 
 };
 
