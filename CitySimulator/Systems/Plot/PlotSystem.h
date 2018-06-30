@@ -18,6 +18,7 @@ public:
     void FindHoverPlot();
     void ClearSelections();
     void EndDay();
+    const List<Plot*>& Plots() const { return plots; }
 private:
     Plot* CoordToPlotArray(const Coordinate& coords) const;
     

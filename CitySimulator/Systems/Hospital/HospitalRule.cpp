@@ -4,7 +4,7 @@
 #include "Hospital.h"
 #include "../../Helpers/HelperFunctions.h"
 
-HospitalRule::HospitalRule(Citizen& citizen): BaseRule(citizen, HOSPITAL), hungerLevel(0)
+HospitalRule::HospitalRule(Citizen& citizen): BaseRule(citizen, HOSPITAL) 
 {
 }
 
@@ -12,6 +12,12 @@ HospitalRule::~HospitalRule() = default;
 
 float HospitalRule::CalculateScore()
 {
+    // TODO: the biggest 
+    if(enter) 
+        return 50000;  
+ 
+     
+     
     return 0;
 }
 
@@ -64,7 +70,6 @@ void HospitalRule::EnterPlot(Plot* plot)
  */
 void HospitalRule::LeavePlot(Plot* plot)
 {
-    hungerLevel = 100.f;
 }
 
 /**
@@ -72,8 +77,6 @@ void HospitalRule::LeavePlot(Plot* plot)
  */
 void HospitalRule::Update()
 {
-    // TODO : Tweak hunger to time ratio
-    hungerLevel -= CoreController::Instance()->GetDeltaTime() * 240;
 }
 
 /**

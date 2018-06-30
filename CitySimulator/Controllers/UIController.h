@@ -20,16 +20,18 @@ public:
     bool NextDayButtonHover() const { return nextDay.IsInBounds(); };
 	List<float>& GetScoreList(){ return scoreList; };
 private:
-    sf::Text timeText{};
-    sf::RectangleShape timeRect{};
-    
-    sf::Text moneyText{};
-    sf::RectangleShape moneyRect{};
-    
-    Button nextDay;
-    sf::RectangleShape nextDayShape{};
-    sf::RectangleShape nextDayMoShape{};
-    sf::Text nextDayText{};
+    sf::Text timeText{}; 
+    RectangleShape timeRect{}; 
+     
+    sf::Text moneyText{}; 
+    RectangleShape moneyRect{}; 
+     
+    Button nextDay; 
+    RectangleShape nextDayShape{}; 
+    RectangleShape nextDayMoShape{}; 
+    sf::Text nextDayText{}; 
+     
+    RectangleShape statusRect{}; 
     
     RectangleShape selectionBackGround{};
     List<SelectionButton*> selectionButtons{};
@@ -42,8 +44,9 @@ private:
     void NextDayButton();
     void Time();
     void Money();
-    void DrawSelection();
-	void DrawSatisfaction();
+    void DrawSelection();  
+    void DrawSatisfaction() const; 
+    void DrawStatus(); 
     void InitSelection();
 
 	void InitSatisfaction();

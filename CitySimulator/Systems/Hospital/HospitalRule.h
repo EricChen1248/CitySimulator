@@ -20,6 +20,6 @@ public:
     bool IsSatisfied() override;
 private:
     const int maxDistance = 10;
-    float hungerLevel;
+    bool enter = false; 
 };
 
