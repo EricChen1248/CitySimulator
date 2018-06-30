@@ -17,7 +17,7 @@ class SFMLController
 {
 friend class CoreController;
 public:
-    sf::RenderWindow* const& Window() const;
+    sf::RenderWindow* Window() const;
     
     void DrawShape(const sf::Shape& shape) const;
     void DrawShape(const sf::VertexArray& array) const;

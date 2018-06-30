@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Line.h"
 
 class Plot;
 class Road
@@ -13,7 +14,7 @@ private:
 	float lifespan{};
 	bool isBroken;
 
-	sf::ConvexShape shape;
+	Line shape;
 
 public:
 	Road(Plot* plotOne, Plot* plotTwo);
@@ -30,7 +31,7 @@ public:
 	//Function
 	void Enter();
 	void Leave();
-	bool isRoad(Plot* plotOne, Plot* plotTwo);
+	bool IsRoad(Plot* plotOne, Plot* plotTwo) const;
 	void EndDay();
 	void Render() const;
 

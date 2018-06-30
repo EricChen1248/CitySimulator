@@ -74,7 +74,7 @@ Road* Plot::GetRoad(Plot* nextPlot)
 {
 	for (auto&& road : roads)
 	{
-		if (road->isRoad(this, nextPlot))
+		if (road->IsRoad(this, nextPlot))
 			return road;
 	}
 	return nullptr;

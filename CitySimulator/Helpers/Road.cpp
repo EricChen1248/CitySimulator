@@ -6,6 +6,7 @@
 Road::Road(Plot* plotOne, Plot* plotTwo) : plotOne(plotOne), plotTwo(plotTwo), level(1), capacity(100), citizenCount(0), lifespan(50.f), isBroken(false)
 // TODO: number of capacity, lifespan 
 {
+    shape = Line(plotOne->Coords(), plotTwo->Coords(), LIGHT_GREY, 2);
 }
 
 
@@ -55,7 +56,7 @@ void Road::Leave()
 }
 
 
-bool Road::isRoad(Plot* plotOne, Plot* plotTwo)
+bool Road::IsRoad(Plot* plotOne, Plot* plotTwo) const
 {
 	if (this->plotOne == plotOne && this->plotTwo == plotTwo)
 		return true;
@@ -80,5 +81,5 @@ void Road::EndDay()
 
 void Road::Render() const
 {
-	CoreController::SfmlController()->DrawShape(shape);
+	shape.Render(CoreController::SfmlController()->Window());
 }

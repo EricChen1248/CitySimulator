@@ -9,7 +9,7 @@ using namespace sf;
  * \brief  Gets the window of SDL controller
  * \return Reference to the window
  */
-RenderWindow* const& SFMLController::Window() const
+RenderWindow* SFMLController::Window() const
 {
     return window;
 }
@@ -56,7 +56,7 @@ void SFMLController::DrawShape(const Shape& shape) const
     window->draw(shape);
 }
 
-void SFMLController::DrawShape(const sf::VertexArray& array) const
+void SFMLController::DrawShape(const VertexArray& array) const
 {
     window->draw(array);
 }
