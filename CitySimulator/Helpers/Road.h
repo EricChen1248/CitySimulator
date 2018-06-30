@@ -14,6 +14,7 @@ private:
 	int capacity;
 	int citizenCount;
 	float lifespan{};
+	bool isBroken;
 
 	sf::ConvexShape shape;
 
@@ -26,6 +27,7 @@ public:
 
 	//Setter
 	int LevelUp();
+	int Repair();
 
 
 	//Function
@@ -34,7 +36,6 @@ public:
 	bool isRoad(Plot* plotOne, Plot* plotTwo);
 	void EndDay();
 	void Render();
-
 
 };
 

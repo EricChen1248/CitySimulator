@@ -3,7 +3,7 @@
 
 
 
-Road::Road(Plot* plotOne, Plot* plotTwo) : plotOne(plotOne), plotTwo(plotTwo), level(1), capacity(100), citizenCount(0), lifespan(50.f)
+Road::Road(Plot* plotOne, Plot* plotTwo) : plotOne(plotOne), plotTwo(plotTwo), level(1), capacity(100), citizenCount(0), lifespan(50.f), isBroken(false)
 // TODO: number of capacity, lifespan 
 {
 }
@@ -19,6 +19,8 @@ float Road::Speed()
 {
 	// Traffic jam
 	// TODO: 0.2 or ?
+	if (isBroken)
+		return 0;
 	return static_cast<float>(level) - 0.2f * (citizenCount > capacity);
 }
 
@@ -33,17 +35,23 @@ int Road::LevelUp()
 	return 30; // cost 
 }
 
+int Road::Repair()
+{
+	// TODO: number
+	isBroken = false;
+	lifespan = 50; // replenish
+	return 30; // repair cost 
+}
 
 void Road::Enter()
 {
 	citizenCount++;
-	//lifespan
-
 }
 
 void Road::Leave()
 {
-
+	citizenCount--;
+	lifespan -= 0.01; //TODO:0.01
 }
 
 
@@ -59,11 +67,18 @@ bool Road::isRoad(Plot* plotOne, Plot* plotTwo)
 
 void Road::EndDay()
 {
-	//TODO:Level2 ¥H¤W´î·l
-	//TODO:°»´ú´î·l
+	// If road's level is higher than one, it should depreciate.
+	if (level > 1)
+		lifespan -= 1; //TODO: 1
+
+	// Check if the road is broken
+	if (lifespan < 0)
+		isBroken = true;
+		// TODO: show raod broken (color:red)
+
 }
 
 void Road::Render()
 {
-	//CoreController::Instance()->GetUIController()->RenderLine(shape);
+	CoreController::Instance()->SfmlController()->DrawLine(shape);
 }
