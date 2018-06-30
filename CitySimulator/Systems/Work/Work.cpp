@@ -1,6 +1,7 @@
 #include "Work.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
+#include "../../Controllers/Government.h"
 
 
 /**
@@ -26,7 +27,8 @@ void Work::EndDay()
 /**
 * \brief New entry ( +score )
 */
-void Work::Enter(const int productDelta)
+void Work::Enter(const float productDelta)
 {
-	score += productDelta;
+	//score += static_cast<int>(productDelta);
+	Government::AddTax(productDelta * 0.1f);
 }

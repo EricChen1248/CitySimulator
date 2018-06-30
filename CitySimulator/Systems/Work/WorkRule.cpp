@@ -19,11 +19,17 @@ Time WorkRule::timeOffWork;
  */
 WorkRule::WorkRule(Citizen& citizen) : BaseRule(citizen, WORK), assignedCompany(nullptr)
 {
-	// To Get BankRule
+	// To Get SchoolRule
 	SchoolRule* schoolRule = dynamic_cast<SchoolRule*>(citizen.FindRule(SCHOOL));
-	return;
+
 	// TODO : School Rule doesn't exist yet.
-	const int educationLv = schoolRule->getEdLvl();
+	int educationLv;
+
+	if (schoolRule != nullptr)
+		educationLv = schoolRule->getEdLvl();
+	else
+		educationLv = 0;
+
 	production = static_cast<float>(RandomInt(50, 100));
 	salary = production * 0.5f + educationLv * 0.3f;
 }
@@ -37,22 +43,26 @@ WorkRule::~WorkRule() = default;
  */
 float WorkRule::CalculateScore()
 {
-    const Time currentTime = CoreController::Instance()->GetTime();
-
-
-	// Now is not work time
-	if (timeToWork > currentTime || currentTime > timeOffWork)
+	if (citizen->Age() >= 18 && citizen->Age() < 45)
 	{
-		return 0;
-	}
+		const Time currentTime = CoreController::Instance()->GetTime();
+		// Now is not work time
+		if (timeToWork > currentTime || currentTime > timeOffWork)
+		{
+			return 0;
+		}
 
-	// break time
-	if (endBreakTime > currentTime || currentTime > breakTime)
-	{
-		citizen->ForceRule(FOOD, 1.f);
-	}
+		// morning to work
+		if((timeToWork - currentTime) < earlyToWork)
 
-	return 500000;
+		// break time (want to back company)
+		if (endBreakTime > currentTime || currentTime > breakTime)
+		{
+			return 50000;
+		}
+
+		return 500000;
+	}
 }
 
 /**
@@ -104,8 +114,22 @@ bool WorkRule::FindPlot()
 void WorkRule::EnterPlot(Plot* plot)
 {
 	const auto work = dynamic_cast<Work*>(plot->GetPlotType());
-	citizen->Wait(4.f); // 4 hour (waited to adjust)
-	work->Enter(static_cast<int>(production - salary));
+	const Time currentTime = CoreController::Instance()->GetTime();
+	if (currentTime < breakTime)
+	{
+		workingTime = static_cast<float>(breakTime - currentTime) / 60;
+		earlyToWork += (240 - (breakTime - currentTime));
+	}
+	else
+		workingTime = static_cast<float>(timeOffWork - currentTime) / 60;
+
+	if (workingTime > 4)
+		workingTime = 4;
+
+	citizen->Wait(workingTime); // Off Work on time
+
+	int workingExp = citizen->Age() - 18; // Salary increases due to experience
+	work->Enter((production - salary - workingExp * 0.3) * workingTime / 4);
 }
 
 /**
@@ -114,7 +138,13 @@ void WorkRule::EnterPlot(Plot* plot)
 void WorkRule::LeavePlot(Plot* plot)
 {
 	BankRule* bankRule = dynamic_cast<BankRule*>(citizen->FindRule(BANK));
-	bankRule->saveMoney(this->salary);
+
+	int workingExp = citizen->Age() - 18; // Salary increases due to experience
+	bankRule->saveMoney((salary + workingExp * 0.3) * workingTime / 4);
+
+	const Time currentTime = CoreController::Instance()->GetTime();
+	if (endBreakTime > currentTime) // morning session
+		citizen->ForceRule(FOOD, 0.5);
 }
 
 /**
@@ -122,7 +152,7 @@ void WorkRule::LeavePlot(Plot* plot)
 */
 void WorkRule::Update()
 {
-
+	// Do Nothing
 }
 
 /**
@@ -131,17 +161,15 @@ void WorkRule::Update()
 */
 bool WorkRule::IsSatisfied()
 {
+	// TODO:If the person is late to work, he/she is unsatisfied;
 	return true;
 }
-
-// TODO: 工作滿意度?
 
 
 /**
 * \the first time a person gets his/her work
 * \
 */
-
 
 bool WorkRule::Register()
 {

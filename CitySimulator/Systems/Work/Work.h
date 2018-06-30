@@ -12,6 +12,6 @@ public:
 	~Work() = default;
 	void EndDay() override;
 private:
-	void Enter(int productDelta);
+	void Enter(float productDelta);
 
 };
