@@ -22,9 +22,9 @@ public:
     void AdvanceDay() const;
 	void ResetDay();
 	int SystemCount()const;
-	const List<Citizen*>& GetCitizens() const { return citizens->Citizens(); }
+	const LinkedList<Citizen*>& GetCitizens() const { return citizens->Citizens(); }
 
-	void Cal_Satisfied()const;
+	void CalSatisfied()const;
     BaseSystem* GetSystem(System system) const;
     const List<BaseSystem*>& GetSystems() const { return systems;};
 
