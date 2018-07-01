@@ -9,10 +9,10 @@ Slider::Slider(const Vector2f position, const Vector2f size, const int initialVa
     background.setOutlineColor(BLACK);
     background.setOutlineThickness(2);
         
-    leftBound = position.x + 5;
-    rightBound = position.x + size.x - 15;
-    centerLine.setSize(Vector2f(size.x - 10, 2));
-    centerLine.setPosition(Vector2f(leftBound, position.y + size.y / 2));
+    leftBound = int(position.x + 5);
+    rightBound = int(position.x + size.x - 15);
+    centerLine.setSize(Vector2f(float(size.x - 10), 2.f));
+    centerLine.setPosition(Vector2f(float(leftBound), position.y + size.y / 2.f));
     centerLine.setOutlineColor(BLACK);
     centerLine.setOutlineThickness(2);
         
@@ -48,7 +48,7 @@ void Slider::Render()
         const sf::Window* window = CoreController::SfmlController()->Window();
         const auto &mousePos = sf::Mouse::getPosition(*window);
         const int x = Clamp(mousePos.x - 5, leftBound, rightBound);
-        slider->SetPosition(Vector2f(x, centerLine.getPosition().y - (background.getSize().y - 6) / 2));
+        slider->SetPosition(Vector2f(float(x), centerLine.getPosition().y - (background.getSize().y - 6) / 2));
         value = (x - leftBound) * 100 / (rightBound - leftBound);        
         mouseClicked = sf::Mouse::isButtonPressed(sf::Mouse::Left);
     }
