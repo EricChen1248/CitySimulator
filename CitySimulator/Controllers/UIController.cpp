@@ -7,6 +7,7 @@
 
 #include "../Helpers/Constants.h"
 #include "../Helpers/Government.h"
+#include "../Helpers/HelperFunctions.h"
 
 UIController::UIController() : sfml(*CoreController::SfmlController()) {}
 
@@ -179,9 +180,7 @@ void UIController::DrawTime()
  */
 void UIController::DrawMoney()
 {
-    moneyText.setString("$" + std::to_string(static_cast<int>(Government::TaxDollars())));
-    const sf::FloatRect bounds = moneyText.getLocalBounds();
-    moneyText.setPosition(static_cast<float>(WINDOW_WIDTH - bounds.width) / 2, 2);
+    CenterString(moneyText, "$" + std::to_string(static_cast<int>(Government::TaxDollars())), float(WINDOW_WIDTH) / 2);
     sfml.DrawShape(moneyRect);
     sfml.DrawString(moneyText);
 }

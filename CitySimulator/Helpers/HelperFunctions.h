@@ -72,3 +72,15 @@ static bool Pathable(const Coordinate& coords1, const Coordinate& coords2)
 {
     return PathFinder::Pathable(coords1, coords2);
 }
+
+/**
+ * \brief Sets a string on a SFML Text object and center it
+ * \param text SFML Text being changed
+ * \param str String being updated into Text
+ * \param center X axis center
+ */
+static void CenterString(sf::Text& text, const std::string& str, const float center)
+{
+    text.setString(str);
+    text.setPosition(Vector2f(center - text.getLocalBounds().width / 2 ,text.getPosition().y));
+}

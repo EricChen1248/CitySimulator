@@ -1,5 +1,6 @@
 #include "Status.hpp"
 #include "../CoreController.h"
+#include "../../Helpers/HelperFunctions.h"
 
 Selection Status::Selection = NONE_SELECTED;
 Plot* Status::SelectedPlot = nullptr;
@@ -7,7 +8,6 @@ System Status::SelectedSystem = NONE;
     
 Status::Status()
 = default;
-
 
 Status::~Status()
 = default;
@@ -83,7 +83,7 @@ void Status::DrawSystem()
         }
     }
     
-    ChangeString(buttonText, "Build", x + float(width) / 2);
+    CenterString(buttonText, "Build", x + float(width) / 2);
     CoreController::SfmlController()->DrawString(buttonText);
 }
 
@@ -112,14 +112,8 @@ void Status::DrawPlot()
         }
     }
     
-    ChangeString(buttonText, "Destroy", x + float(width) / 2);
+    CenterString(buttonText, "Destroy", x + float(width) / 2);
     CoreController::SfmlController()->DrawString(buttonText);
 }
 
-void Status::ChangeString(sf::Text& text, const std::string& str, const float center)
-{
-    text.setString(str);
-    const sf::FloatRect textRect = text.getLocalBounds();
-    text.setPosition(Vector2f(center - textRect.width / 2 ,text.getPosition().y));
-}
 

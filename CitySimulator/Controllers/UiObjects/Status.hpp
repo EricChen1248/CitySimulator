@@ -26,8 +26,6 @@ public:
 private:
     void DrawSystem();
     void DrawPlot();
-
-    static void ChangeString(sf::Text& text, const std::string& str, float center);
     
     sf::Text title;
     RectangleShape rect{}; 
