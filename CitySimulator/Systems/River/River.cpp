@@ -16,7 +16,7 @@ void River::Init()
 
 	//Mode 0 : straight river cuting city into half; Mode 1: cutting it vertically 
 	int mode = RandomInt(0,2);
-
+	mode = 1;
 	switch (mode)
 	{
 	case(0):
@@ -107,6 +107,11 @@ void River::Init()
 			points.InsertLast(startPoint.LeftDown(float(0.88)));
 			
 		}
+		//Mark
+		auto plotPtr1 = plots->FindPlot(startPoint);
+		riverPoints.InsertLast(plotPtr1);
+		plotPtr1->MarkAsRiver();
+		//Move to next 
 		startPoint = startPoint.Right();
 		while (startPoint.X() < interval)
 		{
@@ -144,6 +149,11 @@ void River::Init()
 			points.InsertLast(startPoint.RightDown(float(0.88)));
 			
 		}
+		//Mark
+		plotPtr1 = plots->FindPlot(startPoint);
+		riverPoints.InsertLast(plotPtr1);
+		plotPtr1->MarkAsRiver();
+		//Move to next
 		startPoint = ranSeed == 0 ? startPoint.RightDown() : startPoint.RightUp();
 		bool boundary = true;
 		while (boundary)
@@ -165,7 +175,7 @@ void River::Init()
 			startPoint = ranSeed == 0 ? startPoint.RightDown() : startPoint.RightUp();
 			ranSeed == 0 ? (startPoint.X() == adjustedRight ? boundary = false : boundary = true) : (startPoint.Y() == (LEFT) ? boundary = false: boundary = true);
 		}
-		auto plotPtr1 = plots->FindPlot(startPoint);
+		plotPtr1 = plots->FindPlot(startPoint);
 		riverPoints.InsertLast(plotPtr1);
 		plotPtr1->MarkAsRiver();
 		if (ranSeed == 0)

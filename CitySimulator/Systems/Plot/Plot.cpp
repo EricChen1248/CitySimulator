@@ -2,7 +2,7 @@
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/Road.h"
-
+#include <iostream>
 Plot::Plot(const int x, const int y, const int z) : coords(x, y, z), size(10.f), shape(sf::CircleShape(size)),
                                                     currentType(nullptr), roads(6), quadrant(0), river(false)
 {
@@ -37,6 +37,7 @@ void Plot::Register(Base* base)
 void Plot::Enter(Citizen* citizen)
 {
     occupants.InsertLast(citizen);
+
 }
 
 

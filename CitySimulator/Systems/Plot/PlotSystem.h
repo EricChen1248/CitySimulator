@@ -15,10 +15,11 @@ public:
     Plot* FindPlot(const Coordinate& coords) const;
     Plot* GetRandomPlot() const;
     void HandleClick();
-    void FindHoverPlot();
+	void FindHoverPlot();
     void ClearSelections();
     void EndDay();
-    const LinkedList<Plot*>& Plots() const { return plots; }
+	const LinkedList<Plot*>& Plots() const { return plots; };
+
 private:
     Plot* CoordToPlotArray(const Coordinate& coords) const;
     
