@@ -19,6 +19,7 @@ public:
     virtual void LeavePlot(Plot* plot) = 0;
     virtual void Update() = 0;
     virtual bool IsSatisfied() = 0;
+    virtual void NewDay() {};
     virtual void EndDay() {};
     System Type() const { return type; };
 protected:

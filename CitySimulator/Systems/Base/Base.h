@@ -21,7 +21,8 @@ public:
     }
 
     virtual ~Base() = default;
-    virtual void EndDay() = 0;
+    virtual void NewDay() {};
+    virtual void EndDay() {};
     virtual int ReturnScore() { return score; };
     // TODO : Add Destroy behaviour
     virtual void Destroy() { };
@@ -31,9 +32,3 @@ protected:
     sf::Color color;
     int score;
 };
-
-inline void Base::EndDay()
-{
-    
-}
-

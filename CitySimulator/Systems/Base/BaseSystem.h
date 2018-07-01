@@ -16,7 +16,9 @@ public:
     
 
     const List<Plot*>& Plots() const { return plots; }
-    float GetScore() const { return score; }
+    // TODO : Flip system to handle score calculation
+    virtual float GetScore() const { return score; }
+    virtual float GetSatisfaction() const { return 0; }
     const List<Log*>& SatisfiedLog() const { return satisfiedLog; }
     const List<Log*>& UnsatisfiedLog() const { return unsatisfiedLog; }
     virtual ~BaseSystem();
@@ -30,6 +32,7 @@ public:
     virtual void LogUnsatisfied(Citizen* citizen, BaseRule* rule) = 0; 
     virtual void Register(Plot* plot);
     virtual void Unregister(Plot* plot);
+    virtual void NewDay();
     virtual void EndDay();
 protected:
     List<Plot*> plots;
@@ -64,6 +67,13 @@ inline void BaseSystem::Unregister(Plot* plot)
     plots.Remove(plot);
 }
 
+inline void BaseSystem::NewDay()
+{
+    for (auto&& plot : plots)
+    {
+        plot->NewDay();
+    }
+}
 
 
 /**
