@@ -13,6 +13,7 @@ void River::Init()
     const int rand = RandomInt((riverWidth / 2), adjustedRight - (riverWidth / 2));
 
 
+
 	//Mode 0 : straight river cuting city into half; Mode 1: cutting it vertically 
 	int mode = RandomInt(0,2);
 
@@ -188,6 +189,8 @@ void River::Init()
 	default:
 		break;
 	}
+
+
 
 }
 

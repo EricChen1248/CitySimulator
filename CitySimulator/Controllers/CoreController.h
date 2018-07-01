@@ -33,10 +33,11 @@ public:
     // Constructors and Destructors
     CoreController();
     ~CoreController();
-    
+
     // Exposed Methods
     void Start();
     void RunDayLoop(Clock& clock);
+    void EndDayLoop();
     static int RandomInt(int bottom, int top);
 private:
     static CoreController* instance;
@@ -51,7 +52,6 @@ private:
     bool isRunning;
     bool advanceDay{};
     
-    void Update();
     // Common Functions
     void ClearRender() const;    
     void PresentRender() const;

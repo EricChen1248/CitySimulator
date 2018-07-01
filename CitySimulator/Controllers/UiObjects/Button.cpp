@@ -1,6 +1,6 @@
 #include "Button.h"
 #include <SFML/Window/Mouse.hpp>
-#include "../Controllers/CoreController.h"
+#include "../../Controllers/CoreController.h"
 
 
 Button::Button()

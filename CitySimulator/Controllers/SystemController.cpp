@@ -6,7 +6,6 @@
 #include "../Systems/Store/StoreSystem.h"
 #include "../Systems/School/SchoolSystem.h"
 #include "../Systems/Hospital/HospitalSystem.h"
-#include "CoreController.h"
 
 SystemController::SystemController() = default;
 
@@ -44,68 +43,37 @@ void SystemController::Initialize()
     // TODO Remove demo
     for (auto && system : systems)
     {
-        if (system->SystemType == FOOD)
+        int count = 0;
+        switch (system->SystemType)
         {
-            for (int i = 0; i < 3; ++i)
-            {
-                auto plot = plots->GetRandomPlot();
-                while (plot->GetPlotType() != nullptr || plot->IsRiver())
-                {
-                    plot = plots->GetRandomPlot();
-                }
-                system->Register(plot);
-            }
+        case FOOD: 
+            count = 3;
+            break;
+        case WORK: 
+            count = 30;
+            break;
+        case BANK:
+        case HOME: 
+            count = 5;
+            break;
+        case STORE: 
+            count = 10;
+            break;
+        case SCHOOL: break;
+        case HOSPITAL: break;
+        default: ;
         }
-		if (system->SystemType == BANK) 
-		{
-			for (int i = 0; i < 5; ++i) 
-			{
-				auto plot = plots->GetRandomPlot();
-				while (plot->GetPlotType() != nullptr || plot->IsRiver())
-				{
-					plot = plots->GetRandomPlot();
-				}
-				system->Register(plot);
-			}
-		}
-		if (system->SystemType == HOME)
-		{
-			for (int i = 0; i < 5; ++i)
-			{
-				auto plot = plots->GetRandomPlot();
-				while (plot->GetPlotType() != nullptr || plot->IsRiver())
-				{
-					plot = plots->GetRandomPlot();
-				}
-				system->Register(plot);
-			}
-		}
+        
+        for (int i = 0; i < count; ++i)
+        {
+            auto plot = plots->GetRandomPlot();
+            while (plot->GetPlotType() != nullptr || plot->IsRiver())
+            {
+                plot = plots->GetRandomPlot();
+            }
+            system->Register(plot);
+        }
 
-		if (system->SystemType == WORK)
-		{
-			for (int i = 0; i < 30; ++i)
-			{
-				auto plot = plots->GetRandomPlot();
-				while (plot->GetPlotType() != nullptr || plot->IsRiver())
-				{
-					plot = plots->GetRandomPlot();
-				}
-				system->Register(plot);
-			}
-		}
-
-		if (system->SystemType == STORE)
-		{
-			for (int i = 0; i < 10; ++i)
-			{
-				auto plot = plots->GetRandomPlot();
-				while (plot->GetPlotType() != nullptr || plot->IsRiver())
-				{
-					plot = plots->GetRandomPlot();
-				}
-				system->Register(plot);
-			}
-		}
     }
 	citizens = new CitizenSystem;
 }
@@ -155,14 +123,19 @@ void SystemController::AdvanceDay() const
  */
 BaseSystem* SystemController::GetSystem(const System system) const
 {
-    for (auto && systemRef : systems)
+    switch (system)
     {
-        if (systemRef->SystemType == system)
-        {
-            return systemRef;
-        }
+    case FOOD:
+    case WORK:
+    case BANK:
+    case HOME:
+    case STORE:
+    case SCHOOL:
+    case HOSPITAL:
+        return systems[system - 1];
+    default: 
+        return nullptr;
     }
-    return nullptr;
 }
 void SystemController::ResetDay()
 {

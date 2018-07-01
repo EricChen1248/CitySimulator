@@ -107,6 +107,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)\Library\SFML-2.5.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -130,7 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Controllers\Government.cpp" />
+    <ClCompile Include="Helpers\Government.cpp" />
     <ClCompile Include="Controllers\UiObjects\Slider.cpp" />
     <ClCompile Include="Disaster.cpp" />
     <ClCompile Include="Controllers\DisasterController.cpp" />
@@ -152,7 +153,7 @@
     <ClCompile Include="Systems\Bank\Bank.cpp" />
     <ClCompile Include="Controllers\SystemController.cpp" />
     <ClCompile Include="Controllers\FontController.cpp" />
-    <ClCompile Include="Helpers\Button.cpp" />
+    <ClCompile Include="Controllers\UiObjects\Button.cpp" />
     <ClCompile Include="Systems\Bank\BankSystem.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Helpers\PathFinder\PathFinder.cpp" />
@@ -180,7 +181,7 @@
     <ClInclude Include="Collections\Interfaces\IList.h" />
     <ClInclude Include="Collections\LinkedList.h" />
     <ClInclude Include="Collections\ListIterator.h" />
-    <ClInclude Include="Controllers\Government.h" />
+    <ClInclude Include="Helpers\Government.h" />
     <ClInclude Include="Controllers\UiObjects\SatisBar.h" />
     <ClInclude Include="Controllers\UiObjects\SelectionButton.h" />
     <ClInclude Include="Controllers\UiObjects\Slider.h" />
@@ -205,7 +206,6 @@
     <ClInclude Include="Systems\Home\HomeSystem.h" />
     <ClInclude Include="Systems\Bank\BankRule.h" />
     <ClInclude Include="Systems\Bank\Bank.h" />
-    <ClInclude Include="Collections\Dictionary.h" />
     <ClInclude Include="Collections\LinkedIterator.h" />
     <ClInclude Include="Collections\MinHeap.h" />
     <ClInclude Include="Collections\PriorityNode.h" />
@@ -213,7 +213,7 @@
     <ClInclude Include="Collections\Stack.h" />
     <ClInclude Include="Controllers\SystemController.h" />
     <ClInclude Include="Controllers\FontController.h" />
-    <ClInclude Include="Helpers\Button.h" />
+    <ClInclude Include="Controllers\UiObjects\Button.h" />
     <ClInclude Include="Systems\Bank\BankSystem.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="Helpers\PathFinder\PathFinder.h" />

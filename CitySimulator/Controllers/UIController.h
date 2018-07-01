@@ -1,11 +1,12 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include "../Helpers/Button.h"
 #include "SFMLController.h"
-#include "../Collections/List.h"
-#include "UiObjects/SelectionButton.h"
-#include "UiObjects/SatisBar.h"
 #include "UiObjects/Slider.h"
+#include "UiObjects/Button.h"
+#include "../Collections/List.h"
+
+
+struct SatisBar;
+struct SelectionButton;
 
 /**
  * \brief Handles all UI rendering and initialization in game

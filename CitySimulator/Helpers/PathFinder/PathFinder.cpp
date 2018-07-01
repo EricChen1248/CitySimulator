@@ -1,9 +1,9 @@
 #include "PathFinder.h"
-#include "../Constants.h"
-#include "../../Collections/PriorityQueue.h"
 #include "../Logger.h"
+#include "../Constants.h"
 #include "../HelperFunctions.h"
 #include "../../Collections/Queue.h"
+#include "../../Collections/PriorityQueue.h"
 
 
 int PathFinder::nodeCount = 0;

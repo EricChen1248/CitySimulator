@@ -1,20 +1,16 @@
+#include <iostream>
 #include "CoreController.h"
 #include "ViewPortController.h"
-#include <iostream>
-#include "../Helpers/PathFinder/PathFinder.h"
 #include "../Helpers/Logger.h"
 #include "../Helpers/FeatureFlags.h"
+#include "../Helpers/PathFinder/PathFinder.h"
 
-CoreController *CoreController::instance;
+CoreController* CoreController::instance;
 
 using sf::Event;
 using sf::Window;
 using sf::Keyboard;
-
-bool CoreController::IsRunning() const
-{
-    return isRunning && sfmlController->IsRunning();
-}
+void MultithreadGameUpdates();
 
 CoreController::CoreController()
 {
@@ -27,121 +23,114 @@ CoreController::CoreController()
     systemController = new SystemController;
     fontController = new FontController;
     uiController = new UIController;
-    
+
     systemController->Initialize();
     uiController->Initialize();
     PathFinder::RemapQuadrants();
 };
+
 CoreController::~CoreController()
 {
     delete sfmlController;
     delete viewPortController;
     delete systemController;
     delete fontController;
-    delete uiController;    
+    delete uiController;
 };
 
+/**
+ * \brief Starts the game and kicks off all functions
+ */
 void CoreController::Start()
 {
-    Update();
+    Clock clock;
+
+#if SKIP_DAY
+    time.IncreaseTime(24);
+#endif
+
+    int day = 0;
+
+    while (true)
+    {
+        ++day;
+        RunDayLoop(clock);
+        Logger::Log("End of day " + std::to_string(day));
+        EndDayLoop();
+    }
 }
 
-void MultithreadGameUpdates()
-{
-    CoreController::Instance()->GameUpdateEvents();
-}
 /**
  * \brief Game loop of each day
  * \param clock Reference to game clock
  */
 void CoreController::RunDayLoop(Clock& clock)
 {
-#if SKIP_DAY
-    time.IncreaseTime(24);
-#endif
-    int day = 0;
     int count = 0;
-    while(true)
+    float lastTime = clock.getElapsedTime().asSeconds();
+    float lastPrint = lastTime;
+    while (IsRunning() && !time.EndDay())
     {
-        float lastTime = clock.getElapsedTime().asSeconds();
-        float lastPrint = lastTime;
-        ++day;
-        while(IsRunning() && !time.EndDay())
+        const float currentTime = clock.getElapsedTime().asSeconds();
+        const float fps = 1.f / (currentTime - lastTime);
+        if (currentTime - lastPrint > 0.2)
         {
-            const float currentTime = clock.getElapsedTime().asSeconds();
-            const float fps = 1.f / (currentTime - lastTime);
-            if (currentTime - lastPrint > 0.2)
-            {
-                std::cout << fps << std::endl;
-                lastPrint = currentTime;
-            }
-                        
-            // DeltaTime 0.1 = 1/60 real seconds = 0.1 minute in game
-            deltaTime = (currentTime - lastTime);
-            time.IncreaseTime(deltaTime);
-            lastTime = currentTime;
-            
-            GameInputEvents();
-            
-#if MULTITHREAD      
-            // Multithreaded needs some warm up ( I think it's because pathfinder's queue needs to get up to size? )
-            if (count < 60)
-            {
-                GameUpdateEvents();
-                GameRenderEvents();
-                ++count;
-            }
-            else
-            {
-                // Launch update events in a separate thread
-                sf::Thread thread(MultithreadGameUpdates);
-                thread.launch();
-                // Run render events on main thread
-                GameRenderEvents();
-                // Wait for update events to finish (most of the time  it finishes first)
-                thread.wait();
-            }
-#else
+            std::cout << fps << std::endl;
+            lastPrint = currentTime;
+        }
+
+        // DeltaTime 0.1 = 1/60 real seconds = 0.1 minute in game
+        deltaTime = currentTime - lastTime;
+        time.IncreaseTime(deltaTime);
+        lastTime = currentTime;
+
+        GameInputEvents();
+
+#if MULTITHREAD
+        // Multithreaded needs some warm up ( I think it's because pathfinder's queue needs to get up to size? )
+        if (count < 60)
+        {
             GameUpdateEvents();
             GameRenderEvents();
-#endif
-            
-            PresentRender();
+            ++count;
         }
-        advanceDay = false;
-
-		//TODO: Make sure EveryOne make adjustment during this period
-		systemController->ResetDay();
-
-        Logger::Log("End of day " + std::to_string(day));
-        while(!advanceDay)
+        else
         {
-            InterdayInputEvents();
-            InterdayRenderEvents();       
-            PresentRender();
+            // Launch update events in a separate thread
+            sf::Thread thread(MultithreadGameUpdates);
+            thread.launch();
+            // Run render events on main thread
+            GameRenderEvents();
+            // Wait for update events to finish (most of the time  it finishes first)
+            thread.wait();
         }
-        time.ResetDay();
-        systemController->AdvanceDay();
+#else
+        GameUpdateEvents();
+        GameRenderEvents();
+#endif
+        PresentRender();
     }
 }
+
+void CoreController::EndDayLoop()
+{
+    advanceDay = false;
+
+    //TODO: Make sure EveryOne make adjustment during this period
+    systemController->ResetDay();
+
+    while (!advanceDay)
+    {
+        InterdayInputEvents();
+        InterdayRenderEvents();
+        PresentRender();
+    }
+    time.ResetDay();
+    systemController->AdvanceDay();
+}
+
 
 #pragma region Common Functions
-/**
- * \brief Core loop of the game
- */
-void CoreController::Update()
-{
-    Clock clock;
-    RunDayLoop(clock);
-    auto systems = systemController->GetSystems();
-    for (auto && system : systems)
-    {
-        std:: cout << system->GetScore();
-    }
-    
-    char a;
-    std::cin >> a;
-}
 
 /**
  * \brief Update the render buffer
@@ -199,7 +188,7 @@ void CoreController::GameInputEvents() const
         case Event::MouseEntered: break;
         case Event::MouseLeft: break;
         default: ;
-        }        
+        }
     }
     if (Keyboard::isKeyPressed(Keyboard::A))
     {
@@ -219,7 +208,6 @@ void CoreController::GameInputEvents() const
     }
 }
 
-
 /**
  * \brief Calls the different render events
  */
@@ -229,14 +217,16 @@ void CoreController::GameRenderEvents() const
     viewPortController->UpdateGameView();
     systemController->Render();
     viewPortController->UpdateUIView();
-    uiController -> RenderUI();
+    uiController->RenderUI();
 }
 
-#pragma endregion 
+#pragma endregion
 
 #pragma region Interday Functions
 
-
+/**
+ * \brief Handle input events during interday
+ */
 void CoreController::InterdayInputEvents()
 {
     Window* window = sfmlController->Window();
@@ -256,13 +246,13 @@ void CoreController::InterdayInputEvents()
         case Event::MouseWheelScrolled:
             viewPortController->HandleScroll(event);
             break;
-        case Event::MouseButtonPressed: 
+        case Event::MouseButtonPressed:
         case Event::MouseButtonReleased: break;
         case Event::MouseMoved: break;
         case Event::MouseEntered: break;
         case Event::MouseLeft: break;
         default: ;
-        }        
+        }
     }
     if (Keyboard::isKeyPressed(Keyboard::A))
     {
@@ -284,20 +274,23 @@ void CoreController::InterdayInputEvents()
     {
         if (uiController->NextDayButtonHover())
         {
-           advanceDay = true;
+            advanceDay = true;
         }
     }
-
 }
 
+/**
+ * \brief Handles the rendering events during interday
+ */
 void CoreController::InterdayRenderEvents() const
 {
     ClearRender();
     viewPortController->UpdateGameView();
     systemController->RenderInterday();
     viewPortController->UpdateUIView();
-    uiController -> RenderInterDayUI();
+    uiController->RenderInterDayUI();
 }
+
 #pragma endregion
 
 #pragma region Helper Functions
@@ -313,5 +306,18 @@ int CoreController::RandomInt(const int bottom, const int top)
     return rand() % (top - bottom) + bottom;
 }
 
-#pragma endregion 
+bool CoreController::IsRunning() const
+{
+    return isRunning && sfmlController->IsRunning();
+}
+
+/**
+ * \brief Function used in multithreaded version
+ */
+void MultithreadGameUpdates()
+{
+    CoreController::Instance()->GameUpdateEvents();
+}
+
+#pragma endregion
 

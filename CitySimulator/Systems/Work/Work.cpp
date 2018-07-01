@@ -1,7 +1,7 @@
 #include "Work.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
-#include "../../Controllers/Government.h"
+#include "../../Helpers/Government.h"
 
 
 /**
@@ -10,7 +10,6 @@
  */
 Work::Work(Plot *plot) : Base(plot, WORK)
 {
-
 	score = 0;
 	color = WORK_COLOR;
 }

@@ -2,13 +2,14 @@
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/HelperFunctions.h"
-#include "../../Controllers/Government.h"
+#include "../../Helpers/Government.h"
 
 Hospital::Hospital(Plot* plot) : Base(plot, HOSPITAL)
 {
+	// TODO : cost
     cost = RandomInt(50, 100);
     score = 0;
-    color = FOOD_COLOR;
+    color = HOSPITAL_COLOR;
 }
 
 /**

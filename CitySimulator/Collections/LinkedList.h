@@ -36,9 +36,6 @@ protected:
     Node<T>* last;
     int count;
     
-private:
-    int cachedIndex;
-    Node<T>* cachedNode;
 };
 
 
@@ -49,8 +46,6 @@ LinkedList<T>::LinkedList()
     last = nullptr;
     count = 0;
 
-    cachedIndex = -1;
-    cachedNode = nullptr;
 }
 
 template <typename T>
@@ -93,27 +88,18 @@ T& LinkedList<T>::operator[](const int index) const
         return first->item;
     if (index == count - 1)
         return last->item;
-    if (index == cachedIndex)
-        return cachedNode->item;
 
     const int toFirst = index;
     const int toLast = count - index - 1;
-    const int toCache = abs(index - cachedIndex);
 
     auto node = first;
     int dir = 1;
     int currentIndex = 0;
-    if (toLast < toFirst && toLast <= toCache)
+    if (toLast < toFirst)
     {
         node = last;
         dir = -1;
         currentIndex = count - 1;
-    }
-    else if (toCache < toFirst && toCache < toLast)
-    {
-        node = cachedNode;
-        dir = index > cachedIndex ? 1 : -1;
-        currentIndex = cachedIndex;
     }
 
     while (currentIndex != index)
@@ -132,9 +118,6 @@ T& LinkedList<T>::operator[](const int index) const
         currentIndex += dir;
     }
 
-    auto ptr = const_cast<LinkedList<T>*> (this);
-    ptr->cachedIndex = currentIndex;
-    ptr->cachedNode = node;
     return node->item;
 }
 
@@ -202,33 +185,21 @@ void LinkedList<T>::Remove(const int index)
     {
         curNode = last;
     }
-    else if (index == cachedIndex)
-    {
-        curNode = cachedNode;
-    }
     else
     {
         // Calculating distances from cached positions
         const int toFirst = index;
         const int toLast = count - index - 1;
-        const int toCache = abs(index - cachedIndex);
 
         auto node = first;
         int dir = 1;
         int currentIndex = 0;
-        if (toLast < toFirst && toLast <= toCache)
+        if (toLast < toFirst)
         {
             node = last;
             dir = -1;
             currentIndex = count - 1;
         }
-        else if (toCache < toFirst && toCache < toLast)
-        {
-            node = cachedNode;
-            dir = index > cachedIndex ? 1 : -1;
-            currentIndex = cachedIndex;
-        }
-
         // Traversing indexes
         while (currentIndex != index)
         {
