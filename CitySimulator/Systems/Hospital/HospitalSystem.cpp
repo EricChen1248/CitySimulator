@@ -6,7 +6,7 @@
 
 class HospitalRule;
 
-HospitalSystem::HospitalSystem() : BaseSystem(FOOD)
+HospitalSystem::HospitalSystem() : BaseSystem(HOSPITAL)
 {
 }
 
@@ -14,7 +14,7 @@ HospitalSystem::HospitalSystem() : BaseSystem(FOOD)
 HospitalSystem::~HospitalSystem() = default;
 
 /**
- * \brief Registers a new food plot in the system
+ * \brief Registers a new hospital plot in the system
  * \param plot Plot to be registered
  */
 void HospitalSystem::Register(Plot* plot)
@@ -24,13 +24,13 @@ void HospitalSystem::Register(Plot* plot)
 }
 
 /**
- * \brief Updates food system. Tally scores for food pltos
+ * \brief Updates hospital system. Tally scores for hospital pltosfood
  */
 void HospitalSystem::Update()
 {
     for (auto && plot : plots)
     {
-        // Do this if you want to get the plot type (class food)
+        // Do this if you want to get the plot type (class hospital)
         //const auto rule = dynamic_cast<Hospital*> (plot->GetPlotType());
         
         // Tallying and adding score for occupant count. Positive for within limit people, negative for over
@@ -40,7 +40,7 @@ void HospitalSystem::Update()
 }
 
 /**
- * \brief Logs a citizen being satisified with a food
+ * \brief Logs a citizen being satisified with a hospital
  * \param citizen Citzen being logged
  * \param rule Rule being logged
  */
@@ -53,7 +53,7 @@ void HospitalSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
 
 
 /**
- * \brief Logs a citizen being unsatisified with a food
+ * \brief Logs a citizen being unsatisified with a hospital
  * \param citizen Citzen being logged
  * \param rule Rule being logged
  */
