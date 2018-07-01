@@ -12,7 +12,7 @@ public:
     void Update() const;
     void Render() const;
     void PruneDead();
-	void ResetDay();
+	void EndDay();
 	void CalculateSatisfaction() const;
     const LinkedList<Citizen*>& Citizens() const { return citizens; }
 private:

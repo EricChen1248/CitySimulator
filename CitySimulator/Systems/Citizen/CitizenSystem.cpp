@@ -48,9 +48,7 @@ void CitizenSystem::Render() const
 {
     for (auto&& citizen : citizens)
     {
-        auto& shape = citizen->GetShape();
-
-        CoreController::SfmlController()->DrawShape(shape);
+        CoreController::SfmlController()->DrawShape(citizen->GetShape());
     }
 }
 
@@ -72,9 +70,9 @@ void CitizenSystem::PruneDead()
 /**
 * \brief: assign every person a home
 */
-void CitizenSystem::ResetDay()
+void CitizenSystem::EndDay()
 {
-    for (auto&& citizen : this->citizens)
+    for (auto&& citizen : citizens)
     {
         citizen->EndDay();
     }
@@ -100,6 +98,8 @@ void CitizenSystem::CalculateSatisfaction() const
             }
         }
     }
+    
+    ruleScore[FOOD-1] = CoreController::GetSystemController()->GetSystem(FOOD)->GetSatisfaction();
     while (CoreController::GetUIController()->GetScoreList().Count() != 0)
     {
         CoreController::GetUIController()->GetScoreList().RemoveLast();

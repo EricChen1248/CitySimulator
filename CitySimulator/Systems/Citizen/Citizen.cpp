@@ -59,7 +59,7 @@ void Citizen::Update()
     {
         return;
     }
-    
+
     // Citizen is waiting in a target
     if (waitTime > 0)
     {
@@ -67,6 +67,7 @@ void Citizen::Update()
         UpdateScreenCoordinates();
         return;
     }
+    
     // Citizen has a target
     if (target != nullptr)
     {
@@ -90,11 +91,11 @@ void Citizen::Update()
                 target = nullptr;
                 return;
             }
-            
+
             tempTarget = path->Pop();
             return;
         }
-        
+
         // TODO add road movement speed
         // Citizen is heading toward target
         coords = coords.MoveTowards(tempTarget, CoreController::Instance()->GetDeltaTime() * moveSpeed);
@@ -104,15 +105,17 @@ void Citizen::Update()
     
     // Citizen is leaving old target and finding next one;
     UpdateRules();
-    if (!pathFindFailed)
+    if (pathFindFailed)
     {
-        currentPlot->Leave(this);
-        if(activeRule != nullptr)
-        {
-            activeRule->LeavePlot(currentPlot);
-            activeRule = nullptr;
-        }
         pathFindFailed = false;
+        FindNextTarget();
+        return;
+    }
+        
+    currentPlot->Leave(this);
+    if(activeRule != nullptr)
+    {
+        activeRule->LeavePlot(currentPlot);
     }
     inPlot = false;
     coords = currentPlot->Coords();
@@ -136,6 +139,14 @@ void Citizen::UpdateScreenCoordinates()
 void Citizen::Wait(const float time)
 {
     waitTime = time;
+}
+
+void Citizen::NewDay()
+{
+	for (auto&& rule : rules)
+	{
+		rule->NewDay();
+	}
 }
 
 /**
@@ -222,16 +233,10 @@ void Citizen::FindNextTarget()
                 }
             }
         
-            if (skip)
-            {
-                continue;
-            }
+            if (skip)  continue;
         
             const auto score = tRule->CalculateScore();
-            if (score == 0)
-            {
-                continue;
-            }
+            if (score == 0) continue;
             
             if (baseRule == nullptr || score > bestScore)
             {
@@ -241,16 +246,14 @@ void Citizen::FindNextTarget()
             
         }
         
-        if (baseRule == nullptr || baseRule->FindPlot())
-        {
-            break;
-        }
+        if (baseRule == nullptr || baseRule->FindPlot()) break;
         skipRules.InsertLast(baseRule);
     }
     while (baseRule != nullptr);
     // No rule satisfiable
     if (baseRule == nullptr)
     {
+        activeRule = nullptr;
         ++unsatisfiedCount;
         FindRandomTarget();
     }
@@ -321,7 +324,6 @@ void Citizen::FindPath()
     if (path == nullptr)
     {
         target = nullptr;
-        activeRule = nullptr;
         pathFindFailed = true;
         return;
     }

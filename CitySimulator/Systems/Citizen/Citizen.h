@@ -33,6 +33,7 @@ public:
     void Update();
     void UpdateScreenCoordinates();
     void Wait(float time);
+    void NewDay();
     void EndDay();
     void ForceRule(System ruleType, float waitTime = 0);
     BaseRule* FindRule(System system);
