@@ -1,4 +1,4 @@
-#include "Food.h"
+#include "Food.hpp"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/HelperFunctions.h"
@@ -11,16 +11,17 @@ Food::Food(Plot* plot) : Base(plot, FOOD), customerCountTally(0), overloadedTall
     color = FOOD_COLOR;
 }
 
+Food::~Food()
+= default;
+
 /**
  * \brief EndDay's Food Plot (score to 0)
  */
 void Food::EndDay()
 {
-    score = -50;
     customerCountTally = 0;
     overloadedTally = 0;
 }
-
 
 /**
  * \brief New entry ( +score )

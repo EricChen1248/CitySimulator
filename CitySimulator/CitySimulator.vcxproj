@@ -221,9 +221,9 @@
     <ClInclude Include="Helpers\PathFinder\PathFinder.h" />
     <ClInclude Include="Helpers\PathFinder\PathFinderNode.h" />
     <ClInclude Include="Collections\Queue.h" />
-    <ClInclude Include="Systems\Food\Food.h" />
-    <ClInclude Include="Systems\Food\FoodRule.h" />
-    <ClInclude Include="Systems\Food\FoodSystem.h" />
+    <ClInclude Include="Systems\Food\Food.hpp" />
+    <ClInclude Include="Systems\Food\FoodRule.hpp" />
+    <ClInclude Include="Systems\Food\FoodSystem.hpp" />
     <ClInclude Include="Helpers\Time.h" />
     <ClInclude Include="Systems\Base\Base.h" />
     <ClInclude Include="Systems\Base\BaseRule.h" />

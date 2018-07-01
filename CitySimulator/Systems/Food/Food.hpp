@@ -11,9 +11,10 @@ class Food : public Base
 friend class FoodSystem;
 friend class FoodRule;
 
-    public:
+public:
     Food(Plot* plot);
-    ~Food() = default;
+    ~Food();
+    
     void EndDay() override;
 private:
     const int maxCustomer = 10;

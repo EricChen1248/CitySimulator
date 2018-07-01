@@ -1,12 +1,10 @@
-#include "FoodRule.h"
+#include "FoodRule.hpp"
+#include "Food.hpp"
+
 #include "../../Controllers/CoreController.h"
-#include "FoodSystem.h"
-#include "Food.h"
 #include "../../Helpers/HelperFunctions.h"
 
-FoodRule::FoodRule(Citizen& citizen): BaseRule(citizen, FOOD), hungerLevel(0)
-{
-}
+FoodRule::FoodRule(Citizen& citizen): BaseRule(citizen, FOOD), hungerLevel(0) { }
 
 FoodRule::~FoodRule() = default;
 
@@ -25,11 +23,11 @@ float FoodRule::CalculateScore()
  */
 bool FoodRule::FindPlot()
 {
-    auto &plots = CoreController::GetSystemController()->GetSystem(FOOD)->Plots();
-    
+    auto& plots = CoreController::GetSystemController()->GetSystem(FOOD)->Plots();
+
     // Get a list of plots that fulfill out requirements ( distance < max distance
     List<Plot*> choices;
-    for (auto && plot : plots)
+    for (auto&& plot : plots)
     {
         auto coords = citizen->Coords();
         if (!Pathable(coords, plot->Coords())) continue;
@@ -40,7 +38,7 @@ bool FoodRule::FindPlot()
             choices.InsertLast(p);
         }
     }
-    
+
     // If such a list doesn't exist. This rule returns failed result false
     if (choices.Count() == 0)
     {
@@ -49,7 +47,7 @@ bool FoodRule::FindPlot()
     const auto chosen = choices[RandomInt(0, choices.Count())];
     citizen->SetActiveRule(this);
     citizen->SetTarget(chosen);
-    
+
     return true;
 }
 
@@ -90,8 +88,8 @@ bool FoodRule::IsSatisfied()
 
 /** 
  * \brief Used to fill hunger before entering hospital 
- */ 
-void FoodRule::FillHunger() 
-{ 
-    hungerLevel = std::numeric_limits<float>::max();; 
+ */
+void FoodRule::FillHunger()
+{
+    hungerLevel = std::numeric_limits<float>::max();;
 } 

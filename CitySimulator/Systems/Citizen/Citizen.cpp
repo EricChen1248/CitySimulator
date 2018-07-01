@@ -1,9 +1,9 @@
 #include <cstdlib>
 #include "Citizen.h"
-#include "../Food/FoodRule.h"
 #include "../Bank/BankRule.h"
 #include "../Work/WorkRule.h"
 #include "../Home/HomeRule.h"
+#include "../Food/FoodRule.hpp"
 #include "../Store/StoreRule.h" 
 #include "../School/SchoolRule.h" 
 #include "../Hospital/HospitalRule.h" 

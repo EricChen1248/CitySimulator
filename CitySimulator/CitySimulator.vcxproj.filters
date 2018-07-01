@@ -206,12 +206,6 @@
     <ClInclude Include="Helpers\Time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Systems\Food\FoodSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Systems\Food\Food.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Systems\SystemEnum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -293,9 +287,6 @@
     <ClInclude Include="Systems\Hospital\Hospital.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Systems\Food\FoodRule.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Systems\Hospital\HospitalRule.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -360,6 +351,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Controllers\UiObjects\Status.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Systems\Food\Food.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Systems\Food\FoodRule.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Systems\Food\FoodSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

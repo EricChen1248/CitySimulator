@@ -1,9 +1,8 @@
-#include "HospitalRule.h"
-#include "../../Controllers/CoreController.h"
-#include "HospitalSystem.h"
 #include "Hospital.h"
-#include "../Food/FoodRule.h"
+#include "HospitalRule.h"
 #include "../Bank/BankRule.h"
+#include "../Food/FoodRule.hpp"
+#include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
 
 HospitalRule::HospitalRule(Citizen& citizen): BaseRule(citizen, HOSPITAL), assignedHospital(nullptr)

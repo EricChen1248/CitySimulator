@@ -1,6 +1,6 @@
-#include "FoodSystem.h"
-#include "Food.h"
-#include "FoodRule.h"
+#include "FoodSystem.hpp"
+#include "FoodRule.hpp"
+#include "Food.hpp"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
 
@@ -8,9 +8,7 @@
 class FoodRule;
 
 FoodSystem::FoodSystem() : BaseSystem(FOOD)
-{
-}
-
+{}
 
 FoodSystem::~FoodSystem() = default;
 
@@ -31,9 +29,6 @@ void FoodSystem::Update()
 {
     for (auto && plot : plots)
     {
-        // Do this if you want to get the plot type (class food)
-        //const auto rule = dynamic_cast<Food*> (plot->GetPlotType());
-        
         // Tallying and adding score for occupant count. Positive for within limit people, negative for over
         const auto count = plot->GetOccupantCount();
         score += (std::min(count, maxOccupantCount) * scorePerOccupant - std::max(count - maxOccupantCount, 0) * overPenalty) * CoreController::Instance()->GetDeltaTime();

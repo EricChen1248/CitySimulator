@@ -2,7 +2,7 @@
 #include "../../Controllers/CoreController.h"
 #include "../../Controllers/SFMLController.h"
 #include "../../Helpers/Logger.h"
-#include "../Food/FoodRule.h"
+#include "../Food/FoodRule.hpp"
 #include "../Home/HomeRule.h"
 
 CitizenSystem::CitizenSystem()

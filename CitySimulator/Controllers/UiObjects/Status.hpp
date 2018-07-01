@@ -35,7 +35,7 @@ private:
     Button button;
     
     const int height = 200;
-    bool mousePressed;
+    bool mousePressed{};
     int width{};
     int x{};
     int y{};
