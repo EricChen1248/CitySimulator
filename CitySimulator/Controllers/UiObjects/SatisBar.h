@@ -22,7 +22,7 @@ struct SatisBar
 		Shape.setFillColor(WHITE);
 	};
 
-	void Render(const float ratio)
+	void Draw(const float ratio, SFMLController& sfml)
 	{
 		if (ratio < 0.3)
 		{
@@ -39,10 +39,6 @@ struct SatisBar
 		
 		Shape.setSize(Vector2f(148.f*ratio, 15.f));
 		
-		return;
-	};
-	void Draw(SFMLController& sfml) const
-	{
 		sfml.DrawShape(Shape);
 	};
 
