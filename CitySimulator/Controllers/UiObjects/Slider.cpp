@@ -28,20 +28,18 @@ void Slider::Render()
 {
     CoreController::SfmlController()->DrawShape(background);   
     CoreController::SfmlController()->DrawShape(centerLine);
-    slider->Draw();
-    
-    std::stringstream ss;
-    ss << std::fixed << std::setprecision(2) << float(value) / 100;
-    text.setString(ss.str());
-    CoreController::SfmlController()->DrawString(text);
-    
-    if (slider->IsInBounds())
+    if (slider->Draw())
     {
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
         {
             mouseClicked = true;
         }
     }
+    
+    std::stringstream ss;
+    ss << std::fixed << std::setprecision(2) << float(value) / 100;
+    text.setString(ss.str());
+    CoreController::SfmlController()->DrawString(text);
     
     if (mouseClicked)
     {

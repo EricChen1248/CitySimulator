@@ -34,4 +34,9 @@ struct SelectionButton
         sfml.DrawString(Text);
         sfml.DrawShape(Circle);
     }
+    
+    bool IsInBounds() const
+    {
+        return SelButton.IsInBounds();
+    }
 };
