@@ -147,8 +147,7 @@ void UIController::DrawSatisfaction() const
         for (int i = 0; i < satisfyBar.Count(); i++)
         {
             auto tempPtr = satisfyBar[i];
-            tempPtr->Render(scoreList[i]);
-            tempPtr->Draw(sfml);
+            tempPtr->Draw(scoreList[i], sfml);
         }
     }
     return;
