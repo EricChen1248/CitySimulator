@@ -61,7 +61,7 @@ void PathFinder::Initialize()
 Stack<Coordinate>* PathFinder::PathTo(const Coordinate& source, Coordinate dest)
 {
     // If source and destination are in different quadrants, no path is available
-    if (CoordToNodeMap(source)->quadrant != CoordToNodeMap(dest)->quadrant)
+    if (!Pathable(source, dest))
     {
         return nullptr;
     }

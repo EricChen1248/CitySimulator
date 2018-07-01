@@ -11,7 +11,7 @@ class PathFinder
 public:    
     static void Initialize();
     static Stack<Coordinate>* PathTo(const Coordinate& source, Coordinate dest);
-    static bool Pathable(const Coordinate& source, const Coordinate& dest) { return CoordToNodeMap(source)->quadrant != CoordToNodeMap(dest)->quadrant; }
+    static bool Pathable(const Coordinate& source, const Coordinate& dest) { return CoordToNodeMap(source)->quadrant == CoordToNodeMap(dest)->quadrant; }
     static void MapPlot(Plot* plot);
     static Plot* GetPlot(const Coordinate& coords) { return CoordToNodeMap(coords)->plot; }
     static void RemapQuadrants();
