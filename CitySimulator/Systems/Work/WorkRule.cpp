@@ -143,7 +143,7 @@ void WorkRule::LeavePlot(Plot* plot)
 	BankRule* bankRule = dynamic_cast<BankRule*>(citizen->FindRule(BANK));
 
     const int workingExp = citizen->Age() - 18; // Salary increases due to experience
-	bankRule->saveMoney((salary + workingExp * 0.3) * workingTime / 4);
+	bankRule->SaveMoney((salary + workingExp * 0.3) * workingTime / 4);
 
 	const Time currentTime = CoreController::Instance()->GetTime();
 	if (endBreakTime > currentTime) // morning session
