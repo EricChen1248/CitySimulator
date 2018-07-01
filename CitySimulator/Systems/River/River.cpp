@@ -18,8 +18,8 @@ void River::Init()
         auto plotPtr = plots->FindPlot(startPoint);
         riverPoints.InsertLast(plotPtr);
         plotPtr->MarkAsRiver();
-        points.InsertLast(startPoint.Right(0.88));
-        points.InsertLast(startPoint.Left(0.88));
+        points.InsertLast(startPoint.Right(0.88f));
+        points.InsertLast(startPoint.Left(0.88f));
         
         // 0 means go left, 1 go right;
         int random = RandomInt(0, 2);

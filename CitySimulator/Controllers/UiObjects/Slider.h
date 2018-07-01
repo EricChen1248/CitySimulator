@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../../Helpers/Button.h"
+#include "Button.h"
 using sf::RectangleShape;
 
 class Slider

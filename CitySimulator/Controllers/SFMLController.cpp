@@ -26,7 +26,6 @@ SFMLController::SFMLController() : isRunning(false), window(nullptr)
 SFMLController::~SFMLController()
 {
     window->close();
-    std::cout << "SFML quit" << std::endl;
 }
 
 /**
@@ -72,26 +71,16 @@ void SFMLController::DrawString(Text& text) const
 
 VertexArray SFMLController::GenerateVertexArray(const List<Coordinate>& coords)
 {
-	const int count = coords.Count();
+    const int count = coords.Count();
     VertexArray shape(TriangleStrip, count);
 
-	for (int i = 0; i < count; ++i)
-	{
-		shape[i].position = coords[i].ToScreenCoordinates().ToVector2F() + Vector2f(7,7);
-	}
-    
+    for (int i = 0; i < count; ++i)
+    {
+        shape[i].position = coords[i].ToScreenCoordinates().ToVector2F() + Vector2f(5, 5);
+    }
+
     return shape;
 }
-
-ConvexShape SFMLController::GenerateLine(const Coordinate& coord1, const Coordinate& coord2)
-{
-    ConvexShape shape;
-    shape.setPointCount(2);
-    shape.setPoint(0, coord1.ToScreenCoordinates().ToVector2F());
-    shape.setPoint(1, coord2.ToScreenCoordinates().ToVector2F());
-    return shape;
-}
-
 
 /**
  * \brief Pushes the buffered pixels to the window
@@ -104,7 +93,7 @@ void SFMLController::UpdateWindow() const
 /**
  * \brief Initializes the SFML
  */
-void SFMLController::InitSFML() 
+void SFMLController::InitSFML()
 {
     window = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "City Simulator");
     window->setFramerateLimit(60);

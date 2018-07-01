@@ -1,11 +1,11 @@
 #include "UIController.h"
 #include "CoreController.h"
-#include "../Helpers/Constants.h"
 
 #include "UiObjects/SatisBar.h"
 #include "UiObjects/SelectionButton.h"
 
-#include "Government.h"
+#include "../Helpers/Constants.h"
+#include "../Helpers/Government.h"
 
 UIController::UIController() : sfml(*CoreController::SfmlController()) {}
 

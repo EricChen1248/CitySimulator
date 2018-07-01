@@ -2,7 +2,7 @@
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/HelperFunctions.h"
-#include "../../Controllers/Government.h"
+#include "../../Helpers/Government.h"
 
 Hospital::Hospital(Plot* plot) : Base(plot, HOSPITAL)
 {

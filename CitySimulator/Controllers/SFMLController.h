@@ -21,7 +21,6 @@ public:
     void DrawShape(const sf::VertexArray& array) const;
     void DrawString(sf::Text& text) const;
     static sf::VertexArray GenerateVertexArray(const List<Coordinate>& coords);
-    static sf::ConvexShape GenerateLine(const Coordinate& coord1, const Coordinate& coord2);
 private:
     // Constructors and Destructors
     SFMLController();

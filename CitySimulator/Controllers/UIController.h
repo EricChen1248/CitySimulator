@@ -1,7 +1,7 @@
 #pragma once
 #include "SFMLController.h"
 #include "UiObjects/Slider.h"
-#include "../Helpers/Button.h"
+#include "UiObjects/Button.h"
 #include "../Collections/List.h"
 
 

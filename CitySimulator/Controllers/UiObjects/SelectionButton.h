@@ -2,8 +2,8 @@
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/Graphics/CircleShape.hpp>
 
+#include "Button.h"
 #include "../FontController.h"
-#include "../../Helpers/Button.h"
 #include "../../Helpers/Constants.h"
 
 struct SelectionButton
