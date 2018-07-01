@@ -20,13 +20,13 @@ public:
     void Render() const;
     void RenderInterday() const;
     void AdvanceDay() const;
-	void ResetDay();
-	int SystemCount()const;
-	const LinkedList<Citizen*>& GetCitizens() const { return citizens->Citizens(); }
+    void ResetDay();
+    int SystemCount() const;
+    const LinkedList<Citizen*>& GetCitizens() const { return citizens->Citizens(); }
 
-	void CalSatisfied()const;
+    void CalSatisfied() const;
     BaseSystem* GetSystem(System system) const;
-    const List<BaseSystem*>& GetSystems() const { return systems;};
+    const List<BaseSystem*>& GetSystems() const { return systems; };
 
 
     PlotSystem* Plots() const { return plots; }
@@ -36,6 +36,6 @@ private:
     PlotSystem* plots{};
     CitizenSystem* citizens{};
     List<BaseSystem*> systems{};
-	River river;
+    River river;
 };
 

@@ -111,7 +111,7 @@ void UIController::InitSatisfaction()
 
 void UIController::InitBirthRate()
 {
-    birthRateSlider = Slider(Vector2f(2, 2), Vector2f(250, 36)); 
+    birthRateSlider = Slider(Vector2f(2, 2), Vector2f(250, 36));
 }
 
 SelectionButton* UIController::InitSelectionButton(int& y, const std::string& str, const Color color)

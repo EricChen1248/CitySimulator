@@ -20,50 +20,50 @@ SystemController::~SystemController()
 void SystemController::Initialize()
 {
     plots = new PlotSystem;
-    
+
     // NONE,    FOOD,	WORK,	BANK,	HOME,	STORE, 	SCHOOL,    HOSPITAL
     BaseSystem* food = new FoodSystem();
-	BaseSystem* work = new WorkSystem();
-	BaseSystem* bank = new BankSystem();
-	BaseSystem* home = new HomeSystem();
-	BaseSystem* store = new StoreSystem();
+    BaseSystem* work = new WorkSystem();
+    BaseSystem* bank = new BankSystem();
+    BaseSystem* home = new HomeSystem();
+    BaseSystem* store = new StoreSystem();
     BaseSystem* school = new SchoolSystem();
     BaseSystem* hospital = new HospitalSystem();
-    
+
     systems.InsertLast(food);
-	systems.InsertLast(work);
-	systems.InsertLast(bank);
-	systems.InsertLast(home);
-	systems.InsertLast(store);
+    systems.InsertLast(work);
+    systems.InsertLast(bank);
+    systems.InsertLast(home);
+    systems.InsertLast(store);
     systems.InsertLast(school);
     systems.InsertLast(hospital);
-    
-	river.Init();
-    
+
+    river.Init();
+
     // TODO Remove demo
-    for (auto && system : systems)
+    for (auto&& system : systems)
     {
         int count = 0;
         switch (system->SystemType)
         {
-        case FOOD: 
+        case FOOD:
             count = 3;
             break;
-        case WORK: 
+        case WORK:
             count = 30;
             break;
         case BANK:
-        case HOME: 
+        case HOME:
             count = 5;
             break;
-        case STORE: 
+        case STORE:
             count = 10;
             break;
         case SCHOOL: break;
         case HOSPITAL: break;
         default: ;
         }
-        
+
         for (int i = 0; i < count; ++i)
         {
             auto plot = plots->GetRandomPlot();
@@ -73,9 +73,8 @@ void SystemController::Initialize()
             }
             system->Register(plot);
         }
-
     }
-	citizens = new CitizenSystem;
+    citizens = new CitizenSystem;
 }
 
 /**
@@ -84,7 +83,7 @@ void SystemController::Initialize()
 void SystemController::Update() const
 {
     citizens->Update();
-    for (auto && system : systems)
+    for (auto&& system : systems)
     {
         system->Update();
     }
@@ -97,7 +96,7 @@ void SystemController::Render() const
 {
     citizens->Render();
     plots->Render();
-	river.Render();
+    river.Render();
 }
 
 /**
@@ -106,14 +105,13 @@ void SystemController::Render() const
 void SystemController::RenderInterday() const
 {
     plots->RenderInterDay();
-	river.Render();
+    river.Render();
 }
 
 void SystemController::AdvanceDay() const
 {
     plots->ClearSelections();
 }
-
 
 
 /**
@@ -133,26 +131,27 @@ BaseSystem* SystemController::GetSystem(const System system) const
     case SCHOOL:
     case HOSPITAL:
         return systems[system - 1];
-    default: 
+    default:
         return nullptr;
     }
 }
+
 void SystemController::ResetDay()
 {
-	citizens->EndDay();
-	for (auto&& system : systems)
-	{
-		system->EndDay();
-	}
+    citizens->EndDay();
+    for (auto&& system : systems)
+    {
+        system->EndDay();
+    }
 }
 
 int SystemController::SystemCount() const
 {
-	return systems.Count();
+    return systems.Count();
 }
 
 void SystemController::CalSatisfied() const
 {
-	citizens->CalculateSatisfaction();
-	return;
+    citizens->CalculateSatisfaction();
+    return;
 }

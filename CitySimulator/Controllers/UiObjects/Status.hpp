@@ -13,6 +13,7 @@ enum Selection
 };
 
 class Plot;
+
 class Status
 {
 public:
@@ -26,12 +27,12 @@ public:
 private:
     void DrawSystem();
     void DrawPlot();
-    
+
     sf::Text title;
-    RectangleShape rect{}; 
+    RectangleShape rect{};
     sf::Text buttonText;
     Button button;
-    
+
     const int height = 200;
     bool mousePressed{};
     int width{};
