@@ -15,7 +15,7 @@ public:
     Button();
     Button(Vector2f size,Vector2f pos, Color color, Color moColor);
     ~Button();
-    void Draw();
+    bool Draw();
     bool IsInBounds() const;
     void SetPosition(Vector2f position);
 private:
