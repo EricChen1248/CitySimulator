@@ -33,6 +33,7 @@ private:
 	void LeavePlot(Plot* plot);
 	void Update();
 	bool IsSatisfied() override;
-	bool Register();
-	bool UnRegister();
+	void NewDay(); //override
+	void Register();
+	void UnRegister();
 };

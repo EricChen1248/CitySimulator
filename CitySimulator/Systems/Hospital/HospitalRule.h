@@ -18,8 +18,12 @@ public:
     void LeavePlot(Plot* plot);
     void Update();
     bool IsSatisfied() override;
+
+	void Register();
+
 private:
     const int maxDistance = 10;
+	Plot* assignedHospital;
     bool enter = false; 
 };
 

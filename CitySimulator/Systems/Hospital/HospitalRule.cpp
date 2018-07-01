@@ -2,9 +2,10 @@
 #include "../../Controllers/CoreController.h"
 #include "HospitalSystem.h"
 #include "Hospital.h"
+#include "../Food/FoodRule.h"
 #include "../../Helpers/HelperFunctions.h"
 
-HospitalRule::HospitalRule(Citizen& citizen): BaseRule(citizen, HOSPITAL) 
+HospitalRule::HospitalRule(Citizen& citizen): BaseRule(citizen, HOSPITAL), assignedHospital(nullptr)
 {
 }
 
@@ -15,8 +16,6 @@ float HospitalRule::CalculateScore()
     // TODO: the biggest 
     if(enter) 
         return 50000;  
- 
-     
      
     return 0;
 }
@@ -27,31 +26,12 @@ float HospitalRule::CalculateScore()
  */
 bool HospitalRule::FindPlot()
 {
-    auto &plots = CoreController::GetSystemController()->GetSystem(FOOD)->Plots();
-    
-    // Get a list of plots that fulfill out requirements ( distance < max distance
-    List<Plot*> choices;
-    for (auto && plot : plots)
-    {
-        auto coords = citizen->Coords();
-        const auto distance = plot->Coords().Distance(coords);
-        if (distance < maxDistance)
-        {
-            auto p = plot;
-            choices.InsertLast(p);
-        }
-    }
-    
-    // If such a list doesn't exist. This rule returns failed result false
-    if (choices.Count() == 0)
-    {
-        return false;
-    }
-    const auto chosen = choices[RandomInt(0, choices.Count())];
-    citizen->SetActiveRule(this);
-    citizen->SetTarget(chosen);
-    
-    return true;
+	if (assignedHospital == nullptr)
+		return false;
+
+	citizen->SetActiveRule(this);
+	citizen->SetTarget(assignedHospital);
+	return true;
 }
 
 void HospitalRule::EnterPlot(Plot* plot)
@@ -60,7 +40,7 @@ void HospitalRule::EnterPlot(Plot* plot)
     return;
     const auto food = dynamic_cast<Hospital*>(plot->GetPlotType());
     citizen->Wait(1.f);
-    citizen->IncreaseMoney(-food->cost);
+    //citizen->IncreaseMoney(-food->cost);
     food->Enter();
 }
 
@@ -86,4 +66,42 @@ void HospitalRule::Update()
 bool HospitalRule::IsSatisfied()
 {
     return true;
+}
+
+void HospitalRule::Register()
+{
+
+
+	auto &plots = CoreController::GetSystemController()->GetSystem(WORK)->Plots();
+	// Get a list of plots that fulfill out requirements ( distance < max distance
+	List<Plot*> choices;
+	for (auto && plot : plots)
+	{
+		auto coords = citizen->Coords();
+		if (!Pathable(coords, plot->Coords())) continue;
+		const auto distance = plot->Coords().Distance(coords);
+		if (distance < maxDistance)
+		{
+			auto p = plot;
+			choices.InsertLast(p);
+		}
+	}
+
+	// If such a list doesn't exist. This rule returns failed result false
+	// TODO: ¥[¤j·j¯Á½d³ò¡I
+	if (choices.Count() == 0)
+	{
+		return;
+	}
+
+	const auto chosen = choices[RandomInt(0, choices.Count())];
+
+	this->assignedHospital = chosen; // and then constant
+	citizen->SetActiveRule(this);
+	citizen->SetTarget(chosen);
+
+	// To Get FoodRule
+	FoodRule* foodRule = dynamic_cast<FoodRule*>(citizen->FindRule(FOOD));
+	foodRule->FillHunger(); // set hungerLevel to MAX
+
 }
