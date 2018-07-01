@@ -8,6 +8,7 @@ class FoodRule;
  */
 class Food : public Base
 {
+friend class FoodSystem;
 friend class FoodRule;
 
     public:
@@ -15,7 +16,10 @@ friend class FoodRule;
     ~Food() = default;
     void EndDay() override;
 private:
+    const int maxCustomer = 10;
     int cost;
+    int customerCountTally;
+    int overloadedTally;
     
     void Enter();
 };

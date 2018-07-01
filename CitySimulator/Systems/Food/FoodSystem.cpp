@@ -2,6 +2,7 @@
 #include "Food.h"
 #include "FoodRule.h"
 #include "../../Controllers/CoreController.h"
+#include "../../Helpers/HelperFunctions.h"
 
 
 class FoodRule;
@@ -62,3 +63,26 @@ void FoodSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
     const auto log = new Log(citizen->Coords(), new FoodRule(*dynamic_cast<FoodRule*>(rule)), citizen);
     unsatisfiedLog.InsertLast(log);
 }
+
+float FoodSystem::GetSatisfaction() const
+{
+    const float overloadedPenalty = 0.01f;
+    const int dailyCustomer = 50;
+    float overloadedTally = 0;
+    float customerTally = 0;
+    for (auto&& plot : plots)
+    {
+        const auto food = dynamic_cast<Food*>(plot->GetPlotType());
+        customerTally += food->customerCountTally - (food->customerCountTally - Clamp(food->customerCountTally, 0, dailyCustomer)) * 0.5f;
+        overloadedTally += food->overloadedTally;
+    }
+    customerTally /= plots.Count();
+    float satisfaction = 1.f - float(dailyCustomer - customerTally) / float(dailyCustomer);
+    
+    overloadedTally = overloadedTally / plots.Count() * overloadedPenalty;
+    satisfaction -= overloadedTally;
+    
+    satisfaction = Clamp(satisfaction, 0.f, 1.f);
+    return satisfaction;
+}
+

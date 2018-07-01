@@ -6,6 +6,7 @@
 #include "../Systems/Store/StoreSystem.h"
 #include "../Systems/School/SchoolSystem.h"
 #include "../Systems/Hospital/HospitalSystem.h"
+#include "CoreController.h"
 
 SystemController::SystemController() = default;
 
@@ -45,7 +46,7 @@ void SystemController::Initialize()
     {
         if (system->SystemType == FOOD)
         {
-            for (int i = 0; i < 5; ++i)
+            for (int i = 0; i < 3; ++i)
             {
                 auto plot = plots->GetRandomPlot();
                 while (plot->GetPlotType() != nullptr || plot->IsRiver())
@@ -165,7 +166,7 @@ BaseSystem* SystemController::GetSystem(const System system) const
 }
 void SystemController::ResetDay()
 {
-	citizens->ResetDay();
+	citizens->EndDay();
 	for (auto&& system : systems)
 	{
 		system->EndDay();

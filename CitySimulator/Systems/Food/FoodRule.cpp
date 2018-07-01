@@ -16,7 +16,7 @@ float FoodRule::CalculateScore()
     {
         return 0;
     }
-    return (100 - hungerLevel) * 100;
+    return exp(100 - hungerLevel) * 1000;
 }
 
 /**
