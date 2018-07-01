@@ -36,6 +36,9 @@ public:
     Coordinate Right(const float offset = 1) const { return {x + offset, y - offset, z}; }
     Coordinate RightUp(const float offset = 1) const { return {x, y - offset, z + offset}; }
     Coordinate RightDown(const float offset = 1) const { return {x + offset, y, z - offset}; }
+	//TODO: it might not work. PLZ CHECK HERE;
+	Coordinate Up(const float offset = 1) const { return { x - offset/2, y - offset/2, z + offset }; }
+	Coordinate Down(const float offset = 1) const { return { x + offset/2, y + offset/2 , z - offset }; }
 
     int Distance(Coordinate& coords) const;
     ScreenCoordinate ToScreenCoordinates() const;
