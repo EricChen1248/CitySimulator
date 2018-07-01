@@ -49,6 +49,14 @@ void Plot::Leave(Citizen* citizen)
     occupants.Remove(citizen);
 }
 
+void Plot::NewDay()
+{
+    if (currentType != nullptr)
+    {
+        currentType->NewDay();
+    }
+}
+
 void Plot::EndDay()
 {
     if (currentType != nullptr)
