@@ -1,5 +1,4 @@
 #include "SFMLController.h"
-#include <iostream>
 #include "CoreController.h"
 #include "../Helpers/Constants.h"
 
@@ -15,13 +14,14 @@ RenderWindow* SFMLController::Window() const
 }
 
 /**
- * \brief Initializes window and renderer for sdl
+ * \brief Initializes window and renderer for sfmll
  */
 SFMLController::SFMLController() : isRunning(false), window(nullptr)
 {
-    InitSFML();
+    window = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "City Simulator");
+    window->setFramerateLimit(60);
+    isRunning = true;
 }
-
 
 SFMLController::~SFMLController()
 {
@@ -45,7 +45,6 @@ void SFMLController::ClearRender() const
     window->clear(WHITE);
 }
 
-
 /**
  * \brief Interface for drawing a shape to the RenderWindow
  * \param shape Shape to draw
@@ -55,6 +54,10 @@ void SFMLController::DrawShape(const Shape& shape) const
     window->draw(shape);
 }
 
+/**
+ * \brief Interface for drawing a vertexArray to the RenderWindow
+ * \param array Vertex arrya being drawn
+ */
 void SFMLController::DrawShape(const VertexArray& array) const
 {
     window->draw(array);
@@ -69,6 +72,11 @@ void SFMLController::DrawString(Text& text) const
     window->draw(text);
 }
 
+/**
+ * \brief Generates a vertex array from an alternating list of coordinates (Left Right Left Right coords)
+ * \param coords List of coordinates of the vertex array
+ * \return The generated vertex array
+ */
 VertexArray SFMLController::GenerateVertexArray(const List<Coordinate>& coords)
 {
     const int count = coords.Count();
@@ -90,12 +98,3 @@ void SFMLController::UpdateWindow() const
     window->display();
 }
 
-/**
- * \brief Initializes the SFML
- */
-void SFMLController::InitSFML()
-{
-    window = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "City Simulator");
-    window->setFramerateLimit(60);
-    isRunning = true;
-}

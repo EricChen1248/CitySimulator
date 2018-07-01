@@ -3,7 +3,6 @@
 #include "../Collections/List.h"
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/Graphics/Shape.hpp>
-#include <SFML/Graphics/ConvexShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 
 class Coordinate;
@@ -30,7 +29,6 @@ private:
     bool IsRunning() const;
     
     // Methods
-    void InitSFML();
     void ClearRender() const;
     void UpdateWindow() const;
     

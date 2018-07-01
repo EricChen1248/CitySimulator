@@ -6,7 +6,7 @@
 
 class SchoolRule;
 
-SchoolSystem::SchoolSystem() : BaseSystem(FOOD)
+SchoolSystem::SchoolSystem() : BaseSystem(SCHOOL)
 {
 }
 

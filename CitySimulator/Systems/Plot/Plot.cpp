@@ -24,7 +24,7 @@ sf::CircleShape& Plot::UpdateShape()
  */
 void Plot::Register(Base* base)
 {
-    delete currentType;
+    if (currentType != nullptr) throw PlotBaseError("Plot is being registered but is already built");
     currentType = base;
     shape.setFillColor(base->Color());
 }
@@ -87,12 +87,12 @@ Road* Plot::GetRoad(Plot* nextPlot)
  
 void Plot::Destroy() 
 { 
-    if (currentType != nullptr) 
-    { 
-        currentType->Destroy();
-        delete currentType; 
-        currentType = nullptr; 
-    }    
+    if (currentType == nullptr) throw PlotBaseError("Plot base is being destroyed but is empty"); 
+    
+    currentType->Destroy();
+    delete currentType; 
+    currentType = nullptr; 
+    shape.setFillColor(EMPTY_PLOT_COLOR);
 } 
  
 

@@ -15,12 +15,14 @@ Button::Button(const Vector2f size, const Vector2f pos, const Color color, const
 }
 
 Button::~Button() = default;
+
 /**
  * \brief Draws the button to the screen
  */
-void Button::Draw()
+bool Button::Draw()
 {
-    if (IsInBounds())
+    const bool inBounds = IsInBounds();
+    if (inBounds)
     {
         shape.setFillColor(moColor);
     }
@@ -29,6 +31,7 @@ void Button::Draw()
         shape.setFillColor(color);
     }
     CoreController::SfmlController()->DrawShape(shape);
+    return inBounds;
 }
 
 /**

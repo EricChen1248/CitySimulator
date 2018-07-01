@@ -1,8 +1,10 @@
 #pragma once
+#include "../../Helpers/CustomExceptions.h"
 #include "../../Collections/List.h"
+#include "../../Log.h"
+
 #include "../SystemEnum.h"
 #include "../Plot/Plot.h"
-#include "../../Log.h"
 
 /**
  * \brief Abstract class that is the base of all systems
@@ -34,6 +36,7 @@ public:
     virtual void Unregister(Plot* plot);
     virtual void NewDay();
     virtual void EndDay();
+    virtual void Destroy(Plot* plot) ;
 protected:
     List<Plot*> plots;
     List<Log*> satisfiedLog;
@@ -88,5 +91,18 @@ inline void BaseSystem::EndDay()
     {
         plot->EndDay();
     }
+}
+
+inline void BaseSystem::Destroy(Plot* plot)
+{
+    if (SystemType != plot->GetPlotType()->SystemType)
+    {
+        std::stringstream ss;
+        ss << "Attempting to destroy plot of type " << SYSTEM_NAMES[plot->GetPlotType()->SystemType] << " with a system of type " << SYSTEM_NAMES[SystemType];
+        throw IncorrectSystemType(ss.str());
+    }
+    
+    plot->Destroy();
+    Unregister(plot);
 }
 
