@@ -1,12 +1,10 @@
 #pragma once
-#include <SFML/Audio.hpp>
-#include <SFML/Config.hpp>
-#include <SFML/Graphics.hpp>
-#include <SFML/Network.hpp>
-#include <SFML/OpenGL.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
+
 #include "../Collections/List.h"
+#include <SFML/Graphics/Text.hpp>
+#include <SFML/Graphics/Shape.hpp>
+#include <SFML/Graphics/ConvexShape.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
 
 class Coordinate;
 class Plot;
@@ -22,7 +20,7 @@ public:
     void DrawShape(const sf::Shape& shape) const;
     void DrawShape(const sf::VertexArray& array) const;
     void DrawString(sf::Text& text) const;
-    static sf::VertexArray GenerateVertexArray(const List<Coordinate>& plots);
+    static sf::VertexArray GenerateVertexArray(const List<Coordinate>& coords);
     static sf::ConvexShape GenerateLine(const Coordinate& coord1, const Coordinate& coord2);
 private:
     // Constructors and Destructors

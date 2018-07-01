@@ -1,6 +1,10 @@
 #include "UIController.h"
 #include "CoreController.h"
 #include "../Helpers/Constants.h"
+
+#include "UiObjects/SatisBar.h"
+#include "UiObjects/SelectionButton.h"
+
 #include "Government.h"
 
 UIController::UIController() : sfml(*CoreController::SfmlController()) {}
@@ -75,7 +79,7 @@ void UIController::RenderInterDayUI()
 
 void UIController::InitSelection()
 {
-    selectionBackGround.setSize(Vector2f(152, 502));
+    selectionBackGround.setSize(Vector2f(151, 383));
     selectionBackGround.setPosition(WINDOW_WIDTH - 153, 2);
     selectionBackGround.setFillColor(WHITE);
     selectionBackGround.setOutlineColor(BLACK);
