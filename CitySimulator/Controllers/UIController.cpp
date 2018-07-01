@@ -75,6 +75,18 @@ void UIController::RenderInterDayUI()
     DrawStatus();
 }
 
+bool UIController::IsOverUI() const
+{
+    const auto window = CoreController::SfmlController()->Window();
+    const auto mousePos = sf::Mouse::getPosition(*window);
+    if (timeRect.getGlobalBounds().contains(mousePos.x, mousePos.y)) return true;
+    if (moneyRect.getGlobalBounds().contains(mousePos.x, mousePos.y)) return true;
+    if (selectionBackGround.getGlobalBounds().contains(mousePos.x, mousePos.y)) return true;
+    if (nextDay.IsInBounds()) return true;
+    if (birthRateSlider.InBound()) return true;
+    return false;    
+}
+
 void UIController::InitSelection()
 {
     selectionBackGround.setSize(Vector2f(151, 383));

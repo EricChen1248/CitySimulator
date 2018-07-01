@@ -25,18 +25,25 @@ public:
     static Plot* SelectedPlot;
     static System SelectedSystem;
 private:
+    void DrawChildren();
     void DrawSystem();
     void DrawPlot();
 
+    bool Grow();
+    bool Shrink();
     sf::Text title;
     RectangleShape rect{};
     sf::Text buttonText;
     Button button;
+    
+    sf::Text closeText;
+    Button closeButton;
 
     const int height = 200;
     bool mousePressed{};
     int width{};
     int x{};
     int y{};
+    int changeHeight = 0;
 };
 

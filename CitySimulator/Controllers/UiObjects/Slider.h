@@ -10,7 +10,7 @@ public:
     Slider(Vector2f position, Vector2f size, int initialValue = 80);
     void Render();
     int Value() const { return value; }
-    
+    bool InBound() const;
 private:
     RectangleShape background;
     RectangleShape centerLine;

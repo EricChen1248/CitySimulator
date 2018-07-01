@@ -141,6 +141,9 @@ void PlotSystem::FindHoverPlot()
     const auto window = CoreController::SfmlController()->Window();
     const auto view = CoreController::GetViewportController();
     const auto mousePos = sf::Mouse::getPosition(*window);
+    
+    if (CoreController::GetUIController()->IsOverUI()) return;
+    
     const auto adjustedMousePos = window->mapPixelToCoords(mousePos, view->GameView());
     for (auto && plot : plots)
     {

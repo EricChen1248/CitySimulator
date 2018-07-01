@@ -51,3 +51,10 @@ void Slider::Render()
         mouseClicked = sf::Mouse::isButtonPressed(sf::Mouse::Left);
     }
 }
+
+bool Slider::InBound() const
+{
+    const auto window = CoreController::SfmlController()->Window();
+    const auto mousePos = sf::Mouse::getPosition(*window);
+    return background.getGlobalBounds().contains(mousePos.x, mousePos.y);
+}

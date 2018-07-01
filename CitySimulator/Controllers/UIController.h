@@ -21,6 +21,9 @@ public:
     void RenderUI();
     void RenderInterDayUI();
     bool NextDayButtonHover() const { return nextDay.IsInBounds(); };
+    
+    bool IsOverUI() const;
+    const RectangleShape& SelectionBack() const { return selectionBackGround;}
     List<float>& GetScoreList() { return scoreList; };
 private:
     sf::Text timeText{};
@@ -30,8 +33,6 @@ private:
     RectangleShape moneyRect{};
 
     Button nextDay;
-    RectangleShape nextDayShape{};
-    RectangleShape nextDayMoShape{};
     sf::Text nextDayText{};
 
     Status status{};
