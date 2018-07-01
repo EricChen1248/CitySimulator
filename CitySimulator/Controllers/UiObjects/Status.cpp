@@ -25,7 +25,7 @@ void Status::Init(const int x, const int y)
     rect.setSize(Vector2f(width, 0));
 
     title.setFillColor(BLACK);
-    title.setCharacterSize(20);
+    title.setCharacterSize(24);
     title.setPosition(x + 20, y + 10);
     title.setFont(FontController::Monofur());
 
@@ -33,6 +33,11 @@ void Status::Init(const int x, const int y)
     buttonText.setCharacterSize(20);
     buttonText.setPosition(x + 20, y + height - 34);
     buttonText.setFont(FontController::Monofur());
+    
+    content.setFillColor(BLACK);
+    content.setCharacterSize(20);
+    content.setPosition(x + 20, y + 38);
+    content.setFont(FontController::Monofur());
 
     button = Button(Vector2f(width - 42, 28), Vector2f(x + 20, y + height - 34), WHITE, MOUSE_OVER_COLOR);
     
@@ -133,6 +138,8 @@ void Status::DrawPlot()
 
     title.setString(SYSTEM_NAMES[int(SelectedPlot->GetPlotType()->SystemType)]);
     CoreController::SfmlController()->DrawString(title);
+    content.setString(SelectedPlot->GetPlotType()->ContentString());
+    CoreController::SfmlController()->DrawString(content);
     if (button.Draw())
     {
         if (!mousePressed)

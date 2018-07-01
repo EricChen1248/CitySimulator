@@ -32,6 +32,7 @@ private:
     bool Grow();
     bool Shrink();
     sf::Text title;
+    sf::Text content;
     RectangleShape rect{};
     sf::Text buttonText;
     Button button;

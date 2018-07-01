@@ -21,11 +21,12 @@ public:
     }
 
     virtual ~Base() = default;
-    virtual void NewDay() {};
-    virtual void EndDay() {};
-    virtual int ReturnScore() { return score; };
+    virtual void NewDay() {}
+    virtual void EndDay() {}
+    virtual int ReturnScore() { return score; }
     // TODO : Add Destroy behaviour
-    virtual void Destroy() { };
+    virtual void Destroy() { }
+    virtual std::string ContentString() { return ""; }
     
 protected:
     Plot* plot;

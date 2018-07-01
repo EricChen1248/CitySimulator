@@ -63,6 +63,8 @@ void UIController::RenderUI()
     DrawSelection();
     DrawSatisfaction();
     DrawBirthRate();
+    Status::Selection = NONE_SELECTED;
+    DrawStatus();
 }
 
 void UIController::RenderInterDayUI()

@@ -14,7 +14,9 @@ friend class FoodRule;
 public:
     Food(Plot* plot);
     ~Food();
+    std::string ContentString() override;
     
+    void NewDay() override;
     void EndDay() override;
 private:
     const int maxCustomer = 10;

@@ -36,7 +36,8 @@ public:
     virtual void Unregister(Plot* plot);
     virtual void NewDay();
     virtual void EndDay();
-    virtual void Destroy(Plot* plot) ;
+    virtual void Destroy(Plot* plot);
+    virtual std::string ContentString() { return ""; }
 protected:
     List<Plot*> plots;
     List<Log*> satisfiedLog;
