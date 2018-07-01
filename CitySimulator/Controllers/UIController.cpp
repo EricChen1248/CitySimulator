@@ -1,6 +1,7 @@
 #include "UIController.h"
 #include "CoreController.h"
 
+#include "UiObjects/Status.hpp"
 #include "UiObjects/SatisBar.h"
 #include "UiObjects/SelectionButton.h"
 
@@ -44,12 +45,7 @@ void UIController::Initialize()
     moneyRect.setOutlineColor(BLACK);
     moneyRect.setOutlineThickness(2);
 
-    statusRect.setSize(Vector2f(float(WINDOW_WIDTH) / 2 - 255, 100));
-    statusRect.setPosition(float(WINDOW_WIDTH) / 2 + 100, 2);
-    statusRect.setFillColor(WHITE);
-    statusRect.setOutlineColor(BLACK);
-    statusRect.setOutlineThickness(2);
-
+    status.Init(2, 40);
     InitSelection();
     InitSatisfaction();
     InitBirthRate();
@@ -75,6 +71,7 @@ void UIController::RenderInterDayUI()
     DrawSelection();
     DrawSatisfaction();
     DrawBirthRate();
+    DrawStatus();
 }
 
 void UIController::InitSelection()
@@ -113,7 +110,7 @@ void UIController::InitSatisfaction()
 
 void UIController::InitBirthRate()
 {
-    birthRateSlider = Slider(Vector2f(2, 2), Vector2f(250, 36));
+    birthRateSlider = Slider(Vector2f(2, 2), Vector2f(250, 36)); 
 }
 
 SelectionButton* UIController::InitSelectionButton(int& y, const std::string& str, const Color color)
@@ -124,9 +121,20 @@ SelectionButton* UIController::InitSelectionButton(int& y, const std::string& st
     return button;
 }
 
-void UIController::DrawStatus() const
+void UIController::DrawStatus()
 {
-    sfml.DrawShape(statusRect);
+    for (int i = 0; i < selectionButtons.Count(); ++i)
+    {
+        if (selectionButtons[i]->IsInBounds())
+        {
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            {
+                Status::Selection = SYSTEM;
+                Status::SelectedSystem = System(i + 1);
+            }
+        }
+    }
+    status.Draw();
 }
 
 void UIController::DrawBirthRate()
@@ -154,7 +162,6 @@ void UIController::DrawSatisfaction() const
             tempPtr->Draw(scoreList[i], sfml);
         }
     }
-    return;
 }
 
 /**

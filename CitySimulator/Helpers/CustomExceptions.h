@@ -60,3 +60,31 @@ public:
     
     char const* what() const override {return nullptr;};
 };
+
+/**
+ * \brief Exception that occurs when a the system's type and the base doesn't match up.
+ */
+class IncorrectSystemType : public std::runtime_error
+{
+public:
+    explicit IncorrectSystemType(const std::string& message) : runtime_error(message) {}
+    explicit IncorrectSystemType(const char* message) : runtime_error(message) {}
+    
+    ~IncorrectSystemType() noexcept override = default;
+    
+    char const* what() const override {return nullptr;};
+};
+
+/**
+ * \brief Exception that occurs when a the system's type and the base doesn't match up.
+ */
+class PlotBaseError : public std::runtime_error
+{
+public:
+    explicit PlotBaseError(const std::string& message) : runtime_error(message) {}
+    explicit PlotBaseError(const char* message) : runtime_error(message) {}
+    
+    ~PlotBaseError() noexcept override = default;
+    
+    char const* what() const override {return nullptr;};
+};

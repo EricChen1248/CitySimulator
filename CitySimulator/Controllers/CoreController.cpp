@@ -251,7 +251,7 @@ void CoreController::InterdayInputEvents()
         case Event::MouseMoved: break;
         case Event::MouseEntered: break;
         case Event::MouseLeft: break;
-        default: ;
+        default:;
         }
     }
     if (Keyboard::isKeyPressed(Keyboard::A))

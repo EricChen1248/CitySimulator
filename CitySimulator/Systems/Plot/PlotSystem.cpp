@@ -4,7 +4,7 @@
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Helpers/PathFinder/PathFinder.h"
 
-PlotSystem::PlotSystem(): hoverPlot(nullptr), selectedPlot(nullptr), builtBridge(true)
+PlotSystem::PlotSystem(): hoverPlot(nullptr), builtBridge(true)
 {
     const int size = RIGHT - LEFT;
     plotArray = new Plot**[size];
@@ -105,12 +105,16 @@ void PlotSystem::HandleClick()
             // if mouse is clicked
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
-                if (selectedPlot != nullptr)
+                if (Status::SelectedPlot != nullptr)
                 {
-                    auto & selectedShape = selectedPlot->GetShape();
+                    auto & selectedShape = Status::SelectedPlot->GetShape();
                     selectedShape.setOutlineThickness(0);
                 }
-                selectedPlot = hoverPlot;
+                Status::SelectedPlot = hoverPlot;
+                if (hoverPlot->currentType != nullptr)
+                {
+                    Status::Selection = PLOT;
+                }
                 shape.setOutlineColor(BLACK);
                 shape.setOutlineThickness(3);
             }
@@ -119,7 +123,7 @@ void PlotSystem::HandleClick()
         {
             // has left plot
             // if plot is not selected, remove outline
-            if (hoverPlot != selectedPlot)
+            if (hoverPlot != Status::SelectedPlot)
             {
                 shape.setOutlineThickness(0);
             }
@@ -144,7 +148,7 @@ void PlotSystem::FindHoverPlot()
         if (shape.getGlobalBounds().contains(adjustedMousePos.x, adjustedMousePos.y))
         {
             hoverPlot = plot;
-            if (hoverPlot != selectedPlot)
+            if (hoverPlot != Status::SelectedPlot)
             {
                 shape.setOutlineColor(LIGHT_GREY);
                 shape.setOutlineThickness(3);
@@ -162,12 +166,14 @@ void PlotSystem::ClearSelections()
         shape.setOutlineThickness(0);
         hoverPlot = nullptr;
     }
-    if (selectedPlot != nullptr)
+    if (Status::SelectedPlot != nullptr)
     {
-        auto & shape = selectedPlot->GetShape();
+        auto & shape = Status::SelectedPlot->GetShape();
         shape.setOutlineThickness(0);
-        hoverPlot = nullptr;
+        Status::SelectedPlot = nullptr;
     }
+           
+    Status::Selection = NONE_SELECTED;
 }
 
 void PlotSystem::EndDay()

@@ -12,21 +12,23 @@ public:
     ~PlotSystem();
     void Render() const;
     void RenderInterDay();
-    Plot* FindPlot(const Coordinate& coords) const;
-    Plot* GetRandomPlot() const;
+    
     void HandleClick();
 	void FindHoverPlot();
     void ClearSelections();
+    
+    void NewDay() {};
     void EndDay();
-	const LinkedList<Plot*>& Plots() const { return plots; };
-
+    
+    const LinkedList<Plot*>& Plots() const { return plots; }
+    Plot* FindPlot(const Coordinate& coords) const;
+    Plot* GetRandomPlot() const;
 private:
     Plot* CoordToPlotArray(const Coordinate& coords) const;
     
     Plot*** plotArray;
     LinkedList<Plot*> plots;
     Plot* hoverPlot;
-    Plot* selectedPlot;
     bool builtBridge;
 };
 

@@ -2,8 +2,8 @@
 #include "SFMLController.h"
 #include "UiObjects/Slider.h"
 #include "UiObjects/Button.h"
+#include "UiObjects/Status.hpp"
 #include "../Collections/List.h"
-
 
 struct SatisBar;
 struct SelectionButton;
@@ -34,9 +34,8 @@ private:
     RectangleShape nextDayMoShape{}; 
     sf::Text nextDayText{}; 
      
+    Status status{};
     Slider birthRateSlider;
-    
-    RectangleShape statusRect{}; 
     
     RectangleShape selectionBackGround{};
     List<SelectionButton*> selectionButtons{};
@@ -50,7 +49,7 @@ private:
     void DrawMoney();
     void DrawSelection();  
     void DrawSatisfaction() const; 
-    void DrawStatus() const; 
+    void DrawStatus(); 
     void DrawBirthRate();
 
     void InitSelection();
