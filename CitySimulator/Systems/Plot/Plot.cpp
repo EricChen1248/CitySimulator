@@ -79,38 +79,6 @@ void Plot::InsertNewRoad(Road* newRoad)
 	roads.InsertLast(newRoad);
 }
 
-void Plot::GenerateRoads()
-{
-	Coordinate* neighbours = coords.GetNeighbours();
-	Plot** neighboursPlot = new Plot*[6];
-	for (int i = 0; i < 6; ++i)
-		neighboursPlot[i] = CoreController::GetSystemController()->Plots()->FindPlot(neighbours[i]);
-	/*
-	for (int i = 0; i < 6; ++i)
-	{
-		if (neighboursPlot[i] != nullptr)
-		{
-			bool exists = false;
-			for (auto&& road : roads)
-			{
-				if (road != nullptr && road->IsRoad(this, neighboursPlot[i]))
-				{
-					exists = true;
-					break;
-				}
-			}
-
-			if (!exists)
-			{
-				Road* newRoad = new Road(this, neighboursPlot[i]);
-				this->InsertNewRoad(newRoad);
-				neighboursPlot[i]->InsertNewRoad(newRoad);
-			}
-		}
-	}
-	*/
-}
-
 Road* Plot::GetRoad(Plot* nextPlot)
 {
 	for (auto&& road : roads)
