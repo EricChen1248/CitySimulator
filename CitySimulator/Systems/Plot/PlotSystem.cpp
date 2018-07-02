@@ -28,7 +28,6 @@ PlotSystem::PlotSystem(): hoverPlot(nullptr), builtBridge(true)
 
     for (auto && plot : plots)
     {
-        plot->GenerateRoads();
         PathFinder::MapPlot(plot);
     }
 }

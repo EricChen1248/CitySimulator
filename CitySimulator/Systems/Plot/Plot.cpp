@@ -1,8 +1,13 @@
 #include "Plot.h"
+#include "PlotSystem.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/Road.h"
+#include "../../Helpers/Coordinate.h"
 #include <iostream>
+
+class PlotSystem;
+
 Plot::Plot(const int x, const int y, const int z) : coords(x, y, z), size(10.f), shape(sf::CircleShape(size)),
                                                     currentType(nullptr), roads(6), quadrant(0), river(false)
 {
@@ -69,10 +74,41 @@ void Plot::EndDay()
         break;
     }
 }
+void Plot::InsertNewRoad(Road* newRoad)
+{
+	roads.InsertLast(newRoad);
+}
 
 void Plot::GenerateRoads()
 {
+	Coordinate* neighbours = coords.GetNeighbours();
+	Plot** neighboursPlot = new Plot*[6];
+	for (int i = 0; i < 6; ++i)
+		neighboursPlot[i] = CoreController::GetSystemController()->Plots()->FindPlot(neighbours[i]);
+	/*
+	for (int i = 0; i < 6; ++i)
+	{
+		if (neighboursPlot[i] != nullptr)
+		{
+			bool exists = false;
+			for (auto&& road : roads)
+			{
+				if (road != nullptr && road->IsRoad(this, neighboursPlot[i]))
+				{
+					exists = true;
+					break;
+				}
+			}
 
+			if (!exists)
+			{
+				Road* newRoad = new Road(this, neighboursPlot[i]);
+				this->InsertNewRoad(newRoad);
+				neighboursPlot[i]->InsertNewRoad(newRoad);
+			}
+		}
+	}
+	*/
 }
 
 Road* Plot::GetRoad(Plot* nextPlot)
