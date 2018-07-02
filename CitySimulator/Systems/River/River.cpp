@@ -15,11 +15,12 @@ void River::Init()
 
 
 	//Mode 0 : straight river cuting city into half; Mode 1: cutting it vertically 
-	int mode = RandomInt(0,2);
-	mode = 1;
+	RIVERMODE mode = static_cast<RIVERMODE> (RandomInt(0,3));
+	//mode = ModeCIRCLE;
+
 	switch (mode)
 	{
-	case(0):
+	case(ModeSTRAIGHT):
 	{
 		InitBoundary();
 		Coordinate startPoint(rand, adjustedRight - rand, LEFT);
@@ -55,79 +56,86 @@ void River::Init()
 		}
 		break;
 	}
-	case(1):
+	case(ModeACCROSS):
 	{
 		//0 means start from LeftUp going rightDown; 1 means start from LeftDown going  right up 
 		int ranSeed = RandomInt(0, 2);
 		int interval = adjustedRight / 2;
 		int x, y, z;
 		DIRECTION dir;
+		DIRECTION dir2;
 		ranSeed == 0 ? (x = LEFT,y = interval ,z = adjustedRight - interval,dir = DirRIGHTDOWN) : (x = LEFT + interval, y = adjustedRight, z  = -interval, dir = DirRIGHTUP);
 		Coordinate startPoint(x, y, z);
-		MarkAsRiver(startPoint);
-		if (ranSeed == 0)
-		{
-			Draw(DirRIGHTUP, DirLEFTDOWN, startPoint, points);
-		}
-		if (ranSeed == 1)
-		{
-			Draw(DirLEFTUP, DirRIGHTDOWN, startPoint, points);
-
-		}
-		
+		DrawStart(startPoint, points);
 		startPoint = ranSeed == 0 ? startPoint.RightDown() : startPoint.RightUp();
-		DIRECTION tempD = ranSeed == 0 ? DirRIGHTDOWN : DirRIGHTUP;
-		DrawStraightLine(AXISZ, tempD, 0,points, startPoint);
-		if (ranSeed == 1)
-		{
-			Draw(DirLEFTUP,DirRIGHTDOWN,startPoint,points);
-		}
-		if(ranSeed == 0)
-		{
-			Draw(DirRIGHTUP, DirLEFTDOWN, startPoint, points);
-		}
-		MarkAsRiver(startPoint);
-		//Move to next 
-		startPoint = startPoint.Right();
+		DrawStraightLine(AXISZ,dir,0,points, startPoint);
+		DrawCorner(dir, DirRIGHT , points, startPoint);
 		DrawStraightLine(AXISX, DirRIGHT, interval, points, startPoint);
 
 		ranSeed = RandomInt(0, 2);
+		dir = DirRIGHT;
+		dir2 = ranSeed == 0 ? DirRIGHTDOWN : DirRIGHTUP;
+		DrawCorner(dir, dir2,points,startPoint);
+		
+		//AXIS tempAx = ranSeed == 0 ? AXISX : AXISY;
+		//int bound = ranSeed == 0 ? adjustedRight : LEFT;
+		
+		DrawStraightLine(AXISX, dir2, 16, points, startPoint);
+		//DrawEnd(startPoint, points);
 
-		if (ranSeed == 0)
-		{
-			Draw(DirRIGHTUP, DirLEFTDOWN, startPoint, points);
-			
-		}
-		else
-		{
-			Draw(DirLEFTUP, DirRIGHTDOWN, startPoint, points);	
-		}
-		//Mark
-		MarkAsRiver(startPoint);
-		//Move
-		tempD = ranSeed == 0 ? DirRIGHTDOWN : DirRIGHTUP;
-		AXIS tempAx = ranSeed == 0 ? AXISX : AXISY;
-		int bound = ranSeed == 0 ? adjustedRight : LEFT;
-		DrawStraightLine(tempAx, tempD, bound, points, startPoint);
-
-		MarkAsRiver(startPoint);
-		if (ranSeed == 0)
-		{
-			points.InsertLast(startPoint.RightUp(float(0.88)));
-			points.InsertLast(startPoint.LeftDown(float(0.88)));
-
-		}
-		if (ranSeed == 1)
-		{
-			points.InsertLast(startPoint.LeftUp(float(0.88)));
-			points.InsertLast(startPoint.RightDown(float(0.88)));
-		}
+		/*
+		reveal the river;
+		*/
 		shape = SFMLController::GenerateVertexArray(points);
 		for (size_t i = 0; i < shape.getVertexCount(); ++i)
 		{
 			shape[i].color = RIVER_COLOR;
 		}
+		/*
+		For debuggin check wheter there is some points missing or not
+		*/
+		//for (auto points : riverPoints)
+		//{
+		//	points->GetShape().setOutlineThickness(10);
+		//	points->GetShape().setOutlineColor(BLACK);
+		//}
 		break;
+	}
+	case(ModeCIRCLE):
+	{
+		int startAxis = adjustedRight / 2;
+		//upper circle
+		Coordinate startPoint(-startAxis, startAxis, 0);
+		DrawStraightLine(AXISZ, DirRIGHTUP, startAxis, points, startPoint);
+		DrawCorner(DirRIGHTUP, DirRIGHT, points, startPoint);
+		startPoint = startPoint.Right();
+		DrawStraightLine(startAxis, DirRIGHT, points, startPoint);
+		DrawCorner(DirRIGHT, DirRIGHTDOWN, points, startPoint);
+		startPoint = startPoint.RightDown();
+		DrawStraightLine(AXISZ, DirRIGHTDOWN, 0, points, startPoint);
+		DrawCorner(DirRIGHTDOWN, DirLEFTDOWN, points, startPoint);
+		DrawStraightLine(startAxis, DirLEFTDOWN, points, startPoint);
+		DrawCorner(DirLEFTDOWN, DirLEFT, points, startPoint);
+		DrawStraightLine(startAxis+1, DirLEFT, points, startPoint);
+		DrawCorner(DirLEFT, DirLEFTUP, points, startPoint);
+		startPoint = startPoint.LeftUp();
+		DrawStraightLine(AXISZ, DirLEFTUP,  1 , points, startPoint);
+
+		//shape = SFMLController::GenerateVertexArray(points);
+
+		for (size_t i = 0; i < shape.getVertexCount(); ++i)
+		{
+			shape[i].color = RIVER_COLOR;
+		}
+		break;
+		/*
+		For debuggin check wheter there is some points missing or not
+		*/
+		//for (auto points : riverPoints)
+		//{
+		//	points->GetShape().setOutlineThickness(10);
+		//	points->GetShape().setOutlineColor(BLACK);
+		//}
 	}
 	default:
 		break;
@@ -170,56 +178,121 @@ void River::DrawStraightLine(const AXIS & ax, const DIRECTION & dir, const int &
 	int tempAx = ax == AXISX ? curCoord.X() : ax == AXISY ? curCoord.Y() : curCoord.Z();
 	while (tempAx != boundary)
 	{
-		MarkAsRiver(curCoord);
-		switch (dir)
+		if (IsBoundaryOrNot(curCoord) == NODIRECTION)
 		{
-		case(DirRIGHT):
+			MarkAsRiver(curCoord);
+			switch (dir)
+			{
+			case(DirRIGHT):
+			{
+				inputList.InsertLast(curCoord.Up(float(1.02)*SIN60));
+				inputList.InsertLast(curCoord.Down(float(1.02)*SIN60));
+				curCoord = curCoord.Right();
+				break;
+			}
+			case(DirRIGHTUP):
+			{
+				Draw(DirLEFT, DirRIGHT, curCoord, inputList);
+				curCoord = curCoord.RightUp();
+				break;
+			}
+			case(DirRIGHTDOWN):
+			{
+				Draw(DirRIGHT, DirLEFT, curCoord, inputList);
+				curCoord = curCoord.RightDown();
+				break;
+			}
+			case(DirLEFT):
+			{
+				inputList.InsertLast(curCoord.Down(float(1.02)*SIN60));
+				inputList.InsertLast(curCoord.Up(float(1.02)*SIN60));
+				curCoord = curCoord.Left();
+				break;
+			}
+			case(DirLEFTUP):
+			{
+				Draw(DirLEFT, DirRIGHT, curCoord, inputList);
+				curCoord = curCoord.LeftUp();
+				break;
+			}
+			case(DirLEFTDOWN):
+			{
+				Draw(DirLEFT, DirRIGHT, curCoord, inputList);
+				curCoord = curCoord.LeftDown();
+				break;
+			}
+
+			default:
+				break;
+			}
+			tempAx = ax == AXISX ? curCoord.X() : ax == AXISY ? curCoord.Y() : curCoord.Z();
+		}
+		else
 		{
-			inputList.InsertLast(curCoord.Up(float(1.02)*SIN60));
-			inputList.InsertLast(curCoord.Down(float(1.02)*SIN60));
-			curCoord = curCoord.Right();
+			DrawEnd(curCoord,inputList);
 			break;
 		}
-		case(DirRIGHTUP):
+		
+	}
+}
+void River::DrawStraightLine(const int & distance, const DIRECTION & dir, List<Coordinate>& inputList, Coordinate & curCoord)
+{
+	for(int i = 0; i < distance;++i)
+	{
+		if (IsBoundaryOrNot(curCoord) == NODIRECTION)
 		{
-			inputList.InsertLast(curCoord.Left(float(0.88)));
-			inputList.InsertLast(curCoord.Right(float(0.88)));
-			curCoord = curCoord.RightUp();
-			break;
+			MarkAsRiver(curCoord);
+			switch (dir)
+			{
+			case(DirRIGHT):
+			{
+				inputList.InsertLast(curCoord.Up(float(1.02)*SIN60));
+				inputList.InsertLast(curCoord.Down(float(1.02)*SIN60));
+				curCoord = curCoord.Right();
+				break;
+			}
+			case(DirRIGHTUP):
+			{
+				Draw(DirLEFT, DirRIGHT, curCoord, inputList);
+				curCoord = curCoord.RightUp();
+				break;
+			}
+			case(DirRIGHTDOWN):
+			{
+				Draw(DirRIGHT, DirLEFT, curCoord, inputList);
+				curCoord = curCoord.RightDown();
+				break;
+			}
+			case(DirLEFT):
+			{
+				inputList.InsertLast(curCoord.Down(float(1.02)*SIN60));
+				inputList.InsertLast(curCoord.Up(float(1.02)*SIN60));
+				curCoord = curCoord.Left();
+				break;
+			}
+			case(DirLEFTUP):
+			{
+				Draw(DirLEFT, DirRIGHT, curCoord, inputList);
+				curCoord = curCoord.LeftUp();
+				break;
+			}
+			case(DirLEFTDOWN):
+			{
+				Draw(DirLEFT, DirRIGHT, curCoord, inputList);
+				curCoord = curCoord.LeftDown();
+				break;
+			}
+
+			default:
+				break;
+			}
 		}
-		case(DirRIGHTDOWN):
+		else
 		{
-			inputList.InsertLast(curCoord.Right(float(0.88)));
-			inputList.InsertLast(curCoord.Left(float(0.88)));
-			curCoord = curCoord.RightDown();
-			break;
-		}
-		case(DirLEFT):
-		{
-			inputList.InsertLast(curCoord.Down(float(1.02)*SIN60));
-			inputList.InsertLast(curCoord.Up(float(1.02)*SIN60));
-			curCoord = curCoord.Left();
-			break;
-		}
-		case(DirLEFTUP):
-		{
-			inputList.InsertLast(curCoord.Left(float(0.88)));
-			inputList.InsertLast(curCoord.Right(float(0.88)));
-			curCoord = curCoord.LeftUp();
-			break;
-		}
-		case(DirLEFTDOWN):
-		{
-			inputList.InsertLast(curCoord.Right(float(0.88)));
-			inputList.InsertLast(curCoord.Left(float(0.88)));
-			curCoord = curCoord.LeftDown();
+			DrawEnd(curCoord, inputList);
 			break;
 		}
 
-		default:
-			break;
-		}
-		tempAx = ax == AXISX ? curCoord.X() : ax == AXISY ? curCoord.Y() : curCoord.Z();
 	}
 }
 /*
@@ -255,6 +328,10 @@ DIRECTION River::IsBoundaryOrNot(const Coordinate & coord) const
 	}
 	return NODIRECTION;
 }
+/*
+NODIRECTION means it is not the six Corner
+Each Direction are using to represent one corner
+*/
 DIRECTION River::IsSixOrNot(const Coordinate & coord) const
 {
 	if ((coord.X() == LEFT) && (coord.Z() == (RIGHT - 1)))
@@ -285,36 +362,40 @@ DIRECTION River::IsSixOrNot(const Coordinate & coord) const
 }
 void River::DrawCorner(DIRECTION d1, DIRECTION d2,List<Coordinate>& inputList, Coordinate& curCoord)
 {
+
 	MarkAsRiver(curCoord);
-	if (d1 == DirRIGHTUP)
+	int a1 = static_cast<int>(d1);
+	int a2 = static_cast<int>(d2);
+	int rotate = a2 - a1;
+	if ((rotate == 1) || (rotate == -5))
 	{
-		inputList.InsertLast(curCoord.LeftUp(float(1.02)*SIN60));
-		inputList.InsertLast(curCoord.RightDown(float(1.02)*SIN60));
-		curCoord = curCoord.Right();
+		int leftRo = a1 - 1;
+		leftRo = ((a1 - 1) >= 0) ? (a1-1) : (6 + (a1 - 1));
+		int rightRo = (a1 + 2) % 6;
+		Draw(static_cast<DIRECTION>(leftRo), static_cast<DIRECTION>(rightRo), curCoord, inputList);
 	}
-	else if(d1 == DirRIGHTDOWN)
+	else if ((rotate == 2) || (rotate == -4))
 	{
-		inputList.InsertLast(curCoord.RightUp(float(1.02)*SIN60));
-		inputList.InsertLast(curCoord.LeftDown(float(1.02)*SIN60));
-		curCoord = curCoord.Right();
+
+	}
+	else if ((rotate == 4) || (rotate == -2))
+	{
+
+	}
+	else if ((rotate == 5) || (rotate == -1))
+	{
+		int leftRo = a1 - 2;
+		leftRo = ((a1 - 2) >= 0) ? (a1-2): (6 + (a1 - 2));
+		int rightRo = (a1 + 1) % 6;
+		Draw(static_cast<DIRECTION>(leftRo), static_cast<DIRECTION>(rightRo), curCoord, inputList);
 	}
 	else
 	{
-		if (d2 == DirRIGHTUP)
-		{
-			inputList.InsertLast(curCoord.LeftUp(float(1.02)*SIN60));
-			inputList.InsertLast(curCoord.RightDown(float(1.02)*SIN60));
-			curCoord = curCoord.RightUp();
-		}
-		else if (d2 == DirRIGHTDOWN)
-		{
-			inputList.InsertLast(curCoord.RightUp(float(1.02)*SIN60));
-			inputList.InsertLast(curCoord.LeftDown(float(1.02)*SIN60));
-			curCoord = curCoord.RightDown();
-		}
+		throw std::out_of_range("Corner builder didn't cover all kind of situation");
 	}
 	return;
 }
+
 
 void River::DrawEnd(const Coordinate& coord, List<Coordinate>& inputList)
 {
@@ -325,28 +406,23 @@ void River::DrawEnd(const Coordinate& coord, List<Coordinate>& inputList)
 		switch (tempD)
 		{
 		case DirRIGHTUP:
-			inputList.InsertLast(coord.LeftUp(float(0.88)));
-			inputList.InsertLast(coord.RightDown(float(0.88)));
+			Draw(DirLEFTUP, DirRIGHTDOWN, coord, inputList);
 			break;
 		case DirRIGHT:
-			inputList.InsertLast(coord.Left(float(0.88)));
-			inputList.InsertLast(coord.Right(float(0.88)));
+			Draw(DirLEFT, DirRIGHT, coord, inputList);
 			break;
 		case DirRIGHTDOWN:
-			inputList.InsertLast(coord.RightUp(float(0.88)));
-			inputList.InsertLast(coord.LeftDown(float(0.88)));
+			Draw(DirRIGHTUP, DirLEFTDOWN, coord, inputList);
 			break;
 		case DirLEFTDOWN:
-			inputList.InsertLast(coord.RightDown(float(0.88)));
-			inputList.InsertLast(coord.LeftUp(float(0.88)));
+			Draw(DirRIGHTDOWN, DirLEFTUP, coord, inputList);
+
 			break;
 		case DirLEFT:
-			inputList.InsertLast(coord.Right(float(0.88)));
-			inputList.InsertLast(coord.Left(float(0.88)));
+			Draw(DirRIGHT, DirLEFT, coord, inputList);
 			break;
 		case DirLEFTUP:
-			inputList.InsertLast(coord.LeftDown(float(0.88)));
-			inputList.InsertLast(coord.RightUp(float(0.88)));
+			Draw(DirLEFTDOWN, DirRIGHTUP, coord, inputList);
 			break;
 		case NODIRECTION:
 			break;
@@ -360,34 +436,61 @@ void River::DrawEnd(const Coordinate& coord, List<Coordinate>& inputList)
 		switch (tempD)
 		{
 		case DirRIGHTUP:
-			inputList.InsertLast(coord.Left(float(0.88)));
-			inputList.InsertLast(coord.RightDown(float(0.88)));
+			Draw(DirLEFT,DirRIGHTDOWN,coord,inputList);
 			break;
 		case DirRIGHT:
-			inputList.InsertLast(coord.LeftUp(float(0.88)));
-			inputList.InsertLast(coord.LeftDown(float(0.88)));
+			Draw(DirLEFTUP, DirLEFTDOWN, coord, inputList);
 			break;
 		case DirRIGHTDOWN:
-			inputList.InsertLast(coord.RightUp(float(0.88)));
-			inputList.InsertLast(coord.Left(float(0.88)));
+			Draw(DirRIGHTUP, DirLEFT, coord, inputList);
 			break;
 		case DirLEFTDOWN:
-			inputList.InsertLast(coord.Right(float(0.88)));
-			inputList.InsertLast(coord.LeftUp(float(0.88)));
+			Draw(DirRIGHT, DirLEFTUP, coord, inputList);
 			break;
 		case DirLEFT:
-			inputList.InsertLast(coord.RightDown(float(0.88)));
-			inputList.InsertLast(coord.RightUp(float(0.88)));
+			Draw(DirRIGHTDOWN, DirRIGHTUP, coord, inputList);
+
 			break;
 		case DirLEFTUP:
-			inputList.InsertLast(coord.LeftDown(float(0.88)));
-			inputList.InsertLast(coord.Right(float(0.88)));
+			Draw(DirLEFTDOWN, DirRIGHT, coord, inputList);
 			break;
 		case NODIRECTION:
 			break;
 		default:
 			break;
 		}
+	}
+	return;
+}
+
+void River::DrawStart(const Coordinate & coord, List<Coordinate>& inputList)
+{
+	MarkAsRiver(coord);
+	DIRECTION tempD = IsBoundaryOrNot(coord);
+	switch (tempD)
+	{
+	case DirRIGHTUP:
+		Draw(DirRIGHTDOWN, DirLEFTUP, coord, inputList);
+		break;
+	case DirRIGHT:
+		Draw(DirRIGHT, DirLEFT, coord, inputList);
+		break;
+	case DirRIGHTDOWN:
+		Draw(DirLEFTDOWN, DirRIGHTUP, coord, inputList);
+		break;
+	case DirLEFTDOWN:
+		Draw(DirLEFTUP, DirRIGHTDOWN, coord, inputList);
+		break;
+	case DirLEFT:
+		Draw(DirLEFT, DirRIGHT, coord, inputList);
+		break;
+	case DirLEFTUP:
+		Draw(DirRIGHTUP, DirLEFTDOWN, coord, inputList);
+		break;
+	case NODIRECTION:
+		break;
+	default:
+		break;
 	}
 }
 
@@ -446,5 +549,6 @@ void River::MarkAsRiver(const Coordinate & coord)
 {
 	auto plotPtr = CoreController::GetSystemController()->Plots()->FindPlot(coord);
 	plotPtr->MarkAsRiver();
-	riverPoints.InsertLast(plotPtr);
+	if(! riverPoints.Contains(plotPtr))
+		riverPoints.InsertLast(plotPtr);
 }

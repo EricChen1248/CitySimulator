@@ -18,11 +18,17 @@ private:
 	List <Plot*> rightBoundary;
 	const int riverWidth = 2;
 	void InitBoundary();
-	void DrawStraightLine(const AXIS & ax, const DIRECTION & dir, const int & boundary, List<Coordinate>& inputList, Coordinate & curCoord);
+	
 	DIRECTION IsBoundaryOrNot(const Coordinate& coord)const;
 	DIRECTION IsSixOrNot(const Coordinate& coord)const;
+	
+	
+	void DrawStart(const Coordinate& coord, List<Coordinate>& inputList);
+	void DrawStraightLine(const AXIS & ax, const DIRECTION & dir, const int & boundary, List<Coordinate>& inputList, Coordinate & curCoord);
+	void DrawStraightLine(const int& distance, const DIRECTION& dir, List<Coordinate>& inputList, Coordinate& curCoord);
 	void DrawCorner(DIRECTION d1, DIRECTION d2, List<Coordinate>& inputList, Coordinate& curCoord);
 	void DrawEnd(const Coordinate& coord, List<Coordinate>& inputList);
+	//Helper Function for avoiding funciton decoupling 
 	void Draw(const DIRECTION d1, const DIRECTION d2, const Coordinate & coord, List<Coordinate>& inputlist, float length = float(0.88));
 	void MarkAsRiver(const Coordinate& coord);
 };
