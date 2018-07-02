@@ -28,7 +28,6 @@ PlotSystem::PlotSystem(): hoverPlot(nullptr), builtBridge(true)
 
     for (auto && plot : plots)
     {
-        plot->GenerateRoads();
         PathFinder::MapPlot(plot);
     }
 }
@@ -44,11 +43,11 @@ PlotSystem::~PlotSystem()
  */
 void PlotSystem::Render() const
 {
-    for (auto && plot : plots)
-    {
-        auto & shape = plot->UpdateShape();
-        CoreController::SfmlController()->DrawShape(shape);
-    }
+	for (auto && plot : plots)
+	{
+		auto & shape = plot->UpdateShape();
+		CoreController::SfmlController()->DrawShape(shape);
+	}
 }
 
 void PlotSystem::RenderInterDay()
@@ -58,9 +57,17 @@ void PlotSystem::RenderInterDay()
         auto & shape = plot->UpdateShape();
         CoreController::SfmlController()->DrawShape(shape);
     }
+
     HandleClick();
 }
 
+void PlotSystem::RenderRoads() const
+{
+	for (auto && road : roads)
+	{
+		road->Render();
+	}
+}
 
 /**
  * \brief Attemps to find a plot in the system with the corresponding coordinates
@@ -196,4 +203,37 @@ Plot* PlotSystem::CoordToPlotArray(const Coordinate& coords) const
     if (coords.Y() < LEFT || coords.Y() >= RIGHT) return nullptr;
     if (coords.Z() < LEFT || coords.Z() >= RIGHT) return nullptr;
     return plotArray[coords.X() - LEFT][coords.Y() - LEFT];
+}
+
+void PlotSystem::GenerateRoads()
+{
+    for (auto&& plot : plots)
+    {
+		auto neighbours = plot->Coords().GetNeighbours();
+        for (int i = 0; i < 6; ++i)
+        {
+            auto neighbour = FindPlot(neighbours[i]);
+            if (neighbour != nullptr)
+            {
+                bool exists = false;
+                for (auto&& road : plot->roads)
+                {
+                    if (road != nullptr && road->IsRoad(plot, neighbour))
+                    {
+                        exists = true;
+                        break;
+                    }
+                }
+
+                if (!exists)
+                {
+                    Road* newRoad = new Road(plot, neighbour);
+                    plot->InsertNewRoad(newRoad);
+                    neighbour->InsertNewRoad(newRoad);
+
+                    roads.InsertLast(newRoad);
+                }
+            }
+        }
+    }
 }

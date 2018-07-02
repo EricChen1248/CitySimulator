@@ -29,6 +29,7 @@ public:
 
 
 	//Function
+	int PerformClick();
 	void Enter();
 	void Leave();
 	bool IsRoad(Plot* plotOne, Plot* plotTwo) const;

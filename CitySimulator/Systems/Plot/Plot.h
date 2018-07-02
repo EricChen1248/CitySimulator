@@ -30,9 +30,11 @@ public:
     void Leave(Citizen* citizen);
     void NewDay();
     void EndDay();
+	void InsertNewRoad(Road* newRoad);
 	void GenerateRoads();
     void Destroy();
-    
+
+	
 	Road* GetRoad(Plot* nextPlot);
     bool IsRiver() const { return river; }
     

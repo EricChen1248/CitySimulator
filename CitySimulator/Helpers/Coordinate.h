@@ -11,7 +11,7 @@ struct ScreenCoordinate
     ScreenCoordinate(const float x = 0, const float y = 0) : X(x), Y(y) { };
     float X;
     float Y;
-    sf::Vector2f ToVector2F() const { return {X, Y}; }
+    sf::Vector2f ToVector2F() const { return {X + 5, Y + 5}; }
 };
 
 

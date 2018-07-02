@@ -1,4 +1,5 @@
 #include "SystemController.h"
+#include "CoreController.h"
 #include "../Systems/Bank/BankSystem.h"
 #include "../Systems/Home/HomeSystem.h"
 #include "../Systems/Work/WorkSystem.h"
@@ -7,7 +8,7 @@
 #include "../Systems/School/SchoolSystem.h"
 #include "../Systems/Hospital/HospitalSystem.h"
 
-SystemController::SystemController() = default;
+SystemController::SystemController() : timeSinceUpdate(0.f) { };
 
 SystemController::~SystemController()
 {
@@ -39,6 +40,7 @@ void SystemController::Initialize()
     systems.InsertLast(hospital);
 
     river.Init();
+    plots->GenerateRoads();
 
     // TODO Remove demo
     for (auto&& system : systems)
@@ -94,6 +96,7 @@ void SystemController::Update() const
  */
 void SystemController::Render() const
 {
+    plots->RenderRoads();
     citizens->Render();
     plots->Render();
     river.Render();
@@ -150,8 +153,11 @@ int SystemController::SystemCount() const
     return systems.Count();
 }
 
-void SystemController::CalSatisfied() const
+void SystemController::CalSatisfied()
 {
+	timeSinceUpdate += CoreController::Instance()->GetDeltaTime();
+	if (timeSinceUpdate < 0.2f) return;
     citizens->CalculateSatisfaction();
+	timeSinceUpdate = 0;
     return;
 }
