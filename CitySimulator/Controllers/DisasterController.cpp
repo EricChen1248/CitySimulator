@@ -14,30 +14,42 @@ DisasterController::~DisasterController()
 
 void DisasterController::Update()
 {
-	const int rand = RandomInt(0, 1000000);
-	if (rand == 1)
+	const int rand = RandomInt(0, 10000);
+	if (rand == 1) //0.01%
 	{
 		Apocalypse();
 	}
-	else if (rand > 10 && rand <= 20)
+	else if (rand > 10 && rand <= 20) //0.1%
 	{
 		Earthquake();
-		if (rand <= 15)
+		if (rand <= 15) // 0.1% * 0.5
 		{
 			Tsunami();
 		}
 	}
-	else if (rand > 20 && rand <= 30)
+	else if (rand > 20 && rand <= 30) //0.1%
 	{
 		Tsunami();
 	}
-	else if (rand >= 1000 && rand <= 2000)
+	else if (rand >= 1000 && rand <= 1100) //1%
 	{
 		Hurricane();
 	}
-	else if (rand >= 3000 && rand <= 3200)
+	else if (rand >= 3000 && rand <= 3200) //2%
 	{
 		WildFire();
+	}
+	else if (rand == 2) //1%
+	{
+		GodsGift();
+	}
+	else if (rand > 30 && rand <= 40) // 0.1%
+	{
+		AngelsAegis();
+	}
+	else if (rand > 4000 && rand <= 5000) //1%
+	{
+		MajestysMarvel();
 	}
 
 }
@@ -73,7 +85,7 @@ void DisasterController::Earthquake()
 	for (auto && citizen : citizens)
 	{
 		const int i = RandomInt(0, 100);
-		if (i != 100)
+		if (i < 5)
 		{
 			citizen->Death();
 		}
@@ -82,17 +94,41 @@ void DisasterController::Earthquake()
 
 void DisasterController::Hurricane()
 {
-
+	const auto& citizens = CoreController::Instance()->GetSystemController()->GetCitizens();
+	for (auto && citizen : citizens)
+	{
+		const int i = RandomInt(0, 100);
+		if (i < 2)
+		{
+			citizen->Death();
+		}
+	}
 }
 
 void DisasterController::Tsunami()
 {
-
+	const auto& citizens = CoreController::Instance()->GetSystemController()->GetCitizens();
+	for (auto && citizen : citizens)
+	{
+		const int i = RandomInt(0, 100);
+		if (i < 5)
+		{
+			citizen->Death();
+		}
+	}
 }
 
 void DisasterController::WildFire()
 {
-
+	const auto& citizens = CoreController::Instance()->GetSystemController()->GetCitizens();
+	for (auto && citizen : citizens)
+	{
+		const int i = RandomInt(0, 100);
+		if (i < 2)
+		{
+			citizen->Death();
+		}
+	}
 }
 
 void DisasterController::MajestysMarvel()
