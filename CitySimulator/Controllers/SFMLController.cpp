@@ -84,7 +84,7 @@ VertexArray SFMLController::GenerateVertexArray(const List<Coordinate>& coords)
 
     for (int i = 0; i < count; ++i)
     {
-        shape[i].position = coords[i].ToScreenCoordinates().ToVector2F() + Vector2f(5, 5);
+        shape[i].position = coords[i].ToScreenCoordinates().ToVector2F();
     }
 
     return shape;

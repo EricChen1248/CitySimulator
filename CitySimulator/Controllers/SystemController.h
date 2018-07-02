@@ -24,7 +24,7 @@ public:
     int SystemCount() const;
     const LinkedList<Citizen*>& GetCitizens() const { return citizens->Citizens(); }
 
-    void CalSatisfied() const;
+    void CalSatisfied();
     BaseSystem* GetSystem(System system) const;
     const List<BaseSystem*>& GetSystems() const { return systems; };
 
@@ -33,6 +33,7 @@ public:
     CitizenSystem* Citizens() const { return citizens; }
 
 private:
+	float timeSinceUpdate;
     PlotSystem* plots{};
     CitizenSystem* citizens{};
     List<BaseSystem*> systems{};
