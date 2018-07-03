@@ -37,9 +37,10 @@ const sf::Color SUPER_SATIFIED_COLOR = GREEN;
 
 const int WINDOW_WIDTH = 1024;
 const int WINDOW_HEIGHT = 768;
-
+//Citizen's constant
 const int CITIZEN_MAX_MONEY = 10000;
-
+const int WORKING_AGE = 18;
+const int RETIREMENT_AGE = 45;
 // NONE,    FOOD,	WORK,	BANK,	HOME,	STORE, 	SCHOOL,    HOSPITAL
 const std::string SYSTEM_NAMES[8] {"None", "Food", "Work", "Bank", "Home", "Store", "School", "Hospital"};
 #ifdef _DEBUG

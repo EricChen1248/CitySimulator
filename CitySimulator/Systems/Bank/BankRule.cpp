@@ -74,7 +74,7 @@ void BankRule::EnterPlot(Plot* plot)
 void BankRule::LeavePlot(Plot* plot)
 {
 	const auto bank = dynamic_cast<Bank*>(plot->GetPlotType());
-	if (citizen->Age() >= 21)
+	if (citizen->Age() >= WORKING_AGE)
 	{
 		const int moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->GetMoney(), 0, int(saving));
 
@@ -88,8 +88,8 @@ void BankRule::LeavePlot(Plot* plot)
 	{
 		if (citizen->GetFamilyMember(Father) != nullptr)
 		{
-			auto fatherBankRule = static_cast<BankRule*>(citizen->GetFamilyMember(Father)->FindRule(BANK));
-			auto motherBankRule = static_cast<BankRule*>(citizen->GetFamilyMember(Mother)->FindRule(BANK));
+			auto fatherBankRule = dynamic_cast<BankRule*>(citizen->GetFamilyMember(Father)->FindRule(BANK));
+			auto motherBankRule = dynamic_cast<BankRule*>(citizen->GetFamilyMember(Mother)->FindRule(BANK));
 
 			const int moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->GetMoney(), 0, (fatherBankRule->saving + motherBankRule->saving));
 			if (moneyToWithdraw > bank->transactionCost)

@@ -14,6 +14,7 @@
 
 Citizen::Citizen(Plot* plot) : target(nullptr), activeRule(nullptr), coords(plot->Coords()), money(0), waitTime(0.f), inPlot(false), dead(false), age(0), pathFindFailed(false)
 {
+
 	gender = static_cast<Gender>(RandomInt(0, 2));
 	const int familyNum = 3;
 	family = new Citizen*[familyNum];
@@ -207,7 +208,8 @@ BaseRule* Citizen::FindRule(const System system)
 
 bool Citizen::IsMarry() const
 {
-	return (family[static_cast<int>(Spouse)] != nullptr);
+	bool returnBool =  (family[static_cast<int>(Spouse)] != nullptr);
+	return returnBool;
 }
 
 void Citizen::MarrySomeOne(Citizen * spouseptr)
@@ -360,4 +362,5 @@ void Citizen::FindPath()
 void Citizen::setFamily(const Family& character,Citizen * citiz)
 {
 	family[static_cast<int>(character)] = citiz;
+	return;
 }

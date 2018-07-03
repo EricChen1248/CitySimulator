@@ -96,15 +96,7 @@ void River::Init()
 				shape[i].color = RIVER_COLOR_2;
 		}
 		break;
-		/*
-		For debuggin check wheter there is some points missing or not
-		*/
-		//for (auto points : riverPoints)
-		//{
-		//	points->GetShape().setOutlineThickness(10);
-		//	points->GetShape().setOutlineColor(BLACK);
-		//}
-	
+
 	}
 	case(ModeCIRCLE):
 	{
@@ -135,14 +127,7 @@ void River::Init()
 
 		}
 		break;
-		/*
-		For debuggin check wheter there is some points missing or not
-		*/
-		//for (auto points : riverPoints)
-		//{
-		//	points->GetShape().setOutlineThickness(10);
-		//	points->GetShape().setOutlineColor(BLACK);
-		//}
+
 	}
 
 	default:
@@ -403,32 +388,6 @@ void River::DrawCorner(const DIRECTION d1, const DIRECTION d2, List<Coordinate>&
     int rotate = a2 - a1;
     if (rotate == 1 || rotate == -5)
     {
-        /*
-        if ((a1 == 0) && (a2 == 1))
-        {
-            Coordinate center = (curCoord.RightDown());
-            for (int i = 30; i <= 90; i ++)
-            {
-                float x, y, z, x1, y1, z1;
-                x = (float(1.88)*sin(PI / (float(i) / 180.f)))*-0.5f + (float(1.88)*cos(PI / (float(i) / 180.f)))*-1;
-                x += center.X();
-                x1 = (float(0.12)*sin(PI / (float(i) / 180.f)))*-0.5f + (float(0.12)*cos(PI / (float(i) / 180.f)))*-1;
-                x1 += center.X();
-                y = (float(1.88)*sin(PI / (float(i) / 180.f)))*-0.5f + (float(1.88)*cos(PI / (float(i) / 180.f)))*1;
-                y += center.Y();
-                y1 = (float(0.12)*sin(PI / (float(i) / 180.f)))*-0.5f + (float(0.12)*cos(PI / (float(i) / 180.f)))*1;
-                y1 += center.Y();
-                z = (float(1.88)*sin(PI / (float(i) / 180.f)))*1.f + (float(1.88)*cos(PI / (float(i) / 180.f)))*0;
-                z += center.Z();
-                z1 = (float(0.12)*sin(PI / (float(i) / 180.f)))*1.f + (float(0.12)*cos(PI / (float(i) / 180.f)))*0;
-                z1 += center.Z();
-                Coordinate outline(x, y, z);
-                Coordinate innerLine(x1, y1, z);
-                points.InsertLast(outline);
-                points.InsertLast(innerLine);
-            }
-            return;
-        }*/
         int leftRo = a1 - 1;
         leftRo = a1 - 1 >= 0 ? a1 - 1 : 6 + (a1 - 1);
         int rightRo = (a1 + 2) % 6;

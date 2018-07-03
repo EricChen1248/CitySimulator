@@ -7,10 +7,11 @@
 #include "../Home/HomeRule.h"
 #include "../Work/WorkRule.h"
 #include"../../Helpers/Government.h"
+#include <iostream>
 CitizenSystem::CitizenSystem()
 {
 #ifdef _DEBUG
-    citizenCount = 10;
+    citizenCount = 500;
 #else
     citizenCount = 5000;
 #endif
@@ -76,8 +77,24 @@ void CitizenSystem::PruneDead()
 
 void CitizenSystem::NewDay()
 {
+
 	NewCitizen();
 	PeopleMarry();
+	int countMan = 0;
+	int countWoman = 0;
+	int MarriedPeople = 0;
+	int single = 0;
+	//TODO: Delete the following debugging statement
+	//for (auto citi : citizens)
+	//{
+	//	citi->GetGender() == Male ? countMan++ : countWoman++;
+	//	citi->IsMarry() == true ? MarriedPeople++ : single++;
+	//}
+	//std::cout << "There are People :" << citizenCount << std::endl;
+	//std::cout << "There are man :" << countMan << std::endl;
+	//std::cout << "There are woman :" << countWoman << std::endl;
+	//std::cout << "There are married people :" << MarriedPeople << std::endl;
+	//std::cout << "There are single:" << single << std::endl;
 	return;
 }
 
@@ -127,26 +144,32 @@ void CitizenSystem::CalculateSatisfaction() const
 
     return;
 }
-
+/*
+Brief:
+After each day ends, those citizen with other half will start to have children.
+*/
 void CitizenSystem::NewCitizen()
 {
-	float birth = Government::BirthRate();
+	float birth = Government::BirthRate()*0.166f;
 	for (auto && citizen : citizens)
 	{
-		if (citizen->IsMarry()&&(citizen->GetGender() == Male))
+		if (citizen->IsMarry()&&(citizen->GetGender() == Female))
 		{
-			float numerator = float(RandomInt(0, 100)) / 100.f;
-			if (numerator <= birth)
+			float numerator = float(RandomInt(0, 101)) / 100.f;
+
+			// DEBUG
+
+			if (numerator < birth)
+			//if(true)
 			{
 				//create a new citizen and add it into Citizen system
 				const auto plot = CoreController::GetSystemController()->Plots();
 				//The children is born by the side of their mother
-				const auto& momPlot = plot->FindPlot(citizen->GetFamilyMember(Spouse)->Coords());
-				auto citizenPtr = new Citizen(momPlot);
-				citizens.InsertLast(citizen);
+		
+				auto citizenPtr = new Citizen(plot->FindPlot(citizen->Coords()));
+				citizens.InsertLast(citizenPtr);
 				//Setting
 				citizenPtr->Birth(citizen,citizen->GetFamilyMember(Spouse));
-				citizenPtr->GetShape().setFillColor(RED);
 			}
 		}
 		else
@@ -154,6 +177,7 @@ void CitizenSystem::NewCitizen()
 			continue;
 		}
 	}
+	citizenCount = citizens.Count();
 	return;
 }
 
@@ -167,37 +191,36 @@ void CitizenSystem::PeopleMarry()
 	//if all condition are qualified, They would have 0.5 chances to marry each other.
 	for (auto&& citizen1 : citizens)
 	{
-		if (citizen1->Age() <= 20)
+		if (citizen1->Age() < 0)
 		{
 			continue;
 		}
-		if (citizen1->GetFamilyMember(Spouse) != nullptr)
+		if (citizen1->IsMarry())
 		{
 			continue;
 		}
 		for (auto&& citizen2 : citizens)
 		{
-			if (citizen2->GetGender() == citizen2->GetGender())
+			if (citizen1->GetGender() == citizen2->GetGender())
 			{
 				continue;
 			}
-			if (citizen2->Age() <= 20)
+			if (citizen2->Age() < 0)
 			{
 				continue;
 			}
-			if (citizen2->GetFamilyMember(Spouse) != nullptr)
+			if (citizen2->IsMarry())
 			{
 				continue;
 			}
-			#ifdef _DEBUG
-			int dice = 0;
-			#else
-			int dice = RandomInt(0, 10);
-			#endif
-			if (dice <= 1)
+			int dice = RandomInt(0, 1000);
+			
+			if (dice <= 52)
 			{
 				citizen1->MarrySomeOne(citizen2);
+				
 			}
+			break;
 		}
 	}
 }
