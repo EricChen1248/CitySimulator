@@ -1,4 +1,5 @@
 #include "DisasterController.h"
+#include "CoreController.h"
 #include "../Helpers/HelperFunctions.h"
 
 
@@ -17,7 +18,8 @@ void DisasterController::Update()
 	const int rand = RandomInt(0, 10000);
 	if (rand == 1) //0.01%
 	{
-		Apocalypse();
+		//Apocalypse();
+		;
 	}
 	else if (rand > 10 && rand <= 20) //0.1%
 	{
@@ -51,9 +53,8 @@ void DisasterController::Update()
 	{
 		MajestysMarvel();
 	}
-
 }
-
+/*
 void DisasterController::Apocalypse()
 {
 	const auto& citizens = CoreController::Instance()->GetSystemController()->GetCitizens();
@@ -65,20 +66,17 @@ void DisasterController::Apocalypse()
 			citizen->Death();
 		}
 	}
-	/*const auto& plots = CoreController::Instance()->GetSystemController()->Plots()->Plots();
+	const auto& plots = CoreController::Instance()->GetSystemController()->Plots()->Plots();
 	for (auto && plots : plots)
 	{
 		const int i = RandomInt(0, 100);
 		if (i != 100)
 		{
-			plots->Death();
-			to do!
+			plots->Destroy();
 		}
-	}*/
-	
-
+	}
 }
-
+*/
 void DisasterController::Earthquake()
 {
 	const auto& citizens = CoreController::Instance()->GetSystemController()->GetCitizens();
@@ -89,6 +87,11 @@ void DisasterController::Earthquake()
 		{
 			citizen->Death();
 		}
+	}
+	//const auto& plots = CoreController::Instance()->GetSystemController()->Plots()->Plots();
+	for (int i = 0; i < 10; i++)
+	{
+		CoreController::GetSystemController()->Plots()->GetRandomPlot()->Destroy();
 	}
 }
 
@@ -102,6 +105,10 @@ void DisasterController::Hurricane()
 		{
 			citizen->Death();
 		}
+	}
+	for (int i = 0; i < 10; i++)
+	{
+		CoreController::GetSystemController()->Plots()->GetRandomPlot()->Destroy();
 	}
 }
 
@@ -129,6 +136,9 @@ void DisasterController::WildFire()
 			citizen->Death();
 		}
 	}
+	
+	const auto& center = CoreController::GetSystemController()->Plots()->GetRandomPlot();
+	
 }
 
 void DisasterController::MajestysMarvel()
