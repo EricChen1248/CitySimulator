@@ -8,7 +8,11 @@
 class FoodRule;
 
 FoodSystem::FoodSystem() : BaseSystem(FOOD)
-{}
+{
+    FoodRule::breakfastTime = helper::Time(10,0);
+    FoodRule::lunchTime = helper::Time(14,0);
+    FoodRule::dinnerTime = helper::Time(120,0);
+}
 
 FoodSystem::~FoodSystem() = default;
 

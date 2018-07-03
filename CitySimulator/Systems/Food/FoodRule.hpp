@@ -8,8 +8,10 @@ class BaseRule;
  */
 class FoodRule : public BaseRule
 {
+friend class FoodSystem;
+    
 public:
-    FoodRule(Citizen& citizen);;
+    FoodRule(Citizen& citizen);
     ~FoodRule();
 
     float CalculateScore() override;
@@ -21,6 +23,10 @@ public:
     
     void FillHunger();
 private:
+    static helper::Time breakfastTime;
+    static helper::Time lunchTime;
+    static helper::Time dinnerTime;
+    
     // TODO : Tweak foodrule max distance
     const int maxDistance = 10;
     float hungerLevel;
