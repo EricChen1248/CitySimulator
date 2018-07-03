@@ -17,10 +17,11 @@ StoreSystem::~StoreSystem() = default;
 * \brief Registers a new Store plot in the system
 * \param plot Plot to be registered
 */
-void StoreSystem::Register(Plot* plot)
+int StoreSystem::Register(Plot* plot)
 {
 	(*plot).Register(new Store(plot));
 	BaseSystem::Register(plot);
+    return 0;
 }
 
 /**

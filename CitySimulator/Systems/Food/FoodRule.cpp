@@ -4,6 +4,10 @@
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
 
+helper::Time FoodRule::breakfastTime;
+helper::Time FoodRule::lunchTime;
+helper::Time FoodRule::dinnerTime;
+
 FoodRule::FoodRule(Citizen& citizen): BaseRule(citizen, FOOD), hungerLevel(0) { }
 
 FoodRule::~FoodRule() = default;
@@ -54,6 +58,7 @@ bool FoodRule::FindPlot()
 void FoodRule::EnterPlot(Plot* plot)
 {
     const auto food = dynamic_cast<Food*>(plot->GetPlotType());
+    const auto& time = CoreController::Instance()->GetTime();
     citizen->Wait(1.f);
     citizen->IncreaseMoney(-food->cost);
     food->Enter();

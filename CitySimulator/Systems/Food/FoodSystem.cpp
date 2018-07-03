@@ -8,7 +8,11 @@
 class FoodRule;
 
 FoodSystem::FoodSystem() : BaseSystem(FOOD)
-{}
+{
+    FoodRule::breakfastTime = helper::Time(10,0);
+    FoodRule::lunchTime = helper::Time(14,0);
+    FoodRule::dinnerTime = helper::Time(120,0);
+}
 
 FoodSystem::~FoodSystem() = default;
 
@@ -16,10 +20,11 @@ FoodSystem::~FoodSystem() = default;
  * \brief Registers a new food plot in the system
  * \param plot Plot to be registered
  */
-void FoodSystem::Register(Plot* plot)
+int FoodSystem::Register(Plot* plot)
 {
     (*plot).Register(new Food(plot));
     BaseSystem::Register(plot);
+    return 0;
 }
 
 /**

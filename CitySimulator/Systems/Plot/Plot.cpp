@@ -88,6 +88,15 @@ Road* Plot::GetRoad(Plot* nextPlot)
 	}
 	return nullptr;
 }
+
+void Plot::MarkAsRiver() 
+{ 
+	river = true; 
+	for (auto&& road : roads)
+	{
+		road->MarkAsRiver();
+	}
+}
  
 void Plot::Destroy() 
 { 

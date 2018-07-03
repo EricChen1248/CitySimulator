@@ -26,7 +26,9 @@ const sf::Color STORE_COLOR = RED;
 const sf::Color SCHOOL_COLOR = RED;
 const sf::Color HOSPITAL_COLOR = RED;
 const sf::Color RIVER_COLOR = sf::Color(141, 250, 236);
+const sf::Color RIVER_COLOR_2 = sf::Color(62, 244, 240);
 
+const sf::Color BASE_ROAD_COLOR = sf::Color(230, 230, 230);
 const sf::Color MOUSE_OVER_COLOR = sf::Color(220, 220, 220);
 
 const sf::Color UNSATISFIED_COLOR = RED;

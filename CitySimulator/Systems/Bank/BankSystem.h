@@ -9,7 +9,7 @@ class BankSystem : public BaseSystem
 public:
 	BankSystem();
 	~BankSystem();
-	void Register(Plot* plot) override;
+	int Register(Plot* plot) override;
 	void Update() override;
 	void LogSatisfied(Citizen* citizen, BaseRule* rule) override;
 	void LogUnsatisfied(Citizen* citizen, BaseRule* rule) override;

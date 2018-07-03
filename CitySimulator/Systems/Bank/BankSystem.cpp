@@ -16,10 +16,11 @@ BankSystem::~BankSystem() = default;
 * \brief Registers a new food plot in the system
 * \param plot Plot to be registered
 */
-void BankSystem::Register(Plot* plot)
+int BankSystem::Register(Plot* plot)
 {
 	(*plot).Register(new Bank(plot));
 	BaseSystem::Register(plot);
+    return 0;
 }
 
 /**

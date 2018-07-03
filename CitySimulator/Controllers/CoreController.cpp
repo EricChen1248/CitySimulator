@@ -98,6 +98,7 @@ void CoreController::RunDayLoop(Clock& clock)
         {
             // Launch update events in a separate thread
             sf::Thread thread(MultithreadGameUpdates);
+
             thread.launch();
             // Run render events on main thread
             GameRenderEvents();

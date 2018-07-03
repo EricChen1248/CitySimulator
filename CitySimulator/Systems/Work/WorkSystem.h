@@ -8,7 +8,7 @@ public:
     WorkSystem();
     ~WorkSystem();
 
-	void Register(Plot* plot);
+	int Register(Plot* plot);
 	void Update();
 	void LogSatisfied(Citizen* citizen, BaseRule* rule);
 	void LogUnsatisfied(Citizen* citizen, BaseRule* rule);

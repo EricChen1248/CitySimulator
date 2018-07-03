@@ -19,6 +19,7 @@ private:
 	Plot* assignedCompany;
 	float production;
 	float salary;
+	float baseSalary;
 	float workingTime; // Workingtime during this period (MAX:4 hour)
 	int earlyToWork; // how much time a person should go outside early (in minutes)
 
@@ -27,13 +28,13 @@ private:
 	static helper::Time endBreakTime;
 	static helper::Time timeOffWork;
 
-	float CalculateScore();
-	bool FindPlot();
-	void EnterPlot(Plot* plot);
-	void LeavePlot(Plot* plot);
-	void Update();
+	float CalculateScore() override;
+	bool FindPlot() override;
+	void EnterPlot(Plot* plot) override;
+	void LeavePlot(Plot* plot) override;
+	void Update() override;
 	bool IsSatisfied() override;
-	void NewDay(); //override
+	void NewDay() override;
 	void Register();
 	void UnRegister();
 };

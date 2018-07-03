@@ -14,17 +14,22 @@
 
 Citizen::Citizen(Plot* plot) : target(nullptr), activeRule(nullptr), coords(plot->Coords()), money(0), waitTime(0.f), inPlot(false), dead(false), age(0), pathFindFailed(false)
 {
+	gender = static_cast<bool>(RandomInt(0, 2));
+	const int familyNum = 4;
+	family = new Citizen*[4];
+	for (int i = 0; i < familyNum; ++i)
+	{
+		family[i] = nullptr;
+	}
     moveSpeed = 1 + static_cast<float>(RandomInt(0, 40) - 20) / 100;
+    moveSpeed = 1.5f + static_cast<float>(RandomInt(-30, 30)) / 100;
     shape = sf::CircleShape(5);
     shape.setFillColor(BLUE);
     currentPlot = plot;
-    
     GenRules();
 }
 
-
 Citizen::~Citizen() = default;
-
 
 /**
  * \brief Increases (decrease if negative) the amount of money of the citizen
@@ -200,6 +205,20 @@ BaseRule* Citizen::FindRule(const System system)
     
 }
 
+void Citizen::MarrySomeOne(Citizen * spouseptr)
+{
+	setFamily(Spouse, spouseptr);
+}
+
+void Citizen::GiveBirth(Citizen * childptr)
+{
+	setFamily(Child, childptr);
+}
+
+void Citizen::Birth(Citizen * parent, Citizen * parent2)
+{
+}
+
 /**
  * \brief Marks citizen as dead. Death pruning and events are handled at the end of day
  */
@@ -329,4 +348,9 @@ void Citizen::FindPath()
     }
     
     tempTarget = path->Pop();
+}
+
+void Citizen::setFamily(const Family& character,Citizen * citiz)
+{
+	family[static_cast<int>(character)] = citiz;
 }

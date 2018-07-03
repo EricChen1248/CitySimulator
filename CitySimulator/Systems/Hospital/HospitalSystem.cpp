@@ -17,10 +17,11 @@ HospitalSystem::~HospitalSystem() = default;
  * \brief Registers a new hospital plot in the system
  * \param plot Plot to be registered
  */
-void HospitalSystem::Register(Plot* plot)
+int HospitalSystem::Register(Plot* plot)
 {
     (*plot).Register(new Hospital(plot));
     BaseSystem::Register(plot);
+    return 0;
 }
 
 /**

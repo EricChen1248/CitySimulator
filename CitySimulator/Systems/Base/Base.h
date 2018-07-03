@@ -21,11 +21,11 @@ public:
     }
 
     virtual ~Base() = default;
-    virtual void NewDay() {}
-    virtual void EndDay() {}
+    virtual void NewDay() { }
+    virtual void EndDay() { }
     virtual int ReturnScore() { return score; }
     // TODO : Add Destroy behaviour
-    virtual void Destroy() { }
+    virtual int Destroy() { return 0; }
     virtual std::string ContentString() { return ""; }
     
 protected:

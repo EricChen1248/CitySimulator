@@ -38,7 +38,7 @@ public:
 	Road* GetRoad(Plot* nextPlot);
     bool IsRiver() const { return river; }
     
-    void MarkAsRiver() { river = true; };
+	void MarkAsRiver();;
 private:
     Coordinate coords;
     ScreenCoordinate sCoords{};
