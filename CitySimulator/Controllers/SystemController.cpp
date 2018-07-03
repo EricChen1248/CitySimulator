@@ -38,9 +38,9 @@ void SystemController::Initialize()
     systems.InsertLast(store);
     systems.InsertLast(school);
     systems.InsertLast(hospital);
+    plots->GenerateRoads();
 
     river.Init();
-    plots->GenerateRoads();
 
     // TODO Remove demo
     for (auto&& system : systems)
@@ -96,10 +96,10 @@ void SystemController::Update() const
  */
 void SystemController::Render() const
 {
+    river.Render();
     plots->RenderRoads();
     citizens->Render();
     plots->Render();
-    river.Render();
 }
 
 /**
@@ -107,8 +107,9 @@ void SystemController::Render() const
  */
 void SystemController::RenderInterday() const
 {
-    plots->RenderInterDay();
     river.Render();
+	plots->RenderRoads();
+    plots->RenderInterDay();
 }
 
 void SystemController::AdvanceDay() const

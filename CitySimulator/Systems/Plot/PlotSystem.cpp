@@ -45,6 +45,7 @@ void PlotSystem::Render() const
 {
 	for (auto && plot : plots)
 	{
+		if (plot->IsRiver()) continue;
 		auto & shape = plot->UpdateShape();
 		CoreController::SfmlController()->DrawShape(shape);
 	}
@@ -54,6 +55,7 @@ void PlotSystem::RenderInterDay()
 {
     for (auto && plot : plots)
     {
+		if (plot->IsRiver()) continue;
         auto & shape = plot->UpdateShape();
         CoreController::SfmlController()->DrawShape(shape);
     }
@@ -118,7 +120,7 @@ void PlotSystem::HandleClick()
                     selectedShape.setOutlineThickness(0);
                 }
                 Status::SelectedPlot = hoverPlot;
-                if (hoverPlot->currentType != nullptr)
+	                if (hoverPlot->currentType != nullptr)
                 {
                     Status::Selection = PLOT;
                 }
