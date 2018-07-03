@@ -17,7 +17,7 @@ public:
 	void RenderRoads() const;
     
     void HandleClick();
-	void FindHoverPlot();
+	void FindHover(const float x, const float y);
     void ClearSelections();
     
     void NewDay() {};
@@ -34,6 +34,7 @@ private:
     LinkedList<Plot*> plots;
 	List<Road*> roads;
     Plot* hoverPlot;
+    Road* hoverRoad;
     bool builtBridge;
 };
 

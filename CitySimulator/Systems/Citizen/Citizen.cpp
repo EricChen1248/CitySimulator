@@ -22,7 +22,6 @@ Citizen::Citizen(Plot* plot) : target(nullptr), activeRule(nullptr), coords(plot
 	{
 		family[i] = nullptr;
 	}
-    moveSpeed = 1 + static_cast<float>(RandomInt(0, 40) - 20) / 100;
     moveSpeed = 1.5f + static_cast<float>(RandomInt(-30, 30)) / 100;
     shape = sf::CircleShape(5);
     shape.setFillColor(BLUE);
@@ -330,8 +329,6 @@ void Citizen::FindRandomTarget()
     delete[] neighbours;
     FindPath();
 }
-
-
 
 /**
  * \brief Calls respective update events in rules

@@ -4,6 +4,7 @@
 
 Selection Status::Selection = NONE_SELECTED;
 Plot* Status::SelectedPlot = nullptr;
+Road* Status::SelectedRoad = nullptr;
 System Status::SelectedSystem = NONE;
 
 Status::Status()
