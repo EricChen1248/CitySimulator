@@ -4,7 +4,7 @@
 #include "Bank.h"
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/HelperFunctions.h"
-
+#include "../Citizen/CitizenEnum.h"
 BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(200.f) {}
 
 BankRule::~BankRule() = default;
@@ -73,13 +73,37 @@ void BankRule::EnterPlot(Plot* plot)
 */
 void BankRule::LeavePlot(Plot* plot)
 {
-    const auto bank = dynamic_cast<Bank*>(plot->GetPlotType());
+	const auto bank = dynamic_cast<Bank*>(plot->GetPlotType());
+	if (citizen->Age() >= 21)
+	{
+		const int moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->GetMoney(), 0, int(saving));
 
-    const int moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->GetMoney(), 0, int(saving));
+		if (moneyToWithdraw >= bank->transactionCost) {
+			citizen->IncreaseMoney(moneyToWithdraw - bank->transactionCost);
+			saving -= moneyToWithdraw;
+		}
+		return;
+	}
+	else
+	{
+		if (citizen->GetFamilyMember(Father) != nullptr)
+		{
+			auto fatherBankRule = static_cast<BankRule*>(citizen->GetFamilyMember(Father)->FindRule(BANK));
+			auto motherBankRule = static_cast<BankRule*>(citizen->GetFamilyMember(Mother)->FindRule(BANK));
 
-    if (moneyToWithdraw >= bank->transactionCost)
-        citizen->IncreaseMoney(moneyToWithdraw - bank->transactionCost);
-    saving -= moneyToWithdraw;
+			const int moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->GetMoney(), 0, (fatherBankRule->saving + motherBankRule->saving));
+			if (moneyToWithdraw > bank->transactionCost)
+			{
+				citizen->IncreaseMoney((moneyToWithdraw - bank->transactionCost));
+				float dadAfford, momAfford;
+				dadAfford = moneyToWithdraw * ((fatherBankRule->saving) / (fatherBankRule->saving + motherBankRule->saving));
+				momAfford = moneyToWithdraw - dadAfford;
+				fatherBankRule->saving -= dadAfford;
+				motherBankRule->saving -= momAfford;
+			}
+		}
+		return;
+	}
 }
 
 /**
@@ -101,4 +125,7 @@ bool BankRule::IsSatisfied()
     return saving > 10000;
 }
 
-void BankRule::SaveMoney(float moneyInflow) {}
+void BankRule::SaveMoney(float moneyInflow) 
+{
+	saving += moneyInflow;
+}

@@ -4,7 +4,7 @@
 #include "../Helpers/Logger.h"
 #include "../Helpers/FeatureFlags.h"
 #include "../Helpers/PathFinder/PathFinder.h"
-
+#include <iostream>
 CoreController* CoreController::instance;
 
 using sf::Event;
@@ -119,7 +119,6 @@ void CoreController::EndDayLoop()
 
     //TODO: Make sure EveryOne make adjustment during this period
     systemController->ResetDay();
-
     while (!advanceDay)
     {
         InterdayInputEvents();
@@ -127,6 +126,12 @@ void CoreController::EndDayLoop()
         PresentRender();
     }
     time.ResetDay();
+	//TODO: Call this functino at better timing
+	/*
+	brief: This function let citizen start to marry and give birth to new baby
+	*/
+	systemController->Citizens()->NewDay();
+	std::cout << "Number of citizen:" << systemController->Citizens()->Citizens().Count() << std::endl;
     systemController->AdvanceDay();
 }
 

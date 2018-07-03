@@ -1,4 +1,4 @@
 #pragma once
 
 #define MULTITHREAD true
-#define SKIP_DAY true
+#define SKIP_DAY true;

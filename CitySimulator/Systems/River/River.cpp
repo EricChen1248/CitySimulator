@@ -84,15 +84,8 @@ void River::Init()
 		dir2 = ranSeed == 0 ? DirRIGHTDOWN : DirRIGHTUP;
 		DrawCorner(dir, dir2,points,startPoint);
 		
-		//AXIS tempAx = ranSeed == 0 ? AXISX : AXISY;
-		//int bound = ranSeed == 0 ? adjustedRight : LEFT;
-		
 		DrawStraightLine(AXISX, dir2, 16, points, startPoint);
-		//DrawEnd(startPoint, points);
 
-		/*
-		reveal the river;
-		*/
 		shape = SFMLController::GenerateVertexArray(points);
 		for (size_t i = 0; i < shape.getVertexCount(); ++i)
 		{

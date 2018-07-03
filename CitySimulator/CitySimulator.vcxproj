@@ -192,6 +192,7 @@
     <ClInclude Include="Helpers\HelperFunctions.h" />
     <ClInclude Include="Helpers\Line.h" />
     <ClInclude Include="Controllers\UiObjects\Status.hpp" />
+    <ClInclude Include="Systems\Citizen\CitizenEnum.h" />
     <ClInclude Include="Systems\River\River.h" />
     <ClInclude Include="Helpers\Road.h" />
     <ClInclude Include="Systems\School\School.h" />

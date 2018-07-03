@@ -362,5 +362,8 @@
     <ClInclude Include="Systems\Food\FoodSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Systems\Citizen\CitizenEnum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

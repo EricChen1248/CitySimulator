@@ -5,17 +5,10 @@
 #include "../../Helpers/Coordinate.h"
 #include "../../Collections/List.h"
 #include "../../Collections/Stack.h"
-
+#include "../Citizen/CitizenEnum.h"
 /**
  * \brief The central entity of our game/simulation
  */
-enum Family
-{
-	Father = 0,
-	Mother,
-	Child,
-	Spouse,
-};
 
 class BaseRule;
 
@@ -32,7 +25,8 @@ public:
     const bool& InPlot() const { return inPlot; }
     const int& Age() const { return age; }
     const bool& IsDead() const { return dead; }
-
+	const Gender GetGender()const { return gender; }
+	Citizen* GetFamilyMember(Family character) { return family[static_cast<int>(character)]; }
     // Setters
     bool IncreaseMoney(int m);
     void SetActiveRule(BaseRule* rule) { activeRule = rule; }
@@ -46,8 +40,8 @@ public:
     void ForceRule(System ruleType, float waitTime = 0);
     BaseRule* FindRule(System system);
 	//LifeCycle function
+	bool IsMarry()const;
 	void MarrySomeOne(Citizen* spouse);
-	void GiveBirth(Citizen* child);
 	void Birth(Citizen* parent,Citizen* parent2);
 	void Death();
 private:
@@ -80,7 +74,7 @@ private:
     int age;
     bool pathFindFailed;
     //Family System
-	bool gender;
+	Gender gender;
 	Citizen** family;
     // Misc Properties
     sf::CircleShape shape;

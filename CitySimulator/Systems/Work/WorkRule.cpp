@@ -156,7 +156,7 @@ void WorkRule::Register()
 	}
 
 	// If such a list doesn't exist. This rule returns failed result false
-	// TODO: ¥[¤j·j¯Á½d³ò¡I
+	// TODO: Increase Searching area¡I
 	if (choices.Count() == 0)
 	{
 		return;
