@@ -34,6 +34,7 @@ public:
     void Destroy();
 	
 	Road* GetRoad(int i) const;
+    Road* GetRoad(Plot* plot) const;
     bool IsRiver() const { return river; }
     
 	void MarkAsRiver();;

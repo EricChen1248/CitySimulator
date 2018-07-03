@@ -80,6 +80,19 @@ Road* Plot::GetRoad(const int i) const
     return roads[i];
 }
 
+Road* Plot::GetRoad(Plot* plot) const
+{
+    for (auto road : roads)
+    {
+        if (road == nullptr) continue;
+        if (road->IsRoad(this, plot))
+        {
+            return road;
+        }
+    }
+    return nullptr;
+}
+
 void Plot::MarkAsRiver() 
 { 
 	river = true; 
