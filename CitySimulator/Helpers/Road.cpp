@@ -3,17 +3,15 @@
 
 
 
-Road::Road(Plot* plotOne, Plot* plotTwo) : plotOne(plotOne), plotTwo(plotTwo), level(1), capacity(100), citizenCount(0), lifespan(50.f), isBroken(false)
+Road::Road(Plot* plotOne, Plot* plotTwo) : plotOne(plotOne), plotTwo(plotTwo), level(1), capacity(100), citizenCount(0), lifespan(50.f), isBroken(false), isRiver(false)
 // TODO: number of capacity, lifespan 
 {
-    shape = Line(plotOne->Coords(), plotTwo->Coords(), LIGHT_GREY, 2);
+    shape = Line(plotOne->Coords(), plotTwo->Coords(), BASE_ROAD_COLOR, 1.3);
 }
 
 
 Road::~Road()
 {
-	delete this->plotOne;
-	delete this->plotTwo;
 }
 
 float Road::Speed()
@@ -26,6 +24,11 @@ float Road::Speed()
 	return static_cast<float>(level) - 0.2f * (citizenCount > capacity);
 }
 
+bool Road::IsRiver()
+{
+	return isRiver;
+}
+
 
 int Road::LevelUp()
 {
@@ -33,16 +36,33 @@ int Road::LevelUp()
 	level++;
 	capacity += 20; 
 	lifespan = 50; // replenish
-
+	shape.ChangeThickness(1); // TODO :thickness
 	return 30; // cost 
 }
 
+
 int Road::Repair()
-{
+{	
 	// TODO: number
 	isBroken = false;
 	lifespan = 50; // replenish
+	shape.ChangeColor(BASE_ROAD_COLOR);
 	return 30; // repair cost 
+
+}
+
+void Road::MarkAsRiver()
+{
+	isRiver = true;
+	level = 0;
+}
+
+int Road::PerformClick()
+{
+	if (isBroken)
+		return Repair();
+
+	return LevelUp();
 }
 
 void Road::Enter()
@@ -76,11 +96,13 @@ void Road::EndDay()
 	// Check if the road is broken
 	if (lifespan < 0)
 		isBroken = true;
-		// TODO: show raod broken (color:red)
-
+		shape.ChangeColor(RED);
 }
 
 void Road::Render() const
 {
-	shape.Render(CoreController::SfmlController()->Window());
+	if (!isRiver)
+	{
+		shape.Render(CoreController::SfmlController()->Window());
+	}
 }

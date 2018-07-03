@@ -30,13 +30,15 @@ public:
     void Leave(Citizen* citizen);
     void NewDay();
     void EndDay();
+	void InsertNewRoad(Road* newRoad);
 	void GenerateRoads();
     void Destroy();
-    
+
+	
 	Road* GetRoad(Plot* nextPlot);
     bool IsRiver() const { return river; }
     
-    void MarkAsRiver() { river = true; };
+	void MarkAsRiver();;
 private:
     Coordinate coords;
     ScreenCoordinate sCoords{};

@@ -1,4 +1,5 @@
 #include "SystemController.h"
+#include "CoreController.h"
 #include "../Systems/Bank/BankSystem.h"
 #include "../Systems/Home/HomeSystem.h"
 #include "../Systems/Work/WorkSystem.h"
@@ -7,7 +8,7 @@
 #include "../Systems/School/SchoolSystem.h"
 #include "../Systems/Hospital/HospitalSystem.h"
 
-SystemController::SystemController() = default;
+SystemController::SystemController() : timeSinceUpdate(0.f) { };
 
 SystemController::~SystemController()
 {
@@ -37,6 +38,7 @@ void SystemController::Initialize()
     systems.InsertLast(store);
     systems.InsertLast(school);
     systems.InsertLast(hospital);
+    plots->GenerateRoads();
 
     river.Init();
 
@@ -94,9 +96,10 @@ void SystemController::Update() const
  */
 void SystemController::Render() const
 {
+    river.Render();
+    plots->RenderRoads();
     citizens->Render();
     plots->Render();
-    river.Render();
 }
 
 /**
@@ -104,8 +107,9 @@ void SystemController::Render() const
  */
 void SystemController::RenderInterday() const
 {
-    plots->RenderInterDay();
     river.Render();
+	plots->RenderRoads();
+    plots->RenderInterDay();
 }
 
 void SystemController::AdvanceDay() const
@@ -150,8 +154,11 @@ int SystemController::SystemCount() const
     return systems.Count();
 }
 
-void SystemController::CalSatisfied() const
+void SystemController::CalSatisfied()
 {
+	timeSinceUpdate += CoreController::Instance()->GetDeltaTime();
+	if (timeSinceUpdate < 0.2f) return;
     citizens->CalculateSatisfaction();
+	timeSinceUpdate = 0;
     return;
 }

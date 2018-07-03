@@ -13,7 +13,7 @@ private:
 	int citizenCount;
 	float lifespan{};
 	bool isBroken;
-
+	bool isRiver;
 	Line shape;
 
 public:
@@ -22,13 +22,16 @@ public:
 
 	//Getter
 	float Speed();
+	bool IsRiver();
+
 
 	//Setter
 	int LevelUp();
 	int Repair();
-
+	void MarkAsRiver();
 
 	//Function
+	int PerformClick();
 	void Enter();
 	void Leave();
 	bool IsRoad(Plot* plotOne, Plot* plotTwo) const;

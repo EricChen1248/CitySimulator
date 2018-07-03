@@ -35,22 +35,20 @@ float WorkRule::CalculateScore()
 	if (assignedCompany != nullptr)
 	{
 		const Time currentTime = CoreController::Instance()->GetTime();
-		// Now is not work time
-		if (timeToWork > currentTime || currentTime > timeOffWork)
-		{
-			return 0;
-		}
 
 		// morning to work
-		if((timeToWork - currentTime) < earlyToWork) {}
-
-		// break time (want to back company)
-		if (endBreakTime > currentTime || currentTime > breakTime)
+		if((timeToWork - currentTime) < (earlyToWork + 30) && currentTime < breakTime)
 		{
-			return 50000;
+			// start to have score 30 min before time that  
+			return 5000000 - Clamp(timeToWork - currentTime - earlyToWork, 0) * 100000;
+		}
+		
+		// break time (want to back company)
+		if (currentTime > breakTime && timeOffWork < currentTime)
+		{
+			return 5000000 + Clamp(currentTime - breakTime, 0) * 100000;
 		}
 
-		return 500000;
 	}
     return 0; // not have work
 }

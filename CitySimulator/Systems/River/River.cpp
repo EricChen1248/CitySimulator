@@ -225,8 +225,8 @@ void River::DrawStraightLine(const AXIS & ax, const DIRECTION & dir, const int &
 			{
 			case(DirRIGHT):
 			{
-				inputList.InsertLast(curCoord.Up(float(1.02)*SIN60));
-				inputList.InsertLast(curCoord.Down(float(1.02)*SIN60));
+				inputList.InsertLast(curCoord.Up(1.02f*SIN60));
+				inputList.InsertLast(curCoord.Down(1.02f*SIN60));
 				curCoord = curCoord.Right();
 				break;
 			}
@@ -244,8 +244,8 @@ void River::DrawStraightLine(const AXIS & ax, const DIRECTION & dir, const int &
 			}
 			case(DirLEFT):
 			{
-				inputList.InsertLast(curCoord.Down(float(1.02)*SIN60));
-				inputList.InsertLast(curCoord.Up(float(1.02)*SIN60));
+				inputList.InsertLast(curCoord.Down(1.02f*SIN60));
+				inputList.InsertLast(curCoord.Up(1.02f*SIN60));
 				curCoord = curCoord.Left();
 				break;
 			}
@@ -286,8 +286,8 @@ void River::DrawStraightLine(const int & distance, const DIRECTION & dir, List<C
 			{
 			case(DirRIGHT):
 			{
-				inputList.InsertLast(curCoord.Up(float(1.02)*SIN60));
-				inputList.InsertLast(curCoord.Down(float(1.02)*SIN60));
+				inputList.InsertLast(curCoord.Up(1.02f*SIN60));
+				inputList.InsertLast(curCoord.Down(1.02f*SIN60));
 				curCoord = curCoord.Right();
 				break;
 			}
@@ -305,8 +305,8 @@ void River::DrawStraightLine(const int & distance, const DIRECTION & dir, List<C
 			}
 			case(DirLEFT):
 			{
-				inputList.InsertLast(curCoord.Down(float(1.02)*SIN60));
-				inputList.InsertLast(curCoord.Up(float(1.02)*SIN60));
+				inputList.InsertLast(curCoord.Down(1.02f*SIN60));
+				inputList.InsertLast(curCoord.Up(1.02f*SIN60));
 				curCoord = curCoord.Left();
 				break;
 			}

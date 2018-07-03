@@ -1,8 +1,13 @@
 #include "Plot.h"
+#include "PlotSystem.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/Road.h"
+#include "../../Helpers/Coordinate.h"
 #include <iostream>
+
+class PlotSystem;
+
 Plot::Plot(const int x, const int y, const int z) : coords(x, y, z), size(10.f), shape(sf::CircleShape(size)),
                                                     currentType(nullptr), roads(6), quadrant(0), river(false)
 {
@@ -69,10 +74,9 @@ void Plot::EndDay()
         break;
     }
 }
-
-void Plot::GenerateRoads()
+void Plot::InsertNewRoad(Road* newRoad)
 {
-
+	roads.InsertLast(newRoad);
 }
 
 Road* Plot::GetRoad(Plot* nextPlot)
@@ -83,6 +87,15 @@ Road* Plot::GetRoad(Plot* nextPlot)
 			return road;
 	}
 	return nullptr;
+}
+
+void Plot::MarkAsRiver() 
+{ 
+	river = true; 
+	for (auto&& road : roads)
+	{
+		road->MarkAsRiver();
+	}
 }
  
 void Plot::Destroy() 
