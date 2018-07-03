@@ -1,21 +1,9 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include "Line.h"
+#include "Line.hpp"
 
 class Plot;
 class Road
 {
-private:
-	Plot* plotOne;
-	Plot* plotTwo;
-	int level;
-	int capacity;
-	int citizenCount;
-	float lifespan{};
-	bool isBroken;
-	bool isRiver;
-	Line shape;
-
 public:
 	Road(Plot* plotOne, Plot* plotTwo);
 	~Road();
@@ -23,7 +11,7 @@ public:
 	//Getter
 	float Speed() const;
 	bool IsRiver() const;
-
+    Line& Shape() { return shape; }
 
 	//Setter
 	int LevelUp();
@@ -34,9 +22,24 @@ public:
 	int PerformClick();
 	void Enter();
 	void Leave();
-	bool IsRoad(Plot* plotOne, Plot* plotTwo) const;
+	bool IsRoad(const Plot* plotOne, const Plot* plotTwo) const;
 	void EndDay();
 	void Render() const;
-
+    
+    bool InSimplyBounds(const float x, const float y) const { return shape.InSimpleBounds(x, y); }
+    bool InComplexBounds(const float x, const float y) const { return shape.InComplexBounds(x, y); }
+    
+private:
+	Line shape;
+	Plot* plotOne;
+	Plot* plotTwo;
+    
+	int level;
+	int capacity;
+	int citizenCount;
+	
+    float lifespan{};
+	bool isBroken;
+	bool isRiver;
 };
 

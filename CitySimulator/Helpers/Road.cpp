@@ -11,8 +11,7 @@ Road::Road(Plot* plotOne, Plot* plotTwo) : plotOne(plotOne), plotTwo(plotTwo), l
 
 
 Road::~Road()
-{
-}
+= default;
 
 float Road::Speed() const
 {
@@ -22,7 +21,7 @@ float Road::Speed() const
 	if (isBroken)
 		return 0.01; // can pass but very slowly
 	
-	return static_cast<float>(level) - 0.2f * (citizenCount > capacity);
+	return static_cast<float>(level) - 0.2f * (citizenCount > capacity) ? 1 : 0;
 }
 
 bool Road::IsRiver() const
@@ -78,7 +77,7 @@ void Road::Leave()
 }
 
 
-bool Road::IsRoad(Plot* plotOne, Plot* plotTwo) const
+bool Road::IsRoad(const Plot* plotOne, const Plot* plotTwo) const
 {
 	if (this->plotOne == plotOne && this->plotTwo == plotTwo)
 		return true;
@@ -109,3 +108,4 @@ void Road::Render() const
 		shape.Render(CoreController::SfmlController()->Window());
 	}
 }
+
