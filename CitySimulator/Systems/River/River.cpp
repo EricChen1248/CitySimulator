@@ -2,22 +2,22 @@
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Helpers/Constants.h"
-
-River::River() = default;
+#include <cmath>
+#include<iostream>
+River::River() :riverColorChange(0), accumulatedTime(0) {};
 
 void River::Init()
 {
-    List<Coordinate> points;
+    
     const auto& plots = CoreController::GetSystemController()->Plots();
     const int adjustedRight = RIGHT - 1;
-    const int rand = RandomInt((riverWidth / 2), adjustedRight - (riverWidth / 2));
+    const int rand = RandomInt(1, adjustedRight - 1);
 
 
 
 	//Mode 0 : straight river cuting city into half; Mode 1: cutting it vertically 
 	RIVERMODE mode = static_cast<RIVERMODE> (RandomInt(0,3));
-	//mode = ModeCIRCLE;
-
+	mode = ModeACCROSS;
 	switch (mode)
 	{
 	case(ModeSTRAIGHT):
@@ -52,7 +52,14 @@ void River::Init()
 		shape = SFMLController::GenerateVertexArray(points);
 		for (size_t i = 0; i < shape.getVertexCount(); ++i)
 		{
-			shape[i].color = RIVER_COLOR;
+			if (i % 4 == 0)
+				shape[i].color = RIVER_COLOR;
+			else if (i % 4 == 1)
+				shape[i].color = RIVER_COLOR;
+			else if (i % 4 == 2)
+				shape[i].color = RIVER_COLOR_2;
+			else
+				shape[i].color = RIVER_COLOR_2;
 		}
 		break;
 	}
@@ -89,8 +96,16 @@ void River::Init()
 		shape = SFMLController::GenerateVertexArray(points);
 		for (size_t i = 0; i < shape.getVertexCount(); ++i)
 		{
-			shape[i].color = RIVER_COLOR;
+			if (i % 4 == 0)
+				shape[i].color = RIVER_COLOR;
+			else if (i % 4 == 1)
+				shape[i].color = RIVER_COLOR;
+			else if (i % 4 == 2)
+				shape[i].color = RIVER_COLOR_2;
+			else
+				shape[i].color = RIVER_COLOR_2;
 		}
+		break;
 		/*
 		For debuggin check wheter there is some points missing or not
 		*/
@@ -99,33 +114,35 @@ void River::Init()
 		//	points->GetShape().setOutlineThickness(10);
 		//	points->GetShape().setOutlineColor(BLACK);
 		//}
-		break;
+	
 	}
 	case(ModeCIRCLE):
 	{
 		int startAxis = adjustedRight / 2;
 		//upper circle
 		Coordinate startPoint(-startAxis, startAxis, 0);
-		DrawStraightLine(AXISZ, DirRIGHTUP, startAxis, points, startPoint);
+		DrawStraightLine(startAxis, DirRIGHTUP, points, startPoint);
 		DrawCorner(DirRIGHTUP, DirRIGHT, points, startPoint);
-		startPoint = startPoint.Right();
 		DrawStraightLine(startAxis, DirRIGHT, points, startPoint);
 		DrawCorner(DirRIGHT, DirRIGHTDOWN, points, startPoint);
-		startPoint = startPoint.RightDown();
-		DrawStraightLine(AXISZ, DirRIGHTDOWN, 0, points, startPoint);
+
+		DrawStraightLine(startAxis,DirRIGHTDOWN, points, startPoint);
 		DrawCorner(DirRIGHTDOWN, DirLEFTDOWN, points, startPoint);
+
 		DrawStraightLine(startAxis, DirLEFTDOWN, points, startPoint);
 		DrawCorner(DirLEFTDOWN, DirLEFT, points, startPoint);
-		DrawStraightLine(startAxis+1, DirLEFT, points, startPoint);
-		DrawCorner(DirLEFT, DirLEFTUP, points, startPoint);
-		startPoint = startPoint.LeftUp();
-		DrawStraightLine(AXISZ, DirLEFTUP,  1 , points, startPoint);
 
-		//shape = SFMLController::GenerateVertexArray(points);
+		DrawStraightLine(startAxis, DirLEFT, points, startPoint);
+		DrawCorner(DirLEFT, DirLEFTUP, points, startPoint);
+
+		DrawStraightLine(startAxis+1, DirLEFTUP, points, startPoint);
+		//DrawCorner(DirLEFTUP, DirRIGHTUP, points, startPoint);
+		shape = SFMLController::GenerateVertexArray(points);
 
 		for (size_t i = 0; i < shape.getVertexCount(); ++i)
 		{
-			shape[i].color = RIVER_COLOR;
+				shape[i].color = RIVER_COLOR;
+
 		}
 		break;
 		/*
@@ -137,6 +154,7 @@ void River::Init()
 		//	points->GetShape().setOutlineColor(BLACK);
 		//}
 	}
+
 	default:
 		break;
 	}
@@ -146,9 +164,31 @@ void River::Init()
 River::~River()
 = default;
 
-void River::Render() const
+void River::Render()const
 {
     CoreController::SfmlController()->DrawShape(shape);
+}
+
+void River::Update()
+{
+	std::cout << "CHECK HERE:" << CoreController::Instance()->GetDeltaTime() << std::endl;
+	accumulatedTime += CoreController::Instance()->GetDeltaTime()*1000;
+	if (accumulatedTime >= 250)
+	{
+		riverColorChange = riverColorChange == 0 ? 1 : 0;
+		accumulatedTime = 0;
+	}
+	for (size_t i = 0; i < shape.getVertexCount(); ++i)
+	{
+		if ((i + riverColorChange) % 4 == 0)
+			shape[i].color = RIVER_COLOR;
+		else if ((i + riverColorChange) % 4 == 1)
+			shape[i].color = RIVER_COLOR;
+		else if ((i + riverColorChange) % 4 == 2)
+			shape[i].color = RIVER_COLOR_2;
+		else
+			shape[i].color = RIVER_COLOR_2;
+	}
 }
 
 void River::InitBoundary()
@@ -159,7 +199,7 @@ void River::InitBoundary()
 	const int adjustedRight = RIGHT - 1;
 
 	Coordinate leftStartPoint(0, adjustedRight, LEFT);
-	Coordinate rightStartPoint((adjustedRight - riverWidth), (riverWidth), LEFT);
+	Coordinate rightStartPoint((adjustedRight - 1), (1), LEFT);
 	while (leftStartPoint.Z() < RIGHT)
 	{
 		auto leftPlotPtr = plots->FindPlot(leftStartPoint);
@@ -369,6 +409,32 @@ void River::DrawCorner(DIRECTION d1, DIRECTION d2,List<Coordinate>& inputList, C
 	int rotate = a2 - a1;
 	if ((rotate == 1) || (rotate == -5))
 	{
+		/*
+		if ((a1 == 0) && (a2 == 1))
+		{
+			Coordinate center = (curCoord.RightDown());
+			for (int i = 30; i <= 90; i ++)
+			{
+				float x, y, z, x1, y1, z1;
+				x = (float(1.88)*sin(PI / (float(i) / 180.f)))*-0.5f + (float(1.88)*cos(PI / (float(i) / 180.f)))*-1;
+				x += center.X();
+				x1 = (float(0.12)*sin(PI / (float(i) / 180.f)))*-0.5f + (float(0.12)*cos(PI / (float(i) / 180.f)))*-1;
+				x1 += center.X();
+				y = (float(1.88)*sin(PI / (float(i) / 180.f)))*-0.5f + (float(1.88)*cos(PI / (float(i) / 180.f)))*1;
+				y += center.Y();
+				y1 = (float(0.12)*sin(PI / (float(i) / 180.f)))*-0.5f + (float(0.12)*cos(PI / (float(i) / 180.f)))*1;
+				y1 += center.Y();
+				z = (float(1.88)*sin(PI / (float(i) / 180.f)))*1.f + (float(1.88)*cos(PI / (float(i) / 180.f)))*0;
+				z += center.Z();
+				z1 = (float(0.12)*sin(PI / (float(i) / 180.f)))*1.f + (float(0.12)*cos(PI / (float(i) / 180.f)))*0;
+				z1 += center.Z();
+				Coordinate outline(x, y, z);
+				Coordinate innerLine(x1, y1, z);
+				points.InsertLast(outline);
+				points.InsertLast(innerLine);
+			}
+			return;
+		}*/
 		int leftRo = a1 - 1;
 		leftRo = ((a1 - 1) >= 0) ? (a1-1) : (6 + (a1 - 1));
 		int rightRo = (a1 + 2) % 6;

@@ -365,5 +365,8 @@
     <ClInclude Include="Systems\RiverEnum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Systems\Header.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

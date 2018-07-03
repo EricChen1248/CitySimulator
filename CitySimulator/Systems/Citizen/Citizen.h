@@ -65,7 +65,9 @@ private:
     bool dead;
     int age;
     bool pathFindFailed;
-    
+    //Family System
+	bool gender;
+	
     // Misc Properties
     sf::CircleShape shape;
 };

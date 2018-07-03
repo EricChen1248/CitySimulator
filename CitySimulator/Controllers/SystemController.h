@@ -27,7 +27,7 @@ public:
     void CalSatisfied() const;
     BaseSystem* GetSystem(System system) const;
     const List<BaseSystem*>& GetSystems() const { return systems; };
-
+	
 
     PlotSystem* Plots() const { return plots; }
     CitizenSystem* Citizens() const { return citizens; }

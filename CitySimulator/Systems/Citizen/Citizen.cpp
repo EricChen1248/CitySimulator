@@ -14,11 +14,11 @@
 
 Citizen::Citizen(Plot* plot) : target(nullptr), activeRule(nullptr), coords(plot->Coords()), money(0), waitTime(0.f), inPlot(false), dead(false), age(0), pathFindFailed(false)
 {
+	gender = static_cast<bool>(RandomInt(0, 2));
     moveSpeed = 1 + static_cast<float>(RandomInt(0, 40) - 20) / 100;
     shape = sf::CircleShape(5);
     shape.setFillColor(BLUE);
     currentPlot = plot;
-    
     GenRules();
 }
 
