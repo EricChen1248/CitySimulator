@@ -36,6 +36,7 @@ public:
     virtual void Unregister(Plot* plot);
     virtual void NewDay();
     virtual void EndDay();
+    virtual int Cost() { return 0; };
     virtual void Destroy(Plot* plot);
     virtual std::string ContentString() { return ""; }
 protected:
