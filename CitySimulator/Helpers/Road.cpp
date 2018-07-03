@@ -14,8 +14,9 @@ Road::~Road()
 {
 }
 
-float Road::Speed()
+float Road::Speed() const
 {
+    if (isRiver) return 0;
 	// Traffic jam
 	// TODO: 0.2 or ?
 	if (isBroken)
@@ -24,7 +25,7 @@ float Road::Speed()
 	return static_cast<float>(level) - 0.2f * (citizenCount > capacity);
 }
 
-bool Road::IsRiver()
+bool Road::IsRiver() const
 {
 	return isRiver;
 }
@@ -95,8 +96,10 @@ void Road::EndDay()
 
 	// Check if the road is broken
 	if (lifespan < 0)
+	{
 		isBroken = true;
 		shape.ChangeColor(RED);
+	}
 }
 
 void Road::Render() const

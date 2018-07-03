@@ -2,9 +2,9 @@
 #include <cmath>
 #include "Constants.h"
 
-const int X_CHANGE[6] = { 0, 0, 1, 1,-1,-1};
-const int Y_CHANGE[6] = { 1,-1,-1, 0, 1, 0};
-const int Z_CHANGE[6] = {-1, 1, 0,-1, 0, 1};
+const int X_CHANGE[6] = { 0, 1, 1,-1,-1, 0};
+const int Y_CHANGE[6] = { 1,-1, 0, 0, 1,-1};
+const int Z_CHANGE[6] = {-1, 0,-1, 1, 0, 1};
 
 Coordinate::Coordinate(const float x, const float y, const float z): x(x) , y(y), z(z)
 {

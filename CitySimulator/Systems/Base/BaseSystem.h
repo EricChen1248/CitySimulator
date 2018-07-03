@@ -38,6 +38,7 @@ public:
     virtual void EndDay();
     virtual int Cost() { return 0; };
     virtual void Destroy(Plot* plot);
+    virtual void Toggle() {};
     virtual std::string ContentString() { return ""; }
 protected:
     List<Plot*> plots;
@@ -45,6 +46,7 @@ protected:
     List<Log*> unsatisfiedLog;
     
     float score;
+    bool toggleable = false;
 };
 
 

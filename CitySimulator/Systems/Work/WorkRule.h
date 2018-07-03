@@ -19,6 +19,7 @@ private:
 	Plot* assignedCompany;
 	float production;
 	float salary;
+	float baseSalary;
 	float workingTime; // Workingtime during this period (MAX:4 hour)
 	int earlyToWork; // how much time a person should go outside early (in minutes)
 

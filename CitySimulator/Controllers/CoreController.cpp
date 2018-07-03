@@ -130,8 +130,8 @@ void CoreController::EndDayLoop()
 	/*
 	brief: This function let citizen start to marry and give birth to new baby
 	*/
-	systemController->Citizens()->NewDay();
-	std::cout << "Number of citizen:" << systemController->Citizens()->Citizens().Count() << std::endl;
+	//systemController->Citizens()->NewDay();
+	//std::cout << "Number of citizen:" << systemController->Citizens()->Citizens().Count() << std::endl;
     systemController->AdvanceDay();
 }
 

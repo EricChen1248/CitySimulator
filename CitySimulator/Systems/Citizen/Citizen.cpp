@@ -64,7 +64,8 @@ void Citizen::Update()
     {
         return;
     }
-
+    
+    UpdateRules();
     // Citizen is waiting in a target
     if (waitTime > 0)
     {
@@ -109,7 +110,6 @@ void Citizen::Update()
     }
     
     // Citizen is leaving old target and finding next one;
-    UpdateRules();
     if (pathFindFailed)
     {
         pathFindFailed = false;

@@ -49,10 +49,10 @@ private:
 
 	//function
 	void InitBoundary();
-	DIRECTION IsBoundaryOrNot(const Coordinate& coord)const;
-	DIRECTION IsSixOrNot(const Coordinate& coord)const;
+    static DIRECTION IsBoundaryOrNot(const Coordinate& coord);
+    static DIRECTION IsSixOrNot(const Coordinate& coord);
 	void DrawStart(const Coordinate& coord, List<Coordinate>& inputList);
-	void DrawStraightLine(const AXIS & ax, const DIRECTION & dir, const int & boundary, List<Coordinate>& inputList, Coordinate & curCoord);
+	void DrawStraightLine(const AXIS ax, const DIRECTION dir, const int boundary, List<Coordinate>& inputList, Coordinate & curCoord);
 	void DrawStraightLine(const int& distance, const DIRECTION& dir, List<Coordinate>& inputList, Coordinate& curCoord);
 	void DrawCorner(DIRECTION d1, DIRECTION d2, List<Coordinate>& inputList, Coordinate& curCoord);
 	void DrawEnd(const Coordinate& coord, List<Coordinate>& inputList);

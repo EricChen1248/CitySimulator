@@ -9,6 +9,7 @@ public:
     List(int initialSize = INITIAL_SIZE);
     ~List();
     T& operator[](int index) const override;
+    void Clear() { itemCount = 0; }
     void InsertLast(const T& item) override;
     void RemoveLast() override;
     void Remove(int index) override;

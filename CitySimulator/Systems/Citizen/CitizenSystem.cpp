@@ -16,10 +16,16 @@ CitizenSystem::CitizenSystem()
 #endif
 
     Logger::Log("Created " + std::to_string(citizenCount) + " citizens");
+    
+    const auto plots = CoreController::GetSystemController()->Plots();
+    
     for (int i = 0; i < citizenCount; ++i)
     {
-        const auto plot = CoreController::GetSystemController()->Plots();
-        const auto& randomPlot = plot->GetRandomPlot();
+        Plot* randomPlot = plots->GetRandomPlot();
+        while (randomPlot->IsRiver())
+        {
+            randomPlot = plots->GetRandomPlot();
+        }
         auto citizen = new Citizen(randomPlot);
         citizens.InsertLast(citizen);
     }
@@ -40,7 +46,6 @@ void CitizenSystem::Update() const
     {
         citizen->Update();
     }
-    CalculateSatisfaction();
 }
 
 /**
@@ -87,6 +92,7 @@ void CitizenSystem::EndDay()
     }
 }
 
+
 void CitizenSystem::CalculateSatisfaction() const
 {
     const int systemCount = CoreController::GetSystemController()->SystemCount();
@@ -103,7 +109,7 @@ void CitizenSystem::CalculateSatisfaction() const
 
             if (rulePtr->IsSatisfied())
             {
-                ruleScore[j] += (1.f / citizenCount);
+                ruleScore[j] += (1.f / citizens.Count());
             }
         }
     }
@@ -195,3 +201,4 @@ void CitizenSystem::PeopleMarry()
 		}
 	}
 }
+

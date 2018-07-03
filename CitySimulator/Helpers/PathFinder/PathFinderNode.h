@@ -24,7 +24,9 @@ private:
     PathFinderNode* parent = nullptr;
     Coordinate coords;
     List<Coordinate> neighbours;
+    Coordinate* coordNeighbours;
     Plot* plot;
     int quadrant;
+    
 };
 

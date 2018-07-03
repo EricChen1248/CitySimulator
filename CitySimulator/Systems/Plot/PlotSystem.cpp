@@ -194,6 +194,10 @@ void PlotSystem::EndDay()
     {
         plot->EndDay();
     }
+    for (auto road : roads)
+    {
+        road->EndDay();
+    }
     if (builtBridge)
     {
     }
@@ -211,30 +215,17 @@ void PlotSystem::GenerateRoads()
 {
     for (auto&& plot : plots)
     {
-		auto neighbours = plot->Coords().GetNeighbours();
+        const auto neighbours = plot->Coords().GetNeighbours();
         for (int i = 0; i < 6; ++i)
         {
-            auto neighbour = FindPlot(neighbours[i]);
+            const auto neighbour = FindPlot(neighbours[i]);
             if (neighbour != nullptr)
             {
-                bool exists = false;
-                for (auto&& road : plot->roads)
-                {
-                    if (road != nullptr && road->IsRoad(plot, neighbour))
-                    {
-                        exists = true;
-                        break;
-                    }
-                }
-
-                if (!exists)
-                {
-                    Road* newRoad = new Road(plot, neighbour);
-                    plot->InsertNewRoad(newRoad);
-                    neighbour->InsertNewRoad(newRoad);
-
-                    roads.InsertLast(newRoad);
-                }
+                if (plot->roads[i] != nullptr) continue;
+                Road* newRoad = new Road(plot, neighbour);
+                plot->InsertNewRoad(newRoad, i);
+                neighbour->InsertNewRoad(newRoad, 5 - i);
+                roads.InsertLast(newRoad);
             }
         }
     }

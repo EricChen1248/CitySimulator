@@ -167,8 +167,16 @@ void UIController::DrawSelection()
     }
 }
 
-void UIController::DrawSatisfaction() const
+void UIController::DrawSatisfaction()
 {
+    
+    scoreList.Clear();
+    const auto systems = CoreController::GetSystemController();
+    for (auto system : systems->GetSystems())
+    {
+        scoreList.InsertLast(system->GetSatisfaction());
+    }
+    
     if (scoreList.Count() > 0)
     {
         for (int i = 0; i < satisfyBar.Count(); i++)

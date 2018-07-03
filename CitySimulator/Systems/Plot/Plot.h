@@ -28,14 +28,12 @@ public:
     void Register(Base* base);
     void Enter(Citizen* citizen);
     void Leave(Citizen* citizen);
-    void NewDay();
-    void EndDay();
-	void InsertNewRoad(Road* newRoad);
-	void GenerateRoads();
+    void NewDay() const;
+    void EndDay() const;
+	void InsertNewRoad(Road* newRoad, int i) const;
     void Destroy();
-
 	
-	Road* GetRoad(Plot* nextPlot);
+	Road* GetRoad(int i) const;
     bool IsRiver() const { return river; }
     
 	void MarkAsRiver();;
