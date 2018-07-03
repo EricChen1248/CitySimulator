@@ -16,10 +16,11 @@ FoodSystem::~FoodSystem() = default;
  * \brief Registers a new food plot in the system
  * \param plot Plot to be registered
  */
-void FoodSystem::Register(Plot* plot)
+int FoodSystem::Register(Plot* plot)
 {
     (*plot).Register(new Food(plot));
     BaseSystem::Register(plot);
+    return 0;
 }
 
 /**

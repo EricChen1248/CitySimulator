@@ -6,13 +6,14 @@
 HomeSystem::HomeSystem():BaseSystem(HOME)
 {
 }
-void HomeSystem::Register(Plot* plot) 
+int HomeSystem::Register(Plot* plot) 
 {
 	//plot need to register a base first;
 	//base(home) will assign a ramdom capacity 
 	plot->Register(new Home(plot));
 	//Because BaseSystem is not a virtual function, and we didn't and have to overload FUNCTION REGISTER
 	BaseSystem::Register(plot);
+    return 0;
 }
 
 HomeSystem::~HomeSystem() = default;

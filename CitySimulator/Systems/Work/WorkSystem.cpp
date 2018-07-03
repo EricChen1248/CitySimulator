@@ -29,10 +29,11 @@ WorkSystem::~WorkSystem() = default;
 * \brief Registers a new work plot in the system
 * \param plot Plot to be registered
 */
-void WorkSystem::Register(Plot* plot)
+int WorkSystem::Register(Plot* plot)
 {
 	(*plot).Register(new Work(plot));
 	BaseSystem::Register(plot);
+    return 0;
 }
 
 /**

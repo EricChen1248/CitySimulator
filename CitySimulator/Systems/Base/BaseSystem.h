@@ -32,7 +32,7 @@ public:
     virtual void Update() = 0;
     virtual void LogSatisfied(Citizen* citizen, BaseRule* rule) = 0;
     virtual void LogUnsatisfied(Citizen* citizen, BaseRule* rule) = 0; 
-    virtual void Register(Plot* plot);
+    virtual int Register(Plot* plot);
     virtual void Unregister(Plot* plot);
     virtual void NewDay();
     virtual void EndDay();
@@ -57,9 +57,10 @@ inline BaseSystem::~BaseSystem()
  * \brief Register a plot into the system for quick lookup and updating
  * \param plot Plot to register in system
  */
-inline void BaseSystem::Register(Plot* plot)
+inline int BaseSystem::Register(Plot* plot)
 {
     plots.InsertLast(plot);
+    return 0;
 }
 
 /**

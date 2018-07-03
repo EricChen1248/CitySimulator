@@ -27,13 +27,13 @@ private:
 	static helper::Time endBreakTime;
 	static helper::Time timeOffWork;
 
-	float CalculateScore();
-	bool FindPlot();
-	void EnterPlot(Plot* plot);
-	void LeavePlot(Plot* plot);
-	void Update();
+	float CalculateScore() override;
+	bool FindPlot() override;
+	void EnterPlot(Plot* plot) override;
+	void LeavePlot(Plot* plot) override;
+	void Update() override;
 	bool IsSatisfied() override;
-	void NewDay(); //override
+	void NewDay() override;
 	void Register();
 	void UnRegister();
 };
