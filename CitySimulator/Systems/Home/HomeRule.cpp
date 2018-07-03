@@ -103,6 +103,7 @@ void HomeRule::LeavePlot(Plot* plot)
 */
 void HomeRule::Update()
 {
+	
 	// TODO : if homeless hour exceed certain critirea , this citizen sholud
     const auto time = CoreController::Instance()->GetTime();
 	if (time.Hour>= goHomeTime.Hour)
@@ -127,7 +128,7 @@ bool HomeRule::IsSatisfied()
 }
 void HomeRule::EndDay() 
 {
-	if (this->citizen->Age() == 20)
+	if (this->citizen->Age() == 21)
 	{
 		myHome = nullptr;
 		DecideHome();

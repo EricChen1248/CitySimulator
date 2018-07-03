@@ -84,7 +84,6 @@
       <AdditionalIncludeDirectories>$(SolutionDir)\Library\SFML-2.5.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)\Library\SFML-2.5.0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -193,8 +192,6 @@
     <ClInclude Include="Helpers\HelperFunctions.h" />
     <ClInclude Include="Helpers\Line.h" />
     <ClInclude Include="Controllers\UiObjects\Status.hpp" />
-    <ClInclude Include="Systems\Header.h" />
-    <ClInclude Include="Systems\RiverEnum.h" />
     <ClInclude Include="Systems\River\River.h" />
     <ClInclude Include="Helpers\Road.h" />
     <ClInclude Include="Systems\School\School.h" />

@@ -2,7 +2,32 @@
 #include <SFML/Graphics.hpp>
 #include "../../Collections/List.h"
 #include "../Plot/Plot.h"
-#include "../RiverEnum.h"
+
+
+enum DIRECTION
+{
+	DirRIGHTUP = 0,
+	DirRIGHT,
+	DirRIGHTDOWN,
+	DirLEFTDOWN,
+	DirLEFT,
+	DirLEFTUP,
+	NODIRECTION,
+};
+enum RIVERMODE
+{
+	ModeSTRAIGHT = 0,
+	ModeACCROSS,
+	ModeCIRCLE,
+	NORIVER,
+};
+enum AXIS
+{
+	AXISX,
+	AXISY,
+	AXISZ,
+};
+
 class River
 {
 public:
@@ -35,4 +60,3 @@ private:
 	void Draw(const DIRECTION d1, const DIRECTION d2, const Coordinate & coord, List<Coordinate>& inputlist, float length = float(0.88));
 	void MarkAsRiver(const Coordinate& coord);
 };
-

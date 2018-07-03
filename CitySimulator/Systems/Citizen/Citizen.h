@@ -9,6 +9,14 @@
 /**
  * \brief The central entity of our game/simulation
  */
+enum Family
+{
+	Father = 0,
+	Mother,
+	Child,
+	Spouse,
+};
+
 class BaseRule;
 
 class Citizen
@@ -37,14 +45,20 @@ public:
     void EndDay();
     void ForceRule(System ruleType, float waitTime = 0);
     BaseRule* FindRule(System system);
-    void Death();
+	//LifeCycle function
+	void MarrySomeOne(Citizen* spouse);
+	void GiveBirth(Citizen* child);
+	void Birth(Citizen* parent,Citizen* parent2);
+	void Death();
 private:
     void FindNextTarget();
     void GenRules();
     void FindRandomTarget();
     void UpdateRules() const;
     void FindPath();
-    
+
+
+	void setFamily(const Family& character, Citizen* citiz);
     // Collections
     List<BaseRule*> rules;
     Stack<Coordinate>* path{};
@@ -67,8 +81,7 @@ private:
     bool pathFindFailed;
     //Family System
 	bool gender;
-	
+	Citizen** family;
     // Misc Properties
     sf::CircleShape shape;
 };
-
