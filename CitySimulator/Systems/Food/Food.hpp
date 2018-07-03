@@ -1,8 +1,8 @@
 #pragma once
 #include "../Base/Base.h"
+#include "../../Helpers/Time.h"
 
 class FoodRule;
-
 /**
  * \brief Food Class that handles the food plots of our city
  */

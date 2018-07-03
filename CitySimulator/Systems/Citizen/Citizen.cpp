@@ -22,15 +22,14 @@ Citizen::Citizen(Plot* plot) : target(nullptr), activeRule(nullptr), coords(plot
 		family[i] = nullptr;
 	}
     moveSpeed = 1 + static_cast<float>(RandomInt(0, 40) - 20) / 100;
+    moveSpeed = 1.5f + static_cast<float>(RandomInt(-30, 30)) / 100;
     shape = sf::CircleShape(5);
     shape.setFillColor(BLUE);
     currentPlot = plot;
     GenRules();
 }
 
-
 Citizen::~Citizen() = default;
-
 
 /**
  * \brief Increases (decrease if negative) the amount of money of the citizen
