@@ -3,6 +3,7 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 #include "../../Systems/SystemEnum.h"
 #include "Button.h"
+#include "../../Helpers/Road.h"
 
 enum Selection
 {
@@ -24,6 +25,7 @@ public:
     static Selection Selection;
     static Plot* SelectedPlot;
     static System SelectedSystem;
+    static Road* SelectedRoad;
 private:
     void DrawChildren();
     void DrawSystem();
