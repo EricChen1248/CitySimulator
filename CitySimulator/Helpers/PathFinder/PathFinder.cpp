@@ -73,13 +73,14 @@ Stack<Coordinate>* PathFinder::PathTo(const Coordinate& source, Coordinate dest)
     while (current != dest)
     {
         const auto neighbours = currentNode->coordNeighbours;
+        const auto currentPlot = currentNode->plot;
         for (int i = 0; i < 6; ++i)
         {
             auto&& coords = neighbours[i];
             const auto p = plots->FindPlot(coords);
             if (p == nullptr) continue;
             auto neighbourNode = CoordToNodeMap(coords);
-            const float speed = currentNode->plot->GetRoad(i)->Speed();
+            const float speed = currentPlot->GetRoad(i)->Speed();
             if (speed == 0) continue;
             const float pathCost = 1 / speed;
             const int x = (coords.X() - LEFT) * size;
