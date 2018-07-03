@@ -76,7 +76,7 @@ void SystemController::Initialize()
             system->Register(plot);
         }
     }
-    citizens = new CitizenSystem;
+    citizens = new CitizenSystem();
 }
 
 /**
@@ -152,13 +152,4 @@ void SystemController::ResetDay()
 int SystemController::SystemCount() const
 {
     return systems.Count();
-}
-
-void SystemController::CalSatisfied()
-{
-	timeSinceUpdate += CoreController::Instance()->GetDeltaTime();
-	if (timeSinceUpdate < 0.2f) return;
-    citizens->CalculateSatisfaction();
-	timeSinceUpdate = 0;
-    return;
 }

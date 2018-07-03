@@ -49,7 +49,7 @@ private:
     void DrawTime();
     void DrawMoney();
     void DrawSelection();
-    void DrawSatisfaction() const;
+    void DrawSatisfaction();
     void DrawStatus();
     void DrawBirthRate();
 

@@ -1,12 +1,8 @@
 #include "Plot.h"
-#include "PlotSystem.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/Road.h"
 #include "../../Helpers/Coordinate.h"
-#include <iostream>
-
-class PlotSystem;
 
 Plot::Plot(const int x, const int y, const int z) : coords(x, y, z), size(10.f), shape(sf::CircleShape(size)),
                                                     currentType(nullptr), roads(6), quadrant(0), river(false)
@@ -15,6 +11,10 @@ Plot::Plot(const int x, const int y, const int z) : coords(x, y, z), size(10.f),
     sCoords = coords.ToScreenCoordinates();
     sCoords.X -= size / 2;
     sCoords.Y -= size / 2;
+    for (int i = 0; i < 6; ++i)
+    {
+        roads.InsertLast(nullptr);
+    }
 }
 
 sf::CircleShape& Plot::UpdateShape()
@@ -55,7 +55,7 @@ void Plot::Leave(Citizen* citizen)
     occupants.Remove(citizen);
 }
 
-void Plot::NewDay()
+void Plot::NewDay() const
 {
     if (currentType != nullptr)
     {
@@ -63,30 +63,21 @@ void Plot::NewDay()
     }
 }
 
-void Plot::EndDay()
+void Plot::EndDay() const
 {
     if (currentType != nullptr)
     {
         currentType->EndDay();
     }
-    for (auto && road : roads)
-    {
-        break;
-    }
 }
-void Plot::InsertNewRoad(Road* newRoad)
+void Plot::InsertNewRoad(Road* newRoad, const int i) const
 {
-	roads.InsertLast(newRoad);
+    roads[i] = newRoad;
 }
 
-Road* Plot::GetRoad(Plot* nextPlot)
+Road* Plot::GetRoad(const int i) const
 {
-	for (auto&& road : roads)
-	{
-		if (road->IsRoad(this, nextPlot))
-			return road;
-	}
-	return nullptr;
+    return roads[i];
 }
 
 void Plot::MarkAsRiver() 
@@ -94,6 +85,7 @@ void Plot::MarkAsRiver()
 	river = true; 
 	for (auto&& road : roads)
 	{
+	    if (road == nullptr) continue;
 		road->MarkAsRiver();
 	}
 }

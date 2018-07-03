@@ -2,7 +2,9 @@
 #include "../CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
 
-Slider::Slider(const Vector2f position, const Vector2f size, const int initialValue /* = 80 */) : value(initialValue), mouseClicked(false)
+const int Slider::MAX_RATE;
+
+Slider::Slider(const Vector2f position, const Vector2f size, const int initialValue /* = 160 */) : value(initialValue), mouseClicked(false)
 {
     background.setSize(Vector2f(size.x + 60, size.y));
     background.setPosition(position);
@@ -16,7 +18,7 @@ Slider::Slider(const Vector2f position, const Vector2f size, const int initialVa
     centerLine.setOutlineColor(BLACK);
     centerLine.setOutlineThickness(2);
         
-    slider = new Button(Vector2f(10,size.y - 6), Vector2f(float(initialValue) * (rightBound - leftBound) / 100 + leftBound, centerLine.getPosition().y - (size.y - 6) / 2), WHITE, MOUSE_OVER_COLOR);
+    slider = new Button(Vector2f(10,size.y - 6), Vector2f(float(initialValue) * (rightBound - leftBound) / MAX_RATE + leftBound, centerLine.getPosition().y - (size.y - 6) / 2), WHITE, MOUSE_OVER_COLOR);
     
     text.setFont(FontController::Monofur());
     text.setPosition(position.x + size.x + 8, position.y + 5);
@@ -47,7 +49,7 @@ void Slider::Render()
         const auto &mousePos = sf::Mouse::getPosition(*window);
         const int x = Clamp(mousePos.x - 5, leftBound, rightBound);
         slider->SetPosition(Vector2f(float(x), centerLine.getPosition().y - (background.getSize().y - 6) / 2));
-        value = (x - leftBound) * 100 / (rightBound - leftBound);        
+        value = (x - leftBound) * MAX_RATE / (rightBound - leftBound);        
         mouseClicked = sf::Mouse::isButtonPressed(sf::Mouse::Left);
     }
 }

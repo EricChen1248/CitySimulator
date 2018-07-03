@@ -19,10 +19,10 @@ private:
 public:
 	Road(Plot* plotOne, Plot* plotTwo);
 	~Road();
-
+    static const int MAX_SPEED = 10;
 	//Getter
-	float Speed();
-	bool IsRiver();
+	float Speed() const;
+	bool IsRiver() const;
 
 
 	//Setter

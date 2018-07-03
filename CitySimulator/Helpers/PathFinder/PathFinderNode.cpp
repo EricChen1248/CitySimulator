@@ -30,7 +30,7 @@ PathFinderNode::PathFinderNode(const Coordinate& coords) : coords(coords), plot(
         }
         this->neighbours.InsertLast(coord);
     }
-    delete [] neighbours;
+    coordNeighbours = neighbours;
 }
 
 /**
@@ -39,10 +39,11 @@ PathFinderNode::PathFinderNode(const Coordinate& coords) : coords(coords), plot(
  */
 void PathFinderNode::EstimateSteps(Coordinate& dest)
 {
-    //TODO : Update pathfinder heuristics
-    estimatedSteps = float(dest.Distance(coords));
+    estimatedSteps = float(dest.Distance(coords)) / Road::MAX_SPEED;
 }
 
 
-PathFinderNode::~PathFinderNode() 
-= default;
+PathFinderNode::~PathFinderNode()
+{
+    delete [] coordNeighbours;
+}

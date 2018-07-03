@@ -69,14 +69,19 @@ Stack<Coordinate>* PathFinder::PathTo(const Coordinate& source, Coordinate dest)
     auto current = source;
     queue.Reset();
     auto currentNode = CoordToNodeMap(source);
+    const auto plots = CoreController::GetSystemController()->Plots();
     while (current != dest)
     {
-        auto& neighbours = currentNode->neighbours;
-        for (auto && neighbour : neighbours)
+        const auto neighbours = currentNode->coordNeighbours;
+        for (int i = 0; i < 6; ++i)
         {
-            auto neighbourNode = CoordToNodeMap(neighbour);
-            auto & coords = neighbourNode->coords;
-            // TODO add path cost
+            auto&& coords = neighbours[i];
+            const auto p = plots->FindPlot(coords);
+            if (p == nullptr) continue;
+            auto neighbourNode = CoordToNodeMap(coords);
+            const float speed = currentNode->plot->GetRoad(i)->Speed();
+            if (speed == 0) continue;
+            const float pathCost = 1 / speed;
             const int x = (coords.X() - LEFT) * size;
             const int y = coords.Y() - LEFT;
             if (openList[x + y] == nullptr)
@@ -84,14 +89,14 @@ Stack<Coordinate>* PathFinder::PathTo(const Coordinate& source, Coordinate dest)
                 neighbourNode->EstimateSteps(dest);
             }
             
-            if (openList[x + y] == nullptr || openList[x + y]->step > currentNode->step + 1)
+            if (openList[x + y] == nullptr || openList[x + y]->step > currentNode->step + pathCost)
             {
                 openList[x + y] = neighbourNode;
                 neighbourNode->parent = currentNode;
-                neighbourNode->step = currentNode->step + 1;
+                neighbourNode->step = currentNode->step + pathCost;
                 queue.Enqueue(neighbourNode);
             }
-        }
+        }       
         currentNode = queue.GetTop();
         queue.RemoveTop();
         current = currentNode->coords;
@@ -148,9 +153,9 @@ void PathFinder::RemapQuadrants()
             {
                 continue;
             }
+            
             Queue<PathFinderNode*> queue;
             queue.Enqueue(current);
-
 
             while (!queue.IsEmpty())
             {

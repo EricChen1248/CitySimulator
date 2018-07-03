@@ -18,7 +18,7 @@ RenderWindow* SFMLController::Window() const
  */
 SFMLController::SFMLController() : isRunning(false), window(nullptr)
 {
-    window = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "City Simulator");
+    window = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "City Simulator", Style::Titlebar | Style::Close);
     window->setFramerateLimit(60);
     isRunning = true;
 }

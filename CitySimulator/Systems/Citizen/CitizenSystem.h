@@ -12,7 +12,6 @@ public:
     void Render() const;
     void PruneDead();
 	void EndDay();
-	void CalculateSatisfaction() const;
     const LinkedList<Citizen*>& Citizens() const { return citizens; }
 private:
     LinkedList<Citizen*> citizens;
