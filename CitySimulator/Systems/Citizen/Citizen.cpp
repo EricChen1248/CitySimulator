@@ -335,7 +335,6 @@ void Citizen::UpdateRules() const
     }
 }
 
-
 /**
  * \brief Attempts to find a path to the target, if fails, sets pathFindFailed to true
  */

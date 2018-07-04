@@ -42,7 +42,7 @@ void HospitalRule::EnterPlot(Plot* plot)
 	BankRule* bankRule = dynamic_cast<BankRule*>(citizen->FindRule(BANK));
 	if ((citizen->GetMoney() + bankRule->GetSavings()) < cost)
 	{
-		citizen->Death();
+		citizen->Die();
 		return;
 	}
 
@@ -73,7 +73,7 @@ void HospitalRule::LeavePlot(Plot* plot)
 	int die = RandomInt(50, 100);
 	if (die < citizen->Age())
 	{
-		citizen->Death();
+		citizen->Die();
 		return;
 	}
 
@@ -117,7 +117,7 @@ void HospitalRule::Register()
 	// TODO: ¥[¤j·j¯Á½d³ò¡I
 	if (choices.Count() == 0)
 	{
-		citizen->Death(); // If a person can't find hospotal, he/she will die soon
+		citizen->Die(); // If a person can't find hospotal, he/she will die soon
 		return;
 	}
 

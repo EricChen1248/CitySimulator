@@ -1,12 +1,12 @@
 #include "CitizenSystem.h"
+
 #include "../../Controllers/CoreController.h"
 #include "../../Controllers/SFMLController.h"
 #include "../../Helpers/Logger.h"
 #include "../../Helpers/HelperFunctions.h"
-#include "../Food/FoodRule.hpp"
-#include "../Home/HomeRule.h"
-#include "../Work/WorkRule.h"
-#include"../../Helpers/Government.h"
+#include "../../Helpers/Government.h"
+
+#include "../../Helpers/FeatureFlags.h"
 #include <iostream>
 CitizenSystem::CitizenSystem()
 {
@@ -77,25 +77,30 @@ void CitizenSystem::PruneDead()
 
 void CitizenSystem::NewDay()
 {
-
+    for (auto&& citizen : citizens)
+    {
+        citizen->NewDay();
+    }
+    
+#if BREED
 	NewCitizen();
 	PeopleMarry();
 	int countMan = 0;
 	int countWoman = 0;
-	int MarriedPeople = 0;
+	int marriedPeople = 0;
 	int single = 0;
 	//TODO: Delete the following debugging statement
-	//for (auto citi : citizens)
+	//for (auto citizen : citizens)
 	//{
-	//	citi->GetGender() == Male ? countMan++ : countWoman++;
-	//	citi->IsMarry() == true ? MarriedPeople++ : single++;
+	//	citizen->GetGender() == Male ? countMan++ : countWoman++;
+	//	citizen->IsMarried() == true ? marriedPeople++ : single++;
 	//}
 	//std::cout << "There are People :" << citizenCount << std::endl;
 	//std::cout << "There are man :" << countMan << std::endl;
 	//std::cout << "There are woman :" << countWoman << std::endl;
 	//std::cout << "There are married people :" << MarriedPeople << std::endl;
 	//std::cout << "There are single:" << single << std::endl;
-	return;
+#endif
 }
 
 /**
@@ -109,53 +114,18 @@ void CitizenSystem::EndDay()
     }
 }
 
-
-void CitizenSystem::CalculateSatisfaction() const
-{
-    const int systemCount = CoreController::GetSystemController()->SystemCount();
-    float* ruleScore = new float[systemCount];
-    for (int i = 0; i < systemCount; i++)
-    {
-        ruleScore[i] = 0;
-    }
-    for (auto&& citizen : citizens)
-    {
-        for (int j = 0; j < systemCount; j++)
-        {
-            auto rulePtr = citizen->FindRule(System(j + 1));
-
-            if (rulePtr->IsSatisfied())
-            {
-                ruleScore[j] += (1.f / citizens.Count());
-            }
-        }
-    }
-    
-    ruleScore[FOOD-1] = CoreController::GetSystemController()->GetSystem(FOOD)->GetSatisfaction();
-    while (CoreController::GetUIController()->GetScoreList().Count() != 0)
-    {
-        CoreController::GetUIController()->GetScoreList().RemoveLast();
-    }
-    for (int i = 0; i < systemCount; i++)
-    {
-        CoreController::GetUIController()->GetScoreList().InsertLast(ruleScore[i]);
-    }
-    delete [] ruleScore;
-
-    return;
-}
 /*
 Brief:
 After each day ends, those citizen with other half will start to have children.
 */
 void CitizenSystem::NewCitizen()
 {
-	float birth = Government::BirthRate()*0.166f;
+    const float birth = Government::BirthRate() * 0.166f;
 	for (auto && citizen : citizens)
 	{
-		if (citizen->IsMarry()&&(citizen->GetGender() == Female))
+		if (citizen->IsMarried()&&(citizen->GetGender() == Female))
 		{
-			float numerator = float(RandomInt(0, 101)) / 100.f;
+		    const float numerator = float(RandomInt(0, 101)) / 100.f;
 
 			// DEBUG
 
@@ -195,7 +165,7 @@ void CitizenSystem::PeopleMarry()
 		{
 			continue;
 		}
-		if (citizen1->IsMarry())
+		if (citizen1->IsMarried())
 		{
 			continue;
 		}
@@ -209,7 +179,7 @@ void CitizenSystem::PeopleMarry()
 			{
 				continue;
 			}
-			if (citizen2->IsMarry())
+			if (citizen2->IsMarried())
 			{
 				continue;
 			}
@@ -217,7 +187,7 @@ void CitizenSystem::PeopleMarry()
 			
 			if (dice <= 52)
 			{
-				citizen1->MarrySomeOne(citizen2);
+				citizen1->Marry(citizen2);
 				
 			}
 			break;

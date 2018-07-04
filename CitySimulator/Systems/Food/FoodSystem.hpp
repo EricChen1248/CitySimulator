@@ -14,9 +14,7 @@ public:
     void LogSatisfied(Citizen* citizen, BaseRule* rule) override;
     void LogUnsatisfied(Citizen* citizen, BaseRule* rule) override;
     float GetSatisfaction() const override;
+    static const int DAILY_CUSTOMER = 50;
 private :
-    const int maxOccupantCount = 20;
-    const int scorePerOccupant = 10;
-    const int overPenalty = 5;
 };
 

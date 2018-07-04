@@ -14,7 +14,7 @@ FoodRule::~FoodRule() = default;
 
 float FoodRule::CalculateScore()
 {
-    if (hungerLevel > 80)
+    if (hungerLevel > 80 || citizen->GetMoney() < Food::MAX_FOOD_COST)
     {
         return 0;
     }

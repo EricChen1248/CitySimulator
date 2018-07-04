@@ -18,6 +18,7 @@ public:
     
     void NewDay() override;
     void EndDay() override;
+    static const int MAX_FOOD_COST = 100;
 private:
     const int maxCustomer = 10;
     int cost;
