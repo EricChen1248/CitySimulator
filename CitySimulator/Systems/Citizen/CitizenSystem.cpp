@@ -11,9 +11,9 @@
 CitizenSystem::CitizenSystem()
 {
 #ifdef _DEBUG
-    citizenCount = 500;
+    const int citizenCount = 500;
 #else
-    citizenCount = 5000;
+    const int citizenCount = 5000;
 #endif
 
     Logger::Log("Created " + std::to_string(citizenCount) + " citizens");
@@ -147,7 +147,6 @@ void CitizenSystem::NewCitizen()
 			continue;
 		}
 	}
-	citizenCount = citizens.Count();
 	return;
 }
 
@@ -183,7 +182,7 @@ void CitizenSystem::PeopleMarry()
 			{
 				continue;
 			}
-			int dice = RandomInt(0, 1000);
+			const int dice = RandomInt(0, 1000);
 			
 			if (dice <= 52)
 			{
