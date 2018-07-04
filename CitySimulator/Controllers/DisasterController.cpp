@@ -108,7 +108,17 @@ void DisasterController::Hurricane()
 	}
 	for (int i = 0; i < 10; i++)
 	{
-		CoreController::GetSystemController()->Plots()->GetRandomPlot()->Destroy();
+		const auto& centers = CoreController::GetSystemController()->Plots()->GetRandomPlot();
+		const auto& neighbor_coords = centers->Coords().GetNeighbours();
+		for (int j = 0; j < 6; j++)
+		{
+			const int k = RandomInt(0, 1);
+			if (k == 0)
+			{
+				CoreController::GetSystemController()->Plots()->FindPlot(neighbor_coords[i])->Destroy();
+			}		
+		}
+		centers->Destroy();
 	}
 }
 
@@ -138,7 +148,13 @@ void DisasterController::WildFire()
 	}
 	
 	const auto& center = CoreController::GetSystemController()->Plots()->GetRandomPlot();
-	
+	const auto& neighbor_coords = center->Coords().GetNeighbours();
+	for (int i = 0; i < 6; i++)
+	{
+		CoreController::GetSystemController()->Plots()->FindPlot(neighbor_coords[i])->Destroy();
+	}
+	center->Destroy();
+		
 }
 
 void DisasterController::MajestysMarvel()
