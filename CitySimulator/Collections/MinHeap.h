@@ -18,7 +18,7 @@ template <typename T>
 class MinHeap
 {
   public:
-    MinHeap() noexcept;
+    MinHeap(const int initialSize = 31) noexcept;
     ~MinHeap() noexcept;
     /** 
      * @brief  Returns the item count in the heap
@@ -49,7 +49,7 @@ class MinHeap
 };
 
 template <typename T>
-MinHeap<T>::MinHeap() noexcept : itemCount(0), maxSize(0)
+MinHeap<T>::MinHeap(const int initialSize) noexcept : itemCount(0), maxSize(initialSize)
 {
     array = new T[maxSize];
 }

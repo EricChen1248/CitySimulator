@@ -16,7 +16,7 @@ void River::Init()
 	//Mode 0 : straight river cuting city into half; Mode 1: cutting it vertically 
 	RIVERMODE mode = static_cast<RIVERMODE>(Clamp(RandomInt(0, 10), 0, 2));
 #if NO_RIVER
-	mode = NORIVER;
+	mode = ModeNORIVER;
 #endif
 
 	switch (mode)

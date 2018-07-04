@@ -12,7 +12,7 @@ bool PathFinder::initialized = false;
 PathFinderNode*** PathFinder::nodesMap;
 PathFinderNode** PathFinder::openList;
 int PathFinder::openCount;
-PriorityQueue<PathFinderNode*> PathFinder::queue;
+PriorityQueue<PathFinderNode*> PathFinder::queue(63);
 
 /**
  * \brief Initializes the pathfinder and allocates the required memory space, must only be initialized once

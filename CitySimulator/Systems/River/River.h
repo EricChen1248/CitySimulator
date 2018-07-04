@@ -19,7 +19,7 @@ enum RIVERMODE
 	ModeSTRAIGHT = 0,
 	ModeCIRCLE,
 	ModeACCROSS,
-	NORIVER,
+	ModeNORIVER,
 };
 enum AXIS
 {

@@ -115,10 +115,11 @@ void SystemController::RenderInterday() const
 
 void SystemController::AdvanceDay() const
 {
-#if BREED
 	citizens->NewDay();
-#endif 
-
+    for (auto && system : systems)
+    {
+        system->NewDay();
+    }
     plots->ClearSelections();
 }
 

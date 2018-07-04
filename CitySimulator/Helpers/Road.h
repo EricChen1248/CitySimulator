@@ -26,7 +26,9 @@ public:
 	void EndDay();
 	void Render() const;
     
-    bool InSimplyBounds(const float x, const float y) const { return shape.InSimpleBounds(x, y); }
+    std::string ContentString() const;
+    std::string ButtonString() const;
+    bool InSimpleBounds(const float x, const float y) const { return shape.InSimpleBounds(x, y); }
     bool InComplexBounds(const float x, const float y) const { return shape.InComplexBounds(x, y); }
     
 private:
@@ -37,6 +39,10 @@ private:
 	int level;
 	int capacity;
 	int citizenCount;
+    
+    // TODO : Set road repair costs and update costs
+    const int repairCost = 100;
+    const int upgradeCosts[10] { 10,20,30,40,50,60,70,80,90,100};
 	
     float lifespan{};
 	bool isBroken;

@@ -52,7 +52,7 @@ int Home::NumOfFamily() const
 		}
 		else
 		{
-			if (!citizen->IsMarry() && citizen->Age() >= WORKING_AGE)
+			if (!citizen->IsMarried() && citizen->Age() >= WORKING_AGE)
 				++countOfFamily;
 		}
 	}

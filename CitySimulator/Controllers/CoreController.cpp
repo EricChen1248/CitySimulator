@@ -126,10 +126,6 @@ void CoreController::EndDayLoop()
         PresentRender();
     }
     time.ResetDay();
-	//TODO: Call this functino at better timing
-	/*
-	brief: This function let citizen start to marry and give birth to new baby
-	*/
 	
     systemController->AdvanceDay();
 }

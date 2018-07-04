@@ -63,7 +63,7 @@ void DisasterController::Apocalypse()
 		const int i = RandomInt(0, 100);
 		if (i != 100)
 		{
-			citizen->Death();
+			citizen->Die();
 		}
 	}
 	const auto& plots = CoreController::Instance()->GetSystemController()->Plots()->Plots();
@@ -85,7 +85,7 @@ void DisasterController::Earthquake()
 		const int i = RandomInt(0, 100);
 		if (i < 5)
 		{
-			citizen->Death();
+			citizen->Die();
 		}
 	}
 	//const auto& plots = CoreController::Instance()->GetSystemController()->Plots()->Plots();
@@ -103,7 +103,7 @@ void DisasterController::Hurricane()
 		const int i = RandomInt(0, 100);
 		if (i < 2)
 		{
-			citizen->Death();
+			citizen->Die();
 		}
 	}
 	for (int i = 0; i < 10; i++)
@@ -130,7 +130,7 @@ void DisasterController::Tsunami()
 		const int i = RandomInt(0, 100);
 		if (i < 5)
 		{
-			citizen->Death();
+			citizen->Die();
 		}
 	}
 }
@@ -143,7 +143,7 @@ void DisasterController::WildFire()
 		const int i = RandomInt(0, 100);
 		if (i < 2)
 		{
-			citizen->Death();
+			citizen->Die();
 		}
 	}
 	

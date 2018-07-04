@@ -6,7 +6,7 @@
 
 
 class FoodRule;
-
+const int FoodSystem::DAILY_CUSTOMER;
 FoodSystem::FoodSystem() : BaseSystem(FOOD)
 {
     FoodRule::breakfastTime = helper::Time(10,0);
@@ -32,12 +32,6 @@ int FoodSystem::Register(Plot* plot)
  */
 void FoodSystem::Update()
 {
-    for (auto && plot : plots)
-    {
-        // Tallying and adding score for occupant count. Positive for within limit people, negative for over
-        const auto count = plot->GetOccupantCount();
-        score += (std::min(count, maxOccupantCount) * scorePerOccupant - std::max(count - maxOccupantCount, 0) * overPenalty) * CoreController::Instance()->GetDeltaTime();
-    }
 }
 
 /**
@@ -67,17 +61,16 @@ void FoodSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
 float FoodSystem::GetSatisfaction() const
 {
     const float overloadedPenalty = 0.01f;
-    const int dailyCustomer = 50;
     float overloadedTally = 0;
     float customerTally = 0;
     for (auto&& plot : plots)
     {
         const auto food = dynamic_cast<Food*>(plot->GetPlotType());
-        customerTally += food->customerCountTally - (food->customerCountTally - Clamp(food->customerCountTally, 0, dailyCustomer)) * 0.5f;
+        customerTally += food->customerCountTally - (food->customerCountTally - Clamp(food->customerCountTally, 0, DAILY_CUSTOMER)) * 0.5f;
         overloadedTally += food->overloadedTally;
     }
     customerTally /= plots.Count();
-    float satisfaction = 1.f - float(dailyCustomer - customerTally) / float(dailyCustomer);
+    float satisfaction = 1.f - float(DAILY_CUSTOMER - customerTally) / float(DAILY_CUSTOMER);
     
     overloadedTally = overloadedTally / plots.Count() * overloadedPenalty;
     satisfaction -= overloadedTally;

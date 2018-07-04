@@ -10,6 +10,7 @@ template<class T>
 class PriorityQueue : public MinHeap<T>
 {
 public:
+    PriorityQueue(const int initialSize = 31) : MinHeap<T>(initialSize) { };
     /**
      * \brief Adds a new item to the priority queue and sorts it
      * \param item Item to add to queue
