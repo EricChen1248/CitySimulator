@@ -14,17 +14,13 @@
 
 Citizen::Citizen(Plot* plot) : target(nullptr), activeRule(nullptr), coords(plot->Coords()), money(0), waitTime(0.f), inPlot(false), dead(false), age(0), pathFindFailed(false)
 {
-
 	gender = static_cast<Gender>(RandomInt(0, 2));
-	const int familyNum = 3;
-	family = new Citizen*[familyNum];
-	for (int i = 0; i < familyNum; ++i)
-	{
-		family[i] = nullptr;
-	}
+    
     moveSpeed = 1.5f + static_cast<float>(RandomInt(-30, 30)) / 100;
+    
     shape = sf::CircleShape(5);
     shape.setFillColor(BLUE);
+    
     currentPlot = plot;
     GenRules();
 }
@@ -99,12 +95,14 @@ void Citizen::Update()
             }
 
             tempTarget = path->Pop();
+            const auto curPlot = CoreController::GetSystemController()->Plots()->FindPlot(coords);
+            const auto nextPlot = CoreController::GetSystemController()->Plots()->FindPlot(tempTarget);
+            currentRoad = curPlot->GetRoad(nextPlot);
             return;
         }
-
-        // TODO add road movement speed
+        
         // Citizen is heading toward target
-        coords = coords.MoveTowards(tempTarget, CoreController::Instance()->GetDeltaTime() * moveSpeed);
+        coords = coords.MoveTowards(tempTarget, CoreController::Instance()->GetDeltaTime() * moveSpeed * currentRoad->Speed());
         UpdateScreenCoordinates();
         return;
     }
@@ -171,7 +169,7 @@ void Citizen::EndDay()
  * \param ruleType Rule type being forced
  * \param waitTime Time to force the rule to run for
  */
-void Citizen::ForceRule(const System ruleType, const float waitTime)
+void Citizen::ForceRule(const System ruleType, const float waitTime /* = 0 */ )
 {
     for (auto && rule : rules)
     {
@@ -205,32 +203,29 @@ BaseRule* Citizen::FindRule(const System system)
     
 }
 
-bool Citizen::IsMarry() const
+bool Citizen::IsMarried() const
 {
-	bool returnBool =  (family[static_cast<int>(Spouse)] != nullptr);
-	return returnBool;
+	return family[static_cast<int>(Spouse)] != nullptr;
 }
 
-void Citizen::MarrySomeOne(Citizen * spouseptr)
+void Citizen::Marry(Citizen * spouse)
 {
-	setFamily(Spouse, spouseptr);
-	spouseptr->setFamily(Spouse, this);
-	return;
+	SetFamily(Spouse, spouse);
+	spouse->SetFamily(Spouse, this);
 }
 
 void Citizen::Birth(Citizen * parent, Citizen * parent2)
 {
 	Family char1, char2;
 	parent->GetGender() == Male ? (char1 = Father, char2 = Mother) : (char1 = Mother, char2 = Father);
-	setFamily(char1, parent);
-	setFamily(char2, parent2);
-	return;
+	SetFamily(char1, parent);
+	SetFamily(char2, parent2);
 }
 
 /**
- * \brief Marks citizen as dead. Death pruning and events are handled at the end of day
+ * \brief Marks citizen as dead. Die pruning and events are handled at the end of day
  */
-void Citizen::Death()
+void Citizen::Die()
 {
     dead = true;
 }
@@ -281,7 +276,6 @@ void Citizen::FindNextTarget()
     if (baseRule == nullptr)
     {
         activeRule = nullptr;
-        ++unsatisfiedCount;
         FindRandomTarget();
     }
     else
@@ -341,6 +335,10 @@ void Citizen::UpdateRules() const
     }
 }
 
+
+/**
+ * \brief Attempts to find a path to the target, if fails, sets pathFindFailed to true
+ */
 void Citizen::FindPath()
 {
     delete path;
@@ -356,8 +354,7 @@ void Citizen::FindPath()
     tempTarget = path->Pop();
 }
 
-void Citizen::setFamily(const Family& character,Citizen * citiz)
+void Citizen::SetFamily(const Family& character,Citizen * citizen)
 {
-	family[static_cast<int>(character)] = citiz;
-	return;
+	family[static_cast<int>(character)] = citizen;
 }
