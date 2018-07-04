@@ -60,4 +60,6 @@ private:
 	void Draw(const DIRECTION d1, const DIRECTION d2, const Coordinate & coord, List<Coordinate>& inputlist, float length = float(0.88));
 	void MarkAsRiver(const Coordinate& coord);
 	void MoveCoord(DIRECTION d1, Coordinate& coord);
+	void DrawSmoothCorner(const Coordinate& center, const float& startDeg, const float& endDeg, const float& innerL = 0.12f, const float& outerL = 0.88f);
+	
 };

@@ -11,9 +11,8 @@ BankRule::~BankRule() = default;
 
 float BankRule::CalculateScore()
 {
-    if (citizen->GetMoney() < CITIZEN_MAX_MONEY && saving > 100)
-        return 100001;
-
+    if ((citizen->GetMoney() < CITIZEN_MAX_MONEY) && (saving > 100))
+        return 100000;
     return 0;
 }
 
@@ -101,6 +100,16 @@ void BankRule::LeavePlot(Plot* plot)
 				fatherBankRule->saving -= dadAfford;
 				motherBankRule->saving -= momAfford;
 			}
+		}
+		else
+		{
+			const int moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->GetMoney(), 0, int(saving));
+
+			if (moneyToWithdraw >= bank->transactionCost) {
+				citizen->IncreaseMoney(moneyToWithdraw - bank->transactionCost);
+				saving -= moneyToWithdraw;
+			}
+			return;
 		}
 		return;
 	}

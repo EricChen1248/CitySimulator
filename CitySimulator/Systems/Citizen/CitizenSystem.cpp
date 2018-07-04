@@ -77,24 +77,8 @@ void CitizenSystem::PruneDead()
 
 void CitizenSystem::NewDay()
 {
-
 	NewCitizen();
 	PeopleMarry();
-	int countMan = 0;
-	int countWoman = 0;
-	int MarriedPeople = 0;
-	int single = 0;
-	//TODO: Delete the following debugging statement
-	//for (auto citi : citizens)
-	//{
-	//	citi->GetGender() == Male ? countMan++ : countWoman++;
-	//	citi->IsMarry() == true ? MarriedPeople++ : single++;
-	//}
-	//std::cout << "There are People :" << citizenCount << std::endl;
-	//std::cout << "There are man :" << countMan << std::endl;
-	//std::cout << "There are woman :" << countWoman << std::endl;
-	//std::cout << "There are married people :" << MarriedPeople << std::endl;
-	//std::cout << "There are single:" << single << std::endl;
 	return;
 }
 
@@ -160,7 +144,6 @@ void CitizenSystem::NewCitizen()
 			// DEBUG
 
 			if (numerator < birth)
-			//if(true)
 			{
 				//create a new citizen and add it into Citizen system
 				const auto plot = CoreController::GetSystemController()->Plots();

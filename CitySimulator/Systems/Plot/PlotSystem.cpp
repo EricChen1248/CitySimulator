@@ -45,9 +45,7 @@ void PlotSystem::Render() const
 {
 	for (auto && plot : plots)
 	{
-#if !INVISIBLERIVER
 		if (plot->IsRiver()) continue;
-#endif
 		auto & shape = plot->UpdateShape();
 		CoreController::SfmlController()->DrawShape(shape);
 	}

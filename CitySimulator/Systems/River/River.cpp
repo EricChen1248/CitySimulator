@@ -25,15 +25,17 @@ void River::Init()
 	{
 		InitBoundary();
 		Coordinate startPoint(rand, adjustedRight - rand, LEFT);
-		while (startPoint.Z() < RIGHT)
+		int random = RandomInt(0, 2);
+		int random2 = random;
+		while (startPoint.Z() < adjustedRight)
 		{
 			auto plotPtr = plots->FindPlot(startPoint);
 			riverPoints.InsertLast(plotPtr);
 			plotPtr->MarkAsRiver();
 			points.InsertLast(startPoint.Right(float(0.88)));
 			points.InsertLast(startPoint.Left(float(0.88)));
-			int random = RandomInt(0, 2);
 
+			startPoint = random == 0 ? startPoint.LeftUp() : startPoint.RightUp();
 			if (rightBoundary.Contains(plotPtr))
 			{
 				random = 0;
@@ -42,8 +44,10 @@ void River::Init()
 			{
 				random = 1;
 			}
-
-			startPoint = random == 0 ? startPoint.LeftUp() : startPoint.RightUp();
+			//0 goes left, 1 goes right
+			
+			random2 = random;
+			random = RandomInt(0, 2);
 		}
 		break;
 
@@ -108,22 +112,14 @@ void River::Init()
 	default:
 		break;
 	}
-#if INVISIBLERIVER
+	//DEBUG
 
-	for (auto point: riverPoints)
-	{
-		
-		point->GetShape().setOutlineThickness(6);
-		point->GetShape().setOutlineColor(BLACK);
-	}
-#else
 	shape = SFMLController::GenerateVertexArray(points);
 
 	for (size_t i = 0; i < shape.getVertexCount(); ++i)
 	{
 		(i % 4 <= 1) ? shape[i].color = RIVER_COLOR : shape[i].color = RIVER_COLOR_2;
 	}
-#endif
 
 
 
@@ -595,3 +591,27 @@ void River::MoveCoord(DIRECTION d1, Coordinate & coord)
 	}
 	return;
 }
+
+void River::DrawSmoothCorner(const Coordinate & center, const float & startDeg, const float & endDeg, const float & innerL , const float & outerL )
+{
+
+
+	for (int i = startDeg; i < endDeg; ++i)
+	{
+		float sin_VECTOR = sin(2.f*PI*float(i%360) / 360.f);
+		float cos_VECTOR = cos(2.f*PI*float(i%360) / 360.f);
+
+		float coord_x = (outerL * sin_VECTOR*(-0.5f)) + (outerL * cos_VECTOR*(1.f));
+		float coord_y = (outerL * sin_VECTOR*(-0.5f)) + (outerL * cos_VECTOR*(-1.f));
+		float coord_z = (outerL * sin_VECTOR*(1.f));
+		float coord_x1 = (innerL * sin_VECTOR*(-0.5f)) + (innerL * cos_VECTOR*(1.f));
+		float coord_y1 = (innerL * sin_VECTOR*(-0.5f)) + (innerL * cos_VECTOR*(-1.f));
+		float coord_z1 = (innerL * sin_VECTOR*(1.f));
+		Coordinate outerCoord(float(center.X())+coord_x, float(center.Y())+coord_y, float(center.Z())+ coord_z);
+		Coordinate innerCoord(float(center.X()) + coord_x1, float(center.Y()) + coord_y1, float(center.Z()) + coord_z1);
+		points.InsertLast(outerCoord);
+		points.InsertLast(innerCoord);
+	}
+
+}
+
