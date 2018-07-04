@@ -14,12 +14,15 @@ public:
 	void Register(Citizen* citizen);
 	void EndDay();
 	bool Full() const;
+	std::string ContentString()override;
 	Plot* GetPlot() const;
 private:
 	//each home has it's own capacity
 	int homeCapacity;
 	List<Citizen*> Residents;
+	//function
 	void Enter();
+	int NumOfFamily()const;
 
 };
 

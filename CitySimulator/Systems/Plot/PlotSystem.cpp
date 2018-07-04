@@ -3,7 +3,7 @@
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Helpers/PathFinder/PathFinder.h"
-
+#include "../../Helpers/FeatureFlags.h"
 PlotSystem::PlotSystem(): hoverPlot(nullptr), hoverRoad(nullptr), builtBridge(true)
 {
     const int size = RIGHT - LEFT;
@@ -45,7 +45,9 @@ void PlotSystem::Render() const
 {
 	for (auto && plot : plots)
 	{
+#if !INVISIBLERIVER
 		if (plot->IsRiver()) continue;
+#endif
 		auto & shape = plot->UpdateShape();
 		CoreController::SfmlController()->DrawShape(shape);
 	}

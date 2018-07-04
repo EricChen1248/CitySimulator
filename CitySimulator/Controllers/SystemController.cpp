@@ -1,5 +1,6 @@
 #include "SystemController.h"
 #include "CoreController.h"
+#include "../Helpers/FeatureFlags.h"
 #include "../Systems/Bank/BankSystem.h"
 #include "../Systems/Home/HomeSystem.h"
 #include "../Systems/Work/WorkSystem.h"
@@ -114,6 +115,10 @@ void SystemController::RenderInterday() const
 
 void SystemController::AdvanceDay() const
 {
+#if BREED
+	citizens->NewDay();
+#endif 
+
     plots->ClearSelections();
 }
 

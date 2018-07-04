@@ -41,6 +41,22 @@ void HomeSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
 	const auto log = new Log(citizen->Coords(), new HomeRule(*dynamic_cast<HomeRule*>(rule)), citizen);
 	unsatisfiedLog.InsertLast(log);
 }
+/*
+brief:
+TODO:Adding more grading system
+should be adjusted to whether they have convinent live,
+how long does it take them to work : friend Workrule;
+*/
+float HomeSystem::GetSatisfaction() const
+{
+	auto citizenList = CoreController::GetSystemController()->GetCitizens();
+	float count = 0.f;
+	for (auto citizen : citizenList)
+	{
+		dynamic_cast<HomeRule*>(citizen->FindRule(HOME))->IsSatisfied() == true ? count += (1.f/float(citizenList.Count())): count += 0;
+	}
+	return count;
+}
 void HomeSystem::EndDay()
 {
 	for (auto && plot : plots)

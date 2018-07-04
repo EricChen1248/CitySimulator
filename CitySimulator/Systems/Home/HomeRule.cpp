@@ -12,7 +12,17 @@ HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME),myHome(nullptr)
 	//therefore each citizen can go home by unique timing
 
 	goHomeTime.IncreaseTime(21);
-	DecideHome();
+	if (citizen.GetFamilyMember(Father) != nullptr)
+	{
+		if (Pathable(dynamic_cast<HomeRule*>(citizen.GetFamilyMember(Father)->FindRule(HOME))->myHome->GetPlot()->Coords(), citizen.Coords()) == true)
+			myHome = dynamic_cast<HomeRule*>(citizen.GetFamilyMember(Father)->FindRule(HOME))->myHome;
+		else
+			myHome = nullptr;
+	}
+	else
+	{
+		DecideHome();
+	}
 	homelessLevel = 0;
 	homelessHour = 0;
 }
@@ -35,7 +45,6 @@ bool HomeRule::DecideHome()
 	auto &plots = CoreController::GetSystemController()->GetSystem(HOME)->Plots();
 	Plot* chosen = nullptr;
 	int shortestDis = 1000;
-	//TODO: Design a better algorithm to find house for resident
     
 	for (auto && plot : plots) 
 	{
@@ -60,10 +69,7 @@ bool HomeRule::DecideHome()
 	else
 	{
 		auto home = dynamic_cast<Home*>(chosen->GetPlotType());
-		if (citizen->Age() >= 20)
-		{
-			home->Register(citizen);
-		}
+		home->Register(citizen);
 		myHome = home;
 		return true;
 	}
@@ -123,20 +129,20 @@ void HomeRule::Update()
 */
 bool HomeRule::IsSatisfied()
 {
-	//need to adjust this rate
 	return (myHome != nullptr);
 }
 void HomeRule::EndDay() 
 {
-	if (this->citizen->Age() == 21)
+	if (this->citizen->Age() == WORKING_AGE)
 	{
 		myHome = nullptr;
 		DecideHome();
 		return;
 	}
-	if (IsSatisfied())
+	if (!IsSatisfied())
 	{
 		DecideHome();
 		return;
-	}	
+	}
+	return;
 }

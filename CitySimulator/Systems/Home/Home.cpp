@@ -7,7 +7,7 @@
 
 Home::Home(Plot* plot):Base(plot, HOME)
 {
-	homeCapacity = RandomInt(10, 20);
+	homeCapacity = RandomInt(3, 6);
 	color = HOME_COLOR;
 	score = 0;
 }
@@ -24,11 +24,39 @@ void Home::EndDay()
 }
 bool Home::Full()const
 {
-	return (homeCapacity <= Residents.Count());
+	return (homeCapacity <= NumOfFamily());
+}
+std::string Home::ContentString()
+{
+	std::stringstream ss;
+	ss << "Provides home for" << std::endl <<" familes." << std::endl << std::endl;
+	ss << "Maximum Capacitiy : " << homeCapacity <<  std::endl << "Family count: " << NumOfFamily();
+	ss << std::endl << "(unit: house)";
+	return ss.str();
 }
 void Home::Enter()
 {
 	score += 5;
+}
+int Home::NumOfFamily() const
+{
+	int countOfFamily = 0;
+	for (auto citizen : Residents)
+	{
+		if (citizen->GetGender() == Male)
+		{
+			if (citizen->Age() >= WORKING_AGE)
+			{
+				++countOfFamily;
+			}
+		}
+		else
+		{
+			if (!citizen->IsMarry() && citizen->Age() >= WORKING_AGE)
+				++countOfFamily;
+		}
+	}
+	return 0;
 }
 Plot* Home::GetPlot() const
 {

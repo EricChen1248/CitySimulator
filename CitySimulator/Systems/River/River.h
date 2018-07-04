@@ -17,8 +17,8 @@ enum DIRECTION
 enum RIVERMODE
 {
 	ModeSTRAIGHT = 0,
-	ModeACCROSS,
 	ModeCIRCLE,
+	ModeACCROSS,
 	NORIVER,
 };
 enum AXIS
@@ -53,10 +53,11 @@ private:
     static DIRECTION IsSixOrNot(const Coordinate& coord);
 	void DrawStart(const Coordinate& coord, List<Coordinate>& inputList);
 	void DrawStraightLine(const AXIS ax, const DIRECTION dir, const int boundary, List<Coordinate>& inputList, Coordinate & curCoord);
-	void DrawStraightLine(const int& distance, const DIRECTION& dir, List<Coordinate>& inputList, Coordinate& curCoord);
+	bool DrawStraightLine(const int& distance, const DIRECTION& dir, List<Coordinate>& inputList, Coordinate& curCoord);
 	void DrawCorner(DIRECTION d1, DIRECTION d2, List<Coordinate>& inputList, Coordinate& curCoord);
 	void DrawEnd(const Coordinate& coord, List<Coordinate>& inputList);
 	//Helper Function for avoiding funciton decoupling 
 	void Draw(const DIRECTION d1, const DIRECTION d2, const Coordinate & coord, List<Coordinate>& inputlist, float length = float(0.88));
 	void MarkAsRiver(const Coordinate& coord);
+	void MoveCoord(DIRECTION d1, Coordinate& coord);
 };

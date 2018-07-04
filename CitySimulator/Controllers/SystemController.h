@@ -24,14 +24,13 @@ public:
     int SystemCount() const;
     const LinkedList<Citizen*>& GetCitizens() const { return citizens->Citizens(); }
 
-    void CalSatisfied();
     BaseSystem* GetSystem(System system) const;
     const List<BaseSystem*>& GetSystems() const { return systems; };
 	
 
     PlotSystem* Plots() const { return plots; }
     CitizenSystem* Citizens() const { return citizens; }
-
+	River& Rivers() { return river; }
 private:
 	float timeSinceUpdate;
     PlotSystem* plots{};

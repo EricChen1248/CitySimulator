@@ -130,7 +130,7 @@ void CoreController::EndDayLoop()
 	/*
 	brief: This function let citizen start to marry and give birth to new baby
 	*/
-	systemController->Citizens()->NewDay();
+	
     systemController->AdvanceDay();
 }
 
@@ -163,6 +163,7 @@ void CoreController::ClearRender() const
 void CoreController::GameUpdateEvents() const
 {
     systemController->Update();
+	//systemController->Rivers().Update();
 }
 
 /**
