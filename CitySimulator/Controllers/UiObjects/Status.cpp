@@ -37,7 +37,7 @@ void Status::Init(const int x, const int y)
     
     content.setFillColor(BLACK);
     content.setCharacterSize(20);
-    content.setPosition(x + 20, y + 38);
+    content.setPosition(x + 20, y + 42);
     content.setFont(FontController::Monofur());
 
     button = Button(Vector2f(width - 42, 28), Vector2f(x + 20, y + height - 34), WHITE, MOUSE_OVER_COLOR);
@@ -83,7 +83,9 @@ void Status::DrawChildren()
     case PLOT:
         DrawPlot();
         break;
-    case ROAD: break;
+    case ROAD: 
+        DrawRoad();
+        break;
     default: ;
     }
     if (closeButton.Draw())
@@ -154,6 +156,7 @@ void Status::DrawPlot()
         {
             if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
+                // TODO : Block button press if not enough money
                 CoreController::GetSystemController()
                     ->GetSystem(SelectedPlot->GetPlotType()->SystemType)->Destroy(SelectedPlot);
                 CoreController::GetSystemController()->Plots()->ClearSelections();
@@ -162,6 +165,36 @@ void Status::DrawPlot()
     }
 
     CenterString(buttonText, "Destroy", x + float(width) / 2);
+    CoreController::SfmlController()->DrawString(buttonText);
+}
+
+void Status::DrawRoad()
+{
+    title.setString("Road");
+    CoreController::SfmlController()->DrawString(title);
+    content.setString(SelectedRoad->ContentString());
+    CoreController::SfmlController()->DrawString(content);
+    
+    if (button.Draw())
+    {
+        if (!mousePressed)
+        {
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            {
+                mousePressed = true;
+            }
+        }
+        else
+        {
+            if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            {
+                // TODO : Block button press if not enough money
+                SelectedRoad->PerformClick();
+            }
+        }
+    }
+
+    CenterString(buttonText, SelectedRoad->ButtonString(), x + float(width) / 2);
     CoreController::SfmlController()->DrawString(buttonText);
 }
 

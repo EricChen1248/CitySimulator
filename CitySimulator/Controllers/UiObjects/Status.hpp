@@ -30,6 +30,7 @@ private:
     void DrawChildren();
     void DrawSystem();
     void DrawPlot();
+    void DrawRoad();
 
     bool Grow();
     bool Shrink();
@@ -42,7 +43,7 @@ private:
     sf::Text closeText;
     Button closeButton;
 
-    const int height = 200;
+    const int height = 220;
     bool mousePressed{};
     int width{};
     int x{};

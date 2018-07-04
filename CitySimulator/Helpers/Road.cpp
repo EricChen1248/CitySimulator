@@ -109,3 +109,37 @@ void Road::Render() const
 	}
 }
 
+std::string Road::ContentString() const
+{
+    std::stringstream ss;
+    if (isBroken)
+    {
+        ss << "Road is broken\nrepair it to use.";
+    }
+    else if (isRiver)
+    {
+        ss << "This is under the\nriver. Build a bridge\nto cross.";
+    }
+    else
+    {
+        ss << "Upgrade the road\nto increase capacity\nand speed";
+    }
+    
+    ss << std::endl << std::endl << "Current Level: " << level << std::endl << "Current Speed: " << Speed();
+    
+    return ss.str();
+}
+
+std::string Road::ButtonString() const
+{
+    if (isBroken)
+    {
+        return "Repair";
+    }
+    if (isRiver)
+    {
+        return "Build bridge";
+    }
+    return "Upgrade";
+}
+
