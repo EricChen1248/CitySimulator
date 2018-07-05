@@ -15,6 +15,7 @@ public:
     static void MapPlot(Plot* plot);
     static Plot* GetPlot(const Coordinate& coords) { return CoordToNodeMap(coords)->plot; }
     static void RemapQuadrants();
+    static void CheckQuadrant(Plot* plot);
 private:
     PathFinder() = default;
     static int nodeCount;

@@ -3,6 +3,7 @@
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/Road.h"
 #include "../../Helpers/Coordinate.h"
+#include "../../Helpers/PathFinder/PathFinder.h"
 
 Plot::Plot(const int x, const int y, const int z) : coords(x, y, z), size(10.f), shape(sf::CircleShape(size)),
                                                     currentType(nullptr), roads(6), quadrant(0), river(false)
@@ -93,8 +94,20 @@ Road* Plot::GetRoad(Plot* plot) const
     return nullptr;
 }
 
+void Plot::BuiltBridge()
+{
+    shape.setFillColor(EMPTY_PLOT_COLOR);
+    PathFinder::CheckQuadrant(this);
+}
+
+void Plot::NotRiver()
+{
+    river = false;
+}
+
 void Plot::MarkAsRiver() 
 { 
+    shape.setFillColor(TRANSPARENT);
 	river = true; 
 	for (auto&& road : roads)
 	{

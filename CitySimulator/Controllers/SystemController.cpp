@@ -50,7 +50,7 @@ void SystemController::Initialize()
         switch (system->SystemType)
         {
         case FOOD:
-            count = 3;
+            count = 10;
             break;
         case WORK:
             count = 30;

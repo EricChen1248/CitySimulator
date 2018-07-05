@@ -168,7 +168,7 @@ void PlotSystem::HandleClick()
                 Status::SelectedRoad = hoverRoad;
                 Status::Selection = ROAD;
                 
-                shape.SetColor(BLACK);
+                shape.ChangeColor(BLACK);
             }
         }
         else 
@@ -208,7 +208,7 @@ void PlotSystem::FindHover(const float x, const float y)
             hoverRoad = road;
             if (hoverRoad != Status::SelectedRoad)
             {
-                shape.SetColor(DARK_GREY);
+                shape.ChangeColor(DARK_GREY);
             }
             return;
         }

@@ -109,7 +109,12 @@ void Citizen::Update()
             tempTarget = path->Pop();
             const auto curPlot = CoreController::GetSystemController()->Plots()->FindPlot(coords);
             const auto nextPlot = CoreController::GetSystemController()->Plots()->FindPlot(tempTarget);
+            if (currentRoad != nullptr)
+            {
+                currentRoad->Leave();
+            }
             currentRoad = curPlot->GetRoad(nextPlot);
+            currentRoad->Enter();
             return;
         }
         

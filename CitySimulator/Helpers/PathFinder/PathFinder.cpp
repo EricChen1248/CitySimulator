@@ -182,6 +182,24 @@ void PathFinder::RemapQuadrants()
     quandrantCount = currentMapping;
 }
 
+void PathFinder::CheckQuadrant(Plot* plot)
+{
+    if (quandrantCount == 1) return;
+    const auto node = CoordToNodeMap(plot->Coords());
+    const auto& neighbours = node->neighbours;
+    const int firstQuad = CoordToNodeMap(neighbours[0])->quadrant;
+    for (auto && neighbour : neighbours)
+    {
+        if (CoordToNodeMap(neighbour)->quadrant != firstQuad)
+        {
+            plot->NotRiver();
+            RemapQuadrants();
+            return;
+        }
+    }
+    
+}
+
 /**
  * \brief Interface for easy access to retrieve pathfinder nodes of a coordinate
  * \param coords Coordinates reference to the coords

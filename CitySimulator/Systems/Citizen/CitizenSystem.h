@@ -2,7 +2,6 @@
 #include "Citizen.h"
 #include "../../Collections/LinkedList.h"
 
-
 class CitizenSystem
 {
 public:

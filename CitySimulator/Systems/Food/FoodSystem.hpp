@@ -14,7 +14,7 @@ public:
     void LogSatisfied(Citizen* citizen, BaseRule* rule) override;
     void LogUnsatisfied(Citizen* citizen, BaseRule* rule) override;
     float GetSatisfaction() const override;
-    static const int DAILY_CUSTOMER = 50;
+    static const int OPERATING_COST = 1000;
 private :
 };
 
