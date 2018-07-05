@@ -5,6 +5,6 @@ var class_work_system =
     [ "EndDay", "class_work_system.html#a7a67ae2fb275625f94b79273bdacdb38", null ],
     [ "LogSatisfied", "class_work_system.html#a418fa4dfc2c086bd45762df530f0228f", null ],
     [ "LogUnsatisfied", "class_work_system.html#a5ec3274fa0a7e47575eebaf684f192f0", null ],
-    [ "Register", "class_work_system.html#a00646c22896152e62955ade8c5843296", null ],
+    [ "Register", "class_work_system.html#a13d67014e2444e0fe38291a6392d47c0", null ],
     [ "Update", "class_work_system.html#a1201626a399df02141b2b440691f16da", null ]
 ];

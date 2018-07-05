@@ -1,9 +1,9 @@
 var struct_satis_bar =
 [
     [ "SatisBar", "struct_satis_bar.html#abe9633b8fd4833afbfe0ef38f2b588c7", null ],
-    [ "SatisBar", "struct_satis_bar.html#a7b11ba8d74eabf3f41aca0a47123beac", null ],
-    [ "Draw", "struct_satis_bar.html#af91e99fa827b63f16aba58a52a5571ff", null ],
-    [ "render", "struct_satis_bar.html#a6fb9e88dae2f710a440c54d45e27aa09", null ],
-    [ "shape", "struct_satis_bar.html#a1861a56f72172b27a494cc482d912a7a", null ],
-    [ "system", "struct_satis_bar.html#a15f1278079cfa20153fc369172c5b1ca", null ]
+    [ "SatisBar", "struct_satis_bar.html#afefd632a09e3980a397274080aaac592", null ],
+    [ "Draw", "struct_satis_bar.html#a7f4fadca6917bd4dfd21f323f52d9910", null ],
+    [ "Blank", "struct_satis_bar.html#a0c45c0f02c4b6acd4b3519a1274d263c", null ],
+    [ "Shape", "struct_satis_bar.html#a01839410d2076f739802b51afb9d49d0", null ],
+    [ "Type", "struct_satis_bar.html#a4e96b75868ad21b4ec199183f2a5bc74", null ]
 ];

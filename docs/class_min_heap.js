@@ -1,6 +1,6 @@
 var class_min_heap =
 [
-    [ "MinHeap", "class_min_heap.html#a87e427011df9b1b177e0c977b99cdd7f", null ],
+    [ "MinHeap", "class_min_heap.html#aba6dbc976a8172fdb508689235a06254", null ],
     [ "~MinHeap", "class_min_heap.html#abd205f28c602d64bcba42a0d8c0220ad", null ],
     [ "Add", "class_min_heap.html#a8c5a4edf7d40353e1ed4b3fedc3b4e45", null ],
     [ "ItemCount", "class_min_heap.html#a0f4d627e9cf2a91a946eb264799d8d66", null ],

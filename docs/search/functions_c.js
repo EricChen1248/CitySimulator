@@ -5,5 +5,5 @@ var searchData=
   ['peektop',['PeekTop',['../class_min_heap.html#a12ee741283f5342ab43d357f6e9270cb',1,'MinHeap']]],
   ['pop',['Pop',['../class_stack.html#a362b42769896d3a4b3ce675522ab8711',1,'Stack']]],
   ['prunedead',['PruneDead',['../class_citizen_system.html#a61ae308faaa79f75d3e67ff82c5568e5',1,'CitizenSystem']]],
-  ['push',['Push',['../class_stack.html#a5d8291eb579c4c079b786daee6df5631',1,'Stack']]]
+  ['push',['Push',['../class_stack.html#a6fe5d7cd3218895b616bd029dcc9e9bc',1,'Stack']]]
 ];

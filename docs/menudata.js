@@ -67,6 +67,7 @@ var menudata={children:[
 {text:"t",url:"functions_func.html#index_t"},
 {text:"u",url:"functions_func.html#index_u"},
 {text:"w",url:"functions_func.html#index_w"},
-{text:"~",url:"functions_func.html#index_0x7e"}]}]}]},
+{text:"~",url:"functions_func.html#index_0x7e"}]},
+{text:"Related Functions",url:"functions_rela.html"}]}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"}]}]}

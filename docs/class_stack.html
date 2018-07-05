@@ -103,9 +103,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0ef9a0f914fac642d8a47def2e1c214c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack.html#a0ef9a0f914fac642d8a47def2e1c214c">~Stack</a> () noexcept</td></tr>
 <tr class="memdesc:a0ef9a0f914fac642d8a47def2e1c214c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deconstructs the stack and takes care of DMA.  <a href="#a0ef9a0f914fac642d8a47def2e1c214c">More...</a><br /></td></tr>
 <tr class="separator:a0ef9a0f914fac642d8a47def2e1c214c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d8291eb579c4c079b786daee6df5631"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack.html#a5d8291eb579c4c079b786daee6df5631">Push</a> (T &amp;item) noexcept</td></tr>
-<tr class="memdesc:a5d8291eb579c4c079b786daee6df5631"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes a new item to the top of the stack.  <a href="#a5d8291eb579c4c079b786daee6df5631">More...</a><br /></td></tr>
-<tr class="separator:a5d8291eb579c4c079b786daee6df5631"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fe5d7cd3218895b616bd029dcc9e9bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack.html#a6fe5d7cd3218895b616bd029dcc9e9bc">Push</a> (const T &amp;item) noexcept</td></tr>
+<tr class="memdesc:a6fe5d7cd3218895b616bd029dcc9e9bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes a new item to the top of the stack.  <a href="#a6fe5d7cd3218895b616bd029dcc9e9bc">More...</a><br /></td></tr>
+<tr class="separator:a6fe5d7cd3218895b616bd029dcc9e9bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a362b42769896d3a4b3ce675522ab8711"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack.html#a362b42769896d3a4b3ce675522ab8711">Pop</a> ()</td></tr>
 <tr class="memdesc:a362b42769896d3a4b3ce675522ab8711"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes and returns the item at the top of the stack.  <a href="#a362b42769896d3a4b3ce675522ab8711">More...</a><br /></td></tr>
 <tr class="separator:a362b42769896d3a4b3ce675522ab8711"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -288,8 +288,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a5d8291eb579c4c079b786daee6df5631"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d8291eb579c4c079b786daee6df5631">&#9670;&nbsp;</a></span>Push()</h2>
+<a id="a6fe5d7cd3218895b616bd029dcc9e9bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fe5d7cd3218895b616bd029dcc9e9bc">&#9670;&nbsp;</a></span>Push()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -302,7 +302,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_stack.html">Stack</a>&lt; T &gt;::Push </td>
           <td>(</td>
-          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>item</em></td><td>)</td>
           <td></td>
         </tr>

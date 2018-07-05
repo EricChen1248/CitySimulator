@@ -109,9 +109,9 @@ Inheritance diagram for HomeSystem:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a87e559132147fcced19d38a50a97d41b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_home_system.html#a87e559132147fcced19d38a50a97d41b">Register</a> (<a class="el" href="class_plot.html">Plot</a> *plot) override</td></tr>
-<tr class="memdesc:a87e559132147fcced19d38a50a97d41b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a plot into the system for quick lookup and updating.  <a href="#a87e559132147fcced19d38a50a97d41b">More...</a><br /></td></tr>
-<tr class="separator:a87e559132147fcced19d38a50a97d41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac08a70c6e653f8afc4a0b3b82b2c4805"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_home_system.html#ac08a70c6e653f8afc4a0b3b82b2c4805">Register</a> (<a class="el" href="class_plot.html">Plot</a> *plot) override</td></tr>
+<tr class="memdesc:ac08a70c6e653f8afc4a0b3b82b2c4805"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a plot into the system for quick lookup and updating.  <a href="#ac08a70c6e653f8afc4a0b3b82b2c4805">More...</a><br /></td></tr>
+<tr class="separator:ac08a70c6e653f8afc4a0b3b82b2c4805"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9481271429a96fbc3729440a044515c6"><td class="memItemLeft" align="right" valign="top"><a id="a9481271429a96fbc3729440a044515c6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_home_system.html#a9481271429a96fbc3729440a044515c6">Update</a> () override</td></tr>
 <tr class="memdesc:a9481271429a96fbc3729440a044515c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual function handling the update events. <br /></td></tr>
@@ -122,6 +122,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LogSatisfied</b> (<a 
 <tr class="memitem:af2d21a281e248213e987a5d11c14126b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_home_system.html#af2d21a281e248213e987a5d11c14126b">LogUnsatisfied</a> (<a class="el" href="class_citizen.html">Citizen</a> *citizen, <a class="el" href="class_base_rule.html">BaseRule</a> *rule) override</td></tr>
 <tr class="memdesc:af2d21a281e248213e987a5d11c14126b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs a citizen being unsatisified with a food.  <a href="#af2d21a281e248213e987a5d11c14126b">More...</a><br /></td></tr>
 <tr class="separator:af2d21a281e248213e987a5d11c14126b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45669ddba22592ed5403a04f70d52ec9"><td class="memItemLeft" align="right" valign="top"><a id="a45669ddba22592ed5403a04f70d52ec9"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>GetSatisfaction</b> () const override</td></tr>
+<tr class="separator:a45669ddba22592ed5403a04f70d52ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a929b2d0a7af1b4b1ba28998ca72c4535"><td class="memItemLeft" align="right" valign="top"><a id="a929b2d0a7af1b4b1ba28998ca72c4535"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_home_system.html#a929b2d0a7af1b4b1ba28998ca72c4535">EndDay</a> () override</td></tr>
 <tr class="memdesc:a929b2d0a7af1b4b1ba28998ca72c4535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the system to a new day. <br /></td></tr>
@@ -133,9 +136,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a5315471b9ddc6a24087d92e229580a6d inherit pub_methods_class_base_system"><td class="memItemLeft" align="right" valign="top"><a id="a5315471b9ddc6a24087d92e229580a6d"></a>
 const <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_plot.html">Plot</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Plots</b> () const</td></tr>
 <tr class="separator:a5315471b9ddc6a24087d92e229580a6d inherit pub_methods_class_base_system"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a902c431d2934a54d305a876e49b2f000 inherit pub_methods_class_base_system"><td class="memItemLeft" align="right" valign="top"><a id="a902c431d2934a54d305a876e49b2f000"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>GetScore</b> () const</td></tr>
-<tr class="separator:a902c431d2934a54d305a876e49b2f000 inherit pub_methods_class_base_system"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e00d685348c684ec7bbdb273f30b62a inherit pub_methods_class_base_system"><td class="memItemLeft" align="right" valign="top"><a id="a8e00d685348c684ec7bbdb273f30b62a"></a>
+virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>GetScore</b> () const</td></tr>
+<tr class="separator:a8e00d685348c684ec7bbdb273f30b62a inherit pub_methods_class_base_system"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abeefb28c6182f08bb3e37e5a9c4e0f64 inherit pub_methods_class_base_system"><td class="memItemLeft" align="right" valign="top"><a id="abeefb28c6182f08bb3e37e5a9c4e0f64"></a>
 const <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="struct_log.html">Log</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>SatisfiedLog</b> () const</td></tr>
 <tr class="separator:abeefb28c6182f08bb3e37e5a9c4e0f64 inherit pub_methods_class_base_system"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,6 +148,21 @@ const <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="stru
 <tr class="memitem:a95a11d9b9983589dffab5275e3493469 inherit pub_methods_class_base_system"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_system.html#a95a11d9b9983589dffab5275e3493469">Unregister</a> (<a class="el" href="class_plot.html">Plot</a> *plot)</td></tr>
 <tr class="memdesc:a95a11d9b9983589dffab5275e3493469 inherit pub_methods_class_base_system"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unregister a plot to remove it from being tracked in the system.  <a href="class_base_system.html#a95a11d9b9983589dffab5275e3493469">More...</a><br /></td></tr>
 <tr class="separator:a95a11d9b9983589dffab5275e3493469 inherit pub_methods_class_base_system"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eff432768e5b0a2e6159534a5a48936 inherit pub_methods_class_base_system"><td class="memItemLeft" align="right" valign="top"><a id="a9eff432768e5b0a2e6159534a5a48936"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>NewDay</b> ()</td></tr>
+<tr class="separator:a9eff432768e5b0a2e6159534a5a48936 inherit pub_methods_class_base_system"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4d0f8efdc9d28e711d276260b52f664 inherit pub_methods_class_base_system"><td class="memItemLeft" align="right" valign="top"><a id="ab4d0f8efdc9d28e711d276260b52f664"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>Cost</b> ()</td></tr>
+<tr class="separator:ab4d0f8efdc9d28e711d276260b52f664 inherit pub_methods_class_base_system"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a856b09392a127bbf63cafbfda46af9d7 inherit pub_methods_class_base_system"><td class="memItemLeft" align="right" valign="top"><a id="a856b09392a127bbf63cafbfda46af9d7"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Destroy</b> (<a class="el" href="class_plot.html">Plot</a> *plot)</td></tr>
+<tr class="separator:a856b09392a127bbf63cafbfda46af9d7 inherit pub_methods_class_base_system"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4c6d64f9f86cb990e26f117a0ac0b63 inherit pub_methods_class_base_system"><td class="memItemLeft" align="right" valign="top"><a id="ae4c6d64f9f86cb990e26f117a0ac0b63"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Toggle</b> ()</td></tr>
+<tr class="separator:ae4c6d64f9f86cb990e26f117a0ac0b63 inherit pub_methods_class_base_system"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97702b6df4b019b1e7506e1b0525fdff inherit pub_methods_class_base_system"><td class="memItemLeft" align="right" valign="top"><a id="a97702b6df4b019b1e7506e1b0525fdff"></a>
+virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ContentString</b> ()</td></tr>
+<tr class="separator:a97702b6df4b019b1e7506e1b0525fdff inherit pub_methods_class_base_system"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -165,6 +183,9 @@ System&#160;</td><td class="memItemRight" valign="bottom"><b>SystemType</b></td>
 <tr class="memitem:ad68a11891667309b22d0e344b55cb223 inherit pro_attribs_class_base_system"><td class="memItemLeft" align="right" valign="top"><a id="ad68a11891667309b22d0e344b55cb223"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>score</b></td></tr>
 <tr class="separator:ad68a11891667309b22d0e344b55cb223 inherit pro_attribs_class_base_system"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93fef5440a538475093d25435193185a inherit pro_attribs_class_base_system"><td class="memItemLeft" align="right" valign="top"><a id="a93fef5440a538475093d25435193185a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>toggleable</b> = false</td></tr>
+<tr class="separator:a93fef5440a538475093d25435193185a inherit pro_attribs_class_base_system"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_home.html">Home</a> systems that tracks and handles collective home plots and events. </p>
@@ -216,8 +237,8 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>score</b></td></tr>
 
 </div>
 </div>
-<a id="a87e559132147fcced19d38a50a97d41b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87e559132147fcced19d38a50a97d41b">&#9670;&nbsp;</a></span>Register()</h2>
+<a id="ac08a70c6e653f8afc4a0b3b82b2c4805"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac08a70c6e653f8afc4a0b3b82b2c4805">&#9670;&nbsp;</a></span>Register()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -226,7 +247,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>score</b></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void HomeSystem::Register </td>
+          <td class="memname">int HomeSystem::Register </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_plot.html">Plot</a> *&#160;</td>
           <td class="paramname"><em>plot</em></td><td>)</td>
@@ -248,7 +269,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>score</b></td></tr>
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="class_base_system.html#a1cb057d36f0b2d2fc5830b7bd778c3f4">BaseSystem</a>.</p>
+<p>Reimplemented from <a class="el" href="class_base_system.html#ac20f041e40fd0912a016be33599025e6">BaseSystem</a>.</p>
 
 </div>
 </div>

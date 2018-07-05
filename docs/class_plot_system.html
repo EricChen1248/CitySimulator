@@ -87,6 +87,7 @@ $(document).ready(function(){initNavTree('class_plot_system.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_plot_system-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PlotSystem Class Reference</div>  </div>
@@ -100,33 +101,101 @@ $(document).ready(function(){initNavTree('class_plot_system.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a109c77edeee08fd1177b82e1f73ccbe0"><td class="memItemLeft" align="right" valign="top"><a id="a109c77edeee08fd1177b82e1f73ccbe0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot_system.html#a109c77edeee08fd1177b82e1f73ccbe0">GenerateRoads</a> ()</td></tr>
+<tr class="memdesc:a109c77edeee08fd1177b82e1f73ccbe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the roads of the whole plot system. <br /></td></tr>
+<tr class="separator:a109c77edeee08fd1177b82e1f73ccbe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b3c5d0df252995318e1e6fc7ba356b8"><td class="memItemLeft" align="right" valign="top"><a id="a0b3c5d0df252995318e1e6fc7ba356b8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot_system.html#a0b3c5d0df252995318e1e6fc7ba356b8">Render</a> () const</td></tr>
-<tr class="memdesc:a0b3c5d0df252995318e1e6fc7ba356b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders all the plots. <br /></td></tr>
+<tr class="memdesc:a0b3c5d0df252995318e1e6fc7ba356b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls all rendering event during the day. <br /></td></tr>
 <tr class="separator:a0b3c5d0df252995318e1e6fc7ba356b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bf87772f6d248af9603933811f50ca6"><td class="memItemLeft" align="right" valign="top"><a id="a8bf87772f6d248af9603933811f50ca6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>RenderInterDay</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot_system.html#a8bf87772f6d248af9603933811f50ca6">RenderInterDay</a> ()</td></tr>
+<tr class="memdesc:a8bf87772f6d248af9603933811f50ca6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls all rendering events during interday. <br /></td></tr>
 <tr class="separator:a8bf87772f6d248af9603933811f50ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b57c653ba9b0560d588794ce7790b3d"><td class="memItemLeft" align="right" valign="top"><a id="a7b57c653ba9b0560d588794ce7790b3d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot_system.html#a7b57c653ba9b0560d588794ce7790b3d">RenderRoads</a> () const</td></tr>
+<tr class="memdesc:a7b57c653ba9b0560d588794ce7790b3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the roads. <br /></td></tr>
+<tr class="separator:a7b57c653ba9b0560d588794ce7790b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d5985c39039f368a4456d9ccf07cb9a"><td class="memItemLeft" align="right" valign="top"><a id="a6d5985c39039f368a4456d9ccf07cb9a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot_system.html#a6d5985c39039f368a4456d9ccf07cb9a">HandleClick</a> ()</td></tr>
+<tr class="memdesc:a6d5985c39039f368a4456d9ccf07cb9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the click was on a plot and handles it if applicable. <br /></td></tr>
+<tr class="separator:a6d5985c39039f368a4456d9ccf07cb9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3d9dab12fb78e1929d5d8e61112dc0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot_system.html#af3d9dab12fb78e1929d5d8e61112dc0e">FindHover</a> (float x, float y)</td></tr>
+<tr class="memdesc:af3d9dab12fb78e1929d5d8e61112dc0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds if a mouse is hovering over a plot/road and mark is as hovered.  <a href="#af3d9dab12fb78e1929d5d8e61112dc0e">More...</a><br /></td></tr>
+<tr class="separator:af3d9dab12fb78e1929d5d8e61112dc0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75604eb57fdc5bee7676776e1defb8fa"><td class="memItemLeft" align="right" valign="top"><a id="a75604eb57fdc5bee7676776e1defb8fa"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot_system.html#a75604eb57fdc5bee7676776e1defb8fa">ClearSelections</a> ()</td></tr>
+<tr class="memdesc:a75604eb57fdc5bee7676776e1defb8fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all selections and hover graphics. <br /></td></tr>
+<tr class="separator:a75604eb57fdc5bee7676776e1defb8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af83f1ad67f408ba72421c29fe857a234"><td class="memItemLeft" align="right" valign="top"><a id="af83f1ad67f408ba72421c29fe857a234"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot_system.html#af83f1ad67f408ba72421c29fe857a234">NewDay</a> ()</td></tr>
+<tr class="memdesc:af83f1ad67f408ba72421c29fe857a234"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trigger new day for each plot. <br /></td></tr>
+<tr class="separator:af83f1ad67f408ba72421c29fe857a234"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00b6360bd3b984191962c553989b0539"><td class="memItemLeft" align="right" valign="top"><a id="a00b6360bd3b984191962c553989b0539"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot_system.html#a00b6360bd3b984191962c553989b0539">EndDay</a> ()</td></tr>
+<tr class="memdesc:a00b6360bd3b984191962c553989b0539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trigger end day for each plot and road. <br /></td></tr>
+<tr class="separator:a00b6360bd3b984191962c553989b0539"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1012f700408e3de1cafade598cac60c7"><td class="memItemLeft" align="right" valign="top"><a id="a1012f700408e3de1cafade598cac60c7"></a>
+const <a class="el" href="class_linked_list.html">LinkedList</a>&lt; <a class="el" href="class_plot.html">Plot</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Plots</b> () const</td></tr>
+<tr class="separator:a1012f700408e3de1cafade598cac60c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4df4b3f1ca1bb7912fd995777e2cbcbd"><td class="memItemLeft" align="right" valign="top"><a id="a4df4b3f1ca1bb7912fd995777e2cbcbd"></a>
+const <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_road.html">Road</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Roads</b> () const</td></tr>
+<tr class="separator:a4df4b3f1ca1bb7912fd995777e2cbcbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1487fdbe3c7d55f340bafc8e4e8dc5f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_plot.html">Plot</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot_system.html#a1487fdbe3c7d55f340bafc8e4e8dc5f7">FindPlot</a> (const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;coords) const</td></tr>
 <tr class="memdesc:a1487fdbe3c7d55f340bafc8e4e8dc5f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attemps to find a plot in the system with the corresponding coordinates.  <a href="#a1487fdbe3c7d55f340bafc8e4e8dc5f7">More...</a><br /></td></tr>
 <tr class="separator:a1487fdbe3c7d55f340bafc8e4e8dc5f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb5541d727480cdd0f40c060488b4bc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_plot.html">Plot</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot_system.html#acb5541d727480cdd0f40c060488b4bc2">GetRandomPlot</a> () const</td></tr>
 <tr class="memdesc:acb5541d727480cdd0f40c060488b4bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a random plot for the system.  <a href="#acb5541d727480cdd0f40c060488b4bc2">More...</a><br /></td></tr>
 <tr class="separator:acb5541d727480cdd0f40c060488b4bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d5985c39039f368a4456d9ccf07cb9a"><td class="memItemLeft" align="right" valign="top"><a id="a6d5985c39039f368a4456d9ccf07cb9a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot_system.html#a6d5985c39039f368a4456d9ccf07cb9a">HandleClick</a> ()</td></tr>
-<tr class="memdesc:a6d5985c39039f368a4456d9ccf07cb9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the click was on a plot and handles it if applicable. <br /></td></tr>
-<tr class="separator:a6d5985c39039f368a4456d9ccf07cb9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6073d91e3f63175e179e2b7803dcdd8c"><td class="memItemLeft" align="right" valign="top"><a id="a6073d91e3f63175e179e2b7803dcdd8c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>FindHoverPlot</b> ()</td></tr>
-<tr class="separator:a6073d91e3f63175e179e2b7803dcdd8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75604eb57fdc5bee7676776e1defb8fa"><td class="memItemLeft" align="right" valign="top"><a id="a75604eb57fdc5bee7676776e1defb8fa"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearSelections</b> ()</td></tr>
-<tr class="separator:a75604eb57fdc5bee7676776e1defb8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a7403bb12c4e3cd2a6ad66dcd2a6f94a2"><td class="memItemLeft" align="right" valign="top"><a id="a7403bb12c4e3cd2a6ad66dcd2a6f94a2"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot_system.html#a7403bb12c4e3cd2a6ad66dcd2a6f94a2">DeselectPlotsAndRoads</a> ()</td></tr>
+<tr class="memdesc:a7403bb12c4e3cd2a6ad66dcd2a6f94a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deselect and undraw the selected plots and roads. <br /></td></tr>
+<tr class="separator:a7403bb12c4e3cd2a6ad66dcd2a6f94a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_plot.html" title="Container class for each city plot. ">Plot</a> system that stores and handles the collective plots in the game. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="af3d9dab12fb78e1929d5d8e61112dc0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3d9dab12fb78e1929d5d8e61112dc0e">&#9670;&nbsp;</a></span>FindHover()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlotSystem::FindHover </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds if a mouse is hovering over a plot/road and mark is as hovered. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>x-axis position of the mouse </td></tr>
+    <tr><td class="paramname">y</td><td>y-axis position of the mouse </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a1487fdbe3c7d55f340bafc8e4e8dc5f7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1487fdbe3c7d55f340bafc8e4e8dc5f7">&#9670;&nbsp;</a></span>FindPlot()</h2>
 

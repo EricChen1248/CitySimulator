@@ -123,9 +123,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5315471b9ddc6a24087d92e229580a6d"><td class="memItemLeft" align="right" valign="top"><a id="a5315471b9ddc6a24087d92e229580a6d"></a>
 const <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_plot.html">Plot</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Plots</b> () const</td></tr>
 <tr class="separator:a5315471b9ddc6a24087d92e229580a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a902c431d2934a54d305a876e49b2f000"><td class="memItemLeft" align="right" valign="top"><a id="a902c431d2934a54d305a876e49b2f000"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>GetScore</b> () const</td></tr>
-<tr class="separator:a902c431d2934a54d305a876e49b2f000"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e00d685348c684ec7bbdb273f30b62a"><td class="memItemLeft" align="right" valign="top"><a id="a8e00d685348c684ec7bbdb273f30b62a"></a>
+virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>GetScore</b> () const</td></tr>
+<tr class="separator:a8e00d685348c684ec7bbdb273f30b62a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96a84cc66e35331a950ca99f07493488"><td class="memItemLeft" align="right" valign="top"><a id="a96a84cc66e35331a950ca99f07493488"></a>
+virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>GetSatisfaction</b> () const</td></tr>
+<tr class="separator:a96a84cc66e35331a950ca99f07493488"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abeefb28c6182f08bb3e37e5a9c4e0f64"><td class="memItemLeft" align="right" valign="top"><a id="abeefb28c6182f08bb3e37e5a9c4e0f64"></a>
 const <a class="el" href="class_list.html">List</a>&lt; <a class="el" href="struct_log.html">Log</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>SatisfiedLog</b> () const</td></tr>
 <tr class="separator:abeefb28c6182f08bb3e37e5a9c4e0f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,16 +145,31 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>LogSatisfied<
 <tr class="memitem:abb8bde06c0908cc332e97c37a1ffc599"><td class="memItemLeft" align="right" valign="top"><a id="abb8bde06c0908cc332e97c37a1ffc599"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>LogUnsatisfied</b> (<a class="el" href="class_citizen.html">Citizen</a> *citizen, <a class="el" href="class_base_rule.html">BaseRule</a> *rule)=0</td></tr>
 <tr class="separator:abb8bde06c0908cc332e97c37a1ffc599"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cb057d36f0b2d2fc5830b7bd778c3f4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_system.html#a1cb057d36f0b2d2fc5830b7bd778c3f4">Register</a> (<a class="el" href="class_plot.html">Plot</a> *plot)</td></tr>
-<tr class="memdesc:a1cb057d36f0b2d2fc5830b7bd778c3f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a plot into the system for quick lookup and updating.  <a href="#a1cb057d36f0b2d2fc5830b7bd778c3f4">More...</a><br /></td></tr>
-<tr class="separator:a1cb057d36f0b2d2fc5830b7bd778c3f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac20f041e40fd0912a016be33599025e6"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_system.html#ac20f041e40fd0912a016be33599025e6">Register</a> (<a class="el" href="class_plot.html">Plot</a> *plot)</td></tr>
+<tr class="memdesc:ac20f041e40fd0912a016be33599025e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a plot into the system for quick lookup and updating.  <a href="#ac20f041e40fd0912a016be33599025e6">More...</a><br /></td></tr>
+<tr class="separator:ac20f041e40fd0912a016be33599025e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95a11d9b9983589dffab5275e3493469"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_system.html#a95a11d9b9983589dffab5275e3493469">Unregister</a> (<a class="el" href="class_plot.html">Plot</a> *plot)</td></tr>
 <tr class="memdesc:a95a11d9b9983589dffab5275e3493469"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unregister a plot to remove it from being tracked in the system.  <a href="#a95a11d9b9983589dffab5275e3493469">More...</a><br /></td></tr>
 <tr class="separator:a95a11d9b9983589dffab5275e3493469"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eff432768e5b0a2e6159534a5a48936"><td class="memItemLeft" align="right" valign="top"><a id="a9eff432768e5b0a2e6159534a5a48936"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>NewDay</b> ()</td></tr>
+<tr class="separator:a9eff432768e5b0a2e6159534a5a48936"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a816bbc6f5ec133c9c8c5233b7d846f3e"><td class="memItemLeft" align="right" valign="top"><a id="a816bbc6f5ec133c9c8c5233b7d846f3e"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_system.html#a816bbc6f5ec133c9c8c5233b7d846f3e">EndDay</a> ()</td></tr>
 <tr class="memdesc:a816bbc6f5ec133c9c8c5233b7d846f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the system to a new day. <br /></td></tr>
 <tr class="separator:a816bbc6f5ec133c9c8c5233b7d846f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4d0f8efdc9d28e711d276260b52f664"><td class="memItemLeft" align="right" valign="top"><a id="ab4d0f8efdc9d28e711d276260b52f664"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>Cost</b> ()</td></tr>
+<tr class="separator:ab4d0f8efdc9d28e711d276260b52f664"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a856b09392a127bbf63cafbfda46af9d7"><td class="memItemLeft" align="right" valign="top"><a id="a856b09392a127bbf63cafbfda46af9d7"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Destroy</b> (<a class="el" href="class_plot.html">Plot</a> *plot)</td></tr>
+<tr class="separator:a856b09392a127bbf63cafbfda46af9d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4c6d64f9f86cb990e26f117a0ac0b63"><td class="memItemLeft" align="right" valign="top"><a id="ae4c6d64f9f86cb990e26f117a0ac0b63"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Toggle</b> ()</td></tr>
+<tr class="separator:ae4c6d64f9f86cb990e26f117a0ac0b63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97702b6df4b019b1e7506e1b0525fdff"><td class="memItemLeft" align="right" valign="top"><a id="a97702b6df4b019b1e7506e1b0525fdff"></a>
+virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ContentString</b> ()</td></tr>
+<tr class="separator:a97702b6df4b019b1e7506e1b0525fdff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -173,12 +191,15 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:ad68a11891667309b22d0e344b55cb223"><td class="memItemLeft" align="right" valign="top"><a id="ad68a11891667309b22d0e344b55cb223"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>score</b></td></tr>
 <tr class="separator:ad68a11891667309b22d0e344b55cb223"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93fef5440a538475093d25435193185a"><td class="memItemLeft" align="right" valign="top"><a id="a93fef5440a538475093d25435193185a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>toggleable</b> = false</td></tr>
+<tr class="separator:a93fef5440a538475093d25435193185a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract class that is the base of all systems. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1cb057d36f0b2d2fc5830b7bd778c3f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1cb057d36f0b2d2fc5830b7bd778c3f4">&#9670;&nbsp;</a></span>Register()</h2>
+<a id="ac20f041e40fd0912a016be33599025e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac20f041e40fd0912a016be33599025e6">&#9670;&nbsp;</a></span>Register()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -187,7 +208,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>score</b></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void BaseSystem::Register </td>
+          <td class="memname">int BaseSystem::Register </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_plot.html">Plot</a> *&#160;</td>
           <td class="paramname"><em>plot</em></td><td>)</td>
@@ -209,7 +230,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>score</b></td></tr>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="class_home_system.html#a87e559132147fcced19d38a50a97d41b">HomeSystem</a>, <a class="el" href="class_bank_system.html#a387728bbd26d74f362887de13cc59a78">BankSystem</a>, <a class="el" href="class_food_system.html#aa0dd8ee647e7cf2d25aadb3b34b4d4fc">FoodSystem</a>, <a class="el" href="class_hospital_system.html#a2ebc77f2258edf031ad801f9eb0722e9">HospitalSystem</a>, <a class="el" href="class_school_system.html#a0f3caebdb4ce4d6f7513116e40ee7781">SchoolSystem</a>, <a class="el" href="class_store_system.html#a436a736ec178fa9bcb4e295f77a9388e">StoreSystem</a>, and <a class="el" href="class_work_system.html#a00646c22896152e62955ade8c5843296">WorkSystem</a>.</p>
+<p>Reimplemented in <a class="el" href="class_home_system.html#ac08a70c6e653f8afc4a0b3b82b2c4805">HomeSystem</a>, <a class="el" href="class_bank_system.html#ae701064ed10e82f45c12be272047fa59">BankSystem</a>, <a class="el" href="class_food_system.html#a8ae7cff95ccc776ce26eed861e0e4c1a">FoodSystem</a>, <a class="el" href="class_hospital_system.html#a18467887423c916236ab6c36b09e7c9e">HospitalSystem</a>, <a class="el" href="class_school_system.html#a6c8386e0e9d290684af461224e7d1278">SchoolSystem</a>, <a class="el" href="class_store_system.html#af9840ce202c0ab5be65e640d7433bf87">StoreSystem</a>, and <a class="el" href="class_work_system.html#a13d67014e2444e0fe38291a6392d47c0">WorkSystem</a>.</p>
 
 </div>
 </div>

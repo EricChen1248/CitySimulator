@@ -98,24 +98,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae36dd3a1d37a22e614477839dc22ba75"><td class="memItemLeft" align="right" valign="top"><a id="ae36dd3a1d37a22e614477839dc22ba75"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Citizen</b> (<a class="el" href="class_plot.html">Plot</a> *plot)</td></tr>
 <tr class="separator:ae36dd3a1d37a22e614477839dc22ba75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d2bdfe459597d69487721cbe782de29"><td class="memItemLeft" align="right" valign="top"><a id="a6d2bdfe459597d69487721cbe782de29"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Citizen</b> (<a class="el" href="class_plot.html">Plot</a> *plot, <a class="el" href="class_citizen.html">Citizen</a> *parent1, <a class="el" href="class_citizen.html">Citizen</a> *parent2)</td></tr>
+<tr class="separator:a6d2bdfe459597d69487721cbe782de29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf9c89aa1148ad509a76074b4d387999"><td class="memItemLeft" align="right" valign="top"><a id="acf9c89aa1148ad509a76074b4d387999"></a>
 sf::CircleShape &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetShape</b> ()</td></tr>
 <tr class="separator:acf9c89aa1148ad509a76074b4d387999"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16e76102985ff3b64986a88033bfab8a"><td class="memItemLeft" align="right" valign="top"><a id="a16e76102985ff3b64986a88033bfab8a"></a>
 const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Coords</b> () const</td></tr>
 <tr class="separator:a16e76102985ff3b64986a88033bfab8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fba9f206107a6a9a785aa580768c184"><td class="memItemLeft" align="right" valign="top"><a id="a9fba9f206107a6a9a785aa580768c184"></a>
-const int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetMoney</b> () const</td></tr>
-<tr class="separator:a9fba9f206107a6a9a785aa580768c184"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a586c4bbfe8a8568cc38be0b39a120dae"><td class="memItemLeft" align="right" valign="top"><a id="a586c4bbfe8a8568cc38be0b39a120dae"></a>
-const bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>InPlot</b> () const</td></tr>
-<tr class="separator:a586c4bbfe8a8568cc38be0b39a120dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7afbedca4794ce1fbeae554d278f8583"><td class="memItemLeft" align="right" valign="top"><a id="a7afbedca4794ce1fbeae554d278f8583"></a>
-const int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Age</b> () const</td></tr>
-<tr class="separator:a7afbedca4794ce1fbeae554d278f8583"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00ddd229ed11479dc06d02568892c71a"><td class="memItemLeft" align="right" valign="top"><a id="a00ddd229ed11479dc06d02568892c71a"></a>
-const bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>IsDead</b> () const</td></tr>
-<tr class="separator:a00ddd229ed11479dc06d02568892c71a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a635d74032509ae179fba156ea16dc9d3"><td class="memItemLeft" align="right" valign="top"><a id="a635d74032509ae179fba156ea16dc9d3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>GetMoney</b> () const</td></tr>
+<tr class="separator:a635d74032509ae179fba156ea16dc9d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89a29ba0087c5c44c779adbddd65e1c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_citizen.html#a89a29ba0087c5c44c779adbddd65e1c3">IncreaseMoney</a> (int m)</td></tr>
 <tr class="memdesc:a89a29ba0087c5c44c779adbddd65e1c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increases (decrease if negative) the amount of money of the citizen.  <a href="#a89a29ba0087c5c44c779adbddd65e1c3">More...</a><br /></td></tr>
 <tr class="separator:a89a29ba0087c5c44c779adbddd65e1c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,20 +129,48 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateScreenCoordinat
 <tr class="memitem:a3c216a3a1c4b654aae5f2d82bd26f4ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_citizen.html#a3c216a3a1c4b654aae5f2d82bd26f4ec">Wait</a> (float time)</td></tr>
 <tr class="memdesc:a3c216a3a1c4b654aae5f2d82bd26f4ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a time for the citizen to wait in the plot. 1 = ??? ingame minutes.  <a href="#a3c216a3a1c4b654aae5f2d82bd26f4ec">More...</a><br /></td></tr>
 <tr class="separator:a3c216a3a1c4b654aae5f2d82bd26f4ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca25f623392207dbebe958b00d4f01b1"><td class="memItemLeft" align="right" valign="top"><a id="aca25f623392207dbebe958b00d4f01b1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>NewDay</b> ()</td></tr>
+<tr class="separator:aca25f623392207dbebe958b00d4f01b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5afe0d0d8c0a4ce77074b04da94e5371"><td class="memItemLeft" align="right" valign="top"><a id="a5afe0d0d8c0a4ce77074b04da94e5371"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_citizen.html#a5afe0d0d8c0a4ce77074b04da94e5371">EndDay</a> ()</td></tr>
 <tr class="memdesc:a5afe0d0d8c0a4ce77074b04da94e5371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles end day events. <br /></td></tr>
 <tr class="separator:a5afe0d0d8c0a4ce77074b04da94e5371"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a929afae7672e26fcd7f08fa46c6e7410"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_citizen.html#a929afae7672e26fcd7f08fa46c6e7410">ForceRule</a> (System ruleType, float waitTime=0)</td></tr>
-<tr class="memdesc:a929afae7672e26fcd7f08fa46c6e7410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces a citizen to do a specific rule for "waitTime" hours.  <a href="#a929afae7672e26fcd7f08fa46c6e7410">More...</a><br /></td></tr>
-<tr class="separator:a929afae7672e26fcd7f08fa46c6e7410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfd8b8ed109e4b6f724c7fdf6a62c993"><td class="memItemLeft" align="right" valign="top"><a id="adfd8b8ed109e4b6f724c7fdf6a62c993"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>DoubleSpeed</b> ()</td></tr>
+<tr class="separator:adfd8b8ed109e4b6f724c7fdf6a62c993"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a7a5dcce103d3971acff20a5d40e28b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_base_rule.html">BaseRule</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_citizen.html#a0a7a5dcce103d3971acff20a5d40e28b">FindRule</a> (System system)</td></tr>
 <tr class="memdesc:a0a7a5dcce103d3971acff20a5d40e28b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds a rule of system type.  <a href="#a0a7a5dcce103d3971acff20a5d40e28b">More...</a><br /></td></tr>
 <tr class="separator:a0a7a5dcce103d3971acff20a5d40e28b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a471f11432168b22e139a0e22f038dfce"><td class="memItemLeft" align="right" valign="top"><a id="a471f11432168b22e139a0e22f038dfce"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_citizen.html#a471f11432168b22e139a0e22f038dfce">Death</a> ()</td></tr>
-<tr class="memdesc:a471f11432168b22e139a0e22f038dfce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks citizen as dead. Death pruning and events are handled at the end of day. <br /></td></tr>
-<tr class="separator:a471f11432168b22e139a0e22f038dfce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a929afae7672e26fcd7f08fa46c6e7410"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_citizen.html#a929afae7672e26fcd7f08fa46c6e7410">ForceRule</a> (System ruleType, float waitTime=0)</td></tr>
+<tr class="memdesc:a929afae7672e26fcd7f08fa46c6e7410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces a citizen to do a specific rule for "waitTime" hours.  <a href="#a929afae7672e26fcd7f08fa46c6e7410">More...</a><br /></td></tr>
+<tr class="separator:a929afae7672e26fcd7f08fa46c6e7410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62b6cff47b0c7916f5e83b5c582679db"><td class="memItemLeft" align="right" valign="top"><a id="a62b6cff47b0c7916f5e83b5c582679db"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Age</b> () const</td></tr>
+<tr class="separator:a62b6cff47b0c7916f5e83b5c582679db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab35554f9e62c067758c319abe01f7b51"><td class="memItemLeft" align="right" valign="top"><a id="ab35554f9e62c067758c319abe01f7b51"></a>
+Gender&#160;</td><td class="memItemRight" valign="bottom"><b>GetGender</b> () const</td></tr>
+<tr class="separator:ab35554f9e62c067758c319abe01f7b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae466f39a680128b72a642e3fb122f890"><td class="memItemLeft" align="right" valign="top"><a id="ae466f39a680128b72a642e3fb122f890"></a>
+<a class="el" href="class_citizen.html">Citizen</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetFamilyMember</b> (const Relationship relation) const</td></tr>
+<tr class="separator:ae466f39a680128b72a642e3fb122f890"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19b573104a328b98a4ec52483cc83304"><td class="memItemLeft" align="right" valign="top"><a id="a19b573104a328b98a4ec52483cc83304"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsMarried</b> () const</td></tr>
+<tr class="separator:a19b573104a328b98a4ec52483cc83304"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeae4d9498e5c3a8242a9a4770ac7c267"><td class="memItemLeft" align="right" valign="top"><a id="aeae4d9498e5c3a8242a9a4770ac7c267"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsDead</b> () const</td></tr>
+<tr class="separator:aeae4d9498e5c3a8242a9a4770ac7c267"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5dd9af1e4d85e184caa723e98c1283c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_citizen.html#ad5dd9af1e4d85e184caa723e98c1283c">Marry</a> (<a class="el" href="class_citizen.html">Citizen</a> *spouse)</td></tr>
+<tr class="memdesc:ad5dd9af1e4d85e184caa723e98c1283c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marries two people and sets their relationship to each other.  <a href="#ad5dd9af1e4d85e184caa723e98c1283c">More...</a><br /></td></tr>
+<tr class="separator:ad5dd9af1e4d85e184caa723e98c1283c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf61864d86d7855be6c62a94b0a46d60"><td class="memItemLeft" align="right" valign="top"><a id="aaf61864d86d7855be6c62a94b0a46d60"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_citizen.html#aaf61864d86d7855be6c62a94b0a46d60">Die</a> ()</td></tr>
+<tr class="memdesc:aaf61864d86d7855be6c62a94b0a46d60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks citizen as dead. Die pruning and events are handled at the end of day. <br /></td></tr>
+<tr class="separator:aaf61864d86d7855be6c62a94b0a46d60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae216eea33f751165bf6e1ffdd0da61d8"><td class="memItemLeft" align="right" valign="top"><a id="ae216eea33f751165bf6e1ffdd0da61d8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_citizen.html#ae216eea33f751165bf6e1ffdd0da61d8">DeathEvents</a> ()</td></tr>
+<tr class="memdesc:ae216eea33f751165bf6e1ffdd0da61d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the death events for each rule. <br /></td></tr>
+<tr class="separator:ae216eea33f751165bf6e1ffdd0da61d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a0a7a5dcce103d3971acff20a5d40e28b"></a>
@@ -239,6 +261,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if transaction is doable (money is more than paid) </dd></dl>
+
+</div>
+</div>
+<a id="ad5dd9af1e4d85e184caa723e98c1283c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5dd9af1e4d85e184caa723e98c1283c">&#9670;&nbsp;</a></span>Marry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Citizen::Marry </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_citizen.html">Citizen</a> *&#160;</td>
+          <td class="paramname"><em>spouse</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Marries two people and sets their relationship to each other. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spouse</td><td><a class="el" href="class_citizen.html">Citizen</a> person in being married to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

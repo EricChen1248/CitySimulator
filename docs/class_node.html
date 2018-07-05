@@ -111,9 +111,9 @@ Inheritance diagram for Node&lt; T &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a99c95b5c406462c1cc98daa294fce3cf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a99c95b5c406462c1cc98daa294fce3cf">Node</a> (T item, <a class="el" href="class_node.html">Node</a>&lt; T &gt; *prev=nullptr, <a class="el" href="class_node.html">Node</a>&lt; T &gt; *next=nullptr)</td></tr>
-<tr class="memdesc:a99c95b5c406462c1cc98daa294fce3cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new node used in collections that stores an item part of a doubly linked list.  <a href="#a99c95b5c406462c1cc98daa294fce3cf">More...</a><br /></td></tr>
-<tr class="separator:a99c95b5c406462c1cc98daa294fce3cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a354af119d4bef4a992c3036492d0bc11"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a354af119d4bef4a992c3036492d0bc11">Node</a> (const T &amp;item, <a class="el" href="class_node.html">Node</a>&lt; T &gt; *prev=nullptr, <a class="el" href="class_node.html">Node</a>&lt; T &gt; *next=nullptr)</td></tr>
+<tr class="memdesc:a354af119d4bef4a992c3036492d0bc11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new node used in collections that stores an item part of a doubly linked list.  <a href="#a354af119d4bef4a992c3036492d0bc11">More...</a><br /></td></tr>
+<tr class="separator:a354af119d4bef4a992c3036492d0bc11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -129,14 +129,14 @@ T&#160;</td><td class="memItemRight" valign="bottom"><b>item</b></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:ade6ce99c1c6680cd228fe1aa6927bdaf"><td class="memTemplParams" colspan="2"><a id="ade6ce99c1c6680cd228fe1aa6927bdaf"></a>
+<tr class="memitem:aba94d28c9257b240b07fae49d3d15b0a"><td class="memTemplParams" colspan="2"><a id="aba94d28c9257b240b07fae49d3d15b0a"></a>
 template&lt;typename IteratorType &gt; </td></tr>
-<tr class="memitem:ade6ce99c1c6680cd228fe1aa6927bdaf"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Iterator</b></td></tr>
-<tr class="separator:ade6ce99c1c6680cd228fe1aa6927bdaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8740adf5dfdafdc64940ab42ed663bd2"><td class="memTemplParams" colspan="2"><a id="a8740adf5dfdafdc64940ab42ed663bd2"></a>
+<tr class="memitem:aba94d28c9257b240b07fae49d3d15b0a"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><b>LinkedIterator</b></td></tr>
+<tr class="separator:aba94d28c9257b240b07fae49d3d15b0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cd1dcbc39bd3474b79bdc0bcd7bc073"><td class="memTemplParams" colspan="2"><a id="a1cd1dcbc39bd3474b79bdc0bcd7bc073"></a>
 template&lt;typename ListType &gt; </td></tr>
-<tr class="memitem:a8740adf5dfdafdc64940ab42ed663bd2"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><b>List</b></td></tr>
-<tr class="separator:a8740adf5dfdafdc64940ab42ed663bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cd1dcbc39bd3474b79bdc0bcd7bc073"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><b>LinkedList</b></td></tr>
+<tr class="separator:a1cd1dcbc39bd3474b79bdc0bcd7bc073"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76db68f71f6e65aa4083615ee111ab59"><td class="memTemplParams" colspan="2"><a id="a76db68f71f6e65aa4083615ee111ab59"></a>
 template&lt;typename QueueType &gt; </td></tr>
 <tr class="memitem:a76db68f71f6e65aa4083615ee111ab59"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Queue</b></td></tr>
@@ -162,8 +162,8 @@ class Node&lt; T &gt;</h3>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a99c95b5c406462c1cc98daa294fce3cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99c95b5c406462c1cc98daa294fce3cf">&#9670;&nbsp;</a></span>Node()</h2>
+<a id="a354af119d4bef4a992c3036492d0bc11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a354af119d4bef4a992c3036492d0bc11">&#9670;&nbsp;</a></span>Node()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -176,7 +176,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_node.html">Node</a>&lt; T &gt;::<a class="el" href="class_node.html">Node</a> </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
+          <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>item</em>, </td>
         </tr>
         <tr>

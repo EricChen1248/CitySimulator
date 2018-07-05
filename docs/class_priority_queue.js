@@ -1,5 +1,6 @@
 var class_priority_queue =
 [
+    [ "PriorityQueue", "class_priority_queue.html#a1e1d3c55b09c9a067ee5a75732789cb2", null ],
     [ "Dequeue", "class_priority_queue.html#ace0b78e30505da18b90a0d034abfc3ba", null ],
     [ "Enqueue", "class_priority_queue.html#ac9e9858b955ea02bed2ddd5fab4b23ac", null ],
     [ "GetTop", "class_priority_queue.html#a7e0a375277f525fd7d033a4b97dff80d", null ],

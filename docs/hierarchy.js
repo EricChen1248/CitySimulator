@@ -32,21 +32,49 @@ var hierarchy =
     [ "CitizenSystem", "class_citizen_system.html", null ],
     [ "Coordinate", "class_coordinate.html", null ],
     [ "CoreController", "class_core_controller.html", null ],
-    [ "Dictionary< KeyType, ValueType >", "class_dictionary.html", null ],
+    [ "Disaster", "class_disaster.html", null ],
+    [ "DisasterController", "class_disaster_controller.html", null ],
     [ "FontController", "class_font_controller.html", null ],
     [ "Government", "class_government.html", null ],
-    [ "Iterator< T >", "class_iterator.html", null ],
-    [ "List< T >", "class_list.html", null ],
-    [ "List< BaseRule *>", "class_list.html", null ],
-    [ "List< BaseSystem *>", "class_list.html", null ],
-    [ "List< Citizen *>", "class_list.html", null ],
-    [ "List< Coordinate >", "class_list.html", null ],
-    [ "List< float >", "class_list.html", null ],
-    [ "List< KeyType &>", "class_list.html", null ],
-    [ "List< Log *>", "class_list.html", null ],
-    [ "List< Plot *>", "class_list.html", null ],
-    [ "List< SatisBar *>", "class_list.html", null ],
-    [ "List< SelectionButton *>", "class_list.html", null ],
+    [ "IList< T >", "class_i_list.html", [
+      [ "LinkedList< T >", "class_linked_list.html", null ],
+      [ "List< T >", "class_list.html", null ]
+    ] ],
+    [ "IList< BaseRule * >", "class_i_list.html", [
+      [ "List< BaseRule *>", "class_list.html", null ]
+    ] ],
+    [ "IList< BaseSystem * >", "class_i_list.html", [
+      [ "List< BaseSystem *>", "class_list.html", null ]
+    ] ],
+    [ "IList< Citizen * >", "class_i_list.html", [
+      [ "LinkedList< Citizen *>", "class_linked_list.html", null ],
+      [ "List< Citizen *>", "class_list.html", null ]
+    ] ],
+    [ "IList< Coordinate >", "class_i_list.html", [
+      [ "List< Coordinate >", "class_list.html", null ]
+    ] ],
+    [ "IList< float >", "class_i_list.html", [
+      [ "List< float >", "class_list.html", null ]
+    ] ],
+    [ "IList< Log * >", "class_i_list.html", [
+      [ "List< Log *>", "class_list.html", null ]
+    ] ],
+    [ "IList< Plot * >", "class_i_list.html", [
+      [ "LinkedList< Plot *>", "class_linked_list.html", null ],
+      [ "List< Plot *>", "class_list.html", null ]
+    ] ],
+    [ "IList< Road * >", "class_i_list.html", [
+      [ "List< Road *>", "class_list.html", null ]
+    ] ],
+    [ "IList< SatisBar * >", "class_i_list.html", [
+      [ "List< SatisBar *>", "class_list.html", null ]
+    ] ],
+    [ "IList< SelectionButton * >", "class_i_list.html", [
+      [ "List< SelectionButton *>", "class_list.html", null ]
+    ] ],
+    [ "Line", "class_line.html", null ],
+    [ "LinkedIterator< T >", "class_linked_iterator.html", null ],
+    [ "ListIterator< T >", "class_list_iterator.html", null ],
     [ "Log", "struct_log.html", null ],
     [ "Logger", "class_logger.html", null ],
     [ "logic_error", null, [
@@ -58,35 +86,35 @@ var hierarchy =
     [ "MinHeap< PathFinderNode * >", "class_min_heap.html", [
       [ "PriorityQueue< PathFinderNode *>", "class_priority_queue.html", null ]
     ] ],
+    [ "NewsFlash", "struct_news_flash.html", null ],
     [ "Node< T >", "class_node.html", [
       [ "PriorityNode< T >", "class_priority_node.html", null ]
     ] ],
-    [ "Node< BaseRule *>", "class_node.html", null ],
-    [ "Node< BaseSystem *>", "class_node.html", null ],
     [ "Node< Citizen *>", "class_node.html", null ],
     [ "Node< Coordinate >", "class_node.html", null ],
-    [ "Node< float >", "class_node.html", null ],
-    [ "Node< KeyType &>", "class_node.html", null ],
-    [ "Node< Log *>", "class_node.html", null ],
     [ "Node< Plot *>", "class_node.html", null ],
-    [ "Node< SatisBar *>", "class_node.html", null ],
-    [ "Node< SelectionButton *>", "class_node.html", null ],
     [ "PathFinder", "class_path_finder.html", null ],
     [ "PathFinderNode", "struct_path_finder_node.html", null ],
     [ "Plot", "class_plot.html", null ],
     [ "PlotSystem", "class_plot_system.html", null ],
     [ "Queue< T >", "class_queue.html", null ],
+    [ "River", "class_river.html", null ],
+    [ "Road", "class_road.html", null ],
     [ "runtime_error", null, [
       [ "DuplicateInitialization", "class_duplicate_initialization.html", null ],
+      [ "IncorrectSystemType", "class_incorrect_system_type.html", null ],
       [ "KeyNotFound", "class_key_not_found.html", null ],
-      [ "KeyValueError", "class_key_value_error.html", null ]
+      [ "KeyValueError", "class_key_value_error.html", null ],
+      [ "PlotBaseError", "class_plot_base_error.html", null ]
     ] ],
     [ "SatisBar", "struct_satis_bar.html", null ],
     [ "ScreenCoordinate", "struct_screen_coordinate.html", null ],
     [ "SelectionButton", "struct_selection_button.html", null ],
     [ "SFMLController", "class_s_f_m_l_controller.html", null ],
+    [ "Slider", "class_slider.html", null ],
     [ "Stack< T >", "class_stack.html", null ],
     [ "Stack< Coordinate >", "class_stack.html", null ],
+    [ "Status", "class_status.html", null ],
     [ "SystemController", "class_system_controller.html", null ],
     [ "helper::Time", "structhelper_1_1_time.html", null ],
     [ "UIController", "class_u_i_controller.html", null ],

@@ -87,6 +87,7 @@ $(document).ready(function(){initNavTree('class_food_rule.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_food_rule-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">FoodRule Class Reference</div>  </div>
@@ -96,7 +97,7 @@ $(document).ready(function(){initNavTree('class_food_rule.html','');});
 <p><a class="el" href="class_food.html" title="Food Class that handles the food plots of our city. ">Food</a> rule that handles the food needs of our citizens.  
  <a href="class_food_rule.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_food_rule_8h_source.html">FoodRule.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_food_rule_8hpp_source.html">FoodRule.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for FoodRule:</div>
 <div class="dyncontent">
@@ -112,35 +113,51 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4516d1e6ea7a0325cced6b572f946dd9"><td class="memItemLeft" align="right" valign="top"><a id="a4516d1e6ea7a0325cced6b572f946dd9"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>FoodRule</b> (<a class="el" href="class_citizen.html">Citizen</a> &amp;citizen)</td></tr>
 <tr class="separator:a4516d1e6ea7a0325cced6b572f946dd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5daa6f8e4300892a0f77f9ea645af8a"><td class="memItemLeft" align="right" valign="top"><a id="ac5daa6f8e4300892a0f77f9ea645af8a"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>CalculateScore</b> ()</td></tr>
-<tr class="separator:ac5daa6f8e4300892a0f77f9ea645af8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a427130a93c6f338fcd7430a8708e107f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_rule.html#a427130a93c6f338fcd7430a8708e107f">FindPlot</a> ()</td></tr>
-<tr class="memdesc:a427130a93c6f338fcd7430a8708e107f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attemps to find a plot that can satisfy this rule.  <a href="#a427130a93c6f338fcd7430a8708e107f">More...</a><br /></td></tr>
-<tr class="separator:a427130a93c6f338fcd7430a8708e107f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa908a24c4407bd927001b4482ba1c710"><td class="memItemLeft" align="right" valign="top"><a id="aa908a24c4407bd927001b4482ba1c710"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>EnterPlot</b> (<a class="el" href="class_plot.html">Plot</a> *plot)</td></tr>
-<tr class="separator:aa908a24c4407bd927001b4482ba1c710"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe4598a47ce39acec6c85e8a14f59998"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_rule.html#afe4598a47ce39acec6c85e8a14f59998">LeavePlot</a> (<a class="el" href="class_plot.html">Plot</a> *plot)</td></tr>
-<tr class="memdesc:afe4598a47ce39acec6c85e8a14f59998"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills up the citizen's hunger on leaving.  <a href="#afe4598a47ce39acec6c85e8a14f59998">More...</a><br /></td></tr>
-<tr class="separator:afe4598a47ce39acec6c85e8a14f59998"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3019d07d0a780b84a6d97054ee3e55df"><td class="memItemLeft" align="right" valign="top"><a id="a3019d07d0a780b84a6d97054ee3e55df"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_rule.html#a3019d07d0a780b84a6d97054ee3e55df">Update</a> ()</td></tr>
-<tr class="memdesc:a3019d07d0a780b84a6d97054ee3e55df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update events of food rule. Decreases citizen's hunger. <br /></td></tr>
-<tr class="separator:a3019d07d0a780b84a6d97054ee3e55df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5928bb41fcd8b88f8deb6410e6692337"><td class="memItemLeft" align="right" valign="top"><a id="a5928bb41fcd8b88f8deb6410e6692337"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>CalculateScore</b> () override</td></tr>
+<tr class="separator:a5928bb41fcd8b88f8deb6410e6692337"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84c9a5e61b33f087a7c4cb4577f91d53"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_rule.html#a84c9a5e61b33f087a7c4cb4577f91d53">FindPlot</a> () override</td></tr>
+<tr class="memdesc:a84c9a5e61b33f087a7c4cb4577f91d53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attemps to find a plot that can satisfy this rule.  <a href="#a84c9a5e61b33f087a7c4cb4577f91d53">More...</a><br /></td></tr>
+<tr class="separator:a84c9a5e61b33f087a7c4cb4577f91d53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5978ba998b311cd0260d974eb3347478"><td class="memItemLeft" align="right" valign="top"><a id="a5978ba998b311cd0260d974eb3347478"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>EnterPlot</b> (<a class="el" href="class_plot.html">Plot</a> *plot) override</td></tr>
+<tr class="separator:a5978ba998b311cd0260d974eb3347478"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a392ecbe4bf51f109bbaef3d596dbd7df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_rule.html#a392ecbe4bf51f109bbaef3d596dbd7df">LeavePlot</a> (<a class="el" href="class_plot.html">Plot</a> *plot) override</td></tr>
+<tr class="memdesc:a392ecbe4bf51f109bbaef3d596dbd7df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills up the citizen's hunger on leaving.  <a href="#a392ecbe4bf51f109bbaef3d596dbd7df">More...</a><br /></td></tr>
+<tr class="separator:a392ecbe4bf51f109bbaef3d596dbd7df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2411d43a8c9d7fc76e2b09b267c59c30"><td class="memItemLeft" align="right" valign="top"><a id="a2411d43a8c9d7fc76e2b09b267c59c30"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_rule.html#a2411d43a8c9d7fc76e2b09b267c59c30">Update</a> () override</td></tr>
+<tr class="memdesc:a2411d43a8c9d7fc76e2b09b267c59c30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update events of food rule. Decreases citizen's hunger. <br /></td></tr>
+<tr class="separator:a2411d43a8c9d7fc76e2b09b267c59c30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad84315bfe429d32f8de3a3c4748332b3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_rule.html#ad84315bfe429d32f8de3a3c4748332b3">IsSatisfied</a> () override</td></tr>
 <tr class="memdesc:ad84315bfe429d32f8de3a3c4748332b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns bool to tell if citizen is satisfied with it's food requirements.  <a href="#ad84315bfe429d32f8de3a3c4748332b3">More...</a><br /></td></tr>
 <tr class="separator:ad84315bfe429d32f8de3a3c4748332b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a158e6ad8ea6fc7c92213ad97193159"><td class="memItemLeft" align="right" valign="top"><a id="a6a158e6ad8ea6fc7c92213ad97193159"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_rule.html#a6a158e6ad8ea6fc7c92213ad97193159">FillHunger</a> ()</td></tr>
+<tr class="memdesc:a6a158e6ad8ea6fc7c92213ad97193159"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to fill hunger before entering hospital. <br /></td></tr>
+<tr class="separator:a6a158e6ad8ea6fc7c92213ad97193159"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_base_rule"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_base_rule')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_base_rule.html">BaseRule</a></td></tr>
 <tr class="memitem:ac0cf2211518b55323f40210baa0559e8 inherit pub_methods_class_base_rule"><td class="memItemLeft" align="right" valign="top"><a id="ac0cf2211518b55323f40210baa0559e8"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>BaseRule</b> (<a class="el" href="class_citizen.html">Citizen</a> &amp;citizen, const System type)</td></tr>
 <tr class="separator:ac0cf2211518b55323f40210baa0559e8 inherit pub_methods_class_base_rule"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03d1eee9ecfeea044502431044b0bad0 inherit pub_methods_class_base_rule"><td class="memItemLeft" align="right" valign="top"><a id="a03d1eee9ecfeea044502431044b0bad0"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>NewDay</b> ()</td></tr>
+<tr class="separator:a03d1eee9ecfeea044502431044b0bad0 inherit pub_methods_class_base_rule"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81939adea11a5939e6be7615e355cb8a inherit pub_methods_class_base_rule"><td class="memItemLeft" align="right" valign="top"><a id="a81939adea11a5939e6be7615e355cb8a"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>EndDay</b> ()</td></tr>
 <tr class="separator:a81939adea11a5939e6be7615e355cb8a inherit pub_methods_class_base_rule"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a884cc3dfcc16440289959a2455b3c81a inherit pub_methods_class_base_rule"><td class="memItemLeft" align="right" valign="top"><a id="a884cc3dfcc16440289959a2455b3c81a"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Death</b> ()</td></tr>
+<tr class="separator:a884cc3dfcc16440289959a2455b3c81a inherit pub_methods_class_base_rule"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2acb992195261bf0dd82b306e4ac34d inherit pub_methods_class_base_rule"><td class="memItemLeft" align="right" valign="top"><a id="aa2acb992195261bf0dd82b306e4ac34d"></a>
 System&#160;</td><td class="memItemRight" valign="bottom"><b>Type</b> () const</td></tr>
 <tr class="separator:aa2acb992195261bf0dd82b306e4ac34d inherit pub_methods_class_base_rule"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:acd9c48aafd7afe1fa33d2b45ba48b182"><td class="memItemLeft" align="right" valign="top"><a id="acd9c48aafd7afe1fa33d2b45ba48b182"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>FoodSystem</b></td></tr>
+<tr class="separator:acd9c48aafd7afe1fa33d2b45ba48b182"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -158,8 +175,8 @@ System&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_food.html" title="Food Class that handles the food plots of our city. ">Food</a> rule that handles the food needs of our citizens. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a427130a93c6f338fcd7430a8708e107f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a427130a93c6f338fcd7430a8708e107f">&#9670;&nbsp;</a></span>FindPlot()</h2>
+<a id="a84c9a5e61b33f087a7c4cb4577f91d53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84c9a5e61b33f087a7c4cb4577f91d53">&#9670;&nbsp;</a></span>FindPlot()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -176,7 +193,7 @@ System&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -218,8 +235,8 @@ System&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
 
 </div>
 </div>
-<a id="afe4598a47ce39acec6c85e8a14f59998"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe4598a47ce39acec6c85e8a14f59998">&#9670;&nbsp;</a></span>LeavePlot()</h2>
+<a id="a392ecbe4bf51f109bbaef3d596dbd7df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a392ecbe4bf51f109bbaef3d596dbd7df">&#9670;&nbsp;</a></span>LeavePlot()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -237,7 +254,7 @@ System&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -255,7 +272,7 @@ System&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Systems/Food/<a class="el" href="_food_rule_8h_source.html">FoodRule.h</a></li>
+<li>Systems/Food/<a class="el" href="_food_rule_8hpp_source.html">FoodRule.hpp</a></li>
 <li>Systems/Food/FoodRule.cpp</li>
 </ul>
 </div><!-- contents -->
