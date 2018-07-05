@@ -28,7 +28,7 @@ protected:
      * \param prev (Default nullptr) pointer to previous node
      * \param next (Default nullptr) pointer to next node
      */
-    Node(T item, Node<T>* prev = nullptr, Node<T>* next = nullptr);
+    Node(const T& item, Node<T>* prev = nullptr, Node<T>* next = nullptr);
     ~Node() = default;
     
     T item;
@@ -37,7 +37,7 @@ protected:
 };
 
 template <typename T>
-Node<T>::Node(T item, Node<T>* prev, Node<T>* next)
+Node<T>::Node(const T& item, Node<T>* prev, Node<T>* next)
 {
     this->item = item;
     this->prev = prev;

@@ -136,6 +136,7 @@
     <ClCompile Include="Disaster.cpp" />
     <ClCompile Include="Controllers\DisasterController.cpp" />
     <ClCompile Include="Controllers\UiObjects\Status.cpp" />
+    <ClCompile Include="Controllers\UiObjects\NewsFlash.cpp" />
     <ClCompile Include="Systems\River\River.cpp" />
     <ClCompile Include="Helpers\Road.cpp" />
     <ClCompile Include="Systems\School\School.cpp" />
@@ -192,6 +193,7 @@
     <ClInclude Include="Helpers\HelperFunctions.h" />
     <ClInclude Include="Helpers\Line.hpp" />
     <ClInclude Include="Controllers\UiObjects\Status.hpp" />
+    <ClInclude Include="Controllers\UiObjects\NewsFlash.hpp" />
     <ClInclude Include="Systems\Citizen\CitizenEnum.h" />
     <ClInclude Include="Systems\River\River.h" />
     <ClInclude Include="Helpers\Road.h" />

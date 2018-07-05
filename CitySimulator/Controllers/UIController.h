@@ -4,6 +4,7 @@
 #include "UiObjects/Button.h"
 #include "UiObjects/Status.hpp"
 #include "../Collections/List.h"
+#include "UiObjects/NewsFlash.hpp"
 
 struct SatisBar;
 struct SelectionButton;
@@ -20,6 +21,7 @@ public:
     void Initialize();
     void RenderUI();
     void RenderInterDayUI();
+    void Flash(const std::string& str);
     bool NextDayButtonHover() const { return nextDay.IsInBounds(); };
     
     bool IsOverUI() const;
@@ -38,6 +40,8 @@ private:
     Status status{};
     Slider birthRateSlider;
 
+    NewsFlash flash{};
+    
     RectangleShape selectionBackGround{};
     List<SelectionButton*> selectionButtons{};
 

@@ -65,6 +65,7 @@ void UIController::RenderUI()
     DrawBirthRate();
     Status::Selection = NONE_SELECTED;
     DrawStatus();
+    flash.Render();
 }
 
 void UIController::RenderInterDayUI()
@@ -75,6 +76,11 @@ void UIController::RenderInterDayUI()
     DrawSatisfaction();
     DrawBirthRate();
     DrawStatus();
+}
+
+void UIController::Flash(const std::string& str)
+{
+    flash.Flash(str);
 }
 
 bool UIController::IsOverUI() const

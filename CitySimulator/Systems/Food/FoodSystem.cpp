@@ -60,7 +60,7 @@ void FoodSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
 
 float FoodSystem::GetSatisfaction() const
 {
-    const float overloadedPenalty = 0.05f;
+    const float overloadedPenalty = 0.02f;
     float overloadedTally = 0;
     float earnedMoney = 0;
     for (auto&& plot : plots)

@@ -12,7 +12,7 @@ class Stack
 {
   public:
     ~Stack() noexcept;
-    void Push(T& item) noexcept;
+    void Push(const T& item) noexcept;
     T Pop();
     const T &Peek();
     int Count() const noexcept;
@@ -43,7 +43,7 @@ Stack<T>::~Stack() noexcept
  * \retval None
  */
 template <typename T>
-void Stack<T>::Push(T& item) noexcept
+void Stack<T>::Push(const T& item) noexcept
 {
     Node<T> *node = new Node<T>(item, top);
     top = node;
