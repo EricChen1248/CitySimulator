@@ -1,6 +1,8 @@
 #include "DisasterController.h"
 #include "CoreController.h"
+#include "../Helpers/Constants.h"
 #include "../Helpers/HelperFunctions.h"
+#include <iostream>
 
 
 
@@ -24,34 +26,42 @@ void DisasterController::Update()
 	else if (rand > 10 && rand <= 20) //0.1%
 	{
 		Earthquake();
+		std::cout << "Earthquake!!" << '\n';
 		if (rand <= 15) // 0.1% * 0.5
 		{
 			Tsunami();
+			std::cout << "Tsunami!!" << '\n';
 		}
 	}
 	else if (rand > 20 && rand <= 30) //0.1%
 	{
 		Tsunami();
+		std::cout << "tsunami!!" << '\n';
 	}
 	else if (rand >= 1000 && rand <= 1100) //1%
 	{
 		Hurricane();
+		std::cout << "Hurricane!!" << '\n';
 	}
 	else if (rand >= 3000 && rand <= 3200) //2%
 	{
 		WildFire();
+		std::cout << "Wild Fire!!" << '\n';
 	}
 	else if (rand == 2) //1%
 	{
 		GodsGift();
+		std::cout << "God's gift!!" << '\n';
 	}
 	else if (rand > 30 && rand <= 40) // 0.1%
 	{
 		AngelsAegis();
+		std::cout << "Angel's aegis!!" << '\n';
 	}
 	else if (rand > 4000 && rand <= 5000) //1%
 	{
 		MajestysMarvel();
+		std::cout << "Majesty's marvel!!" << '\n';
 	}
 }
 /*

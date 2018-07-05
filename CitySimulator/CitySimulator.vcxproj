@@ -133,7 +133,6 @@
   <ItemGroup>
     <ClCompile Include="Helpers\Government.cpp" />
     <ClCompile Include="Controllers\UiObjects\Slider.cpp" />
-    <ClCompile Include="Disaster.cpp" />
     <ClCompile Include="Controllers\DisasterController.cpp" />
     <ClCompile Include="Controllers\UiObjects\Status.cpp" />
     <ClCompile Include="Systems\River\River.cpp" />
@@ -186,7 +185,6 @@
     <ClInclude Include="Controllers\UiObjects\SatisBar.h" />
     <ClInclude Include="Controllers\UiObjects\SelectionButton.h" />
     <ClInclude Include="Controllers\UiObjects\Slider.h" />
-    <ClInclude Include="Disaster.h" />
     <ClInclude Include="Controllers\DisasterController.h" />
     <ClInclude Include="Helpers\FeatureFlags.h" />
     <ClInclude Include="Helpers\HelperFunctions.h" />

@@ -126,9 +126,6 @@
     <ClCompile Include="Systems\School\SchoolSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Disaster.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Controllers\DisasterController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -324,9 +321,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Collections\ListIterator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Disaster.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Controllers\DisasterController.h">
