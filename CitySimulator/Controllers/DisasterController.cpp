@@ -143,6 +143,7 @@ void DisasterController::Tsunami()
 			citizen->Die();
 		}
 	}
+	//not finished!!
 }
 
 void DisasterController::WildFire()
@@ -169,15 +170,35 @@ void DisasterController::WildFire()
 
 void DisasterController::MajestysMarvel()
 {
-
+	const auto& roads = CoreController::GetSystemController()->Plots()->Roads();
+	for (auto && road : roads)
+	{
+		const int i = RandomInt(0, 4);
+		if (i == 2)
+		{
+			road->PerformClick();
+		}
+	}
 }
 
 void DisasterController::AngelsAegis()
 {
-
+	const auto& roads = CoreController::GetSystemController()->Plots()->Roads();
+	for (auto && road : roads)
+	{
+		const int i = RandomInt(0, 9);
+		if (i == 5)
+		{
+			road->PerformClick();
+		}
+	}
 }
 
 void DisasterController::GodsGift()
 {
-
+	const auto& citizens = CoreController::Instance()->GetSystemController()->GetCitizens();
+	for (auto && citizen : citizens)
+	{
+			citizen->DoubleSpeed();
+	}
 }
