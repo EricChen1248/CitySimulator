@@ -107,6 +107,7 @@ After each day ends, those citizen with other half will start to have children.
 void CitizenSystem::NewCitizen()
 {
     const float birth = Government::BirthRate() * 0.166f;
+	const auto plot = CoreController::GetSystemController()->Plots();
 	for (auto && citizen : citizens)
 	{
 		if (citizen->IsMarried()&&(citizen->GetGender() == Female))
@@ -118,13 +119,9 @@ void CitizenSystem::NewCitizen()
 			if (numerator < birth)
 			{
 				//create a new citizen and add it into Citizen system
-				const auto plot = CoreController::GetSystemController()->Plots();
 				//The children is born by the side of their mother
-		
-				auto citizenPtr = new Citizen(plot->FindPlot(citizen->Coords()));
-				citizens.InsertLast(citizenPtr);
-				//Setting
-				citizenPtr->Birth(citizen,citizen->GetFamilyMember(Spouse));
+				auto child = new Citizen(plot->FindPlot(citizen->Coords()), citizen, citizen->GetFamilyMember(Spouse));
+				citizens.InsertLast(child);
 			}
 		}
 		else

@@ -12,8 +12,10 @@
 #include "../../Helpers/HelperFunctions.h"
 
 
-Citizen::Citizen(Plot* plot) : target(nullptr), activeRule(nullptr), coords(plot->Coords()), money(0), waitTime(0.f), inPlot(false), dead(false), age(0), pathFindFailed(false)
+Citizen::Citizen(Plot* plot) : target(nullptr), currentPlot(plot), currentRoad(nullptr), activeRule(nullptr), money(1000), tempTarget(plot->Coords()), coords(plot->Coords()), waitTime(0.f),
+                               inPlot(false), pathFindFailed(false), dead(false)
 {
+    age = RandomInt(7, 13) * 3;
 	gender = static_cast<Gender>(RandomInt(0, 2));
     
     moveSpeed = 1.5f + static_cast<float>(RandomInt(-30, 30)) / 100;
@@ -21,11 +23,21 @@ Citizen::Citizen(Plot* plot) : target(nullptr), activeRule(nullptr), coords(plot
     shape = sf::CircleShape(5);
     shape.setFillColor(BLUE);
     
-    currentPlot = plot;
     GenRules();
 }
 
-Citizen::~Citizen() = default;
+Citizen::Citizen(Plot* plot, Citizen* parent1, Citizen* parent2) : Citizen(plot)
+{
+    age = 0;
+    money = 0;
+	Family char1, char2;
+	parent1->GetGender() == Male ? (char1 = Father, char2 = Mother) : (char1 = Mother, char2 = Father);
+	SetFamily(char1, parent1);
+	SetFamily(char2, parent2);
+}
+
+Citizen::~Citizen()
+= default;
 
 /**
  * \brief Increases (decrease if negative) the amount of money of the citizen
@@ -212,14 +224,6 @@ void Citizen::Marry(Citizen * spouse)
 {
 	SetFamily(Spouse, spouse);
 	spouse->SetFamily(Spouse, this);
-}
-
-void Citizen::Birth(Citizen * parent, Citizen * parent2)
-{
-	Family char1, char2;
-	parent->GetGender() == Male ? (char1 = Father, char2 = Mother) : (char1 = Mother, char2 = Father);
-	SetFamily(char1, parent);
-	SetFamily(char2, parent2);
 }
 
 /**

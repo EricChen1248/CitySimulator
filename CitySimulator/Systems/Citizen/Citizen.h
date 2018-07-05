@@ -16,6 +16,7 @@ class Citizen
 {
 public:
     Citizen(Plot* plot);
+    Citizen(Plot* plot, Citizen* parent1, Citizen* parent2);
     ~Citizen();
     
     sf::CircleShape& GetShape() { return shape; }
@@ -44,7 +45,6 @@ public:
     bool IsDead() const { return dead; }
     
 	void Marry(Citizen* spouse);
-	void Birth(Citizen* parent,Citizen* parent2);
 	void Die();
     
 private:
