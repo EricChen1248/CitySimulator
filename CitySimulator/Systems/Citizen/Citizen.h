@@ -1,11 +1,11 @@
 #pragma once
 #include <SFML/Graphics/CircleShape.hpp>
-#include "../Base/BaseRule.h"
 #include "../Plot/Plot.h"
+#include "../Base/BaseRule.h"
+#include "../Citizen/CitizenEnum.h"
 #include "../../Helpers/Coordinate.h"
 #include "../../Collections/List.h"
 #include "../../Collections/Stack.h"
-#include "../Citizen/CitizenEnum.h"
 /**
  * \brief The central entity of our game/simulation
  */
@@ -42,12 +42,13 @@ public:
 	// LifeCycle function
     int Age() const { return age; }
 	Gender GetGender() const { return gender; }
-	Citizen* GetFamilyMember(const Family character) const { return family[static_cast<int>(character)]; }
+	Citizen* GetFamilyMember(const Relationship relation) const { return family[static_cast<int>(relation)]; }
 	bool IsMarried() const;
     bool IsDead() const { return dead; }
     
 	void Marry(Citizen* spouse);
 	void Die();
+    void DeathEvents();
     
 private:
     void FindNextTarget();
@@ -56,7 +57,7 @@ private:
     void UpdateRules() const;
     void FindPath();
 
-	void SetFamily(const Family& character, Citizen* citizen);
+	void SetRelationships(const Relationship& relation, Citizen* citizen);
     // Collections
     List<BaseRule*> rules;
     Stack<Coordinate>* path{};

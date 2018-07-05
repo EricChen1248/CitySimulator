@@ -7,7 +7,6 @@
 #include "../../Helpers/Government.h"
 
 #include "../../Helpers/FeatureFlags.h"
-#include <iostream>
 CitizenSystem::CitizenSystem()
 {
 #ifdef _DEBUG
@@ -75,6 +74,9 @@ void CitizenSystem::PruneDead()
     }
 }
 
+/**
+ * \brief Triggers new day events for citizens and handles marriage and birth
+ */
 void CitizenSystem::NewDay()
 {
 
@@ -90,7 +92,7 @@ void CitizenSystem::NewDay()
 	return;
 }
 /**
-* \brief: assign every person a home
+* \brief: Triggers end day of each citizen
 */
 void CitizenSystem::EndDay()
 {
@@ -100,17 +102,16 @@ void CitizenSystem::EndDay()
     }
 }
 
-/*
-Brief:
-After each day ends, those citizen with other half will start to have children.
-*/
+/**
+ * \brief Handles birth of citizens, based on married people and birthrate
+ */
 void CitizenSystem::NewCitizen()
 {
     const float birth = Government::BirthRate() * 0.166f;
 	const auto plot = CoreController::GetSystemController()->Plots();
 	for (auto && citizen : citizens)
 	{
-		if (citizen->IsMarried()&&(citizen->GetGender() == Female))
+		if (citizen->IsMarried()&&(citizen->GetGender() == FEMALE))
 		{
 		    const float numerator = float(RandomInt(0, 101)) / 100.f;
 
@@ -120,7 +121,7 @@ void CitizenSystem::NewCitizen()
 			{
 				//create a new citizen and add it into Citizen system
 				//The children is born by the side of their mother
-				auto child = new Citizen(plot->FindPlot(citizen->Coords()), citizen, citizen->GetFamilyMember(Spouse));
+				auto child = new Citizen(plot->FindPlot(citizen->Coords()), citizen, citizen->GetFamilyMember(SPOUSE));
 				citizens.InsertLast(child);
 			}
 		}
@@ -169,7 +170,6 @@ void CitizenSystem::PeopleMarry()
 			if (dice <= 52)
 			{
 				citizen1->Marry(citizen2);
-				
 			}
 			break;
 		}

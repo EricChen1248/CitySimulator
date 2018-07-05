@@ -1,10 +1,10 @@
 #include "PlotSystem.h"
-#include "../../Helpers/Constants.h"
 #include "../../Controllers/CoreController.h"
+#include "../../Helpers/Constants.h"
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Helpers/PathFinder/PathFinder.h"
-#include "../../Helpers/FeatureFlags.h"
-PlotSystem::PlotSystem(): hoverPlot(nullptr), hoverRoad(nullptr), builtBridge(true)
+
+PlotSystem::PlotSystem(): hoverPlot(nullptr), hoverRoad(nullptr)
 {
     const int size = RIGHT - LEFT;
     plotArray = new Plot**[size];
@@ -39,7 +39,7 @@ PlotSystem::~PlotSystem()
 
 
 /**
- * \brief Renders all the plots
+ * \brief Calls all rendering event during the day
  */
 void PlotSystem::Render() const
 {
@@ -51,6 +51,9 @@ void PlotSystem::Render() const
 	}
 }
 
+/**
+ * \brief Calls all rendering events during interday
+ */
 void PlotSystem::RenderInterDay()
 {
     for (auto && plot : plots)
@@ -63,6 +66,9 @@ void PlotSystem::RenderInterDay()
     HandleClick();
 }
 
+/**
+ * \brief Draws the roads
+ */
 void PlotSystem::RenderRoads() const
 {
 	for (auto && road : roads)
@@ -116,16 +122,7 @@ void PlotSystem::HandleClick()
             // if mouse is clicked
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
-                if (Status::SelectedPlot != nullptr)
-                {
-                    auto & selectedShape = Status::SelectedPlot->GetShape();
-                    selectedShape.setOutlineThickness(0);
-                }
-                if (Status::SelectedRoad != nullptr)
-                {
-                    auto & selectedShape = Status::SelectedRoad->Shape();
-                    selectedShape.ResetColor();
-                }
+                DeselectPlotsAndRoads();
                 Status::SelectedPlot = hoverPlot;
 	            if (hoverPlot->currentType != nullptr)
                 {
@@ -137,7 +134,7 @@ void PlotSystem::HandleClick()
         }
         else 
         {
-            // has left plot
+            // mouse has left plot
             // if plot is not selected, remove outline
             if (hoverPlot != Status::SelectedPlot)
             {
@@ -145,9 +142,8 @@ void PlotSystem::HandleClick()
             }
             hoverPlot = nullptr;
         }
-        // Mouse only just left plot, no need to check if over other plots
     }
-    // If is on line, no need to check road
+    // If is on plot, no need to check road
     if (hoverRoad != nullptr && !onPlot)
     {
         auto & shape = hoverRoad->Shape();
@@ -155,16 +151,7 @@ void PlotSystem::HandleClick()
         {
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
-                if (Status::SelectedPlot != nullptr)
-                {
-                    auto & selectedShape = Status::SelectedPlot->GetShape();
-                    selectedShape.setOutlineThickness(0);
-                }
-                if (Status::SelectedRoad != nullptr)
-                {
-                    auto & selectedShape = Status::SelectedRoad->Shape();
-                    selectedShape.ResetColor();
-                }
+                DeselectPlotsAndRoads();
                 Status::SelectedRoad = hoverRoad;
                 Status::Selection = ROAD;
                 
@@ -184,6 +171,30 @@ void PlotSystem::HandleClick()
     FindHover(x, y);
 }
 
+/**
+ * \brief Deselect and undraw the selected plots and roads
+ */
+void PlotSystem::DeselectPlotsAndRoads()
+{
+    if (Status::SelectedPlot != nullptr)
+    {
+        auto & selectedShape = Status::SelectedPlot->GetShape();
+        selectedShape.setOutlineThickness(0);
+        Status::SelectedPlot = nullptr;
+    }
+    if (Status::SelectedRoad != nullptr)
+    {
+        auto & selectedShape = Status::SelectedRoad->Shape();
+        selectedShape.ResetColor();
+        Status::SelectedPlot = nullptr;
+    }
+}
+
+/**
+ * \brief Finds if a mouse is hovering over a plot/road and mark is as hovered
+ * \param x x-axis position of the mouse
+ * \param y y-axis position of the mouse
+ */
 void PlotSystem::FindHover(const float x, const float y)
 {
     for (auto && plot : plots)
@@ -200,6 +211,7 @@ void PlotSystem::FindHover(const float x, const float y)
             return;
         }
     }
+    
     for (auto && road : roads)
     {
         auto & shape = road->Shape();
@@ -215,19 +227,17 @@ void PlotSystem::FindHover(const float x, const float y)
     }
 }
 
+/**
+ * \brief Clears all selections and hover graphics
+ */
 void PlotSystem::ClearSelections()
 {
+    DeselectPlotsAndRoads();
     if (hoverPlot != nullptr)
     {
         auto & shape = hoverPlot->GetShape();
         shape.setOutlineThickness(0);
         hoverPlot = nullptr;
-    }
-    if (Status::SelectedPlot != nullptr)
-    {
-        auto & shape = Status::SelectedPlot->GetShape();
-        shape.setOutlineThickness(0);
-        Status::SelectedPlot = nullptr;
     }
     if (hoverRoad != nullptr)
     {
@@ -235,16 +245,24 @@ void PlotSystem::ClearSelections()
         shape.ResetColor();
         hoverRoad = nullptr;
     }
-    if (Status::SelectedRoad != nullptr)
-    {
-        auto & shape = Status::SelectedRoad->Shape();
-        shape.ResetColor();
-        Status::SelectedPlot = nullptr;
-    }
            
     Status::Selection = NONE_SELECTED;
 }
 
+/**
+ * \brief Trigger new day for each plot
+ */
+void PlotSystem::NewDay()
+{
+    for (auto&& plot : plots)
+    {
+        plot->NewDay();
+    }
+}
+
+/**
+ * \brief Trigger end day for each plot and road
+ */
 void PlotSystem::EndDay()
 {
     for (auto && plot : plots)
@@ -255,11 +273,13 @@ void PlotSystem::EndDay()
     {
         road->EndDay();
     }
-    if (builtBridge)
-    {
-    }
 }
 
+/**
+ * \brief Quick O(1) lookup for plots using coordinates
+ * \param coords Coordinates being converted
+ * \return The mapped plot pointer
+ */
 Plot* PlotSystem::CoordToPlotArray(const Coordinate& coords) const
 {
     if (coords.X() < LEFT || coords.X() >= RIGHT) return nullptr;
@@ -268,6 +288,9 @@ Plot* PlotSystem::CoordToPlotArray(const Coordinate& coords) const
     return plotArray[coords.X() - LEFT][coords.Y() - LEFT];
 }
 
+/**
+ * \brief Generates the roads of the whole plot system
+ */
 void PlotSystem::GenerateRoads()
 {
     for (auto&& plot : plots)

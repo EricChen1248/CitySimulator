@@ -30,10 +30,10 @@ Citizen::Citizen(Plot* plot, Citizen* parent1, Citizen* parent2) : Citizen(plot)
 {
     age = 0;
     money = 0;
-	Family char1, char2;
-	parent1->GetGender() == Male ? (char1 = Father, char2 = Mother) : (char1 = Mother, char2 = Father);
-	SetFamily(char1, parent1);
-	SetFamily(char2, parent2);
+	Relationship char1, char2;
+	parent1->GetGender() == MALE ? (char1 = FATHER, char2 = MOTHER) : (char1 = MOTHER, char2 = FATHER);
+	SetRelationships(char1, parent1);
+	SetRelationships(char2, parent2);
 }
 
 Citizen::~Citizen()
@@ -228,13 +228,17 @@ BaseRule* Citizen::FindRule(const System system)
 
 bool Citizen::IsMarried() const
 {
-	return family[static_cast<int>(Spouse)] != nullptr;
+	return family[static_cast<int>(SPOUSE)] != nullptr;
 }
 
+/**
+ * \brief Marries two people and sets their relationship to each other
+ * \param spouse Citizen person in being married to
+ */
 void Citizen::Marry(Citizen * spouse)
 {
-	SetFamily(Spouse, spouse);
-	spouse->SetFamily(Spouse, this);
+	SetRelationships(SPOUSE, spouse);
+	spouse->SetRelationships(SPOUSE, this);
 }
 
 /**
@@ -243,6 +247,17 @@ void Citizen::Marry(Citizen * spouse)
 void Citizen::Die()
 {
     dead = true;
+}
+
+/**
+ * \brief Calls the death events for each rule
+ */
+void Citizen::DeathEvents()
+{
+    for (auto && rule : rules)
+    {
+        rule->Death();
+    }
 }
 
 /**
@@ -368,7 +383,12 @@ void Citizen::FindPath()
     tempTarget = path->Pop();
 }
 
-void Citizen::SetFamily(const Family& character,Citizen * citizen)
+/**
+ * \brief Sets up the relationship log of two citizens
+ * \param relation Relationship relative to citizen
+ * \param citizen Other citizen setting relationships
+ */
+void Citizen::SetRelationships(const Relationship& relation,Citizen * citizen)
 {
-	family[static_cast<int>(character)] = citizen;
+	family[static_cast<int>(relation)] = citizen;
 }

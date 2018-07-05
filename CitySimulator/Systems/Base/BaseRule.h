@@ -21,6 +21,7 @@ public:
     virtual bool IsSatisfied() = 0;
     virtual void NewDay() {};
     virtual void EndDay() {};
+    virtual void Death() {};
     System Type() const { return type; };
 protected:
     System type;

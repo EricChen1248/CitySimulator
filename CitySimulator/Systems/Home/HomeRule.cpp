@@ -12,10 +12,10 @@ HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME),myHome(nullptr)
 	//therefore each citizen can go home by unique timing
 
 	goHomeTime.IncreaseTime(21);
-	if (citizen.GetFamilyMember(Father) != nullptr)
+	if (citizen.GetFamilyMember(FATHER) != nullptr)
 	{
-		if (Pathable(dynamic_cast<HomeRule*>(citizen.GetFamilyMember(Father)->FindRule(HOME))->myHome->GetPlot()->Coords(), citizen.Coords()) == true)
-			myHome = dynamic_cast<HomeRule*>(citizen.GetFamilyMember(Father)->FindRule(HOME))->myHome;
+		if (Pathable(dynamic_cast<HomeRule*>(citizen.GetFamilyMember(FATHER)->FindRule(HOME))->myHome->GetPlot()->Coords(), citizen.Coords()) == true)
+			myHome = dynamic_cast<HomeRule*>(citizen.GetFamilyMember(FATHER)->FindRule(HOME))->myHome;
 		else
 			myHome = nullptr;
 	}

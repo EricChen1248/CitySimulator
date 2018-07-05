@@ -1,13 +1,13 @@
 #pragma once
 #pragma once
-enum Family
+enum Relationship
 {
-	Father = 0,
-	Mother,
-	Spouse,
+	FATHER = 0,
+	MOTHER,
+	SPOUSE,
 };
 enum Gender
 {
-	Male = 0,
-	Female,
+	MALE = 0,
+	FEMALE,
 };
