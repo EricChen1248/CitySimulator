@@ -16,6 +16,7 @@ const sf::Color GREEN = sf::Color(0,255,0);
 const sf::Color YELLOW = sf::Color(255,242,0);
 const sf::Color DARK_GREY = sf::Color(100,100,100);
 const sf::Color LIGHT_GREY = sf::Color(150,150,150);
+const sf::Color TRANSPARENT = sf::Color(0,0,0,0);
 
 const sf::Color EMPTY_PLOT_COLOR = sf::Color(200, 200, 200);
 const sf::Color FOOD_COLOR = sf::Color::Magenta;

@@ -8,7 +8,7 @@ helper::Time FoodRule::breakfastTime;
 helper::Time FoodRule::lunchTime;
 helper::Time FoodRule::dinnerTime;
 
-FoodRule::FoodRule(Citizen& citizen): BaseRule(citizen, FOOD), hungerLevel(0) { }
+FoodRule::FoodRule(Citizen& citizen): BaseRule(citizen, FOOD), hungerLevel(100) { }
 
 FoodRule::~FoodRule() = default;
 
@@ -18,7 +18,7 @@ float FoodRule::CalculateScore()
     {
         return 0;
     }
-    return exp(100 - hungerLevel) * 1000;
+    return exp(80 - hungerLevel) * 1000;
 }
 
 /**
@@ -59,7 +59,7 @@ void FoodRule::EnterPlot(Plot* plot)
 {
     const auto food = dynamic_cast<Food*>(plot->GetPlotType());
     const auto& time = CoreController::Instance()->GetTime();
-    citizen->Wait(1.f);
+    citizen->Wait(0.5f);
     citizen->IncreaseMoney(-food->cost);
     food->Enter();
 }
@@ -79,7 +79,7 @@ void FoodRule::LeavePlot(Plot* plot)
 void FoodRule::Update()
 {
     // TODO : Tweak hunger to time ratio
-    hungerLevel -= CoreController::Instance()->GetDeltaTime() * 72;
+    hungerLevel -= CoreController::Instance()->GetDeltaTime() * 3;
 }
 
 /**
@@ -96,5 +96,5 @@ bool FoodRule::IsSatisfied()
  */
 void FoodRule::FillHunger()
 {
-    hungerLevel = std::numeric_limits<float>::max();;
+    hungerLevel = std::numeric_limits<float>::max();
 } 

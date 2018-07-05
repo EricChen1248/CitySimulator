@@ -25,7 +25,11 @@ public:
         vertices[2].position = point2 - offset;
         vertices[3].position = point1 - offset;
     }
-
+    void SetColor(const sf::Color color)
+    {
+        this->color = color;
+        ChangeColor(color);
+    }
     void ChangeColor(const sf::Color color)
     {
         for (int i = 0; i < 4; ++i)
@@ -62,14 +66,6 @@ public:
         const float numerator = (y2 - y1) * x - (x2 - x1) * y + x2 * y1 - y2 * x1;
         const float denom = pow(y2 - y1, 2) + pow(x2 - x1, 2);
         return pow(numerator, 2) / denom < pow(thickness*2, 2);
-    }
-    
-    void SetColor(const sf::Color& color)
-    {
-        for (int i = 0; i < 4; ++i)
-        {
-            vertices[i].color = color;
-        }
     }
     
     void ResetColor()

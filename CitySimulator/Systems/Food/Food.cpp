@@ -7,45 +7,38 @@
 
 const int Food::MAX_FOOD_COST;
 
-Food::Food(Plot* plot) : Base(plot, FOOD), customerCountTally(0), overloadedTally(0)
+Food::Food(Plot* plot) : Base(plot, FOOD), earnedMoney(0), overloadedTally(0)
 {
     cost = RandomInt(50, MAX_FOOD_COST);
-    score = 0;
     color = FOOD_COLOR;
 }
 
 Food::~Food()
 = default;
+
 std::string Food::ContentString()
 {
     std::stringstream ss;
-    if (customerCountTally < FoodSystem::DAILY_CUSTOMER)
+    if (earnedMoney < FoodSystem::OPERATING_COST)
     {
-        ss << "Not enough people" << std::endl << "are coming here." << std::endl << std::endl;
+        ss << "We did not earn" << std::endl << "enough money today" << std::endl << std::endl;
     }
-    else if (overloadedTally > 0)
+    else if (overloadedTally > 20)
     {
-        ss << "There is too many " << std::endl << " customers to handle!" << std::endl;
+        ss << "There were too many " << std::endl << "customers to handle!" << std::endl;
     }
     else
     {
-        ss << "The restuarant performed fine the past day." << std::endl << std::endl;
+        ss << "Today was an" << std::endl << "excellent day." << std::endl << std::endl;
     }
-    ss << "Today's customer: " << customerCountTally << std::endl << "Overloaded count: " << overloadedTally;
+    ss << "Today's earnings: " << earnedMoney << std::endl << "Overloaded count: " << overloadedTally;
     return ss.str();
 }
 
 void Food::NewDay()
 {
-    customerCountTally = 0;
+    earnedMoney = 0;
     overloadedTally = 0;
-}
-
-/**
- * \brief EndDay's Food Plot (score to 0)
- */
-void Food::EndDay()
-{
 }
 
 /**
@@ -53,7 +46,7 @@ void Food::EndDay()
  */
 void Food::Enter()
 {
-    ++customerCountTally;
+    earnedMoney += cost * 0.5f;
     if (plot->GetOccupantCount() > maxCustomer)
     {
         overloadedTally++;

@@ -1,6 +1,5 @@
 #pragma once
 #include "../Base/Base.h"
-#include "../../Helpers/Time.h"
 
 class FoodRule;
 /**
@@ -17,12 +16,12 @@ public:
     std::string ContentString() override;
     
     void NewDay() override;
-    void EndDay() override;
+    void EndDay() override { };
     static const int MAX_FOOD_COST = 100;
 private:
     const int maxCustomer = 10;
     int cost;
-    int customerCountTally;
+    int earnedMoney;
     int overloadedTally;
     
     void Enter();

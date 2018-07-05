@@ -36,8 +36,10 @@ public:
 	Road* GetRoad(int i) const;
     Road* GetRoad(Plot* plot) const;
     bool IsRiver() const { return river; }
+    void BuiltBridge();
     
-	void MarkAsRiver();;
+    void NotRiver();
+	void MarkAsRiver();
 private:
     Coordinate coords;
     ScreenCoordinate sCoords{};

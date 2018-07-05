@@ -6,7 +6,7 @@
 
 
 class FoodRule;
-const int FoodSystem::DAILY_CUSTOMER;
+const int FoodSystem::OPERATING_COST;
 FoodSystem::FoodSystem() : BaseSystem(FOOD)
 {
     FoodRule::breakfastTime = helper::Time(10,0);
@@ -60,17 +60,18 @@ void FoodSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
 
 float FoodSystem::GetSatisfaction() const
 {
-    const float overloadedPenalty = 0.01f;
+    const float overloadedPenalty = 0.02f;
     float overloadedTally = 0;
-    float customerTally = 0;
+    float earnedMoney = 0;
     for (auto&& plot : plots)
     {
         const auto food = dynamic_cast<Food*>(plot->GetPlotType());
-        customerTally += food->customerCountTally - (food->customerCountTally - Clamp(food->customerCountTally, 0, DAILY_CUSTOMER)) * 0.5f;
+        // If earnings exceeded operating costs, additional money is only worth half the score
+        earnedMoney += food->earnedMoney - (food->earnedMoney - Clamp(food->earnedMoney, 0, OPERATING_COST)) * 0.5f;
         overloadedTally += food->overloadedTally;
     }
-    customerTally /= plots.Count();
-    float satisfaction = 1.f - float(DAILY_CUSTOMER - customerTally) / float(DAILY_CUSTOMER);
+    earnedMoney /= plots.Count();
+    float satisfaction = 1.f - float(OPERATING_COST - earnedMoney) / float(OPERATING_COST);
     
     overloadedTally = overloadedTally / plots.Count() * overloadedPenalty;
     satisfaction -= overloadedTally;

@@ -32,6 +32,13 @@ bool Road::IsRiver() const
 
 int Road::LevelUp()
 {
+    if (isRiver)
+    {
+        if (plotOne->IsRiver()) plotOne->BuiltBridge();
+        else if (plotTwo->IsRiver()) plotTwo->BuiltBridge();
+        isRiver = false;
+        shape.SetColor(BASE_ROAD_COLOR);
+    }
 	// TODO: number
 	level++;
 	capacity += 20; 
@@ -53,6 +60,7 @@ int Road::Repair()
 
 void Road::MarkAsRiver()
 {
+    shape.SetColor(TRANSPARENT);
 	isRiver = true;
 	level = 0;
 }
@@ -61,7 +69,7 @@ int Road::PerformClick()
 {
 	if (isBroken)
 		return Repair();
-
+    
 	return LevelUp();
 }
 
@@ -103,10 +111,7 @@ void Road::EndDay()
 
 void Road::Render() const
 {
-	if (!isRiver)
-	{
-		shape.Render(CoreController::SfmlController()->Window());
-	}
+	shape.Render(CoreController::SfmlController()->Window());
 }
 
 std::string Road::ContentString() const
