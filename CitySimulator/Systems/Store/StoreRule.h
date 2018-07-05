@@ -4,20 +4,27 @@
 /**
 * \brief Store rule that handles the consumption needs of our citizens
 */
-class StoreRule :	public BaseRule
+class StoreRule : public BaseRule
 {
 public:
 	 StoreRule(Citizen& citizen);;
     ~StoreRule();
 
-    float CalculateScore();
-    bool FindPlot();
-    void EnterPlot(Plot* plot);
-    void LeavePlot(Plot* plot);
-    void Update();
-    bool IsSatisfied() override;
+    float CalculateScore() override;
+    bool FindPlot() override;
+    void EnterPlot(Plot* plot) override;
+    void LeavePlot(Plot* plot) override;
+    void Update() override;
 private:
 	const int maxDistance = 100;
-	float materialNeed;
+    
+    float foodStock;
+    float miscStock;
+    float householdStock;
+    
+    static const float MAX_STOCK;
+    static const float RESTOCK;
+    
+    
 };
 

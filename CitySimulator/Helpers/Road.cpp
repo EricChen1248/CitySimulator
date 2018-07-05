@@ -6,7 +6,7 @@
 Road::Road(Plot* plotOne, Plot* plotTwo) : plotOne(plotOne), plotTwo(plotTwo), level(1), capacity(100), citizenCount(0), lifespan(50.f), isBroken(false), isRiver(false)
 // TODO: number of capacity, lifespan 
 {
-    shape = Line(plotOne->Coords(), plotTwo->Coords(), BASE_ROAD_COLOR, 1.3);
+    shape = Line(plotOne->Coords(), plotTwo->Coords(), BASE_ROAD_COLOR, 1.3f);
 }
 
 
@@ -15,13 +15,13 @@ Road::~Road()
 
 float Road::Speed() const
 {
-    if (isRiver) return 0;
+    if (isRiver) return 0.f;
 	// Traffic jam
 	// TODO: 0.2 or ?
 	if (isBroken)
-		return 0.01; // can pass but very slowly
+		return 0.01f; // can pass but very slowly
 	
-	return static_cast<float>(level) - 0.2f * (citizenCount > capacity) ? 1 : 0;
+	return static_cast<float>(level) - 0.2f * (citizenCount > capacity) ? 1.f : 0.f;
 }
 
 bool Road::IsRiver() const
@@ -81,7 +81,7 @@ void Road::Enter()
 void Road::Leave()
 {
 	citizenCount--;
-	lifespan -= 0.01; //TODO:0.01
+	lifespan -= 0.01f; //TODO:0.01
 }
 
 

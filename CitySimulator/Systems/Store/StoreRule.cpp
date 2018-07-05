@@ -4,9 +4,12 @@
 #include "StoreSystem.h"
 #include "Store.h"
 #include "../../Helpers/HelperFunctions.h"
+#include "../Food/FoodRule.hpp"
 
+const float StoreRule::MAX_STOCK = 200.f;
+const float StoreRule::RESTOCK = 50.f;
 
-StoreRule::StoreRule(Citizen& citizen) : BaseRule(citizen, STORE), materialNeed(0)
+StoreRule::StoreRule(Citizen& citizen) : BaseRule(citizen, STORE), foodStock(0), miscStock(0), householdStock(0)
 {
     
 }
@@ -17,12 +20,24 @@ StoreRule::~StoreRule()
 
 float StoreRule::CalculateScore()
 {
-    return 0;
+    const int restock = 50;
+    // if (citizen->FindRule(HOME)->HasHome())
+    // {
+    //     return 0;
+    // }
+    
+    float totalScore = 0.f;
+    totalScore += Clamp(RESTOCK - foodStock, 0.f);
+    totalScore += Clamp(RESTOCK - miscStock, 0.f);
+    totalScore += Clamp(RESTOCK - householdStock, 0.f);
+    // TODO : adjust store rule score multiplier
+    return totalScore * 5;
+    
 }
 
 bool StoreRule::FindPlot()
 {
-	auto &plots = CoreController::Instance()->GetSystemController()->GetSystem(FOOD)->Plots();
+	auto &plots = CoreController::GetSystemController()->GetSystem(STORE)->Plots();
 
 	// Get a list of plots that fulfill out requirements ( distance < max distance
 	List<Plot*> choices;
@@ -52,29 +67,31 @@ bool StoreRule::FindPlot()
 void StoreRule::EnterPlot(Plot* plot)
 {
 	const auto store = dynamic_cast<Store*>(plot->GetPlotType());
-	citizen->Wait(8.f);
+	citizen->Wait(0.1f);
 	citizen->IncreaseMoney(-store->cost);
 	store->Enter();
 }
 
 void StoreRule::LeavePlot(Plot* plot)
 {
-	materialNeed = 0;
+    foodStock = MAX_STOCK;
+    miscStock = MAX_STOCK;
+    householdStock = MAX_STOCK;
 }
 
 void StoreRule::Update()
 {
-    const int i = RandomInt(1, 100);
-	
-	if (i <= 80)
-		materialNeed += 1 * CoreController::Instance()->GetDeltaTime() / 100 ;
-	else if (i <= 99)
-		materialNeed += 10 * CoreController::Instance()->GetDeltaTime() / 100;
-	else if (i == 100)
-		materialNeed += 50 * CoreController::Instance()->GetDeltaTime() / 100;
-}
-
-bool StoreRule::IsSatisfied()
-{
-    return materialNeed <= 20;
+    // TODO : store update checks
+    //if (!citizen->FindRule(HOME)->IsHome())
+    return;
+    
+    
+    // TODO : store numbers
+    float deltaTime = CoreController::Instance()->GetDeltaTime();
+    if (foodStock > 0)
+    {
+        foodStock -= deltaTime;
+        const auto food = dynamic_cast<FoodRule* >(citizen->FindRule(FOOD));
+        food->FillHunger(food->Hunger() + deltaTime * 0.5f);
+    }
 }

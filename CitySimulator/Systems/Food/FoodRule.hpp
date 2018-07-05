@@ -21,7 +21,8 @@ public:
     void Update() override;
     bool IsSatisfied() override;
     
-    void FillHunger();
+    float Hunger() const { return hungerLevel; }
+    void FillHunger(float hunger = std::numeric_limits<float>::max());
 private:
     static helper::Time breakfastTime;
     static helper::Time lunchTime;

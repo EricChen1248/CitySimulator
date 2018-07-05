@@ -15,11 +15,7 @@ public:
     System SystemType;
     
     BaseSystem(const System system) : SystemType(system), score(0) {};
-    
-
     const List<Plot*>& Plots() const { return plots; }
-    // TODO : Flip system to handle score calculation
-    virtual float GetScore() const { return score; }
     virtual float GetSatisfaction() const { return 0; }
     const List<Log*>& SatisfiedLog() const { return satisfiedLog; }
     const List<Log*>& UnsatisfiedLog() const { return unsatisfiedLog; }

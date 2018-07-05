@@ -176,7 +176,6 @@ void UIController::DrawSelection()
 
 void UIController::DrawSatisfaction()
 {
-    
     scoreList.Clear();
     const auto systems = CoreController::GetSystemController();
     for (auto system : systems->GetSystems())

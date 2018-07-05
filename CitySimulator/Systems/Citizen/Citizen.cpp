@@ -254,6 +254,15 @@ void Citizen::Die()
  */
 void Citizen::DeathEvents()
 {
+    if (currentPlot != nullptr)
+    {
+        currentPlot->Leave(this);
+    }
+    if (currentRoad != nullptr)
+    {
+        currentRoad->Leave();
+    }
+        
     for (auto && rule : rules)
     {
         rule->Death();

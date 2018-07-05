@@ -94,7 +94,7 @@ bool FoodRule::IsSatisfied()
 /** 
  * \brief Used to fill hunger before entering hospital 
  */
-void FoodRule::FillHunger()
+void FoodRule::FillHunger(const float hunger)
 {
-    hungerLevel = std::numeric_limits<float>::max();
+    hungerLevel = hunger;
 } 
