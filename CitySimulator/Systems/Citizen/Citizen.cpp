@@ -119,7 +119,13 @@ void Citizen::Update()
         }
         
         // Citizen is heading toward target
-        coords = coords.MoveTowards(tempTarget, CoreController::Instance()->GetDeltaTime() * moveSpeed * currentRoad->Speed());
+        float speed = CoreController::Instance()->GetDeltaTime() * moveSpeed * currentRoad->Speed();
+        if (doubleSpeedTime > 0)
+        {
+            doubleSpeedTime -= CoreController::Instance()->GetDeltaTime();
+            speed *= 2;
+        }
+        coords = coords.MoveTowards(tempTarget, speed);
         UpdateScreenCoordinates();
         return;
     }

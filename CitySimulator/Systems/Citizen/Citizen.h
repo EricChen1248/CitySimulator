@@ -34,6 +34,8 @@ public:
     void NewDay();
     void EndDay();
     
+    void DoubleSpeed() { doubleSpeedTime = 24.f; };
+    
     BaseRule* FindRule(System system);
     void ForceRule(System ruleType, float waitTime = 0);
     
@@ -73,6 +75,7 @@ private:
     Coordinate tempTarget;
     Coordinate coords;
     float moveSpeed;
+    float doubleSpeedTime;
     
     float waitTime;
     bool inPlot;
