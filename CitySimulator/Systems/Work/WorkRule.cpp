@@ -147,7 +147,7 @@ void WorkRule::NewDay()
 			if (assignedCompany != oldPlot) // Check if citizen change work
 			{
 				const auto oldCompany = dynamic_cast<Work*>(oldPlot->GetPlotType());
-				oldCompany->Resignation();
+				oldCompany->Resignation(citizen);
 			}
 		}
 	}
@@ -197,7 +197,7 @@ void WorkRule::Register()
 	const auto work = dynamic_cast<Work*>(chosen->GetPlotType());
 	baseSalary = work->baseSalary * RandomInt(10, 13) / 10;
 	salary = baseSalary + educationLv * 0.3f; // TODO : number(education)
-	work->NewEmployee();
+	work->NewEmployee(citizen);
 }
 
 void WorkRule::UnRegister()

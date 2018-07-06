@@ -10,6 +10,7 @@ class BaseRule;
 */
 class WorkRule : public BaseRule
 {
+	friend class Work;
 	friend class WorkSystem;
 public:
     WorkRule(Citizen& citizen);

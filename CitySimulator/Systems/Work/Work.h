@@ -16,14 +16,22 @@ public:
 	int Destroy() override;
 	std::string ContentString() override;
 
-	void NewEmployee();
-	void Resignation();
+	void NewEmployee(Citizen* citizen);
+	void Resignation(Citizen* citizen);
+
+	static const int MAX_WORK_COST = 100;
 
 private:
 	void Enter(const float workingTime, const float production);
-	int employeeCount;
+
+	int cost;
+	int todayEmployee;
+	int todayEarlyEmployee;
+	int todayLateEmployee;
 	float todayWorkTime;
 	float baseSalary;
+	float production;
+	List<Citizen*> employees;
 };
 
 
