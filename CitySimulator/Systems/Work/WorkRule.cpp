@@ -14,6 +14,8 @@ Time WorkRule::breakTime;
 Time WorkRule::endBreakTime;
 Time WorkRule::timeOffWork;
 
+
+
 /**
  * \brief 
  * \param citizen 
@@ -87,9 +89,11 @@ void WorkRule::EnterPlot(Plot* plot)
 	if (workingTime > 4)
 		workingTime = 4;
 
-	citizen->Wait(workingTime); // Off Work on time
-
-    const int workingExp = citizen->Age() - 18; // Salary increases due to experience
+	// Off Work on time
+	// Adjust randomly(+-10min) to avoid rush
+	citizen->Wait(workingTime + float(RandomInt(-10, 10)) / 60); 
+    
+	const int workingExp = citizen->Age() - 18; // Salary increases due to experience
 	work->Enter((production - salary - workingExp * 0.3) * workingTime / 4);
 }
 
