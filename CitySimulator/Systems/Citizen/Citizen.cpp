@@ -35,10 +35,42 @@ Citizen::Citizen(Plot* plot, Citizen* parent1, Citizen* parent2) : Citizen(plot)
 	parent1->GetGender() == MALE ? (char1 = FATHER, char2 = MOTHER) : (char1 = MOTHER, char2 = FATHER);
 	SetRelationships(char1, parent1);
 	SetRelationships(char2, parent2);
+	parent1->descendants.InsertLast(this);
+	parent2->descendants.InsertLast(this);
 }
 
 Citizen::~Citizen()
-= default;
+{
+	for (auto child : descendants)
+	{
+		if (gender == MALE)
+		{
+			child->SetRelationships(FATHER, nullptr);
+		}
+		else
+		{
+			child->SetRelationships(MOTHER, nullptr);
+		}
+		auto childBankRule = dynamic_cast<BankRule*>(child->FindRule(BANK));
+		auto myBankRule = dynamic_cast<BankRule*>(FindRule(BANK));
+		childBankRule->SaveMoney(myBankRule->GetSavings() / descendants.Count());
+	}
+	auto fatherPtr = GetFamilyMember(FATHER);
+	auto motherPtr = GetFamilyMember(MOTHER);
+	auto spousePtr = GetFamilyMember(SPOUSE);
+	if (fatherPtr != nullptr)
+	{
+		fatherPtr->descendants.Remove(this);
+	}
+	if (motherPtr != nullptr)
+	{
+		motherPtr->descendants.Remove(this);
+	}
+	if (spousePtr != nullptr)
+	{
+		spousePtr->SetRelationships(SPOUSE, nullptr);
+	}
+}
 
 /**
  * \brief Increases (decrease if negative) the amount of money of the citizen

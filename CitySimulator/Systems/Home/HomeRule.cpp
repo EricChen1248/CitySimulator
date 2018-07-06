@@ -6,7 +6,7 @@
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
 
-HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME),myHome(nullptr)
+HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME),myHome(nullptr),atHomeFlag(false)
 {
 	//this is the time when people start to go home
 	//TODO: goHomeTime is now a static member, which is like a curvew right now. it could be private member
@@ -92,6 +92,7 @@ bool HomeRule::FindPlot()
 void HomeRule::EnterPlot(Plot* plot)
 {
 	if (myHome == nullptr) return;
+	atHomeFlag = true;
 	citizen->Wait(3.f);
 	myHome -> Enter();
 }
@@ -102,6 +103,7 @@ void HomeRule::EnterPlot(Plot* plot)
 */
 void HomeRule::LeavePlot(Plot* plot)
 {
+	atHomeFlag = false;
 	/*Nothing happend need to discuss */
 }
 
