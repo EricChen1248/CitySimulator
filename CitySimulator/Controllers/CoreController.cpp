@@ -10,6 +10,7 @@
 #include "../Helpers/FeatureFlags.h"
 #include "../Helpers/PathFinder/PathFinder.hpp"
 #include <iostream>
+#include "MouseController.h"
 CoreController* CoreController::instance;
 
 using sf::Event;
@@ -278,7 +279,7 @@ void CoreController::InterdayInputEvents()
     {
         viewPortController->Up();
     }
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+    if (MouseController::IsClicked())
     {
         if (uiController->NextDayButtonHover())
         {
