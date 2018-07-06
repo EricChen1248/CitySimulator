@@ -67,6 +67,7 @@ bool StoreRule::FindPlot()
 void StoreRule::EnterPlot(Plot* plot)
 {
 	const auto store = dynamic_cast<Store*>(plot->GetPlotType());
+    if (store == nullptr) return;
 	citizen->Wait(0.1f);
 	citizen->IncreaseMoney(-store->cost);
 	store->Enter();
