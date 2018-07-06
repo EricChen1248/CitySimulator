@@ -9,6 +9,8 @@
 #include "../Helpers/Government.h"
 #include "../Helpers/HelperFunctions.h"
 
+#include "../Systems/Base/BaseSystem.h"
+
 UIController::UIController() : sfml(*CoreController::SfmlController()) {}
 
 UIController::~UIController()
@@ -82,6 +84,7 @@ void UIController::Flash(const std::string& str)
 {
     flash.Flash(str);
 }
+
 
 bool UIController::IsOverUI() const
 {

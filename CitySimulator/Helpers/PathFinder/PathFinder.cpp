@@ -1,8 +1,10 @@
 #include "PathFinder.h"
 #include "../Logger.h"
 #include "../Constants.h"
+#include "../Coordinate.h"
 #include "../HelperFunctions.h"
 #include "../../Collections/Queue.h"
+#include "../../Systems/Plot/PlotSystem.h"
 #include "../../Collections/PriorityQueue.h"
 
 

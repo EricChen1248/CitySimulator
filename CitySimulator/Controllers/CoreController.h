@@ -1,16 +1,19 @@
 #pragma once
-#include "SFMLController.h"
-#include "./ViewPortController.h"
-#include "SystemController.h"
-#include "FontController.h"
-#include "UIController.h"
+#include "../Helpers/Time.h"
+#include <SFML/Graphics.hpp>
 
 /**
  * \brief Acts as the core of the game, initializing all systems, handles events, 
  *        and calls the corresponding methods on each loop
  */
 
+
 class UIController;
+class FontController;
+class SFMLController;
+class SystemController;
+class ViewPortController;
+class DisasterController;
 
 using sf::Clock;
 class CoreController
@@ -46,6 +49,7 @@ private:
     SystemController *systemController;
     FontController *fontController;
     UIController *uiController;
+    DisasterController * disasterController;
     
     helper::Time time;
     float deltaTime{};

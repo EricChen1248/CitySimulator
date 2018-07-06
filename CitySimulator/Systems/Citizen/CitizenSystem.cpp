@@ -1,12 +1,13 @@
 #include "CitizenSystem.h"
 
+#include "../Plot/PlotSystem.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Controllers/SFMLController.h"
-#include "../../Helpers/Logger.h"
-#include "../../Helpers/HelperFunctions.h"
-#include "../../Helpers/Government.h"
 
+#include "../../Helpers/Logger.h"
+#include "../../Helpers/Government.h"
 #include "../../Helpers/FeatureFlags.h"
+#include "../../Helpers/HelperFunctions.h"
 CitizenSystem::CitizenSystem()
 {
 #ifdef _DEBUG

@@ -1,6 +1,8 @@
 #include "NewsFlash.hpp"
-#include "../../Helpers/Constants.h"
 #include "../CoreController.h"
+#include "../FontController.h"
+#include "../SFMLController.h"
+#include "../../Helpers/Constants.h"
 
 
 NewsFlash::NewsFlash() : width(0), flash(false)

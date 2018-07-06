@@ -1,5 +1,10 @@
+#include <SFML/Window/Mouse.hpp>
+
 #include "PlotSystem.h"
+#include "../../Controllers/UIController.h"
+#include "../../Controllers/SFMLController.h"
 #include "../../Controllers/CoreController.h"
+#include "../../Controllers/ViewPortController.h"
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Helpers/PathFinder/PathFinder.h"

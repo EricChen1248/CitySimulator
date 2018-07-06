@@ -1,6 +1,10 @@
 #include "Status.hpp"
 #include "../CoreController.h"
+#include "../FontController.h"
+#include "../SFMLController.h"
 #include "../../Helpers/HelperFunctions.h"
+#include "../../Systems/Base/BaseSystem.h"
+#include "../../Systems/Plot/PlotSystem.h"
 
 Selection Status::Selection = NONE_SELECTED;
 Plot* Status::SelectedPlot = nullptr;

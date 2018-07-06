@@ -1,6 +1,7 @@
 #include "SFMLController.h"
 #include "CoreController.h"
 #include "../Helpers/Constants.h"
+#include "../Helpers/Coordinate.h"
 
 using namespace sf;
 

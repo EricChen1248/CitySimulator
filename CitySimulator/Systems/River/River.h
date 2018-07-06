@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../../Collections/List.h"
 #include "../Plot/Plot.h"
+#include "../../Collections/List.h"
 
 
 enum DIRECTION
@@ -57,9 +57,9 @@ private:
 	void DrawCorner(DIRECTION d1, DIRECTION d2, List<Coordinate>& inputList, Coordinate& curCoord);
 	void DrawEnd(const Coordinate& coord, List<Coordinate>& inputList);
 	//Helper Function for avoiding funciton decoupling 
-	void Draw(const DIRECTION d1, const DIRECTION d2, const Coordinate & coord, List<Coordinate>& inputlist, float length = float(0.88));
+    static void Draw(const DIRECTION d1, const DIRECTION d2, const Coordinate & coord, List<Coordinate>& inputlist, float length = float(0.88));
 	void MarkAsRiver(const Coordinate& coord);
-	void MoveCoord(DIRECTION d1, Coordinate& coord);
+    static void MoveCoord(DIRECTION d1, Coordinate& coord);
 	void DrawSmoothCorner(const Coordinate& center, const float& startDeg, const float& endDeg, const float& innerL = 0.12f, const float& outerL = 0.88f);
 	
 };

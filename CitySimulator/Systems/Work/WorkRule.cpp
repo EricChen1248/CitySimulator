@@ -1,10 +1,11 @@
 #include "WorkRule.h"
 #include "Work.h"
-#include "../School/SchoolRule.h"
 #include "../Bank/BankRule.h"
-#include "../../Controllers/CoreController.h"
+#include "../Base/BaseSystem.h"
+#include "../School/SchoolRule.h"
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
+#include "../../Controllers/CoreController.h"
 
 using helper::Time;
 
@@ -17,10 +18,10 @@ Time WorkRule::timeOffWork;
  * \brief 
  * \param citizen 
  */
-WorkRule::WorkRule(Citizen& citizen) : BaseRule(citizen, WORK), assignedCompany(nullptr)
+WorkRule::WorkRule(Citizen& citizen) : BaseRule(citizen, WORK), assignedCompany(nullptr), salary(0), workingTime(0), earlyToWork(0)
 {
-	production = static_cast<float>(RandomInt(50, 100));
-	baseSalary = production * 0.5f; // Salary may increase by education level later in Register()
+    production = static_cast<float>(RandomInt(50, 100));
+    baseSalary = production * 0.5f; // Salary may increase by education level later in Register()
 }
 
 WorkRule::~WorkRule() = default;

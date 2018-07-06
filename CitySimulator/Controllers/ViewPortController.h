@@ -15,10 +15,10 @@ public:
     void HandleScroll(sf::Event& event);
     void UpdateGameView() const;
     void UpdateUIView() const;
-    void Left();
-    void Right();
-    void Up();
-    void Down();
+    void Left(float i = 1.f);
+    void Right(float i = 1.f);
+    void Up(float i = 1.f);
+    void Down(float i = 1.f);
     
 private:
     float scrollSize;

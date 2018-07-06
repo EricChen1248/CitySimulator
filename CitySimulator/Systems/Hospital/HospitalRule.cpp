@@ -1,6 +1,8 @@
 #include "Hospital.h"
 #include "HospitalRule.h"
+#include "../../Collections/List.h"
 #include "../Bank/BankRule.h"
+#include "../Base/BaseSystem.h"
 #include "../Food/FoodRule.hpp"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"

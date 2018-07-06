@@ -1,12 +1,14 @@
-#include "DisasterController.h"
+#include "UIController.h"
 #include "CoreController.h"
-#include "../Helpers/Constants.h"
+#include "SystemController.h"
+#include "DisasterController.h"
+#include "ViewPortController.h"
+
 #include "../Helpers/HelperFunctions.h"
-#include <iostream>
+#include "../Systems/Plot/PlotSystem.h"
 
 
-
-DisasterController::DisasterController()
+DisasterController::DisasterController() : funct(nullptr)
 {
 }
 
@@ -17,6 +19,16 @@ DisasterController::~DisasterController()
 
 void DisasterController::Update()
 {
+    if (funct != nullptr)
+    {
+        (this->*funct)();
+        return;
+    }
+    
+    auto ui = CoreController::GetUIController();
+	Earthquake();
+	ui->Flash("Earthquake!!!");
+    return;
 	const int rand = RandomInt(0, 10000);
 	if (rand == 1) //0.01%
 	{
@@ -26,48 +38,47 @@ void DisasterController::Update()
 	else if (rand > 10 && rand <= 20) //0.1%
 	{
 		Earthquake();
-		std::cout << "Earthquake!!" << '\n';
+	    ui->Flash("Earthquake!!!");
 		if (rand <= 15) // 0.1% * 0.5
 		{
 			Tsunami();
-			std::cout << "Tsunami!!" << '\n';
+	        ui->Flash("Tsunami!!!");
 		}
 	}
 	else if (rand > 20 && rand <= 30) //0.1%
 	{
 		Tsunami();
-		std::cout << "tsunami!!" << '\n';
+	    ui->Flash("Tsunami!!!");
 	}
 	else if (rand >= 1000 && rand <= 1100) //1%
 	{
 		Hurricane();
-		std::cout << "Hurricane!!" << '\n';
+	    ui->Flash("Hurricane!!!");
 	}
 	else if (rand >= 3000 && rand <= 3200) //2%
 	{
 		WildFire();
-		std::cout << "Wild Fire!!" << '\n';
+	    ui->Flash("Wild Fire!!!");
 	}
 	else if (rand == 2) //1%
 	{
 		GodsGift();
-		std::cout << "God's gift!!" << '\n';
+	    ui->Flash("God's Gift!!!");
 	}
 	else if (rand > 30 && rand <= 40) // 0.1%
 	{
 		AngelsAegis();
-		std::cout << "Angel's aegis!!" << '\n';
+	    ui->Flash("Angle's Aegis!!!");
 	}
 	else if (rand > 4000 && rand <= 5000) //1%
 	{
 		MajestysMarvel();
-		std::cout << "Majesty's marvel!!" << '\n';
 	}
 }
 /*
 void DisasterController::Apocalypse()
 {
-	const auto& citizens = CoreController::Instance()->GetSystemController()->GetCitizens();
+	const auto& citizens = CoreController::GetSystemController()->GetCitizens();
 	for (auto && citizen : citizens)
 	{
 		const int i = RandomInt(0, 100);
@@ -76,7 +87,7 @@ void DisasterController::Apocalypse()
 			citizen->Die();
 		}
 	}
-	const auto& plots = CoreController::Instance()->GetSystemController()->Plots()->Plots();
+	const auto& plots = CoreController::GetSystemController()->Plots()->Plots();
 	for (auto && plots : plots)
 	{
 		const int i = RandomInt(0, 100);
@@ -89,7 +100,9 @@ void DisasterController::Apocalypse()
 */
 void DisasterController::Earthquake()
 {
-	const auto& citizens = CoreController::Instance()->GetSystemController()->GetCitizens();
+    funct = &DisasterController::earthquake;
+    shakeTime = 200;
+	const auto& citizens = CoreController::GetSystemController()->GetCitizens();
 	for (auto && citizen : citizens)
 	{
 		const int i = RandomInt(0, 100);
@@ -98,16 +111,20 @@ void DisasterController::Earthquake()
 			citizen->Die();
 		}
 	}
-	//const auto& plots = CoreController::Instance()->GetSystemController()->Plots()->Plots();
+	//const auto& plots = CoreController::GetSystemController()->Plots()->Plots();
 	for (int i = 0; i < 10; i++)
 	{
-		CoreController::GetSystemController()->Plots()->GetRandomPlot()->Destroy();
+	    auto plot = CoreController::GetSystemController()->Plots()->GetRandomPlot();
+		if (plot->GetPlotType() != nullptr)
+        {
+            plot->Destroy();
+        }
 	}
 }
 
 void DisasterController::Hurricane()
 {
-	const auto& citizens = CoreController::Instance()->GetSystemController()->GetCitizens();
+	const auto& citizens = CoreController::GetSystemController()->GetCitizens();
 	for (auto && citizen : citizens)
 	{
 		const int i = RandomInt(0, 100);
@@ -134,7 +151,7 @@ void DisasterController::Hurricane()
 
 void DisasterController::Tsunami()
 {
-	const auto& citizens = CoreController::Instance()->GetSystemController()->GetCitizens();
+	const auto& citizens = CoreController::GetSystemController()->GetCitizens();
 	for (auto && citizen : citizens)
 	{
 		const int i = RandomInt(0, 100);
@@ -148,7 +165,7 @@ void DisasterController::Tsunami()
 
 void DisasterController::WildFire()
 {
-	const auto& citizens = CoreController::Instance()->GetSystemController()->GetCitizens();
+	const auto& citizens = CoreController::GetSystemController()->GetCitizens();
 	for (auto && citizen : citizens)
 	{
 		const int i = RandomInt(0, 100);
@@ -196,9 +213,29 @@ void DisasterController::AngelsAegis()
 
 void DisasterController::GodsGift()
 {
-	const auto& citizens = CoreController::Instance()->GetSystemController()->GetCitizens();
+	const auto& citizens = CoreController::GetSystemController()->GetCitizens();
 	for (auto && citizen : citizens)
 	{
-			citizen->DoubleSpeed();
+		citizen->DoubleSpeed();
 	}
+}
+
+void DisasterController::earthquake()
+{
+    if (shakeTime <= 0)
+    {
+        shakeTime = 0;
+        funct = nullptr;
+        return;
+    }
+    --shakeTime;
+    
+    auto vp = CoreController::GetViewportController();
+    switch (int(shakeTime / 10) % 2)
+    {
+    case 0:
+        vp->Left(2);
+    default:
+        vp->Right();
+    }
 }

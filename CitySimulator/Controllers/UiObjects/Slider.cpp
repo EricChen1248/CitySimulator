@@ -1,5 +1,7 @@
 #include "Slider.h"
 #include "../CoreController.h"
+#include "../SFMLController.h"
+#include "../FontController.h"
 #include "../../Helpers/HelperFunctions.h"
 
 const int Slider::MAX_RATE;

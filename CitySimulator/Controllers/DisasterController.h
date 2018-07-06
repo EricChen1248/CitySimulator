@@ -5,6 +5,7 @@ public:
 	DisasterController();
 	~DisasterController();
 	void Update();
+private:
 	void Apocalypse();
 	void Earthquake();
 	void Hurricane();
@@ -14,7 +15,11 @@ public:
 	void MajestysMarvel();
 	void AngelsAegis();
 	void GodsGift();
-	
-private:
+    
+    void earthquake();
+    
+    
+    float shakeTime = 0.f;
+    void (DisasterController::*funct)();
 };
 

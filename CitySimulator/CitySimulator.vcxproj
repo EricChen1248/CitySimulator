@@ -105,7 +105,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)\Library\SFML-2.5.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -137,6 +137,7 @@
     <ClCompile Include="Controllers\DisasterController.cpp" />
     <ClCompile Include="Controllers\UiObjects\Status.cpp" />
     <ClCompile Include="Controllers\UiObjects\NewsFlash.cpp" />
+    <ClCompile Include="Systems\Base\Base.cpp" />
     <ClCompile Include="Systems\River\River.cpp" />
     <ClCompile Include="Helpers\Road.cpp" />
     <ClCompile Include="Systems\School\School.cpp" />
@@ -245,6 +246,7 @@
     <ClInclude Include="Systems\Plot\Plot.h" />
     <ClInclude Include="Systems\SystemEnum.h" />
     <ClInclude Include="Controllers\UIController.h" />
+    <ClInclude Include="Systems\Systems.h" />
     <ClInclude Include="Systems\Work\Work.h" />
     <ClInclude Include="Systems\Work\WorkRule.h" />
     <ClInclude Include="Systems\Work\WorkSystem.h" />

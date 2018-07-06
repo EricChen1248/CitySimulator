@@ -1,12 +1,15 @@
 #include "SystemController.h"
-#include "CoreController.h"
-#include "../Helpers/FeatureFlags.h"
+
+#include "../Systems/Plot/Plot.h"
+#include "../Systems/River/River.h"
+#include "../Systems/Plot/PlotSystem.h"
 #include "../Systems/Bank/BankSystem.h"
 #include "../Systems/Home/HomeSystem.h"
 #include "../Systems/Work/WorkSystem.h"
 #include "../Systems/Food/FoodSystem.hpp"
 #include "../Systems/Store/StoreSystem.h"
 #include "../Systems/School/SchoolSystem.h"
+#include "../Systems/Citizen/CitizenSystem.h"
 #include "../Systems/Hospital/HospitalSystem.h"
 
 SystemController::SystemController() : timeSinceUpdate(0.f) { };
@@ -41,7 +44,8 @@ void SystemController::Initialize()
     systems.InsertLast(hospital);
     plots->GenerateRoads();
 
-    river.Init();
+    river = new River();
+    river->Init();
 
     // TODO Remove demo
     for (auto&& system : systems)
@@ -97,7 +101,7 @@ void SystemController::Update() const
  */
 void SystemController::Render() const
 {
-    river.Render();
+    river->Render();
     plots->RenderRoads();
     citizens->Render();
     plots->Render();
@@ -108,7 +112,7 @@ void SystemController::Render() const
  */
 void SystemController::RenderInterday() const
 {
-    river.Render();
+    river->Render();
 	plots->RenderRoads();
     plots->RenderInterDay();
 }
@@ -158,4 +162,9 @@ void SystemController::ResetDay()
 int SystemController::SystemCount() const
 {
     return systems.Count();
+}
+
+const LinkedList<Citizen*>& SystemController::GetCitizens() const
+{
+    return citizens->Citizens();
 }

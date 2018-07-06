@@ -1,7 +1,8 @@
 #pragma once
-#include <SFML/Graphics.hpp>
 #include "../SystemEnum.h"
 #include "../../Helpers/Constants.h"
+#include "../../Controllers/CoreController.h"
+#include "../../Controllers/SystemController.h"
 class Plot;
 
 /**
@@ -13,19 +14,15 @@ public:
     System SystemType;
 
     const sf::Color& Color() const { return color; }
-    Base(Plot* plot, const System system): SystemType(system)
-    {
-        this->plot = plot;
-        color = BLACK;
-        score = 0;
-    }
+    Base(Plot* plot, const System system);
 
     virtual ~Base() = default;
     virtual void NewDay() { }
     virtual void EndDay() { }
+    [[deprecated]]
     virtual int ReturnScore() { return score; }
     // TODO : Add Destroy behaviour
-    virtual int Destroy() { return 0; }
+    virtual int Destroy();
     virtual std::string ContentString() { return ""; }
     
 protected:

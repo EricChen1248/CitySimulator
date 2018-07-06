@@ -1,6 +1,7 @@
 #include "HomeRule.h"
 #include "Home.h"
-#include "../../Collections/List.h"
+#include "../Base/BaseSystem.h"
+#include "../../Controllers/SystemController.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
@@ -14,7 +15,7 @@ HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME),myHome(nullptr)
 	goHomeTime.IncreaseTime(21);
 	if (citizen.GetFamilyMember(FATHER) != nullptr)
 	{
-		if (Pathable(dynamic_cast<HomeRule*>(citizen.GetFamilyMember(FATHER)->FindRule(HOME))->myHome->GetPlot()->Coords(), citizen.Coords()) == true)
+		if (Pathable(dynamic_cast<HomeRule*>(citizen.GetFamilyMember(FATHER)->FindRule(HOME))->myHome->GetPlot()->Coords(), citizen.Coords()))
 			myHome = dynamic_cast<HomeRule*>(citizen.GetFamilyMember(FATHER)->FindRule(HOME))->myHome;
 		else
 			myHome = nullptr;

@@ -1,6 +1,8 @@
 #include "FoodRule.hpp"
 #include "Food.hpp"
 
+#include "../Base/BaseSystem.h"
+#include "../../Collections/List.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
 

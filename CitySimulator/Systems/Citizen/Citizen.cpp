@@ -5,6 +5,7 @@
 #include "../Home/HomeRule.h"
 #include "../Food/FoodRule.hpp"
 #include "../Store/StoreRule.h" 
+#include "../Plot/PlotSystem.h"
 #include "../School/SchoolRule.h" 
 #include "../Hospital/HospitalRule.h" 
 #include "../../Controllers/CoreController.h"

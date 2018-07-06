@@ -1,6 +1,11 @@
 #include <iostream>
 #include "CoreController.h"
+#include "SFMLController.h"
 #include "ViewPortController.h"
+#include "SystemController.h"
+#include "FontController.h"
+#include "UIController.h"
+#include "DisasterController.h"
 #include "../Helpers/Logger.h"
 #include "../Helpers/FeatureFlags.h"
 #include "../Helpers/PathFinder/PathFinder.h"
@@ -23,6 +28,7 @@ CoreController::CoreController()
     systemController = new SystemController;
     fontController = new FontController;
     uiController = new UIController;
+    disasterController = new DisasterController;
 
     systemController->Initialize();
     uiController->Initialize();
@@ -159,7 +165,7 @@ void CoreController::ClearRender() const
 void CoreController::GameUpdateEvents() const
 {
     systemController->Update();
-	//systemController->Rivers().Update();
+    disasterController->Update();
 }
 
 /**
