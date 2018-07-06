@@ -132,10 +132,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:ad84315bfe429d32f8de3a3c4748332b3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_rule.html#ad84315bfe429d32f8de3a3c4748332b3">IsSatisfied</a> () override</td></tr>
 <tr class="memdesc:ad84315bfe429d32f8de3a3c4748332b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns bool to tell if citizen is satisfied with it's food requirements.  <a href="#ad84315bfe429d32f8de3a3c4748332b3">More...</a><br /></td></tr>
 <tr class="separator:ad84315bfe429d32f8de3a3c4748332b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a158e6ad8ea6fc7c92213ad97193159"><td class="memItemLeft" align="right" valign="top"><a id="a6a158e6ad8ea6fc7c92213ad97193159"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_rule.html#a6a158e6ad8ea6fc7c92213ad97193159">FillHunger</a> ()</td></tr>
-<tr class="memdesc:a6a158e6ad8ea6fc7c92213ad97193159"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to fill hunger before entering hospital. <br /></td></tr>
-<tr class="separator:a6a158e6ad8ea6fc7c92213ad97193159"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c602bb38b2403472ad52e92d44f75b4"><td class="memItemLeft" align="right" valign="top"><a id="a5c602bb38b2403472ad52e92d44f75b4"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>Hunger</b> () const</td></tr>
+<tr class="separator:a5c602bb38b2403472ad52e92d44f75b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50a2d8346a9d3e0fefe857a7b90cf034"><td class="memItemLeft" align="right" valign="top"><a id="a50a2d8346a9d3e0fefe857a7b90cf034"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_food_rule.html#a50a2d8346a9d3e0fefe857a7b90cf034">FillHunger</a> (float hunger=std::numeric_limits&lt; float &gt;::max())</td></tr>
+<tr class="memdesc:a50a2d8346a9d3e0fefe857a7b90cf034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to fill hunger before entering hospital. <br /></td></tr>
+<tr class="separator:a50a2d8346a9d3e0fefe857a7b90cf034"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_base_rule"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_base_rule')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_base_rule.html">BaseRule</a></td></tr>
 <tr class="memitem:ac0cf2211518b55323f40210baa0559e8 inherit pub_methods_class_base_rule"><td class="memItemLeft" align="right" valign="top"><a id="ac0cf2211518b55323f40210baa0559e8"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>BaseRule</b> (<a class="el" href="class_citizen.html">Citizen</a> &amp;citizen, const System type)</td></tr>
@@ -231,7 +234,7 @@ System&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
 <p>Returns bool to tell if citizen is satisfied with it's food requirements. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if hunger level is over 20 </dd></dl>
 
-<p>Implements <a class="el" href="class_base_rule.html">BaseRule</a>.</p>
+<p>Reimplemented from <a class="el" href="class_base_rule.html">BaseRule</a>.</p>
 
 </div>
 </div>
