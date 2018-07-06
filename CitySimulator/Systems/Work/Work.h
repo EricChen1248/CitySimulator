@@ -14,4 +14,5 @@ public:
 private:
 	void Enter(float productDelta);
 
+	float baseSalary;
 };

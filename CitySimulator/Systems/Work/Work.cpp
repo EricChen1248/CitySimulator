@@ -2,6 +2,7 @@
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/Government.h"
+#include "../../Helpers/HelperFunctions.h"
 
 
 /**
@@ -12,6 +13,7 @@ Work::Work(Plot *plot) : Base(plot, WORK)
 {
 	score = 0;
 	color = WORK_COLOR;
+	baseSalary = float(RandomInt(50, 100)) // TODO : salary
 }
 
 

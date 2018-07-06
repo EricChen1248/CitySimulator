@@ -20,10 +20,8 @@ Time WorkRule::timeOffWork;
  * \brief 
  * \param citizen 
  */
-WorkRule::WorkRule(Citizen& citizen) : BaseRule(citizen, WORK), assignedCompany(nullptr), salary(0), workingTime(0), earlyToWork(0)
+WorkRule::WorkRule(Citizen& citizen) : BaseRule(citizen, WORK), assignedCompany(nullptr), salary(0.), baseSalary(0.), workingTime(0), earlyToWork(0)
 {
-    production = static_cast<float>(RandomInt(50, 100));
-    baseSalary = production * 0.5f; // Salary may increase by education level later in Register()
 }
 
 WorkRule::~WorkRule() = default;
@@ -96,7 +94,7 @@ void WorkRule::EnterPlot(Plot* plot)
 	citizen->Wait(workingTime + float(RandomInt(-10, 10)) / 60); 
     
 	const int workingExp = citizen->Age() - 18; // Salary increases due to experience
-	work->Enter((production - salary - workingExp * 0.3) * workingTime / 4);
+	work->Enter((salary + workingExp * 0.3f) * workingTime / 4);
 }
 
 /**
@@ -107,7 +105,7 @@ void WorkRule::LeavePlot(Plot* plot)
 	BankRule* bankRule = dynamic_cast<BankRule*>(citizen->FindRule(BANK));
 
     const int workingExp = citizen->Age() - 18; // Salary increases due to experience
-	bankRule->SaveMoney((salary + float(workingExp) * 0.3f) * workingTime / 4);
+	bankRule->SaveMoney((salary + workingExp * 0.3f) * workingTime / 4);
 
 	const Time currentTime = CoreController::Instance()->GetTime();
 	if (endBreakTime > currentTime) // morning session
@@ -181,8 +179,8 @@ void WorkRule::Register()
 
 	// TODO : School Rule doesn't exist yet.
 	int educationLv = schoolRule != nullptr ? schoolRule->getEdLvl() : 0;
-	salary += educationLv * 0.3f + baseSalary;
-
+	baseSalary = dynamic_cast<Work*>(chosen->GetPlotType())->baseSalary * RandomInt(10, 13) / 10;
+	salary = baseSalary + educationLv * 0.3f; // TODO : number(education)
 }
 
 void WorkRule::UnRegister()

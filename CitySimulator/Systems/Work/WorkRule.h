@@ -17,7 +17,6 @@ public:
 private:
 	const int maxDistance = 10;
 	Plot* assignedCompany;
-	float production;
 	float salary;
 	float baseSalary;
 	float workingTime; // Workingtime during this period (MAX:4 hour)
