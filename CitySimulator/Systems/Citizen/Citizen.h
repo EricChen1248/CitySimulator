@@ -86,6 +86,6 @@ private:
     int age;
 	Gender gender;
 	Citizen* family[FAMILY_NUM] {nullptr};
-    
+	List<Citizen*> descendants;
     sf::CircleShape shape;
 };

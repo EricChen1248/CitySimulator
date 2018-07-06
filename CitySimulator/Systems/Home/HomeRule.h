@@ -20,6 +20,8 @@ public:
 	void Update() override;
 	bool IsSatisfied() override;
 	void EndDay() override;
+	bool HasHome()const { return (myHome != nullptr); };
+	bool AtHome()const { return atHomeFlag; };
 private:
 
 	helper::Time goHomeTime;
@@ -27,5 +29,6 @@ private:
 	Home* myHome;
 	int homelessLevel;
 	float homelessHour;
+	bool atHomeFlag;
 };
 
