@@ -86,6 +86,8 @@ void WorkRule::EnterPlot(Plot* plot)
 	else
 		workingTime = static_cast<float>(timeOffWork - currentTime) / 60;
 
+	float tempWorkingTime = workingTime; // satisfaction increases due to early arrival
+
 	if (workingTime > 4)
 		workingTime = 4;
 
@@ -94,7 +96,7 @@ void WorkRule::EnterPlot(Plot* plot)
 	citizen->Wait(workingTime + float(RandomInt(-10, 10)) / 60); 
     
 	const int workingExp = citizen->Age() - 18; // Salary increases due to experience
-	work->Enter((salary + workingExp * 0.3f) * workingTime / 4);
+	work->Enter(tempWorkingTime, (salary + workingExp * 0.3f) * workingTime / 4);
 }
 
 /**
@@ -147,7 +149,6 @@ void WorkRule::NewDay()
 				const auto oldCompany = dynamic_cast<Work*>(oldPlot->GetPlotType());
 				oldCompany->Resignation();
 			}
-
 		}
 	}
 }
