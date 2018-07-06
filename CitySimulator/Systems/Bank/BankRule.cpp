@@ -62,6 +62,7 @@ bool BankRule::FindPlot()
 void BankRule::EnterPlot(Plot* plot)
 {
     const auto bank = dynamic_cast<Bank*>(plot->GetPlotType());
+    if (bank == nullptr) return;
     citizen->Wait(1.f);
     bank->Enter();
 }

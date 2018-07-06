@@ -39,6 +39,7 @@ bool HospitalRule::FindPlot()
 void HospitalRule::EnterPlot(Plot* plot)
 {
 	const auto hospital = dynamic_cast<Hospital*>(plot->GetPlotType());
+    if (hospital == nullptr) return;
 	int cost = hospital->cost;
 
 	BankRule* bankRule = dynamic_cast<BankRule*>(citizen->FindRule(BANK));

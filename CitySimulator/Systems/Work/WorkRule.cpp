@@ -77,6 +77,8 @@ bool WorkRule::FindPlot()
 void WorkRule::EnterPlot(Plot* plot)
 {
 	const auto work = dynamic_cast<Work*>(plot->GetPlotType());
+    if (work == nullptr) return;
+    
 	const Time currentTime = CoreController::Instance()->GetTime();
 	if (currentTime < breakTime)
 	{

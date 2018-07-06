@@ -47,7 +47,8 @@ void SchoolRule::EnterPlot(Plot* plot)
 {
     // TODO: Implement properly!!!
     return;
-    const auto food = dynamic_cast<School*>(plot->GetPlotType());
+    const auto school = dynamic_cast<School*>(plot->GetPlotType());
+    if (school == nullptr) return;
     citizen->Wait(1.f);
     citizen->IncreaseMoney(-food->cost);
     food->Enter();

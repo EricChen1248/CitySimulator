@@ -60,6 +60,7 @@ bool FoodRule::FindPlot()
 void FoodRule::EnterPlot(Plot* plot)
 {
     const auto food = dynamic_cast<Food*>(plot->GetPlotType());
+    if (food == nullptr) return;
     const auto& time = CoreController::Instance()->GetTime();
     citizen->Wait(0.5f);
     citizen->IncreaseMoney(-food->cost);

@@ -91,9 +91,9 @@ bool HomeRule::FindPlot()
 }
 void HomeRule::EnterPlot(Plot* plot)
 {
-	const auto home = dynamic_cast<Home*>(plot->GetPlotType());
+	if (myHome == nullptr) return;
 	citizen->Wait(3.f);
-	home -> Enter();
+	myHome -> Enter();
 }
 
 /**
