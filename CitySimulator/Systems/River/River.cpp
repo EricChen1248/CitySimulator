@@ -29,26 +29,16 @@ void River::Init()
             InitBoundary();
             Coordinate startPoint(rand, adjustedRight - rand, LEFT);
             int random = RandomInt(0, 2);
-            int random2;
             while (startPoint.Z() < adjustedRight)
             {
                 auto plotPtr = plots->FindPlot(startPoint);
                 riverPoints.InsertLast(plotPtr);
                 plotPtr->MarkAsRiver();
-                points.InsertLast(startPoint.Right(float(0.88)));
-                points.InsertLast(startPoint.Left(float(0.88)));
+                points.InsertLast(startPoint.Right(0.88f));
+                points.InsertLast(startPoint.Left(0.88f));
 
                 startPoint = random == 0 ? startPoint.LeftUp() : startPoint.RightUp();
-                if (rightBoundary.Contains(plotPtr))
-                {
-                    random = 0;
-                }
-                else if (leftBoundary.Contains(plotPtr))
-                {
-                    random = 1;
-                }
                 //0 goes left, 1 goes right
-                random2 = random;
                 random = RandomInt(0, 2);
             }
             break;
@@ -65,15 +55,14 @@ void River::Init()
             Coordinate startPoint(startX, startY, startZ);
 
             //setting up for while loop
-            bool stopFlag = false;
             DIRECTION randomDir1 = static_cast<DIRECTION>((static_cast<int>(IsBoundaryOrNot(startPoint)) + 3) % 6);
             const int randomDis = RandomInt(2, adjustedRight / 2);
             DrawStart(startPoint, points);
             startPoint = randomDir1 == DirRIGHTUP ? startPoint.RightUp() : startPoint.RightDown();
-            stopFlag = DrawStraightLine(randomDis, randomDir1, points, startPoint);
+            bool stopFlag = DrawStraightLine(randomDis, randomDir1, points, startPoint);
             while (!stopFlag)
             {
-                DIRECTION randomDir2 = randomDir1;
+                const DIRECTION randomDir2 = randomDir1;
                 randomDir1 = static_cast<DIRECTION>(RandomInt(0, 3));
                 if (randomDir2 != randomDir1)
                 {
@@ -580,8 +569,7 @@ void River::MoveCoord(const DIRECTION d1, Coordinate& coord)
     return;
 }
 
-void River::DrawSmoothCorner(const Coordinate& center, const float& startDeg, const float& endDeg, const float& innerL,
-                             const float& outerL)
+void River::DrawSmoothCorner(const Coordinate& center, const float startDeg, const float endDeg, const float innerL = 0.12f, const float outerL = 0.88f)
 {
     for (int i = startDeg; i < endDeg; ++i)
     {

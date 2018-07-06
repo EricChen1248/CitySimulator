@@ -1,7 +1,7 @@
 #include "SchoolRule.h"
-#include "../../Controllers/CoreController.h"
 #include "SchoolSystem.h"
 #include "School.h"
+#include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
 
 SchoolRule::SchoolRule(Citizen& citizen): BaseRule(citizen, SCHOOL), EdLvl(0)
@@ -21,7 +21,7 @@ float SchoolRule::CalculateScore()
  */
 bool SchoolRule::FindPlot()
 {
-    auto &plots = CoreController::Instance()->GetSystemController()->GetSystem(FOOD)->Plots();
+    auto &plots = CoreController::GetSystemController()->GetSystem(SCHOOL)->Plots();
     
     // Get a list of plots that fulfill out requirements ( distance < max distance
     List<Plot*> choices;
