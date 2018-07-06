@@ -180,7 +180,7 @@ void WorkRule::Register()
 	SchoolRule* schoolRule = dynamic_cast<SchoolRule*>(citizen->FindRule(SCHOOL));
 
 	// TODO : School Rule doesn't exist yet.
-	int educationLv = schoolRule != nullptr ? schoolRule->getEdLvl() : 0;
+	const int educationLv = schoolRule != nullptr ? schoolRule->EducationLevel() : 0;
 	salary += educationLv * 0.3f + baseSalary;
 
 }
