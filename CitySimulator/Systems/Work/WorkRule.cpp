@@ -193,7 +193,7 @@ void WorkRule::Register()
 	SchoolRule* schoolRule = dynamic_cast<SchoolRule*>(citizen->FindRule(SCHOOL));
 
 	// TODO : School Rule doesn't exist yet.
-	int educationLv = schoolRule != nullptr ? schoolRule->getEdLvl() : 0;
+	const int educationLv = schoolRule != nullptr ? schoolRule->EducationLevel() : 0;
 	const auto work = dynamic_cast<Work*>(chosen->GetPlotType());
 	baseSalary = work->baseSalary * RandomInt(10, 13) / 10;
 	salary = baseSalary + educationLv * 0.3f; // TODO : number(education)

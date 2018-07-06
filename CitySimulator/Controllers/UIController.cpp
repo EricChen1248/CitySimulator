@@ -10,6 +10,8 @@
 #include "../Helpers/HelperFunctions.h"
 
 #include "../Systems/Base/BaseSystem.h"
+#include "../Systems/Plot/PlotSystem.h"
+#include "MouseController.h"
 
 UIController::UIController() : sfml(*CoreController::SfmlController()) {}
 
@@ -152,8 +154,9 @@ void UIController::DrawStatus()
     {
         if (selectionButtons[i]->IsInBounds())
         {
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            if (MouseController::IsClicked())
             {
+                PlotSystem::DeselectPlotsAndRoads();
                 Status::Selection = SYSTEM;
                 Status::SelectedSystem = System(i + 1);
             }

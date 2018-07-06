@@ -9,17 +9,17 @@ class BaseRule;
 class SchoolRule : public BaseRule
 {
 public:
-    SchoolRule(Citizen& citizen);;
+    SchoolRule(Citizen& citizen);
     ~SchoolRule();
 
-    float CalculateScore();
-    bool FindPlot();
-    void EnterPlot(Plot* plot);
-    void LeavePlot(Plot* plot);
-    void Update();
+    float CalculateScore() override;
+    bool FindPlot() override;
+    void EnterPlot(Plot* plot) override;
+    void LeavePlot(Plot* plot) override;
+    void Update() override;
     bool IsSatisfied() override;
-	int getEdLvl();
+	float EducationLevel() const { return educationLevel; };
 private:
-	float EdLvl;
+	float educationLevel;
 };
 

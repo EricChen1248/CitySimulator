@@ -14,5 +14,6 @@ var class_plot_system =
     [ "Render", "class_plot_system.html#a0b3c5d0df252995318e1e6fc7ba356b8", null ],
     [ "RenderInterDay", "class_plot_system.html#a8bf87772f6d248af9603933811f50ca6", null ],
     [ "RenderRoads", "class_plot_system.html#a7b57c653ba9b0560d588794ce7790b3d", null ],
+    [ "RoadClicks", "class_plot_system.html#ab556b9c8bc014aabb18e2628e1cd547e", null ],
     [ "Roads", "class_plot_system.html#a4df4b3f1ca1bb7912fd995777e2cbcbd", null ]
 ];

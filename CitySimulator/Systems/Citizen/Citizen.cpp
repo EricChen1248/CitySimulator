@@ -9,7 +9,7 @@
 #include "../School/SchoolRule.h" 
 #include "../Hospital/HospitalRule.h" 
 #include "../../Controllers/CoreController.h"
-#include "../../Helpers/PathFinder/PathFinder.h"
+#include "../../Helpers/PathFinder/PathFinder.hpp"
 #include "../../Helpers/HelperFunctions.h"
 
 

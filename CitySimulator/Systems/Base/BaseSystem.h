@@ -19,6 +19,7 @@ public:
     virtual float GetSatisfaction() const { return 0; }
     const List<Log*>& SatisfiedLog() const { return satisfiedLog; }
     const List<Log*>& UnsatisfiedLog() const { return unsatisfiedLog; }
+    bool Toggleable() const { return toggleable; } 
     virtual ~BaseSystem();
     
     

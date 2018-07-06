@@ -2,6 +2,7 @@
 #include "../CoreController.h"
 #include "../FontController.h"
 #include "../SFMLController.h"
+#include "../MouseController.h"
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Systems/Base/BaseSystem.h"
 #include "../../Systems/Plot/PlotSystem.h"
@@ -10,6 +11,7 @@ Selection Status::Selection = NONE_SELECTED;
 Plot* Status::SelectedPlot = nullptr;
 Road* Status::SelectedRoad = nullptr;
 System Status::SelectedSystem = NONE;
+bool Status::buildMode;
 
 Status::Status()
 = default;
@@ -39,19 +41,34 @@ void Status::Init(const int x, const int y)
     buttonText.setPosition(x + 20.f, y + height - 34.f);
     buttonText.setFont(FontController::Monofur());
     
+    leftButtonText.setFillColor(BLACK);
+    leftButtonText.setCharacterSize(20);
+    leftButtonText.setPosition(x + 20.f, y + height - 34.f);
+    leftButtonText.setFont(FontController::Monofur());
+    
+    rightButtonText.setFillColor(BLACK);
+    rightButtonText.setCharacterSize(20);
+    rightButtonText.setPosition(x + 20.f, y + height - 34.f);
+    rightButtonText.setFont(FontController::Monofur());
+    
     content.setFillColor(BLACK);
     content.setCharacterSize(20);
     content.setPosition(x + 20.f, y + 42.f);
     content.setFont(FontController::Monofur());
 
     button = Button(Vector2f(width - 42.f, 28.f), Vector2f(x + 20.f, y + height - 34.f), WHITE, MOUSE_OVER_COLOR);
+    leftButton = Button(Vector2f(width - 162.f, 28.f), Vector2f(x + 20.f, y + height - 34.f), WHITE, MOUSE_OVER_COLOR);
+    rightButton = Button(Vector2f(width - 162.f, 28.f), Vector2f(x - 20.f + 162.f, y + height - 34.f), WHITE, MOUSE_OVER_COLOR);
     
     closeText.setFillColor(BLACK);
     closeText.setCharacterSize(20);
     closeText.setPosition(x + width - 28.f, y + 8.f);
     closeText.setFont(FontController::Monofur());
+    
     CenterString(closeText, "X", x + width - 20.f);
     closeButton = Button(Vector2f(20.f, 20.f), Vector2f(x + width - 30.f, y + 10.f), WHITE, MOUSE_OVER_COLOR);
+    
+    buildMode = false;
 }
 
 void Status::Draw()
@@ -71,10 +88,11 @@ void Status::Draw()
     {
         DrawChildren();
     }
-    if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))
-    {
-        mousePressed = false;
-    }
+}
+
+void Status::Build(Plot* plot)
+{
+    CoreController::GetSystemController()->GetSystem(SelectedSystem)->Register(plot);
 }
 
 void Status::DrawChildren()
@@ -85,24 +103,20 @@ void Status::DrawChildren()
         DrawSystem();
         break;
     case PLOT:
+        if (buildMode) ToggleBuildMode();
         DrawPlot();
         break;
     case ROAD: 
+        if (buildMode) ToggleBuildMode();
         DrawRoad();
         break;
     default: ;
     }
     if (closeButton.Draw())
     {
-        if (!mousePressed)
+        if (MouseController::IsClicked())
         {
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-            {
-                mousePressed = true;
-            }
-        }
-        else
-        {
+            if (buildMode) ToggleBuildMode();
             Selection = NONE_SELECTED;
         }
     }
@@ -110,28 +124,61 @@ void Status::DrawChildren()
 
 }
 
+void Status::ToggleBuildMode()
+{
+    buildMode = !buildMode;
+    button.ReverseColor();
+    rightButton.ReverseColor();
+}
+
 void Status::DrawSystem()
 {
     title.setString(SYSTEM_NAMES[int(SelectedSystem)]);
+    PlotSystem::DeselectPlotsAndRoads();
     CoreController::SfmlController()->DrawString(title);
+    const auto system = CoreController::GetSystemController()->GetSystem(SelectedSystem);
+    if (system->Toggleable())
+    {
+        DrawDoubleButton(system);
+    }
+    else
+    {
+        DrawSingleButton();
+    }
+}
 
-    if (SelectedPlot == nullptr || SelectedPlot->GetPlotType() != nullptr) return;
+void Status::DrawDoubleButton(BaseSystem * system)
+{
+    if (leftButton.Draw())
+    {
+        if (MouseController::IsClicked())
+        {
+            system->Toggle();
+        }
+    }
+
+    if (rightButton.Draw())
+    {
+        if (MouseController::IsClicked())
+        {
+            ToggleBuildMode();
+        }
+    }
+
+    CenterString(leftButtonText, "Toggle", x + float(width) / 2 - 61);
+    CoreController::SfmlController()->DrawString(leftButtonText);
+
+    CenterString(rightButtonText, "Build", x + float(width) / 2 + 61);
+    CoreController::SfmlController()->DrawString(rightButtonText);
+}
+
+void Status::DrawSingleButton()
+{
     if (button.Draw())
     {
-        if (!mousePressed)
+        if (MouseController::IsClicked())
         {
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-            {
-                mousePressed = true;
-            }
-        }
-        else
-        {
-            if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))
-            {
-                CoreController::GetSystemController()->GetSystem(SelectedSystem)->Register(SelectedPlot);
-                Selection = PLOT;
-            }
+            ToggleBuildMode();
         }
     }
 
@@ -141,6 +188,11 @@ void Status::DrawSystem()
 
 void Status::DrawPlot()
 {
+    if (SelectedPlot == nullptr)
+    {
+        Selection = NONE_SELECTED;
+        return;
+    }
     if (SelectedPlot->GetPlotType() == nullptr) return;
 
     title.setString(SYSTEM_NAMES[int(SelectedPlot->GetPlotType()->SystemType)]);
@@ -149,22 +201,12 @@ void Status::DrawPlot()
     CoreController::SfmlController()->DrawString(content);
     if (button.Draw())
     {
-        if (!mousePressed)
+        if(MouseController::IsClicked())
         {
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-            {
-                mousePressed = true;
-            }
-        }
-        else
-        {
-            if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))
-            {
-                // TODO : Block button press if not enough money
-                CoreController::GetSystemController()
-                    ->GetSystem(SelectedPlot->GetPlotType()->SystemType)->Destroy(SelectedPlot);
-                CoreController::GetSystemController()->Plots()->ClearSelections();
-            }
+            // TODO : Block button press if not enough money
+            CoreController::GetSystemController()
+                ->GetSystem(SelectedPlot->GetPlotType()->SystemType)->Destroy(SelectedPlot);
+            CoreController::GetSystemController()->Plots()->ClearSelections();
         }
     }
 
@@ -181,20 +223,10 @@ void Status::DrawRoad()
     
     if (button.Draw())
     {
-        if (!mousePressed)
+        if (MouseController::IsClicked())
         {
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-            {
-                mousePressed = true;
-            }
-        }
-        else
-        {
-            if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))
-            {
-                // TODO : Block button press if not enough money
-                SelectedRoad->PerformClick();
-            }
+            // TODO : Block button press if not enough money
+            SelectedRoad->PerformClick();
         }
     }
 

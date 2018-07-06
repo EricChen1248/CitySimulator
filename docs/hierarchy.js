@@ -32,7 +32,6 @@ var hierarchy =
     [ "CitizenSystem", "class_citizen_system.html", null ],
     [ "Coordinate", "class_coordinate.html", null ],
     [ "CoreController", "class_core_controller.html", null ],
-    [ "Disaster", "class_disaster.html", null ],
     [ "DisasterController", "class_disaster_controller.html", null ],
     [ "FontController", "class_font_controller.html", null ],
     [ "Government", "class_government.html", null ],

@@ -13,8 +13,10 @@ class Button
 {
 public:
     Button();
-    Button(Vector2f size,Vector2f pos, Color color, Color moColor);
+    Button(Vector2f size,Vector2f pos, const Color& color, const Color& moColor);
     ~Button();
+    void ChangeColor(const Color& color, const Color& moColor);
+    void ReverseColor();
     bool Draw();
     bool IsInBounds() const;
     void SetPosition(Vector2f position);

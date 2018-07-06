@@ -15,7 +15,6 @@ var annotated_dup =
     [ "CodingError", "class_coding_error.html", "class_coding_error" ],
     [ "Coordinate", "class_coordinate.html", "class_coordinate" ],
     [ "CoreController", "class_core_controller.html", "class_core_controller" ],
-    [ "Disaster", "class_disaster.html", "class_disaster" ],
     [ "DisasterController", "class_disaster_controller.html", "class_disaster_controller" ],
     [ "DuplicateInitialization", "class_duplicate_initialization.html", "class_duplicate_initialization" ],
     [ "FontController", "class_font_controller.html", "class_font_controller" ],

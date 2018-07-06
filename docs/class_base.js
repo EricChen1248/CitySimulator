@@ -4,7 +4,7 @@ var class_base =
     [ "~Base", "class_base.html#a306fb25541331080645a716286357ef9", null ],
     [ "Color", "class_base.html#a16781ea67ae6f980d475e22de6c3cf96", null ],
     [ "ContentString", "class_base.html#a00c79956ad7834a2cae446d96f2df8ee", null ],
-    [ "Destroy", "class_base.html#ae560f9411bbc59e3a5c110b86e4a968c", null ],
+    [ "Destroy", "class_base.html#a1d6d26200c6df421b7fe7105f8a12b28", null ],
     [ "EndDay", "class_base.html#aa743a03006511a65a868521ebeab7a46", null ],
     [ "NewDay", "class_base.html#a1a1af78a1c746a702844f0d2bf565adc", null ],
     [ "ReturnScore", "class_base.html#acf6c18de3d91b047c0e4e480c62f6dee", null ],

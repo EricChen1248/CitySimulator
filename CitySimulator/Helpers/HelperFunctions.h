@@ -1,6 +1,6 @@
 #pragma once
 #include <climits>
-#include "PathFinder/PathFinder.h"
+#include "PathFinder/PathFinder.hpp"
 #include "../Controllers/CoreController.h"
 
 /**

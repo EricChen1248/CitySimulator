@@ -1,10 +1,10 @@
 #include "SchoolRule.h"
 #include "SchoolSystem.h"
 #include "School.h"
-#include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
+#include "../../Controllers/CoreController.h"
 
-SchoolRule::SchoolRule(Citizen& citizen): BaseRule(citizen, SCHOOL), EdLvl(0)
+SchoolRule::SchoolRule(Citizen& citizen): BaseRule(citizen, SCHOOL), educationLevel(0)
 {
 }
 
@@ -72,9 +72,4 @@ void SchoolRule::Update()
 bool SchoolRule::IsSatisfied()
 {
     return true;
-}
-
-int SchoolRule::getEdLvl()
-{
-    return EdLvl;    
 }

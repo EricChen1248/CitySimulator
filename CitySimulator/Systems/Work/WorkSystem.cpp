@@ -1,7 +1,6 @@
 #include "WorkSystem.h"
 #include "Work.h"
 #include "WorkRule.h"
-#include "../../Controllers/CoreController.h"
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
 
@@ -20,6 +19,7 @@ WorkSystem::WorkSystem(): BaseSystem(WORK)
 	WorkRule::breakTime = Time(12, 0);
 	WorkRule::endBreakTime = Time(13, 0);
 	WorkRule::timeOffWork = Time(17, 0);
+    toggleable = true;
 }
 
 

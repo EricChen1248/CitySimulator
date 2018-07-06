@@ -137,6 +137,7 @@
     <ClCompile Include="Controllers\DisasterController.cpp" />
     <ClCompile Include="Controllers\UiObjects\Status.cpp" />
     <ClCompile Include="Controllers\UiObjects\NewsFlash.cpp" />
+    <ClCompile Include="Controllers\MouseController.cpp" />
     <ClCompile Include="Systems\Base\Base.cpp" />
     <ClCompile Include="Systems\River\River.cpp" />
     <ClCompile Include="Helpers\Road.cpp" />
@@ -194,6 +195,7 @@
     <ClInclude Include="Helpers\Line.hpp" />
     <ClInclude Include="Controllers\UiObjects\Status.hpp" />
     <ClInclude Include="Controllers\UiObjects\NewsFlash.hpp" />
+    <ClInclude Include="Controllers\MouseController.h" />
     <ClInclude Include="Systems\Citizen\CitizenEnum.h" />
     <ClInclude Include="Systems\River\River.h" />
     <ClInclude Include="Helpers\Road.h" />
@@ -221,8 +223,8 @@
     <ClInclude Include="Controllers\UiObjects\Button.h" />
     <ClInclude Include="Systems\Bank\BankSystem.h" />
     <ClInclude Include="Log.h" />
-    <ClInclude Include="Helpers\PathFinder\PathFinder.h" />
-    <ClInclude Include="Helpers\PathFinder\PathFinderNode.h" />
+    <ClInclude Include="Helpers\PathFinder\PathFinder.hpp" />
+    <ClInclude Include="Helpers\PathFinder\PathFinderNode.hpp" />
     <ClInclude Include="Collections\Queue.h" />
     <ClInclude Include="Systems\Food\Food.hpp" />
     <ClInclude Include="Systems\Food\FoodRule.hpp" />
