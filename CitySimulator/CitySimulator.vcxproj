@@ -223,8 +223,8 @@
     <ClInclude Include="Controllers\UiObjects\Button.h" />
     <ClInclude Include="Systems\Bank\BankSystem.h" />
     <ClInclude Include="Log.h" />
-    <ClInclude Include="Helpers\PathFinder\PathFinder.h" />
-    <ClInclude Include="Helpers\PathFinder\PathFinderNode.h" />
+    <ClInclude Include="Helpers\PathFinder\PathFinder.hpp" />
+    <ClInclude Include="Helpers\PathFinder\PathFinderNode.hpp" />
     <ClInclude Include="Collections\Queue.h" />
     <ClInclude Include="Systems\Food\Food.hpp" />
     <ClInclude Include="Systems\Food\FoodRule.hpp" />

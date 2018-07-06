@@ -1,4 +1,4 @@
-#include "PathFinder.h"
+#include "PathFinder.hpp"
 #include "../Logger.h"
 #include "../Constants.h"
 #include "../Coordinate.h"

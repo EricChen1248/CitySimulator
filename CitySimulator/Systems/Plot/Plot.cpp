@@ -2,7 +2,7 @@
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/Road.h"
 #include "../../Helpers/Coordinate.h"
-#include "../../Helpers/PathFinder/PathFinder.h"
+#include "../../Helpers/PathFinder/PathFinder.hpp"
 
 Plot::Plot(const int x, const int y, const int z) : coords(x, y, z), size(10.f), shape(sf::CircleShape(size)),
                                                     currentType(nullptr), roads(6), quadrant(0), river(false)

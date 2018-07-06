@@ -1,5 +1,5 @@
 #pragma once
-#include "PathFinderNode.h"
+#include "PathFinderNode.hpp"
 #include "../../Collections/Stack.h"
 #include "../../Collections/PriorityQueue.h"
 

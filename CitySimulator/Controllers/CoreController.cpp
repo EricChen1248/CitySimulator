@@ -8,7 +8,7 @@
 #include "DisasterController.h"
 #include "../Helpers/Logger.h"
 #include "../Helpers/FeatureFlags.h"
-#include "../Helpers/PathFinder/PathFinder.h"
+#include "../Helpers/PathFinder/PathFinder.hpp"
 #include <iostream>
 CoreController* CoreController::instance;
 

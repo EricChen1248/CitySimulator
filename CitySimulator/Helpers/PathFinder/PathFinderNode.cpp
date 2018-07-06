@@ -1,4 +1,4 @@
-#include "PathFinderNode.h"
+#include "PathFinderNode.hpp"
 #include "../Constants.h"
 #include "../../Controllers/CoreController.h"
 

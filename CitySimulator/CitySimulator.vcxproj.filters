@@ -227,9 +227,6 @@
     <ClInclude Include="Controllers\UIController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Helpers\PathFinder\PathFinder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Collections\Queue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -237,9 +234,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Collections\PriorityNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Helpers\PathFinder\PathFinderNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Collections\Stack.h">
@@ -375,6 +369,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Controllers\MouseController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Helpers\PathFinder\PathFinder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Helpers\PathFinder\PathFinderNode.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
