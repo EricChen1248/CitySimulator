@@ -135,8 +135,20 @@ void WorkRule::NewDay()
 
 	if (citizen->Age() >= 18 && citizen->Age() < 45)
 	{
-		if(assignedCompany == nullptr || earlyToWork > 60) // TODO : 60?
+		if(assignedCompany == nullptr )
 			Register();
+		else if(earlyToWork > 60) // TODO : 60?
+		{
+			Plot* oldPlot = assignedCompany;
+			Register();
+
+			if (assignedCompany != oldPlot) // Check if citizen change work
+			{
+				const auto oldCompany = dynamic_cast<Work*>(oldPlot->GetPlotType());
+				oldCompany->Resignation();
+			}
+
+		}
 	}
 }
 
@@ -169,8 +181,6 @@ void WorkRule::Register()
 		return;
 	}
 
-
-
 	const auto chosen = choices[RandomInt(0, choices.Count())];
 
 	this->assignedCompany = chosen; // and then constant
@@ -183,8 +193,10 @@ void WorkRule::Register()
 
 	// TODO : School Rule doesn't exist yet.
 	int educationLv = schoolRule != nullptr ? schoolRule->getEdLvl() : 0;
-	baseSalary = dynamic_cast<Work*>(chosen->GetPlotType())->baseSalary * RandomInt(10, 13) / 10;
+	const auto work = dynamic_cast<Work*>(chosen->GetPlotType());
+	baseSalary = work->baseSalary * RandomInt(10, 13) / 10;
 	salary = baseSalary + educationLv * 0.3f; // TODO : number(education)
+	work->NewEmployee();
 }
 
 void WorkRule::UnRegister()

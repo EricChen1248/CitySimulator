@@ -3,6 +3,9 @@
 #include "WorkRule.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Time.h"
+#include "../../Helpers/HelperFunctions.h"
+
+
 
 class WorkRule;
 
@@ -53,6 +56,26 @@ void WorkSystem::Update()
 	}
 	*/
 }
+
+
+float WorkSystem::GetSatisfaction() const
+{
+	int employeeCount = 0;
+	float todayWorkTIme = 0.f;
+	for (auto&& plot : plots)
+	{
+		const auto work = dynamic_cast<Work*>(plot->GetPlotType());
+		employeeCount += work->employeeCount;
+		todayWorkTIme += work->todayWorkTime;
+	}
+
+	float satisfaction = todayWorkTIme / employeeCount * 4 * 2;
+
+	satisfaction = Clamp(satisfaction, 0.f, 1.f);
+	return satisfaction;
+}
+
+
 
 /**
 * \brief Logs a citizen being satisified with a work
