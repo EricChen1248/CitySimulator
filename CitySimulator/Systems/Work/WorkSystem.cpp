@@ -15,6 +15,7 @@ using helper::Time;
  */
 WorkSystem::WorkSystem(): BaseSystem(WORK)
 {
+	toggleable = true;
 	WorkRule::timeToWork = Time(8, 0);
 	WorkRule::breakTime = Time(12, 0);
 	WorkRule::endBreakTime = Time(13, 0);
@@ -65,7 +66,7 @@ float WorkSystem::GetSatisfaction() const
 	for (auto&& plot : plots)
 	{
 		const auto work = dynamic_cast<Work*>(plot->GetPlotType());
-		employeeCount += work->employeeCount;
+		employeeCount += work->employees.Count();
 		todayWorkTIme += work->todayWorkTime;
 	}
 
@@ -116,3 +117,11 @@ void WorkSystem::EndDay()
 	satisfiedLog.Dispose();
 }
 
+void WorkSystem::Toggle()
+{
+
+
+
+
+}
+;

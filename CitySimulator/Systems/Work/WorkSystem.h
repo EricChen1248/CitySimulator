@@ -14,6 +14,7 @@ public:
 	void LogSatisfied(Citizen* citizen, BaseRule* rule);
 	void LogUnsatisfied(Citizen* citizen, BaseRule* rule);
 	void EndDay();
+	void Toggle();
 };
 
 
