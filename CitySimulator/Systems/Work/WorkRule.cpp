@@ -132,9 +132,11 @@ bool WorkRule::IsSatisfied()
 
 void WorkRule::NewDay()
 {
-	if (assignedCompany == nullptr && citizen->Age() >= 18 && citizen->Age() < 45)
+
+	if (citizen->Age() >= 18 && citizen->Age() < 45)
 	{
-		Register();
+		if(assignedCompany == nullptr || earlyToWork > 60) // TODO : 60?
+			Register();
 	}
 }
 
@@ -166,6 +168,8 @@ void WorkRule::Register()
 	{
 		return;
 	}
+
+
 
 	const auto chosen = choices[RandomInt(0, choices.Count())];
 
