@@ -10,6 +10,7 @@
 #include "../Helpers/HelperFunctions.h"
 
 #include "../Systems/Base/BaseSystem.h"
+#include "../Systems/Plot/PlotSystem.h"
 
 UIController::UIController() : sfml(*CoreController::SfmlController()) {}
 
@@ -154,6 +155,7 @@ void UIController::DrawStatus()
         {
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
+                PlotSystem::DeselectPlotsAndRoads();
                 Status::Selection = SYSTEM;
                 Status::SelectedSystem = System(i + 1);
             }

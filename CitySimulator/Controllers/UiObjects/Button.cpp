@@ -8,7 +8,7 @@
 Button::Button()
 = default;
 
-Button::Button(const Vector2f size, const Vector2f pos, const Color color, const Color moColor) : color(color), moColor(moColor)
+Button::Button(const Vector2f size, const Vector2f pos, const Color& color, const Color& moColor) : color(color), moColor(moColor)
 {
     shape.setSize(size);
     shape.setPosition(pos);
@@ -17,6 +17,19 @@ Button::Button(const Vector2f size, const Vector2f pos, const Color color, const
 }
 
 Button::~Button() = default;
+
+void Button::ChangeColor(const Color& color, const Color& moColor)
+{
+    this->color = color;
+    this->moColor = moColor;
+}
+
+void Button::ReverseColor()
+{
+    const Color t = color;
+    color = moColor;
+    moColor = t;
+}
 
 /**
  * \brief Draws the button to the screen

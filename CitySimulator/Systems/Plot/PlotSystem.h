@@ -17,6 +17,7 @@ public:
 	void RenderRoads() const;
     
     void HandleClick();
+    void RoadClicks(bool onPlot, const float &x, const float &y);
     static void DeselectPlotsAndRoads();
 	void FindHover(float x, float y);
     void ClearSelections();

@@ -1,13 +1,16 @@
 #include <SFML/Window/Mouse.hpp>
 
 #include "PlotSystem.h"
+#include "../Base/BaseSystem.h"
 #include "../../Controllers/UIController.h"
 #include "../../Controllers/SFMLController.h"
 #include "../../Controllers/CoreController.h"
+#include "../../Controllers/SystemController.h"
 #include "../../Controllers/ViewPortController.h"
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Helpers/PathFinder/PathFinder.h"
+#include "../../Controllers/MouseController.h"
 
 PlotSystem::PlotSystem(): hoverPlot(nullptr), hoverRoad(nullptr)
 {
@@ -125,9 +128,22 @@ void PlotSystem::HandleClick()
         {
             onPlot = true;
             // if mouse is clicked
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            if (MouseController::IsClicked())
             {
+                if (hoverPlot->GetPlotType() == nullptr)
+                {
+                    if (Status::Selection == SYSTEM)
+                    {
+                        if (Status::BuildMode())
+                        {
+                            Status::Build(hoverPlot);
+                            return;
+                        }
+                    }
+                }
                 DeselectPlotsAndRoads();
+                    
+                if (hoverPlot->GetPlotType() == nullptr) return;
                 Status::SelectedPlot = hoverPlot;
 	            if (hoverPlot->currentType != nullptr)
                 {
@@ -146,24 +162,31 @@ void PlotSystem::HandleClick()
                 shape.setOutlineThickness(0);
             }
             hoverPlot = nullptr;
+            return;
         }
     }
     // If is on plot, no need to check road
+    RoadClicks(onPlot, x, y);    
+    FindHover(x, y);
+}
+
+void PlotSystem::RoadClicks(const bool onPlot, const float &x, const float &y)
+{
     if (hoverRoad != nullptr && !onPlot)
     {
         auto & shape = hoverRoad->Shape();
         if (shape.InSimpleBounds(x, y) && shape.InComplexBounds(x, y))
         {
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            if (MouseController::IsClicked())
             {
                 DeselectPlotsAndRoads();
                 Status::SelectedRoad = hoverRoad;
                 Status::Selection = ROAD;
-                
+
                 shape.ChangeColor(BLACK);
             }
         }
-        else 
+        else
         {
             if (hoverRoad != Status::SelectedRoad)
             {
@@ -172,8 +195,6 @@ void PlotSystem::HandleClick()
             hoverRoad = nullptr;
         }
     }
-    
-    FindHover(x, y);
 }
 
 /**
