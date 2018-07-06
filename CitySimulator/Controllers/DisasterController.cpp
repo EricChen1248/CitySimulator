@@ -19,6 +19,7 @@ DisasterController::~DisasterController()
 
 void DisasterController::Update()
 {
+    return;
     if (funct != nullptr)
     {
         (this->*funct)();
@@ -26,10 +27,7 @@ void DisasterController::Update()
     }
     
     auto ui = CoreController::GetUIController();
-	Earthquake();
-	ui->Flash("Earthquake!!!");
-    return;
-	const int rand = RandomInt(0, 10000);
+	const int rand = RandomInt(0, 100000);
 	if (rand == 1) //0.01%
 	{
 		//Apocalypse();
@@ -68,11 +66,12 @@ void DisasterController::Update()
 	else if (rand > 30 && rand <= 40) // 0.1%
 	{
 		AngelsAegis();
-	    ui->Flash("Angle's Aegis!!!");
+	    ui->Flash("Angel's Aegis!!!");
 	}
 	else if (rand > 4000 && rand <= 5000) //1%
 	{
 		MajestysMarvel();
+	    ui->Flash("Majesty's Marvel!!!");
 	}
 }
 /*
@@ -142,10 +141,18 @@ void DisasterController::Hurricane()
 			const int k = RandomInt(0, 1);
 			if (k == 0)
 			{
-				CoreController::GetSystemController()->Plots()->FindPlot(neighbor_coords[i])->Destroy();
+	            auto plot = CoreController::GetSystemController()->Plots()->FindPlot(neighbor_coords[i]);
+	            if (plot == nullptr) continue;
+	            if (plot->GetPlotType() != nullptr)
+                {
+                    plot->Destroy();
+                }
 			}		
 		}
-		centers->Destroy();
+        if (centers->GetPlotType() != nullptr)
+        {
+            centers->Destroy();
+        }
 	}
 }
 
@@ -179,10 +186,17 @@ void DisasterController::WildFire()
 	const auto& neighbor_coords = center->Coords().GetNeighbours();
 	for (int i = 0; i < 6; i++)
 	{
-		CoreController::GetSystemController()->Plots()->FindPlot(neighbor_coords[i])->Destroy();
+	    auto plot = CoreController::GetSystemController()->Plots()->FindPlot(neighbor_coords[i]);
+	    if (plot == nullptr) continue;
+	    if (plot->GetPlotType() != nullptr)
+        {
+            plot->Destroy();
+        }
 	}
-	center->Destroy();
-		
+    if (center->GetPlotType() != nullptr)
+    {
+        center->Destroy();
+    }
 }
 
 void DisasterController::MajestysMarvel()
