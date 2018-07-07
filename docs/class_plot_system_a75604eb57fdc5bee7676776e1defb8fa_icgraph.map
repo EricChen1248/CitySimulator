@@ -1,0 +1,5 @@
+<map id="PlotSystem::ClearSelections" name="PlotSystem::ClearSelections">
+<area shape="rect" id="node2" href="$class_system_controller.html#ac00b118e5e33f7ea9b71389993dfd487" title="SystemController::AdvanceDay" alt="" coords="243,5,445,32"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#a3c79152bf136634d5708b20ccc2f498a" title="Starts the game and kicks off all functions. " alt="" coords="728,5,868,32"/>
+<area shape="rect" id="node4" href="$class_core_controller.html#a0fb98cb1cc2df8cb59ed2a7822a9b1b8" title="CoreController::EndDayLoop" alt="" coords="493,31,680,57"/>
+</map>

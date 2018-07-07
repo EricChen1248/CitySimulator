@@ -1,0 +1,9 @@
+<map id="FoodRule::Update" name="FoodRule::Update">
+<area shape="rect" id="node2" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="668,5,829,32"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#a2eece93ec8a141fd3640ccd2db3091bf" title="CoreController::GetDeltaTime" alt="" coords="180,35,371,61"/>
+<area shape="rect" id="node4" href="$class_citizen.html#aaf61864d86d7855be6c62a94b0a46d60" title="Marks citizen as dead. Die pruning and events are handled at the end of day. " alt="" coords="231,93,320,120"/>
+<area shape="rect" id="node5" href="$class_core_controller.html#a3c23d3b6e5fa93b707ac5be6bc2dda96" title="CoreController::GetSystem\lController" alt="" coords="430,27,609,69"/>
+<area shape="rect" id="node6" href="$class_system_controller.html#a69de55b16d60a1792473428cfa183684" title="Gets the system based on system enum type. " alt="" coords="421,93,617,120"/>
+<area shape="rect" id="node7" href="$class_citizen.html#a0a7a5dcce103d3971acff20a5d40e28b" title="Finds a rule of system type. " alt="" coords="459,144,580,171"/>
+<area shape="rect" id="node8" href="$class_hospital_system.html#aace66ee3e9e861df844ed98355180213" title="Increase tally of people that died outside of the hospital. " alt="" coords="419,195,620,221"/>
+</map>

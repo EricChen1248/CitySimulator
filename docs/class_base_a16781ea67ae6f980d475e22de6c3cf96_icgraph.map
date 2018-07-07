@@ -1,0 +1,6 @@
+<map id="Base::Color" name="Base::Color">
+<area shape="rect" id="node2" href="$class_plot.html#a4bf247eb2ea0392c3b6d00f7b6442255" title="Adds a plot type component to the plot. Update&#39;s color accordingly. " alt="" coords="144,31,245,57"/>
+<area shape="rect" id="node3" href="$class_system_controller.html#ae034648004ab6c55ddc33b9ff7980275" title="Late Initialization of system controller so all pointers are in place. " alt="" coords="293,5,471,32"/>
+<area shape="rect" id="node5" href="$class_home_system.html#ac08a70c6e653f8afc4a0b3b82b2c4805" title="Register a plot into the system for quick lookup and updating. " alt="" coords="303,56,461,83"/>
+<area shape="rect" id="node4" href="$class_core_controller.html#ab3853568fd9d732663ebf807817f3764" title="CoreController::CoreController" alt="" coords="519,5,713,32"/>
+</map>

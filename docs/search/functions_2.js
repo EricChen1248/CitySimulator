@@ -1,12 +1,22 @@
 var searchData=
 [
-  ['deathevents',['DeathEvents',['../class_citizen.html#ae216eea33f751165bf6e1ffdd0da61d8',1,'Citizen']]],
-  ['dequeue',['Dequeue',['../class_priority_queue.html#ace0b78e30505da18b90a0d034abfc3ba',1,'PriorityQueue::Dequeue()'],['../class_queue.html#aae9f32d812e1c5fccecbfe4dde25a338',1,'Queue::Dequeue()']]],
-  ['deselectplotsandroads',['DeselectPlotsAndRoads',['../class_plot_system.html#a7403bb12c4e3cd2a6ad66dcd2a6f94a2',1,'PlotSystem']]],
-  ['die',['Die',['../class_citizen.html#aaf61864d86d7855be6c62a94b0a46d60',1,'Citizen']]],
-  ['dispose',['Dispose',['../class_linked_list.html#ab92440b659e19755e793348f3976c387',1,'LinkedList']]],
-  ['distance',['Distance',['../class_coordinate.html#af5c4e941b047ef18ef3550a52fb11bc6',1,'Coordinate']]],
-  ['down',['Down',['../class_view_port_controller.html#a2aeced4e00ccfbe9d9b6163834d0897b',1,'ViewPortController']]],
-  ['draw',['Draw',['../class_button.html#aefda23426dea8457a4192341e2f4a0b3',1,'Button']]],
-  ['drawstring',['DrawString',['../class_s_f_m_l_controller.html#acb67ffc61dd45d4fd13ab5e290cc9321',1,'SFMLController']]]
+  ['calculatescore',['CalculateScore',['../class_bank_rule.html#afb4dc23622bd243dd443af5c86820597',1,'BankRule::CalculateScore()'],['../class_base_rule.html#a6cbad4cd230de3ce698a016752b831df',1,'BaseRule::CalculateScore()'],['../class_food_rule.html#a5928bb41fcd8b88f8deb6410e6692337',1,'FoodRule::CalculateScore()'],['../class_home_rule.html#a0c62812394a571a5f31b84921ca8b82f',1,'HomeRule::CalculateScore()'],['../class_hospital_rule.html#a2f9e108bd341a69b34590d3f332523a6',1,'HospitalRule::CalculateScore()'],['../class_school_rule.html#aae38ca5359962e9836f1fa8b28210e9e',1,'SchoolRule::CalculateScore()'],['../class_store_rule.html#a0c042b899d2182029c4189acd41cceae',1,'StoreRule::CalculateScore()'],['../class_work_rule.html#ac1c7e4d9c29fc30573909a03e9c18042',1,'WorkRule::CalculateScore()']]],
+  ['changebirthrate',['ChangeBirthRate',['../class_government.html#af17610eff6a2ab97f91371773d1378eb',1,'Government']]],
+  ['changecolor',['ChangeColor',['../class_button.html#aa3ca901a3af6cdbcc2cbb67d918b5713',1,'Button::ChangeColor()'],['../class_line.html#a922da56e65a89a952a1490c991325667',1,'Line::ChangeColor()']]],
+  ['changethickness',['ChangeThickness',['../class_line.html#a9909e5b7520afcc077994ff7b0b7a81f',1,'Line']]],
+  ['checkquadrant',['CheckQuadrant',['../class_path_finder.html#a4122c11b2c8bb7ca9d0763fbb8c8f423',1,'PathFinder']]],
+  ['citizen',['Citizen',['../class_citizen.html#ae36dd3a1d37a22e614477839dc22ba75',1,'Citizen::Citizen(Plot *plot)'],['../class_citizen.html#a6d2bdfe459597d69487721cbe782de29',1,'Citizen::Citizen(Plot *plot, Citizen *parent1, Citizen *parent2)']]],
+  ['citizens',['Citizens',['../class_system_controller.html#af67889986b1613a78ad9dd5531c7aaa6',1,'SystemController::Citizens()'],['../class_citizen_system.html#a43fa04fb4f5bef84227e95bdcd19e73e',1,'CitizenSystem::Citizens()']]],
+  ['citizensystem',['CitizenSystem',['../class_citizen_system.html#a5ecb60b1da228341d4cb67ddbe1f2257',1,'CitizenSystem']]],
+  ['clear',['Clear',['../class_list.html#ad9b354ea8484f3f539b54a48034969e3',1,'List']]],
+  ['clearselections',['ClearSelections',['../class_plot_system.html#a75604eb57fdc5bee7676776e1defb8fa',1,'PlotSystem']]],
+  ['codingerror',['CodingError',['../class_coding_error.html#a75af3d909d8e391a8e8f107412652019',1,'CodingError::CodingError(const std::string &amp;message)'],['../class_coding_error.html#ac1a106e84c0116b551cfe510f5a4f539',1,'CodingError::CodingError(const char *message)']]],
+  ['color',['Color',['../class_base.html#a16781ea67ae6f980d475e22de6c3cf96',1,'Base']]],
+  ['contains',['Contains',['../class_list.html#a315a63d1b852abc20770ebdeba57229d',1,'List']]],
+  ['contentstring',['ContentString',['../class_road.html#af1763ae11999f5fcb644ea859553ea85',1,'Road::ContentString()'],['../class_bank.html#a6bc2cf8cc0c0b714267c44346b0dd352',1,'Bank::ContentString()'],['../class_base.html#a00c79956ad7834a2cae446d96f2df8ee',1,'Base::ContentString()'],['../class_base_system.html#a97702b6df4b019b1e7506e1b0525fdff',1,'BaseSystem::ContentString()'],['../class_food.html#a68ac59a62b833a8da946601f31657f5d',1,'Food::ContentString()'],['../class_food_system.html#a46e573b415cb7ea2cadfaf69b30c8512',1,'FoodSystem::ContentString()'],['../class_home.html#addb44a938f3271a23076f279ab1816b3',1,'Home::ContentString()'],['../class_hospital.html#a6c424ed15f8836a7d31c8f3af537b335',1,'Hospital::ContentString()'],['../class_hospital_system.html#af94d3d53a91dfaeaeae41484cf44bcb0',1,'HospitalSystem::ContentString()'],['../class_work.html#a21ed5cb0e98b78c5ed8c49ee5ace8c36',1,'Work::ContentString()'],['../class_work_system.html#a899562bf5da21d6383a9e5cda3213cfa',1,'WorkSystem::ContentString()']]],
+  ['coordinate',['Coordinate',['../class_coordinate.html#a2b4dad7837cabeefa7f8e2611e591186',1,'Coordinate::Coordinate(const int x, const int y, const int z)'],['../class_coordinate.html#a20b1197e1f9e9af204753efb05261a6c',1,'Coordinate::Coordinate(float x=0, float y=0, float z=0)']]],
+  ['coords',['Coords',['../class_citizen.html#a16e76102985ff3b64986a88033bfab8a',1,'Citizen::Coords()'],['../class_plot.html#ac678bf292e6907a0c2d957d12838f3b7',1,'Plot::Coords()']]],
+  ['corecontroller',['CoreController',['../class_core_controller.html#ab3853568fd9d732663ebf807817f3764',1,'CoreController']]],
+  ['cost',['Cost',['../class_base.html#a3fbdbd8d11d36b704752e70c5e343a8d',1,'Base::Cost()'],['../class_base_system.html#ab4d0f8efdc9d28e711d276260b52f664',1,'BaseSystem::Cost()'],['../class_work_system.html#aee605173e5b5c63cc85a5d108e984505',1,'WorkSystem::Cost()']]],
+  ['count',['Count',['../class_i_list.html#a73651d187ecfa432716b6f81821c6e20',1,'IList::Count()'],['../class_linked_list.html#ae526a6c2b68aa8cc08d6028f2e758c71',1,'LinkedList::Count()'],['../class_list.html#a77e7126ebd803130624a0d9c38bee836',1,'List::Count()'],['../class_queue.html#a0c72c324d1be97adf964047241e3f7b1',1,'Queue::Count()'],['../class_stack.html#a4d1bacafcfccc35f4fc1356d11cf09be',1,'Stack::Count()']]]
 ];

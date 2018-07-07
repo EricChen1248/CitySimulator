@@ -1,0 +1,12 @@
+<map id="SystemController::Initialize" name="SystemController::Initialize">
+<area shape="rect" id="node2" href="$class_list.html#a3d2b2b76b221e198c96013b00c1ad59b" title="List::InsertLast" alt="" coords="505,5,613,32"/>
+<area shape="rect" id="node3" href="$class_plot_system.html#a109c77edeee08fd1177b82e1f73ccbe0" title="Generates the roads of the whole plot system. " alt="" coords="232,56,420,83"/>
+<area shape="rect" id="node5" href="$class_river.html#a8c95d75b10baa652ae7fb0013694b871" title="River::Init" alt="" coords="289,115,363,141"/>
+<area shape="rect" id="node9" href="$class_plot_system.html#acb5541d727480cdd0f40c060488b4bc2" title="Gets a random plot for the system. " alt="" coords="231,165,421,192"/>
+<area shape="rect" id="node10" href="$class_plot.html#a4bf247eb2ea0392c3b6d00f7b6442255" title="Adds a plot type component to the plot. Update&#39;s color accordingly. " alt="" coords="275,220,377,247"/>
+<area shape="rect" id="node4" href="$class_plot_system.html#a1487fdbe3c7d55f340bafc8e4e8dc5f7" title="Attemps to find a plot in the system with the corresponding coordinates. " alt="" coords="485,56,632,83"/>
+<area shape="rect" id="node6" href="$class_core_controller.html#a3c23d3b6e5fa93b707ac5be6bc2dda96" title="CoreController::GetSystem\lController" alt="" coords="469,107,648,149"/>
+<area shape="rect" id="node8" href="$class_system_controller.html#a924460fc849b317d559812604523f65f" title="SystemController::Plots" alt="" coords="479,173,639,200"/>
+<area shape="rect" id="node7" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="696,115,857,141"/>
+<area shape="rect" id="node11" href="$class_base.html#a16781ea67ae6f980d475e22de6c3cf96" title="Base::Color" alt="" coords="513,224,604,251"/>
+</map>

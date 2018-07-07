@@ -1,0 +1,7 @@
+<map id="Status::Build" name="Status::Build">
+<area shape="rect" id="node2" href="$class_core_controller.html#a3c23d3b6e5fa93b707ac5be6bc2dda96" title="CoreController::GetSystem\lController" alt="" coords="159,5,338,47"/>
+<area shape="rect" id="node4" href="$class_system_controller.html#a69de55b16d60a1792473428cfa183684" title="Gets the system based on system enum type. " alt="" coords="151,71,347,98"/>
+<area shape="rect" id="node5" href="$class_base_system.html#ac20f041e40fd0912a016be33599025e6" title="Register a plot into the system for quick lookup and updating. " alt="" coords="172,122,325,149"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="395,13,556,39"/>
+<area shape="rect" id="node6" href="$class_list.html#a3d2b2b76b221e198c96013b00c1ad59b" title="List::InsertLast" alt="" coords="421,122,529,149"/>
+</map>

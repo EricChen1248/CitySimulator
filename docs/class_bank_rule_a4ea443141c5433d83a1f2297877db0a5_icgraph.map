@@ -1,0 +1,4 @@
+<map id="BankRule::BankRule" name="BankRule::BankRule">
+<area shape="rect" id="node2" href="$class_bank_system.html#a43a8f2a91ac86a008101755a1eed70cb" title="Logs a citizen being satisified with a food. " alt="" coords="203,5,379,32"/>
+<area shape="rect" id="node3" href="$class_bank_system.html#a241fdc84f0752e4a930e42c514f13c07" title="Logs a citizen being unsatisified with a food. " alt="" coords="196,56,387,83"/>
+</map>

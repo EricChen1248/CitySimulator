@@ -1,0 +1,4 @@
+<map id="SchoolRule::SchoolRule" name="SchoolRule::SchoolRule">
+<area shape="rect" id="node2" href="$class_school_system.html#a08db14a571b27182c67e5e01419e5926" title="Logs a citizen being satisified with a food. " alt="" coords="223,5,409,32"/>
+<area shape="rect" id="node3" href="$class_school_system.html#afec5e34469d5285ea51d45f416c5d6fe" title="Logs a citizen being unsatisified with a food. " alt="" coords="216,56,416,83"/>
+</map>

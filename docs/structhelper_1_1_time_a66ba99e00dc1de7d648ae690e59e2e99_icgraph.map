@@ -1,0 +1,4 @@
+<map id="helper::Time::EndDay" name="helper::Time::EndDay">
+<area shape="rect" id="node2" href="$class_core_controller.html#ae0b7fd95af3ee62dcaee016c3a71c8b9" title="Game loop of each day. " alt="" coords="200,5,387,32"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#a3c79152bf136634d5708b20ccc2f498a" title="Starts the game and kicks off all functions. " alt="" coords="435,5,575,32"/>
+</map>

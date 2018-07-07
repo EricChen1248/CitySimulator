@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['_7equeue',['~Queue',['../class_queue.html#aa7eef1b427e24555780505de20e9acbc',1,'Queue']]],
-  ['_7estack',['~Stack',['../class_stack.html#a0ef9a0f914fac642d8a47def2e1c214c',1,'Stack']]]
+  ['x',['X',['../struct_screen_coordinate.html#a2cc4b6928a30c47618d2e083597f399d',1,'ScreenCoordinate::X()'],['../class_coordinate.html#a215fcd6e2ff1f29f7eb471ea881f024d',1,'Coordinate::X()']]],
+  ['x_5fchange',['X_CHANGE',['../_coordinate_8cpp.html#a3c9639cc30ccd23a3eda80645ffa606d',1,'Coordinate.cpp']]]
 ];

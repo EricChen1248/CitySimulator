@@ -1,0 +1,6 @@
+<map id="Citizen::Age" name="Citizen::Age">
+<area shape="rect" id="node2" href="$class_bank_rule.html#a2b5f71a40aee860ddf1aa405cc72e88f" title="Citizen withdraws money on leaving. " alt="" coords="147,5,289,32"/>
+<area shape="rect" id="node3" href="$class_home_rule.html#afce98dc6609647bdd4550bfe54fb62da" title="HomeRule::EndDay" alt="" coords="150,56,286,83"/>
+<area shape="rect" id="node4" href="$class_work_rule.html#a14184d48a943090e6037df03ee6acee2" title="WorkRule::LeavePlot" alt="" coords="147,107,289,133"/>
+<area shape="rect" id="node5" href="$class_work_rule.html#a931ccc96ebab1e8d013e50ba5004c0c0" title="WorkRule::NewDay" alt="" coords="151,157,285,184"/>
+</map>

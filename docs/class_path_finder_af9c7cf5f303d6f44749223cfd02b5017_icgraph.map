@@ -1,0 +1,7 @@
+<map id="PathFinder::RemapQuadrants" name="PathFinder::RemapQuadrants">
+<area shape="rect" id="node2" href="$class_core_controller.html#ab3853568fd9d732663ebf807817f3764" title="CoreController::CoreController" alt="" coords="248,5,443,32"/>
+<area shape="rect" id="node3" href="$class_path_finder.html#a4122c11b2c8bb7ca9d0763fbb8c8f423" title="PathFinder::CheckQuadrant" alt="" coords="254,56,437,83"/>
+<area shape="rect" id="node4" href="$class_plot.html#a329886dfdd6f46115252fc8673cc727d" title="Plot::BuiltBridge" alt="" coords="491,56,607,83"/>
+<area shape="rect" id="node5" href="$class_road.html#a50e770f98d48c26421973d38d46a5b17" title="Road::LevelUp" alt="" coords="655,56,760,83"/>
+<area shape="rect" id="node6" href="$class_road.html#adf6a767f9aa69ec621e32c78a8638fb2" title="Road::PerformClick" alt="" coords="808,56,943,83"/>
+</map>

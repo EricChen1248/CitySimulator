@@ -1,0 +1,10 @@
+<map id="Plot::BuiltBridge" name="Plot::BuiltBridge">
+<area shape="rect" id="node2" href="$class_path_finder.html#a4122c11b2c8bb7ca9d0763fbb8c8f423" title="PathFinder::CheckQuadrant" alt="" coords="169,56,352,83"/>
+<area shape="rect" id="node3" href="$class_plot.html#ac678bf292e6907a0c2d957d12838f3b7" title="Plot::Coords" alt="" coords="450,5,545,32"/>
+<area shape="rect" id="node4" href="$class_plot.html#a31d1a126d874ba3d8491f0cdd45f99f8" title="Plot::NotRiver" alt="" coords="447,56,548,83"/>
+<area shape="rect" id="node5" href="$class_path_finder.html#af9c7cf5f303d6f44749223cfd02b5017" title="PathFinder::RemapQuadrants" alt="" coords="400,107,595,133"/>
+<area shape="rect" id="node6" href="$class_queue.html#add54f19bf48b3c3bdd0572db6395d313" title="Adds a new item to the queue;. " alt="" coords="643,31,761,57"/>
+<area shape="rect" id="node7" href="$class_queue.html#a108f38d4671657f97ad2fc87c97a2f6b" title="Queue::IsEmpty" alt="" coords="644,81,760,108"/>
+<area shape="rect" id="node8" href="$class_queue.html#a1c660c3c6dbd17d2c8b59e6899fa9163" title="Returns a constant reference of the front of the queue without removing it. " alt="" coords="653,132,751,159"/>
+<area shape="rect" id="node9" href="$class_queue.html#aae9f32d812e1c5fccecbfe4dde25a338" title="Returns and removes the item at the front of the queue. Throws an error is the queue is empty..." alt="" coords="643,183,761,209"/>
+</map>

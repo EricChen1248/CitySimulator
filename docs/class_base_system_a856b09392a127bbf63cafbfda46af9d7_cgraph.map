@@ -1,0 +1,10 @@
+<map id="BaseSystem::Destroy" name="BaseSystem::Destroy">
+<area shape="rect" id="node2" href="$class_plot.html#ab4a60151432bc7f824b2d111274ebfb8" title="Plot::GetPlotType" alt="" coords="204,21,329,47"/>
+<area shape="rect" id="node3" href="$class_plot.html#aadf566c0f2995814885869e54904ad8c" title="Plot::Destroy" alt="" coords="217,71,316,98"/>
+<area shape="rect" id="node4" href="$class_base.html#a1d6d26200c6df421b7fe7105f8a12b28" title="Base::Destroy" alt="" coords="377,71,483,98"/>
+<area shape="rect" id="node5" href="$class_core_controller.html#a3c23d3b6e5fa93b707ac5be6bc2dda96" title="CoreController::GetSystem\lController" alt="" coords="539,5,718,47"/>
+<area shape="rect" id="node7" href="$class_system_controller.html#a69de55b16d60a1792473428cfa183684" title="Gets the system based on system enum type. " alt="" coords="531,71,727,98"/>
+<area shape="rect" id="node8" href="$class_base_system.html#a95a11d9b9983589dffab5275e3493469" title="Unregister a plot to remove it from being tracked in the system. " alt="" coords="547,122,711,149"/>
+<area shape="rect" id="node6" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="775,13,936,39"/>
+<area shape="rect" id="node9" href="$class_list.html#a1524395880e3185d58187368ce50a134" title="List::Remove" alt="" coords="807,122,904,149"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="helper::Time::ResetDay" name="helper::Time::ResetDay">
+<area shape="rect" id="node2" href="$class_core_controller.html#a0fb98cb1cc2df8cb59ed2a7822a9b1b8" title="CoreController::EndDayLoop" alt="" coords="212,5,399,32"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#a3c79152bf136634d5708b20ccc2f498a" title="Starts the game and kicks off all functions. " alt="" coords="447,5,587,32"/>
+</map>

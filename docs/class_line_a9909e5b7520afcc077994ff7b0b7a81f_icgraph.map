@@ -1,0 +1,5 @@
+<map id="Line::ChangeThickness" name="Line::ChangeThickness">
+<area shape="rect" id="node2" href="$class_line.html#a6fe44fe558930f9dac52648c8f481b28" title="Line::Line" alt="" coords="224,5,303,32"/>
+<area shape="rect" id="node3" href="$class_road.html#a50e770f98d48c26421973d38d46a5b17" title="Road::LevelUp" alt="" coords="211,56,316,83"/>
+<area shape="rect" id="node4" href="$class_road.html#adf6a767f9aa69ec621e32c78a8638fb2" title="Road::PerformClick" alt="" coords="364,56,499,83"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="StoreRule::FindPlot" name="StoreRule::FindPlot">
+<area shape="rect" id="node2" href="$class_core_controller.html#a3c23d3b6e5fa93b707ac5be6bc2dda96" title="CoreController::GetSystem\lController" alt="" coords="197,5,375,47"/>
+<area shape="rect" id="node4" href="$class_system_controller.html#a69de55b16d60a1792473428cfa183684" title="Gets the system based on system enum type. " alt="" coords="188,71,384,98"/>
+<area shape="rect" id="node5" href="$class_base_system.html#a5315471b9ddc6a24087d92e229580a6d" title="BaseSystem::Plots" alt="" coords="219,122,353,149"/>
+<area shape="rect" id="node6" href="$class_citizen.html#a16e76102985ff3b64986a88033bfab8a" title="Citizen::Coords" alt="" coords="231,173,341,199"/>
+<area shape="rect" id="node7" href="$class_coordinate.html#af5c4e941b047ef18ef3550a52fb11bc6" title="Calculates and returns the manhattan distance between two coordinates. " alt="" coords="215,223,357,250"/>
+<area shape="rect" id="node8" href="$class_list.html#a3d2b2b76b221e198c96013b00c1ad59b" title="List::InsertLast" alt="" coords="232,274,340,301"/>
+<area shape="rect" id="node9" href="$class_list.html#a77e7126ebd803130624a0d9c38bee836" title="List::Count" alt="" coords="243,325,329,351"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="432,13,593,39"/>
+</map>

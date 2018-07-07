@@ -1,0 +1,13 @@
+<map id="SFMLController::DrawShape" name="SFMLController::DrawShape">
+<area shape="rect" id="node2" href="$class_button.html#aefda23426dea8457a4192341e2f4a0b3" title="Draws the button to the screen. " alt="" coords="285,50,382,76"/>
+<area shape="rect" id="node3" href="$struct_selection_button.html#a21026ca7212bc698b4b7d98815ad4e54" title="SelectionButton::Draw" alt="" coords="485,12,635,39"/>
+<area shape="rect" id="node4" href="$class_slider.html#ae01696eae70b82ec275cf7f99ce4c444" title="Slider::Render" alt="" coords="508,88,612,115"/>
+<area shape="rect" id="node5" href="$struct_satis_bar.html#a7f4fadca6917bd4dfd21f323f52d9910" title="SatisBar::Draw" alt="" coords="279,151,388,178"/>
+<area shape="rect" id="node6" href="$class_status.html#ac2d1aec4cfb32857b8a46e5419247ebb" title="Status::Draw" alt="" coords="285,202,382,228"/>
+<area shape="rect" id="node7" href="$class_citizen_system.html#a0b98dd2a8f9b1a2d9df6a5638438abbf" title="Renders citizens;. " alt="" coords="255,252,411,279"/>
+<area shape="rect" id="node9" href="$class_plot_system.html#a0b3c5d0df252995318e1e6fc7ba356b8" title="Calls all rendering event during the day. " alt="" coords="264,303,403,330"/>
+<area shape="rect" id="node10" href="$class_plot_system.html#a8bf87772f6d248af9603933811f50ca6" title="Calls all rendering events during interday. " alt="" coords="240,404,427,431"/>
+<area shape="rect" id="node12" href="$class_river.html#a833cb3c47969eee7624e05bce8cca9f8" title="River::Render" alt="" coords="284,354,383,380"/>
+<area shape="rect" id="node8" href="$class_system_controller.html#a832052a56b354f7216d110180a6ad41b" title="Calls render functions of citizens and plots. " alt="" coords="475,303,645,330"/>
+<area shape="rect" id="node11" href="$class_system_controller.html#ac2fc83957e0fd38f3baedcf2dca3206e" title="Calls render function of plots. " alt="" coords="475,376,645,417"/>
+</map>

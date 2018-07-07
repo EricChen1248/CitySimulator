@@ -1,0 +1,6 @@
+<map id="Citizen::~Citizen" name="Citizen::~Citizen">
+<area shape="rect" id="node2" href="$class_citizen.html#a0a7a5dcce103d3971acff20a5d40e28b" title="Finds a rule of system type. " alt="" coords="200,5,321,32"/>
+<area shape="rect" id="node3" href="$class_government.html#a71ac0d76b9f7d15435d5c79d946dd7e8" title="Adds money to the user&#39;s money. " alt="" coords="189,56,332,83"/>
+<area shape="rect" id="node4" href="$class_bank_rule.html#ad5831ef8a2798b059b3b68b6a9f8543a" title="BankRule::SaveMoney" alt="" coords="184,107,337,133"/>
+<area shape="rect" id="node5" href="$class_citizen.html#ae466f39a680128b72a642e3fb122f890" title="Citizen::GetFamilyMember" alt="" coords="172,157,349,184"/>
+</map>

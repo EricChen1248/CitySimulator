@@ -1,0 +1,6 @@
+<map id="CoreController::RunDayLoop" name="CoreController::RunDayLoop">
+<area shape="rect" id="node2" href="$class_core_controller.html#a71d5ded65f302df5d5a1e6c32ba53401" title="CoreController::IsRunning" alt="" coords="245,5,414,32"/>
+<area shape="rect" id="node3" href="$structhelper_1_1_time.html#a66ba99e00dc1de7d648ae690e59e2e99" title="helper::Time::EndDay" alt="" coords="256,56,403,83"/>
+<area shape="rect" id="node4" href="$structhelper_1_1_time.html#ad3e5c9ba712451e91935c60fdd4ed0c9" title="helper::Time::IncreaseTime" alt="" coords="240,107,419,133"/>
+<area shape="rect" id="node5" href="$class_mouse_controller.html#aee924ed0b8f37f8e1538217ddacef9d8" title="MouseController::Reset" alt="" coords="250,157,409,184"/>
+</map>

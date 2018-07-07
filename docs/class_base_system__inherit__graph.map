@@ -1,0 +1,9 @@
+<map id="BaseSystem" name="BaseSystem">
+<area shape="rect" id="node2" href="$class_bank_system.html" title="Food systems that tracks and handles collective food plots and events. " alt="" coords="5,439,132,619"/>
+<area shape="rect" id="node3" href="$class_food_system.html" title="Food systems that tracks and handles collective food plots and events. " alt="" coords="156,453,307,604"/>
+<area shape="rect" id="node4" href="$class_home_system.html" title="Home systems that tracks and handles collective home plots and events. " alt="" coords="331,439,462,619"/>
+<area shape="rect" id="node5" href="$class_hospital_system.html" title="Hospital systems that tracks and handles collective food plots and events. " alt="" coords="487,424,629,633"/>
+<area shape="rect" id="node6" href="$class_school_system.html" title="School systems that tracks and handles collective food plots and events. " alt="" coords="653,446,788,611"/>
+<area shape="rect" id="node7" href="$class_store_system.html" title="Store systems that tracks and handles collective store plots and events. " alt="" coords="812,446,939,611"/>
+<area shape="rect" id="node8" href="$class_work_system.html" title="{WorkSystem\n||+ WorkSystem()\l+ ~WorkSystem()\l+ Register()\l+ Update()\l+ GetSatisfaction()\l+ EndDay()\l+ Toggle()\l+ Cost()\l+ ContentString()\l}" alt="" coords="963,431,1094,626"/>
+</map>

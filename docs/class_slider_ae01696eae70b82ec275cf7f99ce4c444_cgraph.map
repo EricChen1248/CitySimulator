@@ -1,0 +1,9 @@
+<map id="Slider::Render" name="Slider::Render">
+<area shape="rect" id="node2" href="$class_core_controller.html#a04bd80274958e42fc7549554e2a520bb" title="CoreController::SfmlController" alt="" coords="623,95,816,122"/>
+<area shape="rect" id="node4" href="$class_s_f_m_l_controller.html#a9e248ad5d7919cd6ea4b3c9942b78079" title="SFMLController::DrawShape" alt="" coords="388,45,575,71"/>
+<area shape="rect" id="node5" href="$class_button.html#aefda23426dea8457a4192341e2f4a0b3" title="Draws the button to the screen. " alt="" coords="200,95,297,122"/>
+<area shape="rect" id="node7" href="$class_s_f_m_l_controller.html#a5fc1d926cba4ff99e478990b19f2daf9" title="Gets the window of SDL controller. " alt="" coords="636,171,803,198"/>
+<area shape="rect" id="node8" href="$class_s_f_m_l_controller.html#acb67ffc61dd45d4fd13ab5e290cc9321" title="Draws a string to the window. " alt="" coords="157,247,340,274"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="864,95,1025,122"/>
+<area shape="rect" id="node6" href="$class_button.html#ac449e68882fd5565bb837e27edfe3825" title="Checks if the mouse is within the bounds (non&#45;minimum) provided by SFML of the button. " alt="" coords="415,146,547,173"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="River::Render" name="River::Render">
+<area shape="rect" id="node2" href="$class_system_controller.html#a832052a56b354f7216d110180a6ad41b" title="Calls render functions of citizens and plots. " alt="" coords="152,5,323,32"/>
+<area shape="rect" id="node3" href="$class_system_controller.html#ac2fc83957e0fd38f3baedcf2dca3206e" title="Calls render function of plots. " alt="" coords="152,57,323,98"/>
+</map>

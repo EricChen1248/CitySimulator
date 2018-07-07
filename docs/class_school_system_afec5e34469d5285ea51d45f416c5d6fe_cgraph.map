@@ -1,0 +1,5 @@
+<map id="SchoolSystem::LogUnsatisfied" name="SchoolSystem::LogUnsatisfied">
+<area shape="rect" id="node2" href="$class_citizen.html#a16e76102985ff3b64986a88033bfab8a" title="Citizen::Coords" alt="" coords="279,5,390,32"/>
+<area shape="rect" id="node3" href="$class_school_rule.html#a3f647ede84e527e4c4386d726809fc25" title="SchoolRule::SchoolRule" alt="" coords="253,56,416,83"/>
+<area shape="rect" id="node4" href="$class_list.html#a3d2b2b76b221e198c96013b00c1ad59b" title="List::InsertLast" alt="" coords="281,107,389,133"/>
+</map>

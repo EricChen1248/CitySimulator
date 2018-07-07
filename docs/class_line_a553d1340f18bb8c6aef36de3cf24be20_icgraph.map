@@ -1,0 +1,5 @@
+<map id="Line::SetColor" name="Line::SetColor">
+<area shape="rect" id="node2" href="$class_road.html#a50e770f98d48c26421973d38d46a5b17" title="Road::LevelUp" alt="" coords="171,5,277,32"/>
+<area shape="rect" id="node4" href="$class_road.html#a6086a0b2824f5e00dae7577d3c7f12da" title="Road::MarkAsRiver" alt="" coords="157,56,291,83"/>
+<area shape="rect" id="node3" href="$class_road.html#adf6a767f9aa69ec621e32c78a8638fb2" title="Road::PerformClick" alt="" coords="339,5,473,32"/>
+</map>

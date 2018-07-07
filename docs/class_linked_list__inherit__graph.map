@@ -1,0 +1,5 @@
+<map id="LinkedList&lt; T &gt;" name="LinkedList&lt; T &gt;">
+<area shape="rect" id="node3" href="$class_linked_list.html" title="{LinkedList\&lt; Citizen *\&gt;\n|# first\l# last\l# count\l|+ LinkedList()\l+ LinkedList()\l+ ~LinkedList()\l+ operator[]()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Dispose()\l+ Count()\l+ begin()\l+ end()\l}" alt="" coords="5,551,156,819"/>
+<area shape="rect" id="node4" href="$class_linked_list.html" title="{LinkedList\&lt; Plot *\&gt;\n|# first\l# last\l# count\l|+ LinkedList()\l+ LinkedList()\l+ ~LinkedList()\l+ operator[]()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Dispose()\l+ Count()\l+ begin()\l+ end()\l}" alt="" coords="181,551,314,819"/>
+<area shape="rect" id="node2" href="$class_i_list.html" title="Interface for a list collection. " alt="" coords="107,5,220,171"/>
+</map>

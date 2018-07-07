@@ -1,0 +1,4 @@
+<map id="WorkSystem::Register" name="WorkSystem::Register">
+<area shape="rect" id="node2" href="$class_base_system.html#ac20f041e40fd0912a016be33599025e6" title="Register a plot into the system for quick lookup and updating. " alt="" coords="208,5,361,32"/>
+<area shape="rect" id="node3" href="$class_list.html#a3d2b2b76b221e198c96013b00c1ad59b" title="List::InsertLast" alt="" coords="409,5,517,32"/>
+</map>

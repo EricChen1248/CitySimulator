@@ -1,0 +1,6 @@
+<map id="PathFinder::RemapQuadrants" name="PathFinder::RemapQuadrants">
+<area shape="rect" id="node2" href="$class_queue.html#add54f19bf48b3c3bdd0572db6395d313" title="Adds a new item to the queue;. " alt="" coords="248,5,367,32"/>
+<area shape="rect" id="node3" href="$class_queue.html#a108f38d4671657f97ad2fc87c97a2f6b" title="Queue::IsEmpty" alt="" coords="249,56,365,83"/>
+<area shape="rect" id="node4" href="$class_queue.html#a1c660c3c6dbd17d2c8b59e6899fa9163" title="Returns a constant reference of the front of the queue without removing it. " alt="" coords="258,107,357,133"/>
+<area shape="rect" id="node5" href="$class_queue.html#aae9f32d812e1c5fccecbfe4dde25a338" title="Returns and removes the item at the front of the queue. Throws an error is the queue is empty..." alt="" coords="248,157,367,184"/>
+</map>

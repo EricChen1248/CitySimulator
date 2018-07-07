@@ -1,0 +1,5 @@
+<map id="PlotSystem::RoadClicks" name="PlotSystem::RoadClicks">
+<area shape="rect" id="node2" href="$class_plot_system.html#a6d5985c39039f368a4456d9ccf07cb9a" title="Checks if the click was on a plot and handles it if applicable. " alt="" coords="217,13,384,39"/>
+<area shape="rect" id="node3" href="$class_plot_system.html#a8bf87772f6d248af9603933811f50ca6" title="Calls all rendering events during interday. " alt="" coords="432,13,619,39"/>
+<area shape="rect" id="node4" href="$class_system_controller.html#ac2fc83957e0fd38f3baedcf2dca3206e" title="Calls render function of plots. " alt="" coords="667,5,837,47"/>
+</map>

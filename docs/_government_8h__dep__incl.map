@@ -1,0 +1,12 @@
+<map id="Helpers/Government.h" name="Helpers/Government.h">
+<area shape="rect" id="node2" href="$_u_i_controller_8cpp.html" title="Controllers/UIController.cpp" alt="" coords="5,87,185,114"/>
+<area shape="rect" id="node3" href="$_status_8cpp.html" title="Controllers/UiObjects\l/Status.cpp" alt="" coords="209,80,355,121"/>
+<area shape="rect" id="node4" href="$_government_8cpp.html" title="Helpers/Government.cpp" alt="" coords="379,87,543,114"/>
+<area shape="rect" id="node5" href="$_bank_8cpp.html" title="Systems/Bank/Bank.cpp" alt="" coords="567,87,733,114"/>
+<area shape="rect" id="node6" href="$_citizen_8cpp.html" title="Systems/Citizen/Citizen.cpp" alt="" coords="758,87,945,114"/>
+<area shape="rect" id="node7" href="$_citizen_system_8cpp.html" title="Systems/Citizen/CitizenSystem.cpp" alt="" coords="969,87,1201,114"/>
+<area shape="rect" id="node8" href="$_food_8cpp.html" title="Systems/Food/Food.cpp" alt="" coords="1225,87,1390,114"/>
+<area shape="rect" id="node9" href="$_hospital_8cpp.html" title="Systems/Hospital/Hospital.cpp" alt="" coords="1415,87,1616,114"/>
+<area shape="rect" id="node10" href="$_school_8cpp.html" title="Systems/School/School.cpp" alt="" coords="1641,87,1827,114"/>
+<area shape="rect" id="node11" href="$_work_8cpp.html" title="Systems/Work/Work.cpp" alt="" coords="1852,87,2021,114"/>
+</map>

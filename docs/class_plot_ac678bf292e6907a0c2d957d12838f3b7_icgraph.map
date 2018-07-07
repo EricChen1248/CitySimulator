@@ -1,0 +1,10 @@
+<map id="Plot::Coords" name="Plot::Coords">
+<area shape="rect" id="node2" href="$class_path_finder.html#af18935e00d5f681c14cd6dd38c9e210e" title="PathFinder::MapPlot" alt="" coords="169,5,310,32"/>
+<area shape="rect" id="node4" href="$class_path_finder.html#a4122c11b2c8bb7ca9d0763fbb8c8f423" title="PathFinder::CheckQuadrant" alt="" coords="148,56,331,83"/>
+<area shape="rect" id="node8" href="$class_road.html#a79ccdb6f1ba8fbf95e608ada3c035699" title="Road::Road" alt="" coords="194,107,285,133"/>
+<area shape="rect" id="node9" href="$class_citizen.html#acf5e03bbdece1c022e91812487ebec21" title="Handles all update events of the citizen. " alt="" coords="184,157,295,184"/>
+<area shape="rect" id="node3" href="$class_plot_system.html#a2d3cebe98af2a132224571f0fe06c13a" title="PlotSystem::PlotSystem" alt="" coords="379,5,545,32"/>
+<area shape="rect" id="node5" href="$class_plot.html#a329886dfdd6f46115252fc8673cc727d" title="Plot::BuiltBridge" alt="" coords="404,56,520,83"/>
+<area shape="rect" id="node6" href="$class_road.html#a50e770f98d48c26421973d38d46a5b17" title="Road::LevelUp" alt="" coords="593,56,699,83"/>
+<area shape="rect" id="node7" href="$class_road.html#adf6a767f9aa69ec621e32c78a8638fb2" title="Road::PerformClick" alt="" coords="747,56,881,83"/>
+</map>

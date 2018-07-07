@@ -1,0 +1,13 @@
+<map id="BaseSystem::Register" name="BaseSystem::Register">
+<area shape="rect" id="node2" href="$class_status.html#a67aacb2221111dd93df4ef2560d7cc06" title="Status::Build" alt="" coords="243,13,341,39"/>
+<area shape="rect" id="node6" href="$class_bank_system.html#ae701064ed10e82f45c12be272047fa59" title="Registers a new food plot in the system. " alt="" coords="215,63,369,90"/>
+<area shape="rect" id="node7" href="$class_food_system.html#a8ae7cff95ccc776ce26eed861e0e4c1a" title="Registers a new food plot in the system. " alt="" coords="216,114,368,141"/>
+<area shape="rect" id="node8" href="$class_home_system.html#ac08a70c6e653f8afc4a0b3b82b2c4805" title="Register a plot into the system for quick lookup and updating. " alt="" coords="213,165,371,191"/>
+<area shape="rect" id="node9" href="$class_hospital_system.html#a18467887423c916236ab6c36b09e7c9e" title="Registers a new hospital plot in the system. " alt="" coords="207,215,377,242"/>
+<area shape="rect" id="node10" href="$class_school_system.html#a6c8386e0e9d290684af461224e7d1278" title="Registers a new food plot in the system. " alt="" coords="211,266,373,293"/>
+<area shape="rect" id="node11" href="$class_store_system.html#af9840ce202c0ab5be65e640d7433bf87" title="Registers a new Store plot in the system. " alt="" coords="215,317,369,343"/>
+<area shape="rect" id="node12" href="$class_work_system.html#a227946b523e7a81da000a7b19361ed9e" title="Registers a new work plot in the system. " alt="" coords="215,367,369,394"/>
+<area shape="rect" id="node3" href="$class_plot_system.html#a6d5985c39039f368a4456d9ccf07cb9a" title="Checks if the click was on a plot and handles it if applicable. " alt="" coords="425,13,592,39"/>
+<area shape="rect" id="node4" href="$class_plot_system.html#a8bf87772f6d248af9603933811f50ca6" title="Calls all rendering events during interday. " alt="" coords="640,13,827,39"/>
+<area shape="rect" id="node5" href="$class_system_controller.html#ac2fc83957e0fd38f3baedcf2dca3206e" title="Calls render function of plots. " alt="" coords="875,5,1045,47"/>
+</map>

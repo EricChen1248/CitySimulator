@@ -1,0 +1,4 @@
+<map id="PriorityQueue&lt; T &gt;" name="PriorityQueue&lt; T &gt;">
+<area shape="rect" id="node3" href="$class_priority_queue.html" title="{PriorityQueue\&lt; PathFinder\lNode *\&gt;\n||+ PriorityQueue()\l+ Enqueue()\l+ GetTop()\l+ Dequeue()\l+ Reset()\l}" alt="" coords="5,419,181,569"/>
+<area shape="rect" id="node2" href="$class_min_heap.html" title="Heap implementation that uses operator&gt; to compare. " alt="" coords="39,5,148,171"/>
+</map>

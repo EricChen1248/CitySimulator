@@ -1,0 +1,5 @@
+<map id="HomeRule::FindPlot" name="HomeRule::FindPlot">
+<area shape="rect" id="node2" href="$class_citizen.html#a251136e0ac3175ce1d4fff3a51e254d9" title="Citizen::SetActiveRule" alt="" coords="192,5,343,32"/>
+<area shape="rect" id="node3" href="$class_citizen.html#a39a985f9a040390fe6c6a4304197f8af" title="Sets the citizen to target a plot. " alt="" coords="204,56,331,83"/>
+<area shape="rect" id="node4" href="$class_home.html#aa3975747e2db7c4e4e175e466260c1cc" title="Home::GetPlot" alt="" coords="213,107,321,133"/>
+</map>

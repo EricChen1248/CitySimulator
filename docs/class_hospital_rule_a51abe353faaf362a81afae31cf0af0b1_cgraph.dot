@@ -1,0 +1,19 @@
+digraph "HospitalRule::LeavePlot"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node3 [label="HospitalRule::LeavePlot",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Citizen::Die",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_citizen.html#aaf61864d86d7855be6c62a94b0a46d60",tooltip="Marks citizen as dead. Die pruning and events are handled at the end of day. "];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="SystemController::GetSystem",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_system_controller.html#a69de55b16d60a1792473428cfa183684",tooltip="Gets the system based on system enum type. "];
+  Node4 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Citizen::FindRule",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_citizen.html#a0a7a5dcce103d3971acff20a5d40e28b",tooltip="Finds a rule of system type. "];
+  Node4 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="HospitalSystem::DeathOutside",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_hospital_system.html#aace66ee3e9e861df844ed98355180213",tooltip="Increase tally of people that died outside of the hospital. "];
+  Node3 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Citizen::ForceRule",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_citizen.html#a929afae7672e26fcd7f08fa46c6e7410",tooltip="Forces a citizen to do a specific rule for \"waitTime\" hours. "];
+  Node8 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Citizen::Wait",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_citizen.html#a3c216a3a1c4b654aae5f2d82bd26f4ec",tooltip="Set a time for the citizen to wait in the plot. 1 = ??? ingame minutes. "];
+}

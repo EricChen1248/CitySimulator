@@ -1,0 +1,13 @@
+<map id="Plot::GetPlotType" name="Plot::GetPlotType">
+<area shape="rect" id="node2" href="$class_bank_rule.html#a271d91188266e670465e9c1e101f08c9" title="BankRule::EnterPlot" alt="" coords="192,5,332,32"/>
+<area shape="rect" id="node3" href="$class_bank_rule.html#a2b5f71a40aee860ddf1aa405cc72e88f" title="Citizen withdraws money on leaving. " alt="" coords="191,56,333,83"/>
+<area shape="rect" id="node4" href="$class_base_system.html#a856b09392a127bbf63cafbfda46af9d7" title="BaseSystem::Destroy" alt="" coords="187,107,337,133"/>
+<area shape="rect" id="node5" href="$class_food_rule.html#a5978ba998b311cd0260d974eb3347478" title="FoodRule::EnterPlot" alt="" coords="193,157,331,184"/>
+<area shape="rect" id="node6" href="$class_hospital_rule.html#a6e59b5f4315cafdaaea84b39afa64c02" title="HospitalRule::EnterPlot" alt="" coords="183,208,341,235"/>
+<area shape="rect" id="node7" href="$class_plot_system.html#a6d5985c39039f368a4456d9ccf07cb9a" title="Checks if the click was on a plot and handles it if applicable. " alt="" coords="179,259,345,285"/>
+<area shape="rect" id="node10" href="$class_store_rule.html#aec7f8f8586e8d108ff49b634b1d5b56e" title="StoreRule::EnterPlot" alt="" coords="191,309,333,336"/>
+<area shape="rect" id="node11" href="$class_work_rule.html#af718d2052e84323bcab58b9937bd37b4" title="WorkRule::EnterPlot" alt="" coords="191,360,333,387"/>
+<area shape="rect" id="node12" href="$class_work_rule.html#a931ccc96ebab1e8d013e50ba5004c0c0" title="WorkRule::NewDay" alt="" coords="195,411,329,437"/>
+<area shape="rect" id="node8" href="$class_plot_system.html#a8bf87772f6d248af9603933811f50ca6" title="Calls all rendering events during interday. " alt="" coords="393,259,580,285"/>
+<area shape="rect" id="node9" href="$class_system_controller.html#ac2fc83957e0fd38f3baedcf2dca3206e" title="Calls render function of plots. " alt="" coords="628,251,799,293"/>
+</map>

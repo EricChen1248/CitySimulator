@@ -1,0 +1,4 @@
+<map id="Road::Leave" name="Road::Leave">
+<area shape="rect" id="node2" href="$class_citizen.html#acf5e03bbdece1c022e91812487ebec21" title="Handles all update events of the citizen. " alt="" coords="163,5,273,32"/>
+<area shape="rect" id="node3" href="$class_citizen.html#ae216eea33f751165bf6e1ffdd0da61d8" title="Calls the death events for each rule. " alt="" coords="147,56,289,83"/>
+</map>

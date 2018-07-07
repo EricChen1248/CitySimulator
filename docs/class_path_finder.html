@@ -96,36 +96,242 @@ $(document).ready(function(){initNavTree('class_path_finder.html','');});
 <p>Static class that uses A* heuristic pathfinding algorithm that can find a path from two coordinates.  
  <a href="class_path_finder.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_path_finder_8h_source.html">PathFinder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_path_finder_8hpp_source.html">PathFinder.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for PathFinder:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_path_finder__coll__graph.png" border="0" usemap="#_path_finder_coll__map" alt="Collaboration graph"/></div>
+<map name="_path_finder_coll__map" id="_path_finder_coll__map">
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a7c5e9eaa24ceb53a90e0c57ed5d16594"><td class="memItemLeft" align="right" valign="top"><a id="a7c5e9eaa24ceb53a90e0c57ed5d16594"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path_finder.html#a7c5e9eaa24ceb53a90e0c57ed5d16594">Initialize</a> ()</td></tr>
-<tr class="memdesc:a7c5e9eaa24ceb53a90e0c57ed5d16594"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the pathfinder and allocates the required memory space, must only be initialized once. <br /></td></tr>
+<tr class="memitem:a7c5e9eaa24ceb53a90e0c57ed5d16594"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path_finder.html#a7c5e9eaa24ceb53a90e0c57ed5d16594">Initialize</a> ()</td></tr>
+<tr class="memdesc:a7c5e9eaa24ceb53a90e0c57ed5d16594"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the pathfinder and allocates the required memory space, must only be initialized once.  <a href="#a7c5e9eaa24ceb53a90e0c57ed5d16594">More...</a><br /></td></tr>
 <tr class="separator:a7c5e9eaa24ceb53a90e0c57ed5d16594"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa70fb44c02f0e65beb77208245da6cfc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_stack.html">Stack</a>&lt; <a class="el" href="class_coordinate.html">Coordinate</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path_finder.html#aa70fb44c02f0e65beb77208245da6cfc">PathTo</a> (const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;source, <a class="el" href="class_coordinate.html">Coordinate</a> dest)</td></tr>
 <tr class="memdesc:aa70fb44c02f0e65beb77208245da6cfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attemps to find a path between to coordinates.  <a href="#aa70fb44c02f0e65beb77208245da6cfc">More...</a><br /></td></tr>
 <tr class="separator:aa70fb44c02f0e65beb77208245da6cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11ec116ee5b97465a2c5ffed66cf7b34"><td class="memItemLeft" align="right" valign="top"><a id="a11ec116ee5b97465a2c5ffed66cf7b34"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>Pathable</b> (const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;source, const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;dest)</td></tr>
+<tr class="memitem:a11ec116ee5b97465a2c5ffed66cf7b34"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path_finder.html#a11ec116ee5b97465a2c5ffed66cf7b34">Pathable</a> (const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;source, const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;dest)</td></tr>
 <tr class="separator:a11ec116ee5b97465a2c5ffed66cf7b34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af18935e00d5f681c14cd6dd38c9e210e"><td class="memItemLeft" align="right" valign="top"><a id="af18935e00d5f681c14cd6dd38c9e210e"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>MapPlot</b> (<a class="el" href="class_plot.html">Plot</a> *plot)</td></tr>
+<tr class="memitem:af18935e00d5f681c14cd6dd38c9e210e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path_finder.html#af18935e00d5f681c14cd6dd38c9e210e">MapPlot</a> (<a class="el" href="class_plot.html">Plot</a> *plot)</td></tr>
 <tr class="separator:af18935e00d5f681c14cd6dd38c9e210e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1520de2fcf8cce51357e2b1abf728cbe"><td class="memItemLeft" align="right" valign="top"><a id="a1520de2fcf8cce51357e2b1abf728cbe"></a>
-static <a class="el" href="class_plot.html">Plot</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetPlot</b> (const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;coords)</td></tr>
+<tr class="memitem:a1520de2fcf8cce51357e2b1abf728cbe"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_plot.html">Plot</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path_finder.html#a1520de2fcf8cce51357e2b1abf728cbe">GetPlot</a> (const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;coords)</td></tr>
 <tr class="separator:a1520de2fcf8cce51357e2b1abf728cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9c7cf5f303d6f44749223cfd02b5017"><td class="memItemLeft" align="right" valign="top"><a id="af9c7cf5f303d6f44749223cfd02b5017"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>RemapQuadrants</b> ()</td></tr>
+<tr class="memitem:af9c7cf5f303d6f44749223cfd02b5017"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path_finder.html#af9c7cf5f303d6f44749223cfd02b5017">RemapQuadrants</a> ()</td></tr>
 <tr class="separator:af9c7cf5f303d6f44749223cfd02b5017"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4122c11b2c8bb7ca9d0763fbb8c8f423"><td class="memItemLeft" align="right" valign="top"><a id="a4122c11b2c8bb7ca9d0763fbb8c8f423"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>CheckQuadrant</b> (<a class="el" href="class_plot.html">Plot</a> *plot)</td></tr>
+<tr class="memitem:a4122c11b2c8bb7ca9d0763fbb8c8f423"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_path_finder.html#a4122c11b2c8bb7ca9d0763fbb8c8f423">CheckQuadrant</a> (<a class="el" href="class_plot.html">Plot</a> *plot)</td></tr>
 <tr class="separator:a4122c11b2c8bb7ca9d0763fbb8c8f423"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Static class that uses A* heuristic pathfinding algorithm that can find a path from two coordinates. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4122c11b2c8bb7ca9d0763fbb8c8f423"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4122c11b2c8bb7ca9d0763fbb8c8f423">&#9670;&nbsp;</a></span>CheckQuadrant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PathFinder::CheckQuadrant </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_plot.html">Plot</a> *&#160;</td>
+          <td class="paramname"><em>plot</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_path_finder_a4122c11b2c8bb7ca9d0763fbb8c8f423_cgraph.png" border="0" usemap="#class_path_finder_a4122c11b2c8bb7ca9d0763fbb8c8f423_cgraph" alt=""/></div>
+<map name="class_path_finder_a4122c11b2c8bb7ca9d0763fbb8c8f423_cgraph" id="class_path_finder_a4122c11b2c8bb7ca9d0763fbb8c8f423_cgraph">
+<area shape="rect" id="node2" href="class_plot.html#ac678bf292e6907a0c2d957d12838f3b7" title="Plot::Coords" alt="" coords="286,5,381,32"/>
+<area shape="rect" id="node3" href="class_plot.html#a31d1a126d874ba3d8491f0cdd45f99f8" title="Plot::NotRiver" alt="" coords="283,56,384,83"/>
+<area shape="rect" id="node4" href="class_path_finder.html#af9c7cf5f303d6f44749223cfd02b5017" title="PathFinder::RemapQuadrants" alt="" coords="236,107,431,133"/>
+<area shape="rect" id="node5" href="class_queue.html#add54f19bf48b3c3bdd0572db6395d313" title="Adds a new item to the queue;. " alt="" coords="479,31,597,57"/>
+<area shape="rect" id="node6" href="class_queue.html#a108f38d4671657f97ad2fc87c97a2f6b" title="Queue::IsEmpty" alt="" coords="480,81,596,108"/>
+<area shape="rect" id="node7" href="class_queue.html#a1c660c3c6dbd17d2c8b59e6899fa9163" title="Returns a constant reference of the front of the queue without removing it. " alt="" coords="489,132,587,159"/>
+<area shape="rect" id="node8" href="class_queue.html#aae9f32d812e1c5fccecbfe4dde25a338" title="Returns and removes the item at the front of the queue. Throws an error is the queue is empty..." alt="" coords="479,183,597,209"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_path_finder_a4122c11b2c8bb7ca9d0763fbb8c8f423_icgraph.png" border="0" usemap="#class_path_finder_a4122c11b2c8bb7ca9d0763fbb8c8f423_icgraph" alt=""/></div>
+<map name="class_path_finder_a4122c11b2c8bb7ca9d0763fbb8c8f423_icgraph" id="class_path_finder_a4122c11b2c8bb7ca9d0763fbb8c8f423_icgraph">
+<area shape="rect" id="node2" href="class_plot.html#a329886dfdd6f46115252fc8673cc727d" title="Plot::BuiltBridge" alt="" coords="236,5,352,32"/>
+<area shape="rect" id="node3" href="class_road.html#a50e770f98d48c26421973d38d46a5b17" title="Road::LevelUp" alt="" coords="400,5,505,32"/>
+<area shape="rect" id="node4" href="class_road.html#adf6a767f9aa69ec621e32c78a8638fb2" title="Road::PerformClick" alt="" coords="553,5,688,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1520de2fcf8cce51357e2b1abf728cbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1520de2fcf8cce51357e2b1abf728cbe">&#9670;&nbsp;</a></span>GetPlot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_plot.html">Plot</a>* PathFinder::GetPlot </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;&#160;</td>
+          <td class="paramname"><em>coords</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7c5e9eaa24ceb53a90e0c57ed5d16594"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c5e9eaa24ceb53a90e0c57ed5d16594">&#9670;&nbsp;</a></span>Initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PathFinder::Initialize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes the pathfinder and allocates the required memory space, must only be initialized once. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_path_finder_a7c5e9eaa24ceb53a90e0c57ed5d16594_cgraph.png" border="0" usemap="#class_path_finder_a7c5e9eaa24ceb53a90e0c57ed5d16594_cgraph" alt=""/></div>
+<map name="class_path_finder_a7c5e9eaa24ceb53a90e0c57ed5d16594_cgraph" id="class_path_finder_a7c5e9eaa24ceb53a90e0c57ed5d16594_cgraph">
+<area shape="rect" id="node2" href="class_logger.html#a3265f7d269a9155b4eda3682f3c19bea" title="Writes a string message to log file. " alt="" coords="193,5,284,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_path_finder_a7c5e9eaa24ceb53a90e0c57ed5d16594_icgraph.png" border="0" usemap="#class_path_finder_a7c5e9eaa24ceb53a90e0c57ed5d16594_icgraph" alt=""/></div>
+<map name="class_path_finder_a7c5e9eaa24ceb53a90e0c57ed5d16594_icgraph" id="class_path_finder_a7c5e9eaa24ceb53a90e0c57ed5d16594_icgraph">
+<area shape="rect" id="node2" href="class_core_controller.html#ab3853568fd9d732663ebf807817f3764" title="CoreController::CoreController" alt="" coords="193,5,388,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af18935e00d5f681c14cd6dd38c9e210e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af18935e00d5f681c14cd6dd38c9e210e">&#9670;&nbsp;</a></span>MapPlot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PathFinder::MapPlot </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_plot.html">Plot</a> *&#160;</td>
+          <td class="paramname"><em>plot</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_path_finder_af18935e00d5f681c14cd6dd38c9e210e_cgraph.png" border="0" usemap="#class_path_finder_af18935e00d5f681c14cd6dd38c9e210e_cgraph" alt=""/></div>
+<map name="class_path_finder_af18935e00d5f681c14cd6dd38c9e210e_cgraph" id="class_path_finder_af18935e00d5f681c14cd6dd38c9e210e_cgraph">
+<area shape="rect" id="node2" href="class_plot.html#ac678bf292e6907a0c2d957d12838f3b7" title="Plot::Coords" alt="" coords="195,5,289,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_path_finder_af18935e00d5f681c14cd6dd38c9e210e_icgraph.png" border="0" usemap="#class_path_finder_af18935e00d5f681c14cd6dd38c9e210e_icgraph" alt=""/></div>
+<map name="class_path_finder_af18935e00d5f681c14cd6dd38c9e210e_icgraph" id="class_path_finder_af18935e00d5f681c14cd6dd38c9e210e_icgraph">
+<area shape="rect" id="node2" href="class_plot_system.html#a2d3cebe98af2a132224571f0fe06c13a" title="PlotSystem::PlotSystem" alt="" coords="195,5,361,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a11ec116ee5b97465a2c5ffed66cf7b34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11ec116ee5b97465a2c5ffed66cf7b34">&#9670;&nbsp;</a></span>Pathable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool PathFinder::Pathable </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;&#160;</td>
+          <td class="paramname"><em>dest</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_path_finder_a11ec116ee5b97465a2c5ffed66cf7b34_icgraph.png" border="0" usemap="#class_path_finder_a11ec116ee5b97465a2c5ffed66cf7b34_icgraph" alt=""/></div>
+<map name="class_path_finder_a11ec116ee5b97465a2c5ffed66cf7b34_icgraph" id="class_path_finder_a11ec116ee5b97465a2c5ffed66cf7b34_icgraph">
+<area shape="rect" id="node2" href="class_path_finder.html#aa70fb44c02f0e65beb77208245da6cfc" title="Attemps to find a path between to coordinates. " alt="" coords="197,5,332,32"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="aa70fb44c02f0e65beb77208245da6cfc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa70fb44c02f0e65beb77208245da6cfc">&#9670;&nbsp;</a></span>PathTo()</h2>
 
@@ -169,12 +375,77 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>CheckQuadrant<
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to stack of coordinates that contains the found path </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_path_finder_aa70fb44c02f0e65beb77208245da6cfc_cgraph.png" border="0" usemap="#class_path_finder_aa70fb44c02f0e65beb77208245da6cfc_cgraph" alt=""/></div>
+<map name="class_path_finder_aa70fb44c02f0e65beb77208245da6cfc_cgraph" id="class_path_finder_aa70fb44c02f0e65beb77208245da6cfc_cgraph">
+<area shape="rect" id="node2" href="class_path_finder.html#a11ec116ee5b97465a2c5ffed66cf7b34" title="PathFinder::Pathable" alt="" coords="205,5,349,32"/>
+<area shape="rect" id="node3" href="class_priority_queue.html#ad0f4220ed1cb155edf16df7cea4b3527" title="Resets the Priority Queue to allow reuse. " alt="" coords="206,56,349,83"/>
+<area shape="rect" id="node4" href="class_core_controller.html#a3c23d3b6e5fa93b707ac5be6bc2dda96" title="CoreController::GetSystem\lController" alt="" coords="188,107,367,149"/>
+<area shape="rect" id="node6" href="class_system_controller.html#a924460fc849b317d559812604523f65f" title="SystemController::Plots" alt="" coords="197,173,357,200"/>
+<area shape="rect" id="node7" href="class_plot_system.html#a1487fdbe3c7d55f340bafc8e4e8dc5f7" title="Attemps to find a plot in the system with the corresponding coordinates. " alt="" coords="204,224,351,251"/>
+<area shape="rect" id="node8" href="class_priority_queue.html#ac9e9858b955ea02bed2ddd5fab4b23ac" title="Adds a new item to the priority queue and sorts it. " alt="" coords="197,275,357,301"/>
+<area shape="rect" id="node9" href="class_priority_queue.html#a7e0a375277f525fd7d033a4b97dff80d" title="Returns the item at the top of the queue. " alt="" coords="202,325,353,352"/>
+<area shape="rect" id="node10" href="class_min_heap.html#a65080dc2c649d482eacbee56eb10a867" title="Removes the item at the top of the heap and resorts it. " alt="" coords="203,376,351,403"/>
+<area shape="rect" id="node11" href="class_stack.html#a6fe5d7cd3218895b616bd029dcc9e9bc" title="Pushes a new item to the top of the stack. " alt="" coords="230,427,325,453"/>
+<area shape="rect" id="node5" href="class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="415,115,576,141"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af9c7cf5f303d6f44749223cfd02b5017"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9c7cf5f303d6f44749223cfd02b5017">&#9670;&nbsp;</a></span>RemapQuadrants()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PathFinder::RemapQuadrants </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_path_finder_af9c7cf5f303d6f44749223cfd02b5017_cgraph.png" border="0" usemap="#class_path_finder_af9c7cf5f303d6f44749223cfd02b5017_cgraph" alt=""/></div>
+<map name="class_path_finder_af9c7cf5f303d6f44749223cfd02b5017_cgraph" id="class_path_finder_af9c7cf5f303d6f44749223cfd02b5017_cgraph">
+<area shape="rect" id="node2" href="class_queue.html#add54f19bf48b3c3bdd0572db6395d313" title="Adds a new item to the queue;. " alt="" coords="248,5,367,32"/>
+<area shape="rect" id="node3" href="class_queue.html#a108f38d4671657f97ad2fc87c97a2f6b" title="Queue::IsEmpty" alt="" coords="249,56,365,83"/>
+<area shape="rect" id="node4" href="class_queue.html#a1c660c3c6dbd17d2c8b59e6899fa9163" title="Returns a constant reference of the front of the queue without removing it. " alt="" coords="258,107,357,133"/>
+<area shape="rect" id="node5" href="class_queue.html#aae9f32d812e1c5fccecbfe4dde25a338" title="Returns and removes the item at the front of the queue. Throws an error is the queue is empty..." alt="" coords="248,157,367,184"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_path_finder_af9c7cf5f303d6f44749223cfd02b5017_icgraph.png" border="0" usemap="#class_path_finder_af9c7cf5f303d6f44749223cfd02b5017_icgraph" alt=""/></div>
+<map name="class_path_finder_af9c7cf5f303d6f44749223cfd02b5017_icgraph" id="class_path_finder_af9c7cf5f303d6f44749223cfd02b5017_icgraph">
+<area shape="rect" id="node2" href="class_core_controller.html#ab3853568fd9d732663ebf807817f3764" title="CoreController::CoreController" alt="" coords="248,5,443,32"/>
+<area shape="rect" id="node3" href="class_path_finder.html#a4122c11b2c8bb7ca9d0763fbb8c8f423" title="PathFinder::CheckQuadrant" alt="" coords="254,56,437,83"/>
+<area shape="rect" id="node4" href="class_plot.html#a329886dfdd6f46115252fc8673cc727d" title="Plot::BuiltBridge" alt="" coords="491,56,607,83"/>
+<area shape="rect" id="node5" href="class_road.html#a50e770f98d48c26421973d38d46a5b17" title="Road::LevelUp" alt="" coords="655,56,760,83"/>
+<area shape="rect" id="node6" href="class_road.html#adf6a767f9aa69ec621e32c78a8638fb2" title="Road::PerformClick" alt="" coords="808,56,943,83"/>
+</map>
+</div>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Helpers/PathFinder/<a class="el" href="_path_finder_8h_source.html">PathFinder.h</a></li>
-<li>Helpers/PathFinder/PathFinder.cpp</li>
+<li>Helpers/PathFinder/<a class="el" href="_path_finder_8hpp_source.html">PathFinder.hpp</a></li>
+<li>Helpers/PathFinder/<a class="el" href="_path_finder_8cpp.html">PathFinder.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

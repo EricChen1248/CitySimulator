@@ -1,0 +1,4 @@
+<map id="PlotSystem::HandleClick" name="PlotSystem::HandleClick">
+<area shape="rect" id="node2" href="$class_plot_system.html#a8bf87772f6d248af9603933811f50ca6" title="Calls all rendering events during interday. " alt="" coords="220,13,407,39"/>
+<area shape="rect" id="node3" href="$class_system_controller.html#ac2fc83957e0fd38f3baedcf2dca3206e" title="Calls render function of plots. " alt="" coords="455,5,625,47"/>
+</map>

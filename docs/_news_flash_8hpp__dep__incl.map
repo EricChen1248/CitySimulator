@@ -1,0 +1,9 @@
+<map id="Controllers/UiObjects/NewsFlash.hpp" name="Controllers/UiObjects/NewsFlash.hpp">
+<area shape="rect" id="node2" href="$_u_i_controller_8h.html" title="Controllers/UIController.h" alt="" coords="471,102,638,129"/>
+<area shape="rect" id="node8" href="$_news_flash_8cpp.html" title="Controllers/UiObjects\l/NewsFlash.cpp" alt="" coords="662,95,807,136"/>
+<area shape="rect" id="node3" href="$_core_controller_8cpp.html" title="Controllers/CoreController.cpp" alt="" coords="5,184,200,211"/>
+<area shape="rect" id="node4" href="$_disaster_controller_8cpp.html" title="Controllers/DisasterController.cpp" alt="" coords="224,184,440,211"/>
+<area shape="rect" id="node5" href="$_u_i_controller_8cpp.html" title="Controllers/UIController.cpp" alt="" coords="465,184,645,211"/>
+<area shape="rect" id="node6" href="$_view_port_controller_8cpp.html" title="Controllers/ViewPortController.cpp" alt="" coords="669,184,889,211"/>
+<area shape="rect" id="node7" href="$_plot_system_8cpp.html" title="Systems/Plot/PlotSystem.cpp" alt="" coords="913,184,1111,211"/>
+</map>

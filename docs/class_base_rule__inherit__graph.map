@@ -1,0 +1,9 @@
+<map id="BaseRule" name="BaseRule">
+<area shape="rect" id="node2" href="$class_bank_rule.html" title="Food rule that handles the food needs of our citizens. " alt="" coords="5,336,136,545"/>
+<area shape="rect" id="node3" href="$class_food_rule.html" title="Food rule that handles the food needs of our citizens. " alt="" coords="160,343,291,538"/>
+<area shape="rect" id="node4" href="$class_home_rule.html" title="Food rule that handles the food needs of our citizens. " alt="" coords="315,321,445,560"/>
+<area shape="rect" id="node5" href="$class_hospital_rule.html" title="Hospital rule that handles the food needs of our citizens. " alt="" coords="469,343,600,538"/>
+<area shape="rect" id="node6" href="$class_school_rule.html" title="School rule that handles the food needs of our citizens. " alt="" coords="624,343,755,538"/>
+<area shape="rect" id="node7" href="$class_store_rule.html" title="Store rule that handles the consumption needs of our citizens. " alt="" coords="779,358,909,523"/>
+<area shape="rect" id="node8" href="$class_work_rule.html" title="Work rule that handles the food needs of our citizens. " alt="" coords="933,336,1064,545"/>
+</map>

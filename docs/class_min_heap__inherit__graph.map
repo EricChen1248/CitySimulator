@@ -1,0 +1,5 @@
+<map id="MinHeap&lt; T &gt;" name="MinHeap&lt; T &gt;">
+<area shape="rect" id="node2" href="$class_priority_queue.html" title="Stores an item into a queue sorted by a provided score upon enqueue. Lower scores are sorted in front..." alt="" coords="5,248,137,384"/>
+<area shape="rect" id="node4" href="$class_min_heap.html" title="{MinHeap\&lt; PathFinderNode * \&gt;\n||+ MinHeap()\l+ ~MinHeap()\l+ ItemCount()\l+ Add()\l+ PeekTop()\l+ RemoveTop()\l+ Reset()\l}" alt="" coords="161,233,360,399"/>
+<area shape="rect" id="node3" href="$class_priority_queue.html" title="{PriorityQueue\&lt; PathFinder\lNode *\&gt;\n||+ PriorityQueue()\l+ Enqueue()\l+ GetTop()\l+ Dequeue()\l+ Reset()\l}" alt="" coords="83,461,259,612"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="Button::IsInBounds" name="Button::IsInBounds">
+<area shape="rect" id="node2" href="$class_u_i_controller.html#ab36e021dc9380a5e593f77483af980d4" title="UIController::IsOverUI" alt="" coords="206,5,351,32"/>
+<area shape="rect" id="node3" href="$class_u_i_controller.html#a387f8eb777268ea6cb838ec81e62c89b" title="UIController::NextDayButton\lHover" alt="" coords="186,57,371,98"/>
+<area shape="rect" id="node4" href="$class_button.html#aefda23426dea8457a4192341e2f4a0b3" title="Draws the button to the screen. " alt="" coords="230,123,327,149"/>
+<area shape="rect" id="node7" href="$struct_selection_button.html#a4eb19e805115c7866330634e126641e0" title="SelectionButton::IsInBounds" alt="" coords="185,173,372,200"/>
+<area shape="rect" id="node5" href="$struct_selection_button.html#a21026ca7212bc698b4b7d98815ad4e54" title="SelectionButton::Draw" alt="" coords="420,97,571,124"/>
+<area shape="rect" id="node6" href="$class_slider.html#ae01696eae70b82ec275cf7f99ce4c444" title="Slider::Render" alt="" coords="443,148,547,175"/>
+</map>

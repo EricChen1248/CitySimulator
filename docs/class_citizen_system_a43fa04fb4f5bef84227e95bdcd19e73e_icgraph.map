@@ -1,0 +1,4 @@
+<map id="CitizenSystem::Citizens" name="CitizenSystem::Citizens">
+<area shape="rect" id="node2" href="$class_system_controller.html#a060e1c1d9e76df5ee91de26a6b335f3d" title="SystemController::GetCitizens" alt="" coords="216,5,415,32"/>
+<area shape="rect" id="node3" href="$class_home_system.html#a45669ddba22592ed5403a04f70d52ec9" title="HomeSystem::GetSatisfaction" alt="" coords="463,5,661,32"/>
+</map>

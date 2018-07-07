@@ -1,0 +1,6 @@
+<map id="Node&lt; T &gt;" name="Node&lt; T &gt;">
+<area shape="rect" id="node2" href="$class_priority_node.html" title="Helper class used in priority nodes. " alt="" coords="5,211,129,289"/>
+<area shape="rect" id="node3" href="$class_node.html" title="{Node\&lt; Coordinate \&gt;\n|# item\l# next\l# prev\l|# Node()\l# ~Node()\l}" alt="" coords="154,189,293,311"/>
+<area shape="rect" id="node4" href="$class_node.html" title="{Node\&lt; Citizen *\&gt;\n|# item\l# next\l# prev\l|# Node()\l# ~Node()\l}" alt="" coords="317,189,439,311"/>
+<area shape="rect" id="node5" href="$class_node.html" title="{Node\&lt; Plot *\&gt;\n|# item\l# next\l# prev\l|# Node()\l# ~Node()\l}" alt="" coords="463,189,567,311"/>
+</map>

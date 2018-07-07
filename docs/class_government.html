@@ -92,25 +92,165 @@ $(document).ready(function(){initNavTree('class_government.html','');});
 <div class="title">Government Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Handles and stores user variables.  
+ <a href="class_government.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_government_8h_source.html">Government.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Government:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_government__coll__graph.png" border="0" usemap="#_government_coll__map" alt="Collaboration graph"/></div>
+<map name="_government_coll__map" id="_government_coll__map">
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:afe821ce6f6742cb1462864712da9e4c4"><td class="memItemLeft" align="right" valign="top"><a id="afe821ce6f6742cb1462864712da9e4c4"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>AddTax</b> (const float money)</td></tr>
-<tr class="separator:afe821ce6f6742cb1462864712da9e4c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a943548427fe143cb34d9368f60316c49"><td class="memItemLeft" align="right" valign="top"><a id="a943548427fe143cb34d9368f60316c49"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>ChangeBirthRate</b> (const float rate)</td></tr>
-<tr class="separator:a943548427fe143cb34d9368f60316c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66cee5f36edec5a8d54e524b5ade95f1"><td class="memItemLeft" align="right" valign="top"><a id="a66cee5f36edec5a8d54e524b5ade95f1"></a>
-static float&#160;</td><td class="memItemRight" valign="bottom"><b>TaxDollars</b> ()</td></tr>
-<tr class="separator:a66cee5f36edec5a8d54e524b5ade95f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a749d00227a74f289df3c091da811c068"><td class="memItemLeft" align="right" valign="top"><a id="a749d00227a74f289df3c091da811c068"></a>
-static float&#160;</td><td class="memItemRight" valign="bottom"><b>BirthRate</b> ()</td></tr>
-<tr class="separator:a749d00227a74f289df3c091da811c068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71ac0d76b9f7d15435d5c79d946dd7e8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_government.html#a71ac0d76b9f7d15435d5c79d946dd7e8">AddTax</a> (float money)</td></tr>
+<tr class="memdesc:a71ac0d76b9f7d15435d5c79d946dd7e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds money to the user's money.  <a href="#a71ac0d76b9f7d15435d5c79d946dd7e8">More...</a><br /></td></tr>
+<tr class="separator:a71ac0d76b9f7d15435d5c79d946dd7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af17610eff6a2ab97f91371773d1378eb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_government.html#af17610eff6a2ab97f91371773d1378eb">ChangeBirthRate</a> (float rate)</td></tr>
+<tr class="memdesc:af17610eff6a2ab97f91371773d1378eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the birthrate of the citizens.  <a href="#af17610eff6a2ab97f91371773d1378eb">More...</a><br /></td></tr>
+<tr class="separator:af17610eff6a2ab97f91371773d1378eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4da9896d19dc7c4326b77bfe70c8f8f"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_government.html#af4da9896d19dc7c4326b77bfe70c8f8f">TaxDollars</a> ()</td></tr>
+<tr class="separator:af4da9896d19dc7c4326b77bfe70c8f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a964dee193ec7fd5820420f97434393c8"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_government.html#a964dee193ec7fd5820420f97434393c8">BirthRate</a> ()</td></tr>
+<tr class="separator:a964dee193ec7fd5820420f97434393c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Handles and stores user variables. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a71ac0d76b9f7d15435d5c79d946dd7e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71ac0d76b9f7d15435d5c79d946dd7e8">&#9670;&nbsp;</a></span>AddTax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Government::AddTax </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>money</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds money to the user's money. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">money</td><td>Amount of money to add </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_government_a71ac0d76b9f7d15435d5c79d946dd7e8_icgraph.png" border="0" usemap="#class_government_a71ac0d76b9f7d15435d5c79d946dd7e8_icgraph" alt=""/></div>
+<map name="class_government_a71ac0d76b9f7d15435d5c79d946dd7e8_icgraph" id="class_government_a71ac0d76b9f7d15435d5c79d946dd7e8_icgraph">
+<area shape="rect" id="node2" href="class_citizen.html#a5232bf42d9a211d81ce3e5e3cefcf04c" title="Citizen::~Citizen" alt="" coords="196,5,315,32"/>
+<area shape="rect" id="node3" href="class_hospital.html#a7474bd081e6efef175ce0ce661816a9d" title="New entry ( +score ) " alt="" coords="201,56,309,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a964dee193ec7fd5820420f97434393c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a964dee193ec7fd5820420f97434393c8">&#9670;&nbsp;</a></span>BirthRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Government::BirthRate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af17610eff6a2ab97f91371773d1378eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af17610eff6a2ab97f91371773d1378eb">&#9670;&nbsp;</a></span>ChangeBirthRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Government::ChangeBirthRate </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Changes the birthrate of the citizens. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rate</td><td>Current birthrate </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af4da9896d19dc7c4326b77bfe70c8f8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4da9896d19dc7c4326b77bfe70c8f8f">&#9670;&nbsp;</a></span>TaxDollars()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Government::TaxDollars </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Helpers/<a class="el" href="_government_8h_source.html">Government.h</a></li>
-<li>Helpers/Government.cpp</li>
+<li>Helpers/<a class="el" href="_government_8cpp.html">Government.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

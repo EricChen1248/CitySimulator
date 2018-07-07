@@ -94,43 +94,383 @@ $(document).ready(function(){initNavTree('class_status.html','');});
 <div class="title">Status Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_status_8hpp_source.html">Status.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Status:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_status__coll__graph.png" border="0" usemap="#_status_coll__map" alt="Collaboration graph"/></div>
+<map name="_status_coll__map" id="_status_coll__map">
+<area shape="rect" id="node2" href="class_road.html" title="{Road\n|+ MAX_SPEED\l|+ Road()\l+ ~Road()\l+ Speed()\l+ IsRiver()\l+ Shape()\l+ LevelUp()\l+ Repair()\l+ MarkAsRiver()\l+ PerformClick()\l+ Enter()\l+ Leave()\l+ IsRoad()\l+ EndDay()\l+ Render()\l+ ContentString()\l+ ButtonString()\l+ InSimpleBounds()\l+ InComplexBounds()\l}" alt="" coords="5,20,152,347"/>
+<area shape="rect" id="node3" href="class_plot.html" title="Container class for each city plot. " alt="" coords="177,5,330,361"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0340b21671f774f9c71dc1a358b7995a"><td class="memItemLeft" align="right" valign="top"><a id="a0340b21671f774f9c71dc1a358b7995a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> (int x, int y)</td></tr>
+<tr class="memitem:a944586fb328a3524805748c8f7b17f32"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_status.html#a944586fb328a3524805748c8f7b17f32">Status</a> ()</td></tr>
+<tr class="separator:a944586fb328a3524805748c8f7b17f32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b24d90ef2560afffe9d7183e279c63c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_status.html#a1b24d90ef2560afffe9d7183e279c63c">~Status</a> ()</td></tr>
+<tr class="separator:a1b24d90ef2560afffe9d7183e279c63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0340b21671f774f9c71dc1a358b7995a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_status.html#a0340b21671f774f9c71dc1a358b7995a">Init</a> (int x, int y)</td></tr>
 <tr class="separator:a0340b21671f774f9c71dc1a358b7995a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2d1aec4cfb32857b8a46e5419247ebb"><td class="memItemLeft" align="right" valign="top"><a id="ac2d1aec4cfb32857b8a46e5419247ebb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Draw</b> ()</td></tr>
+<tr class="memitem:ac2d1aec4cfb32857b8a46e5419247ebb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_status.html#ac2d1aec4cfb32857b8a46e5419247ebb">Draw</a> ()</td></tr>
 <tr class="separator:ac2d1aec4cfb32857b8a46e5419247ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71cec8120fb114f59e2fe8ac04e2e50a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_status.html#a71cec8120fb114f59e2fe8ac04e2e50a">InBound</a> () const</td></tr>
+<tr class="separator:a71cec8120fb114f59e2fe8ac04e2e50a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a8d12b34394b0f5b73bbb9ec52b35a5ed"><td class="memItemLeft" align="right" valign="top"><a id="a8d12b34394b0f5b73bbb9ec52b35a5ed"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>BuildMode</b> ()</td></tr>
+<tr class="memitem:a8d12b34394b0f5b73bbb9ec52b35a5ed"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_status.html#a8d12b34394b0f5b73bbb9ec52b35a5ed">BuildMode</a> ()</td></tr>
 <tr class="separator:a8d12b34394b0f5b73bbb9ec52b35a5ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67aacb2221111dd93df4ef2560d7cc06"><td class="memItemLeft" align="right" valign="top"><a id="a67aacb2221111dd93df4ef2560d7cc06"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>Build</b> (<a class="el" href="class_plot.html">Plot</a> *plot)</td></tr>
+<tr class="memitem:a67aacb2221111dd93df4ef2560d7cc06"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_status.html#a67aacb2221111dd93df4ef2560d7cc06">Build</a> (<a class="el" href="class_plot.html">Plot</a> *plot)</td></tr>
 <tr class="separator:a67aacb2221111dd93df4ef2560d7cc06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a9dd529484afc2f16e798d062dbcfb1d8"><td class="memItemLeft" align="right" valign="top"><a id="a9dd529484afc2f16e798d062dbcfb1d8"></a>
-static Selection&#160;</td><td class="memItemRight" valign="bottom"><b>Selection</b> = NONE_SELECTED</td></tr>
+<tr class="memitem:a9dd529484afc2f16e798d062dbcfb1d8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="_status_8hpp.html#a3c2ddfd4ea03c0cc63e201d7621931df">Selection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_status.html#a9dd529484afc2f16e798d062dbcfb1d8">Selection</a> = <a class="el" href="_status_8hpp.html#a3c2ddfd4ea03c0cc63e201d7621931dfaec3985949bedd701c7b38943e4b8ebe5">NONE_SELECTED</a></td></tr>
 <tr class="separator:a9dd529484afc2f16e798d062dbcfb1d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabce795d644d535d7c4e3b8eed49a8b8"><td class="memItemLeft" align="right" valign="top"><a id="aabce795d644d535d7c4e3b8eed49a8b8"></a>
-static <a class="el" href="class_road.html">Road</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>SelectedRoad</b> = nullptr</td></tr>
+<tr class="memitem:aabce795d644d535d7c4e3b8eed49a8b8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_road.html">Road</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_status.html#aabce795d644d535d7c4e3b8eed49a8b8">SelectedRoad</a> = nullptr</td></tr>
 <tr class="separator:aabce795d644d535d7c4e3b8eed49a8b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f2fb57bfe5719f47b35355ef2f604ba"><td class="memItemLeft" align="right" valign="top"><a id="a7f2fb57bfe5719f47b35355ef2f604ba"></a>
-static <a class="el" href="class_plot.html">Plot</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>SelectedPlot</b> = nullptr</td></tr>
+<tr class="memitem:a7f2fb57bfe5719f47b35355ef2f604ba"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_plot.html">Plot</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_status.html#a7f2fb57bfe5719f47b35355ef2f604ba">SelectedPlot</a> = nullptr</td></tr>
 <tr class="separator:a7f2fb57bfe5719f47b35355ef2f604ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af50d3c33cdb94f7d2522a46ad651908e"><td class="memItemLeft" align="right" valign="top"><a id="af50d3c33cdb94f7d2522a46ad651908e"></a>
-static System&#160;</td><td class="memItemRight" valign="bottom"><b>SelectedSystem</b> = NONE</td></tr>
+<tr class="memitem:af50d3c33cdb94f7d2522a46ad651908e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="_system_enum_8h.html#a3ac25b5e5b8766739ad99a7ddaea1efc">System</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_status.html#af50d3c33cdb94f7d2522a46ad651908e">SelectedSystem</a> = <a class="el" href="_system_enum_8h.html#a3ac25b5e5b8766739ad99a7ddaea1efcac157bdf0b85a40d2619cbc8bc1ae5fe2">NONE</a></td></tr>
 <tr class="separator:af50d3c33cdb94f7d2522a46ad651908e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a944586fb328a3524805748c8f7b17f32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a944586fb328a3524805748c8f7b17f32">&#9670;&nbsp;</a></span>Status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Status::Status </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b24d90ef2560afffe9d7183e279c63c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b24d90ef2560afffe9d7183e279c63c">&#9670;&nbsp;</a></span>~Status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Status::~Status </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a67aacb2221111dd93df4ef2560d7cc06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67aacb2221111dd93df4ef2560d7cc06">&#9670;&nbsp;</a></span>Build()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Status::Build </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_plot.html">Plot</a> *&#160;</td>
+          <td class="paramname"><em>plot</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_status_a67aacb2221111dd93df4ef2560d7cc06_cgraph.png" border="0" usemap="#class_status_a67aacb2221111dd93df4ef2560d7cc06_cgraph" alt=""/></div>
+<map name="class_status_a67aacb2221111dd93df4ef2560d7cc06_cgraph" id="class_status_a67aacb2221111dd93df4ef2560d7cc06_cgraph">
+<area shape="rect" id="node2" href="class_core_controller.html#a3c23d3b6e5fa93b707ac5be6bc2dda96" title="CoreController::GetSystem\lController" alt="" coords="159,5,338,47"/>
+<area shape="rect" id="node4" href="class_system_controller.html#a69de55b16d60a1792473428cfa183684" title="Gets the system based on system enum type. " alt="" coords="151,71,347,98"/>
+<area shape="rect" id="node5" href="class_base_system.html#ac20f041e40fd0912a016be33599025e6" title="Register a plot into the system for quick lookup and updating. " alt="" coords="172,122,325,149"/>
+<area shape="rect" id="node3" href="class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="395,13,556,39"/>
+<area shape="rect" id="node6" href="class_list.html#a3d2b2b76b221e198c96013b00c1ad59b" title="List::InsertLast" alt="" coords="421,122,529,149"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_status_a67aacb2221111dd93df4ef2560d7cc06_icgraph.png" border="0" usemap="#class_status_a67aacb2221111dd93df4ef2560d7cc06_icgraph" alt=""/></div>
+<map name="class_status_a67aacb2221111dd93df4ef2560d7cc06_icgraph" id="class_status_a67aacb2221111dd93df4ef2560d7cc06_icgraph">
+<area shape="rect" id="node2" href="class_plot_system.html#a6d5985c39039f368a4456d9ccf07cb9a" title="Checks if the click was on a plot and handles it if applicable. " alt="" coords="151,13,317,39"/>
+<area shape="rect" id="node3" href="class_plot_system.html#a8bf87772f6d248af9603933811f50ca6" title="Calls all rendering events during interday. " alt="" coords="365,13,552,39"/>
+<area shape="rect" id="node4" href="class_system_controller.html#ac2fc83957e0fd38f3baedcf2dca3206e" title="Calls render function of plots. " alt="" coords="600,5,771,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8d12b34394b0f5b73bbb9ec52b35a5ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d12b34394b0f5b73bbb9ec52b35a5ed">&#9670;&nbsp;</a></span>BuildMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool Status::BuildMode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_status_a8d12b34394b0f5b73bbb9ec52b35a5ed_icgraph.png" border="0" usemap="#class_status_a8d12b34394b0f5b73bbb9ec52b35a5ed_icgraph" alt=""/></div>
+<map name="class_status_a8d12b34394b0f5b73bbb9ec52b35a5ed_icgraph" id="class_status_a8d12b34394b0f5b73bbb9ec52b35a5ed_icgraph">
+<area shape="rect" id="node2" href="class_plot_system.html#a6d5985c39039f368a4456d9ccf07cb9a" title="Checks if the click was on a plot and handles it if applicable. " alt="" coords="183,13,349,39"/>
+<area shape="rect" id="node3" href="class_plot_system.html#a8bf87772f6d248af9603933811f50ca6" title="Calls all rendering events during interday. " alt="" coords="397,13,584,39"/>
+<area shape="rect" id="node4" href="class_system_controller.html#ac2fc83957e0fd38f3baedcf2dca3206e" title="Calls render function of plots. " alt="" coords="632,5,803,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac2d1aec4cfb32857b8a46e5419247ebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2d1aec4cfb32857b8a46e5419247ebb">&#9670;&nbsp;</a></span>Draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Status::Draw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_status_ac2d1aec4cfb32857b8a46e5419247ebb_cgraph.png" border="0" usemap="#class_status_ac2d1aec4cfb32857b8a46e5419247ebb_cgraph" alt=""/></div>
+<map name="class_status_ac2d1aec4cfb32857b8a46e5419247ebb_cgraph" id="class_status_ac2d1aec4cfb32857b8a46e5419247ebb_cgraph">
+<area shape="rect" id="node2" href="class_core_controller.html#a04bd80274958e42fc7549554e2a520bb" title="CoreController::SfmlController" alt="" coords="151,5,344,32"/>
+<area shape="rect" id="node4" href="class_s_f_m_l_controller.html#a9e248ad5d7919cd6ea4b3c9942b78079" title="SFMLController::DrawShape" alt="" coords="154,56,341,83"/>
+<area shape="rect" id="node3" href="class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="392,5,553,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a71cec8120fb114f59e2fe8ac04e2e50a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71cec8120fb114f59e2fe8ac04e2e50a">&#9670;&nbsp;</a></span>InBound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Status::InBound </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_status_a71cec8120fb114f59e2fe8ac04e2e50a_cgraph.png" border="0" usemap="#class_status_a71cec8120fb114f59e2fe8ac04e2e50a_cgraph" alt=""/></div>
+<map name="class_status_a71cec8120fb114f59e2fe8ac04e2e50a_cgraph" id="class_status_a71cec8120fb114f59e2fe8ac04e2e50a_cgraph">
+<area shape="rect" id="node2" href="class_core_controller.html#a04bd80274958e42fc7549554e2a520bb" title="CoreController::SfmlController" alt="" coords="168,5,361,32"/>
+<area shape="rect" id="node4" href="class_s_f_m_l_controller.html#a5fc1d926cba4ff99e478990b19f2daf9" title="Gets the window of SDL controller. " alt="" coords="181,56,348,83"/>
+<area shape="rect" id="node3" href="class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="409,5,571,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_status_a71cec8120fb114f59e2fe8ac04e2e50a_icgraph.png" border="0" usemap="#class_status_a71cec8120fb114f59e2fe8ac04e2e50a_icgraph" alt=""/></div>
+<map name="class_status_a71cec8120fb114f59e2fe8ac04e2e50a_icgraph" id="class_status_a71cec8120fb114f59e2fe8ac04e2e50a_icgraph">
+<area shape="rect" id="node2" href="class_u_i_controller.html#ab36e021dc9380a5e593f77483af980d4" title="UIController::IsOverUI" alt="" coords="168,5,313,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0340b21671f774f9c71dc1a358b7995a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0340b21671f774f9c71dc1a358b7995a">&#9670;&nbsp;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Status::Init </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_status_a0340b21671f774f9c71dc1a358b7995a_cgraph.png" border="0" usemap="#class_status_a0340b21671f774f9c71dc1a358b7995a_cgraph" alt=""/></div>
+<map name="class_status_a0340b21671f774f9c71dc1a358b7995a_cgraph" id="class_status_a0340b21671f774f9c71dc1a358b7995a_cgraph">
+<area shape="rect" id="node2" href="class_font_controller.html#ac5d4e287f65260bcec75b1338182f88e" title="FontController::Monofur" alt="" coords="139,5,296,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_status_a0340b21671f774f9c71dc1a358b7995a_icgraph.png" border="0" usemap="#class_status_a0340b21671f774f9c71dc1a358b7995a_icgraph" alt=""/></div>
+<map name="class_status_a0340b21671f774f9c71dc1a358b7995a_icgraph" id="class_status_a0340b21671f774f9c71dc1a358b7995a_icgraph">
+<area shape="rect" id="node2" href="class_u_i_controller.html#ab0c17436cabda916e6153b3489961a61" title="UIController::Initialize" alt="" coords="139,5,283,32"/>
+<area shape="rect" id="node3" href="class_core_controller.html#ab3853568fd9d732663ebf807817f3764" title="CoreController::CoreController" alt="" coords="331,5,525,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a7f2fb57bfe5719f47b35355ef2f604ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f2fb57bfe5719f47b35355ef2f604ba">&#9670;&nbsp;</a></span>SelectedPlot</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_plot.html">Plot</a> * Status::SelectedPlot = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aabce795d644d535d7c4e3b8eed49a8b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabce795d644d535d7c4e3b8eed49a8b8">&#9670;&nbsp;</a></span>SelectedRoad</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_road.html">Road</a> * Status::SelectedRoad = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af50d3c33cdb94f7d2522a46ad651908e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af50d3c33cdb94f7d2522a46ad651908e">&#9670;&nbsp;</a></span>SelectedSystem</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_system_enum_8h.html#a3ac25b5e5b8766739ad99a7ddaea1efc">System</a> Status::SelectedSystem = <a class="el" href="_system_enum_8h.html#a3ac25b5e5b8766739ad99a7ddaea1efcac157bdf0b85a40d2619cbc8bc1ae5fe2">NONE</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9dd529484afc2f16e798d062dbcfb1d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dd529484afc2f16e798d062dbcfb1d8">&#9670;&nbsp;</a></span>Selection</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_status_8hpp.html#a3c2ddfd4ea03c0cc63e201d7621931df">Selection</a> Status::Selection = <a class="el" href="_status_8hpp.html#a3c2ddfd4ea03c0cc63e201d7621931dfaec3985949bedd701c7b38943e4b8ebe5">NONE_SELECTED</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Controllers/UiObjects/<a class="el" href="_status_8hpp_source.html">Status.hpp</a></li>
-<li>Controllers/UiObjects/Status.cpp</li>
+<li>Controllers/UiObjects/<a class="el" href="_status_8cpp.html">Status.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

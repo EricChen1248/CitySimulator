@@ -1,0 +1,6 @@
+<map id="Coordinate::ToScreenCoordinates" name="Coordinate::ToScreenCoordinates">
+<area shape="rect" id="node2" href="$class_line.html#a6fe44fe558930f9dac52648c8f481b28" title="Line::Line" alt="" coords="341,5,419,32"/>
+<area shape="rect" id="node3" href="$class_citizen.html#ae61d61c5787b498c95c2e73d523fbf98" title="Citizen::UpdateScreenCoordinates" alt="" coords="269,56,491,83"/>
+<area shape="rect" id="node5" href="$class_plot.html#aa999e9f86ca62cda0682a8d9f0e7e1e5" title="Plot::Plot" alt="" coords="342,107,418,133"/>
+<area shape="rect" id="node4" href="$class_citizen.html#acf5e03bbdece1c022e91812487ebec21" title="Handles all update events of the citizen. " alt="" coords="539,56,649,83"/>
+</map>

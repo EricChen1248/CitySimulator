@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$class_duplicate_initialization.html" title="Exception that should be used when a singleton/static class is initialized twice. ..." alt="" coords="153,5,297,32"/>
+<area shape="rect" id="node3" href="$class_incorrect_system_type.html" title="Exception that occurs when a the system&#39;s type and the base doesn&#39;t match up. " alt="" coords="152,56,297,83"/>
+<area shape="rect" id="node4" href="$class_key_not_found.html" title="Exception that occurs when there a key doesn&#39;t exist on retrieval. " alt="" coords="174,107,275,133"/>
+<area shape="rect" id="node5" href="$class_key_value_error.html" title="Exception that occurs when there is error associated with dictionary&#39;s key or value. " alt="" coords="171,157,278,184"/>
+<area shape="rect" id="node6" href="$class_plot_base_error.html" title="Exception that occurs when a the system&#39;s type and the base doesn&#39;t match up. " alt="" coords="173,208,276,235"/>
+</map>

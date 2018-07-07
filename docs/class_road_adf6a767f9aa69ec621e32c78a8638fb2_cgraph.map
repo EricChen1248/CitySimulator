@@ -1,0 +1,17 @@
+<map id="Road::PerformClick" name="Road::PerformClick">
+<area shape="rect" id="node2" href="$class_road.html#a1a5760cedbe8f1bfba0d50e55e7ec103" title="Road::Repair" alt="" coords="192,5,289,32"/>
+<area shape="rect" id="node4" href="$class_road.html#a50e770f98d48c26421973d38d46a5b17" title="Road::LevelUp" alt="" coords="188,81,293,108"/>
+<area shape="rect" id="node3" href="$class_line.html#a922da56e65a89a952a1490c991325667" title="Temporary changes the color of the line. " alt="" coords="574,31,702,57"/>
+<area shape="rect" id="node5" href="$class_plot.html#ac49cd5425764d424b65f927d8c25a0f1" title="Plot::IsRiver" alt="" coords="375,31,465,57"/>
+<area shape="rect" id="node6" href="$class_plot.html#a329886dfdd6f46115252fc8673cc727d" title="Plot::BuiltBridge" alt="" coords="362,132,478,159"/>
+<area shape="rect" id="node15" href="$class_line.html#a553d1340f18bb8c6aef36de3cf24be20" title="Permantly changes the color. " alt="" coords="368,81,472,108"/>
+<area shape="rect" id="node16" href="$class_line.html#a9909e5b7520afcc077994ff7b0b7a81f" title="Changes the current thickness of the line. " alt="" coords="341,183,499,209"/>
+<area shape="rect" id="node7" href="$class_path_finder.html#a4122c11b2c8bb7ca9d0763fbb8c8f423" title="PathFinder::CheckQuadrant" alt="" coords="547,132,729,159"/>
+<area shape="rect" id="node8" href="$class_plot.html#ac678bf292e6907a0c2d957d12838f3b7" title="Plot::Coords" alt="" coords="827,81,922,108"/>
+<area shape="rect" id="node9" href="$class_plot.html#a31d1a126d874ba3d8491f0cdd45f99f8" title="Plot::NotRiver" alt="" coords="824,132,925,159"/>
+<area shape="rect" id="node10" href="$class_path_finder.html#af9c7cf5f303d6f44749223cfd02b5017" title="PathFinder::RemapQuadrants" alt="" coords="777,183,972,209"/>
+<area shape="rect" id="node11" href="$class_queue.html#add54f19bf48b3c3bdd0572db6395d313" title="Adds a new item to the queue;. " alt="" coords="1020,107,1139,133"/>
+<area shape="rect" id="node12" href="$class_queue.html#a108f38d4671657f97ad2fc87c97a2f6b" title="Queue::IsEmpty" alt="" coords="1021,157,1137,184"/>
+<area shape="rect" id="node13" href="$class_queue.html#a1c660c3c6dbd17d2c8b59e6899fa9163" title="Returns a constant reference of the front of the queue without removing it. " alt="" coords="1030,208,1129,235"/>
+<area shape="rect" id="node14" href="$class_queue.html#aae9f32d812e1c5fccecbfe4dde25a338" title="Returns and removes the item at the front of the queue. Throws an error is the queue is empty..." alt="" coords="1020,259,1139,285"/>
+</map>

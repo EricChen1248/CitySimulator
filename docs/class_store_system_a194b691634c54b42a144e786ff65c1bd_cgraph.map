@@ -1,0 +1,5 @@
+<map id="StoreSystem::LogSatisfied" name="StoreSystem::LogSatisfied">
+<area shape="rect" id="node2" href="$class_citizen.html#a16e76102985ff3b64986a88033bfab8a" title="Citizen::Coords" alt="" coords="247,5,358,32"/>
+<area shape="rect" id="node3" href="$class_store_rule.html#ab0bc6f4c0a289fa7b3982e02d1a3063c" title="StoreRule::StoreRule" alt="" coords="231,56,375,83"/>
+<area shape="rect" id="node4" href="$class_list.html#a3d2b2b76b221e198c96013b00c1ad59b" title="List::InsertLast" alt="" coords="249,107,357,133"/>
+</map>

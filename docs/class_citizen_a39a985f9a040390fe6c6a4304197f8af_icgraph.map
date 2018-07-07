@@ -1,0 +1,5 @@
+<map id="Citizen::SetTarget" name="Citizen::SetTarget">
+<area shape="rect" id="node2" href="$class_home_rule.html#aecaee0ac44fe79f5ece84b5aba0fb135" title="HomeRule::FindPlot" alt="" coords="186,5,325,32"/>
+<area shape="rect" id="node3" href="$class_hospital_rule.html#ae469a7c96fb1e73c45a6873a85e4285b" title="Attemps to find a plot that can satisfy this rule. " alt="" coords="180,56,331,83"/>
+<area shape="rect" id="node4" href="$class_work_rule.html#a865bb4f5772a086ab9fca0bf1706749d" title="WorkRule::FindPlot" alt="" coords="188,107,323,133"/>
+</map>

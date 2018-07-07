@@ -1,0 +1,10 @@
+<map id="CoreController::GetTime" name="CoreController::GetTime">
+<area shape="rect" id="node2" href="$struct_log.html#aa6ce9da85d07d35428976f8a60bb176c" title="Log::Log" alt="" coords="266,5,338,32"/>
+<area shape="rect" id="node3" href="$class_food_rule.html#a392ecbe4bf51f109bbaef3d596dbd7df" title="Fills up the citizen&#39;s hunger on leaving. " alt="" coords="231,56,373,83"/>
+<area shape="rect" id="node4" href="$class_home_rule.html#af2f43f06a8579c51fcd05115b370f0e5" title="HomeRule::EnterPlot" alt="" coords="230,107,374,133"/>
+<area shape="rect" id="node5" href="$class_home_rule.html#a82697372f71e60006c5b33e0619b71c8" title="Fills up the citizen&#39;s hunger on leaving. " alt="" coords="229,157,375,184"/>
+<area shape="rect" id="node6" href="$class_home_rule.html#ab34ba9ec9ec0237f64bf8db847465504" title="Update events of food rule. Decreases citizen&#39;s hunger. " alt="" coords="237,208,367,235"/>
+<area shape="rect" id="node7" href="$class_work_rule.html#ac1c7e4d9c29fc30573909a03e9c18042" title="WorkRule::CalculateScore" alt="" coords="215,259,389,285"/>
+<area shape="rect" id="node8" href="$class_work_rule.html#af718d2052e84323bcab58b9937bd37b4" title="WorkRule::EnterPlot" alt="" coords="231,309,373,336"/>
+<area shape="rect" id="node9" href="$class_work_rule.html#a14184d48a943090e6037df03ee6acee2" title="WorkRule::LeavePlot" alt="" coords="231,360,373,387"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="PlotSystem::ClearSelections" name="PlotSystem::ClearSelections">
+<area shape="rect" id="node2" href="$class_plot_system.html#a7403bb12c4e3cd2a6ad66dcd2a6f94a2" title="Deselect and undraw the selected plots and roads. " alt="" coords="243,28,421,70"/>
+<area shape="rect" id="node3" href="$class_plot.html#a025fabfe6158261a12c03cd29ae9cc1d" title="Plot::GetShape" alt="" coords="473,9,584,36"/>
+<area shape="rect" id="node4" href="$class_road.html#af70772de5155d3b028ab9c3815cc5190" title="Road::Shape" alt="" coords="480,64,577,90"/>
+<area shape="rect" id="node5" href="$class_line.html#af190709f543e9552c917e1958eb95529" title="Resets the temporary color to the assigned color. " alt="" coords="469,129,588,156"/>
+</map>

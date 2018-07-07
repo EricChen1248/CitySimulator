@@ -1,0 +1,5 @@
+<map id="CitizenSystem::EndDay" name="CitizenSystem::EndDay">
+<area shape="rect" id="node2" href="$class_system_controller.html#a136b024c9919b66b1f34ae9667fb28f2" title="SystemController::ResetDay" alt="" coords="215,5,401,32"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#a0fb98cb1cc2df8cb59ed2a7822a9b1b8" title="CoreController::EndDayLoop" alt="" coords="449,5,636,32"/>
+<area shape="rect" id="node4" href="$class_core_controller.html#a3c79152bf136634d5708b20ccc2f498a" title="Starts the game and kicks off all functions. " alt="" coords="684,5,824,32"/>
+</map>

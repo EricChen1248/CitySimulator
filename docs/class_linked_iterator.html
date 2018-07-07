@@ -93,23 +93,28 @@ $(document).ready(function(){initNavTree('class_linked_iterator.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>Helper class that provides iteration functions for custom collections.  
+<p>Helper class that provides iteration functions for Linked-based collections.  
  <a href="class_linked_iterator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_linked_iterator_8h_source.html">LinkedIterator.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for LinkedIterator&lt; T &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_linked_iterator__coll__graph.png" border="0" usemap="#_linked_iterator_3_01_t_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="_linked_iterator_3_01_t_01_4_coll__map" id="_linked_iterator_3_01_t_01_4_coll__map">
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a05db9c03a6f1b87f1cbc8415d0051ccb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linked_iterator.html#a05db9c03a6f1b87f1cbc8415d0051ccb">LinkedIterator</a> (<a class="el" href="class_node.html">Node</a>&lt; T &gt; &amp;node) noexcept</td></tr>
 <tr class="memdesc:a05db9c03a6f1b87f1cbc8415d0051ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to generate the iterator for Begin()  <a href="#a05db9c03a6f1b87f1cbc8415d0051ccb">More...</a><br /></td></tr>
 <tr class="separator:a05db9c03a6f1b87f1cbc8415d0051ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a394d533955ad3a41eb4a40b98176c24e"><td class="memItemLeft" align="right" valign="top"><a id="a394d533955ad3a41eb4a40b98176c24e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linked_iterator.html#a394d533955ad3a41eb4a40b98176c24e">LinkedIterator</a> () noexcept</td></tr>
-<tr class="memdesc:a394d533955ad3a41eb4a40b98176c24e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to generate the end iterator. <br /></td></tr>
+<tr class="memitem:a394d533955ad3a41eb4a40b98176c24e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linked_iterator.html#a394d533955ad3a41eb4a40b98176c24e">LinkedIterator</a> () noexcept</td></tr>
+<tr class="memdesc:a394d533955ad3a41eb4a40b98176c24e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to generate the end iterator.  <a href="#a394d533955ad3a41eb4a40b98176c24e">More...</a><br /></td></tr>
 <tr class="separator:a394d533955ad3a41eb4a40b98176c24e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fc67d93c6b9da61d7906e9893a8b766"><td class="memItemLeft" align="right" valign="top"><a id="a0fc67d93c6b9da61d7906e9893a8b766"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linked_iterator.html#a0fc67d93c6b9da61d7906e9893a8b766">operator++</a> ()</td></tr>
-<tr class="memdesc:a0fc67d93c6b9da61d7906e9893a8b766"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advances the iterator to the next iter. <br /></td></tr>
+<tr class="memitem:a0fc67d93c6b9da61d7906e9893a8b766"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linked_iterator.html#a0fc67d93c6b9da61d7906e9893a8b766">operator++</a> ()</td></tr>
+<tr class="memdesc:a0fc67d93c6b9da61d7906e9893a8b766"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advances the iterator to the next iter.  <a href="#a0fc67d93c6b9da61d7906e9893a8b766">More...</a><br /></td></tr>
 <tr class="separator:a0fc67d93c6b9da61d7906e9893a8b766"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a947bdc415a3e8aa07ea2b9ef284d690a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_linked_iterator.html#a947bdc415a3e8aa07ea2b9ef284d690a">operator!=</a> (<a class="el" href="class_linked_iterator.html">LinkedIterator</a>&lt; T &gt; &amp;other)</td></tr>
 <tr class="memdesc:a947bdc415a3e8aa07ea2b9ef284d690a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for comparing to end iter (node will be nullptr)  <a href="#a947bdc415a3e8aa07ea2b9ef284d690a">More...</a><br /></td></tr>
@@ -122,7 +127,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
 class LinkedIterator&lt; T &gt;</h3>
 
-<p>Helper class that provides iteration functions for custom collections. </p>
+<p>Helper class that provides iteration functions for Linked-based collections. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Type of item that will be use with the class </td></tr>
@@ -131,7 +136,7 @@ class LinkedIterator&lt; T &gt;</h3>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a05db9c03a6f1b87f1cbc8415d0051ccb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05db9c03a6f1b87f1cbc8415d0051ccb">&#9670;&nbsp;</a></span>LinkedIterator()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a05db9c03a6f1b87f1cbc8415d0051ccb">&#9670;&nbsp;</a></span>LinkedIterator() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,6 +168,35 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a394d533955ad3a41eb4a40b98176c24e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a394d533955ad3a41eb4a40b98176c24e">&#9670;&nbsp;</a></span>LinkedIterator() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_linked_iterator.html">LinkedIterator</a>&lt; T &gt;::<a class="el" href="class_linked_iterator.html">LinkedIterator</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Used to generate the end iterator. </p>
 
 </div>
 </div>
@@ -215,6 +249,27 @@ template&lt;typename T &gt; </div>
 
 <p>Dereferencing returns the item in the node for each in range-based loops. </p>
 <dl class="section return"><dt>Returns</dt><dd>The item stored in the node </dd></dl>
+
+</div>
+</div>
+<a id="a0fc67d93c6b9da61d7906e9893a8b766"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fc67d93c6b9da61d7906e9893a8b766">&#9670;&nbsp;</a></span>operator++()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_linked_iterator.html">LinkedIterator</a>&lt; T &gt;::operator++ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Advances the iterator to the next iter. </p>
 
 </div>
 </div>

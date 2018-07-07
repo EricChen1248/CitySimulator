@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_i_list.html" title="Interface for a list collection. " alt="" coords="5,31,83,57"/>
+<area shape="rect" id="node2" href="$class_linked_list.html" title="An unlimited, ordered collection that uses link&#45;based memory backing. " alt="" coords="131,5,243,32"/>
+<area shape="rect" id="node3" href="$class_list.html" title="An unlimited, ordered collection that uses array&#45;based memory backing. " alt="" coords="149,56,224,83"/>
+</map>

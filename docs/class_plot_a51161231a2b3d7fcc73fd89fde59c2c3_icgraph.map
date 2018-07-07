@@ -1,0 +1,4 @@
+<map id="Plot::Leave" name="Plot::Leave">
+<area shape="rect" id="node2" href="$class_citizen.html#acf5e03bbdece1c022e91812487ebec21" title="Handles all update events of the citizen. " alt="" coords="156,5,267,32"/>
+<area shape="rect" id="node3" href="$class_citizen.html#ae216eea33f751165bf6e1ffdd0da61d8" title="Calls the death events for each rule. " alt="" coords="140,56,283,83"/>
+</map>

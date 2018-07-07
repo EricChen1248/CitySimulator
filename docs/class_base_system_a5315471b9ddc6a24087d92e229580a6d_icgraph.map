@@ -1,0 +1,9 @@
+<map id="BaseSystem::Plots" name="BaseSystem::Plots">
+<area shape="rect" id="node2" href="$class_bank_rule.html#a44d2e3e4db0708c6866cca9b3c5bc0eb" title="Attemps to find a plot that can satisfy this rule. " alt="" coords="196,5,331,32"/>
+<area shape="rect" id="node3" href="$class_food_rule.html#a84c9a5e61b33f087a7c4cb4577f91d53" title="Attemps to find a plot that can satisfy this rule. " alt="" coords="197,56,330,83"/>
+<area shape="rect" id="node4" href="$class_hospital_rule.html#ae2a121d2782f8b8f6c2685539fdfd67a" title="HospitalRule::Register" alt="" coords="188,107,339,133"/>
+<area shape="rect" id="node5" href="$class_school_rule.html#a3a9d7a59dba65a062ab8a3832206c917" title="Attemps to find a plot that can satisfy this rule. " alt="" coords="191,157,335,184"/>
+<area shape="rect" id="node6" href="$class_store_rule.html#acf337cc86b7ca44746b3301c382eef85" title="StoreRule::FindPlot" alt="" coords="196,208,331,235"/>
+<area shape="rect" id="node7" href="$class_work_rule.html#ae66df195bac8ebccd5b9616ca8ef13f2" title="WorkRule::Register" alt="" coords="196,259,331,285"/>
+<area shape="rect" id="node8" href="$class_work_rule.html#a931ccc96ebab1e8d013e50ba5004c0c0" title="WorkRule::NewDay" alt="" coords="387,259,521,285"/>
+</map>

@@ -85,6 +85,7 @@ var hierarchy =
     [ "MinHeap< PathFinderNode * >", "class_min_heap.html", [
       [ "PriorityQueue< PathFinderNode *>", "class_priority_queue.html", null ]
     ] ],
+    [ "MouseController", "class_mouse_controller.html", null ],
     [ "NewsFlash", "struct_news_flash.html", null ],
     [ "Node< T >", "class_node.html", [
       [ "PriorityNode< T >", "class_priority_node.html", null ]

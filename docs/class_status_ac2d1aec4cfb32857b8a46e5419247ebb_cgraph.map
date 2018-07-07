@@ -1,0 +1,5 @@
+<map id="Status::Draw" name="Status::Draw">
+<area shape="rect" id="node2" href="$class_core_controller.html#a04bd80274958e42fc7549554e2a520bb" title="CoreController::SfmlController" alt="" coords="151,5,344,32"/>
+<area shape="rect" id="node4" href="$class_s_f_m_l_controller.html#a9e248ad5d7919cd6ea4b3c9942b78079" title="SFMLController::DrawShape" alt="" coords="154,56,341,83"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="392,5,553,32"/>
+</map>

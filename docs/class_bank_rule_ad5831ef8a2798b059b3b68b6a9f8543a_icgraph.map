@@ -1,0 +1,5 @@
+<map id="BankRule::SaveMoney" name="BankRule::SaveMoney">
+<area shape="rect" id="node2" href="$class_citizen.html#a5232bf42d9a211d81ce3e5e3cefcf04c" title="Citizen::~Citizen" alt="" coords="226,5,345,32"/>
+<area shape="rect" id="node3" href="$class_hospital_rule.html#a6e59b5f4315cafdaaea84b39afa64c02" title="HospitalRule::EnterPlot" alt="" coords="207,56,364,83"/>
+<area shape="rect" id="node4" href="$class_work_rule.html#a14184d48a943090e6037df03ee6acee2" title="WorkRule::LeavePlot" alt="" coords="214,107,357,133"/>
+</map>

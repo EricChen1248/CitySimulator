@@ -1,0 +1,4 @@
+<map id="Coordinate::Z" name="Coordinate::Z">
+<area shape="rect" id="node2" href="$class_coordinate.html#a8524cf662ab2550956b0426f25b5b738" title="Splices a coordinate that is between the source and target based on prev update time;. " alt="" coords="152,5,323,32"/>
+<area shape="rect" id="node3" href="$class_citizen.html#acf5e03bbdece1c022e91812487ebec21" title="Handles all update events of the citizen. " alt="" coords="371,5,481,32"/>
+</map>

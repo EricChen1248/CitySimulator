@@ -1,0 +1,4 @@
+<map id="HomeRule::EndDay" name="HomeRule::EndDay">
+<area shape="rect" id="node2" href="$class_citizen.html#a62b6cff47b0c7916f5e83b5c582679db" title="Citizen::Age" alt="" coords="218,5,311,32"/>
+<area shape="rect" id="node3" href="$class_home_rule.html#a3a1be2402e2e8acb0c1bb7a24f6d64e9" title="Returns bool to tell if citizen is satisfied with it&#39;s food requirements. " alt="" coords="189,56,340,83"/>
+</map>

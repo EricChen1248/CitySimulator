@@ -1,0 +1,5 @@
+<map id="StoreRule::EnterPlot" name="StoreRule::EnterPlot">
+<area shape="rect" id="node2" href="$class_plot.html#ab4a60151432bc7f824b2d111274ebfb8" title="Plot::GetPlotType" alt="" coords="211,5,337,32"/>
+<area shape="rect" id="node3" href="$class_citizen.html#a3c216a3a1c4b654aae5f2d82bd26f4ec" title="Set a time for the citizen to wait in the plot. 1 = ??? ingame minutes. " alt="" coords="225,56,323,83"/>
+<area shape="rect" id="node4" href="$class_citizen.html#a89a29ba0087c5c44c779adbddd65e1c3" title="Increases (decrease if negative) the amount of money of the citizen. " alt="" coords="195,107,353,133"/>
+</map>

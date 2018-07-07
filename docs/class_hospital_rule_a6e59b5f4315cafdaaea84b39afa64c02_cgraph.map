@@ -1,0 +1,14 @@
+<map id="HospitalRule::EnterPlot" name="HospitalRule::EnterPlot">
+<area shape="rect" id="node2" href="$class_plot.html#ab4a60151432bc7f824b2d111274ebfb8" title="Plot::GetPlotType" alt="" coords="227,5,353,32"/>
+<area shape="rect" id="node3" href="$class_citizen.html#a0a7a5dcce103d3971acff20a5d40e28b" title="Finds a rule of system type. " alt="" coords="457,73,579,100"/>
+<area shape="rect" id="node4" href="$class_citizen.html#a635d74032509ae179fba156ea16dc9d3" title="Citizen::GetMoney" alt="" coords="225,107,355,133"/>
+<area shape="rect" id="node5" href="$class_bank_rule.html#a559131529fb18a5ea2fb538c3df18237" title="BankRule::GetSavings" alt="" coords="214,157,366,184"/>
+<area shape="rect" id="node6" href="$class_citizen.html#aaf61864d86d7855be6c62a94b0a46d60" title="Marks citizen as dead. Die pruning and events are handled at the end of day. " alt="" coords="245,208,335,235"/>
+<area shape="rect" id="node11" href="$class_bank_rule.html#ad5831ef8a2798b059b3b68b6a9f8543a" title="BankRule::SaveMoney" alt="" coords="213,259,367,285"/>
+<area shape="rect" id="node12" href="$class_citizen.html#a89a29ba0087c5c44c779adbddd65e1c3" title="Increases (decrease if negative) the amount of money of the citizen. " alt="" coords="211,309,369,336"/>
+<area shape="rect" id="node13" href="$class_citizen.html#a3c216a3a1c4b654aae5f2d82bd26f4ec" title="Set a time for the citizen to wait in the plot. 1 = ??? ingame minutes. " alt="" coords="241,360,339,387"/>
+<area shape="rect" id="node7" href="$class_core_controller.html#a3c23d3b6e5fa93b707ac5be6bc2dda96" title="CoreController::GetSystem\lController" alt="" coords="429,142,607,183"/>
+<area shape="rect" id="node9" href="$class_system_controller.html#a69de55b16d60a1792473428cfa183684" title="Gets the system based on system enum type. " alt="" coords="420,208,616,235"/>
+<area shape="rect" id="node10" href="$class_hospital_system.html#aace66ee3e9e861df844ed98355180213" title="Increase tally of people that died outside of the hospital. " alt="" coords="417,259,619,285"/>
+<area shape="rect" id="node8" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="667,149,828,176"/>
+</map>

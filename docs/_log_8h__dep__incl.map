@@ -1,0 +1,33 @@
+<map id="Log.h" name="Log.h">
+<area shape="rect" id="node2" href="$_base_system_8h.html" title="Systems/Base/BaseSystem.h" alt="" coords="2115,80,2313,107"/>
+<area shape="rect" id="node32" href="$_log_8cpp.html" title="Log.cpp" alt="" coords="2337,80,2405,107"/>
+<area shape="rect" id="node3" href="$_bank_system_8h.html" title="Systems/Bank/BankSystem.h" alt="" coords="2008,162,2207,189"/>
+<area shape="rect" id="node7" href="$_home_system_8h.html" title="Systems/Home/HomeSystem.h" alt="" coords="875,162,1081,189"/>
+<area shape="rect" id="node9" href="$_work_system_8h.html" title="Systems/Work/WorkSystem.h" alt="" coords="427,162,627,189"/>
+<area shape="rect" id="node10" href="$_work_8cpp.html" title="Systems/Work/Work.cpp" alt="" coords="5,251,175,278"/>
+<area shape="rect" id="node12" href="$_food_system_8hpp.html" title="Systems/Food/FoodSystem.hpp" alt="" coords="1106,162,1317,189"/>
+<area shape="rect" id="node15" href="$_store_system_8h.html" title="Systems/Store/StoreSystem.h" alt="" coords="1341,162,1541,189"/>
+<area shape="rect" id="node18" href="$_school_system_8h.html" title="Systems/School/SchoolSystem.h" alt="" coords="1565,162,1783,189"/>
+<area shape="rect" id="node21" href="$_hospital_system_8h.html" title="Systems/Hospital/Hospital\lSystem.h" alt="" coords="1807,155,1983,196"/>
+<area shape="rect" id="node24" href="$_u_i_controller_8cpp.html" title="Controllers/UIController.cpp" alt="" coords="2231,162,2411,189"/>
+<area shape="rect" id="node25" href="$_status_8cpp.html" title="Controllers/UiObjects\l/Status.cpp" alt="" coords="2435,155,2580,196"/>
+<area shape="rect" id="node26" href="$_base_8cpp.html" title="Systems/Base/Base.cpp" alt="" coords="2604,162,2771,189"/>
+<area shape="rect" id="node27" href="$_food_rule_8cpp.html" title="Systems/Food/FoodRule.cpp" alt="" coords="2795,162,2985,189"/>
+<area shape="rect" id="node28" href="$_home_rule_8cpp.html" title="Systems/Home/HomeRule.cpp" alt="" coords="3009,162,3211,189"/>
+<area shape="rect" id="node29" href="$_hospital_rule_8cpp.html" title="Systems/Hospital/Hospital\lRule.cpp" alt="" coords="3235,155,3411,196"/>
+<area shape="rect" id="node30" href="$_plot_system_8cpp.html" title="Systems/Plot/PlotSystem.cpp" alt="" coords="3436,162,3635,189"/>
+<area shape="rect" id="node31" href="$_work_rule_8cpp.html" title="Systems/Work/WorkRule.cpp" alt="" coords="3659,162,3854,189"/>
+<area shape="rect" id="node4" href="$_system_controller_8cpp.html" title="Controllers/SystemController.cpp" alt="" coords="1106,251,1319,278"/>
+<area shape="rect" id="node5" href="$_bank_rule_8cpp.html" title="Systems/Bank/BankRule.cpp" alt="" coords="2707,251,2900,278"/>
+<area shape="rect" id="node6" href="$_bank_system_8cpp.html" title="Systems/Bank/BankSystem.cpp" alt="" coords="2924,251,3136,278"/>
+<area shape="rect" id="node8" href="$_home_system_8cpp.html" title="Systems/Home/HomeSystem.cpp" alt="" coords="437,251,657,278"/>
+<area shape="rect" id="node11" href="$_work_system_8cpp.html" title="Systems/Work/WorkSystem.cpp" alt="" coords="199,251,413,278"/>
+<area shape="rect" id="node13" href="$_food_8cpp.html" title="Systems/Food/Food.cpp" alt="" coords="682,251,847,278"/>
+<area shape="rect" id="node14" href="$_food_system_8cpp.html" title="Systems/Food/FoodSystem.cpp" alt="" coords="871,251,1082,278"/>
+<area shape="rect" id="node16" href="$_store_rule_8cpp.html" title="Systems/Store/StoreRule.cpp" alt="" coords="1343,251,1538,278"/>
+<area shape="rect" id="node17" href="$_store_system_8cpp.html" title="Systems/Store/StoreSystem.cpp" alt="" coords="1563,251,1777,278"/>
+<area shape="rect" id="node19" href="$_school_rule_8cpp.html" title="Systems/School/SchoolRule.cpp" alt="" coords="1802,251,2015,278"/>
+<area shape="rect" id="node20" href="$_school_system_8cpp.html" title="Systems/School/SchoolSystem.cpp" alt="" coords="2039,251,2271,278"/>
+<area shape="rect" id="node22" href="$_citizen_8cpp.html" title="Systems/Citizen/Citizen.cpp" alt="" coords="2295,251,2482,278"/>
+<area shape="rect" id="node23" href="$_hospital_system_8cpp.html" title="Systems/Hospital/Hospital\lSystem.cpp" alt="" coords="2506,244,2682,285"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Button::IsInBounds" name="Button::IsInBounds">
+<area shape="rect" id="node2" href="$class_core_controller.html#a04bd80274958e42fc7549554e2a520bb" title="CoreController::SfmlController" alt="" coords="185,5,379,32"/>
+<area shape="rect" id="node4" href="$class_s_f_m_l_controller.html#a5fc1d926cba4ff99e478990b19f2daf9" title="Gets the window of SDL controller. " alt="" coords="199,56,365,83"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="427,5,588,32"/>
+</map>

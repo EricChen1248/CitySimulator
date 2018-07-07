@@ -1,0 +1,5 @@
+<map id="Citizen::GetFamilyMember" name="Citizen::GetFamilyMember">
+<area shape="rect" id="node2" href="$class_bank_rule.html#a2b5f71a40aee860ddf1aa405cc72e88f" title="Citizen withdraws money on leaving. " alt="" coords="235,5,377,32"/>
+<area shape="rect" id="node3" href="$class_citizen.html#a5232bf42d9a211d81ce3e5e3cefcf04c" title="Citizen::~Citizen" alt="" coords="247,56,365,83"/>
+<area shape="rect" id="node4" href="$class_home_rule.html#ab654cddde2aa0f0b3a048abf391434da" title="HomeRule::HomeRule" alt="" coords="231,107,381,133"/>
+</map>

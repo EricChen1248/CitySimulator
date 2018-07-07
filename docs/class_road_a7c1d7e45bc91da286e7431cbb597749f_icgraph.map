@@ -1,0 +1,4 @@
+<map id="Road::Speed" name="Road::Speed">
+<area shape="rect" id="node2" href="$class_road.html#af1763ae11999f5fcb644ea859553ea85" title="Road::ContentString" alt="" coords="151,5,289,32"/>
+<area shape="rect" id="node3" href="$class_citizen.html#acf5e03bbdece1c022e91812487ebec21" title="Handles all update events of the citizen. " alt="" coords="165,56,275,83"/>
+</map>

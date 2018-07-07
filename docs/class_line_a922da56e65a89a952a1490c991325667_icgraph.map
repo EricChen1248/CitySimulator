@@ -1,0 +1,9 @@
+<map id="Line::ChangeColor" name="Line::ChangeColor">
+<area shape="rect" id="node2" href="$class_line.html#a6fe44fe558930f9dac52648c8f481b28" title="Line::Line" alt="" coords="195,5,274,32"/>
+<area shape="rect" id="node3" href="$class_line.html#a553d1340f18bb8c6aef36de3cf24be20" title="Permantly changes the color. " alt="" coords="183,56,287,83"/>
+<area shape="rect" id="node7" href="$class_road.html#a1a5760cedbe8f1bfba0d50e55e7ec103" title="Road::Repair" alt="" coords="354,107,451,133"/>
+<area shape="rect" id="node8" href="$class_road.html#ad63b454d0bc906139ed10ed5e7e26412" title="Road::EndDay" alt="" coords="181,157,288,184"/>
+<area shape="rect" id="node4" href="$class_road.html#a50e770f98d48c26421973d38d46a5b17" title="Road::LevelUp" alt="" coords="350,5,455,32"/>
+<area shape="rect" id="node6" href="$class_road.html#a6086a0b2824f5e00dae7577d3c7f12da" title="Road::MarkAsRiver" alt="" coords="336,56,469,83"/>
+<area shape="rect" id="node5" href="$class_road.html#adf6a767f9aa69ec621e32c78a8638fb2" title="Road::PerformClick" alt="" coords="517,56,652,83"/>
+</map>

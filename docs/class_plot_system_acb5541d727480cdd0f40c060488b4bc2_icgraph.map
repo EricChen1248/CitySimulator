@@ -1,0 +1,4 @@
+<map id="PlotSystem::GetRandomPlot" name="PlotSystem::GetRandomPlot">
+<area shape="rect" id="node2" href="$class_system_controller.html#ae034648004ab6c55ddc33b9ff7980275" title="Late Initialization of system controller so all pointers are in place. " alt="" coords="244,5,421,32"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#ab3853568fd9d732663ebf807817f3764" title="CoreController::CoreController" alt="" coords="469,5,664,32"/>
+</map>

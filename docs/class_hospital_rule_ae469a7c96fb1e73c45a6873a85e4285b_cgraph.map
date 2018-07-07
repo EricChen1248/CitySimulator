@@ -1,0 +1,4 @@
+<map id="HospitalRule::FindPlot" name="HospitalRule::FindPlot">
+<area shape="rect" id="node2" href="$class_citizen.html#a251136e0ac3175ce1d4fff3a51e254d9" title="Citizen::SetActiveRule" alt="" coords="204,5,355,32"/>
+<area shape="rect" id="node3" href="$class_citizen.html#a39a985f9a040390fe6c6a4304197f8af" title="Sets the citizen to target a plot. " alt="" coords="216,56,343,83"/>
+</map>

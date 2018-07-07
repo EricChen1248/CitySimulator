@@ -1,0 +1,5 @@
+<map id="helper::Time::IncreaseTime" name="helper::Time::IncreaseTime">
+<area shape="rect" id="node2" href="$class_core_controller.html#a3c79152bf136634d5708b20ccc2f498a" title="Starts the game and kicks off all functions. " alt="" coords="467,5,607,32"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#ae0b7fd95af3ee62dcaee016c3a71c8b9" title="Game loop of each day. " alt="" coords="232,31,419,57"/>
+<area shape="rect" id="node4" href="$class_home_rule.html#ab654cddde2aa0f0b3a048abf391434da" title="HomeRule::HomeRule" alt="" coords="250,81,401,108"/>
+</map>

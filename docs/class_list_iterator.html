@@ -93,19 +93,25 @@ $(document).ready(function(){initNavTree('class_list_iterator.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>Helper class that provides iteration functions for custom collections.  
+<p>Helper class that provides iteration functions for array-based collections.  
  <a href="class_list_iterator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_list_iterator_8h_source.html">ListIterator.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for ListIterator&lt; T &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_list_iterator__coll__graph.png" border="0" usemap="#_list_iterator_3_01_t_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="_list_iterator_3_01_t_01_4_coll__map" id="_list_iterator_3_01_t_01_4_coll__map">
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5e7c80050165de2eec66054848d28392"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_list_iterator.html#a5e7c80050165de2eec66054848d28392">ListIterator</a> (T *item) noexcept</td></tr>
 <tr class="memdesc:a5e7c80050165de2eec66054848d28392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to generate the iterator for Begin()  <a href="#a5e7c80050165de2eec66054848d28392">More...</a><br /></td></tr>
 <tr class="separator:a5e7c80050165de2eec66054848d28392"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf77ad2737675f962bad9f68514ef47a"><td class="memItemLeft" align="right" valign="top"><a id="acf77ad2737675f962bad9f68514ef47a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_list_iterator.html#acf77ad2737675f962bad9f68514ef47a">operator++</a> ()</td></tr>
-<tr class="memdesc:acf77ad2737675f962bad9f68514ef47a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advances the iterator to the next iter. <br /></td></tr>
+<tr class="memitem:acf77ad2737675f962bad9f68514ef47a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_list_iterator.html#acf77ad2737675f962bad9f68514ef47a">operator++</a> ()</td></tr>
+<tr class="memdesc:acf77ad2737675f962bad9f68514ef47a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advances the iterator to the next iter.  <a href="#acf77ad2737675f962bad9f68514ef47a">More...</a><br /></td></tr>
 <tr class="separator:acf77ad2737675f962bad9f68514ef47a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35dfd2ddd8aef9dc1133bc6b36c6670a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_list_iterator.html#a35dfd2ddd8aef9dc1133bc6b36c6670a">operator!=</a> (<a class="el" href="class_list_iterator.html">ListIterator</a>&lt; T &gt; &amp;other)</td></tr>
 <tr class="memdesc:a35dfd2ddd8aef9dc1133bc6b36c6670a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for comparing to end iter (node will be nullptr)  <a href="#a35dfd2ddd8aef9dc1133bc6b36c6670a">More...</a><br /></td></tr>
@@ -118,7 +124,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
 class ListIterator&lt; T &gt;</h3>
 
-<p>Helper class that provides iteration functions for custom collections. </p>
+<p>Helper class that provides iteration functions for array-based collections. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Type of item that will be use with the class </td></tr>
@@ -211,6 +217,27 @@ template&lt;typename T &gt; </div>
 
 <p>Dereferencing returns the item in the node for each in range-based loops. </p>
 <dl class="section return"><dt>Returns</dt><dd>The item stored in the node </dd></dl>
+
+</div>
+</div>
+<a id="acf77ad2737675f962bad9f68514ef47a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf77ad2737675f962bad9f68514ef47a">&#9670;&nbsp;</a></span>operator++()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_list_iterator.html">ListIterator</a>&lt; T &gt;::operator++ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Advances the iterator to the next iter. </p>
 
 </div>
 </div>

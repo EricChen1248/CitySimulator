@@ -1,0 +1,6 @@
+<map id="Citizen::GetMoney" name="Citizen::GetMoney">
+<area shape="rect" id="node2" href="$class_bank_rule.html#afb4dc23622bd243dd443af5c86820597" title="BankRule::CalculateScore" alt="" coords="184,5,359,32"/>
+<area shape="rect" id="node3" href="$class_bank_rule.html#a2b5f71a40aee860ddf1aa405cc72e88f" title="Citizen withdraws money on leaving. " alt="" coords="200,56,343,83"/>
+<area shape="rect" id="node4" href="$class_food_rule.html#a5928bb41fcd8b88f8deb6410e6692337" title="FoodRule::CalculateScore" alt="" coords="185,107,358,133"/>
+<area shape="rect" id="node5" href="$class_hospital_rule.html#a6e59b5f4315cafdaaea84b39afa64c02" title="HospitalRule::EnterPlot" alt="" coords="193,157,350,184"/>
+</map>

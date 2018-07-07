@@ -1,0 +1,11 @@
+<map id="Plot::GetShape" name="Plot::GetShape">
+<area shape="rect" id="node2" href="$class_plot_system.html#a6d5985c39039f368a4456d9ccf07cb9a" title="Checks if the click was on a plot and handles it if applicable. " alt="" coords="646,13,813,39"/>
+<area shape="rect" id="node5" href="$class_plot_system.html#a7403bb12c4e3cd2a6ad66dcd2a6f94a2" title="Deselect and undraw the selected plots and roads. " alt="" coords="164,48,343,89"/>
+<area shape="rect" id="node7" href="$class_plot_system.html#a75604eb57fdc5bee7676776e1defb8fa" title="Clears all selections and hover graphics. " alt="" coords="391,114,580,141"/>
+<area shape="rect" id="node3" href="$class_plot_system.html#a8bf87772f6d248af9603933811f50ca6" title="Calls all rendering events during interday. " alt="" coords="879,13,1065,39"/>
+<area shape="rect" id="node4" href="$class_system_controller.html#ac2fc83957e0fd38f3baedcf2dca3206e" title="Calls render function of plots. " alt="" coords="1113,5,1284,47"/>
+<area shape="rect" id="node6" href="$class_plot_system.html#ab556b9c8bc014aabb18e2628e1cd547e" title="PlotSystem::RoadClicks" alt="" coords="403,63,567,90"/>
+<area shape="rect" id="node8" href="$class_system_controller.html#ac00b118e5e33f7ea9b71389993dfd487" title="SystemController::AdvanceDay" alt="" coords="628,114,831,141"/>
+<area shape="rect" id="node9" href="$class_core_controller.html#a3c79152bf136634d5708b20ccc2f498a" title="Starts the game and kicks off all functions. " alt="" coords="1129,94,1269,121"/>
+<area shape="rect" id="node10" href="$class_core_controller.html#a0fb98cb1cc2df8cb59ed2a7822a9b1b8" title="CoreController::EndDayLoop" alt="" coords="879,118,1065,145"/>
+</map>

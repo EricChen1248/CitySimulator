@@ -5,5 +5,9 @@ var files_dup =
     [ "Controllers", "dir_f1e231c396d6a78f925b250f39acb3ba.html", "dir_f1e231c396d6a78f925b250f39acb3ba" ],
     [ "Helpers", "dir_31d546a7220d2d0f2290ebc917bc5425.html", "dir_31d546a7220d2d0f2290ebc917bc5425" ],
     [ "Systems", "dir_5ef85acd675d452a88be64b3c3117dbd.html", "dir_5ef85acd675d452a88be64b3c3117dbd" ],
-    [ "Log.h", "_log_8h_source.html", null ]
+    [ "Log.cpp", "_log_8cpp.html", null ],
+    [ "Log.h", "_log_8h.html", [
+      [ "Log", "struct_log.html", "struct_log" ]
+    ] ],
+    [ "main.cpp", "main_8cpp.html", "main_8cpp" ]
 ];

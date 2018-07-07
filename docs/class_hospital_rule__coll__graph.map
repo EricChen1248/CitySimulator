@@ -1,0 +1,5 @@
+<map id="HospitalRule" name="HospitalRule">
+<area shape="rect" id="node2" href="$class_base_rule.html" title="Abstract class that is the base of all system rules. " alt="" coords="127,497,258,736"/>
+<area shape="rect" id="node3" href="$class_citizen.html" title="The central entity of our game/simulation. " alt="" coords="5,5,199,435"/>
+<area shape="rect" id="node4" href="$structhelper_1_1_time.html" title="Time class of our game. All time related simulations should use this class for proper speed and time ..." alt="" coords="223,101,344,339"/>
+</map>

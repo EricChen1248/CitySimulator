@@ -1,0 +1,4 @@
+<map id="Road::MarkAsRiver" name="Road::MarkAsRiver">
+<area shape="rect" id="node2" href="$class_line.html#a553d1340f18bb8c6aef36de3cf24be20" title="Permantly changes the color. " alt="" coords="187,5,291,32"/>
+<area shape="rect" id="node3" href="$class_line.html#a922da56e65a89a952a1490c991325667" title="Temporary changes the color of the line. " alt="" coords="339,5,467,32"/>
+</map>

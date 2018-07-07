@@ -1,0 +1,6 @@
+<map id="HomeRule::LeavePlot" name="HomeRule::LeavePlot">
+<area shape="rect" id="node2" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="200,5,361,32"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#a67c980cc94b7c272cd15152fe1f6f3b6" title="CoreController::GetTime" alt="" coords="200,56,361,83"/>
+<area shape="rect" id="node4" href="$structhelper_1_1_time.html#af656553dd87985126d71fc949b6b9f08" title="Returns the time as HH:MM:SSSS format. " alt="" coords="206,107,355,133"/>
+<area shape="rect" id="node5" href="$structhelper_1_1_time.html#a1c8806879dd5927bf11064d3d27d6ba7" title="Returns the time as HH:MM format. " alt="" coords="409,107,589,133"/>
+</map>

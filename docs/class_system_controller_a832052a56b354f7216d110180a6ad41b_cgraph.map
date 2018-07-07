@@ -1,0 +1,9 @@
+<map id="SystemController::Render" name="SystemController::Render">
+<area shape="rect" id="node2" href="$class_river.html#a833cb3c47969eee7624e05bce8cca9f8" title="River::Render" alt="" coords="263,5,361,32"/>
+<area shape="rect" id="node6" href="$class_plot_system.html#a7b57c653ba9b0560d588794ce7790b3d" title="Draws the roads. " alt="" coords="224,157,400,184"/>
+<area shape="rect" id="node7" href="$class_citizen_system.html#a0b98dd2a8f9b1a2d9df6a5638438abbf" title="Renders citizens;. " alt="" coords="234,56,390,83"/>
+<area shape="rect" id="node8" href="$class_plot_system.html#a0b3c5d0df252995318e1e6fc7ba356b8" title="Calls all rendering event during the day. " alt="" coords="243,107,381,133"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#a04bd80274958e42fc7549554e2a520bb" title="CoreController::SfmlController" alt="" coords="448,31,641,57"/>
+<area shape="rect" id="node5" href="$class_s_f_m_l_controller.html#a9e248ad5d7919cd6ea4b3c9942b78079" title="SFMLController::DrawShape" alt="" coords="451,81,638,108"/>
+<area shape="rect" id="node4" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="689,31,851,57"/>
+</map>

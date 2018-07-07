@@ -1,0 +1,8 @@
+<map id="Queue::Dequeue" name="Queue::Dequeue">
+<area shape="rect" id="node2" href="$class_path_finder.html#af9c7cf5f303d6f44749223cfd02b5017" title="PathFinder::RemapQuadrants" alt="" coords="172,31,367,57"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#ab3853568fd9d732663ebf807817f3764" title="CoreController::CoreController" alt="" coords="415,5,609,32"/>
+<area shape="rect" id="node4" href="$class_path_finder.html#a4122c11b2c8bb7ca9d0763fbb8c8f423" title="PathFinder::CheckQuadrant" alt="" coords="421,56,603,83"/>
+<area shape="rect" id="node5" href="$class_plot.html#a329886dfdd6f46115252fc8673cc727d" title="Plot::BuiltBridge" alt="" coords="657,56,773,83"/>
+<area shape="rect" id="node6" href="$class_road.html#a50e770f98d48c26421973d38d46a5b17" title="Road::LevelUp" alt="" coords="821,56,927,83"/>
+<area shape="rect" id="node7" href="$class_road.html#adf6a767f9aa69ec621e32c78a8638fb2" title="Road::PerformClick" alt="" coords="975,56,1109,83"/>
+</map>

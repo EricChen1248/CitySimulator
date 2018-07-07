@@ -1,0 +1,16 @@
+<map id="Systems/School/School.h" name="Systems/School/School.h">
+<area shape="rect" id="node2" href="$_base_8h.html" title="../Base/Base.h" alt="" coords="499,80,609,107"/>
+<area shape="rect" id="node3" href="$_system_enum_8h.html" title="../SystemEnum.h" alt="" coords="5,244,129,271"/>
+<area shape="rect" id="node4" href="$_constants_8h.html" title="../../Helpers/Constants.h" alt="" coords="820,162,984,189"/>
+<area shape="rect" id="node6" href="$_core_controller_8h.html" title="../../Controllers/CoreController.h" alt="" coords="590,162,795,189"/>
+<area shape="rect" id="node11" href="$_system_controller_8h.html" title="../../Controllers/System\lController.h" alt="" coords="338,155,495,196"/>
+<area shape="rect" id="node7" href="$_time_8h.html" title="../Helpers/Time.h" alt="" coords="687,244,808,271"/>
+<area shape="rect" id="node12" href="$_systems_8h.html" title="../Systems/Systems.h" alt="" coords="153,244,307,271"/>
+<area shape="rect" id="node13" href="$_list_8h.html" title="../Collections/List.h" alt="" coords="527,244,661,271"/>
+<area shape="rect" id="node16" href="$_linked_list_8h.html" title="../Collections/LinkedList.h" alt="" coords="331,244,503,271"/>
+<area shape="rect" id="node14" href="$_i_list_8h.html" title="Interfaces/IList.h" alt="" coords="451,319,569,345"/>
+<area shape="rect" id="node15" href="$_list_iterator_8h.html" title="ListIterator.h" alt="" coords="593,319,688,345"/>
+<area shape="rect" id="node17" href="$_node_8h.html" title="Node.h" alt="" coords="16,393,79,420"/>
+<area shape="rect" id="node19" href="$_custom_exceptions_8h.html" title="../Helpers/CustomExceptions.h" alt="" coords="174,319,377,345"/>
+<area shape="rect" id="node20" href="$_linked_iterator_8h.html" title="LinkedIterator.h" alt="" coords="39,319,149,345"/>
+</map>

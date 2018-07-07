@@ -1,8 +1,6 @@
 var annotated_dup =
 [
-    [ "helper", null, [
-      [ "Time", "structhelper_1_1_time.html", "structhelper_1_1_time" ]
-    ] ],
+    [ "helper", "namespacehelper.html", "namespacehelper" ],
     [ "Bank", "class_bank.html", "class_bank" ],
     [ "BankRule", "class_bank_rule.html", "class_bank_rule" ],
     [ "BankSystem", "class_bank_system.html", "class_bank_system" ],
@@ -40,6 +38,7 @@ var annotated_dup =
     [ "Log", "struct_log.html", "struct_log" ],
     [ "Logger", "class_logger.html", "class_logger" ],
     [ "MinHeap", "class_min_heap.html", "class_min_heap" ],
+    [ "MouseController", "class_mouse_controller.html", "class_mouse_controller" ],
     [ "NewsFlash", "struct_news_flash.html", "struct_news_flash" ],
     [ "Node", "class_node.html", "class_node" ],
     [ "PathFinder", "class_path_finder.html", null ],

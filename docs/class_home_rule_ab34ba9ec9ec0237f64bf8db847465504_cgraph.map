@@ -1,0 +1,5 @@
+<map id="HomeRule::Update" name="HomeRule::Update">
+<area shape="rect" id="node2" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="184,5,345,32"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#a67c980cc94b7c272cd15152fe1f6f3b6" title="CoreController::GetTime" alt="" coords="184,56,345,83"/>
+<area shape="rect" id="node4" href="$class_home_rule.html#a2f30d06a63e47cb9a045c9ef587f4cbc" title="HomeRule::AtHome" alt="" coords="196,107,333,133"/>
+</map>

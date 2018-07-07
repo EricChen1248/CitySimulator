@@ -1,0 +1,10 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_base.html" title="Abstract class that is the base of all the system types. " alt="" coords="5,157,57,184"/>
+<area shape="rect" id="node2" href="$class_bank.html" title="Food Class that handles the food plots of our city. " alt="" coords="114,5,166,32"/>
+<area shape="rect" id="node3" href="$class_food.html" title="Food Class that handles the food plots of our city. " alt="" coords="115,56,165,83"/>
+<area shape="rect" id="node4" href="$class_home.html" title="Home" alt="" coords="112,107,168,133"/>
+<area shape="rect" id="node5" href="$class_hospital.html" title="Hospital Class that handles the Hospital plots of our city. " alt="" coords="105,157,175,184"/>
+<area shape="rect" id="node6" href="$class_school.html" title="School Class that handles the food plots of our city. " alt="" coords="109,208,171,235"/>
+<area shape="rect" id="node7" href="$class_store.html" title="Store Class that handles the store plots of our city. " alt="" coords="113,259,167,285"/>
+<area shape="rect" id="node8" href="$class_work.html" title="Work" alt="" coords="113,309,167,336"/>
+</map>

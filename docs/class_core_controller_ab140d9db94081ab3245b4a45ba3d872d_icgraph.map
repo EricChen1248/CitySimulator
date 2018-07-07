@@ -1,0 +1,70 @@
+<map id="CoreController::Instance" name="CoreController::Instance">
+<area shape="rect" id="node2" href="$_core_controller_8cpp.html#afef49a11e1c448b50831ab71f82e0f00" title="Function used in multithreaded version. " alt="" coords="237,848,407,875"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#a04bd80274958e42fc7549554e2a520bb" title="CoreController::SfmlController" alt="" coords="481,427,674,453"/>
+<area shape="rect" id="node27" href="$class_core_controller.html#aab07464a71c14be88a934342711be024" title="CoreController::GetViewport\lController" alt="" coords="486,673,669,714"/>
+<area shape="rect" id="node28" href="$class_core_controller.html#a3c23d3b6e5fa93b707ac5be6bc2dda96" title="CoreController::GetSystem\lController" alt="" coords="233,1229,411,1270"/>
+<area shape="rect" id="node37" href="$class_citizen.html#acf5e03bbdece1c022e91812487ebec21" title="Handles all update events of the citizen. " alt="" coords="522,1565,633,1592"/>
+<area shape="rect" id="node39" href="$class_food_rule.html#a2411d43a8c9d7fc76e2b09b267c59c30" title="Update events of food rule. Decreases citizen&#39;s hunger. " alt="" coords="751,1591,877,1617"/>
+<area shape="rect" id="node53" href="$class_core_controller.html#a0d9084424c002a0eeddd6d26732d9e60" title="CoreController::GetFontController" alt="" coords="215,1544,429,1571"/>
+<area shape="rect" id="node54" href="$class_core_controller.html#a0fe2410f7f2ad22b2558c34dd761f145" title="CoreController::GetUIController" alt="" coords="222,1000,422,1027"/>
+<area shape="rect" id="node56" href="$struct_log.html#aa6ce9da85d07d35428976f8a60bb176c" title="Log::Log" alt="" coords="286,1595,358,1621"/>
+<area shape="rect" id="node57" href="$class_bank_system.html#a528ca56cb84eefb178d7c5d180f6cb18" title="Updates food system. Tally scores for food pltos. " alt="" coords="249,1645,395,1672"/>
+<area shape="rect" id="node58" href="$class_food_rule.html#a392ecbe4bf51f109bbaef3d596dbd7df" title="Fills up the citizen&#39;s hunger on leaving. " alt="" coords="251,1696,393,1723"/>
+<area shape="rect" id="node59" href="$class_home_rule.html#af2f43f06a8579c51fcd05115b370f0e5" title="HomeRule::EnterPlot" alt="" coords="250,1747,394,1773"/>
+<area shape="rect" id="node60" href="$class_home_rule.html#a82697372f71e60006c5b33e0619b71c8" title="Fills up the citizen&#39;s hunger on leaving. " alt="" coords="249,1797,395,1824"/>
+<area shape="rect" id="node61" href="$class_home_rule.html#ab34ba9ec9ec0237f64bf8db847465504" title="Update events of food rule. Decreases citizen&#39;s hunger. " alt="" coords="257,1848,387,1875"/>
+<area shape="rect" id="node62" href="$class_hospital_system.html#a74ed5574695331b95e6817e3af592892" title="MISSING. " alt="" coords="241,1899,403,1925"/>
+<area shape="rect" id="node63" href="$class_river.html#a5dc9ee55cf793502dc7cccd3a161129a" title="River::Update" alt="" coords="273,1949,371,1976"/>
+<area shape="rect" id="node64" href="$class_school_system.html#a22535755909e2d68e8d4b3aeb932200b" title="Updates food system. Tally scores for food plots. " alt="" coords="244,2000,400,2027"/>
+<area shape="rect" id="node65" href="$class_store_rule.html#a7c3efa8419229743018311a032d94984" title="StoreRule::Update" alt="" coords="258,2051,386,2077"/>
+<area shape="rect" id="node66" href="$class_store_system.html#ac0b382b05fe3d8cbc4289602dd33f10c" title="Updates Store system. Tally scores for Store pltos. " alt="" coords="249,2101,395,2128"/>
+<area shape="rect" id="node67" href="$class_work_rule.html#ac1c7e4d9c29fc30573909a03e9c18042" title="WorkRule::CalculateScore" alt="" coords="235,2152,409,2179"/>
+<area shape="rect" id="node68" href="$class_work_rule.html#af718d2052e84323bcab58b9937bd37b4" title="WorkRule::EnterPlot" alt="" coords="251,2203,393,2229"/>
+<area shape="rect" id="node69" href="$class_work_rule.html#a14184d48a943090e6037df03ee6acee2" title="WorkRule::LeavePlot" alt="" coords="251,2253,393,2280"/>
+<area shape="rect" id="node4" href="$class_u_i_controller.html#ab36e021dc9380a5e593f77483af980d4" title="UIController::IsOverUI" alt="" coords="975,40,1121,67"/>
+<area shape="rect" id="node5" href="$class_button.html#aefda23426dea8457a4192341e2f4a0b3" title="Draws the button to the screen. " alt="" coords="999,208,1097,235"/>
+<area shape="rect" id="node7" href="$class_slider.html#ae01696eae70b82ec275cf7f99ce4c444" title="Slider::Render" alt="" coords="1227,259,1331,285"/>
+<area shape="rect" id="node8" href="$class_button.html#ac449e68882fd5565bb837e27edfe3825" title="Checks if the mouse is within the bounds (non&#45;minimum) provided by SFML of the button. " alt="" coords="748,157,880,184"/>
+<area shape="rect" id="node11" href="$struct_news_flash.html#af2c4de29f496db00855764dda9d10447" title="NewsFlash::Render" alt="" coords="747,309,881,336"/>
+<area shape="rect" id="node13" href="$class_slider.html#ac5c2cee0a624bb1fb710c4bd1b4008c1" title="Slider::InBound" alt="" coords="759,5,869,32"/>
+<area shape="rect" id="node14" href="$class_status.html#ac2d1aec4cfb32857b8a46e5419247ebb" title="Status::Draw" alt="" coords="765,427,863,453"/>
+<area shape="rect" id="node15" href="$class_status.html#a71cec8120fb114f59e2fe8ac04e2e50a" title="Status::InBound" alt="" coords="757,56,871,83"/>
+<area shape="rect" id="node16" href="$class_view_port_controller.html#a38ca704e1542059719e1fd5d31f74547" title="Update game view center and sets renderer to use game view. " alt="" coords="747,361,881,402"/>
+<area shape="rect" id="node18" href="$class_view_port_controller.html#a16efebf2293573614cd3181842b05894" title="Set renderer to use uiView. " alt="" coords="749,529,879,570"/>
+<area shape="rect" id="node19" href="$class_road.html#a5184cb92e0d8aa0374b3a2bd01f03893" title="Road::Render" alt="" coords="763,595,865,621"/>
+<area shape="rect" id="node20" href="$class_citizen_system.html#a0b98dd2a8f9b1a2d9df6a5638438abbf" title="Renders citizens;. " alt="" coords="736,477,892,504"/>
+<area shape="rect" id="node22" href="$class_plot_system.html#a0b3c5d0df252995318e1e6fc7ba356b8" title="Calls all rendering event during the day. " alt="" coords="745,645,883,672"/>
+<area shape="rect" id="node23" href="$class_plot_system.html#a8bf87772f6d248af9603933811f50ca6" title="Calls all rendering events during interday. " alt="" coords="955,747,1141,773"/>
+<area shape="rect" id="node25" href="$class_plot_system.html#a6d5985c39039f368a4456d9ccf07cb9a" title="Checks if the click was on a plot and handles it if applicable. " alt="" coords="731,797,897,824"/>
+<area shape="rect" id="node26" href="$class_river.html#a833cb3c47969eee7624e05bce8cca9f8" title="River::Render" alt="" coords="765,696,863,723"/>
+<area shape="rect" id="node6" href="$struct_selection_button.html#a21026ca7212bc698b4b7d98815ad4e54" title="SelectionButton::Draw" alt="" coords="1203,208,1354,235"/>
+<area shape="rect" id="node9" href="$class_u_i_controller.html#a387f8eb777268ea6cb838ec81e62c89b" title="UIController::NextDayButton\lHover" alt="" coords="955,91,1141,133"/>
+<area shape="rect" id="node10" href="$struct_selection_button.html#a4eb19e805115c7866330634e126641e0" title="SelectionButton::IsInBounds" alt="" coords="955,157,1141,184"/>
+<area shape="rect" id="node12" href="$class_u_i_controller.html#ad7326ce44642743e635d77d8c8655a16" title="Renders UI. " alt="" coords="973,309,1123,336"/>
+<area shape="rect" id="node17" href="$class_view_port_controller.html#a25e37e233a1b1f2e2bf3afc5d5b66dab" title="ViewPortController\l::ViewPortController" alt="" coords="979,361,1117,402"/>
+<area shape="rect" id="node21" href="$class_system_controller.html#a832052a56b354f7216d110180a6ad41b" title="Calls render functions of citizens and plots. " alt="" coords="963,645,1133,672"/>
+<area shape="rect" id="node24" href="$class_system_controller.html#ac2fc83957e0fd38f3baedcf2dca3206e" title="Calls render function of plots. " alt="" coords="1193,714,1364,755"/>
+<area shape="rect" id="node29" href="$class_status.html#a67aacb2221111dd93df4ef2560d7cc06" title="Status::Build" alt="" coords="529,856,626,883"/>
+<area shape="rect" id="node30" href="$class_path_finder.html#aa70fb44c02f0e65beb77208245da6cfc" title="Attemps to find a path between to coordinates. " alt="" coords="510,1211,645,1237"/>
+<area shape="rect" id="node31" href="$class_bank_rule.html#a44d2e3e4db0708c6866cca9b3c5bc0eb" title="Attemps to find a plot that can satisfy this rule. " alt="" coords="510,1261,645,1288"/>
+<area shape="rect" id="node32" href="$class_base.html#a1d6d26200c6df421b7fe7105f8a12b28" title="Base::Destroy" alt="" coords="525,1312,630,1339"/>
+<area shape="rect" id="node38" href="$class_citizen.html#aaf61864d86d7855be6c62a94b0a46d60" title="Marks citizen as dead. Die pruning and events are handled at the end of day. " alt="" coords="533,1515,622,1541"/>
+<area shape="rect" id="node41" href="$class_citizen_system.html#a5ecb60b1da228341d4cb67ddbe1f2257" title="CitizenSystem::CitizenSystem" alt="" coords="477,1363,677,1389"/>
+<area shape="rect" id="node42" href="$class_food_rule.html#a84c9a5e61b33f087a7c4cb4577f91d53" title="Attemps to find a plot that can satisfy this rule. " alt="" coords="511,1413,644,1440"/>
+<area shape="rect" id="node43" href="$class_home_system.html#a45669ddba22592ed5403a04f70d52ec9" title="HomeSystem::GetSatisfaction" alt="" coords="478,1464,677,1491"/>
+<area shape="rect" id="node44" href="$class_hospital_rule.html#ae2a121d2782f8b8f6c2685539fdfd67a" title="HospitalRule::Register" alt="" coords="502,907,653,933"/>
+<area shape="rect" id="node45" href="$class_river.html#a8c95d75b10baa652ae7fb0013694b871" title="River::Init" alt="" coords="540,1059,615,1085"/>
+<area shape="rect" id="node48" href="$class_school_rule.html#a3a9d7a59dba65a062ab8a3832206c917" title="Attemps to find a plot that can satisfy this rule. " alt="" coords="505,957,649,984"/>
+<area shape="rect" id="node49" href="$class_store_rule.html#acf337cc86b7ca44746b3301c382eef85" title="StoreRule::FindPlot" alt="" coords="510,1008,645,1035"/>
+<area shape="rect" id="node50" href="$class_work.html#a8ddfb49f8f012b5a7af215a60b350e2d" title="Work::Work" alt="" coords="531,1160,623,1187"/>
+<area shape="rect" id="node51" href="$class_work_rule.html#ae66df195bac8ebccd5b9616ca8ef13f2" title="WorkRule::Register" alt="" coords="510,1109,645,1136"/>
+<area shape="rect" id="node33" href="$class_hospital.html#ac936b538cd47bd09a64b5f70bf6fd471" title="Hospital::Destroy" alt="" coords="753,1261,875,1288"/>
+<area shape="rect" id="node34" href="$class_plot.html#aadf566c0f2995814885869e54904ad8c" title="Plot::Destroy" alt="" coords="765,1312,863,1339"/>
+<area shape="rect" id="node36" href="$class_work.html#a32e63ce074a50ce8bdee2d4b10134d9f" title="Work::Destroy" alt="" coords="761,1363,867,1389"/>
+<area shape="rect" id="node35" href="$class_base_system.html#a856b09392a127bbf63cafbfda46af9d7" title="BaseSystem::Destroy" alt="" coords="973,1312,1123,1339"/>
+<area shape="rect" id="node40" href="$class_hospital_rule.html#a6e59b5f4315cafdaaea84b39afa64c02" title="HospitalRule::EnterPlot" alt="" coords="735,1515,893,1541"/>
+<area shape="rect" id="node46" href="$class_system_controller.html#ae034648004ab6c55ddc33b9ff7980275" title="Late Initialization of system controller so all pointers are in place. " alt="" coords="725,1059,903,1085"/>
+<area shape="rect" id="node47" href="$class_core_controller.html#ab3853568fd9d732663ebf807817f3764" title="CoreController::CoreController" alt="" coords="951,1059,1145,1085"/>
+<area shape="rect" id="node52" href="$class_work_rule.html#a931ccc96ebab1e8d013e50ba5004c0c0" title="WorkRule::NewDay" alt="" coords="747,1109,881,1136"/>
+<area shape="rect" id="node55" href="$class_disaster_controller.html#a872a0327bc796325ad728f32822bba3d" title="DisasterController\l::Update" alt="" coords="515,790,640,831"/>
+</map>

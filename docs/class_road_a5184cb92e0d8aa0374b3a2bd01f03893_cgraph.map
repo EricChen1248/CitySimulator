@@ -1,0 +1,5 @@
+<map id="Road::Render" name="Road::Render">
+<area shape="rect" id="node2" href="$class_line.html#a8e9aeea12a4b3b30f0120265f94441cc" title="Draws the line to the window using SFML. " alt="" coords="204,5,299,32"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#a04bd80274958e42fc7549554e2a520bb" title="CoreController::SfmlController" alt="" coords="155,56,348,83"/>
+<area shape="rect" id="node4" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="396,56,557,83"/>
+</map>

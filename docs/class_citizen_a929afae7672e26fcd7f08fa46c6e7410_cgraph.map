@@ -1,0 +1,3 @@
+<map id="Citizen::ForceRule" name="Citizen::ForceRule">
+<area shape="rect" id="node2" href="$class_citizen.html#a3c216a3a1c4b654aae5f2d82bd26f4ec" title="Set a time for the citizen to wait in the plot. 1 = ??? ingame minutes. " alt="" coords="183,5,280,32"/>
+</map>

@@ -1,0 +1,25 @@
+<map id="CoreController::SfmlController" name="CoreController::SfmlController">
+<area shape="rect" id="node2" href="$class_u_i_controller.html#ab36e021dc9380a5e593f77483af980d4" title="UIController::IsOverUI" alt="" coords="482,33,627,60"/>
+<area shape="rect" id="node3" href="$class_button.html#aefda23426dea8457a4192341e2f4a0b3" title="Draws the button to the screen. " alt="" coords="506,201,603,228"/>
+<area shape="rect" id="node5" href="$class_slider.html#ae01696eae70b82ec275cf7f99ce4c444" title="Slider::Render" alt="" coords="729,252,833,279"/>
+<area shape="rect" id="node6" href="$class_button.html#ac449e68882fd5565bb837e27edfe3825" title="Checks if the mouse is within the bounds (non&#45;minimum) provided by SFML of the button. " alt="" coords="264,151,396,177"/>
+<area shape="rect" id="node9" href="$struct_news_flash.html#af2c4de29f496db00855764dda9d10447" title="NewsFlash::Render" alt="" coords="263,303,397,329"/>
+<area shape="rect" id="node11" href="$class_slider.html#ac5c2cee0a624bb1fb710c4bd1b4008c1" title="Slider::InBound" alt="" coords="275,49,385,76"/>
+<area shape="rect" id="node12" href="$class_status.html#ac2d1aec4cfb32857b8a46e5419247ebb" title="Status::Draw" alt="" coords="281,353,379,380"/>
+<area shape="rect" id="node13" href="$class_status.html#a71cec8120fb114f59e2fe8ac04e2e50a" title="Status::InBound" alt="" coords="273,100,387,127"/>
+<area shape="rect" id="node14" href="$class_view_port_controller.html#a38ca704e1542059719e1fd5d31f74547" title="Update game view center and sets renderer to use game view. " alt="" coords="263,405,397,446"/>
+<area shape="rect" id="node16" href="$class_view_port_controller.html#a16efebf2293573614cd3181842b05894" title="Set renderer to use uiView. " alt="" coords="265,470,395,511"/>
+<area shape="rect" id="node17" href="$class_road.html#a5184cb92e0d8aa0374b3a2bd01f03893" title="Road::Render" alt="" coords="279,536,381,563"/>
+<area shape="rect" id="node18" href="$class_citizen_system.html#a0b98dd2a8f9b1a2d9df6a5638438abbf" title="Renders citizens;. " alt="" coords="252,587,408,613"/>
+<area shape="rect" id="node20" href="$class_plot_system.html#a0b3c5d0df252995318e1e6fc7ba356b8" title="Calls all rendering event during the day. " alt="" coords="261,637,399,664"/>
+<area shape="rect" id="node21" href="$class_plot_system.html#a8bf87772f6d248af9603933811f50ca6" title="Calls all rendering events during interday. " alt="" coords="461,739,648,765"/>
+<area shape="rect" id="node23" href="$class_plot_system.html#a6d5985c39039f368a4456d9ccf07cb9a" title="Checks if the click was on a plot and handles it if applicable. " alt="" coords="247,789,413,816"/>
+<area shape="rect" id="node24" href="$class_river.html#a833cb3c47969eee7624e05bce8cca9f8" title="River::Render" alt="" coords="281,688,379,715"/>
+<area shape="rect" id="node4" href="$struct_selection_button.html#a21026ca7212bc698b4b7d98815ad4e54" title="SelectionButton::Draw" alt="" coords="706,201,857,228"/>
+<area shape="rect" id="node7" href="$class_u_i_controller.html#a387f8eb777268ea6cb838ec81e62c89b" title="UIController::NextDayButton\lHover" alt="" coords="462,85,647,126"/>
+<area shape="rect" id="node8" href="$struct_selection_button.html#a4eb19e805115c7866330634e126641e0" title="SelectionButton::IsInBounds" alt="" coords="461,151,648,177"/>
+<area shape="rect" id="node10" href="$class_u_i_controller.html#ad7326ce44642743e635d77d8c8655a16" title="Renders UI. " alt="" coords="479,303,630,329"/>
+<area shape="rect" id="node15" href="$class_view_port_controller.html#a25e37e233a1b1f2e2bf3afc5d5b66dab" title="ViewPortController\l::ViewPortController" alt="" coords="486,405,623,446"/>
+<area shape="rect" id="node19" href="$class_system_controller.html#a832052a56b354f7216d110180a6ad41b" title="Calls render functions of citizens and plots. " alt="" coords="469,637,640,664"/>
+<area shape="rect" id="node22" href="$class_system_controller.html#ac2fc83957e0fd38f3baedcf2dca3206e" title="Calls render function of plots. " alt="" coords="696,706,867,747"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="SchoolSystem" name="SchoolSystem">
+<area shape="rect" id="node2" href="$class_base_system.html" title="Abstract class that is the base of all systems. " alt="" coords="107,880,238,1207"/>
+<area shape="rect" id="node3" href="$class_list.html" title="{List\&lt; Log *\&gt;\n||+ List()\l+ ~List()\l+ operator[]()\l+ Clear()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Dispose()\l+ Contains()\l+ Count()\l+ begin()\l+ end()\l}" alt="" coords="47,549,160,803"/>
+<area shape="rect" id="node4" href="$class_i_list.html" title="{IList\&lt; Log * \&gt;\n||+ ~IList()\l+ operator[]()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Count()\l}" alt="" coords="5,277,119,443"/>
+<area shape="rect" id="node5" href="$class_i_list.html" title="Interface for a list collection. " alt="" coords="143,5,256,171"/>
+<area shape="rect" id="node6" href="$class_list.html" title="An unlimited, ordered collection that uses array&#45;based memory backing. " alt="" coords="143,233,256,487"/>
+<area shape="rect" id="node8" href="$class_i_list.html" title="{IList\&lt; Plot * \&gt;\n||+ ~IList()\l+ operator[]()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Count()\l}" alt="" coords="280,277,393,443"/>
+<area shape="rect" id="node7" href="$class_list.html" title="{List\&lt; Plot *\&gt;\n||+ List()\l+ ~List()\l+ operator[]()\l+ Clear()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Dispose()\l+ Contains()\l+ Count()\l+ begin()\l+ end()\l}" alt="" coords="184,549,297,803"/>
+</map>

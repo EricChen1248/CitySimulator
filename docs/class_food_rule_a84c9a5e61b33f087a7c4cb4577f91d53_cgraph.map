@@ -1,0 +1,7 @@
+<map id="FoodRule::FindPlot" name="FoodRule::FindPlot">
+<area shape="rect" id="node2" href="$class_core_controller.html#a3c23d3b6e5fa93b707ac5be6bc2dda96" title="CoreController::GetSystem\lController" alt="" coords="195,5,374,47"/>
+<area shape="rect" id="node4" href="$class_system_controller.html#a69de55b16d60a1792473428cfa183684" title="Gets the system based on system enum type. " alt="" coords="187,71,383,98"/>
+<area shape="rect" id="node5" href="$class_base_system.html#a5315471b9ddc6a24087d92e229580a6d" title="BaseSystem::Plots" alt="" coords="217,122,352,149"/>
+<area shape="rect" id="node6" href="$class_citizen.html#a16e76102985ff3b64986a88033bfab8a" title="Citizen::Coords" alt="" coords="229,173,340,199"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="431,13,592,39"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="WorkRule::NewDay" name="WorkRule::NewDay">
+<area shape="rect" id="node2" href="$class_citizen.html#a62b6cff47b0c7916f5e83b5c582679db" title="Citizen::Age" alt="" coords="209,71,302,98"/>
+<area shape="rect" id="node3" href="$class_work_rule.html#ae66df195bac8ebccd5b9616ca8ef13f2" title="WorkRule::Register" alt="" coords="188,122,323,149"/>
+<area shape="rect" id="node9" href="$class_plot.html#ab4a60151432bc7f824b2d111274ebfb8" title="Plot::GetPlotType" alt="" coords="193,173,318,199"/>
+<area shape="rect" id="node10" href="$class_work.html#af0e954fe5048153f7cdf51cf883d9963" title="Work::Resignation" alt="" coords="191,223,320,250"/>
+<area shape="rect" id="node4" href="$class_core_controller.html#a3c23d3b6e5fa93b707ac5be6bc2dda96" title="CoreController::GetSystem\lController" alt="" coords="379,5,558,47"/>
+<area shape="rect" id="node6" href="$class_system_controller.html#a69de55b16d60a1792473428cfa183684" title="Gets the system based on system enum type. " alt="" coords="371,71,567,98"/>
+<area shape="rect" id="node7" href="$class_base_system.html#a5315471b9ddc6a24087d92e229580a6d" title="BaseSystem::Plots" alt="" coords="401,122,536,149"/>
+<area shape="rect" id="node8" href="$class_citizen.html#a16e76102985ff3b64986a88033bfab8a" title="Citizen::Coords" alt="" coords="413,173,524,199"/>
+<area shape="rect" id="node5" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="615,13,776,39"/>
+<area shape="rect" id="node11" href="$class_list.html#a1524395880e3185d58187368ce50a134" title="List::Remove" alt="" coords="420,223,517,250"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="List::Count" name="List::Count">
+<area shape="rect" id="node2" href="$class_s_f_m_l_controller.html#ac307026296070cea52f82de1672aa1cd" title="Generates a vertex array from an alternating list of coordinates (Left Right Left Right coords) ..." alt="" coords="149,5,323,47"/>
+<area shape="rect" id="node3" href="$class_system_controller.html#a2ae9a0a71335607f3bc2b5faae5322bc" title="SystemController::System\lCount" alt="" coords="149,71,323,112"/>
+<area shape="rect" id="node4" href="$class_hospital.html#a6c424ed15f8836a7d31c8f3af537b335" title="Hospital::ContentString" alt="" coords="158,137,314,163"/>
+<area shape="rect" id="node5" href="$class_plot.html#a129b9cf13ab1ca337e9ccb5b31909e5d" title="Plot::GetOccupantCount" alt="" coords="154,187,318,214"/>
+<area shape="rect" id="node6" href="$class_school_rule.html#a3a9d7a59dba65a062ab8a3832206c917" title="Attemps to find a plot that can satisfy this rule. " alt="" coords="164,238,308,265"/>
+<area shape="rect" id="node7" href="$class_store_rule.html#acf337cc86b7ca44746b3301c382eef85" title="StoreRule::FindPlot" alt="" coords="169,289,303,315"/>
+<area shape="rect" id="node8" href="$class_work.html#a21ed5cb0e98b78c5ed8c49ee5ace8c36" title="Work::ContentString" alt="" coords="166,339,306,366"/>
+<area shape="rect" id="node9" href="$class_work_system.html#aad1442341e30fd784943adc4df1694ce" title="WorkSystem::GetSatisfaction" alt="" coords="139,390,333,417"/>
+</map>

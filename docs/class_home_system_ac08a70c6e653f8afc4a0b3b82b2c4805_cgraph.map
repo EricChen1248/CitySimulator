@@ -1,0 +1,6 @@
+<map id="HomeSystem::Register" name="HomeSystem::Register">
+<area shape="rect" id="node2" href="$class_plot.html#a4bf247eb2ea0392c3b6d00f7b6442255" title="Adds a plot type component to the plot. Update&#39;s color accordingly. " alt="" coords="237,5,338,32"/>
+<area shape="rect" id="node4" href="$class_base_system.html#ac20f041e40fd0912a016be33599025e6" title="Register a plot into the system for quick lookup and updating. " alt="" coords="211,56,364,83"/>
+<area shape="rect" id="node3" href="$class_base.html#a16781ea67ae6f980d475e22de6c3cf96" title="Base::Color" alt="" coords="421,5,511,32"/>
+<area shape="rect" id="node5" href="$class_list.html#a3d2b2b76b221e198c96013b00c1ad59b" title="List::InsertLast" alt="" coords="412,56,520,83"/>
+</map>

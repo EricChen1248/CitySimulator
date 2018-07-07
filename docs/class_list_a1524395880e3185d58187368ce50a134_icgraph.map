@@ -1,0 +1,13 @@
+<map id="List::Remove" name="List::Remove">
+<area shape="rect" id="node2" href="$class_base_system.html#a95a11d9b9983589dffab5275e3493469" title="Unregister a plot to remove it from being tracked in the system. " alt="" coords="151,63,315,89"/>
+<area shape="rect" id="node8" href="$class_plot.html#a51161231a2b3d7fcc73fd89fde59c2c3" title="Handles citizens leaving the plot. " alt="" coords="189,120,276,147"/>
+<area shape="rect" id="node11" href="$class_work.html#af0e954fe5048153f7cdf51cf883d9963" title="Work::Resignation" alt="" coords="168,183,297,209"/>
+<area shape="rect" id="node3" href="$class_base.html#a1d6d26200c6df421b7fe7105f8a12b28" title="Base::Destroy" alt="" coords="381,56,487,83"/>
+<area shape="rect" id="node4" href="$class_hospital.html#ac936b538cd47bd09a64b5f70bf6fd471" title="Hospital::Destroy" alt="" coords="553,5,676,32"/>
+<area shape="rect" id="node5" href="$class_plot.html#aadf566c0f2995814885869e54904ad8c" title="Plot::Destroy" alt="" coords="565,56,664,83"/>
+<area shape="rect" id="node7" href="$class_work.html#a32e63ce074a50ce8bdee2d4b10134d9f" title="Work::Destroy" alt="" coords="561,107,668,133"/>
+<area shape="rect" id="node6" href="$class_base_system.html#a856b09392a127bbf63cafbfda46af9d7" title="BaseSystem::Destroy" alt="" coords="724,56,875,83"/>
+<area shape="rect" id="node9" href="$class_citizen.html#acf5e03bbdece1c022e91812487ebec21" title="Handles all update events of the citizen. " alt="" coords="379,107,489,133"/>
+<area shape="rect" id="node10" href="$class_citizen.html#ae216eea33f751165bf6e1ffdd0da61d8" title="Calls the death events for each rule. " alt="" coords="363,157,505,184"/>
+<area shape="rect" id="node12" href="$class_work_rule.html#a931ccc96ebab1e8d013e50ba5004c0c0" title="WorkRule::NewDay" alt="" coords="367,208,501,235"/>
+</map>

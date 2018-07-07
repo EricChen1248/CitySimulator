@@ -24,27 +24,41 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "CitySimulator", "index.html", [
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", "functions_func" ],
+        [ "Variables", "functions_vars.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
+        [ "Enumerator", "globals_eval.html", null ],
+        [ "Macros", "globals_defs.html", null ]
+      ] ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-".html",
-"class_food_rule.html",
-"class_road.html#a79ccdb6f1ba8fbf95e608ada3c035699"
+"_bank_8cpp.html",
+"_system_enum_8h.html#a3ac25b5e5b8766739ad99a7ddaea1efca20e43f4d442035a1faa0bc54c34a5fd2",
+"class_home_system.html",
+"class_school_system.html#a08db14a571b27182c67e5e01419e5926",
+"structhelper_1_1_time.html#a66ba99e00dc1de7d648ae690e59e2e99"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,0 +1,4 @@
+<map id="River::Init" name="River::Init">
+<area shape="rect" id="node2" href="$class_system_controller.html#ae034648004ab6c55ddc33b9ff7980275" title="Late Initialization of system controller so all pointers are in place. " alt="" coords="128,5,305,32"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#ab3853568fd9d732663ebf807817f3764" title="CoreController::CoreController" alt="" coords="353,5,548,32"/>
+</map>

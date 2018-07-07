@@ -1,0 +1,4 @@
+<map id="Status" name="Status">
+<area shape="rect" id="node2" href="$class_road.html" title="{Road\n|+ MAX_SPEED\l|+ Road()\l+ ~Road()\l+ Speed()\l+ IsRiver()\l+ Shape()\l+ LevelUp()\l+ Repair()\l+ MarkAsRiver()\l+ PerformClick()\l+ Enter()\l+ Leave()\l+ IsRoad()\l+ EndDay()\l+ Render()\l+ ContentString()\l+ ButtonString()\l+ InSimpleBounds()\l+ InComplexBounds()\l}" alt="" coords="5,20,152,347"/>
+<area shape="rect" id="node3" href="$class_plot.html" title="Container class for each city plot. " alt="" coords="177,5,330,361"/>
+</map>

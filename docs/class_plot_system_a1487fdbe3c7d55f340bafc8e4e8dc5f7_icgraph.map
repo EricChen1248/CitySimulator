@@ -1,0 +1,7 @@
+<map id="PlotSystem::FindPlot" name="PlotSystem::FindPlot">
+<area shape="rect" id="node2" href="$class_path_finder.html#aa70fb44c02f0e65beb77208245da6cfc" title="Attemps to find a path between to coordinates. " alt="" coords="227,5,361,32"/>
+<area shape="rect" id="node3" href="$class_citizen.html#acf5e03bbdece1c022e91812487ebec21" title="Handles all update events of the citizen. " alt="" coords="239,56,349,83"/>
+<area shape="rect" id="node4" href="$class_plot_system.html#a109c77edeee08fd1177b82e1f73ccbe0" title="Generates the roads of the whole plot system. " alt="" coords="200,107,388,133"/>
+<area shape="rect" id="node5" href="$class_system_controller.html#ae034648004ab6c55ddc33b9ff7980275" title="Late Initialization of system controller so all pointers are in place. " alt="" coords="436,107,613,133"/>
+<area shape="rect" id="node6" href="$class_core_controller.html#ab3853568fd9d732663ebf807817f3764" title="CoreController::CoreController" alt="" coords="661,107,856,133"/>
+</map>

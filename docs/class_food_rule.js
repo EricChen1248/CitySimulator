@@ -7,8 +7,8 @@ var class_food_rule =
     [ "FillHunger", "class_food_rule.html#a50a2d8346a9d3e0fefe857a7b90cf034", null ],
     [ "FindPlot", "class_food_rule.html#a84c9a5e61b33f087a7c4cb4577f91d53", null ],
     [ "Hunger", "class_food_rule.html#a5c602bb38b2403472ad52e92d44f75b4", null ],
-    [ "IsSatisfied", "class_food_rule.html#ad84315bfe429d32f8de3a3c4748332b3", null ],
     [ "LeavePlot", "class_food_rule.html#a392ecbe4bf51f109bbaef3d596dbd7df", null ],
     [ "Update", "class_food_rule.html#a2411d43a8c9d7fc76e2b09b267c59c30", null ],
+    [ "Food", "class_food_rule.html#a291557dcd67986fb24b3d361bede594b", null ],
     [ "FoodSystem", "class_food_rule.html#acd9c48aafd7afe1fa33d2b45ba48b182", null ]
 ];

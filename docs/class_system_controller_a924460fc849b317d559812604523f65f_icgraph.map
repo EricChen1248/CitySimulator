@@ -1,0 +1,8 @@
+<map id="SystemController::Plots" name="SystemController::Plots">
+<area shape="rect" id="node2" href="$class_path_finder.html#aa70fb44c02f0e65beb77208245da6cfc" title="Attemps to find a path between to coordinates. " alt="" coords="246,5,381,32"/>
+<area shape="rect" id="node3" href="$class_citizen.html#acf5e03bbdece1c022e91812487ebec21" title="Handles all update events of the citizen. " alt="" coords="258,56,369,83"/>
+<area shape="rect" id="node4" href="$class_citizen_system.html#a5ecb60b1da228341d4cb67ddbe1f2257" title="CitizenSystem::CitizenSystem" alt="" coords="213,107,413,133"/>
+<area shape="rect" id="node5" href="$class_river.html#a8c95d75b10baa652ae7fb0013694b871" title="River::Init" alt="" coords="276,157,351,184"/>
+<area shape="rect" id="node6" href="$class_system_controller.html#ae034648004ab6c55ddc33b9ff7980275" title="Late Initialization of system controller so all pointers are in place. " alt="" coords="461,157,639,184"/>
+<area shape="rect" id="node7" href="$class_core_controller.html#ab3853568fd9d732663ebf807817f3764" title="CoreController::CoreController" alt="" coords="687,157,881,184"/>
+</map>

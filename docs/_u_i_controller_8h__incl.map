@@ -1,0 +1,15 @@
+<map id="Controllers/UIController.h" name="Controllers/UIController.h">
+<area shape="rect" id="node2" href="$_s_f_m_l_controller_8h.html" title="SFMLController.h" alt="" coords="479,80,602,107"/>
+<area shape="rect" id="node3" href="$_list_8h.html" title="../Collections/List.h" alt="" coords="51,155,185,181"/>
+<area shape="rect" id="node9" href="$_slider_8h.html" title="UiObjects/Slider.h" alt="" coords="627,80,753,107"/>
+<area shape="rect" id="node11" href="$_button_8h.html" title="Button.h" alt="" coords="723,155,793,181"/>
+<area shape="rect" id="node13" href="$_status_8hpp.html" title="UiObjects/Status.hpp" alt="" coords="858,80,1005,107"/>
+<area shape="rect" id="node20" href="$_news_flash_8hpp.html" title="UiObjects/NewsFlash.hpp" alt="" coords="1029,80,1201,107"/>
+<area shape="rect" id="node4" href="$_i_list_8h.html" title="Interfaces/IList.h" alt="" coords="125,229,242,256"/>
+<area shape="rect" id="node5" href="$_list_iterator_8h.html" title="ListIterator.h" alt="" coords="5,229,100,256"/>
+<area shape="rect" id="node14" href="$_road_8h.html" title="../../Helpers/Road.h" alt="" coords="869,155,1004,181"/>
+<area shape="rect" id="node18" href="$_systems_8h.html" title="../../Systems/Systems.h" alt="" coords="1219,155,1385,181"/>
+<area shape="rect" id="node19" href="$_system_enum_8h.html" title="../../Systems/SystemEnum.h" alt="" coords="1409,155,1601,181"/>
+<area shape="rect" id="node15" href="$_line_8hpp.html" title="Line.hpp" alt="" coords="979,229,1049,256"/>
+<area shape="rect" id="node16" href="$_coordinate_8h.html" title="Coordinate.h" alt="" coords="967,304,1061,331"/>
+</map>

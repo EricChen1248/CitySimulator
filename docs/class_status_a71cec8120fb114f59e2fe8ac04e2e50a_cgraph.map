@@ -1,0 +1,5 @@
+<map id="Status::InBound" name="Status::InBound">
+<area shape="rect" id="node2" href="$class_core_controller.html#a04bd80274958e42fc7549554e2a520bb" title="CoreController::SfmlController" alt="" coords="168,5,361,32"/>
+<area shape="rect" id="node4" href="$class_s_f_m_l_controller.html#a5fc1d926cba4ff99e478990b19f2daf9" title="Gets the window of SDL controller. " alt="" coords="181,56,348,83"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="409,5,571,32"/>
+</map>

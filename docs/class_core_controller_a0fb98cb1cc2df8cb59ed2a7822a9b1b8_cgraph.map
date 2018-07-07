@@ -1,0 +1,13 @@
+<map id="CoreController::EndDayLoop" name="CoreController::EndDayLoop">
+<area shape="rect" id="node2" href="$class_system_controller.html#a136b024c9919b66b1f34ae9667fb28f2" title="SystemController::ResetDay" alt="" coords="248,5,435,32"/>
+<area shape="rect" id="node4" href="$class_mouse_controller.html#aee924ed0b8f37f8e1538217ddacef9d8" title="MouseController::Reset" alt="" coords="262,56,421,83"/>
+<area shape="rect" id="node5" href="$structhelper_1_1_time.html#aa765a5dbf82e95a9d56741517447f296" title="helper::Time::ResetDay" alt="" coords="262,107,421,133"/>
+<area shape="rect" id="node6" href="$class_system_controller.html#ac00b118e5e33f7ea9b71389993dfd487" title="SystemController::AdvanceDay" alt="" coords="240,157,443,184"/>
+<area shape="rect" id="node3" href="$class_citizen_system.html#a6ea0bb3309db22a509a88faf4bf83d45" title=": Triggers end day of each citizen " alt="" coords="505,5,666,32"/>
+<area shape="rect" id="node7" href="$class_citizen_system.html#a94c23b3bb3bc772b7482ff449f745193" title="Triggers new day events for citizens and handles marriage and birth. " alt="" coords="504,183,667,209"/>
+<area shape="rect" id="node8" href="$class_plot_system.html#a75604eb57fdc5bee7676776e1defb8fa" title="Clears all selections and hover graphics. " alt="" coords="491,132,680,159"/>
+<area shape="rect" id="node9" href="$class_plot_system.html#a7403bb12c4e3cd2a6ad66dcd2a6f94a2" title="Deselect and undraw the selected plots and roads. " alt="" coords="728,95,907,137"/>
+<area shape="rect" id="node10" href="$class_plot.html#a025fabfe6158261a12c03cd29ae9cc1d" title="Plot::GetShape" alt="" coords="959,76,1069,103"/>
+<area shape="rect" id="node11" href="$class_road.html#af70772de5155d3b028ab9c3815cc5190" title="Road::Shape" alt="" coords="965,131,1063,157"/>
+<area shape="rect" id="node12" href="$class_line.html#af190709f543e9552c917e1958eb95529" title="Resets the temporary color to the assigned color. " alt="" coords="955,196,1073,223"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="BankRule::LeavePlot" name="BankRule::LeavePlot">
+<area shape="rect" id="node2" href="$class_plot.html#ab4a60151432bc7f824b2d111274ebfb8" title="Plot::GetPlotType" alt="" coords="222,5,347,32"/>
+<area shape="rect" id="node3" href="$class_citizen.html#a62b6cff47b0c7916f5e83b5c582679db" title="Citizen::Age" alt="" coords="238,56,331,83"/>
+<area shape="rect" id="node4" href="$class_citizen.html#a635d74032509ae179fba156ea16dc9d3" title="Citizen::GetMoney" alt="" coords="219,107,350,133"/>
+<area shape="rect" id="node5" href="$class_citizen.html#a89a29ba0087c5c44c779adbddd65e1c3" title="Increases (decrease if negative) the amount of money of the citizen. " alt="" coords="205,157,364,184"/>
+<area shape="rect" id="node6" href="$class_citizen.html#ae466f39a680128b72a642e3fb122f890" title="Citizen::GetFamilyMember" alt="" coords="196,208,373,235"/>
+<area shape="rect" id="node7" href="$class_citizen.html#a0a7a5dcce103d3971acff20a5d40e28b" title="Finds a rule of system type. " alt="" coords="224,259,345,285"/>
+</map>

@@ -1,0 +1,26 @@
+<map id="SystemController::RenderInterday" name="SystemController::RenderInterday">
+<area shape="rect" id="node2" href="$class_river.html#a833cb3c47969eee7624e05bce8cca9f8" title="River::Render" alt="" coords="268,62,367,89"/>
+<area shape="rect" id="node6" href="$class_plot_system.html#a7b57c653ba9b0560d588794ce7790b3d" title="Draws the roads. " alt="" coords="229,163,405,190"/>
+<area shape="rect" id="node7" href="$class_plot_system.html#a8bf87772f6d248af9603933811f50ca6" title="Calls all rendering events during interday. " alt="" coords="224,113,411,139"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#a04bd80274958e42fc7549554e2a520bb" title="CoreController::SfmlController" alt="" coords="693,11,887,38"/>
+<area shape="rect" id="node5" href="$class_s_f_m_l_controller.html#a9e248ad5d7919cd6ea4b3c9942b78079" title="SFMLController::DrawShape" alt="" coords="459,62,645,89"/>
+<area shape="rect" id="node4" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="1183,67,1344,94"/>
+<area shape="rect" id="node8" href="$class_plot_system.html#a6d5985c39039f368a4456d9ccf07cb9a" title="Checks if the click was on a plot and handles it if applicable. " alt="" coords="469,265,635,291"/>
+<area shape="rect" id="node9" href="$class_s_f_m_l_controller.html#a5fc1d926cba4ff99e478990b19f2daf9" title="Gets the window of SDL controller. " alt="" coords="707,265,873,291"/>
+<area shape="rect" id="node10" href="$class_core_controller.html#aab07464a71c14be88a934342711be024" title="CoreController::GetViewport\lController" alt="" coords="943,31,1126,72"/>
+<area shape="rect" id="node11" href="$class_core_controller.html#a0fe2410f7f2ad22b2558c34dd761f145" title="CoreController::GetUIController" alt="" coords="935,97,1135,123"/>
+<area shape="rect" id="node12" href="$class_plot.html#a025fabfe6158261a12c03cd29ae9cc1d" title="Plot::GetShape" alt="" coords="1208,319,1319,346"/>
+<area shape="rect" id="node13" href="$class_mouse_controller.html#ae4b939a3ee63dca5ff1cdc1cfc146001" title="MouseController::IsClicked" alt="" coords="946,483,1123,510"/>
+<area shape="rect" id="node14" href="$class_plot.html#ab4a60151432bc7f824b2d111274ebfb8" title="Plot::GetPlotType" alt="" coords="727,518,853,545"/>
+<area shape="rect" id="node15" href="$class_status.html#a8d12b34394b0f5b73bbb9ec52b35a5ed" title="Status::BuildMode" alt="" coords="725,569,855,595"/>
+<area shape="rect" id="node16" href="$class_status.html#a67aacb2221111dd93df4ef2560d7cc06" title="Status::Build" alt="" coords="741,214,839,241"/>
+<area shape="rect" id="node21" href="$class_plot_system.html#a7403bb12c4e3cd2a6ad66dcd2a6f94a2" title="Deselect and undraw the selected plots and roads. " alt="" coords="945,367,1124,408"/>
+<area shape="rect" id="node24" href="$class_plot_system.html#ab556b9c8bc014aabb18e2628e1cd547e" title="PlotSystem::RoadClicks" alt="" coords="708,417,872,443"/>
+<area shape="rect" id="node25" href="$class_plot_system.html#af3d9dab12fb78e1929d5d8e61112dc0e" title="Finds if a mouse is hovering over a plot/road and mark is as hovered. " alt="" coords="713,62,867,89"/>
+<area shape="rect" id="node17" href="$class_core_controller.html#a3c23d3b6e5fa93b707ac5be6bc2dda96" title="CoreController::GetSystem\lController" alt="" coords="945,148,1124,189"/>
+<area shape="rect" id="node18" href="$class_system_controller.html#a69de55b16d60a1792473428cfa183684" title="Gets the system based on system enum type. " alt="" coords="937,265,1133,291"/>
+<area shape="rect" id="node19" href="$class_base_system.html#ac20f041e40fd0912a016be33599025e6" title="Register a plot into the system for quick lookup and updating. " alt="" coords="958,214,1111,241"/>
+<area shape="rect" id="node20" href="$class_list.html#a3d2b2b76b221e198c96013b00c1ad59b" title="List::InsertLast" alt="" coords="1209,214,1317,241"/>
+<area shape="rect" id="node22" href="$class_road.html#af70772de5155d3b028ab9c3815cc5190" title="Road::Shape" alt="" coords="1215,429,1312,455"/>
+<area shape="rect" id="node23" href="$class_line.html#af190709f543e9552c917e1958eb95529" title="Resets the temporary color to the assigned color. " alt="" coords="1204,374,1323,401"/>
+</map>

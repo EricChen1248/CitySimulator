@@ -1,0 +1,4 @@
+<map id="BaseRule" name="BaseRule">
+<area shape="rect" id="node2" href="$class_citizen.html" title="The central entity of our game/simulation. " alt="" coords="5,5,199,435"/>
+<area shape="rect" id="node3" href="$structhelper_1_1_time.html" title="Time class of our game. All time related simulations should use this class for proper speed and time ..." alt="" coords="223,101,344,339"/>
+</map>

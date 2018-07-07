@@ -1,0 +1,7 @@
+<map id="BaseSystem::Unregister" name="BaseSystem::Unregister">
+<area shape="rect" id="node2" href="$class_base.html#a1d6d26200c6df421b7fe7105f8a12b28" title="Base::Destroy" alt="" coords="217,56,323,83"/>
+<area shape="rect" id="node3" href="$class_hospital.html#ac936b538cd47bd09a64b5f70bf6fd471" title="Hospital::Destroy" alt="" coords="371,5,493,32"/>
+<area shape="rect" id="node4" href="$class_plot.html#aadf566c0f2995814885869e54904ad8c" title="Plot::Destroy" alt="" coords="383,56,481,83"/>
+<area shape="rect" id="node6" href="$class_work.html#a32e63ce074a50ce8bdee2d4b10134d9f" title="Work::Destroy" alt="" coords="379,107,485,133"/>
+<area shape="rect" id="node5" href="$class_base_system.html#a856b09392a127bbf63cafbfda46af9d7" title="BaseSystem::Destroy" alt="" coords="541,56,692,83"/>
+</map>

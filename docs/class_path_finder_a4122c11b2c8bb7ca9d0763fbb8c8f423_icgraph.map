@@ -1,0 +1,5 @@
+<map id="PathFinder::CheckQuadrant" name="PathFinder::CheckQuadrant">
+<area shape="rect" id="node2" href="$class_plot.html#a329886dfdd6f46115252fc8673cc727d" title="Plot::BuiltBridge" alt="" coords="236,5,352,32"/>
+<area shape="rect" id="node3" href="$class_road.html#a50e770f98d48c26421973d38d46a5b17" title="Road::LevelUp" alt="" coords="400,5,505,32"/>
+<area shape="rect" id="node4" href="$class_road.html#adf6a767f9aa69ec621e32c78a8638fb2" title="Road::PerformClick" alt="" coords="553,5,688,32"/>
+</map>

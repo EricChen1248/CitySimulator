@@ -1,0 +1,5 @@
+<map id="Plot::IsRiver" name="Plot::IsRiver">
+<area shape="rect" id="node2" href="$class_road.html#a50e770f98d48c26421973d38d46a5b17" title="Road::LevelUp" alt="" coords="191,5,297,32"/>
+<area shape="rect" id="node4" href="$class_citizen_system.html#a5ecb60b1da228341d4cb67ddbe1f2257" title="CitizenSystem::CitizenSystem" alt="" coords="144,56,344,83"/>
+<area shape="rect" id="node3" href="$class_road.html#adf6a767f9aa69ec621e32c78a8638fb2" title="Road::PerformClick" alt="" coords="392,5,527,32"/>
+</map>

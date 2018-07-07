@@ -102,66 +102,459 @@ $(document).ready(function(){initNavTree('class_base.html','');});
 <div class="dynheader">
 Inheritance diagram for Base:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="class_base.png" usemap="#Base_map" alt=""/>
-  <map id="Base_map" name="Base_map">
-<area href="class_bank.html" title="Food Class that handles the food plots of our city. " alt="Bank" shape="rect" coords="0,56,57,80"/>
-<area href="class_food.html" title="Food Class that handles the food plots of our city. " alt="Food" shape="rect" coords="67,56,124,80"/>
-<area href="class_home.html" alt="Home" shape="rect" coords="134,56,191,80"/>
-<area href="class_hospital.html" title="Hospital Class that handles the Hospital plots of our city. " alt="Hospital" shape="rect" coords="201,56,258,80"/>
-<area href="class_school.html" title="School Class that handles the food plots of our city. " alt="School" shape="rect" coords="268,56,325,80"/>
-<area href="class_store.html" title="Store Class that handles the store plots of our city. " alt="Store" shape="rect" coords="335,56,392,80"/>
-<area href="class_work.html" alt="Work" shape="rect" coords="402,56,459,80"/>
+<div class="center"><img src="class_base__inherit__graph.png" border="0" usemap="#_base_inherit__map" alt="Inheritance graph"/></div>
+<map name="_base_inherit__map" id="_base_inherit__map">
+<area shape="rect" id="node2" href="class_bank.html" title="Food Class that handles the food plots of our city. " alt="" coords="5,329,127,465"/>
+<area shape="rect" id="node3" href="class_food.html" title="Food Class that handles the food plots of our city. " alt="" coords="151,321,272,472"/>
+<area shape="rect" id="node4" href="class_home.html" title="{Home\n||+ Home()\l+ ~Home()\l+ Register()\l+ EndDay()\l+ Full()\l+ ContentString()\l+ GetPlot()\l}" alt="" coords="296,314,417,479"/>
+<area shape="rect" id="node5" href="class_hospital.html" title="Hospital Class that handles the Hospital plots of our city. " alt="" coords="441,314,563,479"/>
+<area shape="rect" id="node6" href="class_school.html" title="School Class that handles the food plots of our city. " alt="" coords="587,343,678,450"/>
+<area shape="rect" id="node7" href="class_store.html" title="Store Class that handles the store plots of our city. " alt="" coords="702,343,790,450"/>
+<area shape="rect" id="node8" href="class_work.html" title="{Work\n||+ Work()\l+ ~Work()\l+ EndDay()\l+ NewDay()\l+ Destroy()\l+ ContentString()\l+ NewEmployee()\l+ Resignation()\l}" alt="" coords="814,307,939,487"/>
 </map>
- </div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for Base:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_base__coll__graph.png" border="0" usemap="#_base_coll__map" alt="Collaboration graph"/></div>
+<map name="_base_coll__map" id="_base_coll__map">
+<area shape="rect" id="node3" href="class_plot.html" title="Container class for each city plot. " alt="" coords="81,5,235,361"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a16781ea67ae6f980d475e22de6c3cf96"><td class="memItemLeft" align="right" valign="top"><a id="a16781ea67ae6f980d475e22de6c3cf96"></a>
-const sf::Color &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Color</b> () const</td></tr>
+<tr class="memitem:a16781ea67ae6f980d475e22de6c3cf96"><td class="memItemLeft" align="right" valign="top">const sf::Color &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base.html#a16781ea67ae6f980d475e22de6c3cf96">Color</a> () const</td></tr>
 <tr class="separator:a16781ea67ae6f980d475e22de6c3cf96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee09ba9b060a5ae8f329fadd9d2eef53"><td class="memItemLeft" align="right" valign="top"><a id="aee09ba9b060a5ae8f329fadd9d2eef53"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Base</b> (<a class="el" href="class_plot.html">Plot</a> *plot, const System system)</td></tr>
+<tr class="memitem:a3fbdbd8d11d36b704752e70c5e343a8d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base.html#a3fbdbd8d11d36b704752e70c5e343a8d">Cost</a> () const</td></tr>
+<tr class="separator:a3fbdbd8d11d36b704752e70c5e343a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee09ba9b060a5ae8f329fadd9d2eef53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base.html#aee09ba9b060a5ae8f329fadd9d2eef53">Base</a> (<a class="el" href="class_plot.html">Plot</a> *<a class="el" href="class_base.html#a51bcbdc321cc11dd9138037a530af9ad">plot</a>, const <a class="el" href="_system_enum_8h.html#a3ac25b5e5b8766739ad99a7ddaea1efc">System</a> system)</td></tr>
 <tr class="separator:aee09ba9b060a5ae8f329fadd9d2eef53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a1af78a1c746a702844f0d2bf565adc"><td class="memItemLeft" align="right" valign="top"><a id="a1a1af78a1c746a702844f0d2bf565adc"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>NewDay</b> ()</td></tr>
+<tr class="memitem:a306fb25541331080645a716286357ef9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base.html#a306fb25541331080645a716286357ef9">~Base</a> ()=default</td></tr>
+<tr class="separator:a306fb25541331080645a716286357ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a1af78a1c746a702844f0d2bf565adc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base.html#a1a1af78a1c746a702844f0d2bf565adc">NewDay</a> ()</td></tr>
 <tr class="separator:a1a1af78a1c746a702844f0d2bf565adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa743a03006511a65a868521ebeab7a46"><td class="memItemLeft" align="right" valign="top"><a id="aa743a03006511a65a868521ebeab7a46"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>EndDay</b> ()</td></tr>
+<tr class="memitem:aa743a03006511a65a868521ebeab7a46"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base.html#aa743a03006511a65a868521ebeab7a46">EndDay</a> ()</td></tr>
 <tr class="separator:aa743a03006511a65a868521ebeab7a46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf6c18de3d91b047c0e4e480c62f6dee"><td class="memItemLeft" align="right" valign="top"><a id="acf6c18de3d91b047c0e4e480c62f6dee"></a>
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>ReturnScore</b> ()</td></tr>
+<tr class="memitem:acf6c18de3d91b047c0e4e480c62f6dee"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base.html#acf6c18de3d91b047c0e4e480c62f6dee">ReturnScore</a> ()</td></tr>
 <tr class="separator:acf6c18de3d91b047c0e4e480c62f6dee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d6d26200c6df421b7fe7105f8a12b28"><td class="memItemLeft" align="right" valign="top"><a id="a1d6d26200c6df421b7fe7105f8a12b28"></a>
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>Destroy</b> ()</td></tr>
+<tr class="memitem:a1d6d26200c6df421b7fe7105f8a12b28"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base.html#a1d6d26200c6df421b7fe7105f8a12b28">Destroy</a> ()</td></tr>
 <tr class="separator:a1d6d26200c6df421b7fe7105f8a12b28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00c79956ad7834a2cae446d96f2df8ee"><td class="memItemLeft" align="right" valign="top"><a id="a00c79956ad7834a2cae446d96f2df8ee"></a>
-virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ContentString</b> ()</td></tr>
+<tr class="memitem:a00c79956ad7834a2cae446d96f2df8ee"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base.html#a00c79956ad7834a2cae446d96f2df8ee">ContentString</a> ()</td></tr>
 <tr class="separator:a00c79956ad7834a2cae446d96f2df8ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a2be3a0386ac5cc0d111b238df91d3763"><td class="memItemLeft" align="right" valign="top"><a id="a2be3a0386ac5cc0d111b238df91d3763"></a>
-System&#160;</td><td class="memItemRight" valign="bottom"><b>SystemType</b></td></tr>
+<tr class="memitem:a2be3a0386ac5cc0d111b238df91d3763"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_system_enum_8h.html#a3ac25b5e5b8766739ad99a7ddaea1efc">System</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base.html#a2be3a0386ac5cc0d111b238df91d3763">SystemType</a></td></tr>
 <tr class="separator:a2be3a0386ac5cc0d111b238df91d3763"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a51bcbdc321cc11dd9138037a530af9ad"><td class="memItemLeft" align="right" valign="top"><a id="a51bcbdc321cc11dd9138037a530af9ad"></a>
-<a class="el" href="class_plot.html">Plot</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>plot</b></td></tr>
+<tr class="memitem:abc49f0d127c5b21e792481e352e040d0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base.html#abc49f0d127c5b21e792481e352e040d0">cost</a></td></tr>
+<tr class="separator:abc49f0d127c5b21e792481e352e040d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51bcbdc321cc11dd9138037a530af9ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_plot.html">Plot</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base.html#a51bcbdc321cc11dd9138037a530af9ad">plot</a></td></tr>
 <tr class="separator:a51bcbdc321cc11dd9138037a530af9ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63520285f7b2fea2024e53049cbbbfa1"><td class="memItemLeft" align="right" valign="top"><a id="a63520285f7b2fea2024e53049cbbbfa1"></a>
-sf::Color&#160;</td><td class="memItemRight" valign="bottom"><b>color</b></td></tr>
+<tr class="memitem:a63520285f7b2fea2024e53049cbbbfa1"><td class="memItemLeft" align="right" valign="top">sf::Color&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base.html#a63520285f7b2fea2024e53049cbbbfa1">color</a></td></tr>
 <tr class="separator:a63520285f7b2fea2024e53049cbbbfa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accd5ddd12d7ce666f307d00208f9959a"><td class="memItemLeft" align="right" valign="top"><a id="accd5ddd12d7ce666f307d00208f9959a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>score</b></td></tr>
+<tr class="memitem:accd5ddd12d7ce666f307d00208f9959a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base.html#accd5ddd12d7ce666f307d00208f9959a">score</a></td></tr>
 <tr class="separator:accd5ddd12d7ce666f307d00208f9959a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract class that is the base of all the system types. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aee09ba9b060a5ae8f329fadd9d2eef53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee09ba9b060a5ae8f329fadd9d2eef53">&#9670;&nbsp;</a></span>Base()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Base::Base </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_plot.html">Plot</a> *&#160;</td>
+          <td class="paramname"><em>plot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_system_enum_8h.html#a3ac25b5e5b8766739ad99a7ddaea1efc">System</a>&#160;</td>
+          <td class="paramname"><em>system</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a306fb25541331080645a716286357ef9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a306fb25541331080645a716286357ef9">&#9670;&nbsp;</a></span>~Base()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Base::~Base </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a16781ea67ae6f980d475e22de6c3cf96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16781ea67ae6f980d475e22de6c3cf96">&#9670;&nbsp;</a></span>Color()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const sf::Color&amp; Base::Color </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_base_a16781ea67ae6f980d475e22de6c3cf96_icgraph.png" border="0" usemap="#class_base_a16781ea67ae6f980d475e22de6c3cf96_icgraph" alt=""/></div>
+<map name="class_base_a16781ea67ae6f980d475e22de6c3cf96_icgraph" id="class_base_a16781ea67ae6f980d475e22de6c3cf96_icgraph">
+<area shape="rect" id="node2" href="class_plot.html#a4bf247eb2ea0392c3b6d00f7b6442255" title="Adds a plot type component to the plot. Update&#39;s color accordingly. " alt="" coords="144,31,245,57"/>
+<area shape="rect" id="node3" href="class_system_controller.html#ae034648004ab6c55ddc33b9ff7980275" title="Late Initialization of system controller so all pointers are in place. " alt="" coords="293,5,471,32"/>
+<area shape="rect" id="node5" href="class_home_system.html#ac08a70c6e653f8afc4a0b3b82b2c4805" title="Register a plot into the system for quick lookup and updating. " alt="" coords="303,56,461,83"/>
+<area shape="rect" id="node4" href="class_core_controller.html#ab3853568fd9d732663ebf807817f3764" title="CoreController::CoreController" alt="" coords="519,5,713,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a00c79956ad7834a2cae446d96f2df8ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00c79956ad7834a2cae446d96f2df8ee">&#9670;&nbsp;</a></span>ContentString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string Base::ContentString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="class_hospital.html#a6c424ed15f8836a7d31c8f3af537b335">Hospital</a>, <a class="el" href="class_home.html#addb44a938f3271a23076f279ab1816b3">Home</a>, <a class="el" href="class_work.html#a21ed5cb0e98b78c5ed8c49ee5ace8c36">Work</a>, <a class="el" href="class_bank.html#a6bc2cf8cc0c0b714267c44346b0dd352">Bank</a>, and <a class="el" href="class_food.html#a68ac59a62b833a8da946601f31657f5d">Food</a>.</p>
+
+</div>
+</div>
+<a id="a3fbdbd8d11d36b704752e70c5e343a8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fbdbd8d11d36b704752e70c5e343a8d">&#9670;&nbsp;</a></span>Cost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Base::Cost </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d6d26200c6df421b7fe7105f8a12b28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d6d26200c6df421b7fe7105f8a12b28">&#9670;&nbsp;</a></span>Destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Base::Destroy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="class_hospital.html#ac936b538cd47bd09a64b5f70bf6fd471">Hospital</a>, and <a class="el" href="class_work.html#a32e63ce074a50ce8bdee2d4b10134d9f">Work</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_base_a1d6d26200c6df421b7fe7105f8a12b28_cgraph.png" border="0" usemap="#class_base_a1d6d26200c6df421b7fe7105f8a12b28_cgraph" alt=""/></div>
+<map name="class_base_a1d6d26200c6df421b7fe7105f8a12b28_cgraph" id="class_base_a1d6d26200c6df421b7fe7105f8a12b28_cgraph">
+<area shape="rect" id="node2" href="class_core_controller.html#a3c23d3b6e5fa93b707ac5be6bc2dda96" title="CoreController::GetSystem\lController" alt="" coords="167,5,346,47"/>
+<area shape="rect" id="node4" href="class_system_controller.html#a69de55b16d60a1792473428cfa183684" title="Gets the system based on system enum type. " alt="" coords="159,71,355,98"/>
+<area shape="rect" id="node5" href="class_base_system.html#a95a11d9b9983589dffab5275e3493469" title="Unregister a plot to remove it from being tracked in the system. " alt="" coords="175,122,339,149"/>
+<area shape="rect" id="node3" href="class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="403,13,564,39"/>
+<area shape="rect" id="node6" href="class_list.html#a1524395880e3185d58187368ce50a134" title="List::Remove" alt="" coords="435,122,532,149"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_base_a1d6d26200c6df421b7fe7105f8a12b28_icgraph.png" border="0" usemap="#class_base_a1d6d26200c6df421b7fe7105f8a12b28_icgraph" alt=""/></div>
+<map name="class_base_a1d6d26200c6df421b7fe7105f8a12b28_icgraph" id="class_base_a1d6d26200c6df421b7fe7105f8a12b28_icgraph">
+<area shape="rect" id="node2" href="class_hospital.html#ac936b538cd47bd09a64b5f70bf6fd471" title="Hospital::Destroy" alt="" coords="159,5,281,32"/>
+<area shape="rect" id="node3" href="class_plot.html#aadf566c0f2995814885869e54904ad8c" title="Plot::Destroy" alt="" coords="171,56,269,83"/>
+<area shape="rect" id="node5" href="class_work.html#a32e63ce074a50ce8bdee2d4b10134d9f" title="Work::Destroy" alt="" coords="167,107,273,133"/>
+<area shape="rect" id="node4" href="class_base_system.html#a856b09392a127bbf63cafbfda46af9d7" title="BaseSystem::Destroy" alt="" coords="329,56,480,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa743a03006511a65a868521ebeab7a46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa743a03006511a65a868521ebeab7a46">&#9670;&nbsp;</a></span>EndDay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Base::EndDay </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="class_food.html#a256de00d682cab2cb93f5bc690a704ab">Food</a>, <a class="el" href="class_bank.html#a3170921c2623b967e30afef91530a7da">Bank</a>, <a class="el" href="class_store.html#a6a126c732ec8f7962c6b862e54e70e8a">Store</a>, <a class="el" href="class_hospital.html#af10cd0a352e9254950d2946b7e0a48a1">Hospital</a>, <a class="el" href="class_school.html#a7d38875a2e9be82989ff34e80b5549a9">School</a>, <a class="el" href="class_home.html#af96021b9e8610e928d3fd1063e6df902">Home</a>, and <a class="el" href="class_work.html#ab655d60e7378faf19f480a4db7ad601a">Work</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_base_aa743a03006511a65a868521ebeab7a46_icgraph.png" border="0" usemap="#class_base_aa743a03006511a65a868521ebeab7a46_icgraph" alt=""/></div>
+<map name="class_base_aa743a03006511a65a868521ebeab7a46_icgraph" id="class_base_aa743a03006511a65a868521ebeab7a46_icgraph">
+<area shape="rect" id="node2" href="class_plot.html#af567afec3903f336fbaa1afcd3395f5c" title="Plot::EndDay" alt="" coords="160,5,259,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1a1af78a1c746a702844f0d2bf565adc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a1af78a1c746a702844f0d2bf565adc">&#9670;&nbsp;</a></span>NewDay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Base::NewDay </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="class_food.html#a69b2ff7eefd9a4fce3d35a85b4e1cbd5">Food</a>, <a class="el" href="class_bank.html#a8bdab499235e5a552baa9b48ac2842f5">Bank</a>, and <a class="el" href="class_work.html#ab05e2e68948256a300c1522d71675f20">Work</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_base_a1a1af78a1c746a702844f0d2bf565adc_icgraph.png" border="0" usemap="#class_base_a1a1af78a1c746a702844f0d2bf565adc_icgraph" alt=""/></div>
+<map name="class_base_a1a1af78a1c746a702844f0d2bf565adc_icgraph" id="class_base_a1a1af78a1c746a702844f0d2bf565adc_icgraph">
+<area shape="rect" id="node2" href="class_plot.html#a3c80c4dff51cd57e80c00201e3d23961" title="Plot::NewDay" alt="" coords="161,5,263,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="acf6c18de3d91b047c0e4e480c62f6dee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf6c18de3d91b047c0e4e480c62f6dee">&#9670;&nbsp;</a></span>ReturnScore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int Base::ReturnScore </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a63520285f7b2fea2024e53049cbbbfa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63520285f7b2fea2024e53049cbbbfa1">&#9670;&nbsp;</a></span>color</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Color Base::color</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc49f0d127c5b21e792481e352e040d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc49f0d127c5b21e792481e352e040d0">&#9670;&nbsp;</a></span>cost</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Base::cost</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51bcbdc321cc11dd9138037a530af9ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51bcbdc321cc11dd9138037a530af9ad">&#9670;&nbsp;</a></span>plot</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_plot.html">Plot</a>* Base::plot</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="accd5ddd12d7ce666f307d00208f9959a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accd5ddd12d7ce666f307d00208f9959a">&#9670;&nbsp;</a></span>score</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Base::score</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2be3a0386ac5cc0d111b238df91d3763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2be3a0386ac5cc0d111b238df91d3763">&#9670;&nbsp;</a></span>SystemType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_system_enum_8h.html#a3ac25b5e5b8766739ad99a7ddaea1efc">System</a> Base::SystemType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>Systems/Base/<a class="el" href="_base_8h_source.html">Base.h</a></li>
-<li>Systems/Base/Base.cpp</li>
+<li>Systems/Base/<a class="el" href="_base_8cpp.html">Base.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,0 +1,9 @@
+<map id="Base" name="Base">
+<area shape="rect" id="node2" href="$class_bank.html" title="Food Class that handles the food plots of our city. " alt="" coords="5,329,127,465"/>
+<area shape="rect" id="node3" href="$class_food.html" title="Food Class that handles the food plots of our city. " alt="" coords="151,321,272,472"/>
+<area shape="rect" id="node4" href="$class_home.html" title="{Home\n||+ Home()\l+ ~Home()\l+ Register()\l+ EndDay()\l+ Full()\l+ ContentString()\l+ GetPlot()\l}" alt="" coords="296,314,417,479"/>
+<area shape="rect" id="node5" href="$class_hospital.html" title="Hospital Class that handles the Hospital plots of our city. " alt="" coords="441,314,563,479"/>
+<area shape="rect" id="node6" href="$class_school.html" title="School Class that handles the food plots of our city. " alt="" coords="587,343,678,450"/>
+<area shape="rect" id="node7" href="$class_store.html" title="Store Class that handles the store plots of our city. " alt="" coords="702,343,790,450"/>
+<area shape="rect" id="node8" href="$class_work.html" title="{Work\n||+ Work()\l+ ~Work()\l+ EndDay()\l+ NewDay()\l+ Destroy()\l+ ContentString()\l+ NewEmployee()\l+ Resignation()\l}" alt="" coords="814,307,939,487"/>
+</map>

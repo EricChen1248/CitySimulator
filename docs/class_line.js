@@ -1,8 +1,8 @@
 var class_line =
 [
     [ "Line", "class_line.html#a79268a50a5df21a7e4052e06b25ea0de", null ],
-    [ "Line", "class_line.html#a6fe44fe558930f9dac52648c8f481b28", null ],
     [ "~Line", "class_line.html#add0081f34be76d2136700c565bb9ea3d", null ],
+    [ "Line", "class_line.html#a6fe44fe558930f9dac52648c8f481b28", null ],
     [ "ChangeColor", "class_line.html#a922da56e65a89a952a1490c991325667", null ],
     [ "ChangeThickness", "class_line.html#a9909e5b7520afcc077994ff7b0b7a81f", null ],
     [ "InComplexBounds", "class_line.html#a14a0abb68c7ad006134d915d3433731b", null ],

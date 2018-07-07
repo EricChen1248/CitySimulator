@@ -1,0 +1,8 @@
+<map id="SystemController::AdvanceDay" name="SystemController::AdvanceDay">
+<area shape="rect" id="node2" href="$class_citizen_system.html#a94c23b3bb3bc772b7482ff449f745193" title="Triggers new day events for citizens and handles marriage and birth. " alt="" coords="269,21,432,47"/>
+<area shape="rect" id="node3" href="$class_plot_system.html#a75604eb57fdc5bee7676776e1defb8fa" title="Clears all selections and hover graphics. " alt="" coords="256,71,445,98"/>
+<area shape="rect" id="node4" href="$class_plot_system.html#a7403bb12c4e3cd2a6ad66dcd2a6f94a2" title="Deselect and undraw the selected plots and roads. " alt="" coords="493,35,672,76"/>
+<area shape="rect" id="node5" href="$class_plot.html#a025fabfe6158261a12c03cd29ae9cc1d" title="Plot::GetShape" alt="" coords="724,15,835,42"/>
+<area shape="rect" id="node6" href="$class_road.html#af70772de5155d3b028ab9c3815cc5190" title="Road::Shape" alt="" coords="731,70,828,97"/>
+<area shape="rect" id="node7" href="$class_line.html#af190709f543e9552c917e1958eb95529" title="Resets the temporary color to the assigned color. " alt="" coords="720,135,839,162"/>
+</map>

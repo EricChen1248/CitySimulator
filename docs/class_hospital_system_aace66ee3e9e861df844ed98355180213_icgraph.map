@@ -1,0 +1,5 @@
+<map id="HospitalSystem::DeathOutside" name="HospitalSystem::DeathOutside">
+<area shape="rect" id="node2" href="$class_citizen.html#aaf61864d86d7855be6c62a94b0a46d60" title="Marks citizen as dead. Die pruning and events are handled at the end of day. " alt="" coords="255,31,344,57"/>
+<area shape="rect" id="node3" href="$class_food_rule.html#a2411d43a8c9d7fc76e2b09b267c59c30" title="Update events of food rule. Decreases citizen&#39;s hunger. " alt="" coords="407,5,534,32"/>
+<area shape="rect" id="node4" href="$class_hospital_rule.html#a6e59b5f4315cafdaaea84b39afa64c02" title="HospitalRule::EnterPlot" alt="" coords="392,56,549,83"/>
+</map>

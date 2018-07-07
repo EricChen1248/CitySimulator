@@ -1,0 +1,8 @@
+<map id="Citizen::Wait" name="Citizen::Wait">
+<area shape="rect" id="node2" href="$class_bank_rule.html#a271d91188266e670465e9c1e101f08c9" title="BankRule::EnterPlot" alt="" coords="159,5,299,32"/>
+<area shape="rect" id="node3" href="$class_citizen.html#a929afae7672e26fcd7f08fa46c6e7410" title="Forces a citizen to do a specific rule for &quot;waitTime&quot; hours. " alt="" coords="165,56,294,83"/>
+<area shape="rect" id="node5" href="$class_hospital_rule.html#a6e59b5f4315cafdaaea84b39afa64c02" title="HospitalRule::EnterPlot" alt="" coords="151,107,308,133"/>
+<area shape="rect" id="node6" href="$class_store_rule.html#aec7f8f8586e8d108ff49b634b1d5b56e" title="StoreRule::EnterPlot" alt="" coords="159,157,300,184"/>
+<area shape="rect" id="node7" href="$class_work_rule.html#af718d2052e84323bcab58b9937bd37b4" title="WorkRule::EnterPlot" alt="" coords="159,208,300,235"/>
+<area shape="rect" id="node4" href="$class_work_rule.html#a14184d48a943090e6037df03ee6acee2" title="WorkRule::LeavePlot" alt="" coords="356,56,499,83"/>
+</map>

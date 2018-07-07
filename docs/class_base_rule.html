@@ -101,70 +101,488 @@ $(document).ready(function(){initNavTree('class_base_rule.html','');});
 <div class="dynheader">
 Inheritance diagram for BaseRule:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="class_base_rule.png" usemap="#BaseRule_map" alt=""/>
-  <map id="BaseRule_map" name="BaseRule_map">
-<area href="class_bank_rule.html" title="Food rule that handles the food needs of our citizens. " alt="BankRule" shape="rect" coords="0,56,82,80"/>
-<area href="class_food_rule.html" title="Food rule that handles the food needs of our citizens. " alt="FoodRule" shape="rect" coords="92,56,174,80"/>
-<area href="class_home_rule.html" title="Food rule that handles the food needs of our citizens. " alt="HomeRule" shape="rect" coords="184,56,266,80"/>
-<area href="class_hospital_rule.html" title="Hospital rule that handles the food needs of our citizens. " alt="HospitalRule" shape="rect" coords="276,56,358,80"/>
-<area href="class_school_rule.html" title="School rule that handles the food needs of our citizens. " alt="SchoolRule" shape="rect" coords="368,56,450,80"/>
-<area href="class_store_rule.html" title="Store rule that handles the consumption needs of our citizens. " alt="StoreRule" shape="rect" coords="460,56,542,80"/>
-<area href="class_work_rule.html" title="Work rule that handles the food needs of our citizens. " alt="WorkRule" shape="rect" coords="552,56,634,80"/>
+<div class="center"><img src="class_base_rule__inherit__graph.png" border="0" usemap="#_base_rule_inherit__map" alt="Inheritance graph"/></div>
+<map name="_base_rule_inherit__map" id="_base_rule_inherit__map">
+<area shape="rect" id="node2" href="class_bank_rule.html" title="Food rule that handles the food needs of our citizens. " alt="" coords="5,336,136,545"/>
+<area shape="rect" id="node3" href="class_food_rule.html" title="Food rule that handles the food needs of our citizens. " alt="" coords="160,343,291,538"/>
+<area shape="rect" id="node4" href="class_home_rule.html" title="Food rule that handles the food needs of our citizens. " alt="" coords="315,321,445,560"/>
+<area shape="rect" id="node5" href="class_hospital_rule.html" title="Hospital rule that handles the food needs of our citizens. " alt="" coords="469,343,600,538"/>
+<area shape="rect" id="node6" href="class_school_rule.html" title="School rule that handles the food needs of our citizens. " alt="" coords="624,343,755,538"/>
+<area shape="rect" id="node7" href="class_store_rule.html" title="Store rule that handles the consumption needs of our citizens. " alt="" coords="779,358,909,523"/>
+<area shape="rect" id="node8" href="class_work_rule.html" title="Work rule that handles the food needs of our citizens. " alt="" coords="933,336,1064,545"/>
 </map>
- </div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for BaseRule:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_base_rule__coll__graph.png" border="0" usemap="#_base_rule_coll__map" alt="Collaboration graph"/></div>
+<map name="_base_rule_coll__map" id="_base_rule_coll__map">
+<area shape="rect" id="node2" href="class_citizen.html" title="The central entity of our game/simulation. " alt="" coords="5,5,199,435"/>
+<area shape="rect" id="node3" href="structhelper_1_1_time.html" title="Time class of our game. All time related simulations should use this class for proper speed and time ..." alt="" coords="223,101,344,339"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac0cf2211518b55323f40210baa0559e8"><td class="memItemLeft" align="right" valign="top"><a id="ac0cf2211518b55323f40210baa0559e8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>BaseRule</b> (<a class="el" href="class_citizen.html">Citizen</a> &amp;citizen, const System type)</td></tr>
+<tr class="memitem:ac0cf2211518b55323f40210baa0559e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_rule.html#ac0cf2211518b55323f40210baa0559e8">BaseRule</a> (<a class="el" href="class_citizen.html">Citizen</a> &amp;<a class="el" href="class_base_rule.html#a918dd8fb03d0cb56f32bc7cd80d8d9f9">citizen</a>, const <a class="el" href="_system_enum_8h.html#a3ac25b5e5b8766739ad99a7ddaea1efc">System</a> <a class="el" href="class_base_rule.html#a87b39cff9329a450586d10fc33e67268">type</a>)</td></tr>
 <tr class="separator:ac0cf2211518b55323f40210baa0559e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cbad4cd230de3ce698a016752b831df"><td class="memItemLeft" align="right" valign="top"><a id="a6cbad4cd230de3ce698a016752b831df"></a>
-virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>CalculateScore</b> ()=0</td></tr>
+<tr class="memitem:ab451b6c541a14ea2a27da627198da8ce"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_rule.html#ab451b6c541a14ea2a27da627198da8ce">~BaseRule</a> ()=default</td></tr>
+<tr class="separator:ab451b6c541a14ea2a27da627198da8ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cbad4cd230de3ce698a016752b831df"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_rule.html#a6cbad4cd230de3ce698a016752b831df">CalculateScore</a> ()=0</td></tr>
 <tr class="separator:a6cbad4cd230de3ce698a016752b831df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27567c37f19758751f09484c3067231e"><td class="memItemLeft" align="right" valign="top"><a id="a27567c37f19758751f09484c3067231e"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>FindPlot</b> ()=0</td></tr>
+<tr class="memitem:a27567c37f19758751f09484c3067231e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_rule.html#a27567c37f19758751f09484c3067231e">FindPlot</a> ()=0</td></tr>
 <tr class="separator:a27567c37f19758751f09484c3067231e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a059938ddf19ff06616249714dc4d7737"><td class="memItemLeft" align="right" valign="top"><a id="a059938ddf19ff06616249714dc4d7737"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>EnterPlot</b> (<a class="el" href="class_plot.html">Plot</a> *plot)=0</td></tr>
+<tr class="memitem:a059938ddf19ff06616249714dc4d7737"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_rule.html#a059938ddf19ff06616249714dc4d7737">EnterPlot</a> (<a class="el" href="class_plot.html">Plot</a> *plot)=0</td></tr>
 <tr class="separator:a059938ddf19ff06616249714dc4d7737"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affe66e98a15c86523ef69cfdfd1e2c97"><td class="memItemLeft" align="right" valign="top"><a id="affe66e98a15c86523ef69cfdfd1e2c97"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>LeavePlot</b> (<a class="el" href="class_plot.html">Plot</a> *plot)=0</td></tr>
+<tr class="memitem:affe66e98a15c86523ef69cfdfd1e2c97"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_rule.html#affe66e98a15c86523ef69cfdfd1e2c97">LeavePlot</a> (<a class="el" href="class_plot.html">Plot</a> *plot)=0</td></tr>
 <tr class="separator:affe66e98a15c86523ef69cfdfd1e2c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38daa646ab5d132ea26141812a830a38"><td class="memItemLeft" align="right" valign="top"><a id="a38daa646ab5d132ea26141812a830a38"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()=0</td></tr>
+<tr class="memitem:a38daa646ab5d132ea26141812a830a38"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_rule.html#a38daa646ab5d132ea26141812a830a38">Update</a> ()=0</td></tr>
 <tr class="separator:a38daa646ab5d132ea26141812a830a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea213ed73bba08f00581bfde6d1385f0"><td class="memItemLeft" align="right" valign="top"><a id="aea213ed73bba08f00581bfde6d1385f0"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsSatisfied</b> ()</td></tr>
+<tr class="memitem:aea213ed73bba08f00581bfde6d1385f0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_rule.html#aea213ed73bba08f00581bfde6d1385f0">IsSatisfied</a> ()</td></tr>
 <tr class="separator:aea213ed73bba08f00581bfde6d1385f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03d1eee9ecfeea044502431044b0bad0"><td class="memItemLeft" align="right" valign="top"><a id="a03d1eee9ecfeea044502431044b0bad0"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>NewDay</b> ()</td></tr>
+<tr class="memitem:a03d1eee9ecfeea044502431044b0bad0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_rule.html#a03d1eee9ecfeea044502431044b0bad0">NewDay</a> ()</td></tr>
 <tr class="separator:a03d1eee9ecfeea044502431044b0bad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81939adea11a5939e6be7615e355cb8a"><td class="memItemLeft" align="right" valign="top"><a id="a81939adea11a5939e6be7615e355cb8a"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>EndDay</b> ()</td></tr>
+<tr class="memitem:a81939adea11a5939e6be7615e355cb8a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_rule.html#a81939adea11a5939e6be7615e355cb8a">EndDay</a> ()</td></tr>
 <tr class="separator:a81939adea11a5939e6be7615e355cb8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a884cc3dfcc16440289959a2455b3c81a"><td class="memItemLeft" align="right" valign="top"><a id="a884cc3dfcc16440289959a2455b3c81a"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Death</b> ()</td></tr>
+<tr class="memitem:a884cc3dfcc16440289959a2455b3c81a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_rule.html#a884cc3dfcc16440289959a2455b3c81a">Death</a> ()</td></tr>
 <tr class="separator:a884cc3dfcc16440289959a2455b3c81a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2acb992195261bf0dd82b306e4ac34d"><td class="memItemLeft" align="right" valign="top"><a id="aa2acb992195261bf0dd82b306e4ac34d"></a>
-System&#160;</td><td class="memItemRight" valign="bottom"><b>Type</b> () const</td></tr>
+<tr class="memitem:aa2acb992195261bf0dd82b306e4ac34d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_system_enum_8h.html#a3ac25b5e5b8766739ad99a7ddaea1efc">System</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_rule.html#aa2acb992195261bf0dd82b306e4ac34d">Type</a> () const</td></tr>
 <tr class="separator:aa2acb992195261bf0dd82b306e4ac34d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a87b39cff9329a450586d10fc33e67268"><td class="memItemLeft" align="right" valign="top"><a id="a87b39cff9329a450586d10fc33e67268"></a>
-System&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
+<tr class="memitem:a87b39cff9329a450586d10fc33e67268"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_system_enum_8h.html#a3ac25b5e5b8766739ad99a7ddaea1efc">System</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_rule.html#a87b39cff9329a450586d10fc33e67268">type</a></td></tr>
 <tr class="separator:a87b39cff9329a450586d10fc33e67268"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48f886a311bb7176664217ba82168eb1"><td class="memItemLeft" align="right" valign="top"><a id="a48f886a311bb7176664217ba82168eb1"></a>
-<a class="el" href="structhelper_1_1_time.html">helper::Time</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lastUpdate</b></td></tr>
+<tr class="memitem:a48f886a311bb7176664217ba82168eb1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structhelper_1_1_time.html">helper::Time</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_rule.html#a48f886a311bb7176664217ba82168eb1">lastUpdate</a></td></tr>
 <tr class="separator:a48f886a311bb7176664217ba82168eb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a918dd8fb03d0cb56f32bc7cd80d8d9f9"><td class="memItemLeft" align="right" valign="top"><a id="a918dd8fb03d0cb56f32bc7cd80d8d9f9"></a>
-<a class="el" href="class_citizen.html">Citizen</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>citizen</b></td></tr>
+<tr class="memitem:a918dd8fb03d0cb56f32bc7cd80d8d9f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_citizen.html">Citizen</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_rule.html#a918dd8fb03d0cb56f32bc7cd80d8d9f9">citizen</a></td></tr>
 <tr class="separator:a918dd8fb03d0cb56f32bc7cd80d8d9f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract class that is the base of all system rules. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac0cf2211518b55323f40210baa0559e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0cf2211518b55323f40210baa0559e8">&#9670;&nbsp;</a></span>BaseRule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BaseRule::BaseRule </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_citizen.html">Citizen</a> &amp;&#160;</td>
+          <td class="paramname"><em>citizen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_system_enum_8h.html#a3ac25b5e5b8766739ad99a7ddaea1efc">System</a>&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab451b6c541a14ea2a27da627198da8ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab451b6c541a14ea2a27da627198da8ce">&#9670;&nbsp;</a></span>~BaseRule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual BaseRule::~BaseRule </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6cbad4cd230de3ce698a016752b831df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cbad4cd230de3ce698a016752b831df">&#9670;&nbsp;</a></span>CalculateScore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual float BaseRule::CalculateScore </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_work_rule.html#ac1c7e4d9c29fc30573909a03e9c18042">WorkRule</a>, <a class="el" href="class_food_rule.html#a5928bb41fcd8b88f8deb6410e6692337">FoodRule</a>, <a class="el" href="class_home_rule.html#a0c62812394a571a5f31b84921ca8b82f">HomeRule</a>, <a class="el" href="class_bank_rule.html#afb4dc23622bd243dd443af5c86820597">BankRule</a>, <a class="el" href="class_hospital_rule.html#a2f9e108bd341a69b34590d3f332523a6">HospitalRule</a>, <a class="el" href="class_school_rule.html#aae38ca5359962e9836f1fa8b28210e9e">SchoolRule</a>, and <a class="el" href="class_store_rule.html#a0c042b899d2182029c4189acd41cceae">StoreRule</a>.</p>
+
+</div>
+</div>
+<a id="a884cc3dfcc16440289959a2455b3c81a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a884cc3dfcc16440289959a2455b3c81a">&#9670;&nbsp;</a></span>Death()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void BaseRule::Death </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a81939adea11a5939e6be7615e355cb8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81939adea11a5939e6be7615e355cb8a">&#9670;&nbsp;</a></span>EndDay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void BaseRule::EndDay </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="class_home_rule.html#afce98dc6609647bdd4550bfe54fb62da">HomeRule</a>.</p>
+
+</div>
+</div>
+<a id="a059938ddf19ff06616249714dc4d7737"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a059938ddf19ff06616249714dc4d7737">&#9670;&nbsp;</a></span>EnterPlot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void BaseRule::EnterPlot </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_plot.html">Plot</a> *&#160;</td>
+          <td class="paramname"><em>plot</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_work_rule.html#af718d2052e84323bcab58b9937bd37b4">WorkRule</a>, <a class="el" href="class_food_rule.html#a5978ba998b311cd0260d974eb3347478">FoodRule</a>, <a class="el" href="class_home_rule.html#af2f43f06a8579c51fcd05115b370f0e5">HomeRule</a>, <a class="el" href="class_bank_rule.html#a271d91188266e670465e9c1e101f08c9">BankRule</a>, <a class="el" href="class_hospital_rule.html#a6e59b5f4315cafdaaea84b39afa64c02">HospitalRule</a>, <a class="el" href="class_school_rule.html#a8ae853b22cf4b5396cb060b27ad09af6">SchoolRule</a>, and <a class="el" href="class_store_rule.html#aec7f8f8586e8d108ff49b634b1d5b56e">StoreRule</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_base_rule_a059938ddf19ff06616249714dc4d7737_icgraph.png" border="0" usemap="#class_base_rule_a059938ddf19ff06616249714dc4d7737_icgraph" alt=""/></div>
+<map name="class_base_rule_a059938ddf19ff06616249714dc4d7737_icgraph" id="class_base_rule_a059938ddf19ff06616249714dc4d7737_icgraph">
+<area shape="rect" id="node2" href="class_citizen.html#acf5e03bbdece1c022e91812487ebec21" title="Handles all update events of the citizen. " alt="" coords="193,5,304,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a27567c37f19758751f09484c3067231e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27567c37f19758751f09484c3067231e">&#9670;&nbsp;</a></span>FindPlot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool BaseRule::FindPlot </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_work_rule.html#a865bb4f5772a086ab9fca0bf1706749d">WorkRule</a>, <a class="el" href="class_food_rule.html#a84c9a5e61b33f087a7c4cb4577f91d53">FoodRule</a>, <a class="el" href="class_home_rule.html#aecaee0ac44fe79f5ece84b5aba0fb135">HomeRule</a>, <a class="el" href="class_bank_rule.html#a44d2e3e4db0708c6866cca9b3c5bc0eb">BankRule</a>, <a class="el" href="class_hospital_rule.html#ae469a7c96fb1e73c45a6873a85e4285b">HospitalRule</a>, <a class="el" href="class_school_rule.html#a3a9d7a59dba65a062ab8a3832206c917">SchoolRule</a>, and <a class="el" href="class_store_rule.html#acf337cc86b7ca44746b3301c382eef85">StoreRule</a>.</p>
+
+</div>
+</div>
+<a id="aea213ed73bba08f00581bfde6d1385f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea213ed73bba08f00581bfde6d1385f0">&#9670;&nbsp;</a></span>IsSatisfied()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool BaseRule::IsSatisfied </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="class_home_rule.html#a3a1be2402e2e8acb0c1bb7a24f6d64e9">HomeRule</a>, <a class="el" href="class_bank_rule.html#ab440676f88032c5bd573b4b9991bd99e">BankRule</a>, and <a class="el" href="class_school_rule.html#a410ed02eeee1bcf0f73d9b6345b5a3c3">SchoolRule</a>.</p>
+
+</div>
+</div>
+<a id="affe66e98a15c86523ef69cfdfd1e2c97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affe66e98a15c86523ef69cfdfd1e2c97">&#9670;&nbsp;</a></span>LeavePlot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void BaseRule::LeavePlot </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_plot.html">Plot</a> *&#160;</td>
+          <td class="paramname"><em>plot</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_work_rule.html#a14184d48a943090e6037df03ee6acee2">WorkRule</a>, <a class="el" href="class_food_rule.html#a392ecbe4bf51f109bbaef3d596dbd7df">FoodRule</a>, <a class="el" href="class_home_rule.html#a82697372f71e60006c5b33e0619b71c8">HomeRule</a>, <a class="el" href="class_bank_rule.html#a2b5f71a40aee860ddf1aa405cc72e88f">BankRule</a>, <a class="el" href="class_hospital_rule.html#a51abe353faaf362a81afae31cf0af0b1">HospitalRule</a>, <a class="el" href="class_school_rule.html#aae77105f8cfd40f44e4fe996fc2efc02">SchoolRule</a>, and <a class="el" href="class_store_rule.html#a8137632ff1d2dd75fa1f867846b65067">StoreRule</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_base_rule_affe66e98a15c86523ef69cfdfd1e2c97_icgraph.png" border="0" usemap="#class_base_rule_affe66e98a15c86523ef69cfdfd1e2c97_icgraph" alt=""/></div>
+<map name="class_base_rule_affe66e98a15c86523ef69cfdfd1e2c97_icgraph" id="class_base_rule_affe66e98a15c86523ef69cfdfd1e2c97_icgraph">
+<area shape="rect" id="node2" href="class_citizen.html#acf5e03bbdece1c022e91812487ebec21" title="Handles all update events of the citizen. " alt="" coords="196,5,307,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a03d1eee9ecfeea044502431044b0bad0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03d1eee9ecfeea044502431044b0bad0">&#9670;&nbsp;</a></span>NewDay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void BaseRule::NewDay </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="class_work_rule.html#a931ccc96ebab1e8d013e50ba5004c0c0">WorkRule</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_base_rule_a03d1eee9ecfeea044502431044b0bad0_icgraph.png" border="0" usemap="#class_base_rule_a03d1eee9ecfeea044502431044b0bad0_icgraph" alt=""/></div>
+<map name="class_base_rule_a03d1eee9ecfeea044502431044b0bad0_icgraph" id="class_base_rule_a03d1eee9ecfeea044502431044b0bad0_icgraph">
+<area shape="rect" id="node2" href="class_citizen.html#aca25f623392207dbebe958b00d4f01b1" title="Citizen::NewDay" alt="" coords="188,5,307,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa2acb992195261bf0dd82b306e4ac34d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2acb992195261bf0dd82b306e4ac34d">&#9670;&nbsp;</a></span>Type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_system_enum_8h.html#a3ac25b5e5b8766739ad99a7ddaea1efc">System</a> BaseRule::Type </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a38daa646ab5d132ea26141812a830a38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38daa646ab5d132ea26141812a830a38">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void BaseRule::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_work_rule.html#a83f8d8063eb4028fe6e6570c575173a4">WorkRule</a>, <a class="el" href="class_food_rule.html#a2411d43a8c9d7fc76e2b09b267c59c30">FoodRule</a>, <a class="el" href="class_home_rule.html#ab34ba9ec9ec0237f64bf8db847465504">HomeRule</a>, <a class="el" href="class_bank_rule.html#a06fcfea680e3049a0b18b5bc874fd5b8">BankRule</a>, <a class="el" href="class_hospital_rule.html#a36486b04bca5d168f945567a47351bdd">HospitalRule</a>, <a class="el" href="class_school_rule.html#a480fbd4d0195fdd6c949a7ef5a2ae17c">SchoolRule</a>, and <a class="el" href="class_store_rule.html#a7c3efa8419229743018311a032d94984">StoreRule</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a918dd8fb03d0cb56f32bc7cd80d8d9f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a918dd8fb03d0cb56f32bc7cd80d8d9f9">&#9670;&nbsp;</a></span>citizen</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_citizen.html">Citizen</a>* BaseRule::citizen</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48f886a311bb7176664217ba82168eb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48f886a311bb7176664217ba82168eb1">&#9670;&nbsp;</a></span>lastUpdate</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structhelper_1_1_time.html">helper::Time</a> BaseRule::lastUpdate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a87b39cff9329a450586d10fc33e67268"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87b39cff9329a450586d10fc33e67268">&#9670;&nbsp;</a></span>type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_system_enum_8h.html#a3ac25b5e5b8766739ad99a7ddaea1efc">System</a> BaseRule::type</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>Systems/Base/<a class="el" href="_base_rule_8h_source.html">BaseRule.h</a></li>
 </ul>
 </div><!-- contents -->

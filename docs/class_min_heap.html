@@ -100,18 +100,27 @@ $(document).ready(function(){initNavTree('class_min_heap.html','');});
 <div class="dynheader">
 Inheritance diagram for MinHeap&lt; T &gt;:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="class_min_heap.png" usemap="#MinHeap_3C_20T_20_3E_map" alt=""/>
-  <map id="MinHeap_3C_20T_20_3E_map" name="MinHeap_3C_20T_20_3E_map">
-<area href="class_priority_queue.html" title="Stores an item into a queue sorted by a provided score upon enqueue. Lower scores are sorted in front..." alt="PriorityQueue&lt; T &gt;" shape="rect" coords="0,56,122,80"/>
+<div class="center"><img src="class_min_heap__inherit__graph.png" border="0" usemap="#_min_heap_3_01_t_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="_min_heap_3_01_t_01_4_inherit__map" id="_min_heap_3_01_t_01_4_inherit__map">
+<area shape="rect" id="node2" href="class_priority_queue.html" title="Stores an item into a queue sorted by a provided score upon enqueue. Lower scores are sorted in front..." alt="" coords="5,248,137,384"/>
+<area shape="rect" id="node4" href="class_min_heap.html" title="{MinHeap\&lt; PathFinderNode * \&gt;\n||+ MinHeap()\l+ ~MinHeap()\l+ ItemCount()\l+ Add()\l+ PeekTop()\l+ RemoveTop()\l+ Reset()\l}" alt="" coords="161,233,360,399"/>
+<area shape="rect" id="node3" href="class_priority_queue.html" title="{PriorityQueue\&lt; PathFinder\lNode *\&gt;\n||+ PriorityQueue()\l+ Enqueue()\l+ GetTop()\l+ Dequeue()\l+ Reset()\l}" alt="" coords="83,461,259,612"/>
 </map>
- </div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for MinHeap&lt; T &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_min_heap__coll__graph.png" border="0" usemap="#_min_heap_3_01_t_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="_min_heap_3_01_t_01_4_coll__map" id="_min_heap_3_01_t_01_4_coll__map">
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aba6dbc976a8172fdb508689235a06254"><td class="memItemLeft" align="right" valign="top"><a id="aba6dbc976a8172fdb508689235a06254"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MinHeap</b> (const int initialSize=31) noexcept</td></tr>
+<tr class="memitem:aba6dbc976a8172fdb508689235a06254"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_min_heap.html#aba6dbc976a8172fdb508689235a06254">MinHeap</a> (const int initialSize=31) noexcept</td></tr>
 <tr class="separator:aba6dbc976a8172fdb508689235a06254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd205f28c602d64bcba42a0d8c0220ad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_min_heap.html#abd205f28c602d64bcba42a0d8c0220ad">~MinHeap</a> () noexcept</td></tr>
+<tr class="separator:abd205f28c602d64bcba42a0d8c0220ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f4d627e9cf2a91a946eb264799d8d66"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_min_heap.html#a0f4d627e9cf2a91a946eb264799d8d66">ItemCount</a> () const noexcept</td></tr>
 <tr class="memdesc:a0f4d627e9cf2a91a946eb264799d8d66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the item count in the heap.  <a href="#a0f4d627e9cf2a91a946eb264799d8d66">More...</a><br /></td></tr>
 <tr class="separator:a0f4d627e9cf2a91a946eb264799d8d66"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,9 +133,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a65080dc2c649d482eacbee56eb10a867"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_min_heap.html#a65080dc2c649d482eacbee56eb10a867">RemoveTop</a> ()</td></tr>
 <tr class="memdesc:a65080dc2c649d482eacbee56eb10a867"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the item at the top of the heap and resorts it.  <a href="#a65080dc2c649d482eacbee56eb10a867">More...</a><br /></td></tr>
 <tr class="separator:a65080dc2c649d482eacbee56eb10a867"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b159a920b25988d0e99ecc2d47fb881"><td class="memItemLeft" align="right" valign="top"><a id="a3b159a920b25988d0e99ecc2d47fb881"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_min_heap.html#a3b159a920b25988d0e99ecc2d47fb881">Reset</a> ()</td></tr>
-<tr class="memdesc:a3b159a920b25988d0e99ecc2d47fb881"><td class="mdescLeft">&#160;</td><td class="mdescRight">Efficient reset that sets itemCount to 0 for reuse of Heap. <br /></td></tr>
+<tr class="memitem:a3b159a920b25988d0e99ecc2d47fb881"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_min_heap.html#a3b159a920b25988d0e99ecc2d47fb881">Reset</a> ()</td></tr>
+<tr class="memdesc:a3b159a920b25988d0e99ecc2d47fb881"><td class="mdescLeft">&#160;</td><td class="mdescRight">Efficient reset that sets itemCount to 0 for reuse of Heap.  <a href="#a3b159a920b25988d0e99ecc2d47fb881">More...</a><br /></td></tr>
 <tr class="separator:a3b159a920b25988d0e99ecc2d47fb881"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -134,7 +142,63 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 class MinHeap&lt; T &gt;</h3>
 
 <p>Heap implementation that uses operator&gt; to compare. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aba6dbc976a8172fdb508689235a06254"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba6dbc976a8172fdb508689235a06254">&#9670;&nbsp;</a></span>MinHeap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_min_heap.html">MinHeap</a>&lt; T &gt;::<a class="el" href="class_min_heap.html">MinHeap</a> </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>initialSize</em> = <code>31</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abd205f28c602d64bcba42a0d8c0220ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd205f28c602d64bcba42a0d8c0220ad">&#9670;&nbsp;</a></span>~MinHeap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_min_heap.html">MinHeap</a>&lt; T &gt;::~<a class="el" href="class_min_heap.html">MinHeap</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a8c5a4edf7d40353e1ed4b3fedc3b4e45"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8c5a4edf7d40353e1ed4b3fedc3b4e45">&#9670;&nbsp;</a></span>Add()</h2>
 
@@ -169,6 +233,14 @@ template&lt;typename T&gt; </div>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_min_heap_a8c5a4edf7d40353e1ed4b3fedc3b4e45_icgraph.png" border="0" usemap="#class_min_heap_a8c5a4edf7d40353e1ed4b3fedc3b4e45_icgraph" alt=""/></div>
+<map name="class_min_heap_a8c5a4edf7d40353e1ed4b3fedc3b4e45_icgraph" id="class_min_heap_a8c5a4edf7d40353e1ed4b3fedc3b4e45_icgraph">
+<area shape="rect" id="node2" href="class_priority_queue.html#ac9e9858b955ea02bed2ddd5fab4b23ac" title="Adds a new item to the priority queue and sorts it. " alt="" coords="157,5,333,47"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -239,6 +311,14 @@ template&lt;typename T&gt; </div>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_min_heap_a12ee741283f5342ab43d357f6e9270cb_icgraph.png" border="0" usemap="#class_min_heap_a12ee741283f5342ab43d357f6e9270cb_icgraph" alt=""/></div>
+<map name="class_min_heap_a12ee741283f5342ab43d357f6e9270cb_icgraph" id="class_min_heap_a12ee741283f5342ab43d357f6e9270cb_icgraph">
+<area shape="rect" id="node2" href="class_priority_queue.html#a7e0a375277f525fd7d033a4b97dff80d" title="Returns the item at the top of the queue. " alt="" coords="185,5,361,47"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -261,6 +341,52 @@ template&lt;typename T &gt; </div>
 
 <p>Removes the item at the top of the heap and resorts it. </p>
 <dl class="section note"><dt>Note</dt><dd>Item must support operator&gt; </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_min_heap_a65080dc2c649d482eacbee56eb10a867_icgraph.png" border="0" usemap="#class_min_heap_a65080dc2c649d482eacbee56eb10a867_icgraph" alt=""/></div>
+<map name="class_min_heap_a65080dc2c649d482eacbee56eb10a867_icgraph" id="class_min_heap_a65080dc2c649d482eacbee56eb10a867_icgraph">
+<area shape="rect" id="node2" href="class_priority_queue.html#ace0b78e30505da18b90a0d034abfc3ba" title="Removes the queue at the top of the queue. " alt="" coords="201,5,377,47"/>
+<area shape="rect" id="node3" href="class_path_finder.html#aa70fb44c02f0e65beb77208245da6cfc" title="Attemps to find a path between to coordinates. " alt="" coords="222,71,357,98"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3b159a920b25988d0e99ecc2d47fb881"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b159a920b25988d0e99ecc2d47fb881">&#9670;&nbsp;</a></span>Reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_min_heap.html">MinHeap</a>&lt; T &gt;::Reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Efficient reset that sets itemCount to 0 for reuse of Heap. </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_min_heap_a3b159a920b25988d0e99ecc2d47fb881_icgraph.png" border="0" usemap="#class_min_heap_a3b159a920b25988d0e99ecc2d47fb881_icgraph" alt=""/></div>
+<map name="class_min_heap_a3b159a920b25988d0e99ecc2d47fb881_icgraph" id="class_min_heap_a3b159a920b25988d0e99ecc2d47fb881_icgraph">
+<area shape="rect" id="node2" href="class_priority_queue.html#ad0f4220ed1cb155edf16df7cea4b3527" title="Resets the Priority Queue to allow reuse. " alt="" coords="168,5,344,47"/>
+</map>
+</div>
 
 </div>
 </div>

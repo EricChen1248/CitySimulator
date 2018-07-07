@@ -1,0 +1,17 @@
+<map id="Citizen::Coords" name="Citizen::Coords">
+<area shape="rect" id="node2" href="$class_bank_rule.html#a44d2e3e4db0708c6866cca9b3c5bc0eb" title="Attemps to find a plot that can satisfy this rule. " alt="" coords="197,5,331,32"/>
+<area shape="rect" id="node3" href="$class_bank_system.html#a43a8f2a91ac86a008101755a1eed70cb" title="Logs a citizen being satisified with a food. " alt="" coords="176,56,352,83"/>
+<area shape="rect" id="node4" href="$class_bank_system.html#a241fdc84f0752e4a930e42c514f13c07" title="Logs a citizen being unsatisified with a food. " alt="" coords="169,107,359,133"/>
+<area shape="rect" id="node5" href="$class_food_rule.html#a84c9a5e61b33f087a7c4cb4577f91d53" title="Attemps to find a plot that can satisfy this rule. " alt="" coords="197,157,331,184"/>
+<area shape="rect" id="node6" href="$class_home_system.html#a456116e0862fbfc0c7543e65d8f1e3a2" title="HomeSystem::LogSatisfied" alt="" coords="174,208,354,235"/>
+<area shape="rect" id="node7" href="$class_home_system.html#af2d21a281e248213e987a5d11c14126b" title="Logs a citizen being unsatisified with a food. " alt="" coords="167,259,361,285"/>
+<area shape="rect" id="node8" href="$class_hospital_rule.html#ae2a121d2782f8b8f6c2685539fdfd67a" title="HospitalRule::Register" alt="" coords="189,309,339,336"/>
+<area shape="rect" id="node9" href="$class_school_rule.html#a3a9d7a59dba65a062ab8a3832206c917" title="Attemps to find a plot that can satisfy this rule. " alt="" coords="192,360,336,387"/>
+<area shape="rect" id="node10" href="$class_school_system.html#a08db14a571b27182c67e5e01419e5926" title="Logs a citizen being satisified with a food. " alt="" coords="171,411,357,437"/>
+<area shape="rect" id="node11" href="$class_school_system.html#afec5e34469d5285ea51d45f416c5d6fe" title="Logs a citizen being unsatisified with a food. " alt="" coords="164,461,364,488"/>
+<area shape="rect" id="node12" href="$class_store_rule.html#acf337cc86b7ca44746b3301c382eef85" title="StoreRule::FindPlot" alt="" coords="197,512,331,539"/>
+<area shape="rect" id="node13" href="$class_store_system.html#a194b691634c54b42a144e786ff65c1bd" title="Logs a citizen being satisified with a Store. " alt="" coords="175,563,353,589"/>
+<area shape="rect" id="node14" href="$class_store_system.html#acad32bf4b0cb965b20a65b9a9c4b5380" title="Logs a citizen being unsatisified with a Store. " alt="" coords="169,613,359,640"/>
+<area shape="rect" id="node15" href="$class_work_rule.html#ae66df195bac8ebccd5b9616ca8ef13f2" title="WorkRule::Register" alt="" coords="197,664,331,691"/>
+<area shape="rect" id="node16" href="$class_work_rule.html#a931ccc96ebab1e8d013e50ba5004c0c0" title="WorkRule::NewDay" alt="" coords="412,664,547,691"/>
+</map>

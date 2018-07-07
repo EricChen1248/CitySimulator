@@ -1,0 +1,5 @@
+<map id="Citizen::IncreaseMoney" name="Citizen::IncreaseMoney">
+<area shape="rect" id="node2" href="$class_bank_rule.html#a2b5f71a40aee860ddf1aa405cc72e88f" title="Citizen withdraws money on leaving. " alt="" coords="219,5,362,32"/>
+<area shape="rect" id="node3" href="$class_hospital_rule.html#a6e59b5f4315cafdaaea84b39afa64c02" title="HospitalRule::EnterPlot" alt="" coords="212,56,369,83"/>
+<area shape="rect" id="node4" href="$class_store_rule.html#aec7f8f8586e8d108ff49b634b1d5b56e" title="StoreRule::EnterPlot" alt="" coords="220,107,361,133"/>
+</map>

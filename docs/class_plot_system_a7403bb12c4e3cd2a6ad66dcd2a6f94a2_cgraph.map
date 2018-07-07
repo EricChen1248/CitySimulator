@@ -1,0 +1,5 @@
+<map id="PlotSystem::DeselectPlotsAndRoads" name="PlotSystem::DeselectPlotsAndRoads">
+<area shape="rect" id="node2" href="$class_plot.html#a025fabfe6158261a12c03cd29ae9cc1d" title="Plot::GetShape" alt="" coords="236,5,347,32"/>
+<area shape="rect" id="node3" href="$class_road.html#af70772de5155d3b028ab9c3815cc5190" title="Road::Shape" alt="" coords="243,56,340,83"/>
+<area shape="rect" id="node4" href="$class_line.html#af190709f543e9552c917e1958eb95529" title="Resets the temporary color to the assigned color. " alt="" coords="232,107,351,133"/>
+</map>

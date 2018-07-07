@@ -1,0 +1,8 @@
+<map id="Logger::Log" name="Logger::Log">
+<area shape="rect" id="node2" href="$class_core_controller.html#a3c79152bf136634d5708b20ccc2f498a" title="Starts the game and kicks off all functions. " alt="" coords="174,5,314,32"/>
+<area shape="rect" id="node3" href="$class_logger.html#abc41bfb031d896170c7675fa96a6b30c" title="Logger::Logger" alt="" coords="190,56,298,83"/>
+<area shape="rect" id="node4" href="$class_path_finder.html#a7c5e9eaa24ceb53a90e0c57ed5d16594" title="Initializes the pathfinder and allocates the required memory space, must only be initialized once..." alt="" coords="174,107,314,133"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="219,157,269,184"/>
+<area shape="rect" id="node7" href="$class_citizen_system.html#a5ecb60b1da228341d4cb67ddbe1f2257" title="CitizenSystem::CitizenSystem" alt="" coords="144,208,344,235"/>
+<area shape="rect" id="node5" href="$class_core_controller.html#ab3853568fd9d732663ebf807817f3764" title="CoreController::CoreController" alt="" coords="392,107,587,133"/>
+</map>

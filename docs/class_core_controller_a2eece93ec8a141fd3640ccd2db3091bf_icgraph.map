@@ -1,0 +1,10 @@
+<map id="CoreController::GetDeltaTime" name="CoreController::GetDeltaTime">
+<area shape="rect" id="node2" href="$class_bank_system.html#a528ca56cb84eefb178d7c5d180f6cb18" title="Updates food system. Tally scores for food pltos. " alt="" coords="252,5,399,32"/>
+<area shape="rect" id="node3" href="$class_citizen.html#acf5e03bbdece1c022e91812487ebec21" title="Handles all update events of the citizen. " alt="" coords="270,56,381,83"/>
+<area shape="rect" id="node4" href="$class_food_rule.html#a2411d43a8c9d7fc76e2b09b267c59c30" title="Update events of food rule. Decreases citizen&#39;s hunger. " alt="" coords="262,107,389,133"/>
+<area shape="rect" id="node5" href="$class_hospital_system.html#a74ed5574695331b95e6817e3af592892" title="MISSING. " alt="" coords="244,157,407,184"/>
+<area shape="rect" id="node6" href="$class_river.html#a5dc9ee55cf793502dc7cccd3a161129a" title="River::Update" alt="" coords="276,208,375,235"/>
+<area shape="rect" id="node7" href="$class_school_system.html#a22535755909e2d68e8d4b3aeb932200b" title="Updates food system. Tally scores for food plots. " alt="" coords="247,259,403,285"/>
+<area shape="rect" id="node8" href="$class_store_rule.html#a7c3efa8419229743018311a032d94984" title="StoreRule::Update" alt="" coords="261,309,389,336"/>
+<area shape="rect" id="node9" href="$class_store_system.html#ac0b382b05fe3d8cbc4289602dd33f10c" title="Updates Store system. Tally scores for Store pltos. " alt="" coords="252,360,399,387"/>
+</map>

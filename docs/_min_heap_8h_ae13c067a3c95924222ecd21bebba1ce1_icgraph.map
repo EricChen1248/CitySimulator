@@ -1,0 +1,4 @@
+<map id="DeRef" name="DeRef">
+<area shape="rect" id="node2" href="$class_min_heap.html#a8c5a4edf7d40353e1ed4b3fedc3b4e45" title="Inserts a new item into the heap and sorts it. " alt="" coords="111,5,289,47"/>
+<area shape="rect" id="node3" href="$class_min_heap.html#a65080dc2c649d482eacbee56eb10a867" title="Removes the item at the top of the heap and resorts it. " alt="" coords="111,71,289,112"/>
+</map>

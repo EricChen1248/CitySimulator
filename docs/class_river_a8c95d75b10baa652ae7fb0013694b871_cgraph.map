@@ -1,0 +1,5 @@
+<map id="River::Init" name="River::Init">
+<area shape="rect" id="node2" href="$class_core_controller.html#a3c23d3b6e5fa93b707ac5be6bc2dda96" title="CoreController::GetSystem\lController" alt="" coords="128,5,307,47"/>
+<area shape="rect" id="node4" href="$class_system_controller.html#a924460fc849b317d559812604523f65f" title="SystemController::Plots" alt="" coords="137,71,297,98"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="355,13,516,39"/>
+</map>

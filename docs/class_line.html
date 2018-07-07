@@ -92,34 +92,499 @@ $(document).ready(function(){initNavTree('class_line.html','');});
 <div class="title">Line Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Draws a line with controllable thickness in SFML.  
+ <a href="class_line.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_line_8hpp_source.html">Line.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Line:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_line__coll__graph.png" border="0" usemap="#_line_coll__map" alt="Collaboration graph"/></div>
+<map name="_line_coll__map" id="_line_coll__map">
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8e9aeea12a4b3b30f0120265f94441cc"><td class="memItemLeft" align="right" valign="top"><a id="a8e9aeea12a4b3b30f0120265f94441cc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Render</b> (sf::RenderWindow *window) const</td></tr>
-<tr class="separator:a8e9aeea12a4b3b30f0120265f94441cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9909e5b7520afcc077994ff7b0b7a81f"><td class="memItemLeft" align="right" valign="top"><a id="a9909e5b7520afcc077994ff7b0b7a81f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ChangeThickness</b> (const float thickness)</td></tr>
-<tr class="separator:a9909e5b7520afcc077994ff7b0b7a81f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a553d1340f18bb8c6aef36de3cf24be20"><td class="memItemLeft" align="right" valign="top"><a id="a553d1340f18bb8c6aef36de3cf24be20"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetColor</b> (const sf::Color color)</td></tr>
-<tr class="separator:a553d1340f18bb8c6aef36de3cf24be20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a922da56e65a89a952a1490c991325667"><td class="memItemLeft" align="right" valign="top"><a id="a922da56e65a89a952a1490c991325667"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ChangeColor</b> (const sf::Color color)</td></tr>
-<tr class="separator:a922da56e65a89a952a1490c991325667"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fe44fe558930f9dac52648c8f481b28"><td class="memItemLeft" align="right" valign="top"><a id="a6fe44fe558930f9dac52648c8f481b28"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Line</b> (const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;coord1, const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;coord2, const sf::Color color, const float thickness)</td></tr>
+<tr class="memitem:a79268a50a5df21a7e4052e06b25ea0de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line.html#a79268a50a5df21a7e4052e06b25ea0de">Line</a> ()=default</td></tr>
+<tr class="separator:a79268a50a5df21a7e4052e06b25ea0de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add0081f34be76d2136700c565bb9ea3d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line.html#add0081f34be76d2136700c565bb9ea3d">~Line</a> ()=default</td></tr>
+<tr class="separator:add0081f34be76d2136700c565bb9ea3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fe44fe558930f9dac52648c8f481b28"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line.html#a6fe44fe558930f9dac52648c8f481b28">Line</a> (const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;coord1, const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;coord2, const sf::Color color, const float thickness)</td></tr>
 <tr class="separator:a6fe44fe558930f9dac52648c8f481b28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6fba5aee3fe6208cdbe00493cfc5e1f"><td class="memItemLeft" align="right" valign="top"><a id="ae6fba5aee3fe6208cdbe00493cfc5e1f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>InSimpleBounds</b> (const float x, const float y) const</td></tr>
+<tr class="memitem:a8e9aeea12a4b3b30f0120265f94441cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line.html#a8e9aeea12a4b3b30f0120265f94441cc">Render</a> (sf::RenderWindow *window) const</td></tr>
+<tr class="memdesc:a8e9aeea12a4b3b30f0120265f94441cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the line to the window using SFML.  <a href="#a8e9aeea12a4b3b30f0120265f94441cc">More...</a><br /></td></tr>
+<tr class="separator:a8e9aeea12a4b3b30f0120265f94441cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9909e5b7520afcc077994ff7b0b7a81f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line.html#a9909e5b7520afcc077994ff7b0b7a81f">ChangeThickness</a> (const float thickness)</td></tr>
+<tr class="memdesc:a9909e5b7520afcc077994ff7b0b7a81f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the current thickness of the line.  <a href="#a9909e5b7520afcc077994ff7b0b7a81f">More...</a><br /></td></tr>
+<tr class="separator:a9909e5b7520afcc077994ff7b0b7a81f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a553d1340f18bb8c6aef36de3cf24be20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line.html#a553d1340f18bb8c6aef36de3cf24be20">SetColor</a> (const sf::Color color)</td></tr>
+<tr class="memdesc:a553d1340f18bb8c6aef36de3cf24be20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permantly changes the color.  <a href="#a553d1340f18bb8c6aef36de3cf24be20">More...</a><br /></td></tr>
+<tr class="separator:a553d1340f18bb8c6aef36de3cf24be20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a922da56e65a89a952a1490c991325667"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line.html#a922da56e65a89a952a1490c991325667">ChangeColor</a> (const sf::Color color)</td></tr>
+<tr class="memdesc:a922da56e65a89a952a1490c991325667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary changes the color of the line.  <a href="#a922da56e65a89a952a1490c991325667">More...</a><br /></td></tr>
+<tr class="separator:a922da56e65a89a952a1490c991325667"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6fba5aee3fe6208cdbe00493cfc5e1f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line.html#ae6fba5aee3fe6208cdbe00493cfc5e1f">InSimpleBounds</a> (const float x, const float y) const</td></tr>
+<tr class="memdesc:ae6fba5aee3fe6208cdbe00493cfc5e1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a non-minimal bounding check for preliminary collision detection.  <a href="#ae6fba5aee3fe6208cdbe00493cfc5e1f">More...</a><br /></td></tr>
 <tr class="separator:ae6fba5aee3fe6208cdbe00493cfc5e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14a0abb68c7ad006134d915d3433731b"><td class="memItemLeft" align="right" valign="top"><a id="a14a0abb68c7ad006134d915d3433731b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>InComplexBounds</b> (const float x, const float y) const</td></tr>
+<tr class="memitem:a14a0abb68c7ad006134d915d3433731b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line.html#a14a0abb68c7ad006134d915d3433731b">InComplexBounds</a> (const float x, const float y) const</td></tr>
+<tr class="memdesc:a14a0abb68c7ad006134d915d3433731b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses advanced point to line distance alogrithm for exact collision detection.  <a href="#a14a0abb68c7ad006134d915d3433731b">More...</a><br /></td></tr>
 <tr class="separator:a14a0abb68c7ad006134d915d3433731b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af190709f543e9552c917e1958eb95529"><td class="memItemLeft" align="right" valign="top"><a id="af190709f543e9552c917e1958eb95529"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ResetColor</b> ()</td></tr>
+<tr class="memitem:af190709f543e9552c917e1958eb95529"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_line.html#af190709f543e9552c917e1958eb95529">ResetColor</a> ()</td></tr>
+<tr class="memdesc:af190709f543e9552c917e1958eb95529"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the temporary color to the assigned color.  <a href="#af190709f543e9552c917e1958eb95529">More...</a><br /></td></tr>
 <tr class="separator:af190709f543e9552c917e1958eb95529"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Draws a line with controllable thickness in SFML. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a79268a50a5df21a7e4052e06b25ea0de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79268a50a5df21a7e4052e06b25ea0de">&#9670;&nbsp;</a></span>Line() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Line::Line </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="add0081f34be76d2136700c565bb9ea3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add0081f34be76d2136700c565bb9ea3d">&#9670;&nbsp;</a></span>~Line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Line::~Line </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6fe44fe558930f9dac52648c8f481b28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fe44fe558930f9dac52648c8f481b28">&#9670;&nbsp;</a></span>Line() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Line::Line </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;&#160;</td>
+          <td class="paramname"><em>coord1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_coordinate.html">Coordinate</a> &amp;&#160;</td>
+          <td class="paramname"><em>coord2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sf::Color&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>thickness</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_line_a6fe44fe558930f9dac52648c8f481b28_cgraph.png" border="0" usemap="#class_line_a6fe44fe558930f9dac52648c8f481b28_cgraph" alt=""/></div>
+<map name="class_line_a6fe44fe558930f9dac52648c8f481b28_cgraph" id="class_line_a6fe44fe558930f9dac52648c8f481b28_cgraph">
+<area shape="rect" id="node2" href="class_coordinate.html#a74b01f06cbf216c1db4c54e1957f0cab" title="Converts game hexagonal coordinates to SFML cube coordinates. " alt="" coords="132,5,348,32"/>
+<area shape="rect" id="node3" href="struct_screen_coordinate.html#afd219d6380a1c9ce472bfefa613a30ef" title="ScreenCoordinate::ToVector2F" alt="" coords="140,56,340,83"/>
+<area shape="rect" id="node4" href="class_line.html#a922da56e65a89a952a1490c991325667" title="Temporary changes the color of the line. " alt="" coords="176,107,304,133"/>
+<area shape="rect" id="node5" href="class_line.html#a9909e5b7520afcc077994ff7b0b7a81f" title="Changes the current thickness of the line. " alt="" coords="161,157,319,184"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a922da56e65a89a952a1490c991325667"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a922da56e65a89a952a1490c991325667">&#9670;&nbsp;</a></span>ChangeColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Line::ChangeColor </td>
+          <td>(</td>
+          <td class="paramtype">const sf::Color&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Temporary changes the color of the line. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>Color to change to </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_line_a922da56e65a89a952a1490c991325667_icgraph.png" border="0" usemap="#class_line_a922da56e65a89a952a1490c991325667_icgraph" alt=""/></div>
+<map name="class_line_a922da56e65a89a952a1490c991325667_icgraph" id="class_line_a922da56e65a89a952a1490c991325667_icgraph">
+<area shape="rect" id="node2" href="class_line.html#a6fe44fe558930f9dac52648c8f481b28" title="Line::Line" alt="" coords="195,5,274,32"/>
+<area shape="rect" id="node3" href="class_line.html#a553d1340f18bb8c6aef36de3cf24be20" title="Permantly changes the color. " alt="" coords="183,56,287,83"/>
+<area shape="rect" id="node7" href="class_road.html#a1a5760cedbe8f1bfba0d50e55e7ec103" title="Road::Repair" alt="" coords="354,107,451,133"/>
+<area shape="rect" id="node8" href="class_road.html#ad63b454d0bc906139ed10ed5e7e26412" title="Road::EndDay" alt="" coords="181,157,288,184"/>
+<area shape="rect" id="node4" href="class_road.html#a50e770f98d48c26421973d38d46a5b17" title="Road::LevelUp" alt="" coords="350,5,455,32"/>
+<area shape="rect" id="node6" href="class_road.html#a6086a0b2824f5e00dae7577d3c7f12da" title="Road::MarkAsRiver" alt="" coords="336,56,469,83"/>
+<area shape="rect" id="node5" href="class_road.html#adf6a767f9aa69ec621e32c78a8638fb2" title="Road::PerformClick" alt="" coords="517,56,652,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9909e5b7520afcc077994ff7b0b7a81f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9909e5b7520afcc077994ff7b0b7a81f">&#9670;&nbsp;</a></span>ChangeThickness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Line::ChangeThickness </td>
+          <td>(</td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>thickness</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Changes the current thickness of the line. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thickness</td><td>New thickness of the line </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_line_a9909e5b7520afcc077994ff7b0b7a81f_icgraph.png" border="0" usemap="#class_line_a9909e5b7520afcc077994ff7b0b7a81f_icgraph" alt=""/></div>
+<map name="class_line_a9909e5b7520afcc077994ff7b0b7a81f_icgraph" id="class_line_a9909e5b7520afcc077994ff7b0b7a81f_icgraph">
+<area shape="rect" id="node2" href="class_line.html#a6fe44fe558930f9dac52648c8f481b28" title="Line::Line" alt="" coords="224,5,303,32"/>
+<area shape="rect" id="node3" href="class_road.html#a50e770f98d48c26421973d38d46a5b17" title="Road::LevelUp" alt="" coords="211,56,316,83"/>
+<area shape="rect" id="node4" href="class_road.html#adf6a767f9aa69ec621e32c78a8638fb2" title="Road::PerformClick" alt="" coords="364,56,499,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a14a0abb68c7ad006134d915d3433731b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14a0abb68c7ad006134d915d3433731b">&#9670;&nbsp;</a></span>InComplexBounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Line::InComplexBounds </td>
+          <td>(</td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Uses advanced point to line distance alogrithm for exact collision detection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>x-axis position to check on </td></tr>
+    <tr><td class="paramname">y</td><td>y-axis position to check on </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if (x,y) is in complex bounds, else false </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_line_a14a0abb68c7ad006134d915d3433731b_icgraph.png" border="0" usemap="#class_line_a14a0abb68c7ad006134d915d3433731b_icgraph" alt=""/></div>
+<map name="class_line_a14a0abb68c7ad006134d915d3433731b_icgraph" id="class_line_a14a0abb68c7ad006134d915d3433731b_icgraph">
+<area shape="rect" id="node2" href="class_road.html#adcd0bc5ea1e71c12fa89116da6810f7c" title="Road::InComplexBounds" alt="" coords="212,5,377,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae6fba5aee3fe6208cdbe00493cfc5e1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6fba5aee3fe6208cdbe00493cfc5e1f">&#9670;&nbsp;</a></span>InSimpleBounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Line::InSimpleBounds </td>
+          <td>(</td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Provides a non-minimal bounding check for preliminary collision detection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>x-axis position to check on </td></tr>
+    <tr><td class="paramname">y</td><td>y-axis position to check on </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if (x,y) is in simple bounds, else false </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_line_ae6fba5aee3fe6208cdbe00493cfc5e1f_icgraph.png" border="0" usemap="#class_line_ae6fba5aee3fe6208cdbe00493cfc5e1f_icgraph" alt=""/></div>
+<map name="class_line_ae6fba5aee3fe6208cdbe00493cfc5e1f_icgraph" id="class_line_ae6fba5aee3fe6208cdbe00493cfc5e1f_icgraph">
+<area shape="rect" id="node2" href="class_road.html#a4d5c070e4dd1a69c6a049d27a9e9e52a" title="Road::InSimpleBounds" alt="" coords="201,5,356,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8e9aeea12a4b3b30f0120265f94441cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e9aeea12a4b3b30f0120265f94441cc">&#9670;&nbsp;</a></span>Render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Line::Render </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderWindow *&#160;</td>
+          <td class="paramname"><em>window</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Draws the line to the window using SFML. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>window to draw the line to </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_line_a8e9aeea12a4b3b30f0120265f94441cc_icgraph.png" border="0" usemap="#class_line_a8e9aeea12a4b3b30f0120265f94441cc_icgraph" alt=""/></div>
+<map name="class_line_a8e9aeea12a4b3b30f0120265f94441cc_icgraph" id="class_line_a8e9aeea12a4b3b30f0120265f94441cc_icgraph">
+<area shape="rect" id="node2" href="class_road.html#a5184cb92e0d8aa0374b3a2bd01f03893" title="Road::Render" alt="" coords="148,5,249,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af190709f543e9552c917e1958eb95529"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af190709f543e9552c917e1958eb95529">&#9670;&nbsp;</a></span>ResetColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Line::ResetColor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets the temporary color to the assigned color. </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_line_af190709f543e9552c917e1958eb95529_icgraph.png" border="0" usemap="#class_line_af190709f543e9552c917e1958eb95529_icgraph" alt=""/></div>
+<map name="class_line_af190709f543e9552c917e1958eb95529_icgraph" id="class_line_af190709f543e9552c917e1958eb95529_icgraph">
+<area shape="rect" id="node2" href="class_plot_system.html#a7403bb12c4e3cd2a6ad66dcd2a6f94a2" title="Deselect and undraw the selected plots and roads. " alt="" coords="172,32,351,73"/>
+<area shape="rect" id="node7" href="class_plot_system.html#a75604eb57fdc5bee7676776e1defb8fa" title="Clears all selections and hover graphics. " alt="" coords="399,94,588,121"/>
+<area shape="rect" id="node3" href="class_plot_system.html#a6d5985c39039f368a4456d9ccf07cb9a" title="Checks if the click was on a plot and handles it if applicable. " alt="" coords="654,13,821,39"/>
+<area shape="rect" id="node6" href="class_plot_system.html#ab556b9c8bc014aabb18e2628e1cd547e" title="PlotSystem::RoadClicks" alt="" coords="411,41,575,67"/>
+<area shape="rect" id="node4" href="class_plot_system.html#a8bf87772f6d248af9603933811f50ca6" title="Calls all rendering events during interday. " alt="" coords="887,13,1073,39"/>
+<area shape="rect" id="node5" href="class_system_controller.html#ac2fc83957e0fd38f3baedcf2dca3206e" title="Calls render function of plots. " alt="" coords="1121,5,1292,47"/>
+<area shape="rect" id="node8" href="class_system_controller.html#ac00b118e5e33f7ea9b71389993dfd487" title="SystemController::AdvanceDay" alt="" coords="636,94,839,121"/>
+<area shape="rect" id="node9" href="class_core_controller.html#a3c79152bf136634d5708b20ccc2f498a" title="Starts the game and kicks off all functions. " alt="" coords="1137,94,1277,121"/>
+<area shape="rect" id="node10" href="class_core_controller.html#a0fb98cb1cc2df8cb59ed2a7822a9b1b8" title="CoreController::EndDayLoop" alt="" coords="887,118,1073,145"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a553d1340f18bb8c6aef36de3cf24be20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a553d1340f18bb8c6aef36de3cf24be20">&#9670;&nbsp;</a></span>SetColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Line::SetColor </td>
+          <td>(</td>
+          <td class="paramtype">const sf::Color&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Permantly changes the color. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>New color to set to </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_line_a553d1340f18bb8c6aef36de3cf24be20_cgraph.png" border="0" usemap="#class_line_a553d1340f18bb8c6aef36de3cf24be20_cgraph" alt=""/></div>
+<map name="class_line_a553d1340f18bb8c6aef36de3cf24be20_cgraph" id="class_line_a553d1340f18bb8c6aef36de3cf24be20_cgraph">
+<area shape="rect" id="node2" href="class_line.html#a922da56e65a89a952a1490c991325667" title="Temporary changes the color of the line. " alt="" coords="157,5,285,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_line_a553d1340f18bb8c6aef36de3cf24be20_icgraph.png" border="0" usemap="#class_line_a553d1340f18bb8c6aef36de3cf24be20_icgraph" alt=""/></div>
+<map name="class_line_a553d1340f18bb8c6aef36de3cf24be20_icgraph" id="class_line_a553d1340f18bb8c6aef36de3cf24be20_icgraph">
+<area shape="rect" id="node2" href="class_road.html#a50e770f98d48c26421973d38d46a5b17" title="Road::LevelUp" alt="" coords="171,5,277,32"/>
+<area shape="rect" id="node4" href="class_road.html#a6086a0b2824f5e00dae7577d3c7f12da" title="Road::MarkAsRiver" alt="" coords="157,56,291,83"/>
+<area shape="rect" id="node3" href="class_road.html#adf6a767f9aa69ec621e32c78a8638fb2" title="Road::PerformClick" alt="" coords="339,5,473,32"/>
+</map>
+</div>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Helpers/<a class="el" href="_line_8hpp_source.html">Line.hpp</a></li>
 </ul>

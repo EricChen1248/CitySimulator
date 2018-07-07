@@ -1,0 +1,4 @@
+<map id="Citizen::Die" name="Citizen::Die">
+<area shape="rect" id="node2" href="$class_food_rule.html#a2411d43a8c9d7fc76e2b09b267c59c30" title="Update events of food rule. Decreases citizen&#39;s hunger. " alt="" coords="158,5,285,32"/>
+<area shape="rect" id="node3" href="$class_hospital_rule.html#a6e59b5f4315cafdaaea84b39afa64c02" title="HospitalRule::EnterPlot" alt="" coords="143,56,300,83"/>
+</map>

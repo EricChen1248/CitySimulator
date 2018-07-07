@@ -1,0 +1,9 @@
+<map id="WorkRule::LeavePlot" name="WorkRule::LeavePlot">
+<area shape="rect" id="node2" href="$class_citizen.html#a0a7a5dcce103d3971acff20a5d40e28b" title="Finds a rule of system type. " alt="" coords="216,5,337,32"/>
+<area shape="rect" id="node3" href="$class_citizen.html#a62b6cff47b0c7916f5e83b5c582679db" title="Citizen::Age" alt="" coords="230,56,323,83"/>
+<area shape="rect" id="node4" href="$class_bank_rule.html#ad5831ef8a2798b059b3b68b6a9f8543a" title="BankRule::SaveMoney" alt="" coords="200,107,353,133"/>
+<area shape="rect" id="node5" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="196,157,357,184"/>
+<area shape="rect" id="node6" href="$class_core_controller.html#a67c980cc94b7c272cd15152fe1f6f3b6" title="CoreController::GetTime" alt="" coords="196,208,357,235"/>
+<area shape="rect" id="node7" href="$class_citizen.html#a929afae7672e26fcd7f08fa46c6e7410" title="Forces a citizen to do a specific rule for &quot;waitTime&quot; hours. " alt="" coords="212,259,341,285"/>
+<area shape="rect" id="node8" href="$class_citizen.html#a3c216a3a1c4b654aae5f2d82bd26f4ec" title="Set a time for the citizen to wait in the plot. 1 = ??? ingame minutes. " alt="" coords="405,259,503,285"/>
+</map>

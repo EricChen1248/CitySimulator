@@ -1,0 +1,4 @@
+<map id="Bank" name="Bank">
+<area shape="rect" id="node2" href="$class_base.html" title="Abstract class that is the base of all the system types. " alt="" coords="33,424,155,648"/>
+<area shape="rect" id="node4" href="$class_plot.html" title="Container class for each city plot. " alt="" coords="81,5,235,361"/>
+</map>

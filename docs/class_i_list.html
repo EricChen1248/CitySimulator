@@ -92,38 +92,285 @@ $(document).ready(function(){initNavTree('class_i_list.html','');});
 <div class="title">IList&lt; T &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Interface for a list collection.  
+ <a href="class_i_list.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_i_list_8h_source.html">IList.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for IList&lt; T &gt;:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="class_i_list.png" usemap="#IList_3C_20T_20_3E_map" alt=""/>
-  <map id="IList_3C_20T_20_3E_map" name="IList_3C_20T_20_3E_map">
-<area href="class_linked_list.html" title="An unlimited, ordered collection that uses link-based memory backing. Last lookup location is cached ..." alt="LinkedList&lt; T &gt;" shape="rect" coords="0,56,99,80"/>
-<area href="class_list.html" alt="List&lt; T &gt;" shape="rect" coords="109,56,208,80"/>
+<div class="center"><img src="class_i_list__inherit__graph.png" border="0" usemap="#_i_list_3_01_t_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="_i_list_3_01_t_01_4_inherit__map" id="_i_list_3_01_t_01_4_inherit__map">
+<area shape="rect" id="node2" href="class_linked_list.html" title="An unlimited, ordered collection that uses link&#45;based memory backing. " alt="" coords="69,233,183,501"/>
+<area shape="rect" id="node5" href="class_list.html" title="An unlimited, ordered collection that uses array&#45;based memory backing. " alt="" coords="997,241,1111,494"/>
+<area shape="rect" id="node16" href="class_i_list.html" title="{IList\&lt; SatisBar * \&gt;\n||+ ~IList()\l+ operator[]()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Count()\l}" alt="" coords="1272,285,1401,450"/>
+<area shape="rect" id="node17" href="class_i_list.html" title="{IList\&lt; BaseRule * \&gt;\n||+ ~IList()\l+ operator[]()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Count()\l}" alt="" coords="487,285,621,450"/>
+<area shape="rect" id="node18" href="class_i_list.html" title="{IList\&lt; Coordinate \&gt;\n||+ ~IList()\l+ operator[]()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Count()\l}" alt="" coords="841,285,973,450"/>
+<area shape="rect" id="node19" href="class_i_list.html" title="{IList\&lt; BaseSystem * \&gt;\n||+ ~IList()\l+ operator[]()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Count()\l}" alt="" coords="1563,285,1718,450"/>
+<area shape="rect" id="node20" href="class_i_list.html" title="{IList\&lt; Citizen * \&gt;\n||+ ~IList()\l+ operator[]()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Count()\l}" alt="" coords="207,285,325,450"/>
+<area shape="rect" id="node21" href="class_i_list.html" title="{IList\&lt; float \&gt;\n||+ ~IList()\l+ operator[]()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Count()\l}" alt="" coords="1135,285,1248,450"/>
+<area shape="rect" id="node22" href="class_i_list.html" title="{IList\&lt; Road * \&gt;\n||+ ~IList()\l+ operator[]()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Count()\l}" alt="" coords="1425,285,1539,450"/>
+<area shape="rect" id="node23" href="class_i_list.html" title="{IList\&lt; SelectionButton * \&gt;\n||+ ~IList()\l+ operator[]()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Count()\l}" alt="" coords="646,285,817,450"/>
+<area shape="rect" id="node24" href="class_i_list.html" title="{IList\&lt; Plot * \&gt;\n||+ ~IList()\l+ operator[]()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Count()\l}" alt="" coords="349,285,463,450"/>
+<area shape="rect" id="node25" href="class_i_list.html" title="{IList\&lt; Log * \&gt;\n||+ ~IList()\l+ operator[]()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Count()\l}" alt="" coords="1743,285,1856,450"/>
+<area shape="rect" id="node3" href="class_linked_list.html" title="{LinkedList\&lt; Citizen *\&gt;\n|# first\l# last\l# count\l|+ LinkedList()\l+ LinkedList()\l+ ~LinkedList()\l+ operator[]()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Dispose()\l+ Count()\l+ begin()\l+ end()\l}" alt="" coords="5,564,156,832"/>
+<area shape="rect" id="node4" href="class_linked_list.html" title="{LinkedList\&lt; Plot *\&gt;\n|# first\l# last\l# count\l|+ LinkedList()\l+ LinkedList()\l+ ~LinkedList()\l+ operator[]()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Dispose()\l+ Count()\l+ begin()\l+ end()\l}" alt="" coords="181,564,314,832"/>
+<area shape="rect" id="node6" href="class_list.html" title="{List\&lt; SelectionButton *\&gt;\n||+ List()\l+ ~List()\l+ operator[]()\l+ Clear()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Dispose()\l+ Contains()\l+ Count()\l+ begin()\l+ end()\l}" alt="" coords="767,571,931,825"/>
+<area shape="rect" id="node7" href="class_list.html" title="{List\&lt; Coordinate \&gt;\n||+ List()\l+ ~List()\l+ operator[]()\l+ Clear()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Dispose()\l+ Contains()\l+ Count()\l+ begin()\l+ end()\l}" alt="" coords="955,571,1084,825"/>
+<area shape="rect" id="node8" href="class_list.html" title="{List\&lt; float \&gt;\n||+ List()\l+ ~List()\l+ operator[]()\l+ Clear()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Dispose()\l+ Contains()\l+ Count()\l+ begin()\l+ end()\l}" alt="" coords="1123,571,1236,825"/>
+<area shape="rect" id="node9" href="class_list.html" title="{List\&lt; Plot *\&gt;\n||+ List()\l+ ~List()\l+ operator[]()\l+ Clear()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Dispose()\l+ Contains()\l+ Count()\l+ begin()\l+ end()\l}" alt="" coords="476,571,589,825"/>
+<area shape="rect" id="node10" href="class_list.html" title="{List\&lt; Citizen *\&gt;\n||+ List()\l+ ~List()\l+ operator[]()\l+ Clear()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Dispose()\l+ Contains()\l+ Count()\l+ begin()\l+ end()\l}" alt="" coords="339,571,452,825"/>
+<area shape="rect" id="node11" href="class_list.html" title="{List\&lt; BaseRule *\&gt;\n||+ List()\l+ ~List()\l+ operator[]()\l+ Clear()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Dispose()\l+ Contains()\l+ Count()\l+ begin()\l+ end()\l}" alt="" coords="614,571,742,825"/>
+<area shape="rect" id="node12" href="class_list.html" title="{List\&lt; Road *\&gt;\n||+ List()\l+ ~List()\l+ operator[]()\l+ Clear()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Dispose()\l+ Contains()\l+ Count()\l+ begin()\l+ end()\l}" alt="" coords="1420,571,1533,825"/>
+<area shape="rect" id="node13" href="class_list.html" title="{List\&lt; BaseSystem *\&gt;\n||+ List()\l+ ~List()\l+ operator[]()\l+ Clear()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Dispose()\l+ Contains()\l+ Count()\l+ begin()\l+ end()\l}" alt="" coords="1559,571,1706,825"/>
+<area shape="rect" id="node14" href="class_list.html" title="{List\&lt; Log *\&gt;\n||+ List()\l+ ~List()\l+ operator[]()\l+ Clear()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Dispose()\l+ Contains()\l+ Count()\l+ begin()\l+ end()\l}" alt="" coords="1732,571,1845,825"/>
+<area shape="rect" id="node15" href="class_list.html" title="{List\&lt; SatisBar *\&gt;\n||+ List()\l+ ~List()\l+ operator[]()\l+ Clear()\l+ InsertLast()\l+ RemoveLast()\l+ Remove()\l+ Remove()\l+ Dispose()\l+ Contains()\l+ Count()\l+ begin()\l+ end()\l}" alt="" coords="1269,571,1391,825"/>
 </map>
- </div></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for IList&lt; T &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_i_list__coll__graph.png" border="0" usemap="#_i_list_3_01_t_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="_i_list_3_01_t_01_4_coll__map" id="_i_list_3_01_t_01_4_coll__map">
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a74eaf224c451e4d8408eb4bd4198adbc"><td class="memItemLeft" align="right" valign="top"><a id="a74eaf224c451e4d8408eb4bd4198adbc"></a>
-virtual T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (int index) const =0</td></tr>
+<tr class="memitem:a066ae22d66b9af5cce82c8dd1ae96f9e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_list.html#a066ae22d66b9af5cce82c8dd1ae96f9e">~IList</a> ()=default</td></tr>
+<tr class="separator:a066ae22d66b9af5cce82c8dd1ae96f9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74eaf224c451e4d8408eb4bd4198adbc"><td class="memItemLeft" align="right" valign="top">virtual T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_list.html#a74eaf224c451e4d8408eb4bd4198adbc">operator[]</a> (int index) const =0</td></tr>
 <tr class="separator:a74eaf224c451e4d8408eb4bd4198adbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3432b2b239f8487c83474a17d601cea7"><td class="memItemLeft" align="right" valign="top"><a id="a3432b2b239f8487c83474a17d601cea7"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>InsertLast</b> (const T &amp;item)=0</td></tr>
+<tr class="memitem:a3432b2b239f8487c83474a17d601cea7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_list.html#a3432b2b239f8487c83474a17d601cea7">InsertLast</a> (const T &amp;item)=0</td></tr>
 <tr class="separator:a3432b2b239f8487c83474a17d601cea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a172cb2029bb3c0fdf0fadb168258b599"><td class="memItemLeft" align="right" valign="top"><a id="a172cb2029bb3c0fdf0fadb168258b599"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>RemoveLast</b> ()=0</td></tr>
+<tr class="memitem:a172cb2029bb3c0fdf0fadb168258b599"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_list.html#a172cb2029bb3c0fdf0fadb168258b599">RemoveLast</a> ()=0</td></tr>
 <tr class="separator:a172cb2029bb3c0fdf0fadb168258b599"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef6ae310c6ca966db7b1cfbd6b907f22"><td class="memItemLeft" align="right" valign="top"><a id="aef6ae310c6ca966db7b1cfbd6b907f22"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Remove</b> (int index)=0</td></tr>
+<tr class="memitem:aef6ae310c6ca966db7b1cfbd6b907f22"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_list.html#aef6ae310c6ca966db7b1cfbd6b907f22">Remove</a> (int index)=0</td></tr>
 <tr class="separator:aef6ae310c6ca966db7b1cfbd6b907f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad21b5e23ce97010727d2b6ee6c1ddce4"><td class="memItemLeft" align="right" valign="top"><a id="ad21b5e23ce97010727d2b6ee6c1ddce4"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Remove</b> (const T &amp;item)=0</td></tr>
+<tr class="memitem:ad21b5e23ce97010727d2b6ee6c1ddce4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_list.html#ad21b5e23ce97010727d2b6ee6c1ddce4">Remove</a> (const T &amp;item)=0</td></tr>
 <tr class="separator:ad21b5e23ce97010727d2b6ee6c1ddce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73651d187ecfa432716b6f81821c6e20"><td class="memItemLeft" align="right" valign="top"><a id="a73651d187ecfa432716b6f81821c6e20"></a>
-virtual const int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Count</b> () const =0</td></tr>
+<tr class="memitem:a73651d187ecfa432716b6f81821c6e20"><td class="memItemLeft" align="right" valign="top">virtual const int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_list.html#a73651d187ecfa432716b6f81821c6e20">Count</a> () const =0</td></tr>
 <tr class="separator:a73651d187ecfa432716b6f81821c6e20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+class IList&lt; T &gt;</h3>
+
+<p>Interface for a list collection. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>type of item being store </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a066ae22d66b9af5cce82c8dd1ae96f9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a066ae22d66b9af5cce82c8dd1ae96f9e">&#9670;&nbsp;</a></span>~IList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="class_i_list.html">IList</a>&lt; T &gt;::~<a class="el" href="class_i_list.html">IList</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a73651d187ecfa432716b6f81821c6e20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73651d187ecfa432716b6f81821c6e20">&#9670;&nbsp;</a></span>Count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const int&amp; <a class="el" href="class_i_list.html">IList</a>&lt; T &gt;::Count </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_linked_list.html#ae526a6c2b68aa8cc08d6028f2e758c71">LinkedList&lt; T &gt;</a>, <a class="el" href="class_linked_list.html#ae526a6c2b68aa8cc08d6028f2e758c71">LinkedList&lt; Citizen *&gt;</a>, <a class="el" href="class_linked_list.html#ae526a6c2b68aa8cc08d6028f2e758c71">LinkedList&lt; Plot *&gt;</a>, <a class="el" href="class_list.html#a77e7126ebd803130624a0d9c38bee836">List&lt; T &gt;</a>, <a class="el" href="class_list.html#a77e7126ebd803130624a0d9c38bee836">List&lt; SelectionButton *&gt;</a>, <a class="el" href="class_list.html#a77e7126ebd803130624a0d9c38bee836">List&lt; Coordinate &gt;</a>, <a class="el" href="class_list.html#a77e7126ebd803130624a0d9c38bee836">List&lt; float &gt;</a>, <a class="el" href="class_list.html#a77e7126ebd803130624a0d9c38bee836">List&lt; Plot *&gt;</a>, <a class="el" href="class_list.html#a77e7126ebd803130624a0d9c38bee836">List&lt; Citizen *&gt;</a>, <a class="el" href="class_list.html#a77e7126ebd803130624a0d9c38bee836">List&lt; BaseRule *&gt;</a>, <a class="el" href="class_list.html#a77e7126ebd803130624a0d9c38bee836">List&lt; Road *&gt;</a>, <a class="el" href="class_list.html#a77e7126ebd803130624a0d9c38bee836">List&lt; BaseSystem *&gt;</a>, <a class="el" href="class_list.html#a77e7126ebd803130624a0d9c38bee836">List&lt; Log *&gt;</a>, and <a class="el" href="class_list.html#a77e7126ebd803130624a0d9c38bee836">List&lt; SatisBar *&gt;</a>.</p>
+
+</div>
+</div>
+<a id="a3432b2b239f8487c83474a17d601cea7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3432b2b239f8487c83474a17d601cea7">&#9670;&nbsp;</a></span>InsertLast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="class_i_list.html">IList</a>&lt; T &gt;::InsertLast </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>item</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_linked_list.html#a0a315967ed8b236df127089a8b13650e">LinkedList&lt; T &gt;</a>, <a class="el" href="class_linked_list.html#a0a315967ed8b236df127089a8b13650e">LinkedList&lt; Citizen *&gt;</a>, <a class="el" href="class_linked_list.html#a0a315967ed8b236df127089a8b13650e">LinkedList&lt; Plot *&gt;</a>, <a class="el" href="class_list.html#a3d2b2b76b221e198c96013b00c1ad59b">List&lt; T &gt;</a>, <a class="el" href="class_list.html#a3d2b2b76b221e198c96013b00c1ad59b">List&lt; SelectionButton *&gt;</a>, <a class="el" href="class_list.html#a3d2b2b76b221e198c96013b00c1ad59b">List&lt; Coordinate &gt;</a>, <a class="el" href="class_list.html#a3d2b2b76b221e198c96013b00c1ad59b">List&lt; float &gt;</a>, <a class="el" href="class_list.html#a3d2b2b76b221e198c96013b00c1ad59b">List&lt; Plot *&gt;</a>, <a class="el" href="class_list.html#a3d2b2b76b221e198c96013b00c1ad59b">List&lt; Citizen *&gt;</a>, <a class="el" href="class_list.html#a3d2b2b76b221e198c96013b00c1ad59b">List&lt; BaseRule *&gt;</a>, <a class="el" href="class_list.html#a3d2b2b76b221e198c96013b00c1ad59b">List&lt; Road *&gt;</a>, <a class="el" href="class_list.html#a3d2b2b76b221e198c96013b00c1ad59b">List&lt; BaseSystem *&gt;</a>, <a class="el" href="class_list.html#a3d2b2b76b221e198c96013b00c1ad59b">List&lt; Log *&gt;</a>, and <a class="el" href="class_list.html#a3d2b2b76b221e198c96013b00c1ad59b">List&lt; SatisBar *&gt;</a>.</p>
+
+</div>
+</div>
+<a id="a74eaf224c451e4d8408eb4bd4198adbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74eaf224c451e4d8408eb4bd4198adbc">&#9670;&nbsp;</a></span>operator[]()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual T&amp; <a class="el" href="class_i_list.html">IList</a>&lt; T &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_linked_list.html#a530b4c4c76855b87b5e65d3c402357ff">LinkedList&lt; T &gt;</a>, <a class="el" href="class_linked_list.html#a530b4c4c76855b87b5e65d3c402357ff">LinkedList&lt; Citizen *&gt;</a>, <a class="el" href="class_linked_list.html#a530b4c4c76855b87b5e65d3c402357ff">LinkedList&lt; Plot *&gt;</a>, <a class="el" href="class_list.html#ac90240c609dac0b42db696b360274e62">List&lt; T &gt;</a>, <a class="el" href="class_list.html#ac90240c609dac0b42db696b360274e62">List&lt; SelectionButton *&gt;</a>, <a class="el" href="class_list.html#ac90240c609dac0b42db696b360274e62">List&lt; Coordinate &gt;</a>, <a class="el" href="class_list.html#ac90240c609dac0b42db696b360274e62">List&lt; float &gt;</a>, <a class="el" href="class_list.html#ac90240c609dac0b42db696b360274e62">List&lt; Plot *&gt;</a>, <a class="el" href="class_list.html#ac90240c609dac0b42db696b360274e62">List&lt; Citizen *&gt;</a>, <a class="el" href="class_list.html#ac90240c609dac0b42db696b360274e62">List&lt; BaseRule *&gt;</a>, <a class="el" href="class_list.html#ac90240c609dac0b42db696b360274e62">List&lt; Road *&gt;</a>, <a class="el" href="class_list.html#ac90240c609dac0b42db696b360274e62">List&lt; BaseSystem *&gt;</a>, <a class="el" href="class_list.html#ac90240c609dac0b42db696b360274e62">List&lt; Log *&gt;</a>, and <a class="el" href="class_list.html#ac90240c609dac0b42db696b360274e62">List&lt; SatisBar *&gt;</a>.</p>
+
+</div>
+</div>
+<a id="aef6ae310c6ca966db7b1cfbd6b907f22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef6ae310c6ca966db7b1cfbd6b907f22">&#9670;&nbsp;</a></span>Remove() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="class_i_list.html">IList</a>&lt; T &gt;::Remove </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_linked_list.html#a0a06df5a891eeaf3ddb1fc956f3a4032">LinkedList&lt; T &gt;</a>, <a class="el" href="class_linked_list.html#a0a06df5a891eeaf3ddb1fc956f3a4032">LinkedList&lt; Citizen *&gt;</a>, <a class="el" href="class_linked_list.html#a0a06df5a891eeaf3ddb1fc956f3a4032">LinkedList&lt; Plot *&gt;</a>, <a class="el" href="class_list.html#a1524395880e3185d58187368ce50a134">List&lt; T &gt;</a>, <a class="el" href="class_list.html#a1524395880e3185d58187368ce50a134">List&lt; SelectionButton *&gt;</a>, <a class="el" href="class_list.html#a1524395880e3185d58187368ce50a134">List&lt; Coordinate &gt;</a>, <a class="el" href="class_list.html#a1524395880e3185d58187368ce50a134">List&lt; float &gt;</a>, <a class="el" href="class_list.html#a1524395880e3185d58187368ce50a134">List&lt; Plot *&gt;</a>, <a class="el" href="class_list.html#a1524395880e3185d58187368ce50a134">List&lt; Citizen *&gt;</a>, <a class="el" href="class_list.html#a1524395880e3185d58187368ce50a134">List&lt; BaseRule *&gt;</a>, <a class="el" href="class_list.html#a1524395880e3185d58187368ce50a134">List&lt; Road *&gt;</a>, <a class="el" href="class_list.html#a1524395880e3185d58187368ce50a134">List&lt; BaseSystem *&gt;</a>, <a class="el" href="class_list.html#a1524395880e3185d58187368ce50a134">List&lt; Log *&gt;</a>, and <a class="el" href="class_list.html#a1524395880e3185d58187368ce50a134">List&lt; SatisBar *&gt;</a>.</p>
+
+</div>
+</div>
+<a id="ad21b5e23ce97010727d2b6ee6c1ddce4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad21b5e23ce97010727d2b6ee6c1ddce4">&#9670;&nbsp;</a></span>Remove() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="class_i_list.html">IList</a>&lt; T &gt;::Remove </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>item</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_linked_list.html#af39a1c7758cd7096d3ce8aa76c59eac1">LinkedList&lt; T &gt;</a>, <a class="el" href="class_linked_list.html#af39a1c7758cd7096d3ce8aa76c59eac1">LinkedList&lt; Citizen *&gt;</a>, <a class="el" href="class_linked_list.html#af39a1c7758cd7096d3ce8aa76c59eac1">LinkedList&lt; Plot *&gt;</a>, <a class="el" href="class_list.html#aac72a31b63111188057502b147262d1c">List&lt; T &gt;</a>, <a class="el" href="class_list.html#aac72a31b63111188057502b147262d1c">List&lt; SelectionButton *&gt;</a>, <a class="el" href="class_list.html#aac72a31b63111188057502b147262d1c">List&lt; Coordinate &gt;</a>, <a class="el" href="class_list.html#aac72a31b63111188057502b147262d1c">List&lt; float &gt;</a>, <a class="el" href="class_list.html#aac72a31b63111188057502b147262d1c">List&lt; Plot *&gt;</a>, <a class="el" href="class_list.html#aac72a31b63111188057502b147262d1c">List&lt; Citizen *&gt;</a>, <a class="el" href="class_list.html#aac72a31b63111188057502b147262d1c">List&lt; BaseRule *&gt;</a>, <a class="el" href="class_list.html#aac72a31b63111188057502b147262d1c">List&lt; Road *&gt;</a>, <a class="el" href="class_list.html#aac72a31b63111188057502b147262d1c">List&lt; BaseSystem *&gt;</a>, <a class="el" href="class_list.html#aac72a31b63111188057502b147262d1c">List&lt; Log *&gt;</a>, and <a class="el" href="class_list.html#aac72a31b63111188057502b147262d1c">List&lt; SatisBar *&gt;</a>.</p>
+
+</div>
+</div>
+<a id="a172cb2029bb3c0fdf0fadb168258b599"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a172cb2029bb3c0fdf0fadb168258b599">&#9670;&nbsp;</a></span>RemoveLast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="class_i_list.html">IList</a>&lt; T &gt;::RemoveLast </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_linked_list.html#a76f71335cbf8b69571e886879e00ccb2">LinkedList&lt; T &gt;</a>, <a class="el" href="class_linked_list.html#a76f71335cbf8b69571e886879e00ccb2">LinkedList&lt; Citizen *&gt;</a>, <a class="el" href="class_linked_list.html#a76f71335cbf8b69571e886879e00ccb2">LinkedList&lt; Plot *&gt;</a>, <a class="el" href="class_list.html#a8f726d8a2902ff32722aafb97c3eac4d">List&lt; T &gt;</a>, <a class="el" href="class_list.html#a8f726d8a2902ff32722aafb97c3eac4d">List&lt; SelectionButton *&gt;</a>, <a class="el" href="class_list.html#a8f726d8a2902ff32722aafb97c3eac4d">List&lt; Coordinate &gt;</a>, <a class="el" href="class_list.html#a8f726d8a2902ff32722aafb97c3eac4d">List&lt; float &gt;</a>, <a class="el" href="class_list.html#a8f726d8a2902ff32722aafb97c3eac4d">List&lt; Plot *&gt;</a>, <a class="el" href="class_list.html#a8f726d8a2902ff32722aafb97c3eac4d">List&lt; Citizen *&gt;</a>, <a class="el" href="class_list.html#a8f726d8a2902ff32722aafb97c3eac4d">List&lt; BaseRule *&gt;</a>, <a class="el" href="class_list.html#a8f726d8a2902ff32722aafb97c3eac4d">List&lt; Road *&gt;</a>, <a class="el" href="class_list.html#a8f726d8a2902ff32722aafb97c3eac4d">List&lt; BaseSystem *&gt;</a>, <a class="el" href="class_list.html#a8f726d8a2902ff32722aafb97c3eac4d">List&lt; Log *&gt;</a>, and <a class="el" href="class_list.html#a8f726d8a2902ff32722aafb97c3eac4d">List&lt; SatisBar *&gt;</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Collections/Interfaces/<a class="el" href="_i_list_8h_source.html">IList.h</a></li>
 </ul>

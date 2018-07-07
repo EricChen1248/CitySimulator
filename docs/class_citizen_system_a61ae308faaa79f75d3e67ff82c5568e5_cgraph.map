@@ -1,0 +1,4 @@
+<map id="CitizenSystem::PruneDead" name="CitizenSystem::PruneDead">
+<area shape="rect" id="node2" href="$class_linked_list.html#ae526a6c2b68aa8cc08d6028f2e758c71" title="LinkedList::Count" alt="" coords="238,5,361,32"/>
+<area shape="rect" id="node3" href="$class_linked_list.html#a0a06df5a891eeaf3ddb1fc956f3a4032" title="Removes an item from the LinkedList based on index. " alt="" coords="232,56,367,83"/>
+</map>

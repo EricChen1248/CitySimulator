@@ -1,0 +1,25 @@
+<map id="Citizen::Update" name="Citizen::Update">
+<area shape="rect" id="node2" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="461,187,622,213"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#a2eece93ec8a141fd3640ccd2db3091bf" title="CoreController::GetDeltaTime" alt="" coords="179,56,370,83"/>
+<area shape="rect" id="node4" href="$class_citizen.html#ae61d61c5787b498c95c2e73d523fbf98" title="Citizen::UpdateScreenCoordinates" alt="" coords="164,5,385,32"/>
+<area shape="rect" id="node6" href="$class_stack.html#a73bd89f34133081f6f6781ccfb977013" title="Returns if the stack is empty. " alt="" coords="219,157,331,184"/>
+<area shape="rect" id="node7" href="$class_base_rule.html#a059938ddf19ff06616249714dc4d7737" title="BaseRule::EnterPlot" alt="" coords="205,208,345,235"/>
+<area shape="rect" id="node8" href="$class_plot.html#ae496cc99f91959a9afd7c0f538c22220" title="Handles citizens entering plot. " alt="" coords="233,376,317,403"/>
+<area shape="rect" id="node10" href="$class_stack.html#a362b42769896d3a4b3ce675522ab8711" title="Removes and returns the item at the top of the stack. " alt="" coords="231,325,318,352"/>
+<area shape="rect" id="node11" href="$class_core_controller.html#a3c23d3b6e5fa93b707ac5be6bc2dda96" title="CoreController::GetSystem\lController" alt="" coords="185,259,364,301"/>
+<area shape="rect" id="node12" href="$class_system_controller.html#a924460fc849b317d559812604523f65f" title="SystemController::Plots" alt="" coords="195,427,355,453"/>
+<area shape="rect" id="node13" href="$class_plot_system.html#a1487fdbe3c7d55f340bafc8e4e8dc5f7" title="Attemps to find a plot in the system with the corresponding coordinates. " alt="" coords="201,477,348,504"/>
+<area shape="rect" id="node14" href="$class_road.html#ae35d604808bc4b2a8128672d3018c59d" title="Road::Leave" alt="" coords="228,528,321,555"/>
+<area shape="rect" id="node15" href="$class_road.html#a34592c1282a7dd849a44d6b9ab8e8f84" title="Road::Enter" alt="" coords="229,579,320,605"/>
+<area shape="rect" id="node16" href="$class_road.html#a7c1d7e45bc91da286e7431cbb597749f" title="Road::Speed" alt="" coords="226,629,323,656"/>
+<area shape="rect" id="node17" href="$class_coordinate.html#a8524cf662ab2550956b0426f25b5b738" title="Splices a coordinate that is between the source and target based on prev update time;. " alt="" coords="189,680,360,707"/>
+<area shape="rect" id="node21" href="$class_plot.html#a51161231a2b3d7fcc73fd89fde59c2c3" title="Handles citizens leaving the plot. " alt="" coords="231,731,318,757"/>
+<area shape="rect" id="node23" href="$class_base_rule.html#affe66e98a15c86523ef69cfdfd1e2c97" title="BaseRule::LeavePlot" alt="" coords="203,781,346,808"/>
+<area shape="rect" id="node24" href="$class_plot.html#ac678bf292e6907a0c2d957d12838f3b7" title="Plot::Coords" alt="" coords="227,832,322,859"/>
+<area shape="rect" id="node5" href="$class_coordinate.html#a74b01f06cbf216c1db4c54e1957f0cab" title="Converts game hexagonal coordinates to SFML cube coordinates. " alt="" coords="433,5,649,32"/>
+<area shape="rect" id="node9" href="$class_list.html#a3d2b2b76b221e198c96013b00c1ad59b" title="List::InsertLast" alt="" coords="487,376,595,403"/>
+<area shape="rect" id="node18" href="$class_coordinate.html#a215fcd6e2ff1f29f7eb471ea881f024d" title="Coordinate::X" alt="" coords="492,655,591,681"/>
+<area shape="rect" id="node19" href="$class_coordinate.html#ad043c6ce825296d6fb2cf0a245b2fb26" title="Coordinate::Y" alt="" coords="491,705,592,732"/>
+<area shape="rect" id="node20" href="$class_coordinate.html#ae0921f0a801923de015c5e71f7780a76" title="Coordinate::Z" alt="" coords="492,604,591,631"/>
+<area shape="rect" id="node22" href="$class_list.html#a1524395880e3185d58187368ce50a134" title="List::Remove" alt="" coords="493,756,590,783"/>
+</map>

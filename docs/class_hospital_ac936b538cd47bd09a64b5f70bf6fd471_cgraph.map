@@ -1,0 +1,8 @@
+<map id="Hospital::Destroy" name="Hospital::Destroy">
+<area shape="rect" id="node2" href="$class_base.html#a1d6d26200c6df421b7fe7105f8a12b28" title="Base::Destroy" alt="" coords="176,71,281,98"/>
+<area shape="rect" id="node3" href="$class_core_controller.html#a3c23d3b6e5fa93b707ac5be6bc2dda96" title="CoreController::GetSystem\lController" alt="" coords="338,5,517,47"/>
+<area shape="rect" id="node5" href="$class_system_controller.html#a69de55b16d60a1792473428cfa183684" title="Gets the system based on system enum type. " alt="" coords="329,71,525,98"/>
+<area shape="rect" id="node6" href="$class_base_system.html#a95a11d9b9983589dffab5275e3493469" title="Unregister a plot to remove it from being tracked in the system. " alt="" coords="345,122,509,149"/>
+<area shape="rect" id="node4" href="$class_core_controller.html#ab140d9db94081ab3245b4a45ba3d872d" title="CoreController::Instance" alt="" coords="573,13,735,39"/>
+<area shape="rect" id="node7" href="$class_list.html#a1524395880e3185d58187368ce50a134" title="List::Remove" alt="" coords="605,122,703,149"/>
+</map>
