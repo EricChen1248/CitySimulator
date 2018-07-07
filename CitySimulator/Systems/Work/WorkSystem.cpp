@@ -19,7 +19,7 @@ WorkSystem::WorkSystem(): BaseSystem(WORK)
 	WorkRule::breakTime = Time(12, 0);
 	WorkRule::endBreakTime = Time(13, 0);
 	WorkRule::timeOffWork = Time(17, 0);
-    toggleable = true;
+	highLevel = true;	
 }
 
 
@@ -119,9 +119,6 @@ void WorkSystem::EndDay()
 
 void WorkSystem::Toggle()
 {
-
-
-
-
+	highLevel = !highLevel;
 }
 ;
