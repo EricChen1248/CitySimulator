@@ -15,6 +15,16 @@ class WorkRule : public BaseRule
 public:
     WorkRule(Citizen& citizen);
     ~WorkRule();
+	float CalculateScore() override;
+	bool FindPlot() override;
+	void EnterPlot(Plot* plot) override;
+	void LeavePlot(Plot* plot) override;
+	void Update() override;
+	bool IsSatisfied() override;
+	void NewDay() override;
+	void Register();
+	void UnRegister();
+
 private:
 	const int maxDistance = 10;
 	Plot* assignedCompany;
@@ -27,14 +37,4 @@ private:
 	static helper::Time breakTime;
 	static helper::Time endBreakTime;
 	static helper::Time timeOffWork;
-
-	float CalculateScore() override;
-	bool FindPlot() override;
-	void EnterPlot(Plot* plot) override;
-	void LeavePlot(Plot* plot) override;
-	void Update() override;
-	bool IsSatisfied() override;
-	void NewDay() override;
-	void Register();
-	void UnRegister();
 };
