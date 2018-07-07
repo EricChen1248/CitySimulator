@@ -22,6 +22,20 @@ SFMLController::SFMLController() : isRunning(false), window(nullptr)
     window = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "City Simulator", Style::Titlebar | Style::Close);
     window->setFramerateLimit(60);
     isRunning = true;
+    
+    auto origin = Coordinate(0,0,0);
+    playfield.resize(6);
+    playfield.setPrimitiveType(TriangleStrip);
+    playfield[0].position = origin.LeftDown(16).ToScreenCoordinates().ToVector2F();
+    playfield[1].position = origin.RightDown(16).ToScreenCoordinates().ToVector2F();
+    playfield[2].position = origin.Left(16).ToScreenCoordinates().ToVector2F();
+    playfield[3].position = origin.Right(16).ToScreenCoordinates().ToVector2F();
+    playfield[4].position = origin.LeftUp(16).ToScreenCoordinates().ToVector2F();
+    playfield[5].position = origin.RightUp(16).ToScreenCoordinates().ToVector2F();
+    for (int i = 0; i < 6; ++i)
+    {
+        playfield[i].color = WHITE;
+    }
 }
 
 SFMLController::~SFMLController()
@@ -43,7 +57,8 @@ bool SFMLController::IsRunning() const
  */
 void SFMLController::ClearRender() const
 {
-    window->clear(WHITE);
+    window->clear(BACKGROUND);
+    window->draw(playfield);
 }
 
 /**
