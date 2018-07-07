@@ -36,9 +36,10 @@ float HospitalSystem::GetSatisfaction() const
     {
          score -= float(unhappyDeath) / totalDeaths;
     }
-    
-    // TODO : ANGEL add if your hospitals are crowded
-    
+
+	// if hospitals are crowded
+	score -= crowdedScoreMinus;
+ 
     return Clamp(score, 0.f, 1.f);
 }
 
@@ -81,6 +82,19 @@ void HospitalSystem::NewDay()
 {
     unhappyDeath = 0;
     totalDeaths = 0;
+
+	// Calculate hospital score(crowded part)
+	crowdedHospital = 0;
+	crowdedScoreMinus = 0;
+	for (auto&& plot : plots)
+	{
+		const auto hospital = dynamic_cast<Hospital*>(plot->GetPlotType());
+		if (hospital->members.Count() > hospital->capacity)
+		{
+			crowdedScoreMinus += float(hospital->members.Count() - hospital->capacity) / hospital->capacity;
+			crowdedHospital++;
+		}
+	}
 }
 
 /**
@@ -109,7 +123,10 @@ std::string HospitalSystem::ContentString()
             ss << "Too many people" << std::endl << "are dying outside" << std::endl << "of the hospital";
         }
     }
-    // TODO : add your response string if your hospitals are too crowded
+	else if (crowdedHospital > 0)
+	{
+		ss << "There are "  << crowdedHospital << std::endl << " hospitals crowded" << std::endl;
+	}
     else
     {
         ss << "The hospital system" << std::endl << "is working perfectly" << std::endl;

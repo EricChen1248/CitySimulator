@@ -21,7 +21,9 @@ private :
     const int maxOccupantCount = 20;
     const int scorePerOccupant = 10;
     const int overPenalty = 5;
-    
+	
+	float crowdedScoreMinus = 0.f;
+	int crowdedHospital = 0;
     int unhappyDeath = 0;
     int totalDeaths = 0;
 };

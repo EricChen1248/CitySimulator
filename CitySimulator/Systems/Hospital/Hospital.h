@@ -9,6 +9,7 @@ class HospitalRule;
 class Hospital : public Base
 {
 friend HospitalRule;
+friend HospitalSystem;
 
     public:
     Hospital(Plot* plot);
