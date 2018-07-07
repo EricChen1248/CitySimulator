@@ -21,11 +21,13 @@ public:
 	void LeavePlot(Plot* plot) override;
 	void Update() override;
 	void NewDay() override;
+	void EndDay() override;
 	void Register();
 	void UnRegister();
 
 private:
-	const int maxDistance = 10;
+
+	const int maxDistance = 1;
 	Plot* assignedCompany;
 	float salary;
 	float baseSalary;

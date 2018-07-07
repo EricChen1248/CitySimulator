@@ -1,7 +1,7 @@
 #pragma once
 
 /**
- * \brief Helper class that provides iteration functions for custom collections
+ * \brief Helper class that provides iteration functions for array-based collections
  * \tparam T Type of item that will be use with the class 
  */
 template<typename T>

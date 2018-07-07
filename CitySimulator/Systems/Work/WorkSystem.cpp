@@ -3,8 +3,8 @@
 #include "WorkRule.h"
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
-
-
+#include <iostream>
+using namespace std;
 
 class WorkRule;
 
@@ -63,16 +63,25 @@ void WorkSystem::Update()
 
 float WorkSystem::GetSatisfaction() const
 {
-	int employeeCount = 0;
-	float todayWorkTIme = 0.f;
+	int totalEmployee = 0;
+	int totalLateEmployee = 0;
+	int total = 0;
+	float totalWorkingTime = 0.f;
 	for (auto&& plot : plots)
 	{
 		const auto work = dynamic_cast<Work*>(plot->GetPlotType());
-		employeeCount += work->employees.Count();
-		todayWorkTIme += work->todayWorkTime;
+		totalEmployee += work->todayEmployee;
+		totalLateEmployee += work->todayLateEmployee;
+		total += work->employees.Count();
+		totalWorkingTime += work->todayWorkingTime;
 	}
 
-	float satisfaction = todayWorkTIme / (employeeCount * 4 * 2);
+	float satisfaction = totalWorkingTime / (total * 4 * 2);
+
+	/*
+	float satisfaction = float(totalEmployee - totalLateEmployee) / (total * 2);
+	cout << totalEmployee << ", " << totalLateEmployee << ", " << total * 2 << std::endl;
+	*/
 
 	satisfaction = Clamp(satisfaction, 0.f, 1.f);
 	return satisfaction;
@@ -106,7 +115,27 @@ int WorkSystem::Cost()
 std::string WorkSystem::ContentString()
 {
 	std::stringstream ss;
-    ss << "Everyone was on time" << std::endl << "to work" << std::endl;
+
+	int total = 0;
+	int totalEmployee = 0;
+	int totalLateEmployee = 0;
+	for (auto&& plot : plots)
+	{
+		const auto work = dynamic_cast<Work*>(plot->GetPlotType());
+		total += work->employees.Count();
+		totalEmployee += work->todayEmployee;
+		totalLateEmployee += work->todayLateEmployee;
+	}
+
+	if(totalLateEmployee == 0 && totalEmployee == total * 2)
+	    ss << "Everyone was on time" << std::endl << "to work" << std::endl;
+	else
+	{
+		if (totalLateEmployee != 0)
+			ss << totalLateEmployee / 2 << " of " << total << " employees" << std::endl << "were late to work" << std::endl;
+		if (totalEmployee != total * 2)
+			ss << total - totalEmployee / 2 << " of " << total << " employees" << std::endl << "were not at work" << std::endl;
+	}
     
 	if (highLevel)
 	{

@@ -15,7 +15,7 @@ using namespace std;
  * \brief 
  * \param plot 
  */
-Work::Work(Plot *plot) : Base(plot, WORK), todayEmployee(0), todayEarlyEmployee(0), todayLateEmployee(0), todayWorkTime(0.f), production(0) // TODO : cost;
+Work::Work(Plot *plot) : Base(plot, WORK), todayEmployee(0), todayLateEmployee(0), todayWorkingTime(0.f), production(0) // TODO : cost;
 {
     auto system = dynamic_cast<WorkSystem*>(CoreController::GetSystemController()->GetSystem(WORK));
 	highLevel = system->highLevel;
@@ -46,9 +46,8 @@ void Work::EndDay()
 void Work::NewDay()
 {
 	todayEmployee = 0;
-	todayEarlyEmployee = 0;
 	todayLateEmployee = 0;
-	todayWorkTime = 0.f;
+	todayWorkingTime = 0.f;
 	production = 0;
 }
 
@@ -60,21 +59,14 @@ void Work::Enter(const float workingTime, const float production)
 	//score += static_cast<int>(productDelta);
 	this->production += production;
 	Government::AddTax(production * 0.1f);
-	todayWorkTime += workingTime;
+	todayWorkingTime += workingTime;
 
-	if (workingTime == 4)
-	{
-		todayEmployee += 1;
-	}
-	else if (workingTime < 4)
+	todayEmployee += 1;
+
+	if (workingTime < 4)
 	{
 		todayLateEmployee += 1;
 	}
-	else
-	{
-		todayEarlyEmployee += 1;
-	}
-
 }
 
 
@@ -112,7 +104,7 @@ std::string Work::ContentString()
 
 	ss << "Employees: " << employees.Count() << " people"
 		<< std::endl << "Late: " << todayLateEmployee / 2 << " people"
-		<< std::endl << "On time: " << employees.Count() - todayLateEmployee / 2 << " people";
+		<< std::endl << "Not to work: " << employees.Count() - todayEmployee / 2 << " people";
 	return ss.str();
 }
 

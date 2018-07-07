@@ -23,11 +23,10 @@ private:
 	void Enter(const float workingTime, const float production);
 
 	int todayEmployee;
-	int todayEarlyEmployee;
 	int todayLateEmployee;
-	float todayWorkTime;
 	float baseSalary;
 	float production;
+	float todayWorkingTime;
 	List<Citizen*> employees;
 	bool highLevel;
 };

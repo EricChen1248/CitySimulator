@@ -6,6 +6,11 @@
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Controllers/CoreController.h"
+#include <iostream>
+
+using namespace std;
+
+int counter = 0;
 
 using helper::Time;
 
@@ -45,11 +50,10 @@ float WorkRule::CalculateScore()
 		}
 		
 		// break time (want to back company)
-		if (currentTime > breakTime && timeOffWork < currentTime)
+		if (breakTime < currentTime && currentTime < timeOffWork)
 		{
 			return 5000000 + Clamp(currentTime - breakTime, 0) * 100000;
 		}
-
 	}
     return 0; // not have work
 }
@@ -63,6 +67,7 @@ bool WorkRule::FindPlot()
 	if (assignedCompany == nullptr)
 		return false;
 
+	counter++;
 	citizen->SetActiveRule(this);
 	citizen->SetTarget(assignedCompany);
 	return true;
@@ -86,8 +91,6 @@ void WorkRule::EnterPlot(Plot* plot)
 	else
 		workingTime = static_cast<float>(timeOffWork - currentTime) / 60;
 
-	float tempWorkingTime = workingTime; // satisfaction increases due to early arrival
-
 	if (workingTime > 4)
 		workingTime = 4;
 
@@ -96,7 +99,7 @@ void WorkRule::EnterPlot(Plot* plot)
 	citizen->Wait(workingTime + float(RandomInt(-10, 10)) / 60); 
     
 	const int workingExp = citizen->Age() - 18; // Salary increases due to experience
-	work->Enter(tempWorkingTime, (salary + workingExp * 0.3f) * workingTime / 4);
+	work->Enter(workingTime, (salary + workingExp * 0.3f) * workingTime / 4);
 }
 
 /**
@@ -122,8 +125,14 @@ void WorkRule::Update()
 	// Do Nothing
 }
 
+void WorkRule::EndDay()
+{
+	//cout << counter << std::endl;
+}
+
 void WorkRule::NewDay()
 {
+	counter = 0;
 
 	if (citizen->Age() >= 18 && citizen->Age() < 45)
 	{

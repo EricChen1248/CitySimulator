@@ -1,11 +1,15 @@
 #pragma once
+
+/**
+ * \brief Handles and stores user variables
+ */
 class Government
 {
 public:
-    static void AddTax(const float money) { taxDollars += money; }
-    static void ChangeBirthRate(const float rate) { birthRate = rate; }
-    static float TaxDollars() { return taxDollars; }
-    static float BirthRate() { return birthRate; }
+    static void AddTax(float money);
+    static void ChangeBirthRate(float rate);
+    static float TaxDollars();
+    static float BirthRate();
 private:
     static float taxDollars;
     static float birthRate;
