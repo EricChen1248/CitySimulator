@@ -76,34 +76,6 @@ float WorkSystem::GetSatisfaction() const
 	return satisfaction;
 }
 
-
-
-/**
-* \brief Logs a citizen being satisified with a work
-* \param citizen Citzen being logged
-* \param rule Rule being logged
-*/
-void WorkSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
-{
-	// Dynamic cast rule to create a snapshot copy 
-	auto log = new Log(citizen->Coords(), new WorkRule(*dynamic_cast<WorkRule*>(rule)), citizen);
-	satisfiedLog.InsertLast(log);
-}
-
-
-/**
-* \brief Logs a citizen being unsatisified with a Work
-* \param citizen Citzen being logged
-* \param rule Rule being logged
-*/
-void WorkSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
-{
-	// Dynamic cast rule to create a snapshot copy 
-	auto log = new Log(citizen->Coords(), new WorkRule(*dynamic_cast<WorkRule*>(rule)), citizen);
-	unsatisfiedLog.InsertLast(log);
-}
-
-
 /**
 * \brief Resets the day (clears log & resets plots)
 */

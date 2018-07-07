@@ -20,7 +20,6 @@ public:
 	void EnterPlot(Plot* plot) override;
 	void LeavePlot(Plot* plot) override;
 	void Update() override;
-	bool IsSatisfied() override;
 	void NewDay() override;
 	void Register();
 	void UnRegister();

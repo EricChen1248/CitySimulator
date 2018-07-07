@@ -122,16 +122,6 @@ void WorkRule::Update()
 	// Do Nothing
 }
 
-/**
-* \brief Returns bool to tell if citizen is satisfied with it's food requirements
-* \return True if hunger level is over 20
-*/
-bool WorkRule::IsSatisfied()
-{
-	// TODO:If the person is late to work, he/she is unsatisfied;
-	return true;
-}
-
 void WorkRule::NewDay()
 {
 
