@@ -17,10 +17,11 @@ public:
     
     void NewDay() override;
     void EndDay() override { };
-    static const int MAX_FOOD_COST = 100;
+    int FoodCost(const helper::Time& time) const;
 private:
     const int maxCustomer = 10;
-    int mealCost;
+    static const int MEAL_COST[3] ;
+    int mealDeltaCost;
     int earnedMoney;
     int overloadedTally;
     

@@ -1,16 +1,17 @@
 #include "Food.hpp"
+#include "FoodRule.hpp"
+#include "FoodSystem.hpp"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Helpers/Government.h"
-#include "FoodSystem.hpp"
 
-const int Food::MAX_FOOD_COST;
+const int Food::MEAL_COST[3] {30,70,100};
 
 Food::Food(Plot* plot) : Base(plot, FOOD), earnedMoney(0), overloadedTally(0)
 {
     cost = 1000;
-    mealCost = RandomInt(50, MAX_FOOD_COST);
+    mealDeltaCost = RandomInt(-5, 5);
     color = FOOD_COLOR;
 }
 
@@ -26,7 +27,7 @@ std::string Food::ContentString()
     }
     else if (overloadedTally > 20)
     {
-        ss << "There were too many " << std::endl << "customers to handle!" << std::endl;
+        ss << "There were too many " << std::endl << "customers to handle!" << std::endl << std::endl;
     }
     else
     {
@@ -42,15 +43,34 @@ void Food::NewDay()
     overloadedTally = 0;
 }
 
+int Food::FoodCost(const helper::Time& time) const
+{
+    
+    if (time < FoodRule::breakfastTime)
+    {
+        return MEAL_COST[0] + mealDeltaCost;
+    }
+    
+    if(time < FoodRule::lunchTime)
+    {
+        return MEAL_COST[1] + mealDeltaCost;
+    }
+    
+    return MEAL_COST[2] + mealDeltaCost;
+    
+}
 /**
  * \brief New entry ( +score )
  */
 void Food::Enter()
 {
-    earnedMoney += mealCost * 0.5f;
+    const auto& time = CoreController::Instance()->GetTime();
+    const auto cost = FoodCost(time);
+    earnedMoney += cost;
+    
     if (plot->GetOccupantCount() > maxCustomer)
     {
         overloadedTally++;
     }
-    Government::AddTax(mealCost * 0.1f);
+    Government::AddTax(cost * 0.1f);
 }

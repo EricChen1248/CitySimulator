@@ -8,8 +8,8 @@ class BaseRule;
  */
 class FoodRule : public BaseRule
 {
+friend class Food;
 friend class FoodSystem;
-    
 public:
     FoodRule(Citizen& citizen);
     ~FoodRule();
@@ -19,14 +19,13 @@ public:
     void EnterPlot(Plot* plot) override;
     void LeavePlot(Plot* plot) override;
     void Update() override;
-    bool IsSatisfied() override;
     
     float Hunger() const { return hungerLevel; }
     void FillHunger(float hunger = std::numeric_limits<float>::max());
 private:
+    static const int MAX_FOOD_COST = 70;
     static helper::Time breakfastTime;
     static helper::Time lunchTime;
-    static helper::Time dinnerTime;
     
     // TODO : Tweak foodrule max distance
     const int maxDistance = 10;

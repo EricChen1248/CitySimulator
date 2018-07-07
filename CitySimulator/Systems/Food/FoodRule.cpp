@@ -8,7 +8,6 @@
 
 helper::Time FoodRule::breakfastTime;
 helper::Time FoodRule::lunchTime;
-helper::Time FoodRule::dinnerTime;
 
 FoodRule::FoodRule(Citizen& citizen): BaseRule(citizen, FOOD), hungerLevel(100) { }
 
@@ -16,7 +15,7 @@ FoodRule::~FoodRule() = default;
 
 float FoodRule::CalculateScore()
 {
-    if (hungerLevel > 80 || citizen->GetMoney() < Food::MAX_FOOD_COST)
+    if (hungerLevel > 80 || citizen->GetMoney() < MAX_FOOD_COST)
     {
         return 0;
     }
@@ -61,9 +60,6 @@ void FoodRule::EnterPlot(Plot* plot)
 {
     const auto food = dynamic_cast<Food*>(plot->GetPlotType());
     if (food == nullptr) return;
-    const auto& time = CoreController::Instance()->GetTime();
-    citizen->Wait(0.5f);
-    citizen->IncreaseMoney(-food->mealCost);
     food->Enter();
 }
 
@@ -73,7 +69,21 @@ void FoodRule::EnterPlot(Plot* plot)
  */
 void FoodRule::LeavePlot(Plot* plot)
 {
-    hungerLevel = 100.f;
+    const auto& time = CoreController::Instance()->GetTime();
+    int fill;
+    if (time < breakfastTime)
+    {
+        fill = 20;
+    }
+    else if(time < lunchTime)
+    {
+        fill = 40;
+    }
+    else
+    {
+        fill = 60;
+    }
+    hungerLevel = Clamp(hungerLevel + fill, 0.f, 100.f);
 }
 
 /**
@@ -83,15 +93,10 @@ void FoodRule::Update()
 {
     // TODO : Tweak hunger to time ratio
     hungerLevel -= CoreController::Instance()->GetDeltaTime() * 3;
-}
-
-/**
- * \brief Returns bool to tell if citizen is satisfied with it's food requirements
- * \return True if hunger level is over 20
- */
-bool FoodRule::IsSatisfied()
-{
-    return hungerLevel > 20;
+    if (hungerLevel < 0)
+    {
+        citizen->Die();
+    }
 }
 
 /** 

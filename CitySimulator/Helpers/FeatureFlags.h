@@ -2,7 +2,7 @@
 #define MULTITHREAD true
 #define SKIP_DAY false
 #define BREED true
-#define NO_RIVER false;
+#define NO_RIVER false
 
 
 
