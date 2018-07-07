@@ -16,7 +16,7 @@ public:
 
     void ChangeThickness(const float thickness)
     {
-        offset *= this->thickness;
+        offset /= this->thickness;
         this->thickness = thickness;
         offset *= thickness;
 

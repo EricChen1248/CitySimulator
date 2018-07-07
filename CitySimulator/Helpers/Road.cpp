@@ -10,7 +10,7 @@
 Road::Road(Plot* plotOne, Plot* plotTwo) : plotOne(plotOne), plotTwo(plotTwo), level(1), capacity(100), citizenCount(0), lifespan(50.f), isBroken(false), isRiver(false)
 // TODO: number of capacity, lifespan 
 {
-    shape = Line(plotOne->Coords(), plotTwo->Coords(), BASE_ROAD_COLOR, 1.3f);
+    shape = Line(plotOne->Coords(), plotTwo->Coords(), BASE_ROAD_COLOR, 1.8f);
 }
 
 
@@ -25,7 +25,7 @@ float Road::Speed() const
 	if (isBroken)
 		return 0.01f; // can pass but very slowly
 	
-	return static_cast<float>(level) - 0.2f * (citizenCount > capacity) ? 1.f : 0.f;
+	return static_cast<float>(level) - 0.2f * (citizenCount > capacity ? 1.f : 0.f);
 }
 
 bool Road::IsRiver() const
@@ -47,7 +47,7 @@ int Road::LevelUp()
 	level++;
 	capacity += 20; 
 	lifespan = 50; // replenish
-	shape.ChangeThickness(1); // TODO :thickness
+	shape.ChangeThickness(1 + level * 0.8f); // TODO :thickness
 	return 30; // cost 
 }
 
