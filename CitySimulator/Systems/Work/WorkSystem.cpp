@@ -9,6 +9,8 @@
 class WorkRule;
 
 using helper::Time;
+
+
 /**
  * \brief 
  */
@@ -19,7 +21,7 @@ WorkSystem::WorkSystem(): BaseSystem(WORK)
 	WorkRule::breakTime = Time(12, 0);
 	WorkRule::endBreakTime = Time(13, 0);
 	WorkRule::timeOffWork = Time(17, 0);
-	highLevel = true;	
+	highLevel = false;	
 }
 
 
