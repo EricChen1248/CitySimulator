@@ -1,16 +1,15 @@
 #include <iostream>
+#include "UIController.h"
 #include "CoreController.h"
 #include "SFMLController.h"
-#include "ViewPortController.h"
-#include "SystemController.h"
 #include "FontController.h"
-#include "UIController.h"
+#include "MouseController.h"
+#include "SystemController.h"
+#include "ViewPortController.h"
 #include "DisasterController.h"
 #include "../Helpers/Logger.h"
 #include "../Helpers/FeatureFlags.h"
 #include "../Helpers/PathFinder/PathFinder.hpp"
-#include <iostream>
-#include "MouseController.h"
 CoreController* CoreController::instance;
 
 using sf::Event;
