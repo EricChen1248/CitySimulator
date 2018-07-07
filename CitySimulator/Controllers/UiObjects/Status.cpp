@@ -217,7 +217,7 @@ void Status::DrawPlot()
     content.setString(SelectedPlot->GetPlotType()->ContentString());
     CoreController::SfmlController()->DrawString(content);
     
-    const int cost = SelectedPlot->GetPlotType()->Cost();
+    const int cost = SelectedPlot->GetPlotType()->Cost() / 2;
     std::stringstream ss;
     ss << " Destroy ($" << cost << ")";
     CenterString(buttonText, ss.str(), x + float(width) / 2);
@@ -228,7 +228,7 @@ void Status::DrawPlot()
             CoreController::GetSystemController()
                 ->GetSystem(SelectedPlot->GetPlotType()->SystemType)->Destroy(SelectedPlot);
             CoreController::GetSystemController()->Plots()->ClearSelections();
-            Government::AddTax(cost * 0.5);
+            Government::AddTax(cost);
         }
     }
     CoreController::SfmlController()->DrawString(buttonText);

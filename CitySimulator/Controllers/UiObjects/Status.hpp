@@ -58,7 +58,7 @@ private:
     sf::Text closeText;
     Button closeButton;
 
-    const int height = 220;
+    const int height = 250;
     int width{};
     int x{};
     int y{};
