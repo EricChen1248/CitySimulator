@@ -1,6 +1,10 @@
 #pragma once
 
 
+/**
+ * \brief Interface for a list collection
+ * \tparam T type of item being store
+ */
 template<typename T>
 class IList
 {
