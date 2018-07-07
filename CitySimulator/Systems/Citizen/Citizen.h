@@ -6,12 +6,12 @@
 #include "../../Helpers/Coordinate.h"
 #include "../../Collections/List.h"
 #include "../../Collections/Stack.h"
-/**
- * \brief The central entity of our game/simulation
- */
 
 class BaseRule;
 
+/**
+ * \brief The central entity of our game/simulation
+ */
 class Citizen
 {
 public:
