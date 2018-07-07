@@ -11,9 +11,8 @@ public:
     ~FoodSystem();
     int Register(Plot* plot) override;
     void Update() override;
-    void LogSatisfied(Citizen* citizen, BaseRule* rule) override;
-    void LogUnsatisfied(Citizen* citizen, BaseRule* rule) override;
     float GetSatisfaction() const override;
+    std::string ContentString() override;
     static const int OPERATING_COST = 1000;
 private :
 };

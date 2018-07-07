@@ -34,30 +34,6 @@ void FoodSystem::Update()
 {
 }
 
-/**
- * \brief Logs a citizen being satisified with a food
- * \param citizen Citzen being logged
- * \param rule Rule being logged
- */
-void FoodSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
-{
-    // Dynamic cast rule to create a snapshot copy 
-    const auto log = new Log(citizen->Coords(), new FoodRule(*dynamic_cast<FoodRule*>(rule)), citizen);
-    satisfiedLog.InsertLast(log);
-}
-
-/**
- * \brief Logs a citizen being unsatisified with a food
- * \param citizen Citzen being logged
- * \param rule Rule being logged
- */
-void FoodSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
-{
-    // Dynamic cast rule to create a snapshot copy 
-    const auto log = new Log(citizen->Coords(), new FoodRule(*dynamic_cast<FoodRule*>(rule)), citizen);
-    unsatisfiedLog.InsertLast(log);
-}
-
 float FoodSystem::GetSatisfaction() const
 {
     const float overloadedPenalty = 0.02f;
@@ -78,5 +54,12 @@ float FoodSystem::GetSatisfaction() const
     
     satisfaction = Clamp(satisfaction, 0.f, 1.f);
     return satisfaction;
+}
+
+std::string FoodSystem::ContentString()
+{
+    std::stringstream ss;
+    
+    return ss.str();
 }
 
