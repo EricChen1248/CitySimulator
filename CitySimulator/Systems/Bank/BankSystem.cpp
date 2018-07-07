@@ -77,3 +77,11 @@ void BankSystem::EndDay()
 	unsatisfiedLog.Dispose();
 	satisfiedLog.Dispose();
 }
+
+void BankSystem::NewDay()
+{
+	for (auto plot : plots)
+	{
+		plot->GetPlotType()->NewDay();
+	}
+}

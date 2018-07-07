@@ -13,11 +13,12 @@ void River::Init()
 {
     const auto& plots = CoreController::GetSystemController()->Plots();
     const int adjustedRight = RIGHT - 1;
-    const int rand = RandomInt(1, adjustedRight - 1);
+    
 
 
     //Mode 0 : straight river cuting city into half; Mode 1: cutting it vertically 
-    const RIVERMODE mode = static_cast<RIVERMODE>(Clamp(RandomInt(0, 10), 0, 2));
+    //const RIVERMODE mode = static_cast<RIVERMODE>(Clamp(RandomInt(0, 10), 0, 2));
+	const RIVERMODE mode = ModeSTRAIGHT;
 #if NO_RIVER
 	mode = ModeNORIVER;
 #endif
@@ -26,21 +27,19 @@ void River::Init()
     {
     case ModeSTRAIGHT:
         {
-            InitBoundary();
-            Coordinate startPoint(rand, adjustedRight - rand, LEFT);
-            int random = RandomInt(0, 2);
-            while (startPoint.Z() < adjustedRight)
-            {
-                auto plotPtr = plots->FindPlot(startPoint);
-                riverPoints.InsertLast(plotPtr);
-                plotPtr->MarkAsRiver();
-                points.InsertLast(startPoint.Right(0.88f));
-                points.InsertLast(startPoint.Left(0.88f));
-
-                startPoint = random == 0 ? startPoint.LeftUp() : startPoint.RightUp();
-                //0 goes left, 1 goes right
-                random = RandomInt(0, 2);
-            }
+			const int rand = RandomInt(1, adjustedRight - 1);
+			Coordinate startPoint(rand, adjustedRight - rand, LEFT);
+			int random = RandomInt(0, 2) == 0? 0:5;
+			int randomDis = RandomInt(1, adjustedRight / 4);
+			DrawStart(startPoint,points);
+			MoveCoord(static_cast<DIRECTION>(random), startPoint);
+			bool stopFlag = DrawStraightLine(randomDis, static_cast<DIRECTION>(random), points, startPoint);
+			while (!stopFlag)
+			{
+				random = RandomInt(0, 2) == 0 ? 0 : 5;
+				randomDis = RandomInt(1, adjustedRight / 4);
+				stopFlag = DrawStraightLine(randomDis, static_cast<DIRECTION>(random), points, startPoint);
+			}
             break;
         }
     case ModeACCROSS:
@@ -445,6 +444,7 @@ void River::DrawEnd(const Coordinate& coord, List<Coordinate>& inputList)
         default:
             break;
         }
+		inputList.InsertLast(coord);
     }
     return;
 }
@@ -569,7 +569,7 @@ void River::MoveCoord(const DIRECTION d1, Coordinate& coord)
     return;
 }
 
-void River::DrawSmoothCorner(const Coordinate& center, const float startDeg, const float endDeg, const float innerL = 0.12f, const float outerL = 0.88f)
+void River::DrawSmoothCorner(const Coordinate& center, const int& startDeg, const int& endDeg, const float innerL = 0.12f, const float outerL = 0.88f)
 {
     for (int i = startDeg; i < endDeg; ++i)
     {

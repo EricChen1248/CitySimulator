@@ -5,14 +5,14 @@
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
-
+#include <iostream>
 HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME),myHome(nullptr),atHomeFlag(false)
 {
 	//this is the time when people start to go home
 	//TODO: goHomeTime is now a static member, which is like a curvew right now. it could be private member
 	//therefore each citizen can go home by unique timing
-
-	goHomeTime.IncreaseTime(21);
+	goHomeTime.IncreaseTime(20);
+	wakeUpTime.IncreaseTime(6);
 	if (citizen.GetFamilyMember(FATHER) != nullptr)
 	{
 		if (Pathable(dynamic_cast<HomeRule*>(citizen.GetFamilyMember(FATHER)->FindRule(HOME))->myHome->GetPlot()->Coords(), citizen.Coords()))
@@ -25,7 +25,7 @@ HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME),myHome(nullptr),a
 		DecideHome();
 	}
 	homelessLevel = 0;
-	homelessHour = 0;
+	sleepingHour = 0;
 }
 
 HomeRule::~HomeRule() = default;
@@ -93,7 +93,21 @@ void HomeRule::EnterPlot(Plot* plot)
 {
 	if (myHome == nullptr) return;
 	atHomeFlag = true;
-	citizen->Wait(3.f);
+	homelessLevel = 0;
+	atHomeTime = CoreController::Instance()->GetTime();
+	if (atHomeTime.Hour <= wakeUpTime.Hour)
+	{
+		sleepingHour = float(wakeUpTime.Hour - atHomeTime.Hour) + float(RandomInt(-30,30)/60.f);
+	}
+	else if (atHomeTime.Hour > goHomeTime.Hour)
+	{
+		sleepingHour = float(24-goHomeTime.Hour) + float(wakeUpTime.Hour-1) + float(RandomInt(-30, 30) / 60.f);
+	}
+	else
+	{
+		sleepingHour = 1.f;
+	}
+	citizen->Wait(sleepingHour);
 	myHome -> Enter();
 }
 
@@ -103,6 +117,8 @@ void HomeRule::EnterPlot(Plot* plot)
 */
 void HomeRule::LeavePlot(Plot* plot)
 {
+	std::string leaveTime = CoreController::Instance()->GetTime().ToString();
+	//std::cout << "citizen wakes up at " << leaveTime << std::endl;
 	atHomeFlag = false;
 	/*Nothing happend need to discuss */
 }
@@ -115,14 +131,13 @@ void HomeRule::Update()
 	
 	// TODO : if homeless hour exceed certain critirea , this citizen sholud
     const auto time = CoreController::Instance()->GetTime();
-	if (time.Hour>= goHomeTime.Hour)
+	if ((time.Hour >= goHomeTime.Hour)&&(!AtHome()))
 	{
-		homelessLevel = int(exp(time - goHomeTime));
+		homelessLevel = 2000000000;
 	}
-	else
+	if((time.Hour < wakeUpTime.Hour)&&(!AtHome()))
 	{
-		homelessLevel = 0;
-		return;
+		homelessLevel = 2000000000;
 	}
 }
 
@@ -148,4 +163,12 @@ void HomeRule::EndDay()
 		return;
 	}
 	return;
+}
+
+float HomeRule::GetSleepTime() const
+{
+	if (HasHome())
+		return sleepingHour;
+	else
+		return 0.f;
 }

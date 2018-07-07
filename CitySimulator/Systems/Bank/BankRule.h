@@ -1,6 +1,6 @@
 #pragma once
 #include "../Base/BaseRule.h"
-
+#include "../Bank/Bank.h"
 class BaseRule;
 
 /**

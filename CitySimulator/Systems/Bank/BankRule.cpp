@@ -55,7 +55,6 @@ bool BankRule::FindPlot()
     citizen->SetActiveRule(this);
     //citizen must setActiveRule of a plot as a target;
     citizen->SetTarget(chosen);
-
     return true;
 }
 
@@ -63,7 +62,7 @@ void BankRule::EnterPlot(Plot* plot)
 {
     const auto bank = dynamic_cast<Bank*>(plot->GetPlotType());
     if (bank == nullptr) return;
-    citizen->Wait(1.f);
+    citizen->Wait(0.5f);
     bank->Enter();
 }
 
@@ -74,15 +73,16 @@ void BankRule::EnterPlot(Plot* plot)
 void BankRule::LeavePlot(Plot* plot)
 {
 	const auto bank = dynamic_cast<Bank*>(plot->GetPlotType());
+	int moneyToWithdraw = 0;
 	if (citizen->Age() >= WORKING_AGE)
 	{
-		const int moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->GetMoney(), 0, int(saving));
+		 moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->GetMoney(), 0, int(saving));
 
 		if (moneyToWithdraw >= bank->transactionCost) {
 			citizen->IncreaseMoney(moneyToWithdraw - bank->transactionCost);
 			saving -= moneyToWithdraw;
 		}
-		return;
+		
 	}
 	else
 	{
@@ -91,7 +91,7 @@ void BankRule::LeavePlot(Plot* plot)
 			auto fatherBankRule = dynamic_cast<BankRule*>(citizen->GetFamilyMember(FATHER)->FindRule(BANK));
 			auto motherBankRule = dynamic_cast<BankRule*>(citizen->GetFamilyMember(MOTHER)->FindRule(BANK));
 
-			const int moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->GetMoney(), 0, (fatherBankRule->saving + motherBankRule->saving));
+			moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->GetMoney(), 0, (fatherBankRule->saving + motherBankRule->saving));
 			if (moneyToWithdraw > bank->transactionCost)
 			{
 				citizen->IncreaseMoney((moneyToWithdraw - bank->transactionCost));
@@ -103,16 +103,18 @@ void BankRule::LeavePlot(Plot* plot)
 		}
 		else
 		{
-			const int moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->GetMoney(), 0, int(saving));
+			moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->GetMoney(), 0, int(saving));
 
 			if (moneyToWithdraw >= bank->transactionCost) {
 				citizen->IncreaseMoney(moneyToWithdraw - bank->transactionCost);
 				saving -= moneyToWithdraw;
 			}
-			return;
+		
 		}
-		return;
+		
 	}
+	bank->earnedMoeny += bank->transactionCost;
+	return;
 }
 
 /**

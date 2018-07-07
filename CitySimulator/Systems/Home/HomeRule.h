@@ -22,13 +22,16 @@ public:
 	void EndDay() override;
 	bool HasHome()const { return (myHome != nullptr); };
 	bool AtHome()const { return atHomeFlag; };
+	float GetSleepTime()const;
 private:
 
 	helper::Time goHomeTime;
+	helper::Time atHomeTime;
+	helper::Time wakeUpTime;
 	bool DecideHome();
 	Home* myHome;
 	int homelessLevel;
-	float homelessHour;
+	float sleepingHour;
 	bool atHomeFlag;
 };
 
