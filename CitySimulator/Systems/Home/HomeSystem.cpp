@@ -1,6 +1,8 @@
 #include "HomeSystem.h"
 #include "Home.h"
 #include "HomeRule.h"
+#include "../Work/WorkRule.h"
+#include "../../Helpers/HelperFunctions.h"
 #include "../../Controllers/CoreController.h"
 
 HomeSystem::HomeSystem():BaseSystem(HOME)
@@ -46,16 +48,25 @@ brief:
 TODO:Adding more grading system
 should be adjusted to whether they have convinent live,
 how long does it take them to work : friend Workrule;
+>> how far is their job from their work, and how many building are arround.
 */
 float HomeSystem::GetSatisfaction() const
 {
 	auto citizenList = CoreController::GetSystemController()->GetCitizens();
 	float count = 0.f;
+	float avgSleepHour = 0.f;
+	//how many people have house;
 	for (auto citizen : citizenList)
 	{
+		//count how many people have house
 		dynamic_cast<HomeRule*>(citizen->FindRule(HOME))->IsSatisfied() == true ? count += (1.f/float(citizenList.Count())): count += 0;
+		avgSleepHour += (dynamic_cast<HomeRule*>(citizen->FindRule(HOME))->GetSleepTime()/8.f)/float(citizenList.Count());
 	}
-	return count;
+	count = (0.5f * count) + (0.5f * avgSleepHour);
+	if (count >= 1.f)
+		return 1;
+	else
+		return count;
 }
 void HomeSystem::EndDay()
 {

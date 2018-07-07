@@ -14,11 +14,15 @@ friend HospitalRule;
     Hospital(Plot* plot);
     ~Hospital() = default;
     void EndDay() override;
+    void Enter();
+	void NewMember(Citizen* citizen);
+	int Destroy() override;
+	std::string ContentString();
+
 private:
     int cost;
     int capacity; 
     int citizenCount; 
-    
-    void Enter();
+	List<Citizen*> members;
 };
 

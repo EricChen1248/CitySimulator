@@ -1,6 +1,6 @@
 #pragma once
 #include "../Base/Base.h"
-
+#include "Bank.h"
 class BankRule;
 
 /**
@@ -13,11 +13,16 @@ class Bank : public Base
 public:
 	Bank(Plot* plot);
 	~Bank() = default;
+	std::string ContentString() override;
+	void NewDay() override;
 	void EndDay() override;
 private:
 	int cost;
 	int transactionCost;
 	int administrationFee;
+	int earnedMoeny;
+	int customerPerDay;
 	void Enter();
+	
 };
 
