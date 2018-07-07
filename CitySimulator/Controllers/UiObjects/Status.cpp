@@ -6,6 +6,7 @@
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Systems/Base/BaseSystem.h"
 #include "../../Systems/Plot/PlotSystem.h"
+#include "../../Helpers/Government.h"
 
 Selection Status::Selection = NONE_SELECTED;
 Plot* Status::SelectedPlot = nullptr;
@@ -156,7 +157,14 @@ void Status::DrawDoubleButton(BaseSystem * system)
             system->Toggle();
         }
     }
-
+    
+    const int cost = CoreController::GetSystemController()->GetSystem(SelectedSystem)->Cost();
+    const bool disable = Government::TaxDollars() < cost;
+    if (disable)
+    {
+        rightButton.DisableOnce();
+    }
+    
     if (rightButton.Draw())
     {
         if (MouseController::IsClicked())
@@ -174,6 +182,13 @@ void Status::DrawDoubleButton(BaseSystem * system)
 
 void Status::DrawSingleButton()
 {
+    
+    const int cost = CoreController::GetSystemController()->GetSystem(SelectedSystem)->Cost();
+    const bool disable = Government::TaxDollars() < cost;
+    if (disable)
+    {
+        button.DisableOnce();
+    }
     if (button.Draw())
     {
         if (MouseController::IsClicked())
@@ -199,18 +214,21 @@ void Status::DrawPlot()
     CoreController::SfmlController()->DrawString(title);
     content.setString(SelectedPlot->GetPlotType()->ContentString());
     CoreController::SfmlController()->DrawString(content);
+    
+    const int cost = SelectedPlot->GetPlotType()->Cost();
+    std::stringstream ss;
+    ss << " Destroy ($" << cost << ")";
+    CenterString(buttonText, ss.str(), x + float(width) / 2);
     if (button.Draw())
     {
         if(MouseController::IsClicked())
         {
-            // TODO : Block button press if not enough money
             CoreController::GetSystemController()
                 ->GetSystem(SelectedPlot->GetPlotType()->SystemType)->Destroy(SelectedPlot);
             CoreController::GetSystemController()->Plots()->ClearSelections();
+            Government::AddTax(cost * 0.5);
         }
     }
-
-    CenterString(buttonText, "Destroy", x + float(width) / 2);
     CoreController::SfmlController()->DrawString(buttonText);
 }
 
@@ -225,7 +243,6 @@ void Status::DrawRoad()
     {
         if (MouseController::IsClicked())
         {
-            // TODO : Block button press if not enough money
             SelectedRoad->PerformClick();
         }
     }

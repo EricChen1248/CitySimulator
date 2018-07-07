@@ -57,7 +57,7 @@ void CoreController::Start()
 #endif
 
     int day = 0;
-
+    systemController->AdvanceDay();
     while (true)
     {
         ++day;
@@ -116,6 +116,7 @@ void CoreController::RunDayLoop(Clock& clock)
         GameUpdateEvents();
         GameRenderEvents();
 #endif
+	    MouseController::Reset();
         PresentRender();
     }
 }
@@ -131,9 +132,9 @@ void CoreController::EndDayLoop()
         InterdayInputEvents();
         InterdayRenderEvents();
         PresentRender();
+	    MouseController::Reset();
     }
     time.ResetDay();
-	
     systemController->AdvanceDay();
 }
 
@@ -192,7 +193,9 @@ void CoreController::GameInputEvents() const
             viewPortController->HandleScroll(event);
             break;
         case Event::MouseButtonPressed: break;
-        case Event::MouseButtonReleased: break;
+        case Event::MouseButtonReleased: 
+            MouseController::Unclick(event);
+            break;
         case Event::MouseMoved: break;
         case Event::MouseEntered: break;
         case Event::MouseLeft: break;
@@ -222,8 +225,8 @@ void CoreController::GameInputEvents() const
  */
 void CoreController::GameRenderEvents() const
 {
-    ClearRender();
     viewPortController->UpdateGameView();
+    ClearRender();
     systemController->Render();
     viewPortController->UpdateUIView();
     uiController->RenderUI();
@@ -255,8 +258,10 @@ void CoreController::InterdayInputEvents()
         case Event::MouseWheelScrolled:
             viewPortController->HandleScroll(event);
             break;
-        case Event::MouseButtonPressed:
-        case Event::MouseButtonReleased: break;
+        case Event::MouseButtonPressed: break;
+        case Event::MouseButtonReleased: 
+            MouseController::Unclick(event);
+            break;
         case Event::MouseMoved: break;
         case Event::MouseEntered: break;
         case Event::MouseLeft: break;
