@@ -152,9 +152,9 @@ void UIController::DrawStatus()
 {
     for (int i = 0; i < selectionButtons.Count(); ++i)
     {
-        if (selectionButtons[i]->IsInBounds())
+        if (MouseController::IsClicked())
         {
-            if (MouseController::IsClicked())
+            if (selectionButtons[i]->IsInBounds())
             {
                 PlotSystem::DeselectPlotsAndRoads();
                 Status::Selection = SYSTEM;
