@@ -63,7 +63,7 @@ void FoodRule::EnterPlot(Plot* plot)
     if (food == nullptr) return;
     const auto& time = CoreController::Instance()->GetTime();
     citizen->Wait(0.5f);
-    citizen->IncreaseMoney(-food->cost);
+    citizen->IncreaseMoney(-food->mealCost);
     food->Enter();
 }
 

@@ -9,7 +9,8 @@ const int Food::MAX_FOOD_COST;
 
 Food::Food(Plot* plot) : Base(plot, FOOD), earnedMoney(0), overloadedTally(0)
 {
-    cost = RandomInt(50, MAX_FOOD_COST);
+    cost = 1000;
+    mealCost = RandomInt(50, MAX_FOOD_COST);
     color = FOOD_COLOR;
 }
 
@@ -46,10 +47,10 @@ void Food::NewDay()
  */
 void Food::Enter()
 {
-    earnedMoney += cost * 0.5f;
+    earnedMoney += mealCost * 0.5f;
     if (plot->GetOccupantCount() > maxCustomer)
     {
         overloadedTally++;
     }
-    Government::AddTax(cost * 0.1f);
+    Government::AddTax(mealCost * 0.1f);
 }
