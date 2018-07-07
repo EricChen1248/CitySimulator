@@ -70,6 +70,7 @@ inline int BaseSystem::Register(Plot* plot)
 inline void BaseSystem::Unregister(Plot* plot)
 {
     plots.Remove(plot);
+    plot->Destroy();
 }
 
 inline void BaseSystem::NewDay()
@@ -105,6 +106,5 @@ inline void BaseSystem::Destroy(Plot* plot)
     }
     
     plot->Destroy();
-    Unregister(plot);
 }
 
