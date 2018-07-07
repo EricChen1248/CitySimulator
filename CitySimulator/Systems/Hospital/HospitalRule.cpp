@@ -118,11 +118,15 @@ void HospitalRule::Register()
 	const auto chosen = choices[RandomInt(0, choices.Count())];
 
 	this->assignedHospital = chosen; // and then constant
-	citizen->SetActiveRule(this);
-	citizen->SetTarget(chosen);
 	enter = true;
+
+	const auto hospital = dynamic_cast<Hospital*>(chosen->GetPlotType());
+	hospital->NewMember(citizen);
 
 	// To Get FoodRule
 	FoodRule* foodRule = dynamic_cast<FoodRule*>(citizen->FindRule(FOOD));
 	foodRule->FillHunger(); // set hungerLevel to MAX
 }
+
+
+

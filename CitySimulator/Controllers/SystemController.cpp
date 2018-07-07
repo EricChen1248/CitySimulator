@@ -67,7 +67,9 @@ void SystemController::Initialize()
             count = 10;
             break;
         case SCHOOL: break;
-        case HOSPITAL: break;
+        case HOSPITAL: 
+			count = 3; 
+			break;
         default: ;
         }
 
