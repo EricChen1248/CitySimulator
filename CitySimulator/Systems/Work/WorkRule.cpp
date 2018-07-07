@@ -127,7 +127,7 @@ void WorkRule::Update()
 
 void WorkRule::EndDay()
 {
-	cout << counter << std::endl;
+	//cout << counter << std::endl;
 }
 
 void WorkRule::NewDay()
