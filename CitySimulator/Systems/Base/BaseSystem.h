@@ -17,8 +17,6 @@ public:
     BaseSystem(const System system) : SystemType(system), score(0) {};
     const List<Plot*>& Plots() const { return plots; }
     virtual float GetSatisfaction() const { return 0; }
-    const List<Log*>& SatisfiedLog() const { return satisfiedLog; }
-    const List<Log*>& UnsatisfiedLog() const { return unsatisfiedLog; }
     bool Toggleable() const { return toggleable; } 
     virtual ~BaseSystem();
     
@@ -27,8 +25,10 @@ public:
      * \brief Virtual function handling the update events
      */
     virtual void Update() = 0;
-    virtual void LogSatisfied(Citizen* citizen, BaseRule* rule) = 0;
-    virtual void LogUnsatisfied(Citizen* citizen, BaseRule* rule) = 0; 
+    [[deprecated]]
+    virtual void LogSatisfied(Citizen* citizen, BaseRule* rule) {};
+    [[deprecated]]
+    virtual void LogUnsatisfied(Citizen* citizen, BaseRule* rule) {}; 
     virtual int Register(Plot* plot);
     virtual void Unregister(Plot* plot);
     virtual void NewDay();

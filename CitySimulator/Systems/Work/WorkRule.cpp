@@ -185,8 +185,6 @@ void WorkRule::Register()
 	const auto chosen = choices[RandomInt(0, choices.Count())];
 
 	this->assignedCompany = chosen; // and then constant
-	citizen->SetActiveRule(this);
-	citizen->SetTarget(chosen);
 
 	// Adjust salary due to education level
 	// To Get SchoolRule

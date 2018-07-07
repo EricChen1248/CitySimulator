@@ -8,13 +8,15 @@
 #include "../Plot/PlotSystem.h"
 #include "../School/SchoolRule.h" 
 #include "../Hospital/HospitalRule.h" 
+#include "../Hospital/HospitalSystem.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/PathFinder/PathFinder.hpp"
 #include "../../Helpers/HelperFunctions.h"
+#include "../../Helpers/Government.h"
 
 
-Citizen::Citizen(Plot* plot) : target(nullptr), currentPlot(plot), currentRoad(nullptr), activeRule(nullptr), money(1000), tempTarget(plot->Coords()), coords(plot->Coords()), waitTime(0.f),
-                               inPlot(false), pathFindFailed(false), dead(false)
+Citizen::Citizen(Plot* plot) : target(nullptr), currentPlot(plot), currentRoad(nullptr), activeRule(nullptr), money(1000), tempTarget(plot->Coords()), coords(plot->Coords()), doubleSpeedTime(0),
+                               waitTime(0.f), inPlot(false), pathFindFailed(false), dead(false)
 {
     age = RandomInt(7, 13) * 3;
 	gender = static_cast<Gender>(RandomInt(0, 2));
@@ -41,23 +43,23 @@ Citizen::Citizen(Plot* plot, Citizen* parent1, Citizen* parent2) : Citizen(plot)
 
 Citizen::~Citizen()
 {
+	const auto myBankRule = dynamic_cast<BankRule*>(FindRule(BANK));
+    
+    Government::AddTax(float(myBankRule->GetSavings()) / 3);
+    
+    const auto relation = gender == MALE ? FATHER : MOTHER;
+    // TODO : money goes to children?
 	for (auto child : descendants)
 	{
-		if (gender == MALE)
-		{
-			child->SetRelationships(FATHER, nullptr);
-		}
-		else
-		{
-			child->SetRelationships(MOTHER, nullptr);
-		}
+		child->SetRelationships(relation, nullptr);
 		auto childBankRule = dynamic_cast<BankRule*>(child->FindRule(BANK));
-		auto myBankRule = dynamic_cast<BankRule*>(FindRule(BANK));
-		childBankRule->SaveMoney(myBankRule->GetSavings() / descendants.Count());
+		childBankRule->SaveMoney(float(myBankRule->GetSavings()) / descendants.Count() / 2);
 	}
+    
 	auto fatherPtr = GetFamilyMember(FATHER);
 	auto motherPtr = GetFamilyMember(MOTHER);
 	auto spousePtr = GetFamilyMember(SPOUSE);
+    
 	if (fatherPtr != nullptr)
 	{
 		fatherPtr->descendants.Remove(this);
@@ -202,6 +204,20 @@ void Citizen::Wait(const float time)
 
 void Citizen::NewDay()
 {
+    switch (age)
+    {
+    case 0:
+        //dynamic_cast<SchoolRule*>(FindRule(SCHOOL))->Register();
+    case 18:
+        //dynamic_cast<SchoolRule*>(FindRule(SCHOOL))->UnRegister();
+    case 45:
+        dynamic_cast<WorkRule*>(FindRule(WORK))->UnRegister();
+        //dynamic_cast<HomeRule*>(FindRule(HOME))->UnRegister();
+        dynamic_cast<HospitalRule*>(FindRule(HOSPITAL))->Register();
+        break;
+    default:
+        break;
+    }
 	for (auto&& rule : rules)
 	{
 		rule->NewDay();
@@ -280,6 +296,12 @@ void Citizen::Marry(Citizen * spouse)
 void Citizen::Die()
 {
     dead = true;
+    auto hospital = dynamic_cast<HospitalSystem*>(CoreController::GetSystemController()->GetSystem(HOSPITAL));
+    if (!dynamic_cast<HospitalRule*>(FindRule(HOSPITAL))->InHospital())
+    {
+        hospital->DeathOutside();
+    }
+    hospital->Death();
 }
 
 /**
@@ -371,10 +393,10 @@ void Citizen::GenRules()
 	BaseRule* store = new StoreRule(*this);
     BaseRule* school = new SchoolRule(*this);
     BaseRule* hospital = new HospitalRule(*this);
-
+    
     rules.InsertLast(food);
-	rules.InsertLast(bank);
 	rules.InsertLast(work);
+	rules.InsertLast(bank);
 	rules.InsertLast(home);
 	rules.InsertLast(store);
     rules.InsertLast(school);

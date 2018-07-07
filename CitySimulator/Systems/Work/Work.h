@@ -32,6 +32,7 @@ private:
 	float baseSalary;
 	float production;
 	List<Citizen*> employees;
+	bool highLevel;
 };
 
 

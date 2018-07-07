@@ -138,6 +138,8 @@ void Status::DrawSystem()
     PlotSystem::DeselectPlotsAndRoads();
     CoreController::SfmlController()->DrawString(title);
     const auto system = CoreController::GetSystemController()->GetSystem(SelectedSystem);
+    content.setString(system->ContentString());
+    CoreController::SfmlController()->DrawString(content);
     if (system->Toggleable())
     {
         DrawDoubleButton(system);

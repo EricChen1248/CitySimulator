@@ -4,6 +4,7 @@
 
 class WorkSystem :  public BaseSystem
 {
+	friend class Work;
 public:
     WorkSystem();
     ~WorkSystem();
@@ -15,6 +16,9 @@ public:
 	void LogUnsatisfied(Citizen* citizen, BaseRule* rule);
 	void EndDay();
 	void Toggle();
+	std::string ContentString();
+private:
+	bool highLevel;
 };
 
 

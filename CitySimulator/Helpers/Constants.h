@@ -26,7 +26,7 @@ const sf::Color BANK_COLOR = GREEN;
 const sf::Color HOME_COLOR = YELLOW;
 const sf::Color STORE_COLOR = RED;
 const sf::Color SCHOOL_COLOR = RED;
-const sf::Color HOSPITAL_COLOR = RED;
+const sf::Color HOSPITAL_COLOR = BLUE;
 const sf::Color RIVER_COLOR = sf::Color(141, 250, 236);
 const sf::Color RIVER_COLOR_2 = sf::Color(62, 244, 240);
 
