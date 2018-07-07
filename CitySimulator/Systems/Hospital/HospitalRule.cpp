@@ -92,7 +92,7 @@ void HospitalRule::Update()
 
 void HospitalRule::Register()
 {
-	auto &plots = CoreController::GetSystemController()->GetSystem(WORK)->Plots();
+	auto &plots = CoreController::GetSystemController()->GetSystem(HOSPITAL)->Plots();
 	// Get a list of plots that fulfill out requirements ( distance < max distance
 	List<Plot*> choices;
 	for (auto && plot : plots)
@@ -102,8 +102,7 @@ void HospitalRule::Register()
 		const auto distance = plot->Coords().Distance(coords);
 		if (distance < maxDistance)
 		{
-			auto p = plot;
-			choices.InsertLast(p);
+			choices.InsertLast(plot);
 		}
 	}
 
