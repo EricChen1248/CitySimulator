@@ -90,15 +90,6 @@ void HospitalRule::Update()
 {
 }
 
-/**
- * \brief Returns bool to tell if citizen is satisfied with it's food requirements
- * \return True if hunger level is over 20
- */
-bool HospitalRule::IsSatisfied()
-{
-    return true;
-}
-
 void HospitalRule::Register()
 {
 	auto &plots = CoreController::GetSystemController()->GetSystem(WORK)->Plots();
@@ -120,7 +111,7 @@ void HospitalRule::Register()
 	// TODO: ¥[¤j·j¯Á½d³ò¡I
 	if (choices.Count() == 0)
 	{
-		citizen->Die(); // If a person can't find hospotal, he/she will die soon
+		citizen->Die(); // If a person can't find hospital, he/she will die soon
 		return;
 	}
 

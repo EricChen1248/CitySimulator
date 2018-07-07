@@ -20,7 +20,6 @@ void Hospital::EndDay()
     score = -50;
 }
 
-
 /**
  * \brief New entry ( +score )
  */
