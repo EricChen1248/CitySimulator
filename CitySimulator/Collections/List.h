@@ -2,6 +2,10 @@
 #include "Interfaces/IList.h"
 #include "ListIterator.h"
 
+/**
+ * \brief An unlimited, ordered collection that uses array-based memory backing.
+ * \tparam T type of item being stored
+ */
 template<typename T>
 class List : IList<T>
 {

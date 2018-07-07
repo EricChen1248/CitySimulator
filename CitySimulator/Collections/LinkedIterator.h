@@ -2,7 +2,7 @@
 #include "Node.h"
 
 /**
- * \brief Helper class that provides iteration functions for custom collections
+ * \brief Helper class that provides iteration functions for Linked-based collections
  * \tparam T Type of item that will be use with the class 
  */
 template<typename T>

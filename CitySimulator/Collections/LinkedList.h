@@ -9,8 +9,7 @@
 
 /**
  * \brief An unlimited, ordered collection that uses link-based memory backing.
- *        Last lookup location is cached to improve subsequenct consecutive lookups.
- * \tparam T 
+ * \tparam T type of item being stored
  */
 template <typename T>
 class LinkedList : public IList<T>

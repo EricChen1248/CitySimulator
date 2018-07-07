@@ -61,6 +61,7 @@ void FoodRule::EnterPlot(Plot* plot)
     const auto food = dynamic_cast<Food*>(plot->GetPlotType());
     if (food == nullptr) return;
     food->Enter();
+    // TODO : Move base enter to plot
 }
 
 /**

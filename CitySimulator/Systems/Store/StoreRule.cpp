@@ -1,10 +1,11 @@
 #include "StoreRule.h"
+#include "Store.h"
+#include "StoreSystem.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
-#include "StoreSystem.h"
-#include "Store.h"
 #include "../../Helpers/HelperFunctions.h"
 #include "../Food/FoodRule.hpp"
+#include "../Home/HomeRule.h"
 
 const float StoreRule::MAX_STOCK = 200.f;
 const float StoreRule::RESTOCK = 50.f;
@@ -83,8 +84,11 @@ void StoreRule::LeavePlot(Plot* plot)
 void StoreRule::Update()
 {
     // TODO : store update checks
-    //if (!citizen->FindRule(HOME)->IsHome())
-    return;
+    auto home = dynamic_cast<HomeRule*>(citizen->FindRule(HOME));
+    if (!home->AtHome())
+    {
+        return;
+    }
     
     
     // TODO : store numbers
