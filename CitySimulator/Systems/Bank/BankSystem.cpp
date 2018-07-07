@@ -2,7 +2,7 @@
 #include "Bank.h"
 #include "BankRule.h"
 #include "../../Controllers/CoreController.h"
-
+#include "../../Helpers/HelperFunctions.h"
 
 class BankRule;
 
@@ -84,4 +84,14 @@ void BankSystem::NewDay()
 	{
 		plot->GetPlotType()->NewDay();
 	}
+}
+std::string BankSystem::ContentString()
+{
+	std::stringstream ss;
+	ss << "People can only carry" << std::endl;
+	ss <<"$1000. To consume, they" << std::endl;
+	ss << "they must withdraw"<<std::endl << "deposits from banks" << std::endl << "banks."<<std::endl;
+	ss << "12345678911234567891123456789";
+	return ss.str();
+
 }

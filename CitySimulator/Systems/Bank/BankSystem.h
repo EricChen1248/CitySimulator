@@ -15,6 +15,7 @@ public:
 	void LogUnsatisfied(Citizen* citizen, BaseRule* rule) override;
 	void EndDay() override;
 	void NewDay() override;
+	std::string ContentString() override;
 private:
 	const int maxOccupantCount = 20;
 	const int scorePerOccupant = 10;

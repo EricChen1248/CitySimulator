@@ -14,6 +14,7 @@ public:
     float GetSatisfaction() const override;
     std::string ContentString() override;
     static const int OPERATING_COST = 1000;
+	
 private :
 };
 

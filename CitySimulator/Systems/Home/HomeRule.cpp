@@ -16,7 +16,10 @@ HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME),myHome(nullptr),a
 	if (citizen.GetFamilyMember(FATHER) != nullptr)
 	{
 		if (Pathable(dynamic_cast<HomeRule*>(citizen.GetFamilyMember(FATHER)->FindRule(HOME))->myHome->GetPlot()->Coords(), citizen.Coords()))
+		{
 			myHome = dynamic_cast<HomeRule*>(citizen.GetFamilyMember(FATHER)->FindRule(HOME))->myHome;
+			myHome->Register(this->citizen);
+		}
 		else
 			myHome = nullptr;
 	}
@@ -117,8 +120,7 @@ void HomeRule::EnterPlot(Plot* plot)
 */
 void HomeRule::LeavePlot(Plot* plot)
 {
-	std::string leaveTime = CoreController::Instance()->GetTime().ToString();
-	//std::cout << "citizen wakes up at " << leaveTime << std::endl;
+	//std::string leaveTime = CoreController::Instance()->GetTime().ToString();
 	atHomeFlag = false;
 	/*Nothing happend need to discuss */
 }
@@ -145,24 +147,27 @@ void HomeRule::Update()
 * \brief Returns bool to tell if citizen is satisfied with it's food requirements
 * \return True if hunger level is over 20
 */
-bool HomeRule::IsSatisfied()
-{
-	return (myHome != nullptr);
-}
+
 void HomeRule::EndDay() 
 {
 	if (this->citizen->Age() == WORKING_AGE)
 	{
-		myHome = nullptr;
+		myHome->Unregister(this->citizen);
 		DecideHome();
 		return;
 	}
-	if (!IsSatisfied())
+	if (!HasHome())
 	{
 		DecideHome();
 		return;
 	}
 	return;
+}
+
+void HomeRule::Unregister()
+{
+	myHome->Unregister(citizen);
+	myHome = nullptr;
 }
 
 float HomeRule::GetSleepTime() const

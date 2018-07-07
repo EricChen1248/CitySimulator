@@ -150,69 +150,6 @@ void River::InitBoundary()
     return;
 }
 
-void River::DrawStraightLine(const AXIS ax, const DIRECTION dir, const int boundary, List<Coordinate>& inputList,
-                             Coordinate& curCoord)
-{
-    int tempAx = ax == AXISX ? curCoord.X() : ax == AXISY ? curCoord.Y() : curCoord.Z();
-    while (tempAx != boundary)
-    {
-        if (IsBoundaryOrNot(curCoord) == NODIRECTION)
-        {
-            MarkAsRiver(curCoord);
-            switch (dir)
-            {
-            case DirRIGHT:
-                {
-                    inputList.InsertLast(curCoord.Up(1.02f * SIN60));
-                    inputList.InsertLast(curCoord.Down(1.02f * SIN60));
-                    curCoord = curCoord.Right();
-                    break;
-                }
-            case DirRIGHTUP:
-                {
-                    Draw(DirLEFT, DirRIGHT, curCoord, inputList);
-                    curCoord = curCoord.RightUp();
-                    break;
-                }
-            case DirRIGHTDOWN:
-                {
-                    Draw(DirRIGHT, DirLEFT, curCoord, inputList);
-                    curCoord = curCoord.RightDown();
-                    break;
-                }
-            case DirLEFT:
-                {
-                    inputList.InsertLast(curCoord.Down(1.02f * SIN60));
-                    inputList.InsertLast(curCoord.Up(1.02f * SIN60));
-                    curCoord = curCoord.Left();
-                    break;
-                }
-            case DirLEFTUP:
-                {
-                    Draw(DirLEFT, DirRIGHT, curCoord, inputList);
-                    curCoord = curCoord.LeftUp();
-                    break;
-                }
-            case DirLEFTDOWN:
-                {
-                    Draw(DirLEFT, DirRIGHT, curCoord, inputList);
-                    curCoord = curCoord.LeftDown();
-                    break;
-                }
-
-            default:
-                break;
-            }
-            tempAx = ax == AXISX ? curCoord.X() : ax == AXISY ? curCoord.Y() : curCoord.Z();
-        }
-        else
-        {
-            DrawEnd(curCoord, inputList);
-            break;
-        }
-    }
-}
-
 bool River::DrawStraightLine(const int& distance, const DIRECTION& dir, List<Coordinate>& inputList,
                              Coordinate& curCoord)
 {

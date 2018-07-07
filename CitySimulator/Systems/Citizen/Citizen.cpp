@@ -59,7 +59,7 @@ Citizen::~Citizen()
 	auto fatherPtr = GetFamilyMember(FATHER);
 	auto motherPtr = GetFamilyMember(MOTHER);
 	auto spousePtr = GetFamilyMember(SPOUSE);
-    
+	auto homeRulePtr = dynamic_cast<HomeRule*>(FindRule(HOME));
 	if (fatherPtr != nullptr)
 	{
 		fatherPtr->descendants.Remove(this);
@@ -71,6 +71,10 @@ Citizen::~Citizen()
 	if (spousePtr != nullptr)
 	{
 		spousePtr->SetRelationships(SPOUSE, nullptr);
+	}
+	if (homeRulePtr != nullptr)
+	{
+		homeRulePtr->Unregister();
 	}
 }
 
