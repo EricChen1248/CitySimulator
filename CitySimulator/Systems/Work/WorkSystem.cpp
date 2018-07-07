@@ -70,7 +70,7 @@ float WorkSystem::GetSatisfaction() const
 		todayWorkTIme += work->todayWorkTime;
 	}
 
-	float satisfaction = todayWorkTIme / employeeCount * 4 * 2;
+	float satisfaction = todayWorkTIme / (employeeCount * 4 * 2);
 
 	satisfaction = Clamp(satisfaction, 0.f, 1.f);
 	return satisfaction;
@@ -85,8 +85,6 @@ void WorkSystem::EndDay()
 	{
 		plot->GetPlotType()->EndDay();
 	}
-	unsatisfiedLog.Dispose();
-	satisfiedLog.Dispose();
 }
 
 void WorkSystem::Toggle()
@@ -94,22 +92,30 @@ void WorkSystem::Toggle()
 	highLevel = !highLevel;
 }
 
+int WorkSystem::Cost()
+{
+    if (highLevel)
+    {
+        return cost[1];
+    }
+    return cost[0];
+}
+
 std::string WorkSystem::ContentString()
 {
 	std::stringstream ss;
+    ss << "Everyone was on time" << std::endl << "to work" << std::endl;
+    
 	if (highLevel)
 	{
-		ss << "High-Level Work: " << std::endl << "Only for citizen with" << std::endl << "high education level" << std::endl << std::endl;
+		ss << std::endl << "Building:" << std::endl << "Advanced Work $" << Cost() << std::endl << "Only for citizen with" 
+	       << std::endl << "high education level" << std::endl << std::endl;
 	}
 	else
 	{
-		ss << "General Work: " << std::endl << "Every citizen can enter" << std::endl << std::endl;
+		ss <<  std::endl << "Building:" << std::endl << "General Work $" << Cost() << std::endl << "Every citizen can enter" 
+	    << std::endl << std::endl << std::endl;
 	}
 
-	ss << "Citizen Age: 18-45" << std::endl << "Work Time: 8h/day" << std::endl
-		<< "Everyone was on time to work";
-
-
 	return ss.str();
-	
 }

@@ -19,12 +19,9 @@ public:
 	void NewEmployee(Citizen* citizen);
 	void Resignation(Citizen* citizen);
 
-	static const int MAX_WORK_COST = 100;
-
 private:
 	void Enter(const float workingTime, const float production);
 
-	int cost;
 	int todayEmployee;
 	int todayEarlyEmployee;
 	int todayLateEmployee;

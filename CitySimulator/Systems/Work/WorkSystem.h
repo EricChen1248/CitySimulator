@@ -9,14 +9,16 @@ public:
     WorkSystem();
     ~WorkSystem();
 
-	int Register(Plot* plot);
-	void Update();
-	float GetSatisfaction() const;
-	void EndDay();
-	void Toggle();
-	std::string ContentString();
+	int Register(Plot* plot) override;
+	void Update() override;
+	float GetSatisfaction() const override;
+	void EndDay() override;
+	void Toggle() override;
+    int Cost() override;
+	std::string ContentString() override;
 private:
 	bool highLevel;
+    const int cost[2] = {500,1000};
 };
 
 

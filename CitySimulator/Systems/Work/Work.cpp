@@ -15,20 +15,20 @@ using namespace std;
  * \brief 
  * \param plot 
  */
-Work::Work(Plot *plot) : Base(plot, WORK), todayWorkTime(0.f), todayEmployee(0), todayEarlyEmployee(0), todayLateEmployee(0), production(0) // TODO : cost;
+Work::Work(Plot *plot) : Base(plot, WORK), todayEmployee(0), todayEarlyEmployee(0), todayLateEmployee(0), todayWorkTime(0.f), production(0) // TODO : cost;
 {
-
-	highLevel = dynamic_cast<WorkSystem*>(CoreController::GetSystemController()->GetSystem(WORK))->highLevel;
+    auto system = dynamic_cast<WorkSystem*>(CoreController::GetSystemController()->GetSystem(WORK));
+	highLevel = system->highLevel;
+    cost = system->Cost();
+    
 	color = WORK_COLOR; // TODO : different color for different level
 	if (highLevel)
 	{
 		baseSalary = float(RandomInt(80, 120)); // TODO : salary
-		cost = RandomInt(80, MAX_WORK_COST);
 	}
 	else
 	{
 		baseSalary = float(RandomInt(50, 100)); // TODO : salary
-		cost = RandomInt(50, 80);
 	}
 }
 
@@ -85,6 +85,7 @@ int Work::Destroy()
 		WorkRule* workRule = dynamic_cast<WorkRule*>(employee->FindRule(WORK));
 		workRule->assignedCompany = nullptr;
 	}
+     Base::Destroy();
 	return cost;
 }
 
@@ -96,11 +97,11 @@ std::string Work::ContentString()
 	else
 		ss << "General Company" << std::endl;
 
-	if (float(todayLateEmployee / 2) / employees.Count() >= 0.1)
+	if (float(todayLateEmployee) / 2 / employees.Count() >= 0.1)
 	{
 		ss << "Too many people" << std::endl << "were late." << std::endl << std::endl;
 	}
-	else if (float(todayLateEmployee / 2) / employees.Count() > 0)
+	else if (float(todayLateEmployee) / 2 / employees.Count() > 0)
 	{
 		ss << "Still some people" << std::endl << "were late." << std::endl << std::endl;
 	}
