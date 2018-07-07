@@ -23,6 +23,7 @@ public:
     ~Status();
     void Init(int x, int y);
     void Draw();
+    bool InBound() const;
     static bool BuildMode() { return buildMode; }
     static void Build(Plot* plot);
     static Selection Selection;

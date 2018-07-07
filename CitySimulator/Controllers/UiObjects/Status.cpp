@@ -91,6 +91,14 @@ void Status::Draw()
     }
 }
 
+bool Status::InBound() const
+{
+    const auto window = CoreController::SfmlController()->Window();
+    const auto mousePos = sf::Mouse::getPosition(*window);
+    
+    return rect.getGlobalBounds().contains(mousePos.x, mousePos.y);
+}
+
 void Status::Build(Plot* plot)
 {
     CoreController::GetSystemController()->GetSystem(SelectedSystem)->Register(plot);
@@ -119,6 +127,7 @@ void Status::DrawChildren()
         {
             if (buildMode) ToggleBuildMode();
             Selection = NONE_SELECTED;
+            PlotSystem::DeselectPlotsAndRoads();
         }
     }
     CoreController::SfmlController()->DrawString(closeText);

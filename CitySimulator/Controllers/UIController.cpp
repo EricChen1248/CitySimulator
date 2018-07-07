@@ -98,6 +98,7 @@ bool UIController::IsOverUI() const
     if (selectionBackGround.getGlobalBounds().contains(x, y)) return true;
     if (nextDay.IsInBounds()) return true;
     if (birthRateSlider.InBound()) return true;
+    if (status.InBound()) return true;
     return false;    
 }
 
