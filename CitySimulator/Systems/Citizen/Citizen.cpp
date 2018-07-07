@@ -264,15 +264,19 @@ void Citizen::ForceRule(const System ruleType, const float waitTime /* = 0 */ )
  */
 BaseRule* Citizen::FindRule(const System system)
 {
-    for (auto && rule : rules)
+    switch (system)
     {
-        if (rule->Type() == system)
-        {
-            return rule;
-        }
+    case FOOD:
+    case WORK:
+    case BANK: 
+    case HOME: 
+    case STORE: 
+    case SCHOOL: 
+    case HOSPITAL: 
+        return rules[system - 1];    
+    default: 
+        return nullptr;
     }
-    return nullptr;
-    
 }
 
 bool Citizen::IsMarried() const
