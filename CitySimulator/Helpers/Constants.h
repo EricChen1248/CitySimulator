@@ -7,6 +7,7 @@ const float COS30 = 0.86602f;
 const float SIN60 = 0.86602f;
 const float SIN30 = 0.5f;
 
+const sf::Color BACKGROUND = sf::Color(245,245,245);
 
 const sf::Color RED = sf::Color(255,0,0);
 const sf::Color BLUE = sf::Color(0,0,255);
@@ -32,7 +33,6 @@ const sf::Color RIVER_COLOR_2 = sf::Color(62, 244, 240);
 const sf::Color BASE_ROAD_COLOR = sf::Color(230, 230, 230);
 const sf::Color MOUSE_OVER_COLOR = sf::Color(220, 220, 220);
 
-const sf::Color UNSATISFIED_COLOR = RED;
 const sf::Color SATISFIED_COLOR = YELLOW;
 const sf::Color SUPER_SATIFIED_COLOR = GREEN;
 

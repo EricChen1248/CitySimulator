@@ -35,5 +35,7 @@ private:
     // Backing variables
     bool isRunning{};
     sf::RenderWindow *window{};
+    
+    sf::VertexArray playfield;
 };
 

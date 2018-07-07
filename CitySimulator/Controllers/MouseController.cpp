@@ -1,7 +1,8 @@
 #include "MouseController.h"
 #include <SFML/Window/Mouse.hpp>
+#include <SFML/Window/Event.hpp>
 
-bool MouseController::mousePressed = false;
+bool MouseController::clicked = false;
 
 MouseController::MouseController()
 = default;
@@ -9,23 +10,20 @@ MouseController::MouseController()
 
 MouseController::~MouseController()
 = default;
+void MouseController::Reset()
+{
+    clicked = false;
+}
 
 bool MouseController::IsClicked()
 {
-    if (!mousePressed)
+    return clicked;
+}
+
+void MouseController::Unclick(sf::Event& event)
+{
+    if (event.mouseButton.button == sf::Mouse::Left)
     {
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-        {
-            mousePressed = true;
-        }
+        clicked = true;
     }
-    else
-    {
-        if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))
-        {
-            mousePressed = false;
-            return true;
-        }
-    }
-    return false;
 }

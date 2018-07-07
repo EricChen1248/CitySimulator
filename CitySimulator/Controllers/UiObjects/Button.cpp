@@ -36,8 +36,16 @@ void Button::ReverseColor()
  */
 bool Button::Draw()
 {
+    if (disable)
+    {
+        shape.setFillColor(DARK_GREY);
+        CoreController::SfmlController()->DrawShape(shape);
+        disable = false;
+        return false;
+    }
+    
     const bool inBounds = IsInBounds();
-    if (inBounds)
+    if (inBounds || disable)
     {
         shape.setFillColor(moColor);
     }

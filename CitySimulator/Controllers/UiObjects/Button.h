@@ -20,9 +20,11 @@ public:
     bool Draw();
     bool IsInBounds() const;
     void SetPosition(Vector2f position);
+    void DisableOnce() { disable = true; };
 private:
     RectangleShape shape;
     Color color;
     Color moColor;
+    bool disable = false;
 };
 

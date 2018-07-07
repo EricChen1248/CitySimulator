@@ -14,6 +14,7 @@ public:
     System SystemType;
 
     const sf::Color& Color() const { return color; }
+    int Cost() const { return cost; }
     Base(Plot* plot, const System system);
 
     virtual ~Base() = default;
@@ -21,11 +22,13 @@ public:
     virtual void EndDay() { }
     [[deprecated]]
     virtual int ReturnScore() { return score; }
+    
     // TODO : Add Destroy behaviour
     virtual int Destroy();
     virtual std::string ContentString() { return ""; }
     
 protected:
+    int cost;
     Plot* plot;
     sf::Color color;
     int score;
