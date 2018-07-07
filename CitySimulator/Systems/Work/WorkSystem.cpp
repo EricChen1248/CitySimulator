@@ -121,4 +121,23 @@ void WorkSystem::Toggle()
 {
 	highLevel = !highLevel;
 }
-;
+
+std::string WorkSystem::ContentString()
+{
+	std::stringstream ss;
+	if (highLevel)
+	{
+		ss << "High-Level Work: " << std::endl << "Only for citizen with" << std::endl << "high education level" << std::endl << std::endl;
+	}
+	else
+	{
+		ss << "General Work: " << std::endl << "Every citizen can enter" << std::endl << std::endl;
+	}
+
+	ss << "Citizen Age: 18-45" << std::endl << "Work Time: 8h/day" << std::endl
+		<< "Everyone was on time to work";
+
+
+	return ss.str();
+	
+}
