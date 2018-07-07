@@ -297,8 +297,8 @@ void CoreController::InterdayInputEvents()
  */
 void CoreController::InterdayRenderEvents() const
 {
-    ClearRender();
     viewPortController->UpdateGameView();
+    ClearRender();
     systemController->RenderInterday();
     viewPortController->UpdateUIView();
     uiController->RenderInterDayUI();
