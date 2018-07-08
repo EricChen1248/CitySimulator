@@ -47,17 +47,6 @@ int WorkSystem::Register(Plot* plot)
 */
 void WorkSystem::Update()
 {
-	/*
-	for (auto && plot : plots)
-	{
-		// Do this if you want to get the plot type (class work)
-		//const auto rule = dynamic_cast<Work*> (plot->GetPlotType());
-
-		// Tallying and adding score for occupant count. Positive for within limit people, negative for over
-		const auto count = plot->GetOccupantCount();
-		score += (std::min(count, maxOccupantCount) * scorePerOccupant - std::max(count - maxOccupantCount, 0) * overPenalty) * CoreController::Instance()->GetDeltaTime();
-	}
-	*/
 }
 
 

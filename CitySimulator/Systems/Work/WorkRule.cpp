@@ -6,30 +6,26 @@
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Controllers/CoreController.h"
-#include <iostream>
+#include "../../Helpers/Logger.h"
 
-using namespace std;
-
-int counter = 0;
 
 using helper::Time;
-
 Time WorkRule::timeToWork;
 Time WorkRule::breakTime;
 Time WorkRule::endBreakTime;
 Time WorkRule::timeOffWork;
 
-
-
 /**
  * \brief 
  * \param citizen 
  */
-WorkRule::WorkRule(Citizen& citizen) : BaseRule(citizen, WORK), assignedCompany(nullptr), salary(0.), baseSalary(0.), workingTime(0), earlyToWork(0)
-{
-}
+WorkRule::WorkRule(Citizen& citizen) : BaseRule(citizen, WORK), shiftCount(0), assignedCompany(nullptr),
+                                       salary(0.), baseSalary(0.), workingTime(0), earlyToWork(0) {}
 
-WorkRule::~WorkRule() = default;
+WorkRule::~WorkRule()
+{
+    UnRegister();
+};
 
 
 /**
@@ -38,22 +34,21 @@ WorkRule::~WorkRule() = default;
  */
 float WorkRule::CalculateScore()
 {
-	if (assignedCompany != nullptr)
-	{
-		const Time currentTime = CoreController::Instance()->GetTime();
+    if (assignedCompany == nullptr) return 0;
+    
+	const Time currentTime = CoreController::Instance()->GetTime();
 
-		// morning to work
-		if((timeToWork - currentTime) < (earlyToWork + 30) && currentTime < breakTime)
-		{
-			// start to have score 30 min before time that  
-			return 5000000 - Clamp(timeToWork - currentTime - earlyToWork, 0) * 100000;
-		}
+	// morning to work
+	if(shiftCount < 1 && timeToWork - currentTime < earlyToWork + 60 && currentTime < breakTime )
+	{
+		// start to have score 30 min before time that  
+		return 5000000 - Clamp(timeToWork - currentTime - earlyToWork - 60, 0) * 100000;
+	}
 		
-		// break time (want to back company)
-		if (breakTime < currentTime && currentTime < timeOffWork)
-		{
-			return 5000000 + Clamp(currentTime - breakTime, 0) * 100000;
-		}
+	// break time (want to back company)
+	if (shiftCount < 2 && breakTime < currentTime && currentTime < timeOffWork)
+	{
+		return 5000000 + Clamp(currentTime - breakTime, 0) * 100000;
 	}
     return 0; // not have work
 }
@@ -66,8 +61,6 @@ bool WorkRule::FindPlot()
 {
 	if (assignedCompany == nullptr)
 		return false;
-
-	counter++;
 	citizen->SetActiveRule(this);
 	citizen->SetTarget(assignedCompany);
 	return true;
@@ -81,23 +74,30 @@ void WorkRule::EnterPlot(Plot* plot)
 {
 	const auto work = dynamic_cast<Work*>(plot->GetPlotType());
     if (work == nullptr) return;
-    
+ 
+    ++shiftCount;
 	const Time currentTime = CoreController::Instance()->GetTime();
 	if (currentTime < breakTime)
 	{
 		workingTime = static_cast<float>(breakTime - currentTime) / 60;
-		earlyToWork += (240 - (breakTime - currentTime));
+		earlyToWork += 240 - (breakTime - currentTime);
 	}
 	else
-		workingTime = static_cast<float>(timeOffWork - currentTime) / 60;
-
+    {
+        workingTime = static_cast<float>(timeOffWork - currentTime) / 60;
+    }
+    
 	if (workingTime > 4)
-		workingTime = 4;
+    {
+        workingTime = 4;
+    }
 
 	// Off Work on time
 	// Adjust randomly(+-10min) to avoid rush
 	citizen->Wait(workingTime + float(RandomInt(-10, 10)) / 60); 
-    
+    std::stringstream ss;
+    ss <<currentTime.ToString() << " " << workingTime;
+    Logger::Log(ss.str());
 	const int workingExp = citizen->Age() - 18; // Salary increases due to experience
 	work->Enter(workingTime, (salary + workingExp * 0.3f) * workingTime / 4);
 }
@@ -114,7 +114,7 @@ void WorkRule::LeavePlot(Plot* plot)
 
 	const Time currentTime = CoreController::Instance()->GetTime();
 	if (endBreakTime > currentTime) // morning session
-		citizen->ForceRule(FOOD, 0.5);
+		citizen->ForceRule(FOOD);
 }
 
 /**
@@ -127,12 +127,12 @@ void WorkRule::Update()
 
 void WorkRule::EndDay()
 {
-	//cout << counter << std::endl;
+    
 }
 
 void WorkRule::NewDay()
 {
-	counter = 0;
+    shiftCount = 0;
 
 	if (citizen->Age() >= 18 && citizen->Age() < 45)
 	{
@@ -141,9 +141,8 @@ void WorkRule::NewDay()
 		else if(earlyToWork > 60) // TODO : 60?
 		{
 			Plot* oldPlot = assignedCompany;
-			Register();
 
-			if (assignedCompany != oldPlot) // Check if citizen change work
+			if (Register()) // Check if citizen change work
 			{
 				const auto oldCompany = dynamic_cast<Work*>(oldPlot->GetPlotType());
 				oldCompany->Resignation(citizen);
@@ -157,11 +156,11 @@ void WorkRule::NewDay()
 * \
 */
 
-void WorkRule::Register()
+bool WorkRule::Register()
 {
+    List<Plot*> choices;
 	auto &plots = CoreController::GetSystemController()->GetSystem(WORK)->Plots();
 	// Get a list of plots that fulfill out requirements ( distance < max distance
-	List<Plot*> choices;
 	for (auto && plot : plots)
 	{
 		auto coords = citizen->Coords();
@@ -173,12 +172,10 @@ void WorkRule::Register()
 			choices.InsertLast(p);
 		}
 	}
-
-	// If such a list doesn't exist. This rule returns failed result false
-	// TODO: Increase Searching area¡I
+    
 	if (choices.Count() == 0)
 	{
-		return;
+		return false;
 	}
 
 	const auto chosen = choices[RandomInt(0, choices.Count())];
@@ -188,13 +185,14 @@ void WorkRule::Register()
 	// Adjust salary due to education level
 	// To Get SchoolRule
 	SchoolRule* schoolRule = dynamic_cast<SchoolRule*>(citizen->FindRule(SCHOOL));
-
-	// TODO : School Rule doesn't exist yet.
-	const int educationLv = schoolRule != nullptr ? schoolRule->EducationLevel() : 0;
-	const auto work = dynamic_cast<Work*>(chosen->GetPlotType());
+    const int educationLv = schoolRule->EducationLevel();
+	
+    const auto work = dynamic_cast<Work*>(chosen->GetPlotType());
 	baseSalary = work->baseSalary * RandomInt(10, 13) / 10;
-	salary = baseSalary + educationLv * 0.3f; // TODO : number(education)
+	
+    salary = baseSalary + educationLv * 0.3f; // TODO : number(education)
 	work->NewEmployee(citizen);
+    return true;
 }
 
 void WorkRule::UnRegister()

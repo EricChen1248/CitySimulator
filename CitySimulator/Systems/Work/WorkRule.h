@@ -22,12 +22,12 @@ public:
 	void Update() override;
 	void NewDay() override;
 	void EndDay() override;
-	void Register();
+	bool Register();
 	void UnRegister();
 
 private:
-
-	const int maxDistance = 1;
+    int shiftCount;
+	const int maxDistance = 10;
 	Plot* assignedCompany;
 	float salary;
 	float baseSalary;
