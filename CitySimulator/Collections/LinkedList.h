@@ -186,7 +186,6 @@ void LinkedList<T>::Remove(const int index)
     }
     else
     {
-        // Calculating distances from cached positions
         const int toFirst = index;
         const int toLast = count - index - 1;
 
@@ -213,15 +212,30 @@ void LinkedList<T>::Remove(const int index)
             default:
                 throw CodingError("This should not happen");
             }
+            currentIndex += dir;
         }
         curNode = node;
     }
     
     auto next = curNode->next;
     auto prev = curNode->prev;
-    
-    next->prev = prev;
-    prev->next = next;
+
+    if (next == nullptr)
+    {
+        last = prev;
+    }
+    else
+    {
+        next->prev = prev;
+    }
+    if (prev == nullptr)
+    {
+        first = next;
+    }
+    else
+    {
+        prev->next = next;
+    }
     delete curNode;
     --count;
 }
