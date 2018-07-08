@@ -11,6 +11,7 @@ BankRule::~BankRule() = default;
 
 float BankRule::CalculateScore()
 {
+    return 0;
     if (citizen->Money() < CITIZEN_MAX_MONEY && saving > 100)
         return 100000;
     return 0;

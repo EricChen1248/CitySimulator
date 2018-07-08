@@ -27,6 +27,7 @@ float StoreRule::CalculateScore()
     //     return 0;
     // }
     
+    return 0;
     float totalScore = 0.f;
     totalScore += Clamp(RESTOCK - foodStock, 0.f);
     totalScore += Clamp(RESTOCK - miscStock, 0.f);
