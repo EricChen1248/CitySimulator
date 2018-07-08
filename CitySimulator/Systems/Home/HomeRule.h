@@ -18,7 +18,7 @@ public:
 	void EnterPlot(Plot* plot) override;
 	void LeavePlot(Plot* plot) override;
 	void Update() override;
-	bool IsSatisfied() override;
+    void NewDay() override;
 	void EndDay() override;
 	bool HasHome()const { return (myHome != nullptr); };
 	bool AtHome()const { return atHomeFlag; };

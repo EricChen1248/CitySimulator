@@ -141,27 +141,17 @@ void HomeRule::Update()
 	}
 }
 
-/**
-* \brief Returns bool to tell if citizen is satisfied with it's food requirements
-* \return True if hunger level is over 20
-*/
-bool HomeRule::IsSatisfied()
+void HomeRule::NewDay()
 {
-	return (myHome != nullptr);
+	if (myHome == nullptr && citizen->Age() > WORKING_AGE)
+	{
+		DecideHome();
+		return;
+	}
 }
+
 void HomeRule::EndDay() 
 {
-	if (this->citizen->Age() == WORKING_AGE)
-	{
-		myHome = nullptr;
-		DecideHome();
-		return;
-	}
-	if (!IsSatisfied())
-	{
-		DecideHome();
-		return;
-	}
 	return;
 }
 
