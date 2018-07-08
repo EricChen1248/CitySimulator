@@ -34,7 +34,7 @@ int WorkSystem::Register(Plot* plot)
 {
 	plot->Register(new Work(plot));
 	BaseSystem::Register(plot);
-    return 0;
+    return Cost();
 }
 
 /**
@@ -87,7 +87,7 @@ void WorkSystem::Toggle()
 	highLevel = !highLevel;
 }
 
-int WorkSystem::Cost()
+int WorkSystem::Cost() const
 {
     if (highLevel)
     {
@@ -123,12 +123,12 @@ std::string WorkSystem::ContentString()
     
 	if (highLevel)
 	{
-		ss << std::endl << "Building:" << std::endl << "Advanced Work $" << Cost() << std::endl << "Only for citizen with" 
+		ss << "Building:" << std::endl << "Advanced Work $" << Cost() << std::endl << "Only for citizen with" 
 	       << std::endl << "high education level" << std::endl << std::endl;
 	}
 	else
 	{
-		ss <<  std::endl << "Building:" << std::endl << "General Work $" << Cost() << std::endl << "Every citizen can enter" 
+		ss << "Building:" << std::endl << "General Work $" << Cost() << std::endl << "Every citizen can enter" 
 	    << std::endl << std::endl << std::endl;
 	}
 
