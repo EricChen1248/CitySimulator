@@ -5,7 +5,7 @@
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
-#include <iostream>
+
 HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME),myHome(nullptr),atHomeFlag(false)
 {
 	//this is the time when people start to go home
@@ -82,12 +82,10 @@ bool HomeRule::FindPlot()
 	{
 		return false;
 	}
-	else
-	{
-		citizen->SetActiveRule(this);
-		citizen->SetTarget(myHome->GetPlot());
-		return true;
-	}
+    
+	citizen->SetActiveRule(this);
+	citizen->SetTarget(myHome->GetPlot());
+	return true;
 }
 void HomeRule::EnterPlot(Plot* plot)
 {
