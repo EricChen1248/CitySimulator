@@ -16,7 +16,7 @@
 
 
 Citizen::Citizen(Plot* plot) : target(nullptr), currentPlot(plot), currentRoad(nullptr), activeRule(nullptr), money(1000), tempTarget(plot->Coords()), coords(plot->Coords()), doubleSpeedTime(0),
-                               waitTime(0.f), inPlot(false), pathFindFailed(false), dead(false)
+                               waitTime(0.f), forceWait(0.f), inPlot(false), pathFindFailed(false), dead(false)
 {
     age = RandomInt(7, 13) * 3;
 	gender = static_cast<Gender>(RandomInt(0, 2));
@@ -72,6 +72,8 @@ Citizen::~Citizen()
 	{
 		spousePtr->SetRelationships(SPOUSE, nullptr);
 	}
+    
+    rules.Dispose();
 }
 
 /**
@@ -199,6 +201,12 @@ void Citizen::UpdateScreenCoordinates()
  */
 void Citizen::Wait(const float time)
 {
+    if (forceWait != 0)
+    {
+        waitTime = forceWait;
+        forceWait = 0;
+        return;
+    }
     waitTime = time;
 }
 
@@ -208,8 +216,10 @@ void Citizen::NewDay()
     {
     case 0:
         //dynamic_cast<SchoolRule*>(FindRule(SCHOOL))->Register();
+        break;
     case 18:
         //dynamic_cast<SchoolRule*>(FindRule(SCHOOL))->UnRegister();
+        break;
     case 45:
         dynamic_cast<WorkRule*>(FindRule(WORK))->UnRegister();
         //dynamic_cast<HomeRule*>(FindRule(HOME))->UnRegister();
@@ -243,17 +253,11 @@ void Citizen::EndDay()
  */
 void Citizen::ForceRule(const System ruleType, const float waitTime /* = 0 */ )
 {
-    for (auto && rule : rules)
-    {
-        if (rule->Type() == ruleType)
-        {
-            rule->FindPlot();
-        }
-    }
+    FindRule(ruleType)->FindPlot();
 
     if (waitTime != 0)
     {
-        Wait(waitTime);
+        forceWait = waitTime;
     }
 }
 
