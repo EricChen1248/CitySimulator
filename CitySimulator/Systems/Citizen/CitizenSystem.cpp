@@ -70,6 +70,7 @@ void CitizenSystem::PruneDead()
     {
         if (citizens[i]->IsDead())
         {
+            delete citizens[i];
             citizens.Remove(i);
             --i;
         }
@@ -101,6 +102,7 @@ void CitizenSystem::EndDay()
     {
         citizen->EndDay();
     }
+    PruneDead();
 }
 
 /**
