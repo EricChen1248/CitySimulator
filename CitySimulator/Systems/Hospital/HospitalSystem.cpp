@@ -117,7 +117,7 @@ std::string HospitalSystem::ContentString()
     std::stringstream ss;
     if (totalDeaths != 0 && float(unhappyDeath) / totalDeaths > 0.05f)
     {
-        ss << "Too many people" << std::endl << "are dying outside" << std::endl << "of the hospital";
+        ss << "Too many people" << std::endl << "are dying outside" << std::endl << "of the hospital" << std::endl;
     }
     else if (crowdedHospital > 0)
 	{
@@ -127,8 +127,9 @@ std::string HospitalSystem::ContentString()
     {
         ss << "The hospital system" << std::endl << "is working perfectly" << std::endl;
     }
-    
-    ss << "Daily Death:" << totalDeaths;
+	ss << std::endl;
+    ss << "Daily Death:" << totalDeaths << std::endl;
+	ss << "Death outside:" << unhappyDeath << std::endl;
     return ss.str();
     
 }
