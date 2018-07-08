@@ -72,7 +72,7 @@ void HospitalSystem::DeathOutside()
  */
 void HospitalSystem::Death()
 {
-    totalDeaths = 0;
+    ++totalDeaths;
 }
 
 /**
