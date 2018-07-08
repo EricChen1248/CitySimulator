@@ -1,4 +1,5 @@
 #include "SystemController.h"
+#include "../Helpers/FeatureFlags.h"
 
 #include "../Systems/Plot/Plot.h"
 #include "../Systems/River/River.h"
@@ -12,7 +13,7 @@
 #include "../Systems/Citizen/CitizenSystem.h"
 #include "../Systems/Hospital/HospitalSystem.h"
 
-SystemController::SystemController() : timeSinceUpdate(0.f) { };
+SystemController::SystemController() : timeSinceUpdate(0.f), river(nullptr) { };
 
 SystemController::~SystemController()
 {
@@ -46,7 +47,7 @@ void SystemController::Initialize()
 
     river = new River();
     river->Init();
-
+#if not CLEAN_BUILD
     // TODO Remove demo
     for (auto&& system : systems)
     {
@@ -83,6 +84,7 @@ void SystemController::Initialize()
             system->Register(plot);
         }
     }
+#endif
     citizens = new CitizenSystem();
 }
 
