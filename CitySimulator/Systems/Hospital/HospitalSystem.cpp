@@ -106,8 +106,6 @@ void HospitalSystem::EndDay()
     {
         plot->GetPlotType()->EndDay();
     }
-    unsatisfiedLog.Dispose();
-    satisfiedLog.Dispose();
 }
 
 /**
@@ -119,11 +117,9 @@ std::string HospitalSystem::ContentString()
     std::stringstream ss;
     if (totalDeaths != 0 && float(unhappyDeath) / totalDeaths > 0.05f)
     {
-        {
-            ss << "Too many people" << std::endl << "are dying outside" << std::endl << "of the hospital";
-        }
+        ss << "Too many people" << std::endl << "are dying outside" << std::endl << "of the hospital";
     }
-	else if (crowdedHospital > 0)
+    else if (crowdedHospital > 0)
 	{
 		ss << "There are "  << crowdedHospital << std::endl << " hospitals crowded" << std::endl;
 	}
@@ -131,7 +127,6 @@ std::string HospitalSystem::ContentString()
     {
         ss << "The hospital system" << std::endl << "is working perfectly" << std::endl;
     }
-    
     
     ss << "Daily Death:" << totalDeaths;
     return ss.str();
