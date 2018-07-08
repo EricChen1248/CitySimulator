@@ -94,9 +94,10 @@ void HospitalRule::Update()
 void HospitalRule::EndDay()
 {
 	// Die accidentally
-	// TODO : probability?
-	int die = RandomInt(0, citizen->Age());
-	if (die >= 54)
+	// TODO : probability & Get Real Satisfaction
+	// float satisfaction =  CoreController::GetSystemController()->GetSystem(HOSPITAL)->GetSatisfaction();
+	float satisfaction = 0.9;
+	if (satisfaction < 0.85 && RandomInt(0, 85) >= satisfaction * 100)
 		citizen->Die();
 }
 
