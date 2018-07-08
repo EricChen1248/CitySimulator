@@ -15,6 +15,7 @@ public:
 	void Update() override;
 	float GetSatisfaction() const override;
 	void EndDay() override;
+	int GetTotalFamily()const;
 	std::string ContentString()override;
 private:
 	const int maxOccupantCount = 20;

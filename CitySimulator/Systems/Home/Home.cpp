@@ -39,6 +39,13 @@ std::string Home::ContentString()
 	ss << "Provides home for" << std::endl <<" familes." << std::endl << std::endl;
 	ss << "Maximum Capacitiy : " << homeCapacity <<  std::endl << "Family count: " << NumOfFamily();
 	ss << std::endl << "(unit: house)";
+	float avgSleepHour = 0.f;
+	for (auto resident : Residents)
+	{
+		auto homeRule = dynamic_cast<HomeRule*>(resident->FindRule(HOME));
+		avgSleepHour += homeRule->GetSleepTime() / float(Residents.Count());
+	}
+	ss << "Avg sleeping Hour: " << std::fixed << std::setprecision(2) << avgSleepHour;
 	return ss.str();
 }
 int Home::Destroy()

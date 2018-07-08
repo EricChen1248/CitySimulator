@@ -11,6 +11,7 @@
 
 #include "../Systems/Base/BaseSystem.h"
 #include "../Systems/Plot/PlotSystem.h"
+#include "../Systems/Home/HomeSystem.h"
 #include "MouseController.h"
 
 UIController::UIController() : sfml(*CoreController::SfmlController()) {}
@@ -270,6 +271,8 @@ void UIController::DrawTop()
     CenterString(citizenCountText, std::to_string(CoreController::GetSystemController()->GetCitizens().Count()), static_cast<float>(WINDOW_WIDTH) / 2 + 200);
     sfml.DrawString(citizenCountText);
     sfml.DrawString(familyText);
+	CenterString(familyCountText, std::to_string(dynamic_cast<HomeSystem*>(
+								CoreController::GetSystemController()->GetSystem(HOME))->GetTotalFamily()), static_cast<float>(WINDOW_WIDTH) / 2 + 335);
     sfml.DrawString(familyCountText);
 }
 

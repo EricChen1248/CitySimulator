@@ -60,6 +60,28 @@ void HomeSystem::EndDay()
 	satisfiedLog.Dispose();
 }
 
+int HomeSystem::GetTotalFamily() const
+{
+	int count = 0;
+	auto citizenList = CoreController::GetSystemController()->GetCitizens();
+	for (auto citizen : citizenList)
+	{
+		if (citizen->Age() >= WORKING_AGE)
+		{
+			if (citizen->GetGender() == MALE)
+			{
+				count++;
+			}
+			else
+			{
+				if (!citizen->IsMarried())
+					count++;
+			}
+		}
+	}
+	return count;
+}
+
 std::string HomeSystem::ContentString()
 {
 	std::stringstream ss;
@@ -85,7 +107,7 @@ std::string HomeSystem::ContentString()
 	}
 	if (avgSleepHour < 6.f)
 	{
-		ss << "People go home late," << std::endl << "perhaps relocate" << std::endl << "some home?"<<std::endl;
+		ss << "People go home late," << std::endl << "perhaps relocate some" << std::endl << "home?"<<std::endl;
 	}
 	if ((count > 0.8f) && (avgSleepHour > 6.f))
 	{

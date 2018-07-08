@@ -18,13 +18,14 @@ public:
 	std::string ContentString()override;
 	int Destroy() override;
 	Plot* GetPlot() const;
+	int NumOfFamily()const;
 private:
 	//each home has it's own capacity
 	int homeCapacity;
 	List<Citizen*> Residents;
 	//function
 	void Enter();
-	int NumOfFamily()const;
+	
 
 };
 
