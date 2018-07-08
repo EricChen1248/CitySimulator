@@ -11,7 +11,7 @@ HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME),myHome(nullptr),a
 	//this is the time when people start to go home
 	//TODO: goHomeTime is now a static member, which is like a curvew right now. it could be private member
 	//therefore each citizen can go home by unique timing
-	goHomeTime.IncreaseTime(20);
+	goHomeTime.IncreaseTime(21);
 	wakeUpTime.IncreaseTime(6);
 	if (citizen.GetFamilyMember(FATHER) != nullptr)
 	{
@@ -85,12 +85,10 @@ bool HomeRule::FindPlot()
 	{
 		return false;
 	}
-	else
-	{
-		citizen->SetActiveRule(this);
-		citizen->SetTarget(myHome->GetPlot());
-		return true;
-	}
+    
+	citizen->SetActiveRule(this);
+	citizen->SetTarget(myHome->GetPlot());
+	return true;
 }
 void HomeRule::EnterPlot(Plot* plot)
 {
@@ -98,7 +96,6 @@ void HomeRule::EnterPlot(Plot* plot)
 	if (myHome == nullptr) return;
 	atHomeFlag = true;
 	atHomeTime = CoreController::Instance()->GetTime();
-	std::cout << "Citize go home at " << atHomeTime.ToShortString() << std::endl;
 	if (atHomeTime.Hour <= wakeUpTime.Hour)
 	{
 		sleepingHour = float(wakeUpTime.Hour - atHomeTime.Hour) + float(RandomInt(-30,30)/60.f);
@@ -128,12 +125,12 @@ void HomeRule::LeavePlot(Plot* plot)
 }
 
 /**
-* \brief Update events of food rule. Decreases citizen's hunger
+* \brief Update events of home rule. Citizen would started to go home after 9:00
+	and the desire of going home would reach it's peak at 10:00
 */
 void HomeRule::Update()
 {
 	
-	// TODO : if homeless hour exceed certain critirea , this citizen sholud
     const auto time = CoreController::Instance()->GetTime();
 	
 
@@ -152,7 +149,7 @@ void HomeRule::Update()
 * \return True if hunger level is over 20
 */
 
-void HomeRule::EndDay() 
+void HomeRule::EndDay()
 {
 	if (this->citizen->Age() == WORKING_AGE)
 	{
@@ -165,7 +162,14 @@ void HomeRule::EndDay()
 		DecideHome();
 		return;
 	}
-	return;
+}
+void HomeRule::NewDay()
+{
+	if (myHome == nullptr && citizen->Age() > WORKING_AGE)
+	{
+		DecideHome();
+		return;
+	}
 }
 
 void HomeRule::Unregister()

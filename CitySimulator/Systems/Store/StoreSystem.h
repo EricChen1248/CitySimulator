@@ -11,9 +11,11 @@ public:
 	~StoreSystem();
 	int Register(Plot* plot) override;
 	void Update() override;
-	void LogSatisfied(Citizen* citizen, BaseRule* rule) override;
-	void LogUnsatisfied(Citizen* citizen, BaseRule* rule) override;
 	void EndDay() override;
+    float GetSatisfaction() const override;
+    inline void NewDay() override;
+    int Cost() const override { return 5000; };
+    std::string ContentString() override;
 private:
 	const int maxOccupantCount = 100;
 	const int scorePerOccupant = 20;

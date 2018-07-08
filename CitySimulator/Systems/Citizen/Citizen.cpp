@@ -16,7 +16,7 @@
 
 
 Citizen::Citizen(Plot* plot) : target(nullptr), currentPlot(plot), currentRoad(nullptr), activeRule(nullptr), money(1000), tempTarget(plot->Coords()), coords(plot->Coords()), doubleSpeedTime(0),
-                               waitTime(0.f), inPlot(false), pathFindFailed(false), dead(false)
+                               waitTime(0.f), forceWait(0.f), inPlot(false), pathFindFailed(false), dead(false)
 {
     age = RandomInt(7, 13) * 3;
 	gender = static_cast<Gender>(RandomInt(0, 2));
@@ -76,6 +76,16 @@ Citizen::~Citizen()
 	{
 		homeRulePtr->Unregister();
 	}
+    
+    if (currentPlot != nullptr)
+    {
+        currentPlot->Leave(this);
+    }
+    if (currentRoad != nullptr)    
+    {
+        currentRoad->Leave();
+    }
+    rules.Dispose();
 }
 
 /**
@@ -203,6 +213,12 @@ void Citizen::UpdateScreenCoordinates()
  */
 void Citizen::Wait(const float time)
 {
+    if (forceWait != 0)
+    {
+        waitTime = forceWait;
+        forceWait = 0;
+        return;
+    }
     waitTime = time;
 }
 
@@ -212,9 +228,11 @@ void Citizen::NewDay()
     {
     case 0:
         //dynamic_cast<SchoolRule*>(FindRule(SCHOOL))->Register();
-    case 18:
+        break;
+    case WORKING_AGE:
         //dynamic_cast<SchoolRule*>(FindRule(SCHOOL))->UnRegister();
-    case 45:
+        break;
+    case RETIREMENT_AGE:
         dynamic_cast<WorkRule*>(FindRule(WORK))->UnRegister();
         //dynamic_cast<HomeRule*>(FindRule(HOME))->UnRegister();
         dynamic_cast<HospitalRule*>(FindRule(HOSPITAL))->Register();
@@ -247,17 +265,11 @@ void Citizen::EndDay()
  */
 void Citizen::ForceRule(const System ruleType, const float waitTime /* = 0 */ )
 {
-    for (auto && rule : rules)
-    {
-        if (rule->Type() == ruleType)
-        {
-            rule->FindPlot();
-        }
-    }
+    FindRule(ruleType)->FindPlot();
 
     if (waitTime != 0)
     {
-        Wait(waitTime);
+        forceWait = waitTime;
     }
 }
 

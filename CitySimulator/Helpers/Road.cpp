@@ -6,7 +6,6 @@
 #include "../Controllers/CoreController.h"
 
 
-
 Road::Road(Plot* plotOne, Plot* plotTwo) : plotOne(plotOne), plotTwo(plotTwo), level(1), capacity(100), citizenCount(0), lifespan(50.f), isBroken(false), isRiver(false)
 // TODO: number of capacity, lifespan 
 {
@@ -25,7 +24,7 @@ float Road::Speed() const
 	if (isBroken)
 		return 0.01f; // can pass but very slowly
 	
-	return static_cast<float>(level) - 0.2f * (citizenCount > capacity ? 1.f : 0.f);
+	return 1 + static_cast<float>(level - 1) * 0.2 - 0.2f * (citizenCount > capacity ? 1.f : 0.f);
 }
 
 bool Road::IsRiver() const
@@ -48,7 +47,7 @@ int Road::LevelUp()
 	capacity += 20; 
 	lifespan = 50; // replenish
 	shape.ChangeThickness(1 + level * 0.8f); // TODO :thickness
-	return 30; // cost 
+	return upgradeCosts[level-1]; // cost 
 }
 
 
@@ -58,8 +57,13 @@ int Road::Repair()
 	isBroken = false;
 	lifespan = 50; // replenish
 	shape.ChangeColor(BASE_ROAD_COLOR);
-	return 30; // repair cost 
+	return repairCost; // repair cost 
 
+}
+
+int Road::Cost() const
+{
+    return isBroken ? repairCost: upgradeCosts[level];
 }
 
 void Road::MarkAsRiver()

@@ -10,6 +10,7 @@
 #include "../Helpers/Logger.h"
 #include "../Helpers/FeatureFlags.h"
 #include "../Helpers/PathFinder/PathFinder.hpp"
+#include "../Helpers/Government.h"
 CoreController* CoreController::instance;
 
 using sf::Event;
@@ -33,6 +34,11 @@ CoreController::CoreController()
     systemController->Initialize();
     uiController->Initialize();
     PathFinder::RemapQuadrants();
+    
+#if LOTS_OF_MONEY
+    Government::AddTax(1000000);
+#endif
+    
 };
 
 CoreController::~CoreController()

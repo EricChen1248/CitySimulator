@@ -16,6 +16,7 @@ public:
 	//Setter
 	int LevelUp();
 	int Repair();
+    int Cost() const;
 	void MarkAsRiver();
 
 	//Function
@@ -42,7 +43,7 @@ private:
     
     // TODO : Set road repair costs and update costs
     const int repairCost = 100;
-    const int upgradeCosts[10] { 10,20,30,40,50,60,70,80,90,100};
+    const int upgradeCosts[11] { 10,20,30,40,50,60,70,80,90,100, 2147483647};
 	
     float lifespan{};
 	bool isBroken;

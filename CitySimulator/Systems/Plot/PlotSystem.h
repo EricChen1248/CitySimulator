@@ -16,17 +16,18 @@ public:
     void RenderInterDay();
 	void RenderRoads() const;
     
-    void HandleClick();
-    void RoadClicks(bool onPlot, const float &x, const float &y);
     static void DeselectPlotsAndRoads();
-	void FindHover(float x, float y);
+    void HandleClick();
     void ClearSelections();
+	void FindHover(float x, float y);
+    void RoadClicks(bool onPlot, const float &x, const float &y);
     
     void NewDay();
     void EndDay();
     
-    const LinkedList<Plot*>& Plots() const { return plots; }
 	const List<Road*>& Roads() const { return roads; }
+    const LinkedList<Plot*>& Plots() const { return plots; }
+    
     Plot* FindPlot(const Coordinate& coords) const;
     Plot* GetRandomPlot() const;
 

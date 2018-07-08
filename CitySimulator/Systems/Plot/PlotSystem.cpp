@@ -53,7 +53,7 @@ void PlotSystem::Render() const
 	for (auto && plot : plots)
 	{
 		if (plot->IsRiver()) continue;
-		auto & shape = plot->UpdateShape();
+		auto & shape = plot->GetShape();
 		CoreController::SfmlController()->DrawShape(shape);
 	}
 }
@@ -66,7 +66,7 @@ void PlotSystem::RenderInterDay()
     for (auto && plot : plots)
     {
 		if (plot->IsRiver()) continue;
-        auto & shape = plot->UpdateShape();
+        auto & shape = plot->GetShape();
         CoreController::SfmlController()->DrawShape(shape);
     }
 

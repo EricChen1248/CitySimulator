@@ -43,21 +43,21 @@ void HospitalRule::EnterPlot(Plot* plot)
 	int cost = hospital->cost;
 
 	BankRule* bankRule = dynamic_cast<BankRule*>(citizen->FindRule(BANK));
-	if ((citizen->GetMoney() + bankRule->GetSavings()) < cost)
+	if ((citizen->Money() + bankRule->GetSavings()) < cost)
 	{
 		citizen->Die();
 		return;
 	}
 
 	// Today's fee
-	if (citizen->GetMoney() == 0)
+	if (citizen->Money() == 0)
 		bankRule->SaveMoney(static_cast<float>(-cost));
-	else if(citizen->GetMoney() >= cost)
+	else if(citizen->Money() >= cost)
 		citizen->IncreaseMoney(-cost);
 	else
 	{	
-		cost -= citizen->GetMoney();
-		citizen->IncreaseMoney(-citizen->GetMoney());
+		cost -= citizen->Money();
+		citizen->IncreaseMoney(-citizen->Money());
 		bankRule->SaveMoney(static_cast<float>(-cost));
 	}
 		

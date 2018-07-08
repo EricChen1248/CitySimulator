@@ -11,7 +11,8 @@ BankRule::~BankRule() = default;
 
 float BankRule::CalculateScore()
 {
-    if (citizen->GetMoney() < CITIZEN_MAX_MONEY && saving > 100)
+    return 0;
+    if (citizen->Money() < CITIZEN_MAX_MONEY && saving > 100)
         return 100000;
     return 0;
 }
@@ -78,7 +79,7 @@ void BankRule::LeavePlot(Plot* plot)
 	int moneyToWithdraw = 0;
 	if (citizen->Age() >= WORKING_AGE)
 	{
-		 moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->GetMoney(), 0, int(saving));
+		 moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->Money(), 0, int(saving));
 
 		if (moneyToWithdraw >= bank->transactionCost) {
 			citizen->IncreaseMoney(moneyToWithdraw - bank->transactionCost);
@@ -93,7 +94,7 @@ void BankRule::LeavePlot(Plot* plot)
 			auto fatherBankRule = dynamic_cast<BankRule*>(citizen->GetFamilyMember(FATHER)->FindRule(BANK));
 			auto motherBankRule = dynamic_cast<BankRule*>(citizen->GetFamilyMember(MOTHER)->FindRule(BANK));
 
-			moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->GetMoney(), 0, (fatherBankRule->saving + motherBankRule->saving));
+			moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->Money(), 0, (fatherBankRule->saving + motherBankRule->saving));
 			if (moneyToWithdraw > bank->transactionCost)
 			{
 				citizen->IncreaseMoney((moneyToWithdraw - bank->transactionCost));
@@ -105,7 +106,7 @@ void BankRule::LeavePlot(Plot* plot)
 		}
 		else
 		{
-			moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->GetMoney(), 0, int(saving));
+			moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->Money(), 0, int(saving));
 
 			if (moneyToWithdraw >= bank->transactionCost) {
 				citizen->IncreaseMoney(moneyToWithdraw - bank->transactionCost);

@@ -3,11 +3,6 @@
 #include "WorkRule.h"
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
-#include <iostream>
-using namespace std;
-
-class WorkRule;
-
 using helper::Time;
 
 
@@ -37,9 +32,9 @@ WorkSystem::~WorkSystem() = default;
 */
 int WorkSystem::Register(Plot* plot)
 {
-	(*plot).Register(new Work(plot));
+	plot->Register(new Work(plot));
 	BaseSystem::Register(plot);
-    return 0;
+    return Cost();
 }
 
 /**
@@ -47,17 +42,6 @@ int WorkSystem::Register(Plot* plot)
 */
 void WorkSystem::Update()
 {
-	/*
-	for (auto && plot : plots)
-	{
-		// Do this if you want to get the plot type (class work)
-		//const auto rule = dynamic_cast<Work*> (plot->GetPlotType());
-
-		// Tallying and adding score for occupant count. Positive for within limit people, negative for over
-		const auto count = plot->GetOccupantCount();
-		score += (std::min(count, maxOccupantCount) * scorePerOccupant - std::max(count - maxOccupantCount, 0) * overPenalty) * CoreController::Instance()->GetDeltaTime();
-	}
-	*/
 }
 
 
@@ -103,7 +87,7 @@ void WorkSystem::Toggle()
 	highLevel = !highLevel;
 }
 
-int WorkSystem::Cost()
+int WorkSystem::Cost() const
 {
     if (highLevel)
     {
@@ -139,12 +123,12 @@ std::string WorkSystem::ContentString()
     
 	if (highLevel)
 	{
-		ss << std::endl << "Building:" << std::endl << "Advanced Work $" << Cost() << std::endl << "Only for citizen with" 
+		ss << "Building:" << std::endl << "Advanced Work $" << Cost() << std::endl << "Only for citizen with" 
 	       << std::endl << "high education level" << std::endl << std::endl;
 	}
 	else
 	{
-		ss <<  std::endl << "Building:" << std::endl << "General Work $" << Cost() << std::endl << "Every citizen can enter" 
+		ss << "Building:" << std::endl << "General Work $" << Cost() << std::endl << "Every citizen can enter" 
 	    << std::endl << std::endl << std::endl;
 	}
 

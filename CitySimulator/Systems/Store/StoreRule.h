@@ -24,7 +24,9 @@ private:
     
     static const float MAX_STOCK;
     static const float RESTOCK;
-    
+    static const float FOOD_COST;
+    static const float HOUSE_COST;
+    static const float MISC_COST;
     
 };
 

@@ -20,6 +20,8 @@ public:
 	void EnterPlot(Plot* plot) override;
 	void LeavePlot(Plot* plot) override;
 	void Update() override;
+
+    void NewDay() override;
 	void EndDay() override;
 	void Unregister();
 	bool HasHome()const { return (myHome != nullptr); };

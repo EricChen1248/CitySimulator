@@ -23,7 +23,7 @@ public:
     float Hunger() const { return hungerLevel; }
     void FillHunger(float hunger = std::numeric_limits<float>::max());
 private:
-    static const int MAX_FOOD_COST = 70;
+    static const int MAX_FOOD_COST = 100;
     static helper::Time breakfastTime;
     static helper::Time lunchTime;
     

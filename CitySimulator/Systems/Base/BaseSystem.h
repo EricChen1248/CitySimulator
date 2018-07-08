@@ -20,7 +20,6 @@ public:
     bool Toggleable() const { return toggleable; } 
     virtual ~BaseSystem();
     
-    
     /**
      * \brief Virtual function handling the update events
      */
@@ -33,7 +32,7 @@ public:
     virtual void Unregister(Plot* plot);
     virtual void NewDay();
     virtual void EndDay();
-    virtual int Cost() { return 0; };
+    virtual int Cost() const { return 0; };
     virtual void Destroy(Plot* plot);
     virtual void Toggle() {};
     virtual std::string ContentString() { return ""; }
