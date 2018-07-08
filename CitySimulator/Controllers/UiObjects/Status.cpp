@@ -101,7 +101,7 @@ bool Status::InBound() const
 
 void Status::Build(Plot* plot)
 {
-    CoreController::GetSystemController()->GetSystem(SelectedSystem)->Register(plot);
+    Government::AddTax(CoreController::GetSystemController()->GetSystem(SelectedSystem)->Register(plot));
 }
 
 void Status::DrawChildren()
@@ -174,6 +174,10 @@ void Status::DrawDoubleButton(BaseSystem * system)
     if (disable)
     {
         rightButton.DisableOnce();
+        if (buildMode)
+        {
+            ToggleBuildMode();
+        }
     }
     
     if (rightButton.Draw())
@@ -199,6 +203,10 @@ void Status::DrawSingleButton()
     if (disable)
     {
         button.DisableOnce();
+        if (buildMode)
+        {
+            ToggleBuildMode();
+        }
     }
     if (button.Draw())
     {
@@ -249,12 +257,16 @@ void Status::DrawRoad()
     CoreController::SfmlController()->DrawString(title);
     content.setString(SelectedRoad->ContentString());
     CoreController::SfmlController()->DrawString(content);
-    
+
+    if (Government::TaxDollars() < SelectedRoad->Cost())
+    {
+        button.DisableOnce();
+    }
     if (button.Draw())
     {
         if (MouseController::IsClicked())
         {
-            SelectedRoad->PerformClick();
+            Government::AddTax(-SelectedRoad->PerformClick());
         }
     }
 
