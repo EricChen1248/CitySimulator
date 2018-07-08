@@ -8,6 +8,7 @@
 
 Home::Home(Plot* plot):Base(plot, HOME)
 {
+	cost = 10000;
 	homeCapacity = RandomInt(3, 6);
 	color = HOME_COLOR;
 	score = 0;

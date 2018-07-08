@@ -13,10 +13,9 @@ public:
 	~HomeSystem();
 	int Register(Plot* plot) override;
 	void Update() override;
-	void LogSatisfied(Citizen* citizen, BaseRule* rule) override;
-	void LogUnsatisfied(Citizen* citizen, BaseRule* rule) override;
 	float GetSatisfaction() const override;
 	void EndDay() override;
+	std::string ContentString()override;
 private:
 	const int maxOccupantCount = 20;
 	const int scorePerOccupant = 10;

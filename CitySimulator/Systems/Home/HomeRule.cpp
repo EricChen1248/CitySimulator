@@ -94,10 +94,11 @@ bool HomeRule::FindPlot()
 }
 void HomeRule::EnterPlot(Plot* plot)
 {
+	
 	if (myHome == nullptr) return;
 	atHomeFlag = true;
-	homelessLevel = 0;
 	atHomeTime = CoreController::Instance()->GetTime();
+	std::cout << "Citize go home at " << atHomeTime.ToShortString() << std::endl;
 	if (atHomeTime.Hour <= wakeUpTime.Hour)
 	{
 		sleepingHour = float(wakeUpTime.Hour - atHomeTime.Hour) + float(RandomInt(-30,30)/60.f);
@@ -122,6 +123,7 @@ void HomeRule::LeavePlot(Plot* plot)
 {
 	//std::string leaveTime = CoreController::Instance()->GetTime().ToString();
 	atHomeFlag = false;
+	homelessLevel = 0;
 	/*Nothing happend need to discuss */
 }
 
@@ -133,13 +135,15 @@ void HomeRule::Update()
 	
 	// TODO : if homeless hour exceed certain critirea , this citizen sholud
     const auto time = CoreController::Instance()->GetTime();
+	
+
 	if ((time.Hour >= goHomeTime.Hour)&&(!AtHome()))
 	{
-		homelessLevel = 2000000000;
-	}
-	if((time.Hour < wakeUpTime.Hour)&&(!AtHome()))
-	{
-		homelessLevel = 2000000000;
+		const int deltaTime = time - goHomeTime;
+		if (deltaTime <= 60)
+		{
+			homelessLevel = std::pow(2, deltaTime/2);
+		}
 	}
 }
 

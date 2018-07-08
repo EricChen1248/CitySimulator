@@ -17,10 +17,11 @@ public:
 	void EnterPlot(Plot* plot) override;
 	void LeavePlot(Plot* plot) override;
 	void Update() override;
-	bool IsSatisfied() override;
 	void SaveMoney(float moneyInflow);
     int GetSavings() const { return int(saving); }
+	float GetWaitingTime()const { return waitingTime; }
 private:
 	float saving;
+	float waitingTime;
 };
 

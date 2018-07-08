@@ -5,7 +5,7 @@
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/HelperFunctions.h"
 #include "../Citizen/CitizenEnum.h"
-BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(200.f) {}
+BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(200.f),waitingTime(0.f){}
 
 BankRule::~BankRule() = default;
 
@@ -62,7 +62,9 @@ void BankRule::EnterPlot(Plot* plot)
 {
     const auto bank = dynamic_cast<Bank*>(plot->GetPlotType());
     if (bank == nullptr) return;
-    citizen->Wait(0.5f);
+	const int peopleNow = plot->GetOccupantCount();
+	waitingTime = 0.05f*float(peopleNow);
+    citizen->Wait(waitingTime);
     bank->Enter();
 }
 
@@ -124,16 +126,6 @@ void BankRule::Update()
 {
     //this->hungerLevel -= CoreController::Instance()->GetDeltaTime() * 30;
     //Bank Rules need not update anything;
-}
-
-/**
-* \brief Returns bool to tell if citizen is satisfied with it's food requirements
-* \return True if hunger level is over 20
-*/
-bool BankRule::IsSatisfied()
-{
-    //need to adjust this rate
-    return saving > 10000;
 }
 
 void BankRule::SaveMoney(float moneyInflow) 
