@@ -88,6 +88,16 @@ void HospitalRule::LeavePlot(Plot* plot)
  */
 void HospitalRule::Update()
 {
+
+}
+
+void HospitalRule::EndDay()
+{
+	// Die accidentally
+	// TODO : probability?
+	int die = RandomInt(0, citizen->Age());
+	if (die >= 54)
+		citizen->Die();
 }
 
 void HospitalRule::Register()
