@@ -73,11 +73,11 @@ Citizen::~Citizen()
 		spousePtr->SetRelationships(SPOUSE, nullptr);
 	}
     
-    if (inPlot)
+    if (currentPlot != nullptr)
     {
         currentPlot->Leave(this);
     }
-    else
+    if (currentRoad != nullptr)    
     {
         currentRoad->Leave();
     }
