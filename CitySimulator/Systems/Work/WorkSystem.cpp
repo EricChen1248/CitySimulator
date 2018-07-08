@@ -3,11 +3,6 @@
 #include "WorkRule.h"
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
-#include <iostream>
-using namespace std;
-
-class WorkRule;
-
 using helper::Time;
 
 
@@ -37,7 +32,7 @@ WorkSystem::~WorkSystem() = default;
 */
 int WorkSystem::Register(Plot* plot)
 {
-	(*plot).Register(new Work(plot));
+	plot->Register(new Work(plot));
 	BaseSystem::Register(plot);
     return 0;
 }

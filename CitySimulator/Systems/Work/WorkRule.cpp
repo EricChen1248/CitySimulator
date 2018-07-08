@@ -87,17 +87,11 @@ void WorkRule::EnterPlot(Plot* plot)
         workingTime = static_cast<float>(timeOffWork - currentTime) / 60;
     }
     
-	if (workingTime > 4)
-    {
-        workingTime = 4;
-    }
+    workingTime = Clamp(workingTime, 0.f, 4.f);
 
 	// Off Work on time
 	// Adjust randomly(+-10min) to avoid rush
 	citizen->Wait(workingTime + float(RandomInt(-10, 10)) / 60); 
-    std::stringstream ss;
-    ss <<currentTime.ToString() << " " << workingTime;
-    Logger::Log(ss.str());
 	const int workingExp = citizen->Age() - 18; // Salary increases due to experience
 	work->Enter(workingTime, (salary + workingExp * 0.3f) * workingTime / 4);
 }
