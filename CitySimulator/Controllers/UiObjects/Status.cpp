@@ -101,7 +101,7 @@ bool Status::InBound() const
 
 void Status::Build(Plot* plot)
 {
-    Government::AddTax(CoreController::GetSystemController()->GetSystem(SelectedSystem)->Register(plot));
+    Government::AddTax(-CoreController::GetSystemController()->GetSystem(SelectedSystem)->Register(plot));
 }
 
 void Status::DrawChildren()
@@ -278,7 +278,7 @@ bool Status::Grow()
 {
     if (changeHeight != height)
     {
-        changeHeight += 10;
+        changeHeight += 15;
         rect.setSize(Vector2f(float(rect.getSize().x), float(changeHeight)));
         return true;
     }
@@ -289,7 +289,7 @@ bool Status::Shrink()
 {
     if (changeHeight != 0)
     {
-        changeHeight -= 10;
+        changeHeight -= 15;
         rect.setSize(Vector2f(float(rect.getSize().x), float(changeHeight)));
         return false;
     }

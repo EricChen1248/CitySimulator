@@ -50,7 +50,7 @@ inline void SatisBar::Draw(const float targetRatio, SFMLController& sfml)
 
     const float x = 148.f * (1.f - value);
     blank.setSize(Vector2f(x, 15.f));
-    blank.setPosition(WINDOW_WIDTH - 4.f - x, blank.getPosition().y);
+    blank.setPosition(WINDOW_WIDTH - 3.f - x, blank.getPosition().y);
 
     sfml.DrawShape(shape);
     sfml.DrawShape(blank);

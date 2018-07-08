@@ -65,7 +65,7 @@ void SystemController::Initialize()
             count = 5;
             break;
         case STORE:
-            count = 10;
+            count = 1;
             break;
         case SCHOOL: break;
         case HOSPITAL: 
