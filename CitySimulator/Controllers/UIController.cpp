@@ -40,17 +40,9 @@ void UIController::Initialize()
     timeRect.setOutlineColor(BLACK);
     timeRect.setOutlineThickness(2);
 
-    moneyText.setFont(FontController::Monofur());
-    moneyText.setFillColor(BLACK);
-    moneyText.setCharacterSize(24);
-
-    moneyRect.setSize(Vector2f(200, 32));
-    moneyRect.setPosition(static_cast<float>(WINDOW_WIDTH) / 2 - 100, 2);
-    moneyRect.setFillColor(WHITE);
-    moneyRect.setOutlineColor(BLACK);
-    moneyRect.setOutlineThickness(2);
 
     status.Init(2, 40);
+    InitTop();
     InitSelection();
     InitSatisfaction();
     InitBirthRate();
@@ -63,7 +55,7 @@ void UIController::Initialize()
 void UIController::RenderUI()
 {
     DrawTime();
-    DrawMoney();
+    DrawTop();
     DrawSelection();
     DrawSatisfaction();
     DrawBirthRate();
@@ -75,7 +67,7 @@ void UIController::RenderUI()
 void UIController::RenderInterDayUI()
 {
     DrawNextDayButton();
-    DrawMoney();
+    DrawTop();
     DrawSelection();
     DrawSatisfaction();
     DrawBirthRate();
@@ -99,7 +91,7 @@ bool UIController::IsOverUI() const
     if (nextDay.IsInBounds()) return true;
     if (birthRateSlider.InBound()) return true;
     if (status.InBound()) return true;
-    return false;    
+    return false;
 }
 
 void UIController::InitSelection()
@@ -133,12 +125,65 @@ void UIController::InitSatisfaction()
         SatisBar* tempPtr = new SatisBar(static_cast<System>(i));
         satisfyBar.InsertLast(tempPtr);
     }
-    return;
 }
 
 void UIController::InitBirthRate()
 {
-    birthRateSlider = Slider(Vector2f(2, 2), Vector2f(250, 36));
+    birthRateSlider = Slider(Vector2f(132, 2), Vector2f(240, 32));
+
+    birthText.setFont(FontController::Monofur());
+    birthText.setFillColor(BLACK);
+    birthText.setCharacterSize(24);
+    birthText.setPosition(20, 2);
+    CenterString(birthText, "Birth Rate", 65);
+
+    birthRect.setSize(Vector2f(128, 32));
+    birthRect.setPosition(2, 2);
+    birthRect.setFillColor(WHITE);
+    birthRect.setOutlineColor(BLACK);
+    birthRect.setOutlineThickness(2);
+}
+
+void UIController::InitTop()
+{
+    moneyText.setFont(FontController::Monofur());
+    moneyText.setFillColor(BLACK);
+    moneyText.setCharacterSize(22);
+    moneyText.setPosition(0, 2);
+
+    moneyRect.setSize(Vector2f(160, 32));
+    moneyRect.setPosition(static_cast<float>(WINDOW_WIDTH) / 2 - 80, 2);
+    moneyRect.setFillColor(WHITE);
+    moneyRect.setOutlineColor(BLACK);
+    moneyRect.setOutlineThickness(2);
+    
+    topRect.setSize(Vector2f(400, 32));
+    topRect.setPosition(static_cast<float>(WINDOW_WIDTH) / 2 + 80, 2);
+    topRect.setFillColor(WHITE);
+    topRect.setOutlineColor(BLACK);
+    topRect.setOutlineThickness(2);
+    
+    citizenText.setFont(FontController::Monofur());
+    citizenText.setFillColor(BLACK);
+    citizenText.setCharacterSize(20);
+    citizenText.setPosition(static_cast<float>(WINDOW_WIDTH) / 2 + 86, 5);
+    citizenText.setString("Citizens:");
+    
+    citizenCountText.setFont(FontController::Monofur());
+    citizenCountText.setFillColor(BLACK);
+    citizenCountText.setCharacterSize(20);
+    citizenCountText.setPosition(static_cast<float>(WINDOW_WIDTH) / 2 + 86, 4);
+    
+    familyText.setFont(FontController::Monofur());
+    familyText.setFillColor(BLACK);
+    familyText.setCharacterSize(20);
+    familyText.setPosition(static_cast<float>(WINDOW_WIDTH) / 2 + 226, 5);
+    familyText.setString("Families:");
+    
+    familyCountText.setFont(FontController::Monofur());
+    familyCountText.setFillColor(BLACK);
+    familyCountText.setCharacterSize(20);
+    familyCountText.setPosition(static_cast<float>(WINDOW_WIDTH) / 2 + 86, 5);
 }
 
 SelectionButton* UIController::InitSelectionButton(int& y, const std::string& str, const Color color)
@@ -168,6 +213,8 @@ void UIController::DrawStatus()
 
 void UIController::DrawBirthRate()
 {
+    sfml.DrawShape(birthRect);
+    sfml.DrawString(birthText);
     birthRateSlider.Render();
     Government::ChangeBirthRate(float(birthRateSlider.Value()) / 100);
 }
@@ -189,7 +236,7 @@ void UIController::DrawSatisfaction()
     {
         scoreList.InsertLast(system->GetSatisfaction());
     }
-    
+
     if (scoreList.Count() > 0)
     {
         for (int i = 0; i < satisfyBar.Count(); i++)
@@ -213,11 +260,17 @@ void UIController::DrawTime()
 /**
  * \brief Draws the player money
  */
-void UIController::DrawMoney()
+void UIController::DrawTop()
 {
     CenterString(moneyText, "$" + std::to_string(static_cast<int>(Government::TaxDollars())), float(WINDOW_WIDTH) / 2);
     sfml.DrawShape(moneyRect);
     sfml.DrawString(moneyText);
+    sfml.DrawShape(topRect);
+    sfml.DrawString(citizenText);
+    CenterString(citizenCountText, std::to_string(CoreController::GetSystemController()->GetCitizens().Count()), static_cast<float>(WINDOW_WIDTH) / 2 + 200);
+    sfml.DrawString(citizenCountText);
+    sfml.DrawString(familyText);
+    sfml.DrawString(familyCountText);
 }
 
 /**
