@@ -194,7 +194,7 @@ void PathFinder::CheckQuadrant(Plot* plot)
     {
         if (CoordToNodeMap(neighbour)->quadrant != firstQuad)
         {
-            plot->NotRiver();
+            plot->MarkNotRiver();
             RemapQuadrants();
             return;
         }

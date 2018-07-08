@@ -21,14 +21,13 @@ public:
     
     sf::CircleShape& GetShape() { return shape; }
     const Coordinate& Coords() const { return coords; }
-    int GetMoney() const { return money;}
+    int Money() const { return money;}
     
     bool IncreaseMoney(int m);
     void SetActiveRule(BaseRule* rule) { activeRule = rule; }
     void SetTarget(Plot* t);
 
     void Update();
-    void UpdateScreenCoordinates();
     
     void Wait(float time);
     void NewDay();
@@ -51,6 +50,7 @@ public:
     void DeathEvents();
     
 private:
+    void UpdateScreenCoordinates();
     void FindNextTarget();
     void GenRules();
     void FindRandomTarget();

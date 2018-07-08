@@ -90,7 +90,6 @@ void StoreRule::Update()
         return;
     }
     
-    
     // TODO : store numbers
     float deltaTime = CoreController::Instance()->GetDeltaTime();
     if (foodStock > 0)

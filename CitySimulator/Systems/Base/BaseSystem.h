@@ -20,7 +20,6 @@ public:
     bool Toggleable() const { return toggleable; } 
     virtual ~BaseSystem();
     
-    
     /**
      * \brief Virtual function handling the update events
      */

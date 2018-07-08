@@ -4,24 +4,20 @@
 #include "../../Helpers/Coordinate.h"
 #include "../../Helpers/PathFinder/PathFinder.hpp"
 
-Plot::Plot(const int x, const int y, const int z) : coords(x, y, z), size(10.f), shape(sf::CircleShape(size)),
-                                                    currentType(nullptr), roads(6), quadrant(0), river(false)
+Plot::Plot(const int x, const int y, const int z) : coords(x, y, z), shape(sf::CircleShape(size)),
+                                                    currentType(nullptr), roads(6)
 {
     shape.setFillColor(EMPTY_PLOT_COLOR);
-    sCoords = coords.ToScreenCoordinates();
+    auto sCoords = coords.ToScreenCoordinates();
     sCoords.X -= size / 2;
     sCoords.Y -= size / 2;
+    shape.setPosition(sCoords.X, sCoords.Y);
     for (int i = 0; i < 6; ++i)
     {
         roads.InsertLast(nullptr);
     }
 }
 
-sf::CircleShape& Plot::UpdateShape()
-{
-    shape.setPosition(sCoords.X, sCoords.Y);
-    return shape;
-}
 
 /**
  * \brief Adds a plot type component to the plot. Update's color accordingly
@@ -41,8 +37,7 @@ void Plot::Register(Base* base)
  */
 void Plot::Enter(Citizen* citizen)
 {
-    occupants.InsertLast(citizen);
-
+    ++occupantCount;
 }
 
 
@@ -52,7 +47,7 @@ void Plot::Enter(Citizen* citizen)
  */
 void Plot::Leave(Citizen* citizen)
 {
-    occupants.Remove(citizen);
+    --occupantCount;
 }
 
 void Plot::NewDay() const
@@ -70,6 +65,7 @@ void Plot::EndDay() const
         currentType->EndDay();
     }
 }
+
 void Plot::InsertNewRoad(Road* newRoad, const int i) const
 {
     roads[i] = newRoad;
@@ -99,34 +95,35 @@ void Plot::BuiltBridge()
     PathFinder::CheckQuadrant(this);
 }
 
-void Plot::NotRiver()
+void Plot::MarkNotRiver()
 {
     river = false;
 }
 
-void Plot::MarkAsRiver() 
-{ 
+void Plot::MarkAsRiver()
+{
     shape.setFillColor(TRANSPARENT);
-	river = true; 
-	for (auto&& road : roads)
-	{
-	    if (road == nullptr) continue;
-		road->MarkAsRiver();
-	}
+    river = true;
+    for (auto&& road : roads)
+    {
+        if (road == nullptr) continue;
+        road->MarkAsRiver();
+    }
 }
- 
-void Plot::Destroy() 
-{ 
-    if (currentType == nullptr) throw PlotBaseError("Plot base is being destroyed but is empty"); 
-    
+
+void Plot::Destroy()
+{
+    if (currentType == nullptr) throw PlotBaseError("Plot base is being destroyed but is empty");
+
     currentType->Destroy();
-    delete currentType; 
-    currentType = nullptr; 
+    delete currentType;
+    currentType = nullptr;
     shape.setFillColor(EMPTY_PLOT_COLOR);
-} 
- 
+}
+
 
 Plot::~Plot()
 {
+    roads.Dispose();
     delete currentType;
 }
