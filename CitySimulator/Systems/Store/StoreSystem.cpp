@@ -1,7 +1,7 @@
 #include "StoreSystem.h"
 #include "Store.h"
 #include "StoreRule.h"
-#include "../../Controllers/CoreController.h"
+#include "../../Helpers/HelperFunctions.h"
 
 
 class StoreRule;
@@ -25,46 +25,12 @@ int StoreSystem::Register(Plot* plot)
 }
 
 /**
-* \brief Updates Store system. Tally scores for Store pltos
+* \brief Updates Store system.
 */
 void StoreSystem::Update()
 {
-	for (auto && plot : plots)
-	{
-		// Do this if you want to get the plot type (class Store)
-		//const auto rule = dynamic_cast<Store*> (plot->GetPlotType());
-
-		// Tallying and adding score for occupant count. Positive for within limit people, negative for over
-		const auto count = plot->GetOccupantCount();
-		score += (std::min(count, maxOccupantCount) * scorePerOccupant - std::max(count - maxOccupantCount, 0) * overPenalty) * CoreController::Instance()->GetDeltaTime();
-	}
+    // DO NOTHING
 }
-
-/**
-* \brief Logs a citizen being satisified with a Store
-* \param citizen Citzen being logged
-* \param rule Rule being logged
-*/
-void StoreSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
-{
-	// Dynamic cast rule to create a snapshot copy 
-	auto log = new Log(citizen->Coords(), new StoreRule(*dynamic_cast<StoreRule*>(rule)), citizen);
-	satisfiedLog.InsertLast(log);
-}
-
-
-/**
-* \brief Logs a citizen being unsatisified with a Store
-* \param citizen Citzen being logged
-* \param rule Rule being logged
-*/
-void StoreSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
-{
-	// Dynamic cast rule to create a snapshot copy 
-	auto log = new Log(citizen->Coords(), new StoreRule(*dynamic_cast<StoreRule*>(rule)), citizen);
-	unsatisfiedLog.InsertLast(log);
-}
-
 
 /**
 * \brief Resets the day (clears log & resets plots)
@@ -77,4 +43,64 @@ void StoreSystem::EndDay()
 	}
 	unsatisfiedLog.Dispose();
 	satisfiedLog.Dispose();
+}
+
+float StoreSystem::GetSatisfaction() const
+{
+    float earnings = 0;
+    float costs = 0;
+    for (auto && plot : plots)
+    {
+        const auto store = dynamic_cast<Store*>(plot->GetPlotType());
+        earnings += store->earnings;
+        costs += Store::OPERATING_COST + store->cleaningCost;
+    }
+    return Clamp(1 - (costs - earnings) / costs, 0.f, 1.f);
+}
+void StoreSystem::NewDay()
+{
+    for (auto && plot : plots)
+    {
+        plot->GetPlotType()->NewDay();
+    }
+}
+
+std::string StoreSystem::ContentString()
+{
+    float earnings = 0;
+    float costs = 0;
+    for (auto && plot : plots)
+    {
+        const auto store = dynamic_cast<Store*>(plot->GetPlotType());
+        earnings += store->earnings;
+        costs += Store::OPERATING_COST + store->cleaningCost;
+    }
+    std::stringstream ss;
+    
+    int lineCount;
+    if (earnings > costs)
+    {
+        ss << "The stores are earning" << std::endl << "enough money"<< std::endl;
+        lineCount = 2;
+    }
+    else
+    {
+        ss << "We aren't earning" << std::endl << "enough money. ";
+        if (costs - plots.Count() * Store::OPERATING_COST > 0)
+        {
+            ss << "Maybe"  << std::endl << "we're spending too much"  << std::endl << "on cleaning?"<< std::endl;   
+        }
+        else
+        {
+            ss << "Maybe"  << std::endl << "we has too many"  << std::endl << "stores?"<< std::endl;  
+        }
+        lineCount = 4;
+    }
+    for (int i = 0; i < 6 - lineCount; ++i)
+    {
+        ss << std::endl;
+    }
+    ss << "Total Earnings: $" << earnings << std::endl;
+    ss << "Total Costs:    $" << costs << std::endl;
+    return ss.str();
 }
