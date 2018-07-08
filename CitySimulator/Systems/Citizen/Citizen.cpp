@@ -73,6 +73,14 @@ Citizen::~Citizen()
 		spousePtr->SetRelationships(SPOUSE, nullptr);
 	}
     
+    if (inPlot)
+    {
+        currentPlot->Leave(this);
+    }
+    else
+    {
+        currentRoad->Leave();
+    }
     rules.Dispose();
 }
 
@@ -217,10 +225,10 @@ void Citizen::NewDay()
     case 0:
         //dynamic_cast<SchoolRule*>(FindRule(SCHOOL))->Register();
         break;
-    case 18:
+    case WORKING_AGE:
         //dynamic_cast<SchoolRule*>(FindRule(SCHOOL))->UnRegister();
         break;
-    case 45:
+    case RETIREMENT_AGE:
         dynamic_cast<WorkRule*>(FindRule(WORK))->UnRegister();
         //dynamic_cast<HomeRule*>(FindRule(HOME))->UnRegister();
         dynamic_cast<HospitalRule*>(FindRule(HOSPITAL))->Register();
