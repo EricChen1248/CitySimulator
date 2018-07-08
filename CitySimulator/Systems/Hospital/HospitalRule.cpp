@@ -106,19 +106,30 @@ void HospitalRule::Register()
 	auto &plots = CoreController::GetSystemController()->GetSystem(HOSPITAL)->Plots();
 	// Get a list of plots that fulfill out requirements ( distance < max distance
 	List<Plot*> choices;
-	for (auto && plot : plots)
+	auto coords = citizen->Coords();
+
+	int count = 0;
+	// If such a list doesn't exist. This rule returns failed result false
+	// TODO: ¥[¤j·j¯Á½d³ò¡I
+
+	while (choices.Count() == 0)
 	{
-		auto coords = citizen->Coords();
-		if (!Pathable(coords, plot->Coords())) continue;
-		const auto distance = plot->Coords().Distance(coords);
-		if (distance < maxDistance)
+		count++;
+		if (RIGHT - LEFT < count * deltaIncrease)
+			break;
+
+		for (auto && plot : plots)
 		{
-			choices.InsertLast(plot);
+			if (!Pathable(coords, plot->Coords())) continue;
+			const auto distance = plot->Coords().Distance(coords);
+			const auto hospital = dynamic_cast<Hospital*>(plot->GetPlotType());
+			if (distance < (count * deltaIncrease) && !hospital->isFull())
+			{
+				choices.InsertLast(plot);
+			}
 		}
 	}
 
-	// If such a list doesn't exist. This rule returns failed result false
-	// TODO: ¥[¤j·j¯Á½d³ò¡I
 	if (choices.Count() == 0)
 	{
 		citizen->Die(); // If a person can't find hospital, he/she will die soon
