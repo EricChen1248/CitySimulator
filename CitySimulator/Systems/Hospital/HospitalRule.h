@@ -17,12 +17,13 @@ public:
     void EnterPlot(Plot* plot) override;
     void LeavePlot(Plot* plot) override;
     void Update() override;
+	void EndDay() override;
     
     bool InHospital() const { return assignedHospital != nullptr; }
 	void Register();
 
 private:
-    const int maxDistance = 10;
+    const int deltaIncrease = 5;
 	Plot* assignedHospital;
     bool enter = false; 
 };

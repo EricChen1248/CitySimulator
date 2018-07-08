@@ -39,7 +39,16 @@ private:
 
     Status status{};
     Slider birthRateSlider;
-
+    sf::Text birthText{};
+    RectangleShape birthRect{};
+    
+    RectangleShape topRect{};
+    sf::Text citizenText{};
+    sf::Text citizenCountText{};
+    sf::Text familyText{};
+    sf::Text familyCountText{};
+    
+    
     NewsFlash flash{};
     
     RectangleShape selectionBackGround{};
@@ -51,7 +60,7 @@ private:
 
     void DrawNextDayButton();
     void DrawTime();
-    void DrawMoney();
+    void DrawTop();
     void DrawSelection();
     void DrawSatisfaction();
     void DrawStatus();
@@ -60,6 +69,7 @@ private:
     void InitSelection();
     void InitSatisfaction();
     void InitBirthRate();
+    void InitTop();
     SFMLController& sfml;
 
     static SelectionButton* InitSelectionButton(int& y, const std::string& str, Color color);

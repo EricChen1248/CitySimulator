@@ -155,9 +155,10 @@ bool WorkRule::Register()
     List<Plot*> choices;
 	auto &plots = CoreController::GetSystemController()->GetSystem(WORK)->Plots();
 	// Get a list of plots that fulfill out requirements ( distance < max distance
+
+	auto coords = citizen->Coords();
 	for (auto && plot : plots)
 	{
-		auto coords = citizen->Coords();
 		if (!Pathable(coords, plot->Coords())) continue;
 		const auto distance = plot->Coords().Distance(coords);
 		if (distance < maxDistance)

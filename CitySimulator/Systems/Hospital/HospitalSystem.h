@@ -17,6 +17,9 @@ public:
     void NewDay() override;
     void EndDay() override;
     std::string ContentString() override;
+	int Cost() const override { return 500; } // TODO : cost 500?
+
+
 private :
     const int maxOccupantCount = 20;
     const int scorePerOccupant = 10;
