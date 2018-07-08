@@ -1,20 +1,25 @@
 #include "SchoolSystem.h"
-#include "School.h"
 #include "SchoolRule.h"
+#include "School.h"
 #include "../../Controllers/CoreController.h"
+#include "../../Helpers/Time.h"
+#include "../../Helpers/HelperFunctions.h"
 
 
 class SchoolRule;
 
 SchoolSystem::SchoolSystem() : BaseSystem(SCHOOL)
 {
+	toggleable = true;
+	SchoolRule::schoolStartTime = helper::Time(8, 0);
+	SchoolRule::schoolEndTime = helper::Time(16, 0);
 }
 
 
 SchoolSystem::~SchoolSystem() = default;
 
 /**
- * \brief Registers a new food plot in the system
+ * \brief Registers a new school plot in the system
  * \param plot Plot to be registered
  */
 int SchoolSystem::Register(Plot* plot)
@@ -25,44 +30,32 @@ int SchoolSystem::Register(Plot* plot)
 }
 
 /**
- * \brief Updates food system. Tally scores for food plots
+ * \brief Updates school system. Tally scores for school plots
  */
 void SchoolSystem::Update()
 {
-    for (auto && plot : plots)
-    {
-        // Do this if you want to get the plot type (class food)
-        //const auto rule = dynamic_cast<School*> (plot->GetPlotType());
-        
-        // Tallying and adding score for occupant count. Positive for within limit people, negative for over
-        const auto count = plot->GetOccupantCount();
-        score += (std::min(count, maxOccupantCount) * scorePerOccupant - std::max(count - maxOccupantCount, 0) * overPenalty) * CoreController::Instance()->GetDeltaTime();
-    }
-}
-
-/**
- * \brief Logs a citizen being satisified with a food
- * \param citizen Citzen being logged
- * \param rule Rule being logged
- */
-void SchoolSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
-{
-    // Dynamic cast rule to create a snapshot copy 
-    auto log = new Log(citizen->Coords(), new SchoolRule(*dynamic_cast<SchoolRule*>(rule)), citizen);
-    satisfiedLog.InsertLast(log);
 }
 
 
-/**
- * \brief Logs a citizen being unsatisified with a food
- * \param citizen Citzen being logged
- * \param rule Rule being logged
- */
-void SchoolSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
+float SchoolSystem::GetSatisfaction() const
 {
-    // Dynamic cast rule to create a snapshot copy 
-    auto log = new Log(citizen->Coords(), new SchoolRule(*dynamic_cast<SchoolRule*>(rule)), citizen);
-    unsatisfiedLog.InsertLast(log);
+	int totalStudents = 0;
+	int totalLateStudents= 0;
+	int total = 0;
+	int totalLearningTime = 0;
+	
+	for (auto&& plot : plots)
+	{
+		const auto school = dynamic_cast<School*>(plot->GetPlotType());
+		totalStudents += school->studentCount;
+		totalLateStudents += school->lateStudents;
+		total += school->students.Count();
+	}
+
+	float satisfaction = totalLearningTime / (total * 4 * 2);
+
+	satisfaction = Clamp(satisfaction, 0.f, 1.f);
+	return satisfaction;
 }
 
 
@@ -75,6 +68,18 @@ void SchoolSystem::EndDay()
     {
         plot->GetPlotType()->EndDay();
     }
-    unsatisfiedLog.Dispose();
-    satisfiedLog.Dispose();
+}
+
+void SchoolSystem::Toggle()
+{
+	isPremium = !isPremium;
+}
+
+int SchoolSystem::Cost() const
+{
+	if (isPremium)
+	{
+		return 500;
+	}
+	return 400;
 }

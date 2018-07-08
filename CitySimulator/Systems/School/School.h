@@ -2,20 +2,33 @@
 #include "../Base/Base.h"
 
 class SchoolRule;
-
 /**
- * \brief School Class that handles the food plots of our city
- */
+* \brief School Class that handles the School plots of our city
+*/
 class School : public Base
 {
-friend SchoolRule;
+	friend class SchoolSystem;
+	friend class SchoolRule;
 
-    public:
-    School(Plot* plot);
-    ~School() = default;
-    void EndDay() override;
+public:
+	School(Plot* plot);
+	~School();
+	std::string ContentString() override;
+
+	void NewDay() override;
+	void EndDay() override;
+
+	int Destroy() override;
+	void NewStudent(Citizen* citizen);
+	void Graduation(Citizen* citizen);
 private:
-    int cost;
-    void Enter();
-};
+	List<Citizen*> students;
+	int studentCount;
+	int lateStudents;
+	int cost;//initial cost
+	int operatingCost;//daily operating cost
 
+	bool isPremium;
+
+	void Enter();
+};
