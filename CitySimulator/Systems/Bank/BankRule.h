@@ -23,5 +23,6 @@ public:
 private:
 	float saving;
 	float waitingTime;
+	float moneyDownLimit;
 };
 

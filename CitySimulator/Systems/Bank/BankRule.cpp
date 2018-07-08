@@ -5,15 +5,24 @@
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/HelperFunctions.h"
 #include "../Citizen/CitizenEnum.h"
-BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(200.f),waitingTime(0.f){}
+#include <iostream>
+BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(100000.f),waitingTime(0.f)
+{
+	moneyDownLimit = RandomInt(500, 750);
+}
 
 BankRule::~BankRule() = default;
 
 float BankRule::CalculateScore()
 {
-    return 0;
-    if (citizen->Money() < CITIZEN_MAX_MONEY && saving > 100)
-        return 100000;
+	if (citizen->Money() < moneyDownLimit && saving > (moneyDownLimit - citizen->Money()))
+	{
+		return 10000;
+		if (citizen->Money() < (moneyDownLimit/2))
+		{
+			return 20000;
+		}
+	}
     return 0;
 }
 
@@ -116,6 +125,7 @@ void BankRule::LeavePlot(Plot* plot)
 		}
 		
 	}
+	std::cout << "Citizen withdraws " << moneyToWithdraw << std::endl;
 	bank->earnedMoeny += bank->transactionCost;
 	return;
 }
