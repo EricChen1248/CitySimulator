@@ -26,12 +26,12 @@ SFMLController::SFMLController() : isRunning(false), window(nullptr)
     auto origin = Coordinate(0,0,0);
     playfield.resize(6);
     playfield.setPrimitiveType(TriangleStrip);
-    playfield[0].position = origin.LeftDown(16).ToScreenCoordinates().ToVector2F();
-    playfield[1].position = origin.RightDown(16).ToScreenCoordinates().ToVector2F();
-    playfield[2].position = origin.Left(16).ToScreenCoordinates().ToVector2F();
-    playfield[3].position = origin.Right(16).ToScreenCoordinates().ToVector2F();
-    playfield[4].position = origin.LeftUp(16).ToScreenCoordinates().ToVector2F();
-    playfield[5].position = origin.RightUp(16).ToScreenCoordinates().ToVector2F();
+    playfield[0].position = origin.LeftDown(RIGHT).ToScreenCoordinates().ToVector2F();
+    playfield[1].position = origin.RightDown(RIGHT).ToScreenCoordinates().ToVector2F();
+    playfield[2].position = origin.Left(RIGHT).ToScreenCoordinates().ToVector2F();
+    playfield[3].position = origin.Right(RIGHT).ToScreenCoordinates().ToVector2F();
+    playfield[4].position = origin.LeftUp(RIGHT).ToScreenCoordinates().ToVector2F();
+    playfield[5].position = origin.RightUp(RIGHT).ToScreenCoordinates().ToVector2F();
     for (int i = 0; i < 6; ++i)
     {
         playfield[i].color = WHITE;

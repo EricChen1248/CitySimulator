@@ -125,7 +125,6 @@ void BankRule::LeavePlot(Plot* plot)
 		}
 		
 	}
-	std::cout << "Citizen withdraws " << moneyToWithdraw << std::endl;
 	bank->earnedMoeny += bank->transactionCost;
 	return;
 }

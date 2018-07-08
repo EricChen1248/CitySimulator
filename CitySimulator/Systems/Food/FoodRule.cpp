@@ -32,9 +32,9 @@ bool FoodRule::FindPlot()
 
     // Get a list of plots that fulfill out requirements ( distance < max distance
     List<Plot*> choices;
+    auto coords = citizen->Coords();
     for (auto&& plot : plots)
     {
-        auto coords = citizen->Coords();
         if (!Pathable(coords, plot->Coords())) continue;
         const auto distance = plot->Coords().Distance(coords);
         if (distance < maxDistance)
