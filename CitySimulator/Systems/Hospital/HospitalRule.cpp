@@ -88,6 +88,17 @@ void HospitalRule::LeavePlot(Plot* plot)
  */
 void HospitalRule::Update()
 {
+
+}
+
+void HospitalRule::EndDay()
+{
+	// Die accidentally
+	// TODO : probability & Get Real Satisfaction
+	// float satisfaction =  CoreController::GetSystemController()->GetSystem(HOSPITAL)->GetSatisfaction();
+	float satisfaction = 0.9;
+	if (satisfaction < 0.85 && RandomInt(0, 85) >= satisfaction * 100)
+		citizen->Die();
 }
 
 void HospitalRule::Register()
