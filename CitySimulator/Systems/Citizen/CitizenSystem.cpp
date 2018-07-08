@@ -56,6 +56,7 @@ void CitizenSystem::Render() const
 {
     for (auto&& citizen : citizens)
     {
+        if (citizen->IsDead()) continue;
         CoreController::SfmlController()->DrawShape(citizen->GetShape());
     }
 }
@@ -80,7 +81,6 @@ void CitizenSystem::PruneDead()
  */
 void CitizenSystem::NewDay()
 {
-
 	for (auto&& citizen : citizens)
 	{
 		citizen->NewDay();
