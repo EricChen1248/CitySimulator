@@ -14,7 +14,7 @@ public:
 	float GetSatisfaction() const override;
 	void EndDay() override;
 	void Toggle() override;
-    int Cost() override;
+    int Cost() const override;
 	std::string ContentString() override;
 private:
 	bool highLevel;

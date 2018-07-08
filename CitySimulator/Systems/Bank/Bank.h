@@ -16,13 +16,14 @@ public:
 	std::string ContentString() override;
 	void NewDay() override;
 	void EndDay() override;
+	int GetCustomer()const { return customerPerDay; };
+	int GetMoneyEarned()const { return earnedMoeny; };
 private:
-	int cost;
 	int transactionCost;
 	int administrationFee;
 	int earnedMoeny;
 	int customerPerDay;
+	int countOfCustomerNow;
 	void Enter();
-	
 };
 

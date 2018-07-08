@@ -12,9 +12,11 @@ public:
 	Home(Plot* plot);
 	~Home() = default;
 	void Register(Citizen* citizen);
+	void Unregister(Citizen* citizen);
 	void EndDay();
 	bool Full() const;
 	std::string ContentString()override;
+	int Destroy() override;
 	Plot* GetPlot() const;
 private:
 	//each home has it's own capacity

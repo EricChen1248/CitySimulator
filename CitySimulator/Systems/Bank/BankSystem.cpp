@@ -2,7 +2,7 @@
 #include "Bank.h"
 #include "BankRule.h"
 #include "../../Controllers/CoreController.h"
-
+#include "../../Helpers/HelperFunctions.h"
 
 class BankRule;
 
@@ -39,30 +39,6 @@ void BankSystem::Update()
 	}
 }
 
-/**
-* \brief Logs a citizen being satisified with a food
-* \param citizen Citzen being logged
-* \param rule Rule being logged
-*/
-void BankSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
-{
-	// Dynamic cast rule to create a snapshot copy 
-	const auto log = new Log(citizen->Coords(), new BankRule(*dynamic_cast<BankRule*>(rule)), citizen);
-	satisfiedLog.InsertLast(log);
-}
-
-
-/**
-* \brief Logs a citizen being unsatisified with a food
-* \param citizen Citzen being logged
-* \param rule Rule being logged
-*/
-void BankSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
-{
-	// Dynamic cast rule to create a snapshot copy 
-	const auto log = new Log(citizen->Coords(), new BankRule(*dynamic_cast<BankRule*>(rule)), citizen);
-	unsatisfiedLog.InsertLast(log);
-}
 
 
 /**
@@ -84,4 +60,40 @@ void BankSystem::NewDay()
 	{
 		plot->GetPlotType()->NewDay();
 	}
+}
+std::string BankSystem::ContentString()
+{
+	std::stringstream ss;
+	ss << "People can withdraw" << std::endl;
+	ss <<"they deposit from" << std::endl;
+	ss << "banks" << std::endl;
+	ss << "They are unsatisfied if" << std::endl;
+	ss << "1.They wait too long"<<std::endl;
+	ss << "2.Each banks isn't" << std::endl;
+	ss << "  earning enough.";
+
+	return ss.str();
+
+}
+
+float BankSystem::GetSatisfaction() const
+{
+	float score = 0.f;
+	for (auto plot : plots)
+	{
+		auto bank = dynamic_cast<Bank*> (plot->GetPlotType());
+		score += (float(bank->GetCustomer()) / 100.f) / float(plots.Count());
+	}
+	auto citizens = CoreController::GetSystemController()->GetCitizens();
+	for (auto citizen : citizens)
+	{
+		auto bankRule = dynamic_cast<BankRule*> (citizen->FindRule(BANK));
+		score += ((0.5f - bankRule->GetWaitingTime())/0.5f)/(citizens.Count()*2);
+	}
+	if (score >= 1)
+		return 1.f;
+	else if (score <= 0)
+		return 0.f;
+	else
+		return score;
 }

@@ -28,7 +28,7 @@ public:
     virtual std::string ContentString() { return ""; }
     
 protected:
-    int cost;
+    int cost = 0;
     Plot* plot;
     sf::Color color;
     int score;

@@ -17,6 +17,7 @@ public:
     void EnterPlot(Plot* plot) override;
     void LeavePlot(Plot* plot) override;
     void Update() override;
+	void EndDay() override;
     
     bool InHospital() const { return assignedHospital != nullptr; }
 	void Register();

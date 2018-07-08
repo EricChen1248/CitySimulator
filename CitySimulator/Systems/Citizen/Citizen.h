@@ -79,6 +79,7 @@ private:
     float doubleSpeedTime;
     
     float waitTime;
+    float forceWait;
     bool inPlot;
     bool pathFindFailed;
     

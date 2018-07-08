@@ -5,22 +5,23 @@
 #include "../../Helpers/Government.h"
 Bank::Bank(Plot* plot) : Base(plot, BANK)
 {
-	cost = RandomInt(50, 100);
+	cost = 1000;
 	administrationFee = RandomInt(1, 100);
 	transactionCost = RandomInt(1, 100);
 	score = 0;
 	color = BANK_COLOR;
 	customerPerDay = 0;
 	earnedMoeny = 0;
+	countOfCustomerNow = 0;
 }
 
 std::string Bank::ContentString()
 {
 	std::stringstream ss;
 	if (customerPerDay < 50)
-		ss << "We should change location, there" << std::endl << "isn't enough customer for us";
+		ss << "We should change location, " << std::endl << "there isn't enough" << std::endl << "customer for us";
 	else
-		ss << "We are operating very well!" << std::endl << "This is a good spot!";
+		ss << "We are operating "<<std::endl<< "very well!" << std::endl << "This is a good spot!";
 	ss << std::endl;
 	ss << "Today Customer: " << customerPerDay << std::endl;
 	ss << "Today earngin: " << earnedMoeny;
@@ -49,7 +50,6 @@ void Bank::EndDay()
 void Bank::Enter()
 {
 	//Need to revise
-	score += cost;
 	++customerPerDay;
 	Government::AddTax(transactionCost*0.5f);
 }

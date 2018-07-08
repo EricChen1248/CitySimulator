@@ -11,10 +11,10 @@ public:
 	~BankSystem();
 	int Register(Plot* plot) override;
 	void Update() override;
-	void LogSatisfied(Citizen* citizen, BaseRule* rule) override;
-	void LogUnsatisfied(Citizen* citizen, BaseRule* rule) override;
 	void EndDay() override;
 	void NewDay() override;
+	std::string ContentString() override;
+	float GetSatisfaction() const override;
 private:
 	const int maxOccupantCount = 20;
 	const int scorePerOccupant = 10;

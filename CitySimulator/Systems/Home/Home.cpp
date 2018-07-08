@@ -1,4 +1,5 @@
 #include "Home.h"
+#include "HomeRule.h"
 #include "../../Helpers/Constants.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
@@ -7,6 +8,7 @@
 
 Home::Home(Plot* plot):Base(plot, HOME)
 {
+	cost = 10000;
 	homeCapacity = RandomInt(3, 6);
 	color = HOME_COLOR;
 	score = 0;
@@ -17,6 +19,11 @@ void Home::Register(Citizen* citizen)
 	//Citizen->register(*this);
 	if(!Full())
 		Residents.InsertLast(citizen);
+}
+void Home::Unregister(Citizen * citizen)
+{
+	if (Residents.Contains(citizen))
+		Residents.Remove(citizen);
 }
 void Home::EndDay()
 {
@@ -33,6 +40,17 @@ std::string Home::ContentString()
 	ss << "Maximum Capacitiy : " << homeCapacity <<  std::endl << "Family count: " << NumOfFamily();
 	ss << std::endl << "(unit: house)";
 	return ss.str();
+}
+int Home::Destroy()
+{
+	for (auto&& resident : Residents)
+	{
+		auto homeRule = dynamic_cast<HomeRule*>(resident->FindRule(HOME));
+		homeRule->myHome = nullptr;
+		homeRule->atHomeFlag = false;
+	}
+	Base::Destroy();
+	return 0;
 }
 void Home::Enter()
 {

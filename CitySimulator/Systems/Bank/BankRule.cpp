@@ -5,14 +5,24 @@
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/HelperFunctions.h"
 #include "../Citizen/CitizenEnum.h"
-BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(200.f) {}
+#include <iostream>
+BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(100000.f),waitingTime(0.f)
+{
+	moneyDownLimit = RandomInt(500, 750);
+}
 
 BankRule::~BankRule() = default;
 
 float BankRule::CalculateScore()
 {
-    if (citizen->Money() < CITIZEN_MAX_MONEY && saving > 100)
-        return 100000;
+	if (citizen->Money() < moneyDownLimit && saving > (moneyDownLimit - citizen->Money()))
+	{
+		return 10000;
+		if (citizen->Money() < (moneyDownLimit/2))
+		{
+			return 20000;
+		}
+	}
     return 0;
 }
 
@@ -62,7 +72,9 @@ void BankRule::EnterPlot(Plot* plot)
 {
     const auto bank = dynamic_cast<Bank*>(plot->GetPlotType());
     if (bank == nullptr) return;
-    citizen->Wait(0.5f);
+	const int peopleNow = plot->GetOccupantCount();
+	waitingTime = 0.05f*float(peopleNow);
+    citizen->Wait(waitingTime);
     bank->Enter();
 }
 
@@ -113,6 +125,7 @@ void BankRule::LeavePlot(Plot* plot)
 		}
 		
 	}
+	std::cout << "Citizen withdraws " << moneyToWithdraw << std::endl;
 	bank->earnedMoeny += bank->transactionCost;
 	return;
 }
@@ -124,16 +137,6 @@ void BankRule::Update()
 {
     //this->hungerLevel -= CoreController::Instance()->GetDeltaTime() * 30;
     //Bank Rules need not update anything;
-}
-
-/**
-* \brief Returns bool to tell if citizen is satisfied with it's food requirements
-* \return True if hunger level is over 20
-*/
-bool BankRule::IsSatisfied()
-{
-    //need to adjust this rate
-    return saving > 10000;
 }
 
 void BankRule::SaveMoney(float moneyInflow) 

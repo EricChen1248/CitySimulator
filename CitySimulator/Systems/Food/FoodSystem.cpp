@@ -1,12 +1,11 @@
 #include "FoodSystem.hpp"
 #include "FoodRule.hpp"
 #include "Food.hpp"
-#include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
 
 
-class FoodRule;
 const int FoodSystem::OPERATING_COST;
+
 FoodSystem::FoodSystem() : BaseSystem(FOOD)
 {
     FoodRule::breakfastTime = helper::Time(10,0);
@@ -23,7 +22,7 @@ int FoodSystem::Register(Plot* plot)
 {
     (*plot).Register(new Food(plot));
     BaseSystem::Register(plot);
-    return 0;
+    return Cost();
 }
 
 /**
@@ -56,9 +55,35 @@ float FoodSystem::GetSatisfaction() const
 }
 
 std::string FoodSystem::ContentString()
-{
+{ 
+    float overloadedTally = 0;
+    float earnedMoney = 0;
+    for (auto&& plot : plots)
+    {
+        const auto food = dynamic_cast<Food*>(plot->GetPlotType());
+        // If earnings exceeded operating costs, additional money is only worth half the score
+        earnedMoney += food->earnedMoney - (food->earnedMoney - Clamp(food->earnedMoney, 0, OPERATING_COST)) * 0.5f;
+        overloadedTally += food->overloadedTally > 0 ? 1 : 0;
+    }
     std::stringstream ss;
-    
+    int lineCount = 0;
+    if (overloadedTally > float(plots.Count()) / 8)
+    {
+        ss << "Build more restuarant" << std::endl << "to handle everyone" << std::endl;
+        lineCount += 2;
+    }
+    if (float(OPERATING_COST - earnedMoney) / float(OPERATING_COST) > 0.1f)
+    {
+        ss << "Restuarants aren't" << std::endl << "earning enough money" << std::endl;
+        lineCount += 2;
+    }
+    for (int i = 0; i < 4 - lineCount; ++i)
+    {
+        ss << std::endl;
+    }
+    ss << "Overloaded Count: " << overloadedTally << std::endl;
+    ss << "Total Earnings:  $" << int(earnedMoney) << std::endl;
+    ss << "Build Cost:      $" << Cost();
     return ss.str();
 }
 

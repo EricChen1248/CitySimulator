@@ -47,19 +47,11 @@ namespace helper
             Hour -= 24;
         }
     
-        int operator-(const Time &laterTime) const
+        int operator-(const Time &earlierTime) const
         {
-            int h = laterTime.Hour - Hour;
-            if (h < 0)
-            {
-                h += 24;
-            }
-        
-            int m = laterTime.Minute - Minute;
-            if (m < 0)
-            {
-                m += 60;
-            }
+            const int h = Hour - earlierTime.Hour;
+            const int m = Minute - earlierTime.Minute ;
+            
             return h * 60 + m;
         }
         

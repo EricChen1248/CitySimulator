@@ -24,25 +24,7 @@ void HomeSystem::Update()
 	//I believe home need not need to updata on a daily bases
 	score = 0;
 }
-void HomeSystem::LogSatisfied(Citizen* citizen, BaseRule* rule)
-{
-	// Dynamic cast rule to create a snapshot copy 
-	const auto log = new Log(citizen->Coords(), new HomeRule(*dynamic_cast<HomeRule*>(rule)), citizen);
-	satisfiedLog.InsertLast(log);
-}
 
-
-/**
-* \brief Logs a citizen being unsatisified with a food
-* \param citizen Citzen being logged
-* \param rule Rule being logged
-*/
-void HomeSystem::LogUnsatisfied(Citizen* citizen, BaseRule* rule)
-{
-	// Dynamic cast rule to create a snapshot copy 
-	const auto log = new Log(citizen->Coords(), new HomeRule(*dynamic_cast<HomeRule*>(rule)), citizen);
-	unsatisfiedLog.InsertLast(log);
-}
 /*
 brief:
 TODO:Adding more grading system
@@ -59,7 +41,7 @@ float HomeSystem::GetSatisfaction() const
 	for (auto citizen : citizenList)
 	{
 		//count how many people have house
-		dynamic_cast<HomeRule*>(citizen->FindRule(HOME))->IsSatisfied() == true ? count += (1.f/float(citizenList.Count())): count += 0;
+		dynamic_cast<HomeRule*>(citizen->FindRule(HOME))->HasHome() == true ? count += (1.f/float(citizenList.Count())): count += 0;
 		avgSleepHour += (dynamic_cast<HomeRule*>(citizen->FindRule(HOME))->GetSleepTime()/8.f)/float(citizenList.Count());
 	}
 	count = (0.5f * count) + (0.5f * avgSleepHour);
@@ -76,4 +58,16 @@ void HomeSystem::EndDay()
 	}
 	unsatisfiedLog.Dispose();
 	satisfiedLog.Dispose();
+}
+
+std::string HomeSystem::ContentString()
+{
+	std::stringstream ss;
+	ss << "Provide your citizen" << std::endl;
+	ss << "a warm house. People" << std::endl;
+	ss << "get unsatisfied if" << std::endl;
+	ss << "1.don't have home." << std::endl;
+	ss << "2.Home is too far, thus" << std::endl;
+	ss << "  don't sleep much.";
+	return ss.str();
 }

@@ -104,8 +104,8 @@ bool UIController::IsOverUI() const
 
 void UIController::InitSelection()
 {
-    selectionBackGround.setSize(Vector2f(151, 383));
-    selectionBackGround.setPosition(WINDOW_WIDTH - 153, 2);
+    selectionBackGround.setSize(Vector2f(150, 383));
+    selectionBackGround.setPosition(WINDOW_WIDTH - 152, 2);
     selectionBackGround.setFillColor(WHITE);
     selectionBackGround.setOutlineColor(BLACK);
     selectionBackGround.setOutlineThickness(2);

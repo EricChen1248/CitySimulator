@@ -1,6 +1,7 @@
 #pragma once
 #include "../Base/BaseRule.h"
 #include "Home.h"
+#include "../Citizen/Citizen.h"
 #include "../../Helpers/Time.h"
 class BaseRule;
 
@@ -10,6 +11,7 @@ class BaseRule;
 class HomeRule : public BaseRule
 {
 public:
+	friend Home;
 	HomeRule(Citizen& citizen);;
 	~HomeRule();
 
@@ -18,10 +20,13 @@ public:
 	void EnterPlot(Plot* plot) override;
 	void LeavePlot(Plot* plot) override;
 	void Update() override;
-	bool IsSatisfied() override;
+
+    void NewDay() override;
 	void EndDay() override;
+	void Unregister();
 	bool HasHome()const { return (myHome != nullptr); };
 	bool AtHome()const { return atHomeFlag; };
+	Home* GetHome()const { return myHome; }
 	float GetSleepTime()const;
 private:
 

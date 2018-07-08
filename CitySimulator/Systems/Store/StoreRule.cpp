@@ -2,7 +2,6 @@
 #include "Store.h"
 #include "StoreSystem.h"
 #include "../../Controllers/CoreController.h"
-#include "../../Helpers/Constants.h"
 #include "../../Helpers/HelperFunctions.h"
 #include "../Food/FoodRule.hpp"
 #include "../Home/HomeRule.h"
@@ -10,7 +9,11 @@
 const float StoreRule::MAX_STOCK = 200.f;
 const float StoreRule::RESTOCK = 50.f;
 
-StoreRule::StoreRule(Citizen& citizen) : BaseRule(citizen, STORE), foodStock(0), miscStock(0), householdStock(0)
+const float StoreRule::FOOD_COST = 0.5f;
+const float StoreRule::HOUSE_COST = 1.f;
+const float StoreRule::MISC_COST = 2.f;
+
+StoreRule::StoreRule(Citizen& citizen) : BaseRule(citizen, STORE), foodStock(60), miscStock(60), householdStock(60)
 {
     
 }
@@ -21,16 +24,15 @@ StoreRule::~StoreRule()
 
 float StoreRule::CalculateScore()
 {
-    const int restock = 50;
-    // if (citizen->FindRule(HOME)->HasHome())
-    // {
-    //     return 0;
-    // }
-    
     float totalScore = 0.f;
-    totalScore += Clamp(RESTOCK - foodStock, 0.f);
+    const auto home = dynamic_cast<HomeRule*>(citizen->FindRule(HOME));
+    if (home->HasHome())
+    {
+        totalScore += Clamp(RESTOCK - foodStock, 0.f);
+        totalScore += Clamp(RESTOCK - householdStock, 0.f);
+    }
+    
     totalScore += Clamp(RESTOCK - miscStock, 0.f);
-    totalScore += Clamp(RESTOCK - householdStock, 0.f);
     // TODO : adjust store rule score multiplier
     return totalScore * 5;
     
@@ -69,9 +71,24 @@ void StoreRule::EnterPlot(Plot* plot)
 {
 	const auto store = dynamic_cast<Store*>(plot->GetPlotType());
     if (store == nullptr) return;
-	citizen->Wait(0.1f);
-	citizen->IncreaseMoney(-store->cost);
-	store->Enter();
+    
+    float restock = 0;
+    float cost = 0;
+    const auto home = dynamic_cast<HomeRule*>(citizen->FindRule(HOME));
+    if (home->HasHome())
+    {
+        restock += MAX_STOCK - foodStock;
+        cost += (MAX_STOCK - foodStock) * FOOD_COST;
+        restock += MAX_STOCK - householdStock;
+        cost += (MAX_STOCK - householdStock) * HOUSE_COST;
+    }
+    restock += MAX_STOCK - miscStock;
+    cost += (MAX_STOCK - miscStock) * MISC_COST;
+    
+	citizen->Wait(restock / MAX_STOCK);
+	citizen->IncreaseMoney(cost);
+    store->Payment(cost);
+    store->Enter();
 }
 
 void StoreRule::LeavePlot(Plot* plot)
@@ -84,18 +101,22 @@ void StoreRule::LeavePlot(Plot* plot)
 void StoreRule::Update()
 {
     // TODO : store update checks
-    auto home = dynamic_cast<HomeRule*>(citizen->FindRule(HOME));
-    if (!home->AtHome())
+    const auto home = dynamic_cast<HomeRule*>(citizen->FindRule(HOME));
+    const float deltaTime = CoreController::Instance()->GetDeltaTime();
+    if (home->HasHome())
     {
-        return;
+        if (home->AtHome())
+        {
+            // TODO : store numbers
+            if (foodStock > 0)
+            {
+                foodStock = Clamp(foodStock - deltaTime, 0.f);
+                const auto food = dynamic_cast<FoodRule* >(citizen->FindRule(FOOD));
+                food->FillHunger(food->Hunger() + deltaTime * 0.5f);
+            }
+        }
+        householdStock = Clamp(householdStock - deltaTime * 0.5f, 0.f);
     }
     
-    // TODO : store numbers
-    float deltaTime = CoreController::Instance()->GetDeltaTime();
-    if (foodStock > 0)
-    {
-        foodStock -= deltaTime;
-        const auto food = dynamic_cast<FoodRule* >(citizen->FindRule(FOOD));
-        food->FillHunger(food->Hunger() + deltaTime * 0.5f);
-    }
+    miscStock = Clamp(miscStock - deltaTime * 1.5f, 0.f);
 }
