@@ -174,7 +174,8 @@ void HomeRule::NewDay()
 
 void HomeRule::Unregister()
 {
-	myHome->Unregister(citizen);
+	if(myHome != nullptr)
+		myHome->Unregister(citizen);
 	myHome = nullptr;
 }
 

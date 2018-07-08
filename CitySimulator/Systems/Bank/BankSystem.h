@@ -19,5 +19,7 @@ private:
 	const int maxOccupantCount = 20;
 	const int scorePerOccupant = 10;
 	const int overPenalty = 5;
+	float averageWaitingTime;
+	float averageCustomerPerBank;
 };
 
