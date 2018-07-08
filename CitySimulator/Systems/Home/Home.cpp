@@ -9,7 +9,7 @@
 Home::Home(Plot* plot):Base(plot, HOME)
 {
 	cost = 10000;
-	homeCapacity = RandomInt(3, 6);
+	homeCapacity = RandomInt(50, 60);
 	color = HOME_COLOR;
 	score = 0;
 }
@@ -74,7 +74,7 @@ int Home::NumOfFamily() const
 				++countOfFamily;
 		}
 	}
-	return 0;
+	return countOfFamily;
 }
 Plot* Home::GetPlot() const
 {
