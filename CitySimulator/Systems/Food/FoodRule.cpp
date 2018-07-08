@@ -61,6 +61,22 @@ void FoodRule::EnterPlot(Plot* plot)
     const auto food = dynamic_cast<Food*>(plot->GetPlotType());
     if (food == nullptr) return;
     food->Enter();
+    float wait;
+    const auto& time = CoreController::Instance()->GetTime();
+    if (time < breakfastTime)
+    {
+        wait = 0.3f;
+    }
+    else if(time < lunchTime)
+    {
+        wait = 0.6f;
+    }
+    else
+    {
+        wait = 0.8f;
+    }
+    
+    citizen->Wait(wait);
     // TODO : Move base enter to plot
 }
 
@@ -93,6 +109,8 @@ void FoodRule::LeavePlot(Plot* plot)
 void FoodRule::Update()
 {
     // TODO : Tweak hunger to time ratio
+    // Right now people die roughly in two without eating
+    // Or will have the urge to eat about every 6 hours (small urge) (exponential growth).
     hungerLevel -= CoreController::Instance()->GetDeltaTime() * 3;
     if (hungerLevel < 0)
     {
@@ -103,7 +121,7 @@ void FoodRule::Update()
 /** 
  * \brief Used to fill hunger before entering hospital 
  */
-void FoodRule::FillHunger(const float hunger)
+void FoodRule::FillHunger(const float hunger /* = INT_MAX */ )
 {
     hungerLevel = hunger;
 } 
