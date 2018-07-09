@@ -47,7 +47,55 @@ void SystemController::Initialize()
 
     river = new River();
     river->Init();
-#if not CLEAN_BUILD
+    
+#if GENERATE_CENTROIDS
+    List<Plot*> centers;
+    for (int i = 0; i < 3; ++i)
+    {
+        Plot* centroid = nullptr;
+        while (centroid == nullptr || centroid->IsRiver())
+        {
+            centroid = plots->GetRandomPlot();
+        }
+        centers.InsertLast(centroid);
+        const auto neighbours = centroid->Coords().GetNeighbours();
+        Plot* target;
+        for (auto&& system : systems)
+        {
+            int count = 0;
+            switch (system->SystemType)
+            {
+            case FOOD:
+            case WORK:
+            case HOME:
+                count = 1;
+                break;
+            default:;
+            }
+            for (int j = 0; j < count; ++j)
+            {
+                do
+                {
+                    target = CoreController::GetSystemController()->Plots()->FindPlot(neighbours[rand() % 6]);
+                } while (target == nullptr || target->IsRiver() || target->GetPlotType() != nullptr);
+                system->Register(target);
+            }
+        }
+        delete[] neighbours;
+        
+    }
+    
+#elif not CLEAN_BUILD
+    GenerateDemo();
+#endif
+    citizens = new CitizenSystem();
+#if GENERATE_CENTROIDS
+    citizens->GenerateCentroids(centers);
+#endif
+}
+
+void SystemController::GenerateDemo()
+{
     // TODO Remove demo
     for (auto&& system : systems)
     {
@@ -68,10 +116,10 @@ void SystemController::Initialize()
             count = 1;
             break;
         case SCHOOL: break;
-        case HOSPITAL: 
-			count = 3; 
-			break;
-        default: ;
+        case HOSPITAL:
+            count = 3;
+            break;
+        default:;
         }
 
         for (int i = 0; i < count; ++i)
@@ -84,8 +132,6 @@ void SystemController::Initialize()
             system->Register(plot);
         }
     }
-#endif
-    citizens = new CitizenSystem();
 }
 
 /**

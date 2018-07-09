@@ -9,6 +9,9 @@
 #include "../../Helpers/FeatureFlags.h"
 #include "../../Helpers/HelperFunctions.h"
 CitizenSystem::CitizenSystem()
+#if GENERATE_CENTROIDS
+= default;
+#else    
 {
 #ifdef _DEBUG
     const int citizenCount = 500;
@@ -31,6 +34,7 @@ CitizenSystem::CitizenSystem()
         citizens.InsertLast(citizen);
     }
 }
+#endif
 
 
 CitizenSystem::~CitizenSystem()
@@ -103,6 +107,26 @@ void CitizenSystem::EndDay()
         citizen->EndDay();
     }
     PruneDead();
+    deathCount = 0;
+}
+
+void CitizenSystem::NewDeath()
+{
+    deathCount++;
+}
+
+void CitizenSystem::GenerateCentroids(const List<Plot*>& centers)
+{
+    for (auto && center : centers)
+    {
+        for (int i = 0; i < 30; ++i)
+        {
+            auto citizen = new Citizen(center);
+            citizens.InsertLast(citizen);
+        }
+    }
+    
+    Logger::Log("Created " + std::to_string(90) + " citizens");
 }
 
 /**

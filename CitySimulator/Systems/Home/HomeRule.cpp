@@ -5,6 +5,7 @@
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Controllers/SystemController.h"
+#include <iostream>
 
 HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME), myHome(nullptr), atHomeFlag(false)
 {
@@ -142,14 +143,19 @@ void HomeRule::LeavePlot(Plot* plot)
 void HomeRule::Update()
 {
     const auto time = CoreController::Instance()->GetTime();
-
+	if (!AtHome() && (time.Hour == (goHomeTime.Hour - 1)))
+	{
+		homelessLevel = 2;
+	}
     if (!AtHome() && time> goHomeTime)
     {
         const int deltaTime = time - goHomeTime;
-        if (deltaTime <= 60)
-        {
-            homelessLevel = std::pow(2, deltaTime / 2);
-        }
+		if (deltaTime <= 60)
+		{
+			homelessLevel = std::pow(2, deltaTime / 2);
+		}
+		else
+			homelessLevel = INT_MAX;
     }
 }
 

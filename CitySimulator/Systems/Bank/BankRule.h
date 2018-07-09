@@ -15,10 +15,8 @@ public:
 	void Update() override;
 	void SaveMoney(float moneyInflow);
     int GetSavings() const { return int(saving); }
-	float GetWaitingTime()const { return waitingTime; }
 private:
 	float saving;
-	float waitingTime;
 	float moneyDownLimit;
 };
 
