@@ -21,17 +21,17 @@ SchoolRule::~SchoolRule() = default;
 
 float SchoolRule::CalculateScore()//unfinsihed
 {
-	if (assignedSchool != nullptr)
-	{
-		const Time currentTime = CoreController::Instance()->GetTime();
+	if (assignedSchool == nullptr) return 0;
+	
+	const Time currentTime = CoreController::Instance()->GetTime();
 
-		// late to work
-		if (schoolStartTime < currentTime)
-		{
-			// start to have score 30 min before time that  
-			return 5000000 - Clamp(schoolStartTime - currentTime, 0) * 100000;
-		}
+	// morning to school
+	if (schoolStartTime - currentTime < earlyToSchool + 60)
+	{
+		// start to have score 30 min before time that  
+		return 5000000 - Clamp(schoolStartTime - currentTime - earlyToSchool - 60, 0) * 100000;
 	}
+
 	return 0; // not have school
 }
 
@@ -112,6 +112,8 @@ void SchoolRule::Register()
 	}
 
 	const auto chosen = choices[RandomInt(0, choices.Count())];
+
+	this->assignedSchool->plot = chosen; 
 }
 
 void SchoolRule::UnRegister()
