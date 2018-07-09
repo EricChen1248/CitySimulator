@@ -3,87 +3,90 @@
 #include "../../Helpers/Constants.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
-//class HomeRule;
 
 
-Home::Home(Plot* plot):Base(plot, HOME)
+Home::Home(Plot* plot) : Base(plot, HOME)
 {
-	cost = 10000;
-	homeCapacity = RandomInt(50, 60);
-	color = HOME_COLOR;
-	score = 0;
+    cost = 10000;
+    homeCapacity = RandomInt(50, 60);
+    color = HOME_COLOR;
 }
+
 void Home::Register(Citizen* citizen)
 {
-	//Citizen need to register it's home in this function
-	//Citizen->register(*this);
-	if(!Full())
-		Residents.InsertLast(citizen);
+    //Citizen need to register it's home in this function
+    //Citizen->register(*this);
+    if (!Full())
+    {
+        residents.InsertLast(citizen);
+    }
 }
-void Home::Unregister(Citizen * citizen)
+
+void Home::Unregister(Citizen* citizen)
 {
-	if (Residents.Contains(citizen))
-		Residents.Remove(citizen);
+    if (residents.Contains(citizen))
+    {
+        residents.Remove(citizen);
+    }
 }
+
 void Home::EndDay()
 {
-	//need to implement something
 }
-bool Home::Full()const
+
+bool Home::Full() const
 {
-	return (homeCapacity <= NumOfFamily());
+    return homeCapacity <= NumOfFamily();
 }
+
 std::string Home::ContentString()
 {
-	std::stringstream ss;
-	ss << "Provides home for" << std::endl <<" familes." << std::endl << std::endl;
-	ss << "Maximum Capacitiy : " << homeCapacity <<  std::endl << "Family count: " << NumOfFamily();
-	ss << std::endl << "(unit: house)";
-	float avgSleepHour = 0.f;
-	for (auto resident : Residents)
-	{
-		auto homeRule = dynamic_cast<HomeRule*>(resident->FindRule(HOME));
-		avgSleepHour += homeRule->GetSleepTime() / float(Residents.Count());
-	}
-	ss << "Avg sleeping Hour: " << std::fixed << std::setprecision(2) << avgSleepHour;
-	return ss.str();
+    std::stringstream ss;
+    ss << "Provides homes for" << std::endl << "families." << std::endl << std::endl;
+    ss << "Maximum Capacity: " << homeCapacity << std::endl;
+    ss << "Family count:      " << NumOfFamily();
+    ss << std::endl << "(unit: household)" << std::endl;
+    float avgSleepHour = 0.f;
+    for (auto resident : residents)
+    {
+        const auto homeRule = dynamic_cast<HomeRule*>(resident->FindRule(HOME));
+        avgSleepHour += homeRule->GetSleepTime() / float(residents.Count());
+    }
+    ss << "Avg sleeping Hour: " << std::fixed << std::setprecision(2) << avgSleepHour;
+    return ss.str();
 }
+
 int Home::Destroy()
 {
-	for (auto&& resident : Residents)
-	{
-		auto homeRule = dynamic_cast<HomeRule*>(resident->FindRule(HOME));
-		homeRule->myHome = nullptr;
-		homeRule->atHomeFlag = false;
-	}
-	Base::Destroy();
-	return 0;
+    for (auto&& resident : residents)
+    {
+        const auto homeRule = dynamic_cast<HomeRule*>(resident->FindRule(HOME));
+        homeRule->myHome = nullptr;
+        homeRule->atHomeFlag = false;
+    }
+    Base::Destroy();
+    return Cost();
 }
-void Home::Enter()
-{
-	score += 5;
-}
+
 int Home::NumOfFamily() const
 {
-	int countOfFamily = 0;
-	for (auto citizen : Residents)
-	{
-		if (citizen->GetGender() == MALE)
-		{
-			if (citizen->Age() >= WORKING_AGE)
-			{
-				++countOfFamily;
-			}
-		}
-		else
-		{
-			if (!citizen->IsMarried() && citizen->Age() >= WORKING_AGE)
-				++countOfFamily;
-		}
-	}
-	return countOfFamily;
-}
-Plot* Home::GetPlot() const
-{
-	return plot;
+    int countOfFamily = 0;
+    for (auto citizen : residents)
+    {
+        if (citizen->GetGender() == MALE)
+        {
+            if (citizen->Age() >= WORKING_AGE)
+            {
+                ++countOfFamily;
+            }
+        }
+        else
+        {
+            if (!citizen->IsMarried() && citizen->Age() >= WORKING_AGE)
+            {
+                ++countOfFamily;
+            }
+        }
+    }
+    return countOfFamily;
 }

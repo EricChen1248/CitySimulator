@@ -18,7 +18,7 @@ struct SelectionButton
         Text.setFont(FontController::Monofur());
         Text.setFillColor(BLACK);
         Text.setCharacterSize(24U);
-        Text.setPosition(WINDOW_WIDTH - 100.f, float(y));
+        Text.setPosition(WINDOW_WIDTH - 110.f, float(y));
         Text.setString(str); 
         
         Circle.setPosition(WINDOW_WIDTH - 146.f, y + 4.f);

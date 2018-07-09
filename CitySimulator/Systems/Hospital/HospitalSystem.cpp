@@ -43,21 +43,6 @@ float HospitalSystem::GetSatisfaction() const
     return Clamp(score, 0.f, 1.f);
 }
 
-/**
- * \brief MISSING
- */
-void HospitalSystem::Update()
-{
-    for (auto && plot : plots)
-    {
-        // Do this if you want to get the plot type (class hospital)
-        //const auto rule = dynamic_cast<Hospital*> (plot->GetPlotType());
-        
-        // Tallying and adding score for occupant count. Positive for within limit people, negative for over
-        const auto count = plot->GetOccupantCount();
-        score += (std::min(count, maxOccupantCount) * scorePerOccupant - std::max(count - maxOccupantCount, 0) * overPenalty) * CoreController::Instance()->GetDeltaTime();
-    }
-}
 
 /**
  * \brief Increase tally of people that died outside of the hospital
@@ -102,6 +87,7 @@ void HospitalSystem::NewDay()
  */
 void HospitalSystem::EndDay()
 {
+    satisfactionToday = GetSatisfaction();
     for (auto && plot : plots)
     {
         plot->GetPlotType()->EndDay();

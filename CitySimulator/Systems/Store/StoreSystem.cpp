@@ -41,8 +41,6 @@ void StoreSystem::EndDay()
 	{
 		plot->GetPlotType()->EndDay();
 	}
-	unsatisfiedLog.Dispose();
-	satisfiedLog.Dispose();
 }
 
 float StoreSystem::GetSatisfaction() const
@@ -57,6 +55,7 @@ float StoreSystem::GetSatisfaction() const
     }
     return Clamp(1 - (costs - earnings) / costs, 0.f, 1.f);
 }
+
 void StoreSystem::NewDay()
 {
     for (auto && plot : plots)
@@ -96,11 +95,12 @@ std::string StoreSystem::ContentString()
         }
         lineCount = 4;
     }
-    for (int i = 0; i < 6 - lineCount; ++i)
+    for (int i = 0; i < 5 - lineCount; ++i)
     {
         ss << std::endl;
     }
     ss << "Total Earnings: $" << earnings << std::endl;
     ss << "Total Costs:    $" << costs << std::endl;
+    ss << "Build Costs:    $" << Cost();
     return ss.str();
 }

@@ -35,7 +35,7 @@ public:
     
     void DoubleSpeed() { doubleSpeedTime = 24.f; };
     
-    BaseRule* FindRule(System system);
+    BaseRule* FindRule(System system) const;
     void ForceRule(System ruleType, float waitTime = 0);
     
 	// LifeCycle function
