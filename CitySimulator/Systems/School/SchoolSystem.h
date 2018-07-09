@@ -6,7 +6,7 @@
  */
 class SchoolSystem : public BaseSystem
 {
-	
+	friend class School;
 public:
     SchoolSystem();
     ~SchoolSystem();
