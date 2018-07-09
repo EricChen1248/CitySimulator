@@ -6,17 +6,22 @@
  */
 class SchoolSystem : public BaseSystem
 {
+	
 public:
     SchoolSystem();
     ~SchoolSystem();
+
     int Register(Plot* plot) override;
     void Update() override;
-    void LogSatisfied(Citizen* citizen, BaseRule* rule) override;
-    void LogUnsatisfied(Citizen* citizen, BaseRule* rule) override;
+	float GetSatisfaction() const override;
     void EndDay() override;
+	void Toggle() override;
+	int Cost() const override;
+	
 private :
-    const int maxOccupantCount = 20;
     const int scorePerOccupant = 10;
     const int overPenalty = 5;
+
+	bool isPremium;
 };
 

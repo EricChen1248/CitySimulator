@@ -4,10 +4,12 @@
 class BaseRule;
 
 /**
- * \brief School rule that handles the food needs of our citizens
+ * \brief School rule that handles the educational needs of our citizens
  */
 class SchoolRule : public BaseRule
 {
+	friend class School;
+	friend class SchoolSystem;
 public:
     SchoolRule(Citizen& citizen);
     ~SchoolRule();
@@ -17,9 +19,16 @@ public:
     void EnterPlot(Plot* plot) override;
     void LeavePlot(Plot* plot) override;
     void Update() override;
-    bool IsSatisfied() override;
+
 	float EducationLevel() const { return educationLevel; };
+	void Register();
+	void UnRegister();
 private:
+	static helper::Time schoolStartTime;
+	static helper::Time schoolEndTime;
+
+	School* assignedSchool;
+	bool previousIsPremium;
 	float educationLevel;
 };
 
