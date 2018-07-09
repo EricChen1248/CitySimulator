@@ -84,3 +84,33 @@ int SchoolSystem::Cost() const
 	}
 	return 400;
 }
+
+std::string SchoolSystem::ContentString()
+{
+	std::stringstream ss;
+
+	int total = 0;
+	int totalStudents = 0;
+	int totalLateStudents = 0;
+	for (auto&& plot : plots)
+	{
+		const auto school = dynamic_cast<School*>(plot->GetPlotType());
+		total += school->students.Count();
+		totalStudents += school->studentCount;
+		totalLateStudents += school->lateStudents;
+	}
+
+	if (totalLateStudents == 0 && totalStudents == total * 2)
+	{
+		ss << "Everyone was on time" << std::endl;
+	}
+	else
+	{
+		if (totalLateStudents != 0)
+		{
+			ss << totalLateStudents << " of " << total << " students" << std::endl << "were late to school" << std::endl;
+		}
+	}
+
+	return ss.str();
+}

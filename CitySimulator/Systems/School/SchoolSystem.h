@@ -17,7 +17,7 @@ public:
     void EndDay() override;
 	void Toggle() override;
 	int Cost() const override;
-	
+	std::string ContentString() override;
 private :
     const int scorePerOccupant = 10;
     const int overPenalty = 5;
