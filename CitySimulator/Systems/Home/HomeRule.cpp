@@ -57,7 +57,7 @@ bool HomeRule::DecideHome()
 	    if (!Pathable(citizen->Coords(), coord)) continue;
 		const auto home = dynamic_cast<Home*>(plot->GetPlotType());
 		auto livable = true;
-		if (citizen->Age() >= 20)
+		if (citizen->Age() >= WORKING_AGE)
 			 livable = (!home->Full());
 		if (livable && citizen->Coords().Distance(coord) <= shortestDis)
 		{
@@ -165,7 +165,7 @@ void HomeRule::EndDay()
 }
 void HomeRule::NewDay()
 {
-	if (myHome == nullptr && citizen->Age() > WORKING_AGE)
+	if ((!HasHome()) && citizen->Age() >= WORKING_AGE)
 	{
 		DecideHome();
 		return;
@@ -174,8 +174,12 @@ void HomeRule::NewDay()
 
 void HomeRule::Unregister()
 {
-	myHome->Unregister(citizen);
-	myHome = nullptr;
+	if (myHome != nullptr)
+	{
+		myHome->Unregister(citizen);
+		myHome = nullptr;
+	}
+	return;
 }
 
 float HomeRule::GetSleepTime() const

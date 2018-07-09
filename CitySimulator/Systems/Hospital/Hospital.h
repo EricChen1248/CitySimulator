@@ -18,6 +18,7 @@ friend HospitalSystem;
     void Enter();
 	void NewMember(Citizen* citizen);
 	int Destroy() override;
+	bool isFull() { return members.Count() >= capacity;};
 	std::string ContentString();
 
 private:

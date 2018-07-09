@@ -23,7 +23,7 @@ public:
 	void Register();
 
 private:
-    const int maxDistance = 10;
+    const int deltaIncrease = 5;
 	Plot* assignedHospital;
     bool enter = false; 
 };

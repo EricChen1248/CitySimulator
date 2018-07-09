@@ -19,12 +19,12 @@ std::string Bank::ContentString()
 {
 	std::stringstream ss;
 	if (customerPerDay < 50)
-		ss << "We should change location, " << std::endl << "there isn't enough" << std::endl << "customer for us";
+		ss << "We should change" << std::endl << "location, there aren't" << std::endl << "enough customers. ";
 	else
 		ss << "We are operating "<<std::endl<< "very well!" << std::endl << "This is a good spot!";
-	ss << std::endl;
+	ss << std::endl << std::endl;
 	ss << "Today Customer: " << customerPerDay << std::endl;
-	ss << "Today earngin: " << earnedMoeny;
+	ss << "Today earning: " << earnedMoeny;
 	return ss.str();
 }
 /**

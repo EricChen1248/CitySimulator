@@ -41,11 +41,11 @@ inline void SatisBar::Draw(const float targetRatio, SFMLController& sfml)
 {
     if (value > targetRatio)
     {
-        value = Clamp(value - 0.01f, targetRatio, 1.f);
+        value = Clamp(value - 0.05f, targetRatio, 1.f);
     }
     else if (value < targetRatio)
     {
-        value = Clamp(value + 0.01f, 0.f, targetRatio);
+        value = Clamp(value + 0.05f, 0.f, targetRatio);
     }
 
     const float x = 148.f * (1.f - value);
