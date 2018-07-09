@@ -96,12 +96,12 @@ bool Status::InBound() const
     const auto window = CoreController::SfmlController()->Window();
     const auto mousePos = sf::Mouse::getPosition(*window);
     
-    return rect.getGlobalBounds().contains(mousePos.x, mousePos.y);
+    return rect.getGlobalBounds().contains(float(mousePos.x), float(mousePos.y));
 }
 
 void Status::Build(Plot* plot)
 {
-    Government::AddTax(-CoreController::GetSystemController()->GetSystem(SelectedSystem)->Register(plot));
+    Government::AddTax(float(-CoreController::GetSystemController()->GetSystem(SelectedSystem)->Register(plot)));
 }
 
 void Status::DrawChildren()
