@@ -9,7 +9,6 @@ class BankRule;
 BankSystem::BankSystem() : BaseSystem(BANK)
 {
 	this->averageCustomerPerBank = 0;
-	this->averageWaitingTime = 0;
 }
 
 BankSystem::~BankSystem() = default;
@@ -62,6 +61,11 @@ void BankSystem::NewDay()
 	{
 		plot->GetPlotType()->NewDay();
 	}
+	waitTimeList.Clear();
+}
+void BankSystem::NewClientWait(const float& time)
+{
+	waitTimeList.InsertLast(time);
 }
 std::string BankSystem::ContentString()
 {
@@ -76,19 +80,18 @@ std::string BankSystem::ContentString()
 	float timeScore = 0.f;
 	float customerScore = 0.f;
 	averageCustomerPerBank = 0;
-	averageWaitingTime = 0;
+	float averageWaitingTime = 0;
 	for (auto plot : plots)
 	{
 		auto bank = dynamic_cast<Bank*> (plot->GetPlotType());
 		customerScore += (float(bank->GetCustomer()) / 100.f) / float(plots.Count());
 		averageCustomerPerBank += float(bank->GetCustomer()) / float(plots.Count());
 	}
-	auto citizens = CoreController::GetSystemController()->GetCitizens();
-	for (auto citizen : citizens)
+
+	for (auto score : waitTimeList)
 	{
-		auto bankRule = dynamic_cast<BankRule*> (citizen->FindRule(BANK));
-		timeScore += ((0.5f - bankRule->GetWaitingTime()) / 0.5f) / float(citizens.Count());
-		averageWaitingTime += bankRule->GetWaitingTime() / float(citizens.Count());
+		timeScore += ((0.5f - score) / 0.5f) / float(waitTimeList.Count());
+		averageWaitingTime += score / float(waitTimeList.Count());
 	}
 	if ((customerScore <= 0.3f))
 	{
@@ -116,11 +119,9 @@ float BankSystem::GetSatisfaction() const
 		score += (float(bank->GetCustomer()) / 100.f) / float(plots.Count());
 	}
 	score = score >= 0.5f ? 0.5f : score;
-	auto citizens = CoreController::GetSystemController()->GetCitizens();
-	for (auto citizen : citizens)
+	for (auto score : waitTimeList)
 	{
-		auto bankRule = dynamic_cast<BankRule*> (citizen->FindRule(BANK));
-		score += ((0.5f - bankRule->GetWaitingTime())/0.5f)/float(citizens.Count()*2);
+		score += ((0.5f - score)/0.5f)/float(waitTimeList.Count()*2);
 	}
 	if (score >= 1)
 		return 1.f;

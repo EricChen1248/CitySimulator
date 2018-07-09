@@ -13,13 +13,15 @@ public:
 	void Update() override;
 	void EndDay() override;
 	void NewDay() override;
+	void NewClientWait(const float& time);
 	std::string ContentString() override;
 	float GetSatisfaction() const override;
+	
 private:
 	const int maxOccupantCount = 20;
 	const int scorePerOccupant = 10;
 	const int overPenalty = 5;
-	float averageWaitingTime;
+	List<float> waitTimeList{};
 	float averageCustomerPerBank;
 };
 

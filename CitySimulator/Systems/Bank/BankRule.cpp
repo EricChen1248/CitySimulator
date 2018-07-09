@@ -6,7 +6,7 @@
 #include "../../Helpers/HelperFunctions.h"
 #include "../Citizen/CitizenEnum.h"
 #include <iostream>
-BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(100000.f),waitingTime(0.f)
+BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(100000.f)
 {
 	moneyDownLimit = RandomInt(500, 750);
 }
@@ -73,7 +73,9 @@ void BankRule::EnterPlot(Plot* plot)
     const auto bank = dynamic_cast<Bank*>(plot->GetPlotType());
     if (bank == nullptr) return;
 	const int peopleNow = plot->GetOccupantCount();
-	waitingTime = 0.05f*float(peopleNow);
+	float waitingTime = 0.05f*float(peopleNow);
+	auto bankSys = dynamic_cast<BankSystem*>(CoreController::Instance()->GetSystemController()->GetSystem(BANK));
+	bankSys->NewClientWait(waitingTime);
     citizen->Wait(waitingTime);
     bank->Enter();
 }
