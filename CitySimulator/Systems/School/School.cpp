@@ -79,6 +79,8 @@ void School::Enter()
 	{
 		lateStudents += 1;
 	}
+
+	
 }
 
 int School::Destroy()
