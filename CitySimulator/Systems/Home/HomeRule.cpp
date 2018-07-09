@@ -1,10 +1,10 @@
 #include "HomeRule.h"
 #include "Home.h"
 #include "../Base/BaseSystem.h"
-#include "../../Controllers/SystemController.h"
-#include "../../Controllers/CoreController.h"
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
+#include "../../Controllers/CoreController.h"
+#include "../../Controllers/SystemController.h"
 
 HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME), myHome(nullptr), atHomeFlag(false)
 {
@@ -34,6 +34,7 @@ HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME), myHome(nullptr),
     {
         DecideHome();
     }
+    // TODO : They won't be home on the first day before then
     homelessLevel = 0;
     sleepingHour = 0;
 }
@@ -60,6 +61,7 @@ bool HomeRule::DecideHome()
     Plot* chosen = nullptr;
     int shortestDis = INT_MAX;
 
+    // TODO : picking a close home doesn't make as much sense? What about picking a home with the least amount of people
     for (auto&& plot : plots)
     {
         auto coord = plot->Coords();
