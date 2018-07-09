@@ -5,37 +5,47 @@
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
-#include <iostream>
-HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME),myHome(nullptr),atHomeFlag(false)
+
+HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME), myHome(nullptr), atHomeFlag(false)
 {
-	//this is the time when people start to go home
-	//TODO: goHomeTime is now a static member, which is like a curvew right now. it could be private member
-	//therefore each citizen can go home by unique timing
-	goHomeTime.IncreaseTime(21);
-	wakeUpTime.IncreaseTime(6);
-	if (citizen.GetFamilyMember(FATHER) != nullptr)
-	{
-		if (Pathable(dynamic_cast<HomeRule*>(citizen.GetFamilyMember(FATHER)->FindRule(HOME))->myHome->GetPlot()->Coords(), citizen.Coords()))
-		{
-			myHome = dynamic_cast<HomeRule*>(citizen.GetFamilyMember(FATHER)->FindRule(HOME))->myHome;
-			myHome->Register(this->citizen);
-		}
-		else
-			myHome = nullptr;
-	}
-	else
-	{
-		DecideHome();
-	}
-	homelessLevel = 0;
-	sleepingHour = 0;
+    //this is the time when people start to go home
+    //TODO: goHomeTime is now a static member, which is like a curfew right now. it could be private member
+    //therefore each citizen can go home by unique timing
+    
+    wakeUpTime = helper::Time(6);
+    goHomeTime = helper::Time(21);
+    
+    const auto father = citizen.GetFamilyMember(FATHER);
+    // TODO : seems weird
+    if (father != nullptr)
+    {
+        const auto fatherHome = dynamic_cast<HomeRule*>(father->FindRule(HOME));
+        if (Pathable(fatherHome->myHome->GetPlot()->Coords(), citizen.Coords()))
+        {
+            myHome = fatherHome->myHome;
+            myHome->Register(this->citizen);
+        }
+        else
+        {
+            myHome = nullptr;
+        }
+    }
+    else
+    {
+        DecideHome();
+    }
+    homelessLevel = 0;
+    sleepingHour = 0;
 }
 
-HomeRule::~HomeRule() = default;
+HomeRule::~HomeRule()
+{
+    Unregister();
+}
 
 float HomeRule::CalculateScore()
 {
-	return static_cast<float>(homelessLevel);
+    return static_cast<float>(homelessLevel);
 }
 
 /**
@@ -46,70 +56,71 @@ float HomeRule::CalculateScore()
 */
 bool HomeRule::DecideHome()
 {
-	auto &plots = CoreController::GetSystemController()->GetSystem(HOME)->Plots();
-	Plot* chosen = nullptr;
-	int shortestDis = 1000;
-    
-	for (auto && plot : plots) 
-	{
-		auto coord = plot->Coords();
-	    // Skip home if not pathable
-	    if (!Pathable(citizen->Coords(), coord)) continue;
-		const auto home = dynamic_cast<Home*>(plot->GetPlotType());
-		auto livable = true;
-		if (citizen->Age() >= WORKING_AGE)
-			 livable = (!home->Full());
-		if (livable && citizen->Coords().Distance(coord) <= shortestDis)
-		{
-			chosen = plot;
-			shortestDis = citizen->Coords().Distance(coord);
-		}
-	}
-    
-	if (chosen == nullptr)
-	{
-		return false;
-	}
-	else
-	{
-		auto home = dynamic_cast<Home*>(chosen->GetPlotType());
-		home->Register(citizen);
-		myHome = home;
-		return true;
-	}
+    auto & plots = CoreController::GetSystemController()->GetSystem(HOME)->Plots();
+    Plot* chosen = nullptr;
+    int shortestDis = INT_MAX;
+
+    for (auto&& plot : plots)
+    {
+        auto coord = plot->Coords();
+        // Skip home if not pathable
+        if (!Pathable(citizen->Coords(), coord)) continue;
+        const auto home = dynamic_cast<Home*>(plot->GetPlotType());
+        auto livable = true;
+        if (citizen->Age() >= WORKING_AGE)
+        {
+            livable = !home->Full();
+        }
+        
+        if (livable && citizen->Coords().Distance(coord) <= shortestDis)
+        {
+            chosen = plot;
+            shortestDis = citizen->Coords().Distance(coord);
+        }
+    }
+
+    if (chosen == nullptr)
+    {
+        return false;
+    }
+ 
+    auto home = dynamic_cast<Home*>(chosen->GetPlotType());
+    home->Register(citizen);
+    myHome = home;
+    return true;
 }
 
 bool HomeRule::FindPlot()
 {
-	if (myHome == nullptr)
-	{
-		return false;
-	}
-    
-	citizen->SetActiveRule(this);
-	citizen->SetTarget(myHome->GetPlot());
-	return true;
+    if (myHome == nullptr)
+    {
+        return false;
+    }
+
+    citizen->SetActiveRule(this);
+    citizen->SetTarget(myHome->GetPlot());
+    return true;
 }
+
 void HomeRule::EnterPlot(Plot* plot)
 {
-	
-	if (myHome == nullptr) return;
-	atHomeFlag = true;
-	atHomeTime = CoreController::Instance()->GetTime();
-	if (atHomeTime.Hour <= wakeUpTime.Hour)
-	{
-		sleepingHour = float(wakeUpTime.Hour - atHomeTime.Hour) + float(RandomInt(-30,30)/60.f);
-	}
-	else if (atHomeTime.Hour > goHomeTime.Hour)
-	{
-		sleepingHour = float(24-goHomeTime.Hour) + float(wakeUpTime.Hour-1) + float(RandomInt(-30, 30) / 60.f);
-	}
-	else
-	{
-		sleepingHour = 1.f;
-	}
-	citizen->Wait(sleepingHour);
-	myHome -> Enter();
+    if (myHome == nullptr) return;
+    atHomeFlag = true;
+    atHomeTime = CoreController::Instance()->GetTime();
+    if (atHomeTime.Hour <= wakeUpTime.Hour)
+    {
+        sleepingHour = float(wakeUpTime.Hour - atHomeTime.Hour) + float(RandomInt(-30, 30)) / 60.f;
+    }
+    else if (atHomeTime.Hour > goHomeTime.Hour)
+    {
+        sleepingHour = float(24 - goHomeTime.Hour + wakeUpTime.Hour - 1) + float(RandomInt(-30, 30)) / 60.f;
+    }
+    else
+    {
+        sleepingHour = 1.f;
+    }
+    
+    citizen->Wait(sleepingHour);
 }
 
 /**
@@ -118,10 +129,8 @@ void HomeRule::EnterPlot(Plot* plot)
 */
 void HomeRule::LeavePlot(Plot* plot)
 {
-	//std::string leaveTime = CoreController::Instance()->GetTime().ToString();
-	atHomeFlag = false;
-	homelessLevel = 0;
-	/*Nothing happend need to discuss */
+    atHomeFlag = false;
+    homelessLevel = 0;
 }
 
 /**
@@ -130,62 +139,41 @@ void HomeRule::LeavePlot(Plot* plot)
 */
 void HomeRule::Update()
 {
-	
     const auto time = CoreController::Instance()->GetTime();
-	
 
-	if ((time.Hour >= goHomeTime.Hour)&&(!AtHome()))
-	{
-		const int deltaTime = time - goHomeTime;
-		if (deltaTime <= 60)
-		{
-			homelessLevel = std::pow(2, deltaTime/2);
-		}
-	}
+    if (!AtHome() && time> goHomeTime)
+    {
+        const int deltaTime = time - goHomeTime;
+        if (deltaTime <= 60)
+        {
+            homelessLevel = std::pow(2, deltaTime / 2);
+        }
+    }
 }
-
-/**
-* \brief Returns bool to tell if citizen is satisfied with it's food requirements
-* \return True if hunger level is over 20
-*/
 
 void HomeRule::EndDay()
 {
-	if (this->citizen->Age() == WORKING_AGE)
-	{
-		myHome->Unregister(this->citizen);
-		DecideHome();
-		return;
-	}
-	if (!HasHome())
-	{
-		DecideHome();
-		return;
-	}
+    
 }
+
 void HomeRule::NewDay()
 {
-	if ((!HasHome()) && citizen->Age() >= WORKING_AGE)
-	{
-		DecideHome();
-		return;
-	}
+    if (!HasHome() && citizen->Age() >= WORKING_AGE)
+    {
+        DecideHome();
+    }
 }
 
 void HomeRule::Unregister()
 {
-	if (myHome != nullptr)
-	{
-		myHome->Unregister(citizen);
-		myHome = nullptr;
-	}
-	return;
+    if (myHome != nullptr)
+    {
+        myHome->Unregister(citizen);
+        myHome = nullptr;
+    }
 }
 
 float HomeRule::GetSleepTime() const
 {
-	if (HasHome())
-		return sleepingHour;
-	else
-		return 0.f;
+    return HasHome() ? sleepingHour : 0.f;
 }

@@ -12,15 +12,17 @@ public:
 	HomeSystem();
 	~HomeSystem();
 	int Register(Plot* plot) override;
+    int Cost() const override { return 10000; };  
 	void Update() override;
 	float GetSatisfaction() const override;
 	void EndDay() override;
-	int GetTotalFamily()const;
+    void NewDay() override;
+    int FamilyCount() const { return familyCount; };
 	std::string ContentString()override;
 private:
-	const int maxOccupantCount = 20;
-	const int scorePerOccupant = 10;
-	const int overPenalty = 5;
+	void CalculateTotalFamily();
+    
+    int familyCount = 0;
 
 };
 
