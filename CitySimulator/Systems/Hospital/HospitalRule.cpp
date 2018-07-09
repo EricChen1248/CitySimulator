@@ -88,7 +88,7 @@ void HospitalRule::EndDay()
 	// Die accidentally
 	// TODO : probability & Get Real Satisfaction
     const float satisfaction =  dynamic_cast<HospitalSystem*>(CoreController::GetSystemController()->GetSystem(HOSPITAL))->satisfactionToday;
-	if (satisfaction < 0.85 && RandomInt(0, 85) >= satisfaction * 100)
+	if (satisfaction < 0.85 && RandomInt(0, 100) >= satisfaction * 100) 
     {
 	    // TODO : hospital death is disabled
         //citizen->Die();
