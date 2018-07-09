@@ -52,6 +52,7 @@ float SchoolSystem::GetSatisfaction() const
 		total += school->students.Count();
 	}
 
+	if (total == 0) return 1.f;
 	float satisfaction = totalLearningTime / (total * 4 * 2);
 
 	satisfaction = Clamp(satisfaction, 0.f, 1.f);

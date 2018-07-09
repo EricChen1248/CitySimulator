@@ -12,8 +12,9 @@ using helper::Time;
 Time SchoolRule::schoolStartTime;
 Time SchoolRule::schoolEndTime;
 
-SchoolRule::SchoolRule(Citizen& citizen): BaseRule(citizen, SCHOOL), educationLevel(0)
+SchoolRule::SchoolRule(Citizen& citizen): BaseRule(citizen, SCHOOL), educationLevel(0), assignedSchool(nullptr)
 {
+	
 }
 
 SchoolRule::~SchoolRule() = default;
@@ -51,7 +52,7 @@ bool SchoolRule::FindPlot()
 }
 
 /**
-* \brief Government funded education.
+* \brief 
 * \param plot
 */
 void SchoolRule::EnterPlot(Plot* plot)
