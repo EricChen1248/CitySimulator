@@ -5,8 +5,8 @@
 
 Hospital::Hospital(Plot* plot) : Base(plot, HOSPITAL), citizenCount(0)
 {
-    // TODO : cost
-    cost = RandomInt(50, 100);
+    cost = 1000;
+    medicalCost = RandomInt(50, 100);
     capacity = RandomInt(50, 100); // TODO : capacity
     color = HOSPITAL_COLOR;
 }
@@ -16,7 +16,7 @@ Hospital::Hospital(Plot* plot) : Base(plot, HOSPITAL), citizenCount(0)
  */
 void Hospital::Enter() const
 {
-    Government::AddTax(cost * 0.1f);
+    Government::AddTax(medicalCost * 0.1f);
 }
 
 void Hospital::NewMember(Citizen* citizen)
