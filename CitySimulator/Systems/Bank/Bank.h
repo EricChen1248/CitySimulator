@@ -1,7 +1,6 @@
 #pragma once
 #include "../Base/Base.h"
 #include "Bank.h"
-class BankRule;
 
 /**
 * \brief Food Class that handles the food plots of our city
@@ -15,13 +14,12 @@ public:
 	~Bank() = default;
 	std::string ContentString() override;
 	void NewDay() override;
-	void EndDay() override;
-	int GetCustomer()const { return customerPerDay; };
-	int GetMoneyEarned()const { return earnedMoeny; };
+	int MoneyEarned() const { return earnedMoney; };
+	int CustomerCount() const { return customerPerDay; };
 private:
 	int transactionCost;
 	int administrationFee;
-	int earnedMoeny;
+	int earnedMoney;
 	int customerPerDay;
 	int countOfCustomerNow;
 	void Enter();

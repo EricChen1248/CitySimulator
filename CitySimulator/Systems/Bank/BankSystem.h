@@ -10,15 +10,13 @@ public:
 	BankSystem();
 	~BankSystem();
 	int Register(Plot* plot) override;
+    int Cost() const override { return 1000; };
 	void Update() override;
-	void EndDay() override;
 	void NewDay() override;
 	std::string ContentString() override;
 	float GetSatisfaction() const override;
 private:
-	const int maxOccupantCount = 20;
-	const int scorePerOccupant = 10;
-	const int overPenalty = 5;
+    
 	float averageWaitingTime;
 	float averageCustomerPerBank;
 };
