@@ -20,7 +20,8 @@ public:
 	std::string ContentString() override;
 
 private:
-    int capacity; 
+    int capacity;
+	int comfortableCapacity;
     int medicalCost;
     int citizenCount; 
 	List<Citizen*> members;
