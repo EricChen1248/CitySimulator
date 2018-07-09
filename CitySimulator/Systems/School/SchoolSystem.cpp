@@ -13,6 +13,7 @@ SchoolSystem::SchoolSystem() : BaseSystem(SCHOOL)
 	toggleable = true;
 	SchoolRule::schoolStartTime = helper::Time(8, 0);
 	SchoolRule::schoolEndTime = helper::Time(16, 0);
+	isPremium = false;
 }
 
 
@@ -53,7 +54,7 @@ float SchoolSystem::GetSatisfaction() const
 	}
 
 	if (total == 0) return 1.f;
-	float satisfaction = totalLearningTime / (total * 4 * 2);
+	float satisfaction = totalStudents * 10 - totalLateStudents * 5;
 
 	satisfaction = Clamp(satisfaction, 0.f, 1.f);
 	return satisfaction;
@@ -92,14 +93,32 @@ std::string SchoolSystem::ContentString()
 	int total = 0;
 	int totalStudents = 0;
 	int totalLateStudents = 0;
+	int premiumSchools = 0;
+	int generalSchools = 0;
+	int totalCost = 0;
 	for (auto&& plot : plots)
 	{
 		const auto school = dynamic_cast<School*>(plot->GetPlotType());
 		total += school->students.Count();
 		totalStudents += school->studentCount;
 		totalLateStudents += school->lateStudents;
+		if (school->isPremium)
+		{
+			premiumSchools += 1;
+			totalCost += 50;
+		}
+		else
+		{
+			generalSchools += 1;
+			totalCost += 40;
+		}
+			
 	}
 
+	ss << "You have a total of " << premiumSchools + generalSchools << std::endl
+		<< "schools, " << premiumSchools << " of which" << std::endl << "are premium, and " 
+		<< generalSchools << " of " << std::endl << "which are general." << std::endl;
+	ss << "Today's education has" << std::endl << "cost $" << totalCost << "." << std::endl;
 	if (totalLateStudents == 0 && totalStudents == total * 2)
 	{
 		ss << "Everyone was on time" << std::endl;

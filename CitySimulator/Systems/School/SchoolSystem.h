@@ -6,7 +6,7 @@
  */
 class SchoolSystem : public BaseSystem
 {
-	
+	friend class School;
 public:
     SchoolSystem();
     ~SchoolSystem();
@@ -19,8 +19,8 @@ public:
 	int Cost() const override;
 	std::string ContentString() override;
 private :
-    const int scorePerOccupant = 10;
-    const int overPenalty = 5;
+    //const int scorePerOccupant = 10;
+    //const int overPenalty = 5;
 
 	bool isPremium;
 };

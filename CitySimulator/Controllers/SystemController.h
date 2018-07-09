@@ -15,6 +15,7 @@ public:
     SystemController();
     ~SystemController();
     void Initialize();
+    void GenerateDemo();
     void Update() const;
     void Render() const;
     void RenderInterday() const;
