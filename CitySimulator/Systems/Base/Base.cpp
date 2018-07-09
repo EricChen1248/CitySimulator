@@ -1,5 +1,6 @@
 #include "Base.h"
 #include "BaseSystem.h"
+#include "../../Helpers/Constants.h"
 
 Base::Base(Plot* plot, const System system): SystemType(system)
 {

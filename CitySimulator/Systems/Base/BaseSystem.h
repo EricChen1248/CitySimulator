@@ -1,7 +1,7 @@
 #pragma once
-#include "../../Helpers/CustomExceptions.h"
 #include "../../Collections/List.h"
-#include "../../Log.h"
+#include "../../Helpers/Constants.h"
+#include "../../Helpers/CustomExceptions.h"
 
 #include "../SystemEnum.h"
 #include "../Plot/Plot.h"
@@ -9,12 +9,13 @@
 /**
  * \brief Abstract class that is the base of all systems
  */
+class Log;
 class BaseSystem
 {
 public:
-    System SystemType;
+    const System SystemType;
     
-    BaseSystem(const System system) : SystemType(system), score(0) {};
+    BaseSystem(const System system) : SystemType(system) {};
     const List<Plot*>& Plots() const { return plots; }
     virtual float GetSatisfaction() const { return 0; }
     bool Toggleable() const { return toggleable; } 
@@ -38,19 +39,21 @@ public:
     virtual std::string ContentString() { return ""; }
 protected:
     List<Plot*> plots;
+    bool toggleable = false;
+    
+    [[deprecated]]
     List<Log*> satisfiedLog;
+    [[deprecated]]
     List<Log*> unsatisfiedLog;
     
-    float score;
-    bool toggleable = false;
+    [[deprecated]]
+    float score = 0;
+    
 };
 
 
 inline BaseSystem::~BaseSystem()
-{
-	satisfiedLog.Dispose();
-	unsatisfiedLog.Dispose();
-}
+= default;
 
 /**
  * \brief Register a plot into the system for quick lookup and updating
@@ -85,9 +88,6 @@ inline void BaseSystem::NewDay()
  */
 inline void BaseSystem::EndDay()
 {
-    score = 0;
-    satisfiedLog.Dispose();
-    unsatisfiedLog.Dispose();
     for (auto && plot : plots)
     {
         plot->EndDay();
