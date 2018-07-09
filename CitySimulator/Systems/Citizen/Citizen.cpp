@@ -14,6 +14,7 @@
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Helpers/Government.h"
 #include "../../Helpers/Constants.h"
+#include "CitizenSystem.h"
 
 
 Citizen::Citizen(Plot* plot) : target(nullptr), currentPlot(plot), currentRoad(nullptr), activeRule(nullptr), money(1000), tempTarget(plot->Coords()), coords(plot->Coords()), doubleSpeedTime(0),
@@ -316,6 +317,7 @@ void Citizen::Marry(Citizen * spouse)
 void Citizen::Die()
 {
     dead = true;
+    CoreController::GetSystemController()->Citizens()->NewDeath();
     auto hospital = dynamic_cast<HospitalSystem*>(CoreController::GetSystemController()->GetSystem(HOSPITAL));
     if (!dynamic_cast<HospitalRule*>(FindRule(HOSPITAL))->InHospital())
     {
