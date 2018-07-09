@@ -41,8 +41,6 @@ void StoreSystem::EndDay()
 	{
 		plot->GetPlotType()->EndDay();
 	}
-	unsatisfiedLog.Dispose();
-	satisfiedLog.Dispose();
 }
 
 float StoreSystem::GetSatisfaction() const
@@ -57,6 +55,7 @@ float StoreSystem::GetSatisfaction() const
     }
     return Clamp(1 - (costs - earnings) / costs, 0.f, 1.f);
 }
+
 void StoreSystem::NewDay()
 {
     for (auto && plot : plots)

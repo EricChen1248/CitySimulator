@@ -10,7 +10,6 @@ Bank::Bank(Plot* plot) : Base(plot, BANK)
     cost = 1000;
     administrationFee = RandomInt(1, 100);
     transactionCost = RandomInt(1, 100);
-    score = 0;
     color = BANK_COLOR;
     customerPerDay = 0;
     earnedMoney = 0;
@@ -37,7 +36,6 @@ void Bank::NewDay()
 {
     customerPerDay = 0;
     earnedMoney = 0;
-    score = 0;
 }
 
 /**
