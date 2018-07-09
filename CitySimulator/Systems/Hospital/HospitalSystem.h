@@ -6,12 +6,13 @@
  */
 class HospitalSystem : public BaseSystem
 {
+    friend class HospitalRule;
 public:
     HospitalSystem();
     ~HospitalSystem();
     int Register(Plot* plot) override;
     float GetSatisfaction() const override;
-    void Update() override;
+    void Update() override {};
     void DeathOutside();
     void Death();
     void NewDay() override;
@@ -20,14 +21,12 @@ public:
 	int Cost() const override { return 500; } // TODO : cost 500?
 
 
-private :
-    const int maxOccupantCount = 20;
-    const int scorePerOccupant = 10;
-    const int overPenalty = 5;
-	
+private :	
 	float crowdedScoreMinus = 0.f;
 	int crowdedHospital = 0;
     int unhappyDeath = 0;
     int totalDeaths = 0;
+    
+    float satisfactionToday = 0;
 };
 
