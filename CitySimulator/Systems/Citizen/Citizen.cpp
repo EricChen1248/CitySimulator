@@ -26,7 +26,7 @@ Citizen::Citizen(Plot* plot) : target(nullptr), currentPlot(plot), currentRoad(n
     
     shape = sf::CircleShape(5);
     shape.setFillColor(BLUE);
-    
+    plot->Enter(this);
     GenRules();
 }
 
@@ -38,6 +38,7 @@ Citizen::Citizen(Plot* plot, Citizen* parent1, Citizen* parent2) : Citizen(plot)
 	parent1->GetGender() == MALE ? (char1 = FATHER, char2 = MOTHER) : (char1 = MOTHER, char2 = FATHER);
 	SetRelationships(char1, parent1);
 	SetRelationships(char2, parent2);
+    plot->Enter(this);
 	parent1->descendants.InsertLast(this);
 	parent2->descendants.InsertLast(this);
 }
