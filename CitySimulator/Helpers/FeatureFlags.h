@@ -5,4 +5,4 @@
 #define NO_RIVER false
 #define CLEAN_BUILD false
 #define LOTS_OF_MONEY false
-#define GENERATE_CENTROIDS true
+#define GENERATE_CENTROIDS false
