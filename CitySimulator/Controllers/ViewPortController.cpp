@@ -1,6 +1,7 @@
 #include "ViewPortController.h"
 #include "CoreController.h"
 #include "UIController.h"
+#include "../Helpers/Constants.h"
 #include "../Helpers/HelperFunctions.h"
 
 ViewPortController::ViewPortController()
@@ -35,7 +36,7 @@ void ViewPortController::HandleScroll(sf::Event& event)
 /**
  * \brief Moves the gameView to the left
  */
-void ViewPortController::Left(float i)
+void ViewPortController::Left(const float i)
 {
     gameView.move(10 * scrollSize * i, 0);
 }
@@ -43,7 +44,7 @@ void ViewPortController::Left(float i)
 /**
  * \brief Moves the gameView to the right
  */
-void ViewPortController::Right(float i)
+void ViewPortController::Right(const float i)
 {
     gameView.move(-10 * scrollSize * i, 0);
 }
@@ -51,7 +52,7 @@ void ViewPortController::Right(float i)
 /**
  * \brief Moves the gameView up
  */
-void ViewPortController::Up(float i)
+void ViewPortController::Up(const float i)
 {
     gameView.move(0, 10 * scrollSize * i);
 }
@@ -59,7 +60,7 @@ void ViewPortController::Up(float i)
 /**
  * \brief Moves the gameView down
  */
-void ViewPortController::Down(float i)
+void ViewPortController::Down(const float i)
 {
     gameView.move(0, -10 * scrollSize * i);
 }

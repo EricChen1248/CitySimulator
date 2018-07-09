@@ -2,6 +2,7 @@
 #include "../CoreController.h"
 #include "../SFMLController.h"
 #include "../FontController.h"
+#include "../../Helpers/Constants.h"
 #include "../../Helpers/HelperFunctions.h"
 
 const int Slider::MAX_RATE;
