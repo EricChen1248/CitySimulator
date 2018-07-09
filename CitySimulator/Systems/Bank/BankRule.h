@@ -1,11 +1,7 @@
 #pragma once
 #include "../Base/BaseRule.h"
 #include "../Bank/Bank.h"
-class BaseRule;
 
-/**
-* \brief Food rule that handles the food needs of our citizens
-*/
 class BankRule : public BaseRule
 {
 public:

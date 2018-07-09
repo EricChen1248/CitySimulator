@@ -1,8 +1,6 @@
 #pragma once
 #include "../Base/Base.h"
 
-class HospitalRule;
-
 /**
  * \brief Hospital Class that handles the Hospital plots of our city
  */
@@ -11,19 +9,19 @@ class Hospital : public Base
 friend HospitalRule;
 friend HospitalSystem;
 
-    public:
+public:
     Hospital(Plot* plot);
     ~Hospital() = default;
-    void EndDay() override;
-    void Enter();
+    void EndDay() override { };
+    void Enter() const;
 	void NewMember(Citizen* citizen);
 	int Destroy() override;
-	bool isFull() { return members.Count() >= capacity;};
-	std::string ContentString();
+	bool IsFull() const { return members.Count() >= capacity;};
+	std::string ContentString() override;
 
 private:
-    int cost;
     int capacity; 
+    int medicalCost;
     int citizenCount; 
 	List<Citizen*> members;
 };

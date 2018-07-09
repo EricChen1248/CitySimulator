@@ -10,7 +10,8 @@ class Citizen;
 class BaseRule
 {
 public:
-    BaseRule(Citizen& citizen, const System type) : type(type), citizen(&citizen) {};
+    const System SystemType;
+    BaseRule(Citizen& citizen, const System type) : SystemType(type), citizen(&citizen) {};
     virtual ~BaseRule() = default;
     
     virtual float CalculateScore() = 0;
@@ -18,14 +19,13 @@ public:
     virtual void EnterPlot(Plot* plot) = 0;
     virtual void LeavePlot(Plot* plot) = 0;
     virtual void Update() = 0;
+    
     [[deprecated]]
     virtual bool IsSatisfied() { return true; };
     virtual void NewDay() {};
     virtual void EndDay() {};
-    virtual void Death() {};
-    System Type() const { return type; };
+    
 protected:
-    System type;
     helper::Time lastUpdate;
     Citizen* citizen;
 };

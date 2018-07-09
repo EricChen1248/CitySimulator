@@ -8,7 +8,7 @@ class BankRule;
 
 BankSystem::BankSystem() : BaseSystem(BANK)
 {
-	this->averageCustomerPerBank = 0;
+    averageCustomerPerBank = 0;
 }
 
 BankSystem::~BankSystem() = default;
@@ -19,9 +19,9 @@ BankSystem::~BankSystem() = default;
 */
 int BankSystem::Register(Plot* plot)
 {
-	(*plot).Register(new Bank(plot));
-	BaseSystem::Register(plot);
-    return 0;
+    plot->Register(new Bank(plot));
+    BaseSystem::Register(plot);
+    return Cost();
 }
 
 /**
@@ -29,30 +29,6 @@ int BankSystem::Register(Plot* plot)
 */
 void BankSystem::Update()
 {
-	for (auto && plot : plots)
-	{
-		// Do this if you want to get the plot type (class food)
-		//const auto rule = dynamic_cast<Food*> (plot->GetPlotType());
-
-		// Tallying and adding score for occupant count. Positive for within limit people, negative for over
-		const auto count = plot->GetOccupantCount();
-		score += (std::min(count, maxOccupantCount) * scorePerOccupant - std::max(count - maxOccupantCount, 0) * overPenalty) * CoreController::Instance()->GetDeltaTime();
-	}
-}
-
-
-
-/**
-* \brief Resets the day (clears log & resets plots)
-*/
-void BankSystem::EndDay()
-{
-	for (auto && plot : plots)
-	{
-		plot->GetPlotType()->EndDay();
-	}
-	unsatisfiedLog.Dispose();
-	satisfiedLog.Dispose();
 }
 
 void BankSystem::NewDay()
@@ -67,6 +43,7 @@ void BankSystem::NewClientWait(const float& time)
 {
 	waitTimeList.InsertLast(time);
 }
+
 std::string BankSystem::ContentString()
 {
 	std::stringstream ss;
@@ -84,8 +61,8 @@ std::string BankSystem::ContentString()
 	for (auto plot : plots)
 	{
 		auto bank = dynamic_cast<Bank*> (plot->GetPlotType());
-		customerScore += (float(bank->GetCustomer()) / 100.f) / float(plots.Count());
-		averageCustomerPerBank += float(bank->GetCustomer()) / float(plots.Count());
+		customerScore += (float(bank->CustomerCount()) / 100.f) / float(plots.Count());
+		averageCustomerPerBank += float(bank->CustomerCount()) / float(plots.Count());
 	}
 
 	for (auto score : waitTimeList)
@@ -116,12 +93,12 @@ float BankSystem::GetSatisfaction() const
 	for (auto plot : plots)
 	{
 		auto bank = dynamic_cast<Bank*> (plot->GetPlotType());
-		score += (float(bank->GetCustomer()) / 100.f) / float(plots.Count());
+		score += (float(bank->CustomerCount()) / 100.f) / float(plots.Count());
 	}
 	score = score >= 0.5f ? 0.5f : score;
-	for (auto score : waitTimeList)
+	for (auto waitscore : waitTimeList)
 	{
-		score += ((0.5f - score)/0.5f)/float(waitTimeList.Count()*2);
+		score += ((0.5f - waitscore)/0.5f)/float(waitTimeList.Count()*2);
 	}
 	if (score >= 1)
 		return 1.f;

@@ -110,25 +110,31 @@ std::string WorkSystem::ContentString()
 		totalEmployee += work->todayEmployee;
 		totalLateEmployee += work->todayLateEmployee;
 	}
-
 	if(totalLateEmployee == 0 && totalEmployee == total * 2)
-	    ss << "Everyone was on time" << std::endl << "to work" << std::endl;
+    {
+        ss << "Everyone was on time" << std::endl << "to work" << std::endl;
+    }
 	else
 	{
+        ss << "Total employees: " << total << std::endl;
 		if (totalLateEmployee != 0)
-			ss << totalLateEmployee / 2 << " of " << total << " employees" << std::endl << "were late to work" << std::endl;
+        {
+            ss << "Late:            " << totalLateEmployee / 2 << std::endl;
+        }
 		if (totalEmployee != total * 2)
-			ss << total - totalEmployee / 2 << " of " << total << " employees" << std::endl << "were not at work" << std::endl;
+        {
+            ss << "Missing:         " << total - totalEmployee / 2 << std::endl;
+        }
 	}
     
 	if (highLevel)
 	{
-		ss << "Building:" << std::endl << "Advanced Work $" << Cost() << std::endl << "Only for citizen with" 
+		ss  << std::endl << "Building:" << std::endl << "Advanced Work: $" << Cost() << std::endl << "Only for citizen with" 
 	       << std::endl << "high education level" << std::endl << std::endl;
 	}
 	else
 	{
-		ss << "Building:" << std::endl << "General Work $" << Cost() << std::endl << "Every citizen can enter" 
+		ss  << std::endl << "Building:" << std::endl << "General Work:  $" << Cost() << std::endl << "Every citizen can enter" 
 	    << std::endl << std::endl << std::endl;
 	}
 

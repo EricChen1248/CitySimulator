@@ -272,7 +272,7 @@ void UIController::DrawTop()
     sfml.DrawString(citizenCountText);
     sfml.DrawString(familyText);
 	CenterString(familyCountText, std::to_string(dynamic_cast<HomeSystem*>(
-								CoreController::GetSystemController()->GetSystem(HOME))->GetTotalFamily()), static_cast<float>(WINDOW_WIDTH) / 2 + 335);
+								CoreController::GetSystemController()->GetSystem(HOME))->FamilyCount()), static_cast<float>(WINDOW_WIDTH) / 2 + 335);
     sfml.DrawString(familyCountText);
 }
 

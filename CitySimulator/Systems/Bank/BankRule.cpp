@@ -1,28 +1,26 @@
 #include "BankRule.h"
-#include "../../Controllers/CoreController.h"
 #include "BankSystem.h"
 #include "Bank.h"
+#include "../Citizen/CitizenEnum.h"
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/HelperFunctions.h"
 #include "../Citizen/CitizenEnum.h"
 #include <iostream>
+#include "../../Controllers/CoreController.h"
 BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(100000.f)
 {
-	moneyDownLimit = RandomInt(500, 750);
+    moneyDownLimit = 800;
 }
 
-BankRule::~BankRule() = default;
+BankRule::~BankRule() 
+= default;
 
 float BankRule::CalculateScore()
 {
-	if (citizen->Money() < moneyDownLimit && saving > (moneyDownLimit - citizen->Money()))
-	{
-		return 10000;
-		if (citizen->Money() < (moneyDownLimit/2))
-		{
-			return 20000;
-		}
-	}
+    if (citizen->Money() < moneyDownLimit && saving > moneyDownLimit - citizen->Money())
+    {
+        return 10000;
+    }
     return 0;
 }
 
@@ -34,7 +32,7 @@ bool BankRule::FindPlot()
 {
     auto& plots = CoreController::GetSystemController()->GetSystem(BANK)->Plots();
     // Get a list of plots that fulfill out requirements ( distance < max distance)
-    //auto coords = citizen->Coords();
+    // auto coords = citizen->Coords();
 
     Plot* chosen = nullptr;
     auto coords = this->citizen->Coords();
@@ -61,9 +59,7 @@ bool BankRule::FindPlot()
     {
         return false;
     }
-    //CITIZEN must setActiveRule of some rule ex: bankRule
     citizen->SetActiveRule(this);
-    //citizen must setActiveRule of a plot as a target;
     citizen->SetTarget(chosen);
     return true;
 }
@@ -86,49 +82,50 @@ void BankRule::EnterPlot(Plot* plot)
 */
 void BankRule::LeavePlot(Plot* plot)
 {
-	const auto bank = dynamic_cast<Bank*>(plot->GetPlotType());
-	int moneyToWithdraw = 0;
-	if (citizen->Age() >= WORKING_AGE)
-	{
-		 moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->Money(), 0, int(saving));
+    const auto bank = dynamic_cast<Bank*>(plot->GetPlotType());
+    int moneyToWithdraw;
+    if (citizen->Age() >= WORKING_AGE)
+    {
+        moneyToWithdraw = Clamp(CITIZEN_MAX_MONEY - this->citizen->Money(), 0, int(saving));
 
-		if (moneyToWithdraw >= bank->transactionCost) {
-			citizen->IncreaseMoney(moneyToWithdraw - bank->transactionCost);
-			saving -= moneyToWithdraw;
-		}
-		
-	}
-	else
-	{
-		if (citizen->GetFamilyMember(FATHER) != nullptr)
-		{
-			auto fatherBankRule = dynamic_cast<BankRule*>(citizen->GetFamilyMember(FATHER)->FindRule(BANK));
-			auto motherBankRule = dynamic_cast<BankRule*>(citizen->GetFamilyMember(MOTHER)->FindRule(BANK));
+        if (moneyToWithdraw >= bank->transactionCost)
+        {
+            citizen->IncreaseMoney(moneyToWithdraw - bank->transactionCost);
+            saving -= moneyToWithdraw;
+        }
+    }
+    else
+    {
+        if (citizen->GetFamilyMember(FATHER) != nullptr)
+        {
+            auto fatherBankRule = dynamic_cast<BankRule*>(citizen->GetFamilyMember(FATHER)->FindRule(BANK));
+            auto motherBankRule = dynamic_cast<BankRule*>(citizen->GetFamilyMember(MOTHER)->FindRule(BANK));
 
-			moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->Money(), 0, (fatherBankRule->saving + motherBankRule->saving));
-			if (moneyToWithdraw > bank->transactionCost)
-			{
-				citizen->IncreaseMoney((moneyToWithdraw - bank->transactionCost));
-				const float dadAfford = moneyToWithdraw * ((fatherBankRule->saving) / (fatherBankRule->saving + motherBankRule->saving));
-				const float momAfford = moneyToWithdraw - dadAfford;
-				fatherBankRule->saving -= dadAfford;
-				motherBankRule->saving -= momAfford;
-			}
-		}
-		else
-		{
-			moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->Money(), 0, int(saving));
+            moneyToWithdraw = Clamp(CITIZEN_MAX_MONEY - this->citizen->Money(), 0,
+                                    int(fatherBankRule->saving + motherBankRule->saving));
+            if (moneyToWithdraw > bank->transactionCost)
+            {
+                citizen->IncreaseMoney(moneyToWithdraw - bank->transactionCost);
+                const float dadAfford = moneyToWithdraw * (fatherBankRule->saving / (fatherBankRule->saving +
+                    motherBankRule->saving));
+                const float momAfford = moneyToWithdraw - dadAfford;
+                fatherBankRule->saving -= dadAfford;
+                motherBankRule->saving -= momAfford;
+            }
+        }
+        else
+        {
+            moneyToWithdraw = Clamp<int>(CITIZEN_MAX_MONEY - this->citizen->Money(), 0, int(saving));
 
-			if (moneyToWithdraw >= bank->transactionCost) {
-				citizen->IncreaseMoney(moneyToWithdraw - bank->transactionCost);
-				saving -= moneyToWithdraw;
-			}
-		
-		}
-		
-	}
-	bank->earnedMoeny += bank->transactionCost;
-	return;
+            if (moneyToWithdraw >= bank->transactionCost)
+            {
+                citizen->IncreaseMoney(moneyToWithdraw - bank->transactionCost);
+                saving -= moneyToWithdraw;
+            }
+        }
+    }
+    bank->earnedMoney += bank->transactionCost;
+    return;
 }
 
 /**
@@ -136,11 +133,9 @@ void BankRule::LeavePlot(Plot* plot)
 */
 void BankRule::Update()
 {
-    //this->hungerLevel -= CoreController::Instance()->GetDeltaTime() * 30;
-    //Bank Rules need not update anything;
 }
 
-void BankRule::SaveMoney(float moneyInflow) 
+void BankRule::SaveMoney(const float moneyInflow)
 {
-	saving += moneyInflow;
+    saving += moneyInflow;
 }

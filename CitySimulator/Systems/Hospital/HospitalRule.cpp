@@ -1,9 +1,10 @@
 #include "Hospital.h"
 #include "HospitalRule.h"
-#include "../../Collections/List.h"
+#include "HospitalSystem.h"
 #include "../Bank/BankRule.h"
 #include "../Base/BaseSystem.h"
 #include "../Food/FoodRule.hpp"
+#include "../../Collections/List.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
 
@@ -15,9 +16,8 @@ HospitalRule::~HospitalRule() = default;
 
 float HospitalRule::CalculateScore()
 {
-    // TODO: the biggest 
     if(enter) 
-        return 50000;  
+        return INFINITY;  
      
     return 0;
 }
@@ -43,7 +43,7 @@ void HospitalRule::EnterPlot(Plot* plot)
 	int cost = hospital->cost;
 
 	BankRule* bankRule = dynamic_cast<BankRule*>(citizen->FindRule(BANK));
-	if ((citizen->Money() + bankRule->GetSavings()) < cost)
+	if (citizen->Money() + bankRule->GetSavings() < cost)
 	{
 		citizen->Die();
 		return;
@@ -73,7 +73,7 @@ void HospitalRule::LeavePlot(Plot* plot)
 {
 	// Die randomly
 	// TODO : this set is random or not ??????
-	int die = RandomInt(50, 100);
+    const int die = RandomInt(50, 100);
 	if (die < citizen->Age())
 	{
 		citizen->Die();
@@ -83,22 +83,16 @@ void HospitalRule::LeavePlot(Plot* plot)
 	citizen->ForceRule(HOSPITAL, 24.f);
 }
 
-/**
- * \brief Update events of food rule. Decreases citizen's hunger
- */
-void HospitalRule::Update()
-{
-
-}
-
 void HospitalRule::EndDay()
 {
 	// Die accidentally
 	// TODO : probability & Get Real Satisfaction
-	// float satisfaction =  CoreController::GetSystemController()->GetSystem(HOSPITAL)->GetSatisfaction();
-	float satisfaction = 0.9;
+    const float satisfaction =  dynamic_cast<HospitalSystem*>(CoreController::GetSystemController()->GetSystem(HOSPITAL))->satisfactionToday;
 	if (satisfaction < 0.85 && RandomInt(0, 85) >= satisfaction * 100)
-		citizen->Die();
+    {
+	    // TODO : hospital death is disabled
+        //citizen->Die();
+    }
 }
 
 void HospitalRule::Register()
@@ -116,14 +110,16 @@ void HospitalRule::Register()
 	{
 		count++;
 		if (RIGHT - LEFT < count * deltaIncrease)
-			break;
+        {
+            break;
+        }
 
 		for (auto && plot : plots)
 		{
 			if (!Pathable(coords, plot->Coords())) continue;
 			const auto distance = plot->Coords().Distance(coords);
 			const auto hospital = dynamic_cast<Hospital*>(plot->GetPlotType());
-			if (distance < (count * deltaIncrease) && !hospital->isFull())
+			if (distance < count * deltaIncrease && !hospital->IsFull())
 			{
 				choices.InsertLast(plot);
 			}

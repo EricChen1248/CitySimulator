@@ -13,6 +13,7 @@
 #include "../../Helpers/PathFinder/PathFinder.hpp"
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Helpers/Government.h"
+#include "../../Helpers/Constants.h"
 
 
 Citizen::Citizen(Plot* plot) : target(nullptr), currentPlot(plot), currentRoad(nullptr), activeRule(nullptr), money(1000), tempTarget(plot->Coords()), coords(plot->Coords()), doubleSpeedTime(0),
@@ -25,7 +26,7 @@ Citizen::Citizen(Plot* plot) : target(nullptr), currentPlot(plot), currentRoad(n
     
     shape = sf::CircleShape(5);
     shape.setFillColor(BLUE);
-    
+    plot->Enter(this);
     GenRules();
 }
 
@@ -37,6 +38,7 @@ Citizen::Citizen(Plot* plot, Citizen* parent1, Citizen* parent2) : Citizen(plot)
 	parent1->GetGender() == MALE ? (char1 = FATHER, char2 = MOTHER) : (char1 = MOTHER, char2 = FATHER);
 	SetRelationships(char1, parent1);
 	SetRelationships(char2, parent2);
+    plot->Enter(this);
 	parent1->descendants.InsertLast(this);
 	parent2->descendants.InsertLast(this);
 }
@@ -226,15 +228,13 @@ void Citizen::NewDay()
 {
     switch (age)
     {
-    case 0:
-        //dynamic_cast<SchoolRule*>(FindRule(SCHOOL))->Register();
-        break;
     case WORKING_AGE:
+        dynamic_cast<HomeRule*>(FindRule(HOME))->Unregister();
         //dynamic_cast<SchoolRule*>(FindRule(SCHOOL))->UnRegister();
         break;
     case RETIREMENT_AGE:
+        dynamic_cast<HomeRule*>(FindRule(HOME))->Unregister();
         dynamic_cast<WorkRule*>(FindRule(WORK))->UnRegister();
-        //dynamic_cast<HomeRule*>(FindRule(HOME))->UnRegister();
         dynamic_cast<HospitalRule*>(FindRule(HOSPITAL))->Register();
         break;
     default:
@@ -278,7 +278,7 @@ void Citizen::ForceRule(const System ruleType, const float waitTime /* = 0 */ )
  * \param system type of rule being searched for
  * \return The rule system
  */
-BaseRule* Citizen::FindRule(const System system)
+BaseRule* Citizen::FindRule(const System system) const
 {
     switch (system)
     {
@@ -336,11 +336,6 @@ void Citizen::DeathEvents()
     if (currentRoad != nullptr)
     {
         currentRoad->Leave();
-    }
-        
-    for (auto && rule : rules)
-    {
-        rule->Death();
     }
 }
 
