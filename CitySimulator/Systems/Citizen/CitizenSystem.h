@@ -11,6 +11,7 @@ public:
     void Update() const;
     void Render() const;
     
+    int CitizenCount() const { return citizens.Count(); }
     void PruneDead();
     
 	void NewDay();
