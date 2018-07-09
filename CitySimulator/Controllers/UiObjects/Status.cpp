@@ -34,7 +34,7 @@ void Status::Init(const int x, const int y)
 
     title.setFillColor(BLACK);
     title.setCharacterSize(24);
-    title.setPosition(x + 20.f, y + 10.f);
+    title.setPosition(x + 18.f, y + 10.f);
     title.setFont(FontController::Monofur());
 
     buttonText.setFillColor(BLACK);
@@ -54,7 +54,7 @@ void Status::Init(const int x, const int y)
     
     content.setFillColor(BLACK);
     content.setCharacterSize(20);
-    content.setPosition(x + 20.f, y + 42.f);
+    content.setPosition(x + 18.f, y + 42.f);
     content.setFont(FontController::Monofur());
 
     button = Button(Vector2f(width - 42.f, 28.f), Vector2f(x + 20.f, y + height - 34.f), WHITE, MOUSE_OVER_COLOR);
