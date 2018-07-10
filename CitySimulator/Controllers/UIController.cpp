@@ -231,13 +231,17 @@ void UIController::DrawSelection()
 
 void UIController::DrawSatisfaction()
 {
-    scoreList.Clear();
-    const auto systems = CoreController::GetSystemController();
-    for (auto system : systems->GetSystems())
+    if (lastFrameUpdate > 3)
     {
-        scoreList.InsertLast(system->GetSatisfaction());
+        scoreList.Clear();
+        const auto systems = CoreController::GetSystemController();
+        for (auto system : systems->GetSystems())
+        {
+            scoreList.InsertLast(system->GetSatisfaction());
+        }
+        lastFrameUpdate = 0;
     }
-
+    ++lastFrameUpdate;
     if (scoreList.Count() > 0)
     {
         for (int i = 0; i < satisfyBar.Count(); i++)

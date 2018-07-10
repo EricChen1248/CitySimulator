@@ -9,6 +9,7 @@
 #include "../Systems/Work/WorkSystem.h"
 #include "../Systems/Food/FoodSystem.hpp"
 #include "../Systems/Store/StoreSystem.h"
+#include "../Systems/Parks/ParkSystem.hpp"
 #include "../Systems/School/SchoolSystem.h"
 #include "../Systems/Citizen/CitizenSystem.h"
 #include "../Systems/Hospital/HospitalSystem.h"
@@ -35,6 +36,7 @@ void SystemController::Initialize()
     BaseSystem* store = new StoreSystem();
     BaseSystem* school = new SchoolSystem();
     BaseSystem* hospital = new HospitalSystem();
+    BaseSystem* parks = new ParkSystem();
 
     systems.InsertLast(food);
     systems.InsertLast(work);
@@ -43,6 +45,7 @@ void SystemController::Initialize()
     systems.InsertLast(store);
     systems.InsertLast(school);
     systems.InsertLast(hospital);
+    systems.InsertLast(parks);
     plots->GenerateRoads();
 
     river = new River();
@@ -114,9 +117,9 @@ void SystemController::GenerateDemo()
             count = 5;
             break;
         case STORE:
+        case SCHOOL:
             count = 1;
             break;
-        case SCHOOL: break;
         case HOSPITAL:
             count = 3;
             break;
@@ -170,11 +173,11 @@ void SystemController::RenderInterday() const
 
 void SystemController::AdvanceDay() const
 {
-	citizens->NewDay();
     for (auto && system : systems)
     {
         system->NewDay();
     }
+	citizens->NewDay();
     plots->ClearSelections();
 }
 
@@ -195,6 +198,7 @@ BaseSystem* SystemController::GetSystem(const System system) const
     case STORE:
     case SCHOOL:
     case HOSPITAL:
+    case PARK:
         return systems[system - 1];
     default:
         return nullptr;

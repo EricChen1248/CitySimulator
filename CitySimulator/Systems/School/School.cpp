@@ -13,15 +13,17 @@ School::School(Plot* plot) : Base(plot, SCHOOL), studentCount(0), lateStudents(0
 {
 	if (SchoolSystem::isPremium)
 	{
-		cost = 500;
-		operatingCost = 50;
+		cost = 8000;
+		operatingCost = 100;
 		isPremium = true;
+	    tuition = 10;
 	}
 	else
 	{
-		cost = 400;
-		operatingCost = 40;
+		cost = 6000;
+		operatingCost = 80;
 		isPremium = false;
+	    tuition = 8;
 	}
 	color = SCHOOL_COLOR;
 }
@@ -32,7 +34,7 @@ School::~School()
 std::string School::ContentString()
 {
 	std::stringstream ss;
-	if (isPremium == true)
+	if (isPremium)
 	{
 		ss << "Premium School" << std::endl;
 	}
@@ -52,7 +54,7 @@ std::string School::ContentString()
 
 	ss << "Students: " << studentCount << " people"
 		<< std::endl << "Late: " << lateStudents << " people"
-		<< std::endl << "Operating cost: " << operatingCost;
+		<< std::endl << "Operating cost: " << operatingCost + studentCount * tuition;
 	
 	return ss.str();
 }
@@ -61,12 +63,11 @@ void School::NewDay()
 {
 	studentCount = 0;
 	lateStudents = 0;
-	Government::AddTax(-operatingCost);
 }
 
 void School::EndDay()
 {
-	score = 0;
+	Government::AddTax(-operatingCost);
 }
 
 /**
@@ -74,7 +75,7 @@ void School::EndDay()
 */
 void School::Enter()
 {
-	Government::AddTax(-cost);
+	Government::AddTax(-tuition);
 
 	studentCount += 1;
 	const Time currentTime = CoreController::Instance()->GetTime();

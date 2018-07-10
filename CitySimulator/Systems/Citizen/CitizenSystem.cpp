@@ -76,7 +76,7 @@ void CitizenSystem::PruneDead()
         if (citizens[i]->IsDead())
         {
             delete citizens[i];
-            citizens.Remove(i);
+            citizens.RemoveAt(i);
             --i;
         }
     }
@@ -91,10 +91,10 @@ void CitizenSystem::NewDay()
 	{
 		citizen->NewDay();
 	}
-	PeopleMarry();
 #if BREED
 	NewCitizen();
 #endif
+	PeopleMarry();
 	
 	return;
 }
@@ -120,7 +120,7 @@ void CitizenSystem::GenerateCentroids(const List<Plot*>& centers)
 {
     for (auto && center : centers)
     {
-        for (int i = 0; i < 30; ++i)
+        for (int i = 0; i < 20; ++i)
         {
             auto citizen = new Citizen(center);
             citizens.InsertLast(citizen);
@@ -171,7 +171,7 @@ void CitizenSystem::PeopleMarry()
 	//if all condition are qualified, They would have 0.5 chances to marry each other.
 	for (auto&& citizen1 : citizens)
 	{
-		if (citizen1->Age() < 0)
+		if (citizen1->Age() < WORKING_AGE)
 		{
 			continue;
 		}
@@ -185,7 +185,7 @@ void CitizenSystem::PeopleMarry()
 			{
 				continue;
 			}
-			if (citizen2->Age() < 0)
+			if (citizen2->Age() < WORKING_AGE)
 			{
 				continue;
 			}

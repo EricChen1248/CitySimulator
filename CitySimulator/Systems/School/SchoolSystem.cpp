@@ -1,7 +1,6 @@
 #include "SchoolSystem.h"
 #include "SchoolRule.h"
 #include "School.h"
-#include "../../Controllers/CoreController.h"
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
 
@@ -15,7 +14,6 @@ SchoolSystem::SchoolSystem() : BaseSystem(SCHOOL)
 	SchoolRule::schoolStartTime = helper::Time(8, 0);
 	SchoolRule::schoolEndTime = helper::Time(16, 0);
 }
-
 
 SchoolSystem::~SchoolSystem() = default;
 
@@ -43,8 +41,7 @@ float SchoolSystem::GetSatisfaction() const
 	int totalStudents = 0;
 	int totalLateStudents= 0;
 	int total = 0;
-	int totalLearningTime = 0;
-	
+    
 	for (auto&& plot : plots)
 	{
 		const auto school = dynamic_cast<School*>(plot->GetPlotType());
@@ -66,8 +63,6 @@ void SchoolSystem::NewDay()
 	{
 		plot->GetPlotType()->NewDay();
 	}
-
-	
 }
 
 /**
@@ -114,19 +109,19 @@ std::string SchoolSystem::ContentString()
 		if (school->isPremium)
 		{
 			premiumSchools += 1;
-			totalCost += 50;
+			totalCost += 50 + school->studentCount * school->tuition;
 		}
 		else
 		{
 			generalSchools += 1;
-			totalCost += 40;
+			totalCost += 40 + school->studentCount * school->tuition;
 		}
 			
 	}
 
 	ss << "Total schools: " << premiumSchools + generalSchools << std::endl
-		<< "Premium schools: " << premiumSchools << std::endl
-		<< "General schools: " << generalSchools << std::endl;
+	   << "Premium schools: " << premiumSchools << std::endl
+	   << "General schools: " << generalSchools << std::endl;
 	ss << "Today's cost $" << totalCost << std::endl;
 	if (totalLateStudents == 0 && totalStudents == total * 2)
 	{
@@ -136,7 +131,7 @@ std::string SchoolSystem::ContentString()
 	{
 		if (totalLateStudents != 0)
 		{
-			ss << totalLateStudents << " of " << total << " students" << std::endl << "were late to school" << std::endl;
+			ss << "Late: " << totalLateStudents << " of " << totalStudents << std::endl;
 		}
 	}
 

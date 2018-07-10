@@ -1,8 +1,8 @@
 #pragma once
 #define MULTITHREAD true
-#define SKIP_DAY true
+#define SKIP_DAY false
 #define BREED true
 #define NO_RIVER false
 #define CLEAN_BUILD false
 #define LOTS_OF_MONEY false
-#define GENERATE_CENTROIDS false
+#define GENERATE_CENTROIDS true

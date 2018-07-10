@@ -48,6 +48,7 @@ private:
     sf::Text familyText{};
     sf::Text familyCountText{};
     
+    int lastFrameUpdate = 0;
     
     NewsFlash flash{};
     

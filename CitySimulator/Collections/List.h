@@ -16,10 +16,10 @@ public:
     void Clear() { itemCount = 0; }
     void InsertLast(const T& item) override;
     void RemoveLast() override;
-    void Remove(int index) override;
+    void RemoveAt(int index) override;
     void Remove(const T& item) override;
     void Dispose();
-    bool Contains(T& item);
+    bool Contains(const T & item);
     const int& Count() const override { return itemCount; };
     
     // ReSharper disable once CppInconsistentNaming : name matching required for range based for loops
@@ -79,7 +79,7 @@ void List<T>::RemoveLast()
 }
 
 template <typename T>
-void List<T>::Remove(const int index)
+void List<T>::RemoveAt(const int index)
 {
     for (int i = index + 1; i < itemCount; ++i)
     {
@@ -95,7 +95,7 @@ void List<T>::Remove(const T& item)
     {
         if (array[i] == item)
         {
-            Remove(i);
+            RemoveAt(i);
             return;
         }
     }
@@ -111,7 +111,7 @@ void List<T>::Dispose()
 }
 
 template <typename T>
-bool List<T>::Contains(T& item)
+bool List<T>::Contains(const T & item)
 {
     for (auto && t : *this)
     {

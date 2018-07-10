@@ -19,6 +19,8 @@ public:
     virtual ~Base() = default;
     virtual void NewDay() { }
     virtual void EndDay() { }
+    virtual void Enter() { }
+    
     [[deprecated]]
     virtual int ReturnScore() { return 0; }
     

@@ -39,7 +39,7 @@ public:
 	Coordinate Up(const float offset = 1) const { return { x - offset/2, y - offset/2, z + offset }; }
 	Coordinate Down(const float offset = 1) const { return { x + offset/2, y + offset/2 , z - offset }; }
 
-    int Distance(Coordinate& coords) const;
+    int Distance(const Coordinate& coords) const;
     ScreenCoordinate ToScreenCoordinates() const;
     Coordinate* GetNeighbours() const;
     Coordinate MoveTowards(Coordinate dest, float deltaTime) const;

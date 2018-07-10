@@ -21,7 +21,7 @@ public:
     T& operator[](int index) const;
     void InsertLast(const T& item);
     void RemoveLast();
-    void Remove(int index);
+    void RemoveAt(int index);
     void Remove(const T& item);
     void Dispose();
     const int& Count() const  { return count; }
@@ -166,7 +166,7 @@ void LinkedList<T>::RemoveLast()
  * \param index Index of item to remove
  */
 template <typename T>
-void LinkedList<T>::Remove(const int index)
+void LinkedList<T>::RemoveAt(const int index)
 {
     if (index < 0 || index >= count)
     {

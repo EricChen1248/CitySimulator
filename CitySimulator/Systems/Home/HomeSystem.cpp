@@ -62,7 +62,7 @@ void HomeSystem::NewDay()
 	hasHomeCount = 0;
 	for (auto&& plot : plots)
 	{
-		auto home = dynamic_cast<Home*>(plot->GetPlotType());
+		auto&& home = dynamic_cast<Home*>(plot->GetPlotType());
 		hasHomeCount += home->numOfResidents();
 	}
 }

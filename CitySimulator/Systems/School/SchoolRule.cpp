@@ -2,7 +2,6 @@
 #include "SchoolSystem.h"
 #include "School.h"
 #include "../Food/FoodRule.hpp" 
-#include "../../Helpers/Government.h"
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Controllers/CoreController.h"
@@ -12,7 +11,7 @@ using helper::Time;
 Time SchoolRule::schoolStartTime;
 Time SchoolRule::schoolEndTime;
 
-SchoolRule::SchoolRule(Citizen& citizen): BaseRule(citizen, SCHOOL), educationLevel(0), assignedSchool(nullptr)
+SchoolRule::SchoolRule(Citizen& citizen): BaseRule(citizen, SCHOOL), educationLevel(0)
 {
 	earlyToSchool = 0;
 }
@@ -21,10 +20,13 @@ SchoolRule::~SchoolRule() = default;
 
 float SchoolRule::CalculateScore()
 {
+    if (citizen->Age() >= 18) return 0;
 	if (assignedSchool == nullptr) return 0;
 	
 	const Time currentTime = CoreController::Instance()->GetTime();
 
+    if (schoolEndTime < currentTime) return 0;
+    
 	// morning to school
 	if (schoolStartTime - currentTime < earlyToSchool + 60)
 	{
@@ -59,6 +61,8 @@ void SchoolRule::EnterPlot(Plot* plot)
 {
 	const auto school = dynamic_cast<School*>(plot->GetPlotType());
 	school->Enter();
+    const auto time = CoreController::Instance()->GetTime();
+    citizen->Wait(float(schoolEndTime - time) / 60);
 }
 
 /**
@@ -67,13 +71,13 @@ void SchoolRule::EnterPlot(Plot* plot)
  */
 void SchoolRule::LeavePlot(Plot* plot)
 {
-	if (assignedSchool->isPremium == true)
+	if (assignedSchool->isPremium)
 	{
-		educationLevel += 50;
+		educationLevel += 90;
 	}
 	else
 	{
-		educationLevel += 40;
+		educationLevel += 60;
 	}
 
 	//Fills up the students's hunger needs

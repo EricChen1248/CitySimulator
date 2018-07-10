@@ -81,7 +81,7 @@ bool Coordinate::operator!=(const Coordinate& other) const
  * \param coords Other coordinate to compare to
  * \return Integer of the manhattan distance
  */
-int Coordinate::Distance(Coordinate& coords) const
+int Coordinate::Distance(const Coordinate& coords) const
 {
     return static_cast<int>(abs(x - coords.x) + abs(y - coords.y) + abs(z - coords.z)) / 2;
 }

@@ -8,7 +8,7 @@
 Home::Home(Plot* plot) : Base(plot, HOME)
 {
     cost = 10000;
-    homeCapacity = RandomInt(50, 60);
+    homeCapacity = RandomInt(20, 30);
     color = HOME_COLOR;
 }
 
