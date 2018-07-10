@@ -17,7 +17,7 @@ ParkRule::~ParkRule()
 
 float ParkRule::CalculateScore()
 {
-    return 1.f;
+    return 3.f;
 }
 
 bool ParkRule::FindPlot()

@@ -7,7 +7,7 @@
 
 Bank::Bank(Plot* plot) : Base(plot, BANK)
 {
-    cost = 1000;
+    cost = 6000;
     administrationFee = RandomInt(1, 100);
     transactionCost = RandomInt(1, 100);
     color = BANK_COLOR;

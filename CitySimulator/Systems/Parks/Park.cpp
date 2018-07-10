@@ -3,7 +3,7 @@
 
 Park::Park(Plot* plot) : Base(plot, PARK)
 {
-    cost = -1000;
+    cost = 1000;
     color = PARK_COLOR;
 }
 

@@ -1,7 +1,5 @@
 #include "BankSystem.h"
 #include "Bank.h"
-#include "BankRule.h"
-#include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
 #include <iomanip>
 class BankRule;

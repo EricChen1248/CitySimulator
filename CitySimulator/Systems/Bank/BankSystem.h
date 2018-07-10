@@ -10,7 +10,7 @@ public:
 	BankSystem();
 	~BankSystem();
 	int Register(Plot* plot) override;
-    int Cost() const override { return 1000; };
+    int Cost() const override { return 6000; };
 	void Update() override;
 	void NewDay() override;
 	void NewClientWait(const float& time);
