@@ -95,8 +95,6 @@ void CitizenSystem::NewDay()
 	NewCitizen();
 #endif
 	PeopleMarry();
-	
-	return;
 }
 /**
 * \brief: Triggers end day of each citizen
@@ -127,7 +125,7 @@ void CitizenSystem::GenerateCentroids(const List<Plot*>& centers)
         }
     }
     
-    Logger::Log("Created " + std::to_string(90) + " citizens");
+    Logger::Log("Created " + std::to_string(60) + " citizens");
 }
 
 /**
@@ -139,13 +137,10 @@ void CitizenSystem::NewCitizen()
 	const auto plot = CoreController::GetSystemController()->Plots();
 	for (auto && citizen : citizens)
 	{
-		if ((citizen->IsMarried())&&(citizen->GetGender() == FEMALE)&&(citizen->Age()<= RETIREMENT_AGE))
+		if (citizen->IsMarried()&&citizen->GetGender() == FEMALE&&citizen->Age()<= RETIREMENT_AGE)
 		{
-		    const float numerator = float(RandomInt(0, 101)) / 100.f;
-
-			// DEBUG
-
-			if (numerator < birth)
+		    const float numerator = float(RandomInt(0, 101)) / 200.f;
+            if (numerator < birth)
 			{
 				//create a new citizen and add it into Citizen system
 				//The children is born by the side of their mother
@@ -153,22 +148,11 @@ void CitizenSystem::NewCitizen()
 				citizens.InsertLast(child);
 			}
 		}
-		else
-		{
-			continue;
-		}
 	}
-	return;
 }
 
 void CitizenSystem::PeopleMarry()
 {
-	//TODO: Discuss with Angel,Eric, Jianlien with the issue about circumstatnces people get marry;
-	//TODO: Ask Angel to add a list in work, so I can find out Coworker faster.
-	//Condition1 : Two citizen's age are close
-	//Condition2 : Age above 20
-	//Condition3 : Two citizen work together
-	//if all condition are qualified, They would have 0.5 chances to marry each other.
 	for (auto&& citizen1 : citizens)
 	{
 		if (citizen1->Age() < WORKING_AGE)
@@ -195,7 +179,7 @@ void CitizenSystem::PeopleMarry()
 			}
 			const int dice = RandomInt(0, 1000);
 			
-			if (dice <= 52)
+			if (dice <= 75)
 			{
 				citizen1->Marry(citizen2);
 			}

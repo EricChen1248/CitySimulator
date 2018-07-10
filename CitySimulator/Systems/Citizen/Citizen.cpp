@@ -16,6 +16,7 @@
 #include "../../Helpers/Constants.h"
 #include "CitizenSystem.h"
 #include "../../Helpers/Logger.h"
+#include "../Parks/ParkRule.hpp"
 
 
 Citizen::Citizen(Plot* plot) : target(nullptr), currentPlot(plot), currentRoad(nullptr), activeRule(nullptr), money(500), tempTarget(plot->Coords()), coords(plot->Coords()), doubleSpeedTime(0),
@@ -46,7 +47,7 @@ Citizen::Citizen(Plot* plot, Citizen* parent1, Citizen* parent2) : Citizen(plot)
 }
 
 Citizen::~Citizen()
-{
+{    
 	const auto myBankRule = dynamic_cast<BankRule*>(FindRule(BANK));
     
     //Government::AddTax(float(myBankRule->GetSavings()) / 3);
@@ -289,6 +290,7 @@ BaseRule* Citizen::FindRule(const System system) const
     case STORE: 
     case SCHOOL: 
     case HOSPITAL: 
+    case PARK:
         return rules[system - 1];    
     default: 
         return nullptr;
@@ -410,6 +412,7 @@ void Citizen::GenRules()
 	BaseRule* store = new StoreRule(*this);
     BaseRule* school = new SchoolRule(*this);
     BaseRule* hospital = new HospitalRule(*this);
+    BaseRule* park = new ParkRule(*this);
     
     rules.InsertLast(food);
 	rules.InsertLast(work);
@@ -418,6 +421,7 @@ void Citizen::GenRules()
 	rules.InsertLast(store);
     rules.InsertLast(school);
     rules.InsertLast(hospital);
+    rules.InsertLast(park);
 }
 
 /**
