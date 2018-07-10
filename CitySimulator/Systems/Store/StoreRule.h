@@ -21,6 +21,7 @@ private:
     float foodStock;
     float miscStock;
     float householdStock;
+    float ratio;
     
     static const float MAX_STOCK;
     static const float RESTOCK;

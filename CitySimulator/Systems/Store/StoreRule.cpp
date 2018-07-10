@@ -13,11 +13,8 @@ const float StoreRule::FOOD_COST = 1.2f;
 const float StoreRule::HOUSE_COST = 0.1f;
 const float StoreRule::MISC_COST = 0.5f;
 
-StoreRule::StoreRule(Citizen& citizen) : BaseRule(citizen, STORE), foodStock(60), miscStock(60), householdStock(60)
-{
-    
-}
-
+StoreRule::StoreRule(Citizen& citizen) : BaseRule(citizen, STORE), foodStock(60), miscStock(60), householdStock(60), ratio(0) 
+{ }
 
 StoreRule::~StoreRule()
 = default;
@@ -25,17 +22,19 @@ StoreRule::~StoreRule()
 float StoreRule::CalculateScore()
 {
     float totalScore = 0.f;
+    float totalCost = 0.f;
     const auto home = dynamic_cast<HomeRule*>(citizen->FindRule(HOME));
     if (home->HasHome())
     {
         totalScore += Clamp(RESTOCK - foodStock, 0.f);
+        totalCost += Clamp(RESTOCK - foodStock, 0.f) * FOOD_COST;
         totalScore += Clamp(RESTOCK - householdStock, 0.f);
+        totalCost += Clamp(RESTOCK - householdStock, 0.f) * HOUSE_COST;
     }
     
     totalScore += Clamp(RESTOCK - miscStock, 0.f);
-    // TODO : adjust store rule score multiplier
-    return totalScore * 5;
-    
+    totalCost += Clamp(RESTOCK - miscStock, 0.f) * MISC_COST;
+    return citizen->Money() < totalCost ? 0 : totalScore * 10;
 }
 
 bool StoreRule::FindPlot()
@@ -44,14 +43,13 @@ bool StoreRule::FindPlot()
 
 	// Get a list of plots that fulfill out requirements ( distance < max distance
 	List<Plot*> choices;
+	const auto coords = citizen->Coords();
 	for (auto && plot : plots)
 	{
-		auto coords = citizen->Coords();
 		const auto distance = plot->Coords().Distance(coords);
 		if (distance < maxDistance)
 		{
-			auto p = plot;
-			choices.InsertLast(p);
+			choices.InsertLast(plot);
 		}
 	}
 
@@ -75,6 +73,7 @@ void StoreRule::EnterPlot(Plot* plot)
     float restock = 0;
     float cost = 0;
     const auto home = dynamic_cast<HomeRule*>(citizen->FindRule(HOME));
+    const auto money = citizen->Money();
     if (home->HasHome())
     {
         restock += MAX_STOCK - foodStock;
@@ -85,6 +84,9 @@ void StoreRule::EnterPlot(Plot* plot)
     restock += MAX_STOCK - miscStock;
     cost += (MAX_STOCK - miscStock) * MISC_COST;
     
+    ratio = money > cost ? 1 : money / cost;
+    restock *= ratio;
+    cost *= ratio;
 	citizen->Wait(restock / MAX_STOCK);
 	citizen->IncreaseMoney(cost);
     store->Payment(cost);
@@ -93,14 +95,13 @@ void StoreRule::EnterPlot(Plot* plot)
 
 void StoreRule::LeavePlot(Plot* plot)
 {
-    foodStock = MAX_STOCK;
-    miscStock = MAX_STOCK;
-    householdStock = MAX_STOCK;
+    foodStock = (MAX_STOCK - foodStock) * ratio;
+    miscStock = (MAX_STOCK - miscStock) * ratio;
+    householdStock = (MAX_STOCK - householdStock) * ratio;
 }
 
 void StoreRule::Update()
 {
-    // TODO : store update checks
     const auto home = dynamic_cast<HomeRule*>(citizen->FindRule(HOME));
     const float deltaTime = CoreController::Instance()->GetDeltaTime();
     if (home->HasHome())
