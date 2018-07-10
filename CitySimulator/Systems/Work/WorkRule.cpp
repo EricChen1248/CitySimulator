@@ -216,7 +216,8 @@ void WorkRule::UnRegister()
 {
 	if (assignedCompany != nullptr)
 	{
-		// TODO : amount of people at work --
+		auto work = dynamic_cast<Work*>(assignedCompany->GetPlotType());
+		work->Resignation(citizen);
 		assignedCompany = nullptr;
 	}
 	salary = 0;

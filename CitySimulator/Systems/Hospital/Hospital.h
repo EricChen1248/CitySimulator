@@ -15,6 +15,7 @@ public:
     void EndDay() override { };
     void Enter() const;
 	void NewMember(Citizen* citizen);
+	void MemberDied(Citizen* citizen);
 	int Destroy() override;
 	bool IsFull() const { return members.Count() >= capacity;};
 	std::string ContentString() override;

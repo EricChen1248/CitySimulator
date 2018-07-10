@@ -12,7 +12,10 @@ HospitalRule::HospitalRule(Citizen& citizen): BaseRule(citizen, HOSPITAL), assig
 {
 }
 
-HospitalRule::~HospitalRule() = default;
+HospitalRule::~HospitalRule()
+{
+	UnRegister();
+}
 
 float HospitalRule::CalculateScore()
 {
@@ -145,5 +148,12 @@ void HospitalRule::Register()
 	foodRule->FillHunger(); // set hungerLevel to MAX
 }
 
-
-
+void HospitalRule::UnRegister()
+{
+	if (assignedHospital != nullptr)
+	{
+		auto hospital = dynamic_cast<Hospital*>(assignedHospital->GetPlotType());
+		hospital->MemberDied(citizen);
+		assignedHospital = nullptr;
+	}
+}
