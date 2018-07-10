@@ -231,11 +231,13 @@ void Citizen::NewDay()
     {
     case WORKING_AGE:
         dynamic_cast<HomeRule*>(FindRule(HOME))->Unregister();
-        //dynamic_cast<SchoolRule*>(FindRule(SCHOOL))->UnRegister();
+        dynamic_cast<SchoolRule*>(FindRule(SCHOOL))->UnRegister();
         break;
     case RETIREMENT_AGE:
         dynamic_cast<HomeRule*>(FindRule(HOME))->Unregister();
         dynamic_cast<WorkRule*>(FindRule(WORK))->UnRegister();
+        break;
+    case HOSPITALIZED_AGE:
         dynamic_cast<HospitalRule*>(FindRule(HOSPITAL))->Register();
         break;
     default:
