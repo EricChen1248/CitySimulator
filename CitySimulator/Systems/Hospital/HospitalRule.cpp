@@ -12,7 +12,10 @@ HospitalRule::HospitalRule(Citizen& citizen): BaseRule(citizen, HOSPITAL), assig
 {
 }
 
-HospitalRule::~HospitalRule() = default;
+HospitalRule::~HospitalRule()
+{
+	UnRegister();
+}
 
 float HospitalRule::CalculateScore()
 {
@@ -88,7 +91,7 @@ void HospitalRule::EndDay()
 	// Die accidentally
 	// TODO : probability & Get Real Satisfaction
     const float satisfaction =  dynamic_cast<HospitalSystem*>(CoreController::GetSystemController()->GetSystem(HOSPITAL))->satisfactionToday;
-	if (satisfaction < 0.85 && RandomInt(0, 85) >= satisfaction * 100)
+	if (satisfaction < 0.85 && RandomInt(0, 100) >= satisfaction * 100) 
     {
 	    // TODO : hospital death is disabled
         //citizen->Die();
@@ -145,5 +148,12 @@ void HospitalRule::Register()
 	foodRule->FillHunger(); // set hungerLevel to MAX
 }
 
-
-
+void HospitalRule::UnRegister()
+{
+	if (assignedHospital != nullptr)
+	{
+		auto hospital = dynamic_cast<Hospital*>(assignedHospital->GetPlotType());
+		hospital->MemberDied(citizen);
+		assignedHospital = nullptr;
+	}
+}

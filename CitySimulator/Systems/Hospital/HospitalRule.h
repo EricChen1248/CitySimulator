@@ -19,6 +19,7 @@ public:
     
     bool InHospital() const { return assignedHospital != nullptr; }
 	void Register();
+	void UnRegister();
 
 private:
     const int deltaIncrease = 5;

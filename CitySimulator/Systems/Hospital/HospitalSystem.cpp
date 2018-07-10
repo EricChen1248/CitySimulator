@@ -3,6 +3,7 @@
 #include "HospitalRule.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
+#include "../../Systems/Citizen/CitizenSystem.h"
 
 
 class HospitalRule;
@@ -22,8 +23,9 @@ int HospitalSystem::Register(Plot* plot)
 {
     (*plot).Register(new Hospital(plot));
     BaseSystem::Register(plot);
-    return 0;
+	return Cost();
 }
+
 
 /**
  * \brief Calculates the satisfaction of the system at it's current states
@@ -34,7 +36,8 @@ float HospitalSystem::GetSatisfaction() const
     float score = 1.f;
     if (totalDeaths != 0)
     {
-         score -= float(unhappyDeath) / totalDeaths;
+		int citizenCount = CoreController::GetSystemController()->Citizens()->CitizenCount();
+		score -= float(unhappyDeath) / citizenCount;
     }
 
 	// if hospitals are crowded

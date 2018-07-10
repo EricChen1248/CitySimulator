@@ -32,9 +32,32 @@ WorkSystem::~WorkSystem() = default;
 */
 int WorkSystem::Register(Plot* plot)
 {
-	plot->Register(new Work(plot));
+	auto work = new Work(plot);
+	plot->Register(work);
 	BaseSystem::Register(plot);
+	if (work->highLevel)
+	{
+		highWork.InsertLast(plot);
+	}
+	else
+	{
+		lowWork.InsertLast(plot);
+	}
     return Cost();
+}
+
+void WorkSystem::Unregister(Plot* plot)
+{
+	auto work = dynamic_cast<Work*>(plot->GetPlotType());
+	if (work->highLevel)
+	{
+		highWork.Remove(plot);
+	}
+	else
+	{
+		lowWork.Remove(plot);
+	}
+	BaseSystem::Unregister(plot);
 }
 
 /**

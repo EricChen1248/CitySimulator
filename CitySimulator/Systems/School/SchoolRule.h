@@ -1,5 +1,6 @@
 #pragma once
 #include "../Base/BaseRule.h"
+#include "School.h"
 
 class BaseRule;
 
@@ -30,5 +31,6 @@ private:
 	School* assignedSchool;
 	bool previousIsPremium;
 	float educationLevel;
+	int earlyToSchool;//Time to wake up to go to school
 };
 
