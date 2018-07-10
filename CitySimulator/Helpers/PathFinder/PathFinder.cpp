@@ -99,7 +99,15 @@ Stack<Coordinate>* PathFinder::PathTo(const Coordinate& source, Coordinate dest)
                 neighbourNode->step = currentNode->step + pathCost;
                 queue.Enqueue(neighbourNode);
             }
-        }       
+        }
+        if (queue.ItemCount() <= 0)
+        {
+            for (int i = 0; i < nodeCount; ++i)
+            {
+                openList[i] = nullptr;  
+            }
+            return nullptr;
+        }
         currentNode = queue.GetTop();
         queue.RemoveTop();
         current = currentNode->coords;
