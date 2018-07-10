@@ -25,6 +25,11 @@ void Hospital::NewMember(Citizen* citizen)
 	members.InsertLast(citizen);
 }
 
+void Hospital::MemberDied(Citizen* citizen)
+{
+	members.Remove(citizen);
+}
+
 int Hospital::Destroy()
 {
 	for (auto && member : members)
