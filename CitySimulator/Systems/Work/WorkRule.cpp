@@ -1,5 +1,6 @@
 #include "WorkRule.h"
 #include "Work.h"
+#include "WorkSystem.h"
 #include "../Bank/BankRule.h"
 #include "../Base/BaseSystem.h"
 #include "../School/SchoolRule.h"
@@ -153,18 +154,43 @@ void WorkRule::NewDay()
 bool WorkRule::Register()
 {
     List<Plot*> choices;
-	auto &plots = CoreController::GetSystemController()->GetSystem(WORK)->Plots();
-	// Get a list of plots that fulfill out requirements ( distance < max distance
+	auto &highplots = dynamic_cast<WorkSystem*>(CoreController::GetSystemController()->GetSystem(WORK))->highWork;
+	auto &lowplots = dynamic_cast<WorkSystem*>(CoreController::GetSystemController()->GetSystem(WORK))->lowWork;
 
 	auto coords = citizen->Coords();
-	for (auto && plot : plots)
+
+	// To Get SchoolRule
+	SchoolRule* schoolRule = dynamic_cast<SchoolRule*>(citizen->FindRule(SCHOOL));
+	const int educationLv = schoolRule->EducationLevel();
+	bool isHighEducation = educationLv > 50; // TODO : 50
+
+	// Get a list of plots that fulfill out requirements ( distance < max distance )
+	if (isHighEducation)
 	{
-		if (!Pathable(coords, plot->Coords())) continue;
-		const auto distance = plot->Coords().Distance(coords);
-		if (distance < maxDistance)
+		for (auto && plot : highplots)
 		{
-			auto p = plot;
-			choices.InsertLast(p);
+			if (!Pathable(coords, plot->Coords())) continue;
+			const auto distance = plot->Coords().Distance(coords);
+			if (distance < maxDistance)
+			{
+				auto p = plot;
+				choices.InsertLast(p);
+			}
+		}
+
+	}
+
+	if (choices.Count() == 0)
+	{
+		for (auto && plot : lowplots)
+		{
+			if (!Pathable(coords, plot->Coords())) continue;
+			const auto distance = plot->Coords().Distance(coords);
+			if (distance < maxDistance)
+			{
+				auto p = plot;
+				choices.InsertLast(p);
+			}
 		}
 	}
     
@@ -178,10 +204,6 @@ bool WorkRule::Register()
 	this->assignedCompany = chosen; // and then constant
 
 	// Adjust salary due to education level
-	// To Get SchoolRule
-	SchoolRule* schoolRule = dynamic_cast<SchoolRule*>(citizen->FindRule(SCHOOL));
-    const int educationLv = schoolRule->EducationLevel();
-	
     const auto work = dynamic_cast<Work*>(chosen->GetPlotType());
 	baseSalary = work->baseSalary * RandomInt(10, 13) / 10;
 	

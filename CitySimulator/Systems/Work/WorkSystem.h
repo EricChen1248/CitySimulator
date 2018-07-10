@@ -5,11 +5,13 @@
 class WorkSystem :  public BaseSystem
 {
 	friend class Work;
+	friend class WorkRule;
 public:
     WorkSystem();
     ~WorkSystem();
 
 	int Register(Plot* plot) override;
+	void Unregister(Plot* plot) override;
 	void Update() override;
 	float GetSatisfaction() const override;
 	void EndDay() override;
@@ -19,6 +21,8 @@ public:
 private:
 	bool highLevel;
     const int cost[2] = {500,1000};
+	LinkedList<Plot*> highWork;
+	LinkedList<Plot*> lowWork;
 };
 
 
