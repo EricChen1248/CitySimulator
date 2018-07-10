@@ -4,9 +4,8 @@
 #include "../Citizen/CitizenEnum.h"
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/HelperFunctions.h"
-#include "../Citizen/CitizenEnum.h"
-#include <iostream>
 #include "../../Controllers/CoreController.h"
+
 BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(0.f)
 {
 }
@@ -20,28 +19,22 @@ float BankRule::CalculateScore()
 	{
 		if (citizen->Age() >= WORKING_AGE)
 		{
-			if (saving > CITIZEN_MIN_MONEY - citizen->Money())
-			{
-				return 10000;
-			}
-			else
-				return 0;
+			return saving > CITIZEN_MIN_MONEY - citizen->Money() ? 5000 : 0;
 		}
-		else
-		{
-			auto fatherPtr = citizen->GetFamilyMember(FATHER);
-			auto motherPtr = citizen->GetFamilyMember(MOTHER);
-			float parentSaving = 0;
-			parentSaving += fatherPtr == nullptr ? 0 : dynamic_cast<BankRule*>(fatherPtr->FindRule(BANK))->GetSavings();
-			parentSaving += motherPtr == nullptr ? 0 : dynamic_cast<BankRule*>(motherPtr->FindRule(BANK))->GetSavings();
-			if (parentSaving >= CITIZEN_MIN_MONEY - citizen->Money())
-				return 10000;
-			else
-				return 0;
-		}
-	}
-	else
+		
+		const auto father = citizen->GetFamilyMember(FATHER);
+		const auto mother = citizen->GetFamilyMember(MOTHER);
+		float parentSaving = 0;
+		parentSaving += father == nullptr ? 0 : dynamic_cast<BankRule*>(father->FindRule(BANK))->GetSavings();
+		parentSaving += mother == nullptr ? 0 : dynamic_cast<BankRule*>(mother->FindRule(BANK))->GetSavings();
+		if (parentSaving >= CITIZEN_MIN_MONEY - citizen->Money())
+			return 5000;
+		    
 		return 0;
+		
+	}
+    
+	return 0;
 }
 
 /**
@@ -55,7 +48,7 @@ bool BankRule::FindPlot()
     // auto coords = citizen->Coords();
 
     Plot* chosen = nullptr;
-    auto coords = this->citizen->Coords();
+    const auto coords = this->citizen->Coords();
     for (auto&& plot : plots)
     {
         if (!Pathable(coords, plot->Coords())) continue;

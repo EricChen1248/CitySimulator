@@ -7,7 +7,7 @@ class Road
 public:
 	Road(Plot* plotOne, Plot* plotTwo);
 	~Road();
-    static const int MAX_SPEED = 10;
+    static const int MAX_SPEED = 3;
 	//Getter
 	float Speed() const;
 	bool IsRiver() const;
@@ -41,9 +41,7 @@ private:
 	int capacity;
 	int citizenCount;
     
-    // TODO : Set road repair costs and update costs
-    const int repairCost = 100;
-    const int upgradeCosts[11] { 10,20,30,40,50,60,70,80,90,100, 2147483647};
+    const int upgradeCosts[11] { 5000,200,300,400,500,600,700,800,900,1000, 2147483647};
 	
     float lifespan{};
 	bool isBroken;

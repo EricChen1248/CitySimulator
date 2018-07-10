@@ -43,13 +43,13 @@ float WorkRule::CalculateScore()
 	if(shiftCount < 1 && timeToWork - currentTime < earlyToWork + 60 && currentTime < breakTime )
 	{
 		// start to have score 30 min before time that  
-		return 5000000 - Clamp(timeToWork - currentTime - earlyToWork - 60, 0) * 100000;
+		return 2000000 - Clamp(timeToWork - currentTime - earlyToWork - 30, 0) * 100000;
 	}
 		
 	// break time (want to back company)
 	if (shiftCount < 2 && breakTime < currentTime && currentTime < timeOffWork)
 	{
-		return 5000000 + Clamp(currentTime - breakTime, 0) * 100000;
+		return 2000000 + Clamp(currentTime - breakTime, 0) * 100000;
 	}
     return 0; // not have work
 }

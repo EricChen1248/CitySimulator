@@ -5,7 +5,6 @@
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Controllers/SystemController.h"
-#include <iostream>
 
 HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME), myHome(nullptr), atHomeFlag(false)
 {
@@ -14,7 +13,7 @@ HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME), myHome(nullptr),
     //therefore each citizen can go home by unique timing
     
     wakeUpTime = helper::Time(6);
-    goHomeTime = helper::Time(21);
+    goHomeTime = helper::Time(20);
     
     const auto&& father = citizen.GetFamilyMember(FATHER);
     // TODO : seems weird
@@ -143,19 +142,21 @@ void HomeRule::LeavePlot(Plot* plot)
 void HomeRule::Update()
 {
     const auto time = CoreController::Instance()->GetTime();
-	if (!AtHome() && (time.Hour == (goHomeTime.Hour - 1)))
+	if (!AtHome() && time.Hour == goHomeTime.Hour - 1)
 	{
 		homelessLevel = 2;
 	}
     if (!AtHome() && time> goHomeTime)
     {
         const int deltaTime = time - goHomeTime;
-		if (deltaTime <= 60)
+		if (deltaTime <= 120)
 		{
-			homelessLevel = std::pow(2, deltaTime / 2);
+			homelessLevel = std::pow(2, deltaTime / 6);
 		}
 		else
-			homelessLevel = INT_MAX;
+        {
+            homelessLevel = 1000000;
+        }
     }
 }
 

@@ -6,7 +6,7 @@
 #include "../Controllers/CoreController.h"
 
 
-Road::Road(Plot* plotOne, Plot* plotTwo) : plotOne(plotOne), plotTwo(plotTwo), level(1), capacity(100), citizenCount(0), lifespan(50.f), isBroken(false), isRiver(false)
+Road::Road(Plot* plotOne, Plot* plotTwo) : plotOne(plotOne), plotTwo(plotTwo), level(1), capacity(10), citizenCount(0), lifespan(50.f), isBroken(false), isRiver(false)
 // TODO: number of capacity, lifespan 
 {
     shape = Line(plotOne->Coords(), plotTwo->Coords(), BASE_ROAD_COLOR, 1.8f);
@@ -19,11 +19,10 @@ Road::~Road()
 float Road::Speed() const
 {
     if (isRiver) return 0.f;
-	// Traffic jam
-	// TODO: 0.2 or ?
 	if (isBroken)
 		return 0.01f; // can pass but very slowly
 	
+	// Traffic jam
 	return 1 + static_cast<float>(level - 1) * 0.2 - 0.2f * (citizenCount > capacity ? 1.f : 0.f);
 }
 
@@ -42,28 +41,26 @@ int Road::LevelUp()
         isRiver = false;
         shape.SetColor(BASE_ROAD_COLOR);
     }
-	// TODO: number
 	level++;
-	capacity += 20; 
+	capacity += 2; 
 	lifespan = 50; // replenish
-	shape.ChangeThickness(1 + level * 0.8f); // TODO :thickness
+	shape.ChangeThickness(1 + level * 0.8f);
 	return upgradeCosts[level-1]; // cost 
 }
 
 
 int Road::Repair()
 {	
-	// TODO: number
 	isBroken = false;
 	lifespan = 50; // replenish
 	shape.ChangeColor(BASE_ROAD_COLOR);
-	return repairCost; // repair cost 
+	return upgradeCosts[level - 1] / 5;
 
 }
 
 int Road::Cost() const
 {
-    return isBroken ? repairCost: upgradeCosts[level];
+    return isBroken ? upgradeCosts[level - 1] / 5: upgradeCosts[level];
 }
 
 void Road::MarkAsRiver()
@@ -89,7 +86,7 @@ void Road::Enter()
 void Road::Leave()
 {
 	citizenCount--;
-	lifespan -= 0.01f; //TODO:0.01
+	lifespan -= 0.01f;
 }
 
 
@@ -107,7 +104,7 @@ void Road::EndDay()
 {
 	// If road's level is higher than one, it should depreciate.
 	if (level > 1)
-		lifespan -= 1; //TODO: 1
+		lifespan -= 1;
 
 	// Check if the road is broken
 	if (lifespan < 0)

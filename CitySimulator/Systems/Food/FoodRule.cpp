@@ -19,7 +19,7 @@ float FoodRule::CalculateScore()
     {
         return 0;
     }
-    return exp(80 - hungerLevel) * 1000;
+    return Clamp(exp((80 - hungerLevel)/4), 0.f, INFINITY - 5000);
 }
 
 /**

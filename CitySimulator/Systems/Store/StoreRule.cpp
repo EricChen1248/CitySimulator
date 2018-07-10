@@ -107,7 +107,6 @@ void StoreRule::Update()
     {
         if (home->AtHome())
         {
-            // TODO : store numbers
             if (foodStock > 0)
             {
                 foodStock = Clamp(foodStock - deltaTime * 0.5f, 0.f);

@@ -17,6 +17,5 @@ public:
     int GetSavings() const { return int(saving); }
 private:
 	float saving;
-	float CITIZEN_MIN_MONEY;
 };
 
