@@ -92,7 +92,10 @@ void CoreController::RunDayLoop(Clock& clock)
         }
 
         // DeltaTime 0.017 = 1/60 real seconds = 1 minute in game
-        deltaTime = (currentTime - lastTime) * 3;
+        deltaTime = (currentTime - lastTime);
+#if SUPER_SPEED
+        deltaTime *= 3;
+#endif
         time.IncreaseTime(deltaTime);
         lastTime = currentTime;
 
