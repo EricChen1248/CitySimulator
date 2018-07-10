@@ -23,8 +23,8 @@ SFMLController::SFMLController() : isRunning(false), window(nullptr)
     window = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "City Simulator", Style::Titlebar | Style::Close);
     window->setFramerateLimit(60);
     isRunning = true;
-    
-    auto origin = Coordinate(0,0,0);
+
+    auto origin = Coordinate(0, 0, 0);
     playfield.resize(6);
     playfield.setPrimitiveType(TriangleStrip);
     playfield[0].position = origin.LeftDown(RIGHT).ToScreenCoordinates().ToVector2F();
@@ -58,39 +58,43 @@ bool SFMLController::IsRunning() const
  */
 void SFMLController::ClearRender()
 {
-	const helper::Time clock = CoreController::Instance()->GetTime();
+    const helper::Time clock = CoreController::Instance()->GetTime();
 
     if (clock.Hour >= 24)
     {
-		for (int i = 0; i < 6; ++i)
-		{
-			playfield[i].color = WHITE;
-		}
+        for (int i = 0; i < 6; ++i)
+        {
+            playfield[i].color = WHITE;
+        }
         window->clear(BACKGROUND);
     }
-	if (clock.Hour >= 18)
-	{
-		const int time = (clock.Hour - 18) * 60 + clock.Minute;
-		const int colorInt = Clamp(255- int(float(time) / 18.f), 0, 255);
-	    
-		const Color inner(colorInt,colorInt,colorInt);
-		for (int i = 0; i < 6; ++i)
-		{
-			playfield[i].color = inner;
-		}
-        window->clear(inner - Color(20,20,20));
-	}
-	else if (clock.Hour <= 6)
-	{
-		const int time = (clock.Hour) * 60 + clock.Minute;
-		const int colorInt = Clamp(235+int(float(time) / 18.f), 0, 255);
-		const Color inner(colorInt,colorInt,colorInt);
-		for (int i = 0; i < 6; ++i)
-		{
-			playfield[i].color = inner;
-		}
-        window->clear(inner - Color(20,20,20));
-	}
+    else if (clock.Hour >= 18)
+    {
+        const int time = (clock.Hour - 18) * 60 + clock.Minute;
+        const int colorInt = Clamp(255 - int(float(time) / 18.f), 0, 255);
+
+        const Color inner(colorInt, colorInt, colorInt);
+        for (int i = 0; i < 6; ++i)
+        {
+            playfield[i].color = inner;
+        }
+        window->clear(inner - Color(20, 20, 20));
+    }
+    else if (clock.Hour <= 6)
+    {
+        const int time = (clock.Hour) * 60 + clock.Minute;
+        const int colorInt = Clamp(235 + int(float(time) / 18.f), 0, 255);
+        const Color inner(colorInt, colorInt, colorInt);
+        for (int i = 0; i < 6; ++i)
+        {
+            playfield[i].color = inner;
+        }
+        window->clear(inner - Color(20, 20, 20));
+    }
+    else
+    {
+        window->clear(BACKGROUND);
+    }
     window->draw(playfield);
 }
 
