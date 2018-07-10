@@ -86,9 +86,9 @@ int SchoolSystem::Cost() const
 {
 	if (isPremium)
 	{
-		return 500;
+		return 8000;
 	}
-	return 400;
+	return 4000;
 }
 
 std::string SchoolSystem::ContentString()
@@ -100,13 +100,16 @@ std::string SchoolSystem::ContentString()
 	int totalLateStudents = 0;
 	int premiumSchools = 0;
 	int generalSchools = 0;
+    int totalAvailable = 0;
 	int totalCost = 0;
+    
 	for (auto&& plot : plots)
 	{
 		const auto school = dynamic_cast<School*>(plot->GetPlotType());
 		total += school->students.Count();
 		totalStudents += school->studentCount;
 		totalLateStudents += school->lateStudents;
+	    totalAvailable += school->studentLimit;
 		if (school->isPremium)
 		{
 			premiumSchools += 1;
@@ -120,7 +123,7 @@ std::string SchoolSystem::ContentString()
 			
 	}
 
-	ss << "Total schools: " << premiumSchools + generalSchools << std::endl
+	ss << "School Capacity: " << totalAvailable << std::endl
 	   << "Premium schools: " << premiumSchools << std::endl
 	   << "General schools: " << generalSchools << std::endl;
 	ss << "Today's cost $" << totalCost << std::endl;
@@ -140,12 +143,12 @@ std::string SchoolSystem::ContentString()
 
 	if (isPremium)
 	{
-		ss << "Premium school, $500." << std::endl;
+		ss << "Premium school, $" << Cost() << std::endl;
 		ss << "Better education for" << std::endl << "better work prospects.";
 	}
 	else
 	{
-		ss << "General school, $400." << std::endl;
+		ss << "General school, $" << Cost() << std::endl;
 		ss << "Prepare citizens" << std::endl << "for work.";
 	}
 

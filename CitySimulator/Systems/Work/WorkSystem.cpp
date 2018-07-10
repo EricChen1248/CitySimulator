@@ -126,13 +126,16 @@ std::string WorkSystem::ContentString()
 	int total = 0;
 	int totalEmployee = 0;
 	int totalLateEmployee = 0;
+    int totalJobs = 0;
 	for (auto&& plot : plots)
 	{
 		const auto work = dynamic_cast<Work*>(plot->GetPlotType());
 		total += work->employees.Count();
 		totalEmployee += work->todayEmployee;
 		totalLateEmployee += work->todayLateEmployee;
+	    totalJobs += work->employeeLimit;
 	}
+    ss << "Available jobs:  " << totalJobs << std::endl;
 	if(totalLateEmployee == 0 && totalEmployee == total * 2)
     {
         ss << "Everyone was on time" << std::endl << "to work" << std::endl;

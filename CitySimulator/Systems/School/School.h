@@ -17,18 +17,18 @@ public:
 
 	void NewDay() override;
 	void EndDay() override;
-
+    bool IsFull() const;
 	int Destroy() override;
 	void NewStudent(Citizen* citizen);
 	void Graduation(Citizen* citizen);
 private:
-	List<Citizen*> students;
+	LinkedList<Citizen*> students;
 	int studentCount;
 	int lateStudents;
 	int operatingCost;//daily operating cost
-
+    int studentLimit;
 	bool isPremium;
     int tuition;
     
-	void Enter();
+	void Enter() override;
 };

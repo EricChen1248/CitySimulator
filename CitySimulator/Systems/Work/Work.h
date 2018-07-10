@@ -15,13 +15,16 @@ public:
 	void NewDay() override;
 	int Destroy() override;
 	std::string ContentString() override;
+    
+    bool IsFull() const;
 
 	void NewEmployee(Citizen* citizen);
 	void Resignation(Citizen* citizen);
 
 private:
-	void Enter(const float workingTime, const float production);
+	void Enter(float workingTime, float production);
 
+    int employeeLimit;
 	int todayEmployee;
 	int todayLateEmployee;
 	float baseSalary;

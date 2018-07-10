@@ -25,6 +25,7 @@ School::School(Plot* plot) : Base(plot, SCHOOL), studentCount(0), lateStudents(0
 		isPremium = false;
 	    tuition = 8;
 	}
+    studentLimit = RandomInt(30, 40);
 	color = SCHOOL_COLOR;
 }
 
@@ -43,17 +44,10 @@ std::string School::ContentString()
 		ss << "General School" << std::endl;
 	}
 
-	if (lateStudents > 0)
-	{
-		ss << lateStudents  << " students" << std::endl << "were late." << std::endl << std::endl;
-	}
-	else
-	{
-		ss << "Today was an" << std::endl << "excellent day." << std::endl << std::endl;
-	}
-
-	ss << "Students: " << studentCount << " people"
-		<< std::endl << "Late: " << lateStudents << " people"
+	ss               << "Capacity: " << studentLimit << " people"
+        << std::endl << "Students: " << students.Count() << " people"
+		<< std::endl << "Late:     " << lateStudents << " people"
+        << std::endl << "Missing:  " << students.Count() - studentCount << " people"
 		<< std::endl << "Operating cost: " << operatingCost + studentCount * tuition;
 	
 	return ss.str();
@@ -68,6 +62,11 @@ void School::NewDay()
 void School::EndDay()
 {
 	Government::AddTax(-operatingCost);
+}
+
+bool School::IsFull() const
+{
+    return students.Count() >= studentLimit;
 }
 
 /**

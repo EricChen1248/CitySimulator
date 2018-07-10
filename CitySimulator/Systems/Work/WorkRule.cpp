@@ -112,9 +112,6 @@ void WorkRule::LeavePlot(Plot* plot)
 		citizen->ForceRule(FOOD);
 }
 
-/**
-* \Do nothing
-*/
 void WorkRule::Update()
 {
 	// Do Nothing
@@ -170,6 +167,7 @@ bool WorkRule::Register()
 		for (auto && plot : highplots)
 		{
 			if (!Pathable(coords, plot->Coords())) continue;
+		    if (dynamic_cast<Work*>(plot->GetPlotType())->IsFull()) continue;
 			const auto distance = plot->Coords().Distance(coords);
 			if (distance < maxDistance)
 			{
@@ -185,6 +183,7 @@ bool WorkRule::Register()
 		for (auto && plot : lowplots)
 		{
 			if (!Pathable(coords, plot->Coords())) continue;
+		    if (dynamic_cast<Work*>(plot->GetPlotType())->IsFull()) continue;
 			const auto distance = plot->Coords().Distance(coords);
 			if (distance < maxDistance)
 			{

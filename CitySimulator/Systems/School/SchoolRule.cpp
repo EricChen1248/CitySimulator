@@ -16,7 +16,10 @@ SchoolRule::SchoolRule(Citizen& citizen): BaseRule(citizen, SCHOOL), educationLe
 	earlyToSchool = 0;
 }
 
-SchoolRule::~SchoolRule() = default;
+SchoolRule::~SchoolRule()
+{
+    UnRegister();
+};
 
 float SchoolRule::CalculateScore()
 {
@@ -31,7 +34,7 @@ float SchoolRule::CalculateScore()
 	if (schoolStartTime - currentTime < earlyToSchool + 60)
 	{
 		// start to have score 30 min before time that  
-		return 5000000 - Clamp(schoolStartTime - currentTime - earlyToSchool - 60, 0) * 100000;
+		return 2000000 - Clamp(schoolStartTime - currentTime - earlyToSchool - 30, 0) * 100000;
 	}
 
 	return 0; // not have school
@@ -108,9 +111,12 @@ void SchoolRule::Register()
 	case 0:
 	case 6:
 	case 12:
-	case 18:
 		UnRegister();
-		break;
+	    break;
+	case 18:
+	    UnRegister();
+	    return;
+	default: break;
 	}
 
 	if (assignedSchool != nullptr)
@@ -119,14 +125,14 @@ void SchoolRule::Register()
 	}
 	auto &plots = CoreController::GetSystemController()->GetSystem(SCHOOL)->Plots();
 	// Get a list of plots
-	List<Plot*> choices;
+	List<School*> choices;
 	for (auto && plot : plots)
 	{
-		auto coords = citizen->Coords();
+	    const auto coords = citizen->Coords();
 		if (!Pathable(coords, plot->Coords())) continue;
-		const auto distance = plot->Coords().Distance(coords);
-		auto p = plot;
-		choices.InsertLast(p);
+	    const auto school = dynamic_cast<School*>(plot->GetPlotType());
+	    if (school->IsFull()) continue; 
+		choices.InsertLast(school);
 	}
 
 	// If such a list doesn't exist. This rule returns failed result false
@@ -137,13 +143,15 @@ void SchoolRule::Register()
 
 	const auto chosen = choices[RandomInt(0, choices.Count())];
 
-	this->assignedSchool = dynamic_cast<School*>(chosen->GetPlotType()); 
+	assignedSchool = chosen; 
+    assignedSchool->NewStudent(citizen);
 }
 
 void SchoolRule::UnRegister()
 {
 	if (assignedSchool != nullptr)
 	{
+	    assignedSchool->Graduation(citizen);
 		assignedSchool = nullptr;
 	}
 }

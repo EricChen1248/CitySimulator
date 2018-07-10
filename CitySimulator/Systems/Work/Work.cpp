@@ -15,9 +15,10 @@ using namespace std;
  * \brief 
  * \param plot 
  */
-Work::Work(Plot *plot) : Base(plot, WORK), todayEmployee(0), todayLateEmployee(0), todayWorkingTime(0.f), production(0) // TODO : cost;
+Work::Work(Plot* plot) : Base(plot, WORK), todayEmployee(0), todayLateEmployee(0), production(0), todayWorkingTime(0.f)
 {
-    auto system = dynamic_cast<WorkSystem*>(CoreController::GetSystemController()->GetSystem(WORK));
+    const auto system = dynamic_cast<WorkSystem*>(CoreController::GetSystemController()->GetSystem(WORK));
+    employeeLimit = RandomInt(20,30);
 	highLevel = system->highLevel;
     cost = system->Cost();
     
@@ -101,10 +102,16 @@ std::string Work::ContentString()
 		ss << "Today was an" << std::endl << "excellent day." << std::endl << std::endl;
 	}
 
-	ss << "Employees: " << employees.Count() << " people"
-		<< std::endl << "Late: " << todayLateEmployee / 2 << " people"
+	ss               << "Employees:   " << employees.Count() << " people"
+        << std::endl << "Limit:       " << employeeLimit << " people"
+		<< std::endl << "Late:        " << todayLateEmployee / 2 << " people"
 		<< std::endl << "Not to work: " << employees.Count() - todayEmployee / 2 << " people";
 	return ss.str();
+}
+
+bool Work::IsFull() const
+{
+    return employees.Count() >= employeeLimit;
 }
 
 void Work::NewEmployee(Citizen* citizen)
