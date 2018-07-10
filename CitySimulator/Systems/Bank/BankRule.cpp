@@ -66,12 +66,12 @@ bool BankRule::FindPlot()
 
 void BankRule::EnterPlot(Plot* plot)
 {
-    const auto bank = dynamic_cast<Bank*>(plot->GetPlotType());
+    const auto& bank = dynamic_cast<Bank*>(plot->GetPlotType());
     if (bank == nullptr) return;
 	const int peopleNow = plot->GetOccupantCount();
 	float waitingTime = 0.05f*float(peopleNow);
 	auto bankSys = dynamic_cast<BankSystem*>(CoreController::Instance()->GetSystemController()->GetSystem(BANK));
-	bankSys->NewClientWait(waitingTime);
+	bankSys->NewClientWait(waitingTime*60.f);
     citizen->Wait(waitingTime);
     bank->Enter();
 }

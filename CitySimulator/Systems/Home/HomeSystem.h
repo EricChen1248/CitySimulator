@@ -23,6 +23,7 @@ private:
 	void CalculateTotalFamily();
     
     int familyCount = 0;
+	int hasHomeCount = 0;
 
 };
 

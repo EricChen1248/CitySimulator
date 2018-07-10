@@ -16,11 +16,11 @@ HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME), myHome(nullptr),
     wakeUpTime = helper::Time(6);
     goHomeTime = helper::Time(21);
     
-    const auto father = citizen.GetFamilyMember(FATHER);
+    const auto&& father = citizen.GetFamilyMember(FATHER);
     // TODO : seems weird
     if (father != nullptr)
     {
-        const auto fatherHome = dynamic_cast<HomeRule*>(father->FindRule(HOME));
+        const auto&& fatherHome = dynamic_cast<HomeRule*>(father->FindRule(HOME));
         if (Pathable(fatherHome->myHome->GetPlot()->Coords(), citizen.Coords()))
         {
             myHome = fatherHome->myHome;
@@ -87,7 +87,7 @@ bool HomeRule::DecideHome()
         return false;
     }
  
-    auto home = dynamic_cast<Home*>(chosen->GetPlotType());
+    auto&& home = dynamic_cast<Home*>(chosen->GetPlotType());
     home->Register(citizen);
     myHome = home;
     return true;

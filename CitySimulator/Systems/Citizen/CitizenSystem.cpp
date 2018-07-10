@@ -7,6 +7,7 @@
 #include "../../Helpers/Logger.h"
 #include "../../Helpers/Government.h"
 #include "../../Helpers/FeatureFlags.h"
+#include "../../Helpers/Constants.h"
 #include "../../Helpers/HelperFunctions.h"
 CitizenSystem::CitizenSystem()
 #if GENERATE_CENTROIDS
@@ -138,7 +139,7 @@ void CitizenSystem::NewCitizen()
 	const auto plot = CoreController::GetSystemController()->Plots();
 	for (auto && citizen : citizens)
 	{
-		if (citizen->IsMarried()&&(citizen->GetGender() == FEMALE))
+		if ((citizen->IsMarried())&&(citizen->GetGender() == FEMALE)&&(citizen->Age()<= RETIREMENT_AGE))
 		{
 		    const float numerator = float(RandomInt(0, 101)) / 100.f;
 

@@ -17,8 +17,7 @@ void River::Init()
 
 
     //Mode 0 : straight river cuting city into half; Mode 1: cutting it vertically 
-    //const RIVERMODE mode = static_cast<RIVERMODE>(Clamp(RandomInt(0, 10), 0, 2));
-	const RIVERMODE mode = ModeSTRAIGHT;
+    const RIVERMODE mode = static_cast<RIVERMODE>(Clamp(RandomInt(0, 10), 0, 2));
 #if NO_RIVER
 	mode = ModeNORIVER;
 #endif
@@ -94,7 +93,6 @@ void River::Init()
             DrawCorner(DirLEFTUP, DirRIGHTUP, points, startPoint);
             break;
         }
-
     default:
         break;
     }
@@ -106,6 +104,9 @@ void River::Init()
     {
         i % 4 <= 1 ? shape[i].color = RIVER_COLOR : shape[i].color = RIVER_COLOR_2;
     }
+	points.Clear();
+	pointsAltimate1.Clear();
+	pointsAltimate2.Clear();
 }
 
 River::~River()

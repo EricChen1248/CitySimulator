@@ -33,7 +33,7 @@ void BankSystem::Update()
 
 void BankSystem::NewDay()
 {
-	for (auto plot : plots)
+	for (auto&& plot : plots)
 	{
 		plot->GetPlotType()->NewDay();
 	}
@@ -58,14 +58,14 @@ std::string BankSystem::ContentString()
 	float customerScore = 0.f;
 	averageCustomerPerBank = 0;
 	float averageWaitingTime = 0;
-	for (auto plot : plots)
+	for (auto && plot : plots)
 	{
-		auto bank = dynamic_cast<Bank*> (plot->GetPlotType());
+		auto&& bank = dynamic_cast<Bank*> (plot->GetPlotType());
 		customerScore += (float(bank->CustomerCount()) / 100.f) / float(plots.Count());
 		averageCustomerPerBank += float(bank->CustomerCount()) / float(plots.Count());
 	}
 
-	for (auto score : waitTimeList)
+	for (auto&&score : waitTimeList)
 	{
 		timeScore += ((0.5f - score) / 0.5f) / float(waitTimeList.Count());
 		averageWaitingTime += score / float(waitTimeList.Count());
@@ -73,7 +73,7 @@ std::string BankSystem::ContentString()
 	if ((customerScore <= 0.3f))
 	{
 		ss << "Banks aren't earning" << std::endl;
-		ss << "enough money.";
+		ss << "enough money."<<std::endl;
 	}
 	if ((timeScore <= 0.6f))
 	{
@@ -90,16 +90,18 @@ std::string BankSystem::ContentString()
 float BankSystem::GetSatisfaction() const
 {
 	float score = 0.f;
-	for (auto plot : plots)
+	for (auto&& plot : plots)
 	{
-		auto bank = dynamic_cast<Bank*> (plot->GetPlotType());
+		auto&& bank = dynamic_cast<Bank*> (plot->GetPlotType());
 		score += (float(bank->CustomerCount()) / 100.f) / float(plots.Count());
 	}
 	score = score >= 0.5f ? 0.5f : score;
-	for (auto waitscore : waitTimeList)
+	for (auto&& waitscore : waitTimeList)
 	{
 		score += ((0.5f - waitscore)/0.5f)/float(waitTimeList.Count()*2);
 	}
+	if (waitTimeList.Count() == 0)
+		score += 0.5f;
 	if (score >= 1)
 		return 1.f;
 	else if (score <= 0)
