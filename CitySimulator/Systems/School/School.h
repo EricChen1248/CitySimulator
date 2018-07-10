@@ -29,6 +29,7 @@ private:
 	int operatingCost;//daily operating cost
 
 	bool isPremium;
-
+    int tuition;
+    
 	void Enter();
 };

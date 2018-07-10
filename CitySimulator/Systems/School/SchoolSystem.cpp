@@ -16,7 +16,6 @@ SchoolSystem::SchoolSystem() : BaseSystem(SCHOOL)
 	SchoolRule::schoolEndTime = helper::Time(16, 0);
 }
 
-
 SchoolSystem::~SchoolSystem() = default;
 
 /**
@@ -43,8 +42,7 @@ float SchoolSystem::GetSatisfaction() const
 	int totalStudents = 0;
 	int totalLateStudents= 0;
 	int total = 0;
-	int totalLearningTime = 0;
-	
+    
 	for (auto&& plot : plots)
 	{
 		const auto school = dynamic_cast<School*>(plot->GetPlotType());
@@ -114,12 +112,12 @@ std::string SchoolSystem::ContentString()
 		if (school->isPremium)
 		{
 			premiumSchools += 1;
-			totalCost += 50;
+			totalCost += 50 + school->studentCount * school->tuition;
 		}
 		else
 		{
 			generalSchools += 1;
-			totalCost += 40;
+			totalCost += 40 + school->studentCount * school->tuition;
 		}
 			
 	}
