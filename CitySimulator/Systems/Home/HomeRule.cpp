@@ -13,7 +13,7 @@ HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME), myHome(nullptr),
     //therefore each citizen can go home by unique timing
     
     wakeUpTime = helper::Time(6);
-    goHomeTime = helper::Time(20);
+    goHomeTime = helper::Time(21);
     
     const auto&& father = citizen.GetFamilyMember(FATHER);
     // TODO : seems weird
@@ -61,10 +61,9 @@ bool HomeRule::DecideHome()
     Plot* chosen = nullptr;
     int shortestDis = INT_MAX;
 
-    // TODO : picking a close home doesn't make as much sense? What about picking a home with the least amount of people
     for (auto&& plot : plots)
     {
-        auto coord = plot->Coords();
+        const auto coord = plot->Coords();
         // Skip home if not pathable
         if (!Pathable(citizen->Coords(), coord)) continue;
         const auto home = dynamic_cast<Home*>(plot->GetPlotType());
@@ -149,9 +148,9 @@ void HomeRule::Update()
     if (!AtHome() && time> goHomeTime)
     {
         const int deltaTime = time - goHomeTime;
-		if (deltaTime <= 120)
+		if (deltaTime <= 60)
 		{
-			homelessLevel = std::pow(2, deltaTime / 6);
+			homelessLevel = std::pow(2, deltaTime / 3);
 		}
 		else
         {
