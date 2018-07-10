@@ -113,9 +113,9 @@ void SystemController::GenerateDemo()
             count = 5;
             break;
         case STORE:
+        case SCHOOL:
             count = 1;
             break;
-        case SCHOOL: break;
         case HOSPITAL:
             count = 3;
             break;
