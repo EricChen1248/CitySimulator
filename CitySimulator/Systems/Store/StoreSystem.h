@@ -14,7 +14,7 @@ public:
 	void EndDay() override;
     float GetSatisfaction() const override;
     inline void NewDay() override;
-    int Cost() const override { return 5000; };
+    int Cost() const override { return 8000; };
     std::string ContentString() override;
 private:
 	const int maxOccupantCount = 100;

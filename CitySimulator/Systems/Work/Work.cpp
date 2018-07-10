@@ -24,11 +24,11 @@ Work::Work(Plot *plot) : Base(plot, WORK), todayEmployee(0), todayLateEmployee(0
 	color = WORK_COLOR; // TODO : different color for different level
 	if (highLevel)
 	{
-		baseSalary = float(RandomInt(80, 120)); // TODO : salary
+		baseSalary = float(RandomInt(400, 600)); // TODO : salary
 	}
 	else
 	{
-		baseSalary = float(RandomInt(50, 100)); // TODO : salary
+		baseSalary = float(RandomInt(250, 500)); // TODO : salary
 	}
 }
 
@@ -37,7 +37,6 @@ Work::Work(Plot *plot) : Base(plot, WORK), todayEmployee(0), todayLateEmployee(0
 */
 void Work::EndDay()
 {
-	score = 0;
 }
 
 /**

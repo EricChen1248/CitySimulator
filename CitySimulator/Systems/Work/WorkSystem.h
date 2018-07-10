@@ -20,7 +20,7 @@ public:
 	std::string ContentString() override;
 private:
 	bool highLevel;
-    const int cost[2] = {500,1000};
+    const int cost[2] = {3000,5000};
 	LinkedList<Plot*> highWork;
 	LinkedList<Plot*> lowWork;
 };

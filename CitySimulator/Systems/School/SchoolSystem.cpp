@@ -1,7 +1,6 @@
 #include "SchoolSystem.h"
 #include "SchoolRule.h"
 #include "School.h"
-#include "../../Controllers/CoreController.h"
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
 
@@ -64,8 +63,6 @@ void SchoolSystem::NewDay()
 	{
 		plot->GetPlotType()->NewDay();
 	}
-
-	
 }
 
 /**
@@ -123,8 +120,8 @@ std::string SchoolSystem::ContentString()
 	}
 
 	ss << "Total schools: " << premiumSchools + generalSchools << std::endl
-		<< "Premium schools: " << premiumSchools << std::endl
-		<< "General schools: " << generalSchools << std::endl;
+	   << "Premium schools: " << premiumSchools << std::endl
+	   << "General schools: " << generalSchools << std::endl;
 	ss << "Today's cost $" << totalCost << std::endl;
 	if (totalLateStudents == 0 && totalStudents == total * 2)
 	{
@@ -134,7 +131,7 @@ std::string SchoolSystem::ContentString()
 	{
 		if (totalLateStudents != 0)
 		{
-			ss << totalLateStudents << " of " << total << " students" << std::endl << "were late to school" << std::endl;
+			ss << "Late: " << totalLateStudents << " of " << totalStudents << std::endl;
 		}
 	}
 

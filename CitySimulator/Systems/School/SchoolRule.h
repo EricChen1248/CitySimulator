@@ -29,8 +29,7 @@ private:
 	static helper::Time schoolStartTime;
 	static helper::Time schoolEndTime;
 
-	School* assignedSchool;
-	bool previousIsPremium;
+	School* assignedSchool = nullptr;
 	float educationLevel;
 	int earlyToSchool;//Time to wake up to go to school
 };

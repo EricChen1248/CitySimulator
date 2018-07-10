@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iomanip>
 #include <chrono>
+#include "../Controllers/CoreController.h"
 // =============== Singleton Interface ================
 Logger* Logger::instance;
 
@@ -33,7 +34,9 @@ void Logger::Log(const std::string& log)
 
     strftime(buffer, sizeof(buffer), "%d-%m-%Y %I:%M:%S", &timeinfo);
     const std::string str(buffer);
+    
     std::ofstream outputStream("Log.log", std::ios::app);
+    
     outputStream << str << ": " << log << std::endl;
     outputStream.close();
 }

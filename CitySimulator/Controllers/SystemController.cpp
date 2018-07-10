@@ -172,11 +172,11 @@ void SystemController::RenderInterday() const
 
 void SystemController::AdvanceDay() const
 {
-	citizens->NewDay();
     for (auto && system : systems)
     {
         system->NewDay();
     }
+	citizens->NewDay();
     plots->ClearSelections();
 }
 

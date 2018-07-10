@@ -7,9 +7,8 @@
 #include "../Citizen/CitizenEnum.h"
 #include <iostream>
 #include "../../Controllers/CoreController.h"
-BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(100000.f)
+BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(0.f)
 {
-    moneyDownLimit = 800;
 }
 
 BankRule::~BankRule() 
@@ -17,7 +16,7 @@ BankRule::~BankRule()
 
 float BankRule::CalculateScore()
 {
-    if (citizen->Money() < moneyDownLimit && saving > moneyDownLimit - citizen->Money())
+    if (citizen->Money() < CITIZEN_MIN_MONEY && saving > CITIZEN_MIN_MONEY - citizen->Money())
     {
         return 10000;
     }

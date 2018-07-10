@@ -43,7 +43,7 @@ void HospitalRule::EnterPlot(Plot* plot)
 {
 	const auto hospital = dynamic_cast<Hospital*>(plot->GetPlotType());
     if (hospital == nullptr) return;
-	int cost = hospital->cost;
+	int cost = hospital->medicalCost;
 
 	BankRule* bankRule = dynamic_cast<BankRule*>(citizen->FindRule(BANK));
 	if (citizen->Money() + bankRule->GetSavings() < cost)
@@ -76,8 +76,8 @@ void HospitalRule::LeavePlot(Plot* plot)
 {
 	// Die randomly
 	// TODO : this set is random or not ??????
-    const int die = RandomInt(50, 100);
-	if (die < citizen->Age())
+    const int die = RandomInt(0, citizen->Age());
+	if (50 > die)
 	{
 		citizen->Die();
 		return;

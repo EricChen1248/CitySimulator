@@ -22,11 +22,12 @@ const sf::Color TRANSPARENT = sf::Color(0,0,0,0);
 const sf::Color EMPTY_PLOT_COLOR = sf::Color(200, 200, 200);
 const sf::Color FOOD_COLOR = sf::Color::Magenta;
 const sf::Color WORK_COLOR = sf::Color::Cyan;
-const sf::Color BANK_COLOR = GREEN;
-const sf::Color HOME_COLOR = YELLOW;
+const sf::Color BANK_COLOR = sf::Color(241,137,10);
+const sf::Color HOME_COLOR = sf::Color(128,64,0);
 const sf::Color STORE_COLOR = RED;
-const sf::Color SCHOOL_COLOR = RED;
-const sf::Color HOSPITAL_COLOR = BLUE;
+const sf::Color SCHOOL_COLOR = sf::Color(64,128,128);
+const sf::Color HOSPITAL_COLOR = GREEN;
+const sf::Color PARK_COLOR = sf::Color(0,121,0);
 const sf::Color RIVER_COLOR = sf::Color(141, 250, 236);
 const sf::Color RIVER_COLOR_2 = sf::Color(62, 244, 240);
 
@@ -39,7 +40,8 @@ const sf::Color SUPER_SATIFIED_COLOR = GREEN;
 const int WINDOW_WIDTH = 1024;
 const int WINDOW_HEIGHT = 768;
 //Citizen's constant
-const int CITIZEN_MAX_MONEY = 10000;
+const int CITIZEN_MIN_MONEY = 350;
+const int CITIZEN_MAX_MONEY = 1500;
 const int WORKING_AGE = 18;
 const int RETIREMENT_AGE = 45;
 const int HOSPITALIZED_AGE = 54;

@@ -9,7 +9,7 @@ const int Store::OPERATING_COST = 2000;
 
 Store::Store(Plot* plot) : Base(plot, STORE)
 {
-    cost = 5000;
+    cost = 8000;
     color = STORE_COLOR;
 }
 
@@ -76,5 +76,5 @@ void Store::Enter()
 void Store::Payment(const float money)
 {
     earnings += money * 0.4;
-    Government::AddTax(money * 0.05);
+    Government::AddTax(money * 0.1);
 }

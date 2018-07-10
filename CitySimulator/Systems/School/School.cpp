@@ -13,15 +13,15 @@ School::School(Plot* plot) : Base(plot, SCHOOL), studentCount(0), lateStudents(0
 {
 	if (SchoolSystem::isPremium)
 	{
-		cost = 500;
-		operatingCost = 50;
+		cost = 8000;
+		operatingCost = 100;
 		isPremium = true;
 	    tuition = 10;
 	}
 	else
 	{
-		cost = 400;
-		operatingCost = 40;
+		cost = 6000;
+		operatingCost = 80;
 		isPremium = false;
 	    tuition = 8;
 	}
@@ -63,11 +63,11 @@ void School::NewDay()
 {
 	studentCount = 0;
 	lateStudents = 0;
-	Government::AddTax(-operatingCost);
 }
 
 void School::EndDay()
 {
+	Government::AddTax(-operatingCost);
 }
 
 /**

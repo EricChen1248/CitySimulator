@@ -6,12 +6,12 @@
 #include "../Food/FoodRule.hpp"
 #include "../Home/HomeRule.h"
 
-const float StoreRule::MAX_STOCK = 200.f;
-const float StoreRule::RESTOCK = 50.f;
+const float StoreRule::MAX_STOCK = 800.f;
+const float StoreRule::RESTOCK = 100.f;
 
-const float StoreRule::FOOD_COST = 0.5f;
-const float StoreRule::HOUSE_COST = 1.f;
-const float StoreRule::MISC_COST = 2.f;
+const float StoreRule::FOOD_COST = 1.2f;
+const float StoreRule::HOUSE_COST = 0.1f;
+const float StoreRule::MISC_COST = 0.5f;
 
 StoreRule::StoreRule(Citizen& citizen) : BaseRule(citizen, STORE), foodStock(60), miscStock(60), householdStock(60)
 {
@@ -110,13 +110,13 @@ void StoreRule::Update()
             // TODO : store numbers
             if (foodStock > 0)
             {
-                foodStock = Clamp(foodStock - deltaTime, 0.f);
+                foodStock = Clamp(foodStock - deltaTime * 0.5f, 0.f);
                 const auto food = dynamic_cast<FoodRule* >(citizen->FindRule(FOOD));
-                food->FillHunger(food->Hunger() + deltaTime * 0.5f);
+                food->FillHunger(food->Hunger() + deltaTime);
             }
         }
-        householdStock = Clamp(householdStock - deltaTime * 0.5f, 0.f);
+        householdStock = Clamp(householdStock - deltaTime * 0.2f, 0.f);
     }
     
-    miscStock = Clamp(miscStock - deltaTime * 1.5f, 0.f);
+    miscStock = Clamp(miscStock - deltaTime * 0.1f, 0.f);
 }
