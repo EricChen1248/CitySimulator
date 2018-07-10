@@ -109,6 +109,7 @@ void SystemController::GenerateDemo()
             count = 30;
             break;
         case BANK:
+			count = 2;
         case HOME:
             count = 5;
             break;

@@ -17,6 +17,7 @@ public:
     int Destroy() override;
 
     bool Full() const;
+	int numOfResidents()const;
     Plot* GetPlot() const { return plot; };
     std::string ContentString() override;
 private:

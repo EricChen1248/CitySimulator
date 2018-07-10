@@ -32,16 +32,15 @@ how long does it take them to work : friend Workrule;
 float HomeSystem::GetSatisfaction() const
 {
     auto&& citizenList = CoreController::GetSystemController()->GetCitizens();
-    float count = 0.f;
     float avgSleepHour = 0.f;
     //how many people have house;
     const float denom = 1.f / citizenList.Count();
+	float count = denom * hasHomeCount;
     for (auto&& citizen : citizenList)
     {
         //count how many people have house
         const auto home = dynamic_cast<HomeRule*>(citizen->FindRule(HOME));
         // TODO : error?
-        count += home->HasHome() ? denom : 0;
         avgSleepHour += home->GetSleepTime() / 8.f * denom;
     }
     count = 0.5f * count + 0.5f * avgSleepHour;
@@ -60,9 +59,11 @@ void HomeSystem::EndDay()
 void HomeSystem::NewDay()
 {
     CalculateTotalFamily();
+	hasHomeCount = 0;
 	for (auto&& plot : plots)
 	{
-		auto home&& = dynamic_cast<Home*>(plot->getPlottype());
+		auto home = dynamic_cast<Home*>(plot->GetPlotType());
+		hasHomeCount += home->numOfResidents();
 	}
 }
 
@@ -100,14 +101,13 @@ std::string HomeSystem::ContentString()
     //ss << "  don't sleep much.";
     auto&& citizenList = CoreController::GetSystemController()->GetCitizens();
     const float denom = 1.f / citizenList.Count();
-    float count = 0.f;
+	const float count = hasHomeCount / citizenList.Count();
     float avgSleepHour = 0.f;
     //how many people have house;
     for (auto&& citizen : citizenList)
     {
         const auto&& home = dynamic_cast<HomeRule*>(citizen->FindRule(HOME));
         //count how many people have house
-        count += home->HasHome() ? denom : 0;
         avgSleepHour += home->GetSleepTime() * denom;
     }
     if (count < 0.8f)

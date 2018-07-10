@@ -2,7 +2,8 @@
 #include "CoreController.h"
 #include "../Helpers/Constants.h"
 #include "../Helpers/Coordinate.h"
-
+#include "../Helpers/Time.h"
+#include "../Helpers/HelperFunctions.h"
 using namespace sf;
 
 /**
@@ -55,8 +56,37 @@ bool SFMLController::IsRunning() const
 /**
  * \brief Wipes the pixel buffer white
  */
-void SFMLController::ClearRender() const
+void SFMLController::ClearRender()
 {
+	const helper::Time clock = CoreController::Instance()->GetTime();
+
+	if (clock.Hour >= 18)
+	{
+		int time = (clock.Hour - 18) * 60 + clock.Minute;
+		int colorInt = Clamp(255- int(float(time) / 18.f), 0, 255);
+		const sf::Color INNER(colorInt,colorInt,colorInt);
+		for (int i = 0; i < 6; ++i)
+		{
+			playfield[i].color = INNER;
+		}
+	}
+	else if (clock.Hour <= 6)
+	{
+		int time = (clock.Hour) * 60 + clock.Minute;
+		int colorInt = Clamp(235+int(float(time) / 18.f), 0, 255);
+		const sf::Color INNER(colorInt,colorInt,colorInt);
+		for (int i = 0; i < 6; ++i)
+		{
+			playfield[i].color = INNER;
+		}
+	}
+	else
+	{
+		for (int i = 0; i < 6; ++i)
+		{
+			playfield[i].color = WHITE;
+		}
+	}
     window->clear(BACKGROUND);
     window->draw(playfield);
 }

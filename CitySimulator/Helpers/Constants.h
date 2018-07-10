@@ -7,7 +7,7 @@ const float COS30 = 0.86602f;
 const float SIN60 = 0.86602f;
 const float SIN30 = 0.5f;
 
-const sf::Color BACKGROUND = sf::Color(245,245,245);
+const sf::Color BACKGROUND = sf::Color(235,235,235);
 
 const sf::Color RED = sf::Color(255,0,0);
 const sf::Color BLUE = sf::Color(0,0,255);

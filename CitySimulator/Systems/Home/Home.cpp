@@ -39,6 +39,11 @@ bool Home::Full() const
     return homeCapacity <= NumOfFamily();
 }
 
+int Home::numOfResidents() const
+{
+	return residents.Count();
+}
+
 std::string Home::ContentString()
 {
     std::stringstream ss;

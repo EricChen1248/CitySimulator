@@ -7,7 +7,7 @@
 #include "../Citizen/CitizenEnum.h"
 #include <iostream>
 #include "../../Controllers/CoreController.h"
-BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(100000.f)
+BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(0.f)
 {
     moneyDownLimit = 800;
 }
