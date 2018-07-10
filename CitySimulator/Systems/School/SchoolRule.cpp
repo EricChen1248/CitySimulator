@@ -14,12 +14,12 @@ Time SchoolRule::schoolEndTime;
 
 SchoolRule::SchoolRule(Citizen& citizen): BaseRule(citizen, SCHOOL), educationLevel(0), assignedSchool(nullptr)
 {
-	
+	earlyToSchool = 0;
 }
 
 SchoolRule::~SchoolRule() = default;
 
-float SchoolRule::CalculateScore()//unfinsihed
+float SchoolRule::CalculateScore()
 {
 	if (assignedSchool == nullptr) return 0;
 	
@@ -83,6 +83,12 @@ void SchoolRule::LeavePlot(Plot* plot)
 	foodRule->FillHunger(hunger);
 }
 
+void SchoolRule::NewDay()
+{
+	if (citizen->Age() >= 18) return;
+	Register();
+}
+
 /**
  * \brief 
  */
@@ -93,6 +99,20 @@ void SchoolRule::Update()
 
 void SchoolRule::Register()
 {
+	switch (citizen->Age())
+	{
+	case 0:
+	case 6:
+	case 12:
+	case 18:
+		UnRegister();
+		break;
+	}
+
+	if (assignedSchool != nullptr)
+	{
+		return;
+	}
 	auto &plots = CoreController::GetSystemController()->GetSystem(SCHOOL)->Plots();
 	// Get a list of plots
 	List<Plot*> choices;
@@ -113,7 +133,7 @@ void SchoolRule::Register()
 
 	const auto chosen = choices[RandomInt(0, choices.Count())];
 
-	this->assignedSchool->plot = chosen; 
+	this->assignedSchool = dynamic_cast<School*>(chosen->GetPlotType()); 
 }
 
 void SchoolRule::UnRegister()
