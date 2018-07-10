@@ -48,14 +48,14 @@ int WorkSystem::Register(Plot* plot)
 
 void WorkSystem::Unregister(Plot* plot)
 {
-	auto work = dynamic_cast<Work*>(plot->GetPlotType);
+	auto work = dynamic_cast<Work*>(plot->GetPlotType());
 	if (work->highLevel)
 	{
-		highWork.Remove(work);
+		highWork.Remove(plot);
 	}
 	else
 	{
-		lowWork.Remove(work);
+		lowWork.Remove(plot);
 	}
 	BaseSystem::Unregister(plot);
 }
