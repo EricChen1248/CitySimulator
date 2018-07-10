@@ -8,6 +8,7 @@
 
 class SchoolRule;
 bool SchoolSystem::isPremium = false;
+
 SchoolSystem::SchoolSystem() : BaseSystem(SCHOOL)
 {
 	toggleable = true;
@@ -59,6 +60,15 @@ float SchoolSystem::GetSatisfaction() const
 	return satisfaction;
 }
 
+void SchoolSystem::NewDay()
+{
+	for (auto && plot : plots)
+	{
+		plot->GetPlotType()->NewDay();
+	}
+
+	
+}
 
 /**
  * \brief Resets the day (clears log & resets plots)

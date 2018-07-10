@@ -19,6 +19,7 @@ public:
     bool FindPlot() override;
     void EnterPlot(Plot* plot) override;
     void LeavePlot(Plot* plot) override;
+	void NewDay() override;
     void Update() override;
 
 	float EducationLevel() const { return educationLevel; };

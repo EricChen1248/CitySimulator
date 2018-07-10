@@ -14,6 +14,7 @@ public:
     int Register(Plot* plot) override;
     void Update() override;
 	float GetSatisfaction() const override;
+	void NewDay() override;
     void EndDay() override;
 	void Toggle() override;
 	int Cost() const override;
