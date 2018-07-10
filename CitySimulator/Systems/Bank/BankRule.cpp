@@ -7,9 +7,8 @@
 #include "../Citizen/CitizenEnum.h"
 #include <iostream>
 #include "../../Controllers/CoreController.h"
-BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(100000.f)
+BankRule::BankRule(Citizen& citizen) : BaseRule(citizen, BANK), saving(0.f)
 {
-    moneyDownLimit = 800;
 }
 
 BankRule::~BankRule() 
@@ -17,11 +16,32 @@ BankRule::~BankRule()
 
 float BankRule::CalculateScore()
 {
-    if (citizen->Money() < moneyDownLimit && saving > moneyDownLimit - citizen->Money())
-    {
-        return 10000;
-    }
-    return 0;
+	if (citizen->Money() < CITIZEN_MIN_MONEY)
+	{
+		if (citizen->Age() >= WORKING_AGE)
+		{
+			if (saving > CITIZEN_MIN_MONEY - citizen->Money())
+			{
+				return 10000;
+			}
+			else
+				return 0;
+		}
+		else
+		{
+			auto fatherPtr = citizen->GetFamilyMember(FATHER);
+			auto motherPtr = citizen->GetFamilyMember(MOTHER);
+			float parentSaving = 0;
+			parentSaving += fatherPtr == nullptr ? 0 : dynamic_cast<BankRule*>(fatherPtr->FindRule(BANK))->GetSavings();
+			parentSaving += motherPtr == nullptr ? 0 : dynamic_cast<BankRule*>(motherPtr->FindRule(BANK))->GetSavings();
+			if (parentSaving >= CITIZEN_MIN_MONEY - citizen->Money())
+				return 10000;
+			else
+				return 0;
+		}
+	}
+	else
+		return 0;
 }
 
 /**

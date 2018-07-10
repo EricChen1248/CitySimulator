@@ -36,7 +36,7 @@ HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME), myHome(nullptr),
         DecideHome();
     }
     // TODO : They won't be home on the first day before then
-    homelessLevel = 0;
+    homelessLevel = INT_MAX;
     sleepingHour = 0;
 }
 

@@ -157,12 +157,12 @@ bool WorkRule::Register()
 	auto &highplots = dynamic_cast<WorkSystem*>(CoreController::GetSystemController()->GetSystem(WORK))->highWork;
 	auto &lowplots = dynamic_cast<WorkSystem*>(CoreController::GetSystemController()->GetSystem(WORK))->lowWork;
 
-	auto coords = citizen->Coords();
+    const auto coords = citizen->Coords();
 
 	// To Get SchoolRule
 	SchoolRule* schoolRule = dynamic_cast<SchoolRule*>(citizen->FindRule(SCHOOL));
 	const int educationLv = schoolRule->EducationLevel();
-	bool isHighEducation = educationLv > 50; // TODO : 50
+    const bool isHighEducation = educationLv >= 420;
 
 	// Get a list of plots that fulfill out requirements ( distance < max distance )
 	if (isHighEducation)
@@ -207,7 +207,7 @@ bool WorkRule::Register()
     const auto work = dynamic_cast<Work*>(chosen->GetPlotType());
 	baseSalary = work->baseSalary * RandomInt(10, 13) / 10;
 	
-    salary = baseSalary + educationLv * 0.3f; // TODO : number(education)
+    salary = baseSalary + educationLv * 0.4f; // TODO : number(education)
 	work->NewEmployee(citizen);
     return true;
 }

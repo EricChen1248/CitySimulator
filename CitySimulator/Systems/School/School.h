@@ -25,7 +25,6 @@ private:
 	List<Citizen*> students;
 	int studentCount;
 	int lateStudents;
-	int cost;//initial cost
 	int operatingCost;//daily operating cost
 
 	bool isPremium;

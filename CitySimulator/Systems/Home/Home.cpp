@@ -8,7 +8,7 @@
 Home::Home(Plot* plot) : Base(plot, HOME)
 {
     cost = 10000;
-    homeCapacity = RandomInt(50, 60);
+    homeCapacity = RandomInt(20, 30);
     color = HOME_COLOR;
 }
 
@@ -37,6 +37,11 @@ void Home::EndDay()
 bool Home::Full() const
 {
     return homeCapacity <= NumOfFamily();
+}
+
+int Home::numOfResidents() const
+{
+	return residents.Count();
 }
 
 std::string Home::ContentString()

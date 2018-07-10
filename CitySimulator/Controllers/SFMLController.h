@@ -29,7 +29,7 @@ private:
     bool IsRunning() const;
     
     // Methods
-    void ClearRender() const;
+    void ClearRender();
     void UpdateWindow() const;
     
     // Backing variables

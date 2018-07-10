@@ -112,6 +112,7 @@ void SystemController::GenerateDemo()
             count = 30;
             break;
         case BANK:
+			count = 2;
         case HOME:
             count = 5;
             break;
@@ -172,11 +173,11 @@ void SystemController::RenderInterday() const
 
 void SystemController::AdvanceDay() const
 {
-	citizens->NewDay();
     for (auto && system : systems)
     {
         system->NewDay();
     }
+	citizens->NewDay();
     plots->ClearSelections();
 }
 
