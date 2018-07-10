@@ -9,4 +9,5 @@ enum System
 	STORE, 
 	SCHOOL,
     HOSPITAL,
+    PARK,
 };

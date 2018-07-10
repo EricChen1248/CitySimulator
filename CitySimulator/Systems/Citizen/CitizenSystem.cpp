@@ -76,7 +76,7 @@ void CitizenSystem::PruneDead()
         if (citizens[i]->IsDead())
         {
             delete citizens[i];
-            citizens.Remove(i);
+            citizens.RemoveAt(i);
             --i;
         }
     }

@@ -236,7 +236,7 @@ void Status::DrawPlot()
     
     const int cost = SelectedPlot->GetPlotType()->Cost() / 2;
     std::stringstream ss;
-    ss << " Destroy ($" << cost << ")";
+    ss << "Destroy " << (cost > 0 ? "+$" : "-$") << abs(cost);
     CenterString(buttonText, ss.str(), x + float(width) / 2);
     if (button.Draw())
     {

@@ -129,8 +129,6 @@ void CoreController::RunDayLoop(Clock& clock)
 void CoreController::EndDayLoop()
 {
     advanceDay = false;
-
-    //TODO: Make sure EveryOne make adjustment during this period
     systemController->ResetDay();
     while (!advanceDay)
     {

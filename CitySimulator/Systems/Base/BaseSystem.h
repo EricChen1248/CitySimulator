@@ -104,5 +104,6 @@ inline void BaseSystem::Destroy(Plot* plot)
     }
     
     plot->Destroy();
+    Unregister(plot);
 }
 

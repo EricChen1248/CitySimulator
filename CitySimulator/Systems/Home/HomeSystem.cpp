@@ -62,7 +62,7 @@ void HomeSystem::NewDay()
     CalculateTotalFamily();
 	for (auto&& plot : plots)
 	{
-		auto home&& = dynamic_cast<Home*>(plot->getPlottype());
+		auto && home = dynamic_cast<Home*>(plot->GetPlotType());
 	}
 }
 

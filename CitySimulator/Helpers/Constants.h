@@ -44,7 +44,7 @@ const int WORKING_AGE = 18;
 const int RETIREMENT_AGE = 45;
 const int HOSPITALIZED_AGE = 54;
 // NONE,    FOOD,	WORK,	BANK,	HOME,	STORE, 	SCHOOL,    HOSPITAL
-const std::string SYSTEM_NAMES[8] {"None", "Food", "Work", "Bank", "Home", "Store", "School", "Hospital"};
+const std::string SYSTEM_NAMES[9] {"None", "Food", "Work", "Bank", "Home", "Store", "School", "Hospital", "Park"};
 #ifdef _DEBUG
     const int LEFT = -15;
     const int RIGHT = 16;
