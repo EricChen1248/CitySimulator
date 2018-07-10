@@ -31,12 +31,12 @@ how long does it take them to work : friend Workrule;
 
 float HomeSystem::GetSatisfaction() const
 {
-    auto citizenList = CoreController::GetSystemController()->GetCitizens();
+    auto&& citizenList = CoreController::GetSystemController()->GetCitizens();
     float count = 0.f;
     float avgSleepHour = 0.f;
     //how many people have house;
     const float denom = 1.f / citizenList.Count();
-    for (auto citizen : citizenList)
+    for (auto&& citizen : citizenList)
     {
         //count how many people have house
         const auto home = dynamic_cast<HomeRule*>(citizen->FindRule(HOME));
@@ -60,13 +60,17 @@ void HomeSystem::EndDay()
 void HomeSystem::NewDay()
 {
     CalculateTotalFamily();
+	for (auto&& plot : plots)
+	{
+		auto home&& = dynamic_cast<Home*>(plot->getPlottype());
+	}
 }
 
 void HomeSystem::CalculateTotalFamily()
 {
     familyCount = 0;
-    auto citizenList = CoreController::GetSystemController()->GetCitizens();
-    for (auto citizen : citizenList)
+    auto&& citizenList = CoreController::GetSystemController()->GetCitizens();
+    for (auto&& citizen : citizenList)
     {
         if (citizen->Age() >= WORKING_AGE)
         {
@@ -94,14 +98,14 @@ std::string HomeSystem::ContentString()
     //ss << "1.don't have home." << std::endl;
     //ss << "2.Home is too far, thus" << std::endl;
     //ss << "  don't sleep much.";
-    auto citizenList = CoreController::GetSystemController()->GetCitizens();
+    auto&& citizenList = CoreController::GetSystemController()->GetCitizens();
     const float denom = 1.f / citizenList.Count();
     float count = 0.f;
     float avgSleepHour = 0.f;
     //how many people have house;
-    for (auto citizen : citizenList)
+    for (auto&& citizen : citizenList)
     {
-        const auto home = dynamic_cast<HomeRule*>(citizen->FindRule(HOME));
+        const auto&& home = dynamic_cast<HomeRule*>(citizen->FindRule(HOME));
         //count how many people have house
         count += home->HasHome() ? denom : 0;
         avgSleepHour += home->GetSleepTime() * denom;

@@ -20,6 +20,7 @@ enum RIVERMODE
 	ModeCIRCLE,
 	ModeACCROSS,
 	ModeNORIVER,
+	ModeALTIMATE,
 };
 enum AXIS
 {
@@ -45,7 +46,10 @@ private:
 	List<Coordinate> points;
 	int riverColorChange;
 	float accumulatedTime;
-
+	//for more than two river;
+	sf::VertexArray shapeAltimate;
+	List<Coordinate> pointsAltimate1;
+	List<Coordinate> pointsAltimate2;
 
 	//function
 	void InitBoundary();
