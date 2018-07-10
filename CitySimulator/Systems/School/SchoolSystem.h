@@ -22,6 +22,6 @@ private :
     //const int scorePerOccupant = 10;
     //const int overPenalty = 5;
 
-	bool isPremium;
+	static bool isPremium;
 };
 

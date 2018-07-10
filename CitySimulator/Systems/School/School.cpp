@@ -1,5 +1,6 @@
 #include "School.h"
 #include "SchoolRule.h"
+#include "SchoolSystem.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/Time.h"
@@ -10,15 +11,17 @@ using helper::Time;
 
 School::School(Plot* plot) : Base(plot, SCHOOL), studentCount(0), lateStudents(0)
 {
-	if (isPremium == true)
+	if (SchoolSystem::isPremium)
 	{
 		cost = 500;
 		operatingCost = 50;
+		isPremium = true;
 	}
 	else
 	{
 		cost = 400;
 		operatingCost = 40;
+		isPremium = false;
 	}
 	color = SCHOOL_COLOR;
 }
@@ -79,8 +82,6 @@ void School::Enter()
 	{
 		lateStudents += 1;
 	}
-
-	
 }
 
 int School::Destroy()

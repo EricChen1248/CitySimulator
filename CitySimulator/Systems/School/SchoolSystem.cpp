@@ -7,13 +7,12 @@
 
 
 class SchoolRule;
-
+bool SchoolSystem::isPremium = false;
 SchoolSystem::SchoolSystem() : BaseSystem(SCHOOL)
 {
 	toggleable = true;
 	SchoolRule::schoolStartTime = helper::Time(8, 0);
 	SchoolRule::schoolEndTime = helper::Time(16, 0);
-	isPremium = false;
 }
 
 
@@ -27,7 +26,7 @@ int SchoolSystem::Register(Plot* plot)
 {
     (*plot).Register(new School(plot));
     BaseSystem::Register(plot);
-    return 0;
+    return Cost();
 }
 
 /**
@@ -115,10 +114,10 @@ std::string SchoolSystem::ContentString()
 			
 	}
 
-	ss << "You have a total of " << premiumSchools + generalSchools << std::endl
-		<< "schools, " << premiumSchools << " of which" << std::endl << "are premium, and " 
-		<< generalSchools << " of " << std::endl << "which are general." << std::endl;
-	ss << "Today's education has" << std::endl << "cost $" << totalCost << "." << std::endl;
+	ss << "Total schools: " << premiumSchools + generalSchools << std::endl
+		<< "Premium schools: " << premiumSchools << std::endl
+		<< "General schools: " << generalSchools << std::endl;
+	ss << "Today's cost $" << totalCost << std::endl;
 	if (totalLateStudents == 0 && totalStudents == total * 2)
 	{
 		ss << "Everyone was on time" << std::endl;
@@ -129,6 +128,19 @@ std::string SchoolSystem::ContentString()
 		{
 			ss << totalLateStudents << " of " << total << " students" << std::endl << "were late to school" << std::endl;
 		}
+	}
+
+	//ss << std::endl;
+
+	if (isPremium)
+	{
+		ss << "Premium school, $500." << std::endl;
+		ss << "Better education for" << std::endl << "better work prospects.";
+	}
+	else
+	{
+		ss << "General school, $400." << std::endl;
+		ss << "Prepare citizens" << std::endl << "for work.";
 	}
 
 	return ss.str();
