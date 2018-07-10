@@ -23,8 +23,9 @@ int HospitalSystem::Register(Plot* plot)
 {
     (*plot).Register(new Hospital(plot));
     BaseSystem::Register(plot);
-    return 0;
+	return Cost();
 }
+
 
 /**
  * \brief Calculates the satisfaction of the system at it's current states
