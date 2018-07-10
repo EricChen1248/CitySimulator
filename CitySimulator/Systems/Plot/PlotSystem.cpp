@@ -227,6 +227,7 @@ void PlotSystem::FindHover(const float x, const float y)
         auto & shape = plot->GetShape();
         if (shape.getGlobalBounds().contains(x, y))
         {
+            ClearHover();
             hoverPlot = plot;
             if (hoverPlot != Status::SelectedPlot)
             {
@@ -242,10 +243,15 @@ void PlotSystem::FindHover(const float x, const float y)
         auto & shape = road->Shape();
         if (shape.InSimpleBounds(x, y) && shape.InComplexBounds(x, y))
         {
+            ClearHover();
             hoverRoad = road;
             if (hoverRoad != Status::SelectedRoad)
             {
                 shape.ChangeColor(DARK_GREY);
+            }
+            else
+            {
+                shape.ChangeColor(BLACK);
             }
             return;
         }
@@ -258,6 +264,13 @@ void PlotSystem::FindHover(const float x, const float y)
 void PlotSystem::ClearSelections()
 {
     DeselectPlotsAndRoads();
+    ClearHover();
+           
+    Status::Selection = NONE_SELECTED;
+}
+
+void PlotSystem::ClearHover()
+{
     if (hoverPlot != nullptr)
     {
         auto & shape = hoverPlot->GetShape();
@@ -270,8 +283,6 @@ void PlotSystem::ClearSelections()
         shape.ResetColor();
         hoverRoad = nullptr;
     }
-           
-    Status::Selection = NONE_SELECTED;
 }
 
 /**

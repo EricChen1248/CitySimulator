@@ -17,6 +17,7 @@ public:
          const float thickness): thickness(thickness), color(color)
     {
         vertices = sf::VertexArray(sf::Quads, 4);
+        bounds = sf::VertexArray(sf::Quads, 4);
         point1 = coord1.ToScreenCoordinates().ToVector2F();
         point2 = coord2.ToScreenCoordinates().ToVector2F();
 
@@ -28,6 +29,11 @@ public:
 
         ChangeColor(color);
         ChangeThickness(thickness);
+        
+        bounds[0].position = point1 + offset * 5.f;
+        bounds[1].position = point2 + offset * 5.f;
+        bounds[2].position = point2 - offset * 5.f;
+        bounds[3].position = point1 - offset * 5.f;
     }
     
     /**
@@ -85,7 +91,7 @@ public:
      */
     bool InSimpleBounds(const float x, const float y) const
     {
-        return vertices.getBounds().contains(x, y);
+        return bounds.getBounds().contains(x, y);
     }
     
     /**
@@ -99,7 +105,7 @@ public:
         const float y1 = point1.y, y2 = point2.y, x1 = point1.x, x2 = point2.x;
         const float numerator = (y2 - y1) * x - (x2 - x1) * y + x2 * y1 - y2 * x1;
         const float denom = pow(y2 - y1, 2) + pow(x2 - x1, 2);
-        return pow(numerator, 2) / denom < pow(thickness*2, 2);
+        return pow(numerator, 2) / denom < pow(thickness * 10, 2);
     }
     
     /**
@@ -118,6 +124,7 @@ private:
     Vector2f point2;
     Vector2f offset;
     sf::VertexArray vertices;
+    sf::VertexArray bounds;
     float thickness{};
     sf::Color color;
 };

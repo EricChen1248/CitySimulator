@@ -19,6 +19,7 @@ public:
     static void DeselectPlotsAndRoads();
     void HandleClick();
     void ClearSelections();
+    void ClearHover();
 	void FindHover(float x, float y);
     void RoadClicks(bool onPlot, const float &x, const float &y);
     
