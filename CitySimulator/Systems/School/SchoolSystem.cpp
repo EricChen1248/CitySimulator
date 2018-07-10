@@ -65,7 +65,7 @@ void SchoolSystem::NewDay()
 		plot->GetPlotType()->NewDay();
 	}
 
-	
+
 }
 
 /**
