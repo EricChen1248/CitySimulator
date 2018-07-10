@@ -56,12 +56,25 @@ void SystemController::Initialize()
     for (int i = 0; i < 3; ++i)
     {
         Plot* centroid = nullptr;
-        while (centroid == nullptr || centroid->IsRiver())
+        bool byRiver = true;
+        Coordinate* neighbours = nullptr;
+        while (centroid == nullptr || centroid->IsRiver() || byRiver)
         {
+            byRiver = false;
             centroid = plots->GetRandomPlot();
+            neighbours = centroid->Coords().GetNeighbours();
+            for (int j = 0; j < 6; ++j)
+            {
+                const auto p = plots->FindPlot(neighbours[j]);
+                if (p == nullptr || p->IsRiver())
+                {
+                    byRiver = true;
+                    break;
+                }
+            }
         }
         centers.InsertLast(centroid);
-        const auto neighbours = centroid->Coords().GetNeighbours();
+        
         Plot* target;
         for (auto&& system : systems)
         {
@@ -79,7 +92,7 @@ void SystemController::Initialize()
             {
                 do
                 {
-                    target = CoreController::GetSystemController()->Plots()->FindPlot(neighbours[rand() % 6]);
+                    target = plots->FindPlot(neighbours[rand() % 6]);
                 } while (target == nullptr || target->IsRiver() || target->GetPlotType() != nullptr);
                 system->Register(target);
             }
