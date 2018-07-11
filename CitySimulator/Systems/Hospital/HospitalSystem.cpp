@@ -77,9 +77,9 @@ void HospitalSystem::NewDay()
 	for (auto&& plot : plots)
 	{
 		const auto hospital = dynamic_cast<Hospital*>(plot->GetPlotType());
-		if (hospital->members.Count() > hospital->capacity)
+		if (hospital->members.Count() > hospital->comfortableCapacity)
 		{
-			crowdedScoreMinus += float(hospital->members.Count() - hospital->capacity) / hospital->capacity;
+			crowdedScoreMinus += float(hospital->members.Count() - hospital->comfortableCapacity) / hospital->comfortableCapacity;
 			crowdedHospital++;
 		}
 	}

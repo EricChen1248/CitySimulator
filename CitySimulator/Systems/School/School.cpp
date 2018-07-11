@@ -61,7 +61,7 @@ void School::NewDay()
 
 void School::EndDay()
 {
-	Government::AddTax(-operatingCost);
+	Government::AddTax(float(-operatingCost));
 }
 
 bool School::IsFull() const
@@ -74,7 +74,7 @@ bool School::IsFull() const
 */
 void School::Enter()
 {
-	Government::AddTax(-tuition);
+	Government::AddTax(float(-tuition));
 
 	studentCount += 1;
 	const Time currentTime = CoreController::Instance()->GetTime();

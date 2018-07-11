@@ -75,9 +75,8 @@ void HospitalRule::EnterPlot(Plot* plot)
 void HospitalRule::LeavePlot(Plot* plot)
 {
 	// Die randomly
-	// TODO : this set is random or not ??????
     const int die = RandomInt(0, citizen->Age());
-	if (50 > die)
+	if (50 < die)
 	{
 		citizen->Die();
 		return;
@@ -89,26 +88,20 @@ void HospitalRule::LeavePlot(Plot* plot)
 void HospitalRule::EndDay()
 {
 	// Die accidentally
-	// TODO : probability & Get Real Satisfaction
     const float satisfaction =  dynamic_cast<HospitalSystem*>(CoreController::GetSystemController()->GetSystem(HOSPITAL))->satisfactionToday;
 	if (satisfaction < 0.85 && RandomInt(0, 100) >= satisfaction * 100) 
     {
-	    // TODO : hospital death is disabled
-        //citizen->Die();
+        citizen->Die();
     }
 }
 
 void HospitalRule::Register()
 {
 	auto &plots = CoreController::GetSystemController()->GetSystem(HOSPITAL)->Plots();
-	// Get a list of plots that fulfill out requirements ( distance < max distance
+    
 	List<Plot*> choices;
-	auto coords = citizen->Coords();
-
+	const auto coords = citizen->Coords();
 	int count = 0;
-	// If such a list doesn't exist. This rule returns failed result false
-	// TODO: ¥[¤j·j¯Á½d³ò¡I
-
 	while (choices.Count() == 0)
 	{
 		count++;

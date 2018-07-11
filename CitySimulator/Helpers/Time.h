@@ -90,7 +90,7 @@ namespace helper
      */
     inline std::string Time::ToString() const
     {
-        return this->ToShortString() + ":" + std::to_string(Micro);
+        return this->ToShortString() + "." + std::to_string(Micro);
     }
     
     /**

@@ -27,7 +27,7 @@ void NewsFlash::Render()
         flash = false;
         return;
     }
-    text.setPosition(left, float(WINDOW_HEIGHT) / 2 - 160);
+    text.setPosition(float(left), float(WINDOW_HEIGHT) / 2 - 160);
     CoreController::SfmlController()->DrawString(text);
 }
 
@@ -35,6 +35,6 @@ void NewsFlash::Flash(const std::string& str)
 {
     text.setString(str);
     left = WINDOW_WIDTH;
-    width = text.getLocalBounds().width;
+    width = int(text.getLocalBounds().width);
     flash = true;
 }

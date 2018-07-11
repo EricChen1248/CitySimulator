@@ -21,9 +21,6 @@ public:
     virtual void EndDay() { }
     virtual void Enter() { }
     
-    [[deprecated]]
-    virtual int ReturnScore() { return 0; }
-    
     virtual int Destroy();
     virtual std::string ContentString() { return ""; }
     
@@ -31,6 +28,4 @@ protected:
     int cost = 0;
     Plot* plot;
     sf::Color color;
-    [[deprecated]]
-    int score;
 };

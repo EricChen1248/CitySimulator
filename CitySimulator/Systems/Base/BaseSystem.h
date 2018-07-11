@@ -25,10 +25,6 @@ public:
      * \brief Virtual function handling the update events
      */
     virtual void Update() = 0;
-    [[deprecated]]
-    virtual void LogSatisfied(Citizen* citizen, BaseRule* rule) {};
-    [[deprecated]]
-    virtual void LogUnsatisfied(Citizen* citizen, BaseRule* rule) {}; 
     virtual int Register(Plot* plot);
     virtual void Unregister(Plot* plot);
     virtual void NewDay();
@@ -39,16 +35,7 @@ public:
     virtual std::string ContentString() { return ""; }
 protected:
     List<Plot*> plots;
-    bool toggleable = false;
-    
-    [[deprecated]]
-    List<Log*> satisfiedLog;
-    [[deprecated]]
-    List<Log*> unsatisfiedLog;
-    
-    [[deprecated]]
-    float score = 0;
-    
+    bool toggleable = false;    
 };
 
 

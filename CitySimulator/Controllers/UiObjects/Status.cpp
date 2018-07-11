@@ -245,7 +245,7 @@ void Status::DrawPlot()
             CoreController::GetSystemController()
                 ->GetSystem(SelectedPlot->GetPlotType()->SystemType)->Destroy(SelectedPlot);
             CoreController::GetSystemController()->Plots()->ClearSelections();
-            Government::AddTax(-cost);
+            Government::AddTax(float(-cost));
         }
     }
     CoreController::SfmlController()->DrawString(buttonText);
@@ -266,7 +266,7 @@ void Status::DrawRoad()
     {
         if (MouseController::IsClicked())
         {
-            Government::AddTax(-SelectedRoad->PerformClick());
+            Government::AddTax(float(-SelectedRoad->PerformClick()));
         }
     }
 

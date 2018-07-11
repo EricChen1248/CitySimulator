@@ -51,7 +51,7 @@ float SchoolSystem::GetSatisfaction() const
 	}
 
 	if (total == 0) return 1.f;
-	float satisfaction = totalStudents * 10 - totalLateStudents * 5;
+	float satisfaction = (totalStudents * 10.f - totalLateStudents * 5.f) / 10.f;
 
 	satisfaction = Clamp(satisfaction, 0.f, 1.f);
 	return satisfaction;

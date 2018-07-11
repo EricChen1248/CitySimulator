@@ -82,7 +82,7 @@ void ParkSystem::EndDay()
     for (auto && newPark : newParks)
     {
         auto plot = plotSystem->FindPlot(newPark);
-        if (plot->GetPlotType() != nullptr || plot->IsRiver())
+        if (plot != nullptr && (plot->GetPlotType() != nullptr || plot->IsRiver()))
         {
             do
             {

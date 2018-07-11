@@ -125,7 +125,7 @@ void CitizenSystem::GenerateCentroids(const List<Plot*>& centers)
         }
     }
     
-    Logger::Log("Created " + std::to_string(60) + " citizens");
+    Logger::Log("INFO Created " + std::to_string(60) + " citizens");
 }
 
 /**

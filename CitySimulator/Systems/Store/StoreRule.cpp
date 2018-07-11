@@ -9,9 +9,9 @@
 const float StoreRule::MAX_STOCK = 800.f;
 const float StoreRule::RESTOCK = 100.f;
 
-const float StoreRule::FOOD_COST = 1.2f;
-const float StoreRule::HOUSE_COST = 0.1f;
-const float StoreRule::MISC_COST = 0.5f;
+const float StoreRule::FOOD_COST = 1.4f;
+const float StoreRule::HOUSE_COST = 0.2f;
+const float StoreRule::MISC_COST = 0.7f;
 
 StoreRule::StoreRule(Citizen& citizen) : BaseRule(citizen, STORE), foodStock(60), miscStock(60), householdStock(60), ratio(0) 
 { }
@@ -88,7 +88,7 @@ void StoreRule::EnterPlot(Plot* plot)
     restock *= ratio;
     cost *= ratio;
 	citizen->Wait(restock / MAX_STOCK);
-	citizen->IncreaseMoney(cost);
+	citizen->IncreaseMoney(int(cost));
     store->Payment(cost);
     store->Enter();
 }

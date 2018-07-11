@@ -32,7 +32,7 @@ bool FoodRule::FindPlot()
 
     // Get a list of plots that fulfill out requirements ( distance < max distance
     List<Plot*> choices;
-    auto coords = citizen->Coords();
+    const auto coords = citizen->Coords();
     for (auto&& plot : plots)
     {
         if (!Pathable(coords, plot->Coords())) continue;
@@ -63,6 +63,7 @@ void FoodRule::EnterPlot(Plot* plot)
     food->Enter();
     float wait;
     const auto& time = CoreController::Instance()->GetTime();
+    citizen->IncreaseMoney(food->FoodCost(time));
     if (time < breakfastTime)
     {
         wait = 0.3f;
@@ -77,7 +78,6 @@ void FoodRule::EnterPlot(Plot* plot)
     }
     
     citizen->Wait(wait);
-    // TODO : Move base enter to plot
 }
 
 /**
@@ -108,7 +108,6 @@ void FoodRule::LeavePlot(Plot* plot)
  */
 void FoodRule::Update()
 {
-    // TODO : Tweak hunger to time ratio
     // Right now people die roughly in two without eating
     // Or will have the urge to eat about every 6 hours (small urge) (exponential growth).
     hungerLevel -= CoreController::Instance()->GetDeltaTime() * 3;

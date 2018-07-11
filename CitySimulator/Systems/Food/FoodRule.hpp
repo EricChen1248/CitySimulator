@@ -27,7 +27,6 @@ private:
     static helper::Time breakfastTime;
     static helper::Time lunchTime;
     
-    // TODO : Tweak foodrule max distance
     const int maxDistance = 10;
     float hungerLevel;
 };

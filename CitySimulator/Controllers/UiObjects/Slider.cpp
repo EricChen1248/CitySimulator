@@ -61,5 +61,5 @@ bool Slider::InBound() const
 {
     const auto window = CoreController::SfmlController()->Window();
     const auto mousePos = sf::Mouse::getPosition(*window);
-    return background.getGlobalBounds().contains(mousePos.x, mousePos.y);
+    return background.getGlobalBounds().contains(float(mousePos.x), float(mousePos.y));
 }

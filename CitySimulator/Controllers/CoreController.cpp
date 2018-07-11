@@ -11,14 +11,14 @@
 #include "../Helpers/FeatureFlags.h"
 #include "../Helpers/PathFinder/PathFinder.hpp"
 #include "../Helpers/Government.h"
-CoreController* CoreController::instance;
+CoreController* CoreController::instance = nullptr;
 
 using sf::Event;
 using sf::Window;
 using sf::Keyboard;
 void MultithreadGameUpdates();
 
-CoreController::CoreController()
+CoreController::CoreController() : time(0, 0)
 {
     srand(static_cast<unsigned>(std::time(nullptr)));
     instance = this;

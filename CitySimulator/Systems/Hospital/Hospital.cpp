@@ -61,6 +61,4 @@ std::string Hospital::ContentString()
 	ss << "Members: " << members.Count() << " people" << std::endl << "Limitation: " << capacity << " people" << std::endl
 		<< "(Crowded if more than" << std::endl << " 90% full)";
 	return ss.str();
-
-	// TODO : 90%?
 }

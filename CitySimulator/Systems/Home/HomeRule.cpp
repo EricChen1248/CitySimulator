@@ -7,16 +7,11 @@
 #include "../../Controllers/SystemController.h"
 
 HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME), myHome(nullptr), atHomeFlag(false)
-{
-    //this is the time when people start to go home
-    //TODO: goHomeTime is now a static member, which is like a curfew right now. it could be private member
-    //therefore each citizen can go home by unique timing
-    
+{    
     wakeUpTime = helper::Time(6);
     goHomeTime = helper::Time(21);
     
     const auto&& father = citizen.GetFamilyMember(FATHER);
-    // TODO : seems weird
     if (father != nullptr)
     {
         const auto&& fatherHome = dynamic_cast<HomeRule*>(father->FindRule(HOME));
@@ -34,7 +29,6 @@ HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME), myHome(nullptr),
     {
         DecideHome();
     }
-    // TODO : They won't be home on the first day before then
     homelessLevel = INT_MAX;
     sleepingHour = 0;
 }
@@ -150,7 +144,7 @@ void HomeRule::Update()
         const int deltaTime = time - goHomeTime;
 		if (deltaTime <= 60)
 		{
-			homelessLevel = std::pow(2, deltaTime / 3);
+			homelessLevel = int(std::pow(2, deltaTime / 3));
 		}
 		else
         {

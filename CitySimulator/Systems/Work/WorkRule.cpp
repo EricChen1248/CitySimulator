@@ -7,7 +7,6 @@
 #include "../../Helpers/Time.h"
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Controllers/CoreController.h"
-#include "../../Helpers/Logger.h"
 
 
 using helper::Time;
@@ -43,13 +42,13 @@ float WorkRule::CalculateScore()
 	if(shiftCount < 1 && timeToWork - currentTime < earlyToWork + 60 && currentTime < breakTime )
 	{
 		// start to have score 30 min before time that  
-		return 2000000 - Clamp(timeToWork - currentTime - earlyToWork - 30, 0) * 100000;
+		return 2000000.f - Clamp(timeToWork - currentTime - earlyToWork - 30, 0) * 100000.f;
 	}
 		
 	// break time (want to back company)
 	if (shiftCount < 2 && breakTime < currentTime && currentTime < timeOffWork)
 	{
-		return 2000000 + Clamp(currentTime - breakTime, 0) * 100000;
+		return 2000000.f + Clamp(currentTime - breakTime, 0) * 100000.f;
 	}
     return 0; // not have work
 }
@@ -60,8 +59,7 @@ float WorkRule::CalculateScore()
 */
 bool WorkRule::FindPlot()
 {
-	if (assignedCompany == nullptr)
-		return false;
+	if (assignedCompany == nullptr) return false;
 	citizen->SetActiveRule(this);
 	citizen->SetTarget(assignedCompany);
 	return true;
@@ -130,7 +128,7 @@ void WorkRule::NewDay()
 	{
 		if(assignedCompany == nullptr )
 			Register();
-		else if(earlyToWork > 60) // TODO : 60?
+		else if(earlyToWork > 60)
 		{
 			Plot* oldPlot = assignedCompany;
 
@@ -158,7 +156,7 @@ bool WorkRule::Register()
 
 	// To Get SchoolRule
 	SchoolRule* schoolRule = dynamic_cast<SchoolRule*>(citizen->FindRule(SCHOOL));
-	const int educationLv = schoolRule->EducationLevel();
+	const float educationLv = schoolRule->EducationLevel();
     const bool isHighEducation = educationLv >= 420;
 
 	// Get a list of plots that fulfill out requirements ( distance < max distance )
@@ -171,8 +169,7 @@ bool WorkRule::Register()
 			const auto distance = plot->Coords().Distance(coords);
 			if (distance < maxDistance)
 			{
-				auto p = plot;
-				choices.InsertLast(p);
+				choices.InsertLast(plot);
 			}
 		}
 
@@ -187,8 +184,7 @@ bool WorkRule::Register()
 			const auto distance = plot->Coords().Distance(coords);
 			if (distance < maxDistance)
 			{
-				auto p = plot;
-				choices.InsertLast(p);
+				choices.InsertLast(plot);
 			}
 		}
 	}
@@ -206,7 +202,7 @@ bool WorkRule::Register()
     const auto work = dynamic_cast<Work*>(chosen->GetPlotType());
 	baseSalary = work->baseSalary * RandomInt(10, 13) / 10;
 	
-    salary = baseSalary + educationLv * 0.4f; // TODO : number(education)
+    salary = baseSalary + educationLv * 0.4f;
 	work->NewEmployee(citizen);
     return true;
 }

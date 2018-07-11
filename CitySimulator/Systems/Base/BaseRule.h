@@ -20,8 +20,6 @@ public:
     virtual void LeavePlot(Plot* plot) = 0;
     virtual void Update() = 0;
     
-    [[deprecated]]
-    virtual bool IsSatisfied() { return true; };
     virtual void NewDay() {};
     virtual void EndDay() {};
     

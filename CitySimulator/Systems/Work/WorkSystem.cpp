@@ -32,7 +32,7 @@ WorkSystem::~WorkSystem() = default;
 */
 int WorkSystem::Register(Plot* plot)
 {
-	auto work = new Work(plot);
+	const auto work = new Work(plot);
 	plot->Register(work);
 	BaseSystem::Register(plot);
 	if (work->highLevel)
@@ -48,7 +48,8 @@ int WorkSystem::Register(Plot* plot)
 
 void WorkSystem::Unregister(Plot* plot)
 {
-	auto work = dynamic_cast<Work*>(plot->GetPlotType());
+	const auto work = dynamic_cast<Work*>(plot->GetPlotType());
+    if (work == nullptr) return;
 	if (work->highLevel)
 	{
 		highWork.Remove(plot);

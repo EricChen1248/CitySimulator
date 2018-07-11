@@ -21,7 +21,7 @@ Store::~Store()
 */
 void Store::EndDay()
 {
-    Government::AddTax(-Clamp(OPERATING_COST + cleaningCost - earnings, 0));
+    Government::AddTax(float(-Clamp(OPERATING_COST + cleaningCost - earnings, 0)));
 }
 
 void Store::NewDay()
@@ -75,6 +75,6 @@ void Store::Enter()
 
 void Store::Payment(const float money)
 {
-    earnings += money * 0.4;
-    Government::AddTax(money * 0.1);
+    earnings += int(money * 0.4);
+    Government::AddTax(money * 0.1f);
 }

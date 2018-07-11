@@ -22,14 +22,14 @@ Work::Work(Plot* plot) : Base(plot, WORK), todayEmployee(0), todayLateEmployee(0
 	highLevel = system->highLevel;
     cost = system->Cost();
     
-	color = WORK_COLOR; // TODO : different color for different level
+	color = WORK_COLOR;
 	if (highLevel)
 	{
-		baseSalary = float(RandomInt(400, 600)); // TODO : salary
+		baseSalary = float(RandomInt(400, 600));
 	}
 	else
 	{
-		baseSalary = float(RandomInt(250, 500)); // TODO : salary
+		baseSalary = float(RandomInt(250, 500));
 	}
 }
 

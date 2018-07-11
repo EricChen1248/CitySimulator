@@ -50,16 +50,14 @@ Citizen::~Citizen()
 {    
 	const auto myBankRule = dynamic_cast<BankRule*>(FindRule(BANK));
     
-    //Government::AddTax(float(myBankRule->GetSavings()) / 3);
-    
     const auto relation = gender == MALE ? FATHER : MOTHER;
     // TODO : money goes to children?
-	for (auto child : descendants)
+	/*for (auto child : descendants)
 	{
 		child->SetRelationships(relation, nullptr);
 		auto childBankRule = dynamic_cast<BankRule*>(child->FindRule(BANK));
 		childBankRule->SaveMoney(float(myBankRule->GetSavings()) / descendants.Count() / 2);
-	}
+	}*/
     
 	auto fatherPtr = GetFamilyMember(FATHER);
 	auto motherPtr = GetFamilyMember(MOTHER);
@@ -234,9 +232,11 @@ void Citizen::NewDay()
     case RETIREMENT_AGE:
         dynamic_cast<HomeRule*>(FindRule(HOME))->Unregister();
         dynamic_cast<WorkRule*>(FindRule(WORK))->UnRegister();
+        Logger::Log("Retiring Money:" + std::to_string(money + dynamic_cast<BankRule*>(FindRule(BANK))->GetSavings()));
         break;
     case HOSPITALIZED_AGE:
         dynamic_cast<HospitalRule*>(FindRule(HOSPITAL))->Register();
+        Logger::Log("Hospital Money:" + std::to_string(money));
         break;
     default:
         break;
@@ -317,7 +317,7 @@ void Citizen::Marry(Citizen * spouse)
  */
 void Citizen::Die()
 {
-    Logger::Log(CoreController::Instance()->GetTime().ToString() + "Citizen died at age: " + std::to_string(Age()));
+    Logger::Log(" Citizen died at age: " + std::to_string(Age()));
     dead = true;
     CoreController::GetSystemController()->Citizens()->NewDeath();
     auto hospital = dynamic_cast<HospitalSystem*>(CoreController::GetSystemController()->GetSystem(HOSPITAL));
@@ -395,7 +395,6 @@ void Citizen::FindNextTarget()
     {
         FindPath();
     }
-    // TODO : Head Home
     
 }
 

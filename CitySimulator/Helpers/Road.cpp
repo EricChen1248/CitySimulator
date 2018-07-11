@@ -6,8 +6,8 @@
 #include "../Controllers/CoreController.h"
 
 
-Road::Road(Plot* plotOne, Plot* plotTwo) : plotOne(plotOne), plotTwo(plotTwo), level(1), capacity(10), citizenCount(0), lifespan(50.f), isBroken(false), isRiver(false)
-// TODO: number of capacity, lifespan 
+Road::Road(Plot* plotOne, Plot* plotTwo) : plotOne(plotOne), plotTwo(plotTwo), level(1), capacity(10), citizenCount(0),
+                                           lifespan(50.f), isBroken(false), isRiver(false)
 {
     shape = Line(plotOne->Coords(), plotTwo->Coords(), BASE_ROAD_COLOR, 1.8f);
 }
@@ -23,7 +23,7 @@ float Road::Speed() const
 		return 0.01f; // can pass but very slowly
 	
 	// Traffic jam
-	return 1 + static_cast<float>(level - 1) * 0.2 - 0.2f * (citizenCount > capacity ? 1.f : 0.f);
+	return 1 + static_cast<float>(level - 1) * 0.2f - 0.2f * (citizenCount > capacity ? 1.f : 0.f);
 }
 
 bool Road::IsRiver() const
@@ -37,7 +37,7 @@ int Road::LevelUp()
     if (isRiver)
     {
         if (plotOne->IsRiver()) plotOne->BuiltBridge();
-        else if (plotTwo->IsRiver()) plotTwo->BuiltBridge();
+        if (plotTwo->IsRiver()) plotTwo->BuiltBridge();
         isRiver = false;
         shape.SetColor(BASE_ROAD_COLOR);
     }

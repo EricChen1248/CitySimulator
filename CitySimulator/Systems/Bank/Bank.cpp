@@ -2,14 +2,13 @@
 #include "../../Helpers/Constants.h"
 #include "../../Helpers/Government.h"
 #include "../../Helpers/HelperFunctions.h"
-#include "../../Controllers/CoreController.h"
 
 
 Bank::Bank(Plot* plot) : Base(plot, BANK)
 {
     cost = 6000;
     administrationFee = RandomInt(1, 100);
-    transactionCost = RandomInt(1, 100);
+    transactionCost = RandomInt(50, 100);
     color = BANK_COLOR;
     customerPerDay = 0;
     earnedMoney = 0;
@@ -43,7 +42,6 @@ void Bank::NewDay()
 */
 void Bank::Enter()
 {
-    // TODO : Need to revise
     ++customerPerDay;
     Government::AddTax(transactionCost * 0.5f);
 }

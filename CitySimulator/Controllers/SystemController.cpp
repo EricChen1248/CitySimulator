@@ -53,6 +53,18 @@ void SystemController::Initialize()
     
 #if GENERATE_CENTROIDS
     List<Plot*> centers;
+    GenerateCentroids(centers);
+#elif not CLEAN_BUILD
+    GenerateDemo();
+#endif
+    citizens = new CitizenSystem();
+#if GENERATE_CENTROIDS
+    citizens->GenerateCentroids(centers);
+#endif
+}
+
+void SystemController::GenerateCentroids(List<Plot *> &centers)
+{
     for (int i = 0; i < 3; ++i)
     {
         Plot* centroid = nullptr;
@@ -74,7 +86,7 @@ void SystemController::Initialize()
             }
         }
         centers.InsertLast(centroid);
-        
+
         Plot* target;
         for (auto&& system : systems)
         {
@@ -98,21 +110,12 @@ void SystemController::Initialize()
             }
         }
         delete[] neighbours;
-        
+
     }
-    
-#elif not CLEAN_BUILD
-    GenerateDemo();
-#endif
-    citizens = new CitizenSystem();
-#if GENERATE_CENTROIDS
-    citizens->GenerateCentroids(centers);
-#endif
 }
 
 void SystemController::GenerateDemo()
 {
-    // TODO Remove demo
     for (auto&& system : systems)
     {
         int count = 0;

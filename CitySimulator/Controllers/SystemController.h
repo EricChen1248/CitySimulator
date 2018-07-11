@@ -15,6 +15,7 @@ public:
     SystemController();
     ~SystemController();
     void Initialize();
+    void GenerateCentroids(List<Plot *> &centers);
     void GenerateDemo();
     void Update() const;
     void Render() const;

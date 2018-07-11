@@ -22,13 +22,6 @@ HomeSystem::~HomeSystem()
 
 void HomeSystem::Update() {}
 
-/*
-TODO:Adding more grading system
-should be adjusted to whether they have convinent live,
-how long does it take them to work : friend Workrule;
->> how far is their job from their work, and how many building are arround.
-*/
-
 float HomeSystem::GetSatisfaction() const
 {
     auto&& citizenList = CoreController::GetSystemController()->GetCitizens();
@@ -40,7 +33,6 @@ float HomeSystem::GetSatisfaction() const
     {
         //count how many people have house
         const auto home = dynamic_cast<HomeRule*>(citizen->FindRule(HOME));
-        // TODO : error?
         avgSleepHour += home->GetSleepTime() / 8.f * denom;
     }
     count = 0.5f * count + 0.5f * avgSleepHour;
@@ -101,7 +93,7 @@ std::string HomeSystem::ContentString()
     //ss << "  don't sleep much.";
     auto&& citizenList = CoreController::GetSystemController()->GetCitizens();
     const float denom = 1.f / citizenList.Count();
-	const float count = hasHomeCount / citizenList.Count();
+	const float count = float(hasHomeCount) / citizenList.Count();
     float avgSleepHour = 0.f;
     //how many people have house;
     for (auto&& citizen : citizenList)

@@ -34,9 +34,9 @@ void Logger::Log(const std::string& log)
 
     strftime(buffer, sizeof(buffer), "%d-%m-%Y %I:%M:%S", &timeinfo);
     const std::string str(buffer);
-    
-    std::ofstream outputStream("Log.log", std::ios::app);
-    
-    outputStream << str << ": " << log << std::endl;
+    const auto core = CoreController::Instance();
+    const auto time = core == nullptr ? "" : core->GetTime().ToString();
+    std::ofstream outputStream("Log.log", std::ios::app);    
+    outputStream << str << ": " << time  << "\t" << log << std::endl;
     outputStream.close();
 }
