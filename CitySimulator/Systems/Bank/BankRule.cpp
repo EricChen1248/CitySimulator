@@ -81,7 +81,7 @@ void BankRule::EnterPlot(Plot* plot)
     const int peopleNow = plot->GetOccupantCount();
     const float waitingTime = 0.05f * float(peopleNow);
     auto bankSys = dynamic_cast<BankSystem*>(CoreController::GetSystemController()->GetSystem(BANK));
-    bankSys->NewClientWait(waitingTime * 60.f);
+    bankSys->NewClientWait(waitingTime);
     citizen->Wait(waitingTime);
     bank->Enter();
 }
@@ -117,7 +117,7 @@ void BankRule::LeavePlot(Plot* plot)
 			if (citizen->GetFamilyMember(MOTHER) != nullptr)
 			{
 				motherBankRule = dynamic_cast<BankRule*>(citizen->GetFamilyMember(MOTHER)->FindRule(BANK));
-				motherSaving = ->GetSavings();
+				motherSaving = motherBankRule->GetSavings();
 			}
             moneyToWithdraw = Clamp(CITIZEN_MAX_MONEY - this->citizen->Money(), 0,
                                     int(fatherSaving + motherSaving));

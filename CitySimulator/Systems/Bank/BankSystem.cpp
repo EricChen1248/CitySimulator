@@ -91,7 +91,7 @@ float BankSystem::GetSatisfaction() const
 	for (auto&& plot : plots)
 	{
 		auto&& bank = dynamic_cast<Bank*> (plot->GetPlotType());
-		score += (float(bank->CustomerCount()) / 100.f) / float(plots.Count());
+		score += (float(bank->CustomerCount()) / 20.f) / float(plots.Count());
 	}
 	score = score >= 0.5f ? 0.5f : score;
 	for (auto&& waitscore : waitTimeList)
