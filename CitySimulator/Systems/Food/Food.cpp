@@ -6,7 +6,7 @@
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Helpers/Government.h"
 
-const int Food::MEAL_COST[3] {50,100,150};
+const int Food::MEAL_COST[3] {80,120,180};
 
 Food::Food(Plot* plot) : Base(plot, FOOD), earnedMoney(0), overloadedTally(0)
 {

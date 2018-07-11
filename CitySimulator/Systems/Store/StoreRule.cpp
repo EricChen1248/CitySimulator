@@ -9,9 +9,9 @@
 const float StoreRule::MAX_STOCK = 800.f;
 const float StoreRule::RESTOCK = 100.f;
 
-const float StoreRule::FOOD_COST = 1.4f;
-const float StoreRule::HOUSE_COST = 0.2f;
-const float StoreRule::MISC_COST = 0.7f;
+const float StoreRule::FOOD_COST = 1.7f;
+const float StoreRule::HOUSE_COST = 0.4f;
+const float StoreRule::MISC_COST = 1.f;
 
 StoreRule::StoreRule(Citizen& citizen) : BaseRule(citizen, STORE), foodStock(60), miscStock(60), householdStock(60), ratio(0) 
 { }

@@ -52,12 +52,12 @@ Citizen::~Citizen()
     
     const auto relation = gender == MALE ? FATHER : MOTHER;
     // TODO : money goes to children?
-	/*for (auto child : descendants)
+	for (auto child : descendants)
 	{
 		child->SetRelationships(relation, nullptr);
-		auto childBankRule = dynamic_cast<BankRule*>(child->FindRule(BANK));
-		childBankRule->SaveMoney(float(myBankRule->GetSavings()) / descendants.Count() / 2);
-	}*/
+		//auto childBankRule = dynamic_cast<BankRule*>(child->FindRule(BANK));
+		//childBankRule->SaveMoney(float(myBankRule->GetSavings()) / descendants.Count() / 2);
+    }
     
 	auto fatherPtr = GetFamilyMember(FATHER);
 	auto motherPtr = GetFamilyMember(MOTHER);

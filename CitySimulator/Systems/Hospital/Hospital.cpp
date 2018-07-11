@@ -6,7 +6,7 @@
 Hospital::Hospital(Plot* plot) : Base(plot, HOSPITAL), citizenCount(0)
 {
     cost = 6000;
-    medicalCost = RandomInt(250, 350);
+    medicalCost = RandomInt(350, 450);
     capacity = RandomInt(50, 100);
 	comfortableCapacity = int(capacity * 0.9);
     color = HOSPITAL_COLOR;

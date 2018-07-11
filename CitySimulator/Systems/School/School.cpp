@@ -14,16 +14,16 @@ School::School(Plot* plot) : Base(plot, SCHOOL), studentCount(0), lateStudents(0
 	if (SchoolSystem::isPremium)
 	{
 		cost = 8000;
-		operatingCost = 100;
+		operatingCost = 500;
 		isPremium = true;
-	    tuition = 10;
+	    tuition = 25;
 	}
 	else
 	{
 		cost = 6000;
-		operatingCost = 80;
+		operatingCost = 150;
 		isPremium = false;
-	    tuition = 8;
+	    tuition = 12;
 	}
     studentLimit = RandomInt(30, 40);
 	color = SCHOOL_COLOR;
