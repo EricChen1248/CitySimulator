@@ -229,6 +229,8 @@ void Citizen::NewDay()
 {
     switch (age)
     {
+    case WORKING_AGE:
+        dynamic_cast<HomeRule*>(FindRule(HOME))->Unregister();
     case RETIREMENT_AGE:
         dynamic_cast<HomeRule*>(FindRule(HOME))->Unregister();
         dynamic_cast<WorkRule*>(FindRule(WORK))->UnRegister();

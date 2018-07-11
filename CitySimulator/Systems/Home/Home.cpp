@@ -39,7 +39,7 @@ bool Home::Full() const
     return homeCapacity <= NumOfFamily();
 }
 
-int Home::numOfResidents() const
+int Home::NumOfResidents() const
 {
 	return residents.Count();
 }
@@ -78,18 +78,18 @@ int Home::NumOfFamily() const
     int countOfFamily = 0;
     for (auto citizen : residents)
     {
-		if (citizen->Age() < WORKING_AGE)
-			continue;
-		else
-		{
-			if (citizen->GetGender() == MALE)
-				++countOfFamily;
-			else
-			{
-				if (!citizen->IsMarried())
-					++countOfFamily;
-			}
-		}
-    }
+		if (citizen->Age() < WORKING_AGE) continue;
+		
+		if (citizen->GetGender() == MALE)
+        {
+            ++countOfFamily;
+        }
+		else if (!citizen->IsMarried())
+        {
+            ++countOfFamily;
+        }
+		
+	}
+    
     return countOfFamily;
 }

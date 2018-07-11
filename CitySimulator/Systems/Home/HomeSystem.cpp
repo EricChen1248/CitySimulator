@@ -47,18 +47,23 @@ void HomeSystem::EndDay()
     {
         plot->GetPlotType()->EndDay();
     }
+    
 	hasHomeCount = 0;
+    
 	for (auto&& plot : plots)
 	{
 		auto&& home = dynamic_cast<Home*>(plot->GetPlotType());
-		hasHomeCount += home->numOfResidents();
+		hasHomeCount += home->NumOfResidents();
 	}
+    
 	int counter = 0;
 	auto&& citizenList = CoreController::GetSystemController()->GetCitizens();
 	for (auto && citizen : citizenList)
 	{
 		if (dynamic_cast<HomeRule*>(citizen->FindRule(HOME))->HasHome())
-			counter++;
+        {
+            counter++;
+        }
 	}
 	std::cout << hasHomeCount << " " << counter<<std::endl;
 	
@@ -67,7 +72,6 @@ void HomeSystem::EndDay()
 void HomeSystem::NewDay()
 {
     
-
 }
 
 void HomeSystem::CalculateTotalFamily()
@@ -76,19 +80,15 @@ void HomeSystem::CalculateTotalFamily()
     auto&& citizenList = CoreController::GetSystemController()->GetCitizens();
     for (auto&& citizen : citizenList)
     {
-        if (citizen->Age() >= WORKING_AGE)
+        if (citizen->Age() < WORKING_AGE) continue;
+        
+        if (citizen->GetGender() == MALE)
         {
-            if (citizen->GetGender() == MALE)
-            {
-                familyCount++;
-            }
-            else
-            {
-                if (!citizen->IsMarried())
-                {
-                    familyCount++;
-                }
-            }
+            familyCount++;
+        }
+        else if (!citizen->IsMarried())
+        {
+            familyCount++;
         }
     }
 }
