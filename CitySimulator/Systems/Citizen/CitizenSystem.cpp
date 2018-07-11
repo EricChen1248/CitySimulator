@@ -133,7 +133,8 @@ void CitizenSystem::GenerateCentroids(const List<Plot*>& centers)
  */
 void CitizenSystem::NewCitizen()
 {
-    const float birth = Government::BirthRate() * 0.166f;
+	const int day = CoreController::Instance()->Day();
+    const float birth = Government::BirthRate() * 0.166f * (1 + pow(2, 1 - day / 5) / 2);
 	const auto plot = CoreController::GetSystemController()->Plots();
 	for (auto && citizen : citizens)
 	{

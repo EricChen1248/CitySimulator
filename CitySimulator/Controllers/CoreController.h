@@ -30,6 +30,7 @@ public:
     
     const helper::Time& GetTime() const { return time; }
     float GetDeltaTime() const { return deltaTime; }
+    int Day() const { return day; }
     // Properties
     bool IsRunning() const;
     
@@ -54,6 +55,7 @@ private:
     helper::Time time;
     float deltaTime{};
     bool isRunning;
+    int day = 0;
     bool advanceDay{};
     
     // Common Functions

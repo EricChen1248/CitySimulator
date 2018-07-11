@@ -61,7 +61,6 @@ void CoreController::Start()
     time.IncreaseTime(24);
 #endif
 
-    int day = 0;
     systemController->AdvanceDay();
     while (true)
     {
