@@ -42,6 +42,7 @@ private:
 	int citizenCount;
     
     const int upgradeCosts[11] { 5000,200,300,400,500,600,700,800,900,1000, 2147483647};
+    const float baseLifeSpan = 20.f;
 	
     float lifespan{};
 	bool isBroken;
