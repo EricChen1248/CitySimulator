@@ -5,6 +5,7 @@
 #include "../../Collections/List.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
+#include "../../Helpers/Logger.h"
 
 helper::Time FoodRule::breakfastTime;
 helper::Time FoodRule::lunchTime;
@@ -114,6 +115,7 @@ void FoodRule::Update()
     if (hungerLevel < 0)
     {
         citizen->Die();
+        Logger::Log("Reason: Hunger level dropped below 0");
     }
 }
 
