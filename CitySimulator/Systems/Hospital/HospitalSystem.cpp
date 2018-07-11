@@ -36,7 +36,7 @@ float HospitalSystem::GetSatisfaction() const
     float score = 1.f;
     if (totalDeaths != 0)
     {
-		int citizenCount = CoreController::GetSystemController()->Citizens()->CitizenCount();
+        const int citizenCount = CoreController::GetSystemController()->Citizens()->CitizenCount();
 		score -= float(unhappyDeath) / citizenCount;
     }
 
@@ -68,6 +68,7 @@ void HospitalSystem::Death()
  */
 void HospitalSystem::NewDay()
 {
+    satisfactionToday = GetSatisfaction();
     unhappyDeath = 0;
     totalDeaths = 0;
 
