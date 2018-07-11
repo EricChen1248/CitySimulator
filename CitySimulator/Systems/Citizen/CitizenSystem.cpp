@@ -179,7 +179,7 @@ void CitizenSystem::PeopleMarry()
 			}
 			const int dice = RandomInt(0, 1000);
 			
-			if (dice <= 75)
+			if (dice <= 500)
 			{
 				citizen1->Marry(citizen2);
 			}

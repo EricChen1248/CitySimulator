@@ -6,4 +6,4 @@
 #define CLEAN_BUILD false
 #define LOTS_OF_MONEY false
 #define GENERATE_CENTROIDS true
-#define SUPER_SPEED true
+#define SUPER_SPEED false

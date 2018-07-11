@@ -155,7 +155,11 @@ void HomeRule::Update()
 
 void HomeRule::EndDay()
 {
-    
+	if (citizen->Age() == WORKING_AGE)
+	{
+		Unregister();
+		DecideHome();
+	}
 }
 
 void HomeRule::NewDay()

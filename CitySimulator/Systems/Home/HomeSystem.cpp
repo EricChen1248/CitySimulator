@@ -4,7 +4,7 @@
 
 #include "../../Helpers/HelperFunctions.h"
 #include "../../Controllers/CoreController.h"
-
+#include <iostream>
 HomeSystem::HomeSystem(): BaseSystem(HOME) {}
 
 int HomeSystem::Register(Plot* plot)
@@ -42,21 +42,32 @@ float HomeSystem::GetSatisfaction() const
 
 void HomeSystem::EndDay()
 {
+	CalculateTotalFamily();
     for (auto&& plot : plots)
     {
         plot->GetPlotType()->EndDay();
     }
-}
-
-void HomeSystem::NewDay()
-{
-    CalculateTotalFamily();
 	hasHomeCount = 0;
 	for (auto&& plot : plots)
 	{
 		auto&& home = dynamic_cast<Home*>(plot->GetPlotType());
 		hasHomeCount += home->numOfResidents();
 	}
+	int counter = 0;
+	auto&& citizenList = CoreController::GetSystemController()->GetCitizens();
+	for (auto && citizen : citizenList)
+	{
+		if (dynamic_cast<HomeRule*>(citizen->FindRule(HOME))->HasHome())
+			counter++;
+	}
+	std::cout << hasHomeCount << " " << counter<<std::endl;
+	
+}
+
+void HomeSystem::NewDay()
+{
+    
+
 }
 
 void HomeSystem::CalculateTotalFamily()
@@ -103,7 +114,7 @@ std::string HomeSystem::ContentString()
         avgSleepHour += home->GetSleepTime() * denom;
     }
     if (count < 0.8f)
-    {
+	{
         ss << "Build more home to" << std::endl << "handle homeless people." << std::endl;
     }
     if (avgSleepHour < 6.f)
@@ -115,7 +126,7 @@ std::string HomeSystem::ContentString()
         ss << "Citizen are very" << std::endl << "satisfied." << std::endl;
     }
     ss << std::endl;
-    ss << "Homeless people: " << int((1.f - count) * float(citizenList.Count())) << std::endl;
+    ss << "Homeless people: " << (citizenList.Count() -  hasHomeCount) << std::endl;
     ss << "Avg Sleeping hour: " << std::fixed << std::setprecision(2) << avgSleepHour;
     return ss.str();
 }

@@ -103,19 +103,32 @@ void BankRule::LeavePlot(Plot* plot)
     }
     else
     {
-        if (citizen->GetFamilyMember(FATHER) != nullptr)
-        {
-            auto fatherBankRule = dynamic_cast<BankRule*>(citizen->GetFamilyMember(FATHER)->FindRule(BANK));
-            auto motherBankRule = dynamic_cast<BankRule*>(citizen->GetFamilyMember(MOTHER)->FindRule(BANK));
-
+		if ((citizen->GetFamilyMember(FATHER) != nullptr) || (citizen->GetFamilyMember(MOTHER) != nullptr))
+		{
+			BankRule* fatherBankRule = nullptr;
+			float fatherSaving = 0;
+			if (citizen->GetFamilyMember(FATHER) != nullptr)
+			{
+				fatherBankRule = dynamic_cast<BankRule*>(citizen->GetFamilyMember(FATHER)->FindRule(BANK));
+				fatherSaving = fatherBankRule->GetSavings();
+			}
+			BankRule* motherBankRule = nullptr;
+			float motherSaving = 0;
+			if (citizen->GetFamilyMember(MOTHER) != nullptr)
+			{
+				motherBankRule = dynamic_cast<BankRule*>(citizen->GetFamilyMember(MOTHER)->FindRule(BANK));
+				motherSaving = ->GetSavings();
+			}
             moneyToWithdraw = Clamp(CITIZEN_MAX_MONEY - this->citizen->Money(), 0,
-                                    int(fatherBankRule->saving + motherBankRule->saving));
+                                    int(fatherSaving + motherSaving));
             citizen->IncreaseMoney(moneyToWithdraw);
-            const float dadAfford = moneyToWithdraw * (fatherBankRule->saving / (fatherBankRule->saving +
-                motherBankRule->saving));
+            const float dadAfford = moneyToWithdraw * (fatherSaving / (fatherSaving +
+                motherSaving));
             const float momAfford = moneyToWithdraw - dadAfford;
-            fatherBankRule->saving -= dadAfford;
-            motherBankRule->saving -= momAfford;
+			if(fatherBankRule != nullptr)
+				fatherBankRule->saving -= dadAfford;
+			if(motherBankRule != nullptr)
+				motherBankRule->saving -= momAfford;
         }
         else
         {

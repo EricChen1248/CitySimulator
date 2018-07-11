@@ -78,20 +78,18 @@ int Home::NumOfFamily() const
     int countOfFamily = 0;
     for (auto citizen : residents)
     {
-        if (citizen->GetGender() == MALE)
-        {
-            if (citizen->Age() >= WORKING_AGE)
-            {
-                ++countOfFamily;
-            }
-        }
-        else
-        {
-            if (!citizen->IsMarried() && citizen->Age() >= WORKING_AGE)
-            {
-                ++countOfFamily;
-            }
-        }
+		if (citizen->Age() < WORKING_AGE)
+			continue;
+		else
+		{
+			if (citizen->GetGender() == MALE)
+				++countOfFamily;
+			else
+			{
+				if (!citizen->IsMarried())
+					++countOfFamily;
+			}
+		}
     }
     return countOfFamily;
 }
