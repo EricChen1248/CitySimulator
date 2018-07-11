@@ -14,7 +14,7 @@ HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME), myHome(nullptr),
     const auto&& mother = citizen.GetFamilyMember(MOTHER);
     if (mother != nullptr)
     {
-        const auto&& motherHome = dynamic_cast<HomeRule*>(MOTHER->FindRule(HOME));
+        const auto&& motherHome = dynamic_cast<HomeRule*>(mother->FindRule(HOME));
         if (Pathable(motherHome->myHome->GetPlot()->Coords(), citizen.Coords()))
         {
             myHome = motherHome->myHome;

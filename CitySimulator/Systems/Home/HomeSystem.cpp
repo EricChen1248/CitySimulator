@@ -47,7 +47,13 @@ void HomeSystem::EndDay()
     {
         plot->GetPlotType()->EndDay();
     }
-	
+	hasHomeCount = 0;
+	for (auto&& plot : plots)
+	{
+		auto&& home = dynamic_cast<Home*>(plot->GetPlotType());
+		hasHomeCount += home->NumOfResidents();
+	}
+	return;
 }
 
 void HomeSystem::NewDay()
