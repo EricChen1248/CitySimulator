@@ -11,13 +11,13 @@ HomeRule::HomeRule(Citizen& citizen) : BaseRule(citizen, HOME), myHome(nullptr),
     wakeUpTime = helper::Time(6);
     goHomeTime = helper::Time(21);
     
-    const auto&& father = citizen.GetFamilyMember(FATHER);
-    if (father != nullptr)
+    const auto&& mother = citizen.GetFamilyMember(MOTHER);
+    if (mother != nullptr)
     {
-        const auto&& fatherHome = dynamic_cast<HomeRule*>(father->FindRule(HOME));
-        if (Pathable(fatherHome->myHome->GetPlot()->Coords(), citizen.Coords()))
+        const auto&& motherHome = dynamic_cast<HomeRule*>(MOTHER->FindRule(HOME));
+        if (Pathable(motherHome->myHome->GetPlot()->Coords(), citizen.Coords()))
         {
-            myHome = fatherHome->myHome;
+            myHome = motherHome->myHome;
             myHome->Register(this->citizen);
         }
         else
@@ -155,7 +155,10 @@ void HomeRule::Update()
 
 void HomeRule::EndDay()
 {
-    // interface
+	if (citizen->Age() == WORKING_AGE)
+	{
+		Unregister();
+	}
 }
 
 void HomeRule::NewDay()

@@ -47,25 +47,6 @@ void HomeSystem::EndDay()
     {
         plot->GetPlotType()->EndDay();
     }
-    
-	hasHomeCount = 0;
-    
-	for (auto&& plot : plots)
-	{
-		auto&& home = dynamic_cast<Home*>(plot->GetPlotType());
-		hasHomeCount += home->NumOfResidents();
-	}
-    
-	int counter = 0;
-	auto&& citizenList = CoreController::GetSystemController()->GetCitizens();
-	for (auto && citizen : citizenList)
-	{
-		if (dynamic_cast<HomeRule*>(citizen->FindRule(HOME))->HasHome())
-        {
-            counter++;
-        }
-	}
-	std::cout << hasHomeCount << " " << counter<<std::endl;
 	
 }
 
