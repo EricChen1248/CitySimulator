@@ -7,6 +7,7 @@
 #include "../../Collections/List.h"
 #include "../../Controllers/CoreController.h"
 #include "../../Helpers/HelperFunctions.h"
+#include "../../Helpers/Logger.h"
 
 HospitalRule::HospitalRule(Citizen& citizen): BaseRule(citizen, HOSPITAL), assignedHospital(nullptr)
 {
@@ -49,14 +50,19 @@ void HospitalRule::EnterPlot(Plot* plot)
 	if (citizen->Money() + bankRule->GetSavings() < cost)
 	{
 		citizen->Die();
+	    Logger::Log("Reason: Hospitalized, no more money in the bank");
 		return;
 	}
 
 	// Today's fee
 	if (citizen->Money() == 0)
-		bankRule->SaveMoney(static_cast<float>(-cost));
+    {
+        bankRule->SaveMoney(static_cast<float>(-cost));
+    }
 	else if(citizen->Money() >= cost)
-		citizen->IncreaseMoney(-cost);
+    {
+        citizen->IncreaseMoney(-cost);
+    }
 	else
 	{	
 		cost -= citizen->Money();
@@ -79,6 +85,7 @@ void HospitalRule::LeavePlot(Plot* plot)
 	if (50 < die)
 	{
 		citizen->Die();
+	    Logger::Log("Reason: Die of old age");
 		return;
 	}
 
@@ -92,6 +99,7 @@ void HospitalRule::EndDay()
 	if (satisfaction < 0.85 && RandomInt(0, 100) >= satisfaction * 100) 
     {
         citizen->Die();
+	    Logger::Log("Reason: Kill from diseases");
     }
 }
 
@@ -125,6 +133,7 @@ void HospitalRule::Register()
 	if (choices.Count() == 0)
 	{
 		citizen->Die(); // If a person can't find hospital, he/she will die soon
+	    Logger::Log("Reason: Couldn't hospitals are full");
 		return;
 	}
 

@@ -121,14 +121,18 @@ void BankRule::LeavePlot(Plot* plot)
 			}
             moneyToWithdraw = Clamp(CITIZEN_MAX_MONEY - this->citizen->Money(), 0,
                                     int(fatherSaving + motherSaving));
+
             citizen->IncreaseMoney(moneyToWithdraw);
-            const float dadAfford = moneyToWithdraw * (fatherSaving / (fatherSaving +
-                motherSaving));
+            const float dadAfford = moneyToWithdraw * (fatherSaving / (fatherSaving + motherSaving));
             const float momAfford = moneyToWithdraw - dadAfford;
-			if(fatherBankRule != nullptr)
-				fatherBankRule->saving -= dadAfford;
-			if(motherBankRule != nullptr)
-				motherBankRule->saving -= momAfford;
+            if (fatherBankRule != nullptr)
+            {
+                fatherBankRule->saving -= dadAfford;
+            }
+            if (motherBankRule != nullptr)
+            {
+                motherBankRule->saving -= momAfford;
+            }
         }
         else
         {
