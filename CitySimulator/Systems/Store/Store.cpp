@@ -75,6 +75,6 @@ void Store::Enter()
 
 void Store::Payment(const float money)
 {
-    earnings += int(money * 0.4);
+    earnings += int(money * 0.5);
     Government::AddTax(money * 0.1f);
 }

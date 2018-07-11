@@ -63,8 +63,8 @@ bool SchoolRule::FindPlot()
 */
 void SchoolRule::EnterPlot(Plot* plot)
 {
-	const auto school = dynamic_cast<School*>(plot->GetPlotType());
-	school->Enter();
+	if (assignedSchool == nullptr) return;
+	assignedSchool->Enter();
     const auto time = CoreController::Instance()->GetTime();
     const auto learnTime = float(schoolEndTime - time) / 60;
     educationLevel += assignedSchool->isPremium ? 18 * learnTime : 12 * learnTime;

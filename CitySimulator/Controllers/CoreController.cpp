@@ -61,7 +61,6 @@ void CoreController::Start()
     time.IncreaseTime(24);
 #endif
 
-    int day = 0;
     systemController->AdvanceDay();
     while (true)
     {
@@ -101,7 +100,6 @@ void CoreController::RunDayLoop(Clock& clock)
 
         GameInputEvents();
 
-#if MULTITHREAD
         // Multithreaded needs some warm up ( I think it's because pathfinder's queue needs to get up to size? )
         if (count < 60)
         {
@@ -120,10 +118,6 @@ void CoreController::RunDayLoop(Clock& clock)
             // Wait for update events to finish (most of the time  it finishes first)
             thread.wait();
         }
-#else
-        GameUpdateEvents();
-        GameRenderEvents();
-#endif
 	    MouseController::Reset();
         PresentRender();
     }

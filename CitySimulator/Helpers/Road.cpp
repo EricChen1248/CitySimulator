@@ -7,7 +7,7 @@
 
 
 Road::Road(Plot* plotOne, Plot* plotTwo) : plotOne(plotOne), plotTwo(plotTwo), level(1), capacity(10), citizenCount(0),
-                                           lifespan(50.f), isBroken(false), isRiver(false)
+                                           lifespan(baseLifeSpan), isBroken(false), isRiver(false)
 {
     shape = Line(plotOne->Coords(), plotTwo->Coords(), BASE_ROAD_COLOR, 1.8f);
 }
@@ -43,7 +43,7 @@ int Road::LevelUp()
     }
 	level++;
 	capacity += 2; 
-	lifespan = 50; // replenish
+	lifespan = baseLifeSpan; // replenish
 	shape.ChangeThickness(1 + level * 0.8f);
 	return upgradeCosts[level-1]; // cost 
 }
@@ -52,7 +52,7 @@ int Road::LevelUp()
 int Road::Repair()
 {	
 	isBroken = false;
-	lifespan = 50; // replenish
+	lifespan = baseLifeSpan; // replenish
 	shape.ChangeColor(BASE_ROAD_COLOR);
 	return upgradeCosts[level - 1] / 5;
 
@@ -86,7 +86,7 @@ void Road::Enter()
 void Road::Leave()
 {
 	citizenCount--;
-	lifespan -= 0.01f;
+	lifespan -= 0.1f;
 }
 
 

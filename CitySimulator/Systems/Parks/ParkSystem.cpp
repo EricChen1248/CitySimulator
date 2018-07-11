@@ -81,16 +81,17 @@ void ParkSystem::EndDay()
     auto&& plotSystem = CoreController::GetSystemController()->Plots();
     for (auto && newPark : newParks)
     {
-        auto plot = plotSystem->FindPlot(newPark);
+        const auto plot = plotSystem->FindPlot(newPark);
+        Plot* nPlot = nullptr;
         if (plot != nullptr && (plot->GetPlotType() != nullptr || plot->IsRiver()))
         {
             do
             {
                 const auto neighbours = plot->Coords().GetNeighbours();
-                plot = CoreController::GetSystemController()->Plots()->FindPlot(neighbours[rand() % 6]);
-            } while (plot == nullptr || plot->IsRiver() || plot->GetPlotType() != nullptr );
+                nPlot = CoreController::GetSystemController()->Plots()->FindPlot(neighbours[rand() % 6]);
+            } while (nPlot == nullptr || nPlot->IsRiver() || nPlot->GetPlotType() != nullptr );
         }
-        Register(plot);
+        Register(nPlot);
     }
     
     tooFarList.Clear();

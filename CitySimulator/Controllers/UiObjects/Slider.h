@@ -7,12 +7,12 @@ class Slider
 {
 public:
     Slider() = default;
-    Slider(Vector2f position, Vector2f size, int initialValue = 160);
+    Slider(Vector2f position, Vector2f size, int initialValue = 120);
     void Render();
     int Value() const { return value; }
     bool InBound() const;
 private:
-    static const int MAX_RATE = 500;
+    static const int MAX_RATE = 300;
     RectangleShape background;
     RectangleShape centerLine;
     sf::Text text;
