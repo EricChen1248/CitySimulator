@@ -12,7 +12,7 @@ friend HospitalSystem;
 public:
     Hospital(Plot* plot);
     ~Hospital() = default;
-    void EndDay() override { };
+    void EndDay() override;;
     void Enter() const;
 	void NewMember(Citizen* citizen);
 	void MemberDied(Citizen* citizen);
@@ -25,6 +25,7 @@ private:
 	int comfortableCapacity;
     int medicalCost;
     int citizenCount; 
+    const int dailyCost = 500;
 	List<Citizen*> members;
 };
 

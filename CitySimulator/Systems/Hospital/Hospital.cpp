@@ -7,9 +7,14 @@ Hospital::Hospital(Plot* plot) : Base(plot, HOSPITAL), citizenCount(0)
 {
     cost = 6000;
     medicalCost = RandomInt(350, 450);
-    capacity = RandomInt(50, 100);
+    capacity = RandomInt(30, 70);
 	comfortableCapacity = int(capacity * 0.9);
     color = HOSPITAL_COLOR;
+}
+
+void Hospital::EndDay()
+{
+    Government::AddTax(-dailyCost);
 }
 
 /**
@@ -17,7 +22,7 @@ Hospital::Hospital(Plot* plot) : Base(plot, HOSPITAL), citizenCount(0)
  */
 void Hospital::Enter() const
 {
-    Government::AddTax(medicalCost * 0.1f);
+    Government::AddTax(medicalCost * 0.08f);
 }
 
 void Hospital::NewMember(Citizen* citizen)
@@ -59,6 +64,7 @@ std::string Hospital::ContentString()
 	}
 
 	ss << "Members: " << members.Count() << " people" << std::endl << "Limitation: " << capacity << " people" << std::endl
-		<< "(Crowded if more than" << std::endl << " 90% full)";
+		<< "(Crowded if more than" << std::endl << " 90% full)" << std::endl << "Costs per day: " << dailyCost;
+    
 	return ss.str();
 }
