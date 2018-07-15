@@ -21,7 +21,7 @@ int StoreSystem::Register(Plot* plot)
 {
 	(*plot).Register(new Store(plot));
 	BaseSystem::Register(plot);
-    return 0;
+    return Cost();
 }
 
 /**
