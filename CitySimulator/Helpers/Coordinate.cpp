@@ -1,6 +1,7 @@
 #include "Coordinate.h"
 #include <cmath>
 #include "Constants.h"
+#include "HelperFunctions.h"
 
 const int X_CHANGE[6] = { 0, 1, 1,-1,-1, 0};
 const int Y_CHANGE[6] = { 1,-1, 0, 0, 1,-1};
@@ -47,17 +48,10 @@ Coordinate* Coordinate::GetNeighbours() const
  */
 Coordinate Coordinate::MoveTowards(const Coordinate dest, float deltaTime) const
 {
-    const float smoothness = 15;
-    deltaTime *= 4 / smoothness;
-    float X = x + (dest.x > x + deltaTime ? 1 : dest.x < x - deltaTime ? -1 : 0) * deltaTime;
-    float Y = y + (dest.y > y + deltaTime ? 1 : dest.y < y - deltaTime ? -1 : 0) * deltaTime;
-    float Z = z + (dest.z > z + deltaTime ? 1 : dest.z < z - deltaTime ? -1 : 0) * deltaTime;
-    for (int i = 0; i < smoothness - 1; ++i)
-    {
-        X += (dest.x > X + deltaTime ? 1 : dest.x < X - deltaTime ? -1 : 0) * deltaTime;
-        Y += (dest.y > Y + deltaTime ? 1 : dest.y < Y - deltaTime ? -1 : 0) * deltaTime;
-        Z += (dest.z > Z + deltaTime ? 1 : dest.z < Z - deltaTime ? -1 : 0) * deltaTime;
-    }
+    deltaTime *= 4;
+    const float X = dest.x > x ? Clamp(x + deltaTime, x, dest.x) : Clamp(x - deltaTime, dest.x, x);
+    const float Y = dest.y > y ? Clamp(y + deltaTime, y, dest.y) : Clamp(y - deltaTime, dest.y, y);
+    const float Z = dest.z > z ? Clamp(z + deltaTime, z, dest.z) : Clamp(z - deltaTime, dest.z, z);
     return {X, Y, Z};
 }
 
