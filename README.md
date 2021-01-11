@@ -7,3 +7,6 @@ This project uses SFML as it's front end GUI library. As it makes strong use of 
 
 This game is highly optimized to make it run smoothly on low end laptops from 2017. Game should maintain 30-60FPS even late game with large amounts of citizens.
 
+# Sample game previews
+![Image 1](https://github.com/EricChen1248/CitySimulator/blob/master/image%201.png)
+![Image 2](https://github.com/EricChen1248/CitySimulator/blob/master/image%202.png)
